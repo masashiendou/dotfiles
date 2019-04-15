@@ -16,6 +16,11 @@ colorscheme wombat
 syntax on
 "set background=dark
 set t_Co=256
+"twitter
+let twitvim_enable_python = 1
+let twitvim_browser_cmd = 'firefox'
+let twitvim_force_ssl = 1
+let twitvim_count = 160
 
 
 " Specify a directory for plugins

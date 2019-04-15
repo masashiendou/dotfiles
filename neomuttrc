@@ -1,0 +1,43 @@
+# Basic setting
+set realname = "[Masashi Endo]"
+set from = "hujyorom@gmail.com"
+set use_from = yes
+set envelope_from = yes
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+set imap_user = "hujyorom@gmail.com"
+set imap_pass = "fvgqclzlblswhbgd"
+set imap_check_subscribed
+set folder = "imaps://imap.gmail.com:993"
+set smtp_url = "smtps://hujyorom@gmail.com:587"
+set smtp_pass = "fvgqclzlblswhbgd"
+set spoolfile = "+INBOX"
+mailboxes +GMail/INBOX +GMail/important +GMail/starred
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+
+set header_cache = "~/.config/neomutt/cache/headers"
+set message_cachedir = "~/.config/neomutt/cache/bodies"
+
+set sort = reverse-date
+
+# Sidebar Navigation
+set sidebar_visible = yes
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# Moving around
+# bind attach,browser,index gg first-entry
+# bind attach,browser,index G last-entry
+# bind pager gg top
+bind pager G bottom
+bind pager n previous-line
+bind pager t next-line
+
+set editor = "vim"
+set charset = "utf-8"
+set record = ""

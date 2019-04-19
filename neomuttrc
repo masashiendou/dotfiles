@@ -3,40 +3,45 @@ set realname = "[Masashi Endo]"
 set from = "hujyorom@gmail.com"
 set use_from = yes
 set envelope_from = yes
+set sleep_time = 0
 
 # Ensure TLS is enforced
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
 set imap_user = "hujyorom@gmail.com"
-set imap_pass = "fvgqclzlblswhbgd"
-set imap_check_subscribed
+set imap_pass = ""
 set folder = "imaps://imap.gmail.com:993"
 set smtp_url = "smtps://hujyorom@gmail.com:587"
-set smtp_pass = "fvgqclzlblswhbgd"
+set smtp_pass = ""
 set spoolfile = "+INBOX"
-mailboxes +GMail/INBOX +GMail/important +GMail/starred
 set record = "+[Gmail]/Sent Mail"
 set postponed = "+[Gmail]/Drafts"
+
+mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred +[Gmail]/All" "Mail
+# set imap_check_subscribed
 
 set header_cache = "~/.config/neomutt/cache/headers"
 set message_cachedir = "~/.config/neomutt/cache/bodies"
 
 set sort = reverse-date
+set move = no
 
 # Sidebar Navigation
 set sidebar_visible = yes
-bind index,pager <down>   sidebar-next
-bind index,pager <up>     sidebar-prev
-bind index,pager <right>  sidebar-open
+bind index <down>   sidebar-next
+bind index <up>     sidebar-prev
+bind index <right>  sidebar-open
 
 # Moving around
-# bind attach,browser,index gg first-entry
-# bind attach,browser,index G last-entry
-# bind pager gg top
+bind attach,index,pager \CF next-page
+bind attach,index,pager \CB previous-page
+bind pager g top
 bind pager G bottom
-bind pager n previous-line
-bind pager t next-line
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind pager k previous-line
+bind pager j next-line
 
 set editor = "vim"
 set charset = "utf-8"

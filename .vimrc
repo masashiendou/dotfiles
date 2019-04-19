@@ -20,7 +20,7 @@ set t_Co=256
 let twitvim_enable_python = 1
 let twitvim_browser_cmd = 'firefox'
 let twitvim_force_ssl = 1
-let twitvim_count = 160
+let twitvim_count = 600
 
 
 " Specify a directory for plugins

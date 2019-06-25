@@ -11,6 +11,12 @@ nnoremap M B
 nnoremap <C-n> n
 nnoremap <C-h> N
 
+let mapleader = "."
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+noremap <Leader>Y "*y
+noremap <Leader>P "*p
+
 colorscheme wombat
 "colorscheme peaksea
 syntax on
@@ -22,11 +28,17 @@ let twitvim_browser_cmd = 'firefox'
 let twitvim_force_ssl = 1
 let twitvim_count = 600
 
+set clipboard+=unnamed
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+
+set hlsearch
+set number
+set showmatch  "相関するカッコを強調表示
+syntax on      "シンタックスハイライトを有効に
 
 " Make sure you use single quotes
 

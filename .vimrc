@@ -72,6 +72,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
+Plug 'slashmili/alchemist.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

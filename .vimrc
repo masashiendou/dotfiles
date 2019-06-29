@@ -61,6 +61,8 @@ set showmatch
 let python_highlight_all=1
 syntax on
 
+" How to install below plugins -> :PlugInstall
+"
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -73,6 +75,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'slashmili/alchemist.vim'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-endwise'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

@@ -77,6 +77,7 @@ Plug 'nvie/vim-flake8'
 Plug 'slashmili/alchemist.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-endwise'
+Plug 'elixir-editors/vim-elixir'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

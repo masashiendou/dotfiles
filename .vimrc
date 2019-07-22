@@ -8,6 +8,8 @@ nnoremap l e
 nnoremap L E
 nnoremap m b
 nnoremap M B
+nnoremap $ ^
+nnoremap ^ $
 nnoremap <C-n> n
 nnoremap <C-h> N
 

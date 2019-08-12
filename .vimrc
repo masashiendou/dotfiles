@@ -81,6 +81,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-endwise'
 Plug 'elixir-editors/vim-elixir'
 Plug 'Rykka/riv.vim'
+Plug 'othree/yajs.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

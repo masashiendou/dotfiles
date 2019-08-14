@@ -63,6 +63,9 @@ set showmatch
 let python_highlight_all=1
 syntax on
 
+set list  " can be view invisible charactor
+set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
+
 " How to install below plugins -> :PlugInstall
 "
 " Specify a directory for plugins

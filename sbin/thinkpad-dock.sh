@@ -20,7 +20,7 @@ elif [[ "$ACTION" == "unbind" ]]; then
   logger -t DOCKING "Detected condition: un-docked"
 else
   logger -t DOCKING "Detected condition: unknown"
-  echo Please set env var \$ACTION to 'bind' or 'unbind'
+  echo Please set env var \$ACTION to 'add' or 'remove'
   exit 1
 fi
 
@@ -41,16 +41,18 @@ function switch_to_local {
   # su $username -c '
   su $username -c '
   /usr/bin/xrandr \
-      --output VIRTUAL1 --off \
-      --output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal \
-      --output DP1 --off \
-      --output DP2-1 --off \
-      --output DP2-2 --off \
-      --output DP2-3 --off \
-      --output HDMI2 --off \
-      --output HDMI1 --off \
-      --output DP2 --off
-      '
+	--output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal \
+	--output DP1 --off \
+	--output DP2 --off \
+	--output DP2-1 --off \
+	--output DP2-2 --off \
+	--output DP2-3 --off \
+	--output HDMI1 --off \
+	--output HDMI2 --off \
+	--output VIRTUAL1 --off
+  /usr/bin/feh \
+	  --bg-scale "/home/kanda/Downloads/52286.jpg"
+  '
     
       # --output HDMI1 --off \
       # --output HDMI2 --off \
@@ -71,15 +73,17 @@ function switch_to_external {
   # su $username -c '
   su $username -c '
   /usr/bin/xrandr \
-      --output VIRTUAL1 --off \
-      --output eDP1 --off \
-      --output DP1 --off \
-      --output DP2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
-      --output DP2-2 --off \
-      --output DP2-3 --off \
-      --output HDMI2 --off \
-      --output HDMI1 --off \
-      --output DP2 --off
+	--output eDP1 --off \
+	--output DP1 --off \
+	--output DP2 --off \
+	--output DP2-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+	--output DP2-2 --off \
+	--output DP2-3 --off \
+	--output HDMI1 --off \
+	--output HDMI2 --off \
+	--output VIRTUAL1 --off
+  /usr/bin/feh \
+	  --bg-scale "/home/kanda/Downloads/218699.jpg"
   '
     
 #      --output eDP1  --off \

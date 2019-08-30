@@ -12,6 +12,7 @@ nnoremap $ ^
 nnoremap ^ $
 nnoremap <C-n> n
 nnoremap <C-h> N
+nnoremap :tree :NERDTreeToggle
 
 let mapleader = "."
 noremap <Leader>y "+y
@@ -66,6 +67,14 @@ syntax on
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
 
+
+" Listed buffers
+noremap <C-P> :Unite buffer<CR>
+" Listed files
+noremap <C-N> :Unite -buffer-name=file file<CR>
+" Listed recently used files
+noremap <C-Z> :Unite file_mru<CR>
+
 " How to install below plugins -> :PlugInstall
 "
 " Specify a directory for plugins
@@ -86,6 +95,9 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'Rykka/riv.vim'
 Plug 'othree/yajs.vim'
 Plug 'b4b4r07/vim-shellutils'
+Plug 'scrooloose/nerdtree'
+" Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

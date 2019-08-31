@@ -98,6 +98,9 @@ Plug 'b4b4r07/vim-shellutils'
 Plug 'scrooloose/nerdtree'
 " Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
+" Plug 'Shougo/neocomplete.vim'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

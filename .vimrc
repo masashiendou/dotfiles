@@ -13,6 +13,11 @@ nnoremap ^ $
 nnoremap <C-n> n
 nnoremap <C-h> N
 nnoremap :tree :NERDTreeToggle
+nnoremap at :<C-u>tabnew<CR>
+nnoremap ah gT
+nnoremap as gt
+nnoremap aw :<C-u>q<CR>
+nnoremap aW :<C-u>bd<CR>
 
 let mapleader = "."
 noremap <Leader>y "+y

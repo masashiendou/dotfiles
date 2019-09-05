@@ -10,14 +10,14 @@ nnoremap m b
 nnoremap M B
 nnoremap $ ^
 nnoremap ^ $
-nnoremap <C-n> n
-nnoremap <C-h> N
+nnoremap <C-t> n
+nnoremap <C-n> N
 nnoremap :tree :NERDTreeToggle
 nnoremap at :<C-u>tabnew<CR>
 nnoremap ah gT
 nnoremap as gt
-nnoremap aw :<C-u>q<CR>
-nnoremap aW :<C-u>bd<CR>
+nnoremap Aw :<C-u>w<CR>
+nnoremap AW :<C-u>q<CR>
 
 let mapleader = "."
 noremap <Leader>y "+y
@@ -101,9 +101,6 @@ Plug 'Rykka/riv.vim'
 Plug 'othree/yajs.vim'
 Plug 'b4b4r07/vim-shellutils'
 Plug 'scrooloose/nerdtree'
-" Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
-" Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 
@@ -111,14 +108,13 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }

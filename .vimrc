@@ -72,6 +72,8 @@ syntax on
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
 
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " Listed buffers
 noremap <C-P> :Unite buffer<CR>
@@ -103,6 +105,7 @@ Plug 'b4b4r07/vim-shellutils'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+Plug 'mattn/emmet-vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

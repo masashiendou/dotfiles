@@ -13,11 +13,11 @@ nnoremap ^ $
 nnoremap <C-t> n
 nnoremap <C-n> N
 nnoremap :tree :NERDTreeToggle
-nnoremap at :<C-u>tabnew<CR>
-nnoremap ah gT
-nnoremap as gt
-nnoremap aw :<C-u>w<CR>
-nnoremap aq :<C-u>q<CR>
+nnoremap kt :<C-u>tabnew<CR>
+nnoremap kh gT
+nnoremap ks gt
+nnoremap kw :<C-u>w<CR>
+nnoremap kq :<C-u>q<CR>
 
 let mapleader = "."
 noremap <Leader>y "+y
@@ -26,6 +26,8 @@ noremap <Leader>Y "*y
 noremap <Leader>P "*p
 
 colorscheme wombat
+"colorscheme wombat256dave
+"colorscheme wombat256i
 "colorscheme peaksea
 "set background=dark
 set t_Co=256
@@ -64,6 +66,9 @@ au BufNewFile,BufRead "*.js", "*.html", "*.css"
     \ set shiftwidth=2
 
 set hlsearch
+" hi Search cterm=NONE ctermfg=grey ctermbg=blue
+" hi Search ctermbg=Red
+" hi Search ctermfg=LightYellow
 set number
 set showmatch
 let python_highlight_all=1
@@ -72,8 +77,8 @@ syntax on
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
 
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+" filetype plugin on
+" set omnifunc=syntaxcomplete#Complete
 
 " Listed buffers
 noremap <C-P> :Unite buffer<CR>

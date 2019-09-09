@@ -13,6 +13,7 @@ gaps inner 3
 gaps outer 2
 
 set $mod Mod4
+set $autokey ~/git/dotfiles/autokeyconfig.sh
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
@@ -50,7 +51,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -name terminal
+bindsym $mod+Shift+Return exec urxvt -name tmux
 
 # kill focused window
 bindsym $mod+Shift+w kill
@@ -63,10 +65,11 @@ bindsym $mod+d exec dmenu_run -nb black -sb tomato -l 10
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+t focus down
-bindsym $mod+n focus up
-bindsym $mod+s focus right
+bindsym $mod+h focus left exec $autokey
+bindsym $mod+t focus down exec $autokey
+# bindcode 108 focus down exec $autokey
+bindsym $mod+n focus up exec $autokey
+bindsym $mod+s focus right exec $autokey
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left
@@ -107,7 +110,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -126,16 +129,18 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace $ws1 exec $autokey
+bindsym $mod+2 workspace $ws2 exec $autokey
+bindsym $mod+3 workspace $ws3 exec $autokey
+bindsym $mod+4 workspace $ws4 exec $autokey
+bindsym $mod+5 workspace $ws5 exec $autokey
+bindsym $mod+6 workspace $ws6 exec $autokey
+bindsym $mod+7 workspace $ws7 exec $autokey
+bindsym $mod+8 workspace $ws8 exec $autokey
+# bindsym $mod+9 workspace $ws9
+bindsym $mod+9 workspace $ws9 exec $autokey
+# bindsym $mod+0 workspace $ws10
+bindsym $mod+0 workspace $ws10 exec $autokey
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -166,6 +171,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # i3lock
 bindsym $mod+Shift+l exec i3lock --color "$base02"
 
+# mouse focus
+focus_follows_mouse no
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

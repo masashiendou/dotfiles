@@ -14,11 +14,11 @@ nnoremap <C-t> n
 nnoremap <C-n> N
 nnoremap :tree :NERDTreeToggle
 nnoremap :bk :Bookmark
-nnoremap kt :<C-u>tabnew<CR>
-nnoremap kh gT
-nnoremap ks gt
-nnoremap kw :<C-u>w<CR>
-nnoremap kq :<C-u>q<CR>
+nnoremap et :<C-u>tabnew<CR>
+nnoremap eh gT
+nnoremap es gt
+nnoremap ew :<C-u>w<CR>
+nnoremap eo :<C-u>q<CR>
 
 let mapleader = "."
 noremap <Leader>y "+y
@@ -139,3 +139,6 @@ Plug '~/my-prototype-plugin'
 
 " Initialize plugin system
 call plug#end()
+
+" For thyme setting
+" nmap <leader>t :!thyme -d<cr>

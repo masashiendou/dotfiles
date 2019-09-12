@@ -14,6 +14,8 @@ gaps outer 2
 
 set $mod Mod4
 set $autokey ~/git/dotfiles/autokeyconfig.sh
+# set $autokey_tmux ~/.xkb2/script/tmux-config.sh
+# set $autokey_i3 ~/.xkb/script/i3-config.sh
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
@@ -67,7 +69,6 @@ bindsym $mod+d exec dmenu_run -nb black -sb tomato -l 10
 # change focus
 bindsym $mod+h focus left exec $autokey
 bindsym $mod+t focus down exec $autokey
-# bindcode 108 focus down exec $autokey
 bindsym $mod+n focus up exec $autokey
 bindsym $mod+s focus right exec $autokey
 
@@ -104,16 +105,16 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -158,9 +159,13 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-bindsym XF86AudoMute exec amixer set Master toggle
-bindsym XF86AudioLowerVolume exec amixer set Master 5-
-bindsym XF86AudioRaiseVolume exec amixer set Master 5+
+# change volume or toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudoMute exec amixer set Master toggle
+# bindsym XF86AudioLowerVolume exec amixer set Master 5-
+# bindsym XF86AudioRaiseVolume exec amixer set Master 5+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -215,7 +220,8 @@ hide_edge_borders both
 bar {
         # status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	font pango: monospace 8 
+	# SCRIPT_DIR=~/git/dotfiles/i3/i3blocks-contrib
+	font pango: monospace 8.5
         position top
         strip_workspace_numbers yes
         # bindsym button4 nop

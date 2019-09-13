@@ -112,6 +112,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mattn/emmet-vim'
+Plug 'guns/xterm-color-table.vim'
+Plug 'chrisbra/Colorizer'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

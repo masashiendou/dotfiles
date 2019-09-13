@@ -20,14 +20,16 @@ endif
 
 " General colors
 " hi Cursor         guifg=NONE    guibg=#656565 gui=none
-hi Cursor         guifg=#bcbcbc    guibg=#656565 gui=none
-hi Normal         guifg=#f6f3e8 guibg=#242424 gui=none
+" hi Normal         guifg=#f6f3e8 guibg=#242424 gui=none
 " hi NonText        guifg=#808080 guibg=#303030 gui=none
-hi NonText        guifg=#bcbcbc guibg=#303030 gui=none
+hi Normal		ctermfg=248		ctermbg=none	cterm=none		guifg=#e3e0d7	guibg=#242424	gui=none
+hi NonText		ctermfg=248		ctermbg=none	cterm=none		guifg=#e3e0d7	guibg=#242424	gui=none
+hi Cursor		ctermfg=234		ctermbg=228		cterm=none		guifg=#242424	guibg=#eae788	gui=none
 hi LineNr         guifg=#857b6f guibg=#000000 gui=none
 hi StatusLine     guifg=#f6f3e8 guibg=#444444 gui=italic
 hi StatusLineNC   guifg=#857b6f guibg=#444444 gui=none
-hi VertSplit      guifg=#444444 guibg=#444444 gui=none
+" hi VertSplit      guifg=#444444 guibg=#444444 gui=none
+hi VertSplit      guifg=#e3e0d7 guibg=#242424 gui=none
 hi Folded         guibg=#384048 guifg=#a0a8b0 gui=none
 hi Title          guifg=#f6f3e8 guibg=NONE    gui=bold
 hi Visual         guifg=#f6f3e8 guibg=#444444 gui=none

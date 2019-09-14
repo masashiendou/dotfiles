@@ -6,7 +6,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "wombat"
+let colors_name = "wombat_modified"
 
 
 " Vim >= 7.0 specific colors
@@ -19,22 +19,23 @@ if version >= 700
 endif
 
 " General colors
-" hi Cursor         guifg=NONE    guibg=#656565 gui=none
+hi Cursor         guifg=NONE    guibg=#656565 gui=none
 " hi Normal         guifg=#f6f3e8 guibg=#242424 gui=none
 " hi NonText        guifg=#808080 guibg=#303030 gui=none
-hi Normal		ctermfg=248		ctermbg=none	cterm=none		guifg=#e3e0d7	guibg=#242424	gui=none
-hi NonText		ctermfg=248		ctermbg=none	cterm=none		guifg=#e3e0d7	guibg=#242424	gui=none
-hi Cursor		ctermfg=234		ctermbg=228		cterm=none		guifg=#242424	guibg=#eae788	gui=none
+" hi Normal	ctermfg=248	ctermbg=none	cterm=none	guifg=#e3e0d7	guibg=#242424	gui=none
+hi Normal	ctermfg=249	ctermbg=none	cterm=none	guifg=#f6f3e8	guibg=#242424	gui=none
+hi NonText	ctermfg=249	ctermbg=none	cterm=none	guifg=#e3e0d7	guibg=#242424	gui=none
+" hi Cursor	ctermfg=234	ctermbg=228		cterm=none	guifg=#242424	guibg=#eae788	gui=none
+" hi Cursor	ctermfg=39	ctermbg=228		cterm=none	guifg=#242424	guibg=#eae788	gui=none
 hi LineNr         guifg=#857b6f guibg=#000000 gui=none
 hi StatusLine     guifg=#f6f3e8 guibg=#444444 gui=italic
 hi StatusLineNC   guifg=#857b6f guibg=#444444 gui=none
-" hi VertSplit      guifg=#444444 guibg=#444444 gui=none
-hi VertSplit      guifg=#e3e0d7 guibg=#242424 gui=none
+hi VertSplit      guifg=#444444 guibg=#444444 gui=none
 hi Folded         guibg=#384048 guifg=#a0a8b0 gui=none
 hi Title          guifg=#f6f3e8 guibg=NONE    gui=bold
 hi Visual         guifg=#f6f3e8 guibg=#444444 gui=none
 hi SpecialKey     guifg=#808080 guibg=#343434 gui=none
-hi Search	ctermfg=18	ctermbg=212	cterm=none	guifg=#d787ff	guibg=#636066	gui=none
+hi Search	ctermfg=18	ctermbg=169	cterm=none	guifg=#d787ff	guibg=#636066	gui=none
 
 " Syntax highlighting
 hi Comment        guifg=#99968b gui=italic
@@ -55,3 +56,15 @@ hi Label          guifg=#47e0c3 gui=none
 hi StartifyPath   guifg=#95e454 gui=none
 hi diffRemoved    guifg=#e5786d gui=none
 hi diffAdded      guifg=#95e454 gui=none
+
+" ModeMsg
+hi ModeMsg	ctermfg=220	ctermbg=NONE	cterm=NONE
+hi ModeMsg	cterm=none  
+hi ModeMsg	guifg=#eeeeee	guibg=#000080	gui=NONE
+hi ModeMsg	gui=bold
+hi ModeMsg	cterm=bold
+
+"hi VisualNOS	ctermfg=255	ctermbg=18	cterm=NONE
+"hi VisualNOS	cterm=none  
+"hi VisualNOS	guifg=#eeeeee	guibg=#000080	gui=NONE
+"hi VisualNOS	ctermfg=255	ctermbg=146	cterm=NONE

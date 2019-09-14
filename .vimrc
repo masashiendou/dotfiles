@@ -26,7 +26,7 @@ noremap <Leader>p "+p
 noremap <Leader>Y "*y
 noremap <Leader>P "*p
 
-colorscheme wombat
+colorscheme wombat_modified
 "colorscheme wombat256dave
 "colorscheme wombat256i
 "colorscheme peaksea

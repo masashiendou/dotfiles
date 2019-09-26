@@ -18,9 +18,9 @@ nnoremap et :<C-u>tabnew<CR>
 nnoremap eh gT
 nnoremap es gt
 " nnoremap <C-Tab> gT
-nnoremap <Tab><Tab> gt
+" nnoremap <Tab><Tab> gt
 for i in range(1, 9)
-	    execute 'nnoremap <Tab>' . i . ' ' . i . 'gt'
+	    execute 'nnoremap e' . i . ' ' . i . 'gt'
 endfor
 nnoremap ew :<C-u>w<CR>
 nnoremap eo :<C-u>q<CR>

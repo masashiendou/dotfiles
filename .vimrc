@@ -88,6 +88,10 @@ noremap <C-N> :Unite -buffer-name=file file<CR>
 " Listed recently used files
 noremap <C-Z> :Unite file_mru<CR>
 
+" auto-pairs setting
+autocmd BufRead,BufNewFile *.rb,*.erb setfiletype ruby
+au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
+
 " How to install below plugins -> :PlugInstall
 "
 " Specify a directory for plugins
@@ -114,6 +118,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'mattn/emmet-vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'chrisbra/Colorizer'
+Plug 'jiangmiao/auto-pairs'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

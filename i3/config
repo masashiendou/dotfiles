@@ -14,8 +14,6 @@ gaps outer 2
 
 set $mod Mod4
 set $autokey ~/git/dotfiles/autokeyconfig.sh
-# set $autokey_tmux ~/.xkb2/script/tmux-config.sh
-# set $autokey_i3 ~/.xkb/script/i3-config.sh
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
@@ -100,9 +98,9 @@ bindsym $mod+v split v
 bindsym $mod+e fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+o layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+l layout toggle split
+# bindsym $mod+o layout stacking
+bindsym $mod+Shift+a layout tabbed
+bindsym $mod+Shift+o layout toggle split
 
 # toggle tiling / floating
 # bindsym $mod+Shift+space floating toggle
@@ -172,7 +170,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # i3lock
 bindsym $mod+Shift+l exec i3lock --color "$base02"
 

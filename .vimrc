@@ -12,6 +12,8 @@ nnoremap $ ^
 nnoremap ^ $
 nnoremap <C-t> n
 nnoremap <C-n> N
+nnoremap <C-e> <C-y>
+nnoremap <C-o> <C-e>
 nnoremap :tree :NERDTreeToggle
 nnoremap :bk :Bookmark
 nnoremap et :<C-u>tabnew<CR>

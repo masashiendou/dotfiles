@@ -15,6 +15,8 @@ elif [[ ! $STR == *tmux* ]] && [[ $MOD1 == *"Super_R (0x86)"* ]]; then
 	xmodmap .Xmodmap_i3
 elif [[ $STR == *tmux* ]] && [[ $MOD2 == *"Alt_R (0x86)"* ]]; then
 	~/.xkb2/script/tmux-config.sh
+elif [[ $STR == *tmux* ]] && [[ $MOD2 == *"Alt_R (0x6c)"* ]]; then
+	~/.xkb2/script/tmux-config.sh
 elif [[ ! $STR == *tmux* ]] && [[ $MOD2 == *"Alt_R (0x86)"* ]]; then
 	~/.xkb/script/i3-config.sh
 else

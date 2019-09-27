@@ -1,0 +1,11 @@
+[Unit]
+Description=Autokeyconfig Script
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/home/kanda/git/dotfiles/autokeyconfig.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=xorg.target

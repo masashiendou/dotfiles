@@ -1,0 +1,11 @@
+[Unit]
+Description=Autokeyconfig Script
+
+[Timer]
+# DayOfWeek Year-Month-Day Hour:Minute:Second
+# OnCalendar=*-*-* *:*:0/5
+OnUnitActiveSec=30s
+OnBootSec=30s
+
+[Install]
+WantedBy=timers.target

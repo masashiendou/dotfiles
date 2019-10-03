@@ -2,12 +2,12 @@ nnoremap h h
 nnoremap t j
 nnoremap n k
 nnoremap s l
-nnoremap e s
-nnoremap E S
+" nnoremap e s
+" nnoremap E S
 nnoremap l e
-nnoremap L E
+" nnoremap L E
 nnoremap m b
-nnoremap M B
+" nnoremap M B
 nnoremap $ ^
 nnoremap ^ $
 nnoremap <C-t> n
@@ -39,6 +39,12 @@ colorscheme wombat_modified
 "colorscheme peaksea
 "set background=dark
 set t_Co=256
+"set laststatus=2
+
+" CursorLine
+set cursorline
+" set cursorcolumn
+
 "twitter
 let twitvim_enable_python = 1
 let twitvim_browser_cmd = 'firefox'
@@ -89,15 +95,74 @@ set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
 " set omnifunc=syntaxcomplete#Complete
 
 " Listed buffers
-noremap <C-P> :Unite buffer<CR>
+" noremap <C-P> :Unite buffer<CR>
 " Listed files
-noremap <C-N> :Unite -buffer-name=file file<CR>
+" noremap <C-N> :Unite -buffer-name=file file<CR>
 " Listed recently used files
-noremap <C-Z> :Unite file_mru<CR>
+" noremap <C-Z> :Unite file_mru<CR>
 
 " auto-pairs setting
-autocmd BufRead,BufNewFile *.rb,*.erb setfiletype ruby
-au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
+" autocmd BufRead,BufNewFile *.rb,*.erb setfiletype ruby
+" au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
+
+"" coc.vim setting
+"" General
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	  let col = col('.') - 1
+	    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+"" Shortcuts
+nmap <silent> <space><space> :<C-u>CocList<cr>
+nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+nmap <silent> ef <Plug>(coc-definition)
+nmap <silent> er <Plug>(coc-references)
+nmap <silent> etf <Plug>(coc-type-definition)
+nmap <silent> ei <Plug>(coc-implementation)
+nmap <silent> rn <Plug>(coc-rename)
+nmap <silent> fmt <Plug>(coc-format)
+nnoremap <silent> gk :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if &filetype ==# 'vim'
+		execute 'h '.expand('<cword>')
+	else
+		if coc#util#has_float()
+			pc
+		else
+			call CocActionAsync('doHover')
+		endif
+	endif
+endfunction
+
+"" Navigation
+"Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+"" Solargraph
+let g:coc_global_extensions = ['coc-solargraph']
+
+" vista.vim setting
+function! NearestMethodOrFunction() abort
+	  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+" "
+" " If you want to show the nearest function in your statusline
+" automatically,
+" " you can add the following line to your vimrc 
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
 
 " How to install below plugins -> :PlugInstall
 "
@@ -109,23 +174,25 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-Plug 'vim-syntastic/syntastic'
-Plug 'nvie/vim-flake8'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'nvie/vim-flake8'
 Plug 'slashmili/alchemist.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-endwise'
 Plug 'elixir-editors/vim-elixir'
 Plug 'Rykka/riv.vim'
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 Plug 'b4b4r07/vim-shellutils'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'mattn/emmet-vim'
-Plug 'guns/xterm-color-table.vim'
-Plug 'chrisbra/Colorizer'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'mattn/emmet-vim'
+Plug 'guns/xterm-color-table.vim' " :XtermColorTable, # -> yank, t -> toggle, f -> set current color
+Plug 'chrisbra/Colorizer' " :h Colorizer, :ColorHighlight
+" Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'liuchengxu/vista.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -140,10 +207,10 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
+" Plug 'fatih/vim-go', { 'tag': '*' }
 
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

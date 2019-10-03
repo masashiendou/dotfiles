@@ -34,14 +34,17 @@ bind index <up>     sidebar-prev
 bind index <right>  sidebar-open
 
 # Moving around
+bind pager / search
 bind attach,index,pager \CF next-page
 bind attach,index,pager \CB previous-page
 bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
-bind pager k previous-line
-bind pager j next-line
+bind generic,pager,editor,index e previous-line
+bind generic,pager,editor,index o next-line
+bind generic,pager,editor,index n previous-entry
+bind generic,pager,editor,index t next-entry
 
 set editor = "vim"
 set charset = "utf-8"

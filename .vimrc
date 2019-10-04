@@ -14,27 +14,37 @@ nnoremap <C-j> n
 nnoremap <C-k> N
 nnoremap <C-t> <C-y>
 nnoremap <C-n> <C-e>
+"nnoremap eq :<C-u>noh<CR>
+nnoremap <C-u> :noh<CR>
 nnoremap :bk :Bookmark
-nnoremap et :<C-u>tabnew<CR>
-nnoremap eh gT
-nnoremap es gt
+" nnoremap et :<C-u>tabnew<CR>
+" nnoremap eh gT
+" nnoremap es gt
 nnoremap ew :<C-u>w<CR>
 nnoremap eo :<C-u>q<CR>
 
 "" Leader settings
 let mapleader = "\<Space>"
-" nnoremap <Leader>t :echo "Hello"<CR>
+" NERDTreeToggle
+nnoremap <silent><Leader>T :NERDTreeToggle<CR>
+" window focus changing
 nnoremap <silent><Leader>w :wincmd w<CR>
-" nnoremap :tree :NERDTreeToggle
-nnoremap <silent><Leader>r :NERDTreeToggle<CR>
-nnoremap <silent><Leader><Leader>n :res +5<CR>
-nnoremap <silent><Leader><Leader>t :res -5<CR>
-nnoremap <silent><Leader><Leader>h :vertical res +5<CR>
-nnoremap <silent><Leader><Leader>s :vertical res -5<CR>
-nnoremap <silent><Leader><Leader>N :topleft split<CR>
-nnoremap <silent><Leader><Leader>T :botright split<CR>
-nnoremap <silent><Leader><Leader>H :vert topleft split<CR>
-nnoremap <silent><Leader><Leader>S :vert botright split<CR>
+nnoremap <silent><Leader>W :wincmd W<CR>
+" window resize
+nnoremap <silent><Leader><Leader>n :res +10<CR>
+nnoremap <silent><Leader><Leader>t :res -10<CR>
+nnoremap <silent><Leader><Leader>h :vertical res +10<CR>
+nnoremap <silent><Leader><Leader>s :vertical res -10<CR>
+" window move
+nnoremap <silent><Leader><Leader>T <C-w><C-x><CR>
+nnoremap <silent><Leader><Leader>H <C-w><C-r><CR>
+" new window
+nnoremap <silent><Leader><Leader>N :new<CR>
+nnoremap <silent><Leader><Leader>S :vnew<CR>
+" tagjump, tagbar setting
+nnoremap <silent><Leader>t :TagbarOpen fjc<CR>
+nnoremap <C-v> :vsp <CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-z> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 " nnoremap <silent><Leader><CR>
 
 " for i in range(1, 9)

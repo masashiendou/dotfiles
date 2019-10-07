@@ -14,37 +14,50 @@ nnoremap <C-j> n
 nnoremap <C-k> N
 nnoremap <C-t> <C-y>
 nnoremap <C-n> <C-e>
-"nnoremap eq :<C-u>noh<CR>
 nnoremap <C-u> :noh<CR>
 nnoremap :bk :Bookmark
-" nnoremap et :<C-u>tabnew<CR>
 " nnoremap eh gT
 " nnoremap es gt
-nnoremap ew :<C-u>w<CR>
-nnoremap eo :<C-u>q<CR>
 
 "" Leader settings
 let mapleader = "\<Space>"
 " NERDTreeToggle
-nnoremap <silent><Leader>T :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>T :NERDTreeToggle<CR>
 " window focus changing
-nnoremap <silent><Leader>w :wincmd w<CR>
-nnoremap <silent><Leader>W :wincmd W<CR>
+nnoremap <silent> <Leader>w :wincmd w<CR>
+nnoremap <silent> <Leader>W :wincmd W<CR>
 " window resize
-nnoremap <silent><Leader><Leader>n :res +10<CR>
-nnoremap <silent><Leader><Leader>t :res -10<CR>
-nnoremap <silent><Leader><Leader>h :vertical res +10<CR>
-nnoremap <silent><Leader><Leader>s :vertical res -10<CR>
+nnoremap <silent> <Leader><Leader>n :res +10<CR>
+nnoremap <silent> <Leader><Leader>t :res -10<CR>
+nnoremap <silent> <Leader><Leader>h :vertical res +10<CR>
+nnoremap <silent> <Leader><Leader>s :vertical res -10<CR>
 " window move
-nnoremap <silent><Leader><Leader>T <C-w><C-x><CR>
-nnoremap <silent><Leader><Leader>H <C-w><C-r><CR>
-" new window
-nnoremap <silent><Leader><Leader>N :new<CR>
-nnoremap <silent><Leader><Leader>S :vnew<CR>
-" tagjump, tagbar setting
-nnoremap <silent><Leader>t :TagbarOpen fjc<CR>
-nnoremap <C-v> :vsp <CR> :exe("tjump ".expand('<cword>'))<CR>
-nnoremap <C-z> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <silent> <Leader><Leader>T <C-w><C-x><CR>
+nnoremap <silent> <Leader><Leader>H <C-w><C-r><CR>
+" new blank buffer
+nnoremap bv :new<CR>
+nnoremap bz :vnew<CR>
+" write and quit
+nnoremap bw :<C-u>w<CR>
+nnoremap eo :<C-u>q<CR>
+" tagbar
+nnoremap <silent> <Leader>t :TagbarOpen fjc<CR>
+"nnoremap <C-v> :vsp <CR> :exe("tjump ".expand('<cword>'))<CR>
+"nnoremap <C-z> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+"" tag jump
+" nnoremap ej :exe(tjump ".expand("'<cword>'))<CR>
+"" tag back
+" nnoremap eh :pop<CR>
+"" tag next
+" nnoremap es :tag<CR>
+"" tag vertical
+" nnoremap ev :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+"" tag horizon
+" nnoremap ez :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+"" tags list
+" nnoremap el :ts<CR>
+"" example for Leader mapping with nnoremap
 " nnoremap <silent><Leader><CR>
 
 " for i in range(1, 9)
@@ -67,14 +80,39 @@ set encoding=utf-8
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
 
+
+"=========================
+" Gtags, Ctags Quickfix settings
+"=========================
+"" Gtags and Ctags setting
+" Show up functions of current file
+nnoremap <silent> <Space>l :Gtags -f %<CR>
+" Show up tags including under cursor words
+nnoremap <silent> <Space>f :GtagsCursor<CR>
+" Show up definitions including under cursor words
+nnoremap <silent> <Space>d :<C-u>exe('Gtags '.expand('<cword>'))<CR>
+" Show up references including under cursor words
+nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
+" Just input :Gtags
+nnoremap <silent> <Space>g :Gtags
+
+"" Quickfix setting
+" Next and Previous
+nnoremap <silent> <Space>j :cnext<CR>
+nnoremap <silent> <Space>k :cprevious<CR>
+" Open and Close
+nnoremap <silent> <Space>o :cclose<CR>
+nnoremap <silent> <Space>n :copen<CR>
+
+
 "=========================
 " Navigation settings
 "=========================
 "" window, number, syntax and etc
 set splitbelow
 set splitright
-set foldmethod=indent
-set foldlevel=99
+" set foldmethod=indent
+" set foldlevel=99
 set hlsearch
 set number
 set showmatch
@@ -92,6 +130,10 @@ nnoremap <silent> bo :bd<CR>
 "=========================
 " Each plugin settings
 "=========================
+"" gen_tags.vim
+let g:gen_tags#ctags_auto_gen = 1
+let g:gen_tags#gtags_auto_gen = 1
+
 "" coc.vim
 "" General
 " inoremap <silent><expr> <TAB>
@@ -136,24 +178,23 @@ nnoremap <silent> bo :bd<CR>
 "" Solargraph
 let g:coc_global_extensions = ['coc-solargraph']
 
-
-"* For python settings *"
-au BufNewFile,BufRead "*.py"
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-" Detect white space
-au BufRead,BufNewFile "*.py","*.pyw","*.c","*.h" match BadWhitespace /\s\+$/
-" For js, html and css settings
-au BufNewFile,BufRead "*.js", "*.html", "*.css"
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-let python_highlight_all=1
+"" * For python settings *"
+"au BufNewFile,BufRead "*.py"
+"    \ set tabstop=4
+"    \ set softtabstop=4
+"    \ set shiftwidth=4
+"    \ set textwidth=79
+"    \ set expandtab
+"    \ set autoindent
+"    \ set fileformat=unix
+"" Detect white space
+"au BufRead,BufNewFile "*.py","*.pyw","*.c","*.h" match BadWhitespace /\s\+$/
+"" For js, html and css settings
+"au BufNewFile,BufRead "*.js", "*.html", "*.css"
+"    \ set tabstop=2
+"    \ set softtabstop=2
+"    \ set shiftwidth=2
+"let python_highlight_all=1
 
 
 "=========================
@@ -217,6 +258,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
+Plug 'jsfaint/gen_tags.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

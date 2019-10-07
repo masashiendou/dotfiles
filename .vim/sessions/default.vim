@@ -2,7 +2,7 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <expr> <BS> coc#_insert_key('request', '6ec57822-e6f2-11e9-95c5-398d4578d6c0')
+inoremap <silent> <expr> <BS> coc#_insert_key('request', 'd65f299b-e896-11e9-ba9b-459470922b84')
 inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 map <silent>  <Plug>(RivHelpFile)
@@ -26,12 +26,25 @@ map  <Plug>(ctrlp)
 vmap  <Plug>TwitvimVisual
 nnoremap  
 nnoremap  :noh
-nnoremap  :vsp  :exe("tjump ".expand('<cword>'))
-nnoremap  :split :exe("tjump ".expand('<cword>'))
+nmap t :cs find t =expand('<cword>')
+nmap s :cs find s =expand('<cword>')
+nmap i :cs find i =expand('<cfile>')
+nmap g :cs find g =expand('<cword>')
+nmap f :cs find f =expand('<cfile>')
+nmap e :cs find e =expand('<cword>')
+nmap d :cs find d =expand('<cword>')
+nmap c :cs find c =expand('<cword>')
 nnoremap  a :Ack! 
+nnoremap <silent>  n :copen
+nnoremap <silent>  o :cclose
+nnoremap <silent>  k :cprevious
+nnoremap <silent>  j :cnext
+nnoremap <silent>  g :Gtags
+nnoremap <silent>  r :exe('Gtags -r '.expand('<cword>'))
+nnoremap <silent>  d :exe('Gtags '.expand('<cword>'))
+nnoremap <silent>  f :GtagsCursor
+nnoremap <silent>  l :Gtags -f %
 nnoremap <silent>  t :TagbarOpen fjc
-nnoremap <silent>   S :vnew
-nnoremap <silent>   N :new
 nnoremap <silent>   H 
 nnoremap <silent>   T 
 nnoremap <silent>   s :vertical res -10
@@ -48,8 +61,10 @@ nnoremap <silent> bo :bd
 nnoremap <silent> bs :bnext
 nnoremap <silent> bh :bprev
 nnoremap <silent> bl ::CtrlPBuffer
+nnoremap bw :w
+nnoremap bz :vnew
+nnoremap bv :new
 nnoremap eo :q
-nnoremap ew :w
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 nnoremap h h
@@ -58,7 +73,6 @@ nnoremap m b
 nnoremap n k
 nnoremap s l
 nnoremap t j
-nnoremap <SNR>76_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nnoremap <silent> <Plug>(ctrlp) :CtrlP
@@ -236,24 +250,26 @@ nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
 nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 noremap <SNR>18_Visual y:call twitvim#post_twitter(@", 0)
 imap  <Plug>DiscretionaryEnd
-inoremap <silent> <expr> " coc#_insert_key('request', '6ec57820-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> ' coc#_insert_key('request', '6ec55118-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> ( coc#_insert_key('request', '6ec55110-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> ) coc#_insert_key('request', '6ec55111-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> < coc#_insert_key('request', '6ec55116-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> > coc#_insert_key('request', '6ec55117-e6f2-11e9-95c5-398d4578d6c0')
+inoremap <silent> <expr> " coc#_insert_key('request', 'd65f2999-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> ' coc#_insert_key('request', 'd65f2998-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> ( coc#_insert_key('request', 'd65f2990-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> ) coc#_insert_key('request', 'd65f2991-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> < coc#_insert_key('request', 'd65f2996-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> > coc#_insert_key('request', 'd65f2997-e896-11e9-ba9b-459470922b84')
 vmap ô <Plug>TwitvimVisual
-inoremap <silent> <expr> [ coc#_insert_key('request', '6ec55112-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> ] coc#_insert_key('request', '6ec55113-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> ` coc#_insert_key('request', '6ec57821-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> { coc#_insert_key('request', '6ec55114-e6f2-11e9-95c5-398d4578d6c0')
-inoremap <silent> <expr> } coc#_insert_key('request', '6ec55115-e6f2-11e9-95c5-398d4578d6c0')
+inoremap <silent> <expr> [ coc#_insert_key('request', 'd65f2992-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> ] coc#_insert_key('request', 'd65f2993-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> ` coc#_insert_key('request', 'd65f299a-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> { coc#_insert_key('request', 'd65f2994-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> } coc#_insert_key('request', 'd65f2995-e896-11e9-ba9b-459470922b84')
 cnoreabbr Ack Ack!
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set background=dark
 set backspace=indent,eol,start
 set backupdir=~/.cache/vim/backup//
+set cscopeprg=gtags-cscope
+set cscopetag
 set directory=~/.cache/vim/swap//
 set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=en
@@ -262,25 +278,26 @@ set hlsearch
 set listchars=tab:>-,trail:.
 set pyxversion=2
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/after
 set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
 set undodir=~/.cache/vim/undo//
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/Project/RoR/tutorial/ror-tutorial-sampleapp
+cd ~/
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd app/controllers/users_controller.rb
-edit app/controllers/users_controller.rb
+$argadd .vimrc
+edit .vimrc
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -288,11 +305,18 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-let s:cpo_save=&cpo
-set cpo&vim
-cmap <buffer>  <Plug><cfile>
-let &cpo=s:cpo_save
-unlet s:cpo_save
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -309,8 +333,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -321,25 +345,23 @@ setlocal nocursorbind
 setlocal nocursorcolumn
 set cursorline
 setlocal cursorline
-setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=
+setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,\ %#Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-G\ %#Overwrite%.%#\"h\"%.%#,%+GStarted\ %\\u%\\u%.%#,%+GCompleted\ %\\d%\\d%\\d%.%#,%+G[ActiveJob]%.%#]\ Perform%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%\\&completion=rails#complete_rails,%\\&start=console,%\\&terminal=%\\C%\\%%(console%\\|dbconsole%\\|server%\\|%[cs]%\\|db%\\)%\\>:%\\@!%\\ze%.%#,%\\&force_start=%\\C%\\%%(console%\\|dbconsole%\\|server%\\|%[cs]%\\|db%\\)%\\>:%\\@!%\\ze%.%#,%\\&default=default,%D(in\ %f),%\\s%#%\\d%#:%#\ %#from\ %f:%l:%m,%\\s%#%\\d%#:%#\ %#from\ %f:%l:,%\\s%##\ %f:%l:%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%##\ %f:%l%\\&%.%#%\\D:%\\d%\\+,%\\s%#[%f:%l:\ %#%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%#%f:%l:\ %#%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,%\\&dir=/home/kanda/Project/RoR/tutorial/ror-tutorial-sampleapp,%\\&buffer=%%:s/.*/\\=rails#buffer(submatch(0)).default_task(exists('l#')\ ?\ l#\ :\ 0)/
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'vim'
+setlocal filetype=vim
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
-set foldlevel=99
-setlocal foldlevel=99
+setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
-set foldmethod=indent
-setlocal foldmethod=indent
+setlocal foldmethod=manual
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
@@ -350,20 +372,20 @@ setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
+setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\,0=\"\\\ 
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=ri
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=:help
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 set list
 setlocal list
 setlocal makeencoding=
-setlocal makeprg=bin/rails
+setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal modeline
 setlocal modifiable
@@ -371,8 +393,8 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/Project/RoR/tutorial/ror-tutorial-sampleapp/lib,~/Project/RoR/tutorial/ror-tutorial-sampleapp/vendor,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/models/concerns,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/controllers/concerns,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/controllers,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/helpers,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/mailers,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/models,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/jobs,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/*,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/unit,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/functional,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/integration,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/controllers,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/helpers,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/mailers,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/models,~/Project/RoR/tutorial/ror-tutorial-sampleapp/test/jobs,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/views,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/views/users,~/Project/RoR/tutorial/ror-tutorial-sampleapp/app/views/application,~/Project/RoR/tutorial/ror-tutorial-sampleapp,/usr/lib/ruby/site_ruby/2.6.0,/usr/lib/ruby/site_ruby/2.6.0/x86_64-linux,/usr/lib/ruby/site_ruby,/usr/lib/ruby/vendor_ruby/2.6.0,/usr/lib/ruby/vendor_ruby/2.6.0/x86_64-linux,/usr/lib/ruby/vendor_ruby,/usr/lib/ruby/2.6.0,/usr/lib/ruby/2.6.0/x86_64-linux
+setlocal omnifunc=
+setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -382,31 +404,31 @@ setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
-setlocal shiftwidth=2
+setlocal shiftwidth=8
 setlocal noshortname
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
-setlocal softtabstop=2
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
-setlocal suffixesadd=.rb,.raw,.erb,.html,.builder,.ruby,.coffee,.haml,.jbuilder
+setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
+if &syntax != 'vim'
+setlocal syntax=vim
 endif
 setlocal tabstop=8
 setlocal tagcase=
 setlocal tagfunc=
-setlocal tags=~/Project/RoR/tutorial/ror-tutorial-sampleapp/tags,~/Project/RoR/tutorial/ror-tutorial-sampleapp/tmp/tags,./tags,./TAGS,tags,TAGS,/usr/lib/ruby/site_ruby/2.6.0/tags,/usr/lib/ruby/site_ruby/2.6.0/x86_64-linux/tags,/usr/lib/ruby/site_ruby/tags,/usr/lib/ruby/vendor_ruby/2.6.0/tags,/usr/lib/ruby/vendor_ruby/2.6.0/x86_64-linux/tags,/usr/lib/ruby/vendor_ruby/tags,/usr/lib/ruby/2.6.0/tags,/usr/lib/ruby/2.6.0/x86_64-linux/tags
+setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -417,14 +439,15 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 31) / 63)
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 29) / 58)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
 tabnext 1
-badd +0 app/controllers/users_controller.rb
+badd +0 .vimrc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

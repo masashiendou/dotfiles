@@ -2,7 +2,7 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <expr> <BS> coc#_insert_key('request', 'd65f299b-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> <BS> coc#_insert_key('request', '83b9d21b-e8a2-11e9-8cfe-bf483137232b')
 inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 map <silent>  <Plug>(RivHelpFile)
@@ -250,18 +250,18 @@ nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
 nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 noremap <SNR>18_Visual y:call twitvim#post_twitter(@", 0)
 imap  <Plug>DiscretionaryEnd
-inoremap <silent> <expr> " coc#_insert_key('request', 'd65f2999-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> ' coc#_insert_key('request', 'd65f2998-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> ( coc#_insert_key('request', 'd65f2990-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> ) coc#_insert_key('request', 'd65f2991-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> < coc#_insert_key('request', 'd65f2996-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> > coc#_insert_key('request', 'd65f2997-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> " coc#_insert_key('request', '83b9d219-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> ' coc#_insert_key('request', '83b9d218-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> ( coc#_insert_key('request', '83b9d210-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> ) coc#_insert_key('request', '83b9d211-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> < coc#_insert_key('request', '83b9d216-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> > coc#_insert_key('request', '83b9d217-e8a2-11e9-8cfe-bf483137232b')
 vmap ô <Plug>TwitvimVisual
-inoremap <silent> <expr> [ coc#_insert_key('request', 'd65f2992-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> ] coc#_insert_key('request', 'd65f2993-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> ` coc#_insert_key('request', 'd65f299a-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> { coc#_insert_key('request', 'd65f2994-e896-11e9-ba9b-459470922b84')
-inoremap <silent> <expr> } coc#_insert_key('request', 'd65f2995-e896-11e9-ba9b-459470922b84')
+inoremap <silent> <expr> [ coc#_insert_key('request', '83b9d212-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> ] coc#_insert_key('request', '83b9d213-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> ` coc#_insert_key('request', '83b9d21a-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> { coc#_insert_key('request', '83b9d214-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <expr> } coc#_insert_key('request', '83b9d215-e8a2-11e9-8cfe-bf483137232b')
 cnoreabbr Ack Ack!
 let &cpo=s:cpo_save
 unlet s:cpo_save
@@ -440,11 +440,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 29) / 58)
+let s:l = 229 - ((0 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+229
 normal! 0
 tabnext 1
 badd +0 .vimrc

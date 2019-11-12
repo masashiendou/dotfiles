@@ -2,7 +2,7 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <expr> <BS> coc#_insert_key('request', '83b9d21b-e8a2-11e9-8cfe-bf483137232b')
+inoremap <silent> <SNR>63_AutoPairsReturn =AutoPairsReturn()
 inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 map <silent>  <Plug>(RivHelpFile)
@@ -74,7 +74,7 @@ nnoremap n k
 nnoremap s l
 nnoremap t j
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
 nnoremap <silent> <Plug>(ctrlp) :CtrlP
 onoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectFunction', [v:false, ''])
 onoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectFunction', [v:true, ''])
@@ -250,18 +250,7 @@ nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
 nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 noremap <SNR>18_Visual y:call twitvim#post_twitter(@", 0)
 imap  <Plug>DiscretionaryEnd
-inoremap <silent> <expr> " coc#_insert_key('request', '83b9d219-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> ' coc#_insert_key('request', '83b9d218-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> ( coc#_insert_key('request', '83b9d210-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> ) coc#_insert_key('request', '83b9d211-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> < coc#_insert_key('request', '83b9d216-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> > coc#_insert_key('request', '83b9d217-e8a2-11e9-8cfe-bf483137232b')
 vmap ô <Plug>TwitvimVisual
-inoremap <silent> <expr> [ coc#_insert_key('request', '83b9d212-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> ] coc#_insert_key('request', '83b9d213-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> ` coc#_insert_key('request', '83b9d21a-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> { coc#_insert_key('request', '83b9d214-e8a2-11e9-8cfe-bf483137232b')
-inoremap <silent> <expr> } coc#_insert_key('request', '83b9d215-e8a2-11e9-8cfe-bf483137232b')
 cnoreabbr Ack Ack!
 let &cpo=s:cpo_save
 unlet s:cpo_save
@@ -278,12 +267,12 @@ set hlsearch
 set listchars=tab:>-,trail:.
 set pyxversion=2
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/after
 set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandagitdotfiles/prj_tags
 set undodir=~/.cache/vim/undo//
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
@@ -296,8 +285,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .vimrc
-edit .vimrc
+$argadd git/dotfiles/ror/.irbrc
+edit git/dotfiles/ror/.irbrc
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -305,18 +294,40 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
-nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
-vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "bW")
-nnoremap <buffer> <silent> [] m':call search('^\s*endf\%[unction]\>', "bW")
-vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
-nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
-vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
-nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
-vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf\%[unction]\>', "W")
-nnoremap <buffer> <silent> ][ m':call search('^\s*endf\%[unction]\>', "W")
-vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
-nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
+inoremap <buffer> <silent> î :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
+inoremap <buffer> <silent> â =AutoPairsBackInsert()
+inoremap <buffer> <silent> å =AutoPairsFastWrap()
+inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent>  =AutoPairsDelete()
+cmap <buffer>  <Plug><cfile>
+inoremap <buffer> <silent>   =AutoPairsSpace()
+inoremap <buffer> <silent> " =AutoPairsInsert('"')
+inoremap <buffer> <silent> % =AutoPairsInsert('%')
+inoremap <buffer> <silent> ' =AutoPairsInsert('''')
+inoremap <buffer> <silent> ( =AutoPairsInsert('(')
+inoremap <buffer> <silent> ) =AutoPairsInsert(')')
+inoremap <buffer> <silent> < =AutoPairsInsert('<')
+inoremap <buffer> <silent> > =AutoPairsInsert('>')
+noremap <buffer> <silent> î :call AutoPairsJump()
+noremap <buffer> <silent> ð :call AutoPairsToggle()
+inoremap <buffer> <silent> [ =AutoPairsInsert('[')
+inoremap <buffer> <silent> ] =AutoPairsInsert(']')
+inoremap <buffer> <silent> ` =AutoPairsInsert('`')
+inoremap <buffer> <silent> { =AutoPairsInsert('{')
+inoremap <buffer> <silent> } =AutoPairsInsert('}')
+let &cpo=s:cpo_save
+unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -333,8 +344,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
-setlocal commentstring=\"%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -345,14 +356,15 @@ setlocal nocursorbind
 setlocal nocursorcolumn
 set cursorline
 setlocal cursorline
+setlocal cursorlineopt=both
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'vim'
-setlocal filetype=vim
+setlocal expandtab
+if &filetype != 'ruby'
+setlocal filetype=ruby
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -372,13 +384,13 @@ setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=
+setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
 setlocal includeexpr=
-setlocal indentexpr=GetVimIndent()
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\,0=\"\\\ 
+setlocal indentexpr=GetRubyIndent(v:lnum)
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,#
-setlocal keywordprg=:help
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=ri
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -393,8 +405,8 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=~/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0,~/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/x86_64-linux,~/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby,~/.rvm/rubies/ruby-2.6.5/lib/ruby/vendor_ruby/2.6.0,~/.rvm/rubies/ruby-2.6.5/lib/ruby/vendor_ruby/2.6.0/x86_64-linux,~/.rvm/rubies/ruby-2.6.5/lib/ruby/vendor_ruby,~/.rvm/rubies/ruby-2.6.5/lib/ruby/2.6.0,~/.rvm/rubies/ruby-2.6.5/lib/ruby/2.6.0/x86_64-linux
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -404,22 +416,22 @@ setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
-setlocal shiftwidth=8
+setlocal shiftwidth=2
 setlocal noshortname
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
-setlocal softtabstop=0
+setlocal softtabstop=2
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
-setlocal suffixesadd=
+setlocal suffixesadd=.rb
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'vim'
-setlocal syntax=vim
+if &syntax != 'ruby'
+setlocal syntax=ruby
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -428,7 +440,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=78
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -440,14 +452,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 229 - ((0 * winheight(0) + 29) / 59)
+let s:l = 2 - ((1 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-229
-normal! 0
+2
+normal! 017|
 tabnext 1
-badd +0 .vimrc
+badd +0 git/dotfiles/ror/.irbrc
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

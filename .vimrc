@@ -95,6 +95,16 @@ nnoremap <silent> <Space>d :<C-u>exe('Gtags '.expand('<cword>'))<CR>
 nnoremap <silent> <Space>r :<C-u>exe('Gtags -r '.expand('<cword>'))<CR>
 " Just input :Gtags
 nnoremap <silent> <Space>g :Gtags
+"" Previous scene
+" ctrl + o
+"" Next scene
+" ctrl + i
+"" Foucs top on cursorline
+" zt
+"" Foucs middle on cursorline
+" zz
+"" Foucs bottom on cursorline
+" zb
 
 "" Quickfix setting
 " Next and Previous
@@ -130,6 +140,11 @@ nnoremap <silent> bo :bd<CR>
 "=========================
 " Each plugin settings
 "=========================
+"" auto-pairs setting
+autocmd BufRead,BufNewFile *.rb,*.erb setfiletype ruby
+au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
+
+
 "" gen_tags.vim
 let g:gen_tags#ctags_auto_gen = 1
 let g:gen_tags#gtags_auto_gen = 1
@@ -259,6 +274,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'jsfaint/gen_tags.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

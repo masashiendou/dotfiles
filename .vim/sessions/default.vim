@@ -272,7 +272,7 @@ set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandagitdotfiles/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
 set undodir=~/.cache/vim/undo//
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
@@ -285,8 +285,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd git/dotfiles/ror/.irbrc
-edit git/dotfiles/ror/.irbrc
+$argadd .Xresources
+edit .Xresources
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -310,15 +310,11 @@ inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
 inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
 inoremap <buffer> <silent>  =AutoPairsDelete()
-cmap <buffer>  <Plug><cfile>
 inoremap <buffer> <silent>   =AutoPairsSpace()
 inoremap <buffer> <silent> " =AutoPairsInsert('"')
-inoremap <buffer> <silent> % =AutoPairsInsert('%')
 inoremap <buffer> <silent> ' =AutoPairsInsert('''')
 inoremap <buffer> <silent> ( =AutoPairsInsert('(')
 inoremap <buffer> <silent> ) =AutoPairsInsert(')')
-inoremap <buffer> <silent> < =AutoPairsInsert('<')
-inoremap <buffer> <silent> > =AutoPairsInsert('>')
 noremap <buffer> <silent> î :call AutoPairsJump()
 noremap <buffer> <silent> ð :call AutoPairsToggle()
 inoremap <buffer> <silent> [ =AutoPairsInsert('[')
@@ -344,8 +340,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
+setlocal comments=s1:/*,mb:*,ex:*/,:!
+setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -362,9 +358,9 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal expandtab
-if &filetype != 'ruby'
-setlocal filetype=ruby
+setlocal noexpandtab
+if &filetype != 'xdefaults'
+setlocal filetype=xdefaults
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -384,13 +380,13 @@ setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=^\\s*\\<\\(load\\>\\|require\\>\\|autoload\\s*:\\=[\"']\\=\\h\\w*[\"']\\=,\\)
+setlocal include=^\\s*#\\s*include
 setlocal includeexpr=
-setlocal indentexpr=GetRubyIndent(v:lnum)
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,:,.,=end,=else,=elsif,=when,=ensure,=rescue,==begin,==end,=private,=protected,=public
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=ri
+setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -405,8 +401,8 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=rubycomplete#Complete
-setlocal path=~/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0,~/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0/x86_64-linux,~/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby,~/.rvm/rubies/ruby-2.6.5/lib/ruby/vendor_ruby/2.6.0,~/.rvm/rubies/ruby-2.6.5/lib/ruby/vendor_ruby/2.6.0/x86_64-linux,~/.rvm/rubies/ruby-2.6.5/lib/ruby/vendor_ruby,~/.rvm/rubies/ruby-2.6.5/lib/ruby/2.6.0,~/.rvm/rubies/ruby-2.6.5/lib/ruby/2.6.0/x86_64-linux
+setlocal omnifunc=
+setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -416,22 +412,22 @@ setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal scrolloff=-1
-setlocal shiftwidth=2
+setlocal shiftwidth=8
 setlocal noshortname
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
 setlocal nosmartindent
-setlocal softtabstop=2
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
-setlocal suffixesadd=.rb
+setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'ruby'
-setlocal syntax=ruby
+if &syntax != 'xdefaults'
+setlocal syntax=xdefaults
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -452,14 +448,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 2 - ((1 * winheight(0) + 25) / 51)
+let s:l = 1 - ((0 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
-normal! 017|
+1
+normal! 033|
 tabnext 1
-badd +0 git/dotfiles/ror/.irbrc
+badd +0 .Xresources
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

@@ -75,6 +75,15 @@ nnoremap s l
 nnoremap t j
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())
+nmap <C-Bslash>t :cs find t =expand('<cword>')
+nmap <C-Bslash>s :cs find s =expand('<cword>')
+nmap <C-Bslash>i :cs find i =expand('<cfile>')
+nmap <C-Bslash>g :cs find g =expand('<cword>')
+nmap <C-Bslash>f :cs find f =expand('<cfile>')
+nmap <C-Bslash>e :cs find e =expand('<cword>')
+nmap <C-Bslash>d :cs find d =expand('<cword>')
+nmap <C-Bslash>c :cs find c =expand('<cword>')
+map <C-P> <Plug>(ctrlp)
 nnoremap <silent> <Plug>(ctrlp) :CtrlP
 onoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectFunction', [v:false, ''])
 onoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectFunction', [v:true, ''])
@@ -125,7 +134,11 @@ noremap <Plug>(RivInstruction) :RivInstruction
 noremap <Plug>(RivIntro) :RivIntro
 noremap <Plug>(RivVimTest) : RivVimTest
 noremap <Plug>(RivHelpSection) :RivHelpSection
+map <silent> <C-E><C-H><C-F> <Plug>(RivHelpFile)
+map <silent> <C-E>hf <Plug>(RivHelpFile)
 noremap <Plug>(RivHelpFile) :RivHelpFile
+map <silent> <C-E><C-H><C-T> <Plug>(RivHelpTodo)
+map <silent> <C-E>ht <Plug>(RivHelpTodo)
 noremap <Plug>(RivHelpTodo) :RivHelpTodo
 noremap <Plug>(RivSuperMEnter) :RivSuperMEnter
 noremap <Plug>(RivSuperSEnter) :RivSuperSEnter
@@ -206,10 +219,20 @@ noremap <Plug>(RivLinkOpen) :RivLinkOpen
 noremap <Plug>(RivFoldUpdate) :RivFoldUpdate
 noremap <Plug>(RivFoldAll) :RivFoldAll
 noremap <Plug>(RivFoldToggle) :RivFoldToggle
+map <silent> <C-E><C-S><C-V> <Plug>(RivScratchView)
+map <silent> <C-E>sv <Plug>(RivScratchView)
 noremap <Plug>(RivScratchView) :RivScratchView
+map <silent> <C-E><C-S><C-C> <Plug>(RivScratchCreate)
+map <silent> <C-E>sc <Plug>(RivScratchCreate)
 noremap <Plug>(RivScratchCreate) :RivScratchCreate
+map <silent> <C-E><C-W><C-I> <Plug>(RivProjectHtmlIndex)
+map <silent> <C-E>wi <Plug>(RivProjectHtmlIndex)
 noremap <Plug>(RivProjectHtmlIndex) :RivProjectHtmlIndex
+map <silent> <C-E><C-W><C-A> <Plug>(RivProjectList)
+map <silent> <C-E>wa <Plug>(RivProjectList)
 noremap <Plug>(RivProjectList) :RivProjectList
+map <silent> <C-E><C-W><C-W> <Plug>(RivProjectIndex)
+map <silent> <C-E>ww <Plug>(RivProjectIndex)
 noremap <Plug>(RivProjectIndex) :RivProjectIndex
 nnoremap <silent> <Plug>(ale_rename) :ALERename
 nnoremap <silent> <Plug>(ale_documentation) :ALEDocumentation
@@ -248,7 +271,14 @@ nnoremap <silent> <Plug>(ale_previous_wrap_error) :ALEPrevious -wrap -error
 nnoremap <silent> <Plug>(ale_previous_error) :ALEPrevious -error
 nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
 nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
+vmap <C-T> <Plug>TwitvimVisual
+vmap <M-t> <Plug>TwitvimVisual
 noremap <SNR>18_Visual y:call twitvim#post_twitter(@", 0)
+nnoremap <C-U> :noh
+nnoremap <C-N> 
+nnoremap <C-T> 
+nnoremap <C-K> N
+nnoremap <C-J> n
 imap  <Plug>DiscretionaryEnd
 vmap ô <Plug>TwitvimVisual
 cnoreabbr Ack Ack!
@@ -265,6 +295,7 @@ set helplang=en
 set hidden
 set hlsearch
 set listchars=tab:>-,trail:.
+set nomodeline
 set pyxversion=2
 set ruler
 set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim81,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/after
@@ -285,8 +316,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .Xresources
-edit .Xresources
+$argadd /etc/fonts/fonts.conf
+edit /etc/fonts/fonts.conf
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -296,7 +327,20 @@ set winwidth=1
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
+inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
+inoremap <buffer> <silent> <expr> <M-p> AutoPairsToggle()
+inoremap <buffer> <silent> <M-b> =AutoPairsBackInsert()
+inoremap <buffer> <silent> <M-e> =AutoPairsFastWrap()
+inoremap <buffer> <silent> <C-H> =AutoPairsDelete()
 inoremap <buffer> <silent> <BS> =AutoPairsDelete()
+inoremap <buffer> <silent> <M-'> =AutoPairsMoveCharacter('''')
+inoremap <buffer> <silent> <M-"> =AutoPairsMoveCharacter('"')
+inoremap <buffer> <silent> <M-}> =AutoPairsMoveCharacter('}')
+inoremap <buffer> <silent> <M-{> =AutoPairsMoveCharacter('{')
+inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
+inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
+inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
+inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
 inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
 inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
 inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
@@ -309,6 +353,8 @@ inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
 inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
 inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+noremap <buffer> <silent> <M-n> :call AutoPairsJump()
+noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
 inoremap <buffer> <silent>  =AutoPairsDelete()
 inoremap <buffer> <silent>   =AutoPairsSpace()
 inoremap <buffer> <silent> " =AutoPairsInsert('"')
@@ -326,7 +372,7 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
-setlocal noautoindent
+setlocal autoindent
 setlocal backupcopy=
 setlocal balloonexpr=
 setlocal nobinary
@@ -340,8 +386,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,:!
-setlocal commentstring=/*%s*/
+setlocal comments=s:<!--,e:-->
+setlocal commentstring=<!--%s-->
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -359,8 +405,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'xdefaults'
-setlocal filetype=xdefaults
+if &filetype != 'xml'
+setlocal filetype=xml
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -373,17 +419,17 @@ setlocal foldmethod=manual
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
-setlocal formatexpr=
+setlocal formatexpr=xmlformat#Format()
 setlocal formatoptions=croql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=^\\s*#\\s*include
+setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal indentexpr=XmlIndentGet(v:lnum,1)
+setlocal indentkeys=o,O,*<Return>,<>>,<<>,/,{,},!^F
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -395,13 +441,13 @@ setlocal list
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
-setlocal modeline
+setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=
+setlocal omnifunc=xmlcomplete#CompleteTags
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -426,8 +472,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'xdefaults'
-setlocal syntax=xdefaults
+if &syntax != 'xml'
+setlocal syntax=xml
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -448,14 +494,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 25) / 51)
+let s:l = 1 - ((0 * winheight(0) + 33) / 66)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 033|
+normal! 0
 tabnext 1
-badd +0 .Xresources
+badd +0 /etc/fonts/fonts.conf
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

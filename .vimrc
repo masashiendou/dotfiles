@@ -127,6 +127,7 @@ set hlsearch
 set number
 set showmatch
 syntax on
+filetype plugin indent on
 
 "" buffer setting
 :set hidden
@@ -275,6 +276,7 @@ Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'jsfaint/gen_tags.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'slim-template/vim-slim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

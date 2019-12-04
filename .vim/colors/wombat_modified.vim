@@ -14,8 +14,10 @@ if version >= 700
 " hi CursorLine   guibg=#2d2d2d
 " hi CursorColumn guibg=#2d2d2d
 hi CursorLine term=bold cterm=bold ctermfg=NONE ctermbg=NONE
+hi CursorLine		ctermbg=236	cterm=none	guibg=#32322f
 hi CursorLineNr term=bold cterm=bold ctermfg=165 ctermbg=NONE
-  hi MatchParen   guifg=#f6f3e8 guibg=#857b6f gui=bold
+" hi MatchParen   guifg=#f6f3e8 guibg=#857b6f gui=bold
+hi MatchParen ctermfg=LightGreen ctermbg=blue
   hi Pmenu        guifg=#f6f3e8 guibg=#444444
   hi PmenuSel     guifg=#000000 guibg=#cae682
 endif
@@ -75,6 +77,11 @@ hi ModeMsg	cterm=none
 hi ModeMsg	guifg=#eeeeee	guibg=#000080	gui=NONE
 hi ModeMsg	gui=bold
 hi ModeMsg	cterm=bold
+
+" Style warning
+hi ALEWarning	ctermfg=18	ctermbg=166	cterm=none	guifg=#d787ff	guibg=#636066	gui=none
+hi ALEStyleWarning	ctermfg=18	ctermbg=166	cterm=none	guifg=#d787ff	guibg=#636066	gui=none
+hi ALEInfo	ctermfg=18	ctermbg=166	cterm=none	guifg=#d787ff	guibg=#636066	gui=none
 
 "hi VisualNOS	ctermfg=255	ctermbg=18	cterm=NONE
 "hi VisualNOS	cterm=none  

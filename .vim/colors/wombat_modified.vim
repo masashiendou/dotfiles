@@ -13,8 +13,7 @@ let colors_name = "wombat_modified"
 if version >= 700
 " hi CursorLine   guibg=#2d2d2d
 " hi CursorColumn guibg=#2d2d2d
-hi CursorLine term=bold cterm=bold ctermfg=NONE ctermbg=NONE
-hi CursorLine		ctermbg=236	cterm=none	guibg=#32322f
+hi CursorLine term=bold cterm=bold ctermfg=NONE ctermbg=236	guibg=#32322f
 hi CursorLineNr term=bold cterm=bold ctermfg=165 ctermbg=NONE
 " hi MatchParen   guifg=#f6f3e8 guibg=#857b6f gui=bold
 hi MatchParen ctermfg=LightGreen ctermbg=blue
@@ -68,8 +67,12 @@ hi Special        guifg=#e7f6da gui=none
 " My new stuff starts here
 hi Label          guifg=#47e0c3 gui=none
 hi StartifyPath   guifg=#95e454 gui=none
-hi diffRemoved    guifg=#e5786d gui=none
-hi diffAdded      guifg=#95e454 gui=none
+"hi diffRemoved    guifg=#e5786d gui=none
+"hi diffAdded      guifg=#95e454 gui=none
+hi DiffAdd        term=bold cterm=bold ctermfg=162 ctermbg=18 guibg=#193300
+hi DiffChange     term=bold ctermbg=60 guibg=#333300
+hi DiffDelete     term=bold ctermfg=69 ctermbg=234 guifg=#d70000
+hi DiffText       term=bold ctermfg=190 ctermbg=99 guibg=#666600
 
 " ModeMsg
 hi ModeMsg	ctermfg=220	ctermbg=NONE	cterm=NONE

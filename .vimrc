@@ -16,6 +16,11 @@ nnoremap <C-t> <C-y>
 nnoremap <C-n> <C-e>
 nnoremap <C-u> :noh<CR>
 nnoremap :bk :Bookmark
+"" For diff
+"" Also, do is diff obtain, dp is diff put
+nnoremap dk [c
+nnoremap dj ]c
+nnoremap :di :vertical diffsplit 
 " nnoremap eh gT
 " nnoremap es gt
 

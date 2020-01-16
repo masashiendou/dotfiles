@@ -1,0 +1,49 @@
+FROM ruby:2.7.0-alpine3.11
+ENV LANG C.UTF-8
+
+RUN set -x \
+&& apk upgrade --no-cache \
+&& apk add --update --no-cache --virtual=build-dependencies \
+nodejs \
+npm \
+tzdata \
+build-base \
+curl-dev \
+linux-headers \
+libxml2-dev \
+libxslt-dev \
+ruby-dev \
+yaml-dev \
+sqlite-dev \
+mariadb-dev \
+mariadb-client \
+vim \
+bash \
+git \
+yarn \
+openssl \
+zlib-dev \
+fzf \
+# openssh \
+# openrc \
+shadow
+
+# Install RubyGems
+# RUN gem update --system \
+# && gem install bundler \
+# && gem install json \
+# && gem install rdoc
+
+RUN mkdir -p /rails
+WORKDIR /rails
+
+# COPY Gemfile /rails
+# COPY Gemfile.lock /rails
+# Install bundle
+# RUN bundle config set path 'vendor/bundle' \
+# && bundle install -j4 \
+# # Install npm modules
+# && npm install yarn
+# # COPY package.json /rails
+# # COPY yarn.lock /rails
+# RUN yarn

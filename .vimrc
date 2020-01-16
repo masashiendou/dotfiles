@@ -28,6 +28,9 @@ nnoremap :di :vertical diffsplit
 let mapleader = "\<Space>"
 " NERDTreeToggle
 nnoremap <silent> <Leader>T :NERDTreeToggle<CR>
+let NERDTreeMapOpenInTab='r'
+let NERDTreeMapCloseDir='h'
+let NERDTreeMapCustomOpen='-'
 " window focus changing
 nnoremap <silent> <Leader>w :wincmd w<CR>
 nnoremap <silent> <Leader>W :wincmd W<CR>

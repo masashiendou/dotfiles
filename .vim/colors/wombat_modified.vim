@@ -74,6 +74,13 @@ hi DiffChange     term=bold ctermbg=60 guibg=#333300
 hi DiffDelete     term=bold ctermfg=69 ctermbg=234 guifg=#d70000
 hi DiffText       term=bold ctermfg=190 ctermbg=99 guibg=#666600
 
+" CtrlP colors
+"hi CtrlPPrtBase		ctermfg=186
+hi CtrlPBufferPath		ctermfg=153
+hi CtrlPBufferHid		ctermfg=186
+" QuickFix colors
+" hi QuickFixLine		ctermbg=Yellow		guibg=Yellow
+
 " ModeMsg
 hi ModeMsg	ctermfg=220	ctermbg=NONE	cterm=NONE
 hi ModeMsg	cterm=none  

@@ -235,6 +235,9 @@ let twitvim_browser_cmd = 'firefox'
 let twitvim_force_ssl = 1
 let twitvim_count = 600
 
+"vim-json setting
+autocmd Filetype json setl conceallevel=2
+
 "  vista.vim setting
 "function! NearestMethodOrFunction() abort
 "	  return get(b:, 'vista_nearest_method_or_function', '')
@@ -285,6 +288,8 @@ Plug 'majutsushi/tagbar'
 Plug 'jsfaint/gen_tags.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'slim-template/vim-slim'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

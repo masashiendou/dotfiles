@@ -2,7 +2,7 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <SNR>64_AutoPairsReturn =AutoPairsReturn()
+inoremap <silent> <SNR>67_AutoPairsReturn =AutoPairsReturn()
 inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 map <silent>  <Plug>(RivHelpFile)
@@ -76,6 +76,7 @@ nnoremap m b
 nnoremap n k
 nnoremap s l
 nnoremap t j
+nnoremap <SNR>85_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 nmap <C-Bslash>t :cs find t =expand('<cword>')
@@ -276,7 +277,7 @@ nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
 nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 vmap <C-T> <Plug>TwitvimVisual
 vmap <M-t> <Plug>TwitvimVisual
-noremap <SNR>19_Visual y:call twitvim#post_twitter(@", 0)
+noremap <SNR>22_Visual y:call twitvim#post_twitter(@", 0)
 nnoremap <C-U> :noh
 nnoremap <C-N> 
 nnoremap <C-T> 
@@ -301,27 +302,26 @@ set listchars=tab:>-,trail:.
 set nomodeline
 set pyxversion=2
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-javascript/after,~/.vim/after
 set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandaappanime_ec/prj_tags
 set undodir=~/.cache/vim/undo//
-set window=68
+set window=47
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/
+cd ~/app/anime_ec/getting-started-webpack
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd /etc/hosts
-edit /etc/hosts
+edit ~/app/anime_ec/using-babel-loader/public/js/bundle.js
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -376,7 +376,7 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
-setlocal noautoindent
+setlocal autoindent
 setlocal backupcopy=
 setlocal balloonexpr=
 setlocal nobinary
@@ -390,8 +390,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=:#
-setlocal commentstring=#\ %s
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+setlocal commentstring=//%s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -407,10 +407,10 @@ setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=
+setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,\ %#Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-G\ %#Overwrite%.%#\"h\"%.%#,%+GStarted\ %\\u%\\u%.%#,%+GCompleted\ %\\d%\\d%\\d%.%#,%+G[ActiveJob]%.%#]\ Perform%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%\\&completion=rails#complete_rails,%\\&start=console,%\\&terminal=%\\C%\\%%(console%\\|dbconsole%\\|server%\\|%[cs]%\\|db%\\)%\\>:%\\@!%\\ze%.%#,%\\&force_start=%\\C%\\%%(console%\\|dbconsole%\\|server%\\|%[cs]%\\|db%\\)%\\>:%\\@!%\\ze%.%#,%\\&default=default,%D(in\ %f),%\\s%#%\\d%#:%#\ %#from\ %f:%l:%m,%\\s%#%\\d%#:%#\ %#from\ %f:%l:,%\\s%##\ %f:%l:%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%##\ %f:%l%\\&%.%#%\\D:%\\d%\\+,%\\s%#[%f:%l:\ %#%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%#%f:%l:\ %#%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,%\\&dir=/home/kanda/app/anime_ec,%\\&buffer=%%:s/.*/\\=rails#buffer(submatch(0)).default_task(exists('l#')\ ?\ l#\ :\ 0)/
 setlocal noexpandtab
-if &filetype != 'conf'
-setlocal filetype=conf
+if &filetype != 'javascript'
+setlocal filetype=javascript
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -432,10 +432,10 @@ setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal indentexpr=GetJavascriptIndent()
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,0],0)
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
+setlocal iskeyword=@,48-57,_,192-255,$
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -443,7 +443,7 @@ setlocal lispwords=
 set list
 setlocal list
 setlocal makeencoding=
-setlocal makeprg=
+setlocal makeprg=bin/rails
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
 setlocal modifiable
@@ -451,7 +451,7 @@ setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=
+setlocal omnifunc=javascriptcomplete#CompleteJS
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -474,11 +474,11 @@ setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
-setlocal suffixesadd=
+setlocal suffixesadd=.js
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'conf'
-setlocal syntax=conf
+if &syntax != 'javascript'
+setlocal syntax=javascript
 endif
 setlocal tabstop=8
 setlocal tagcase=
@@ -499,14 +499,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 49085 - ((33 * winheight(0) + 34) / 68)
+let s:l = 32 - ((31 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-49085
-normal! 013|
+32
+normal! 02|
 tabnext 1
-badd +0 /etc/hosts
+badd +7 ~/app/anime_ec/using-babel-loader/package.json
+badd +2 ~/app/anime_ec/using-babel-loader/src/js/app.js
+badd +33 ~/app/anime_ec/using-babel-loader/webpack.config.js
+badd +0 ~/app/anime_ec/using-babel-loader/public/js/bundle.js
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

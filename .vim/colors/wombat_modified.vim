@@ -52,17 +52,19 @@ hi Search	ctermfg=18	ctermbg=169	cterm=none	guifg=#d787ff	guibg=#636066	gui=none
 hi Comment	guifg=#99968b	gui=italic
 hi Comment		ctermfg=58	ctermbg=NONE	cterm=NONE
 hi Comment		guifg=#606000	guibg=NONE	gui=NONE
-hi Todo           guifg=#8f8f8f gui=italic
-hi Constant       guifg=#e5786d gui=none
-hi String         guifg=#95e454 gui=none
-hi Identifier     guifg=#cae682 gui=none
-hi Function       guifg=#cae682 gui=none
-hi Type           guifg=#cae682 gui=none
-hi Statement      guifg=#8ac6f2 gui=none
-hi Keyword        guifg=#8ac6f2 gui=none
-hi PreProc        guifg=#e5786d gui=none
-hi Number         guifg=#e5786d gui=none
-hi Special        guifg=#e7f6da gui=none
+hi Todo		guifg=#8f8f8f gui=italic
+hi Constant	guifg=#e5786d gui=none
+hi String	ctermfg=210 guifg=#95e454 gui=none
+hi Identifier	guifg=#cae682 gui=none
+hi Function	guifg=#cae682 gui=none
+hi Type		guifg=#cae682 gui=none
+hi Statement	guifg=#8ac6f2 gui=none
+hi Keyword	guifg=#8ac6f2 gui=none
+hi PreProc	guifg=#e5786d gui=none
+hi Number	ctermfg=27 guifg=#e5786d gui=none
+hi Special	guifg=#e7f6da gui=none
+hi Boolean	ctermfg=184 gui=none
+hi jsonKeyword	ctermfg=40 gui=none
 
 " My new stuff starts here
 hi Label          guifg=#47e0c3 gui=none

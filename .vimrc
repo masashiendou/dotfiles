@@ -16,6 +16,9 @@ nnoremap <C-t> <C-y>
 nnoremap <C-n> <C-e>
 nnoremap <C-u> :noh<CR>
 nnoremap :bk :Bookmark
+nnoremap :ft :FriendsTwitter
+nnoremap :st :SearchTwitter
+nnoremap :ut :UserTwitter
 "" For diff
 "" Also, do is diff obtain, dp is diff put
 nnoremap dk [c
@@ -87,7 +90,8 @@ set cursorline
 set encoding=utf-8
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
-
+set tabstop=3
+set shiftwidth=0
 
 "=========================
 " Gtags, Ctags Quickfix settings
@@ -136,6 +140,7 @@ set number
 set showmatch
 syntax on
 filetype plugin indent on
+filetype plugin on
 
 "" buffer setting
 :set hidden
@@ -155,8 +160,12 @@ au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
 
 
 "" gen_tags.vim
-let g:gen_tags#ctags_auto_gen = 1
-let g:gen_tags#gtags_auto_gen = 1
+let g:gen_tags#ctags_auto_gen = 0
+let g:gen_tags#gtags_auto_gen = 0
+let g:gen_tags#ctags_auto_update = 0
+let g:gen_tags#gtags_auto_update = 1
+let g:Gtags_Auto_Map = 0
+let g:Gtags_OpenQuickfixWindow = 1
 
 "" coc.vim
 "" General
@@ -238,6 +247,14 @@ let twitvim_count = 600
 "vim-json setting
 autocmd Filetype json setl conceallevel=2
 
+" Markdown
+let g:previm_open_cmd = 'firefox'
+augroup PrevimSettings
+	autocmd!
+	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
+
 "  vista.vim setting
 "function! NearestMethodOrFunction() abort
 "	  return get(b:, 'vista_nearest_method_or_function', '')
@@ -268,7 +285,7 @@ call plug#begin('~/.vim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'nvie/vim-flake8'
 Plug 'slashmili/alchemist.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'tpope/vim-endwise'
 Plug 'elixir-editors/vim-elixir'
 Plug 'Rykka/riv.vim'
@@ -286,10 +303,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'jsfaint/gen_tags.vim'
+Plug 'lighttiger2505/gtags.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'slim-template/vim-slim'
-Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
+Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown' " For markdown
+Plug 'previm/previm' " For markdown
+Plug 'godlygeek/tabular' " For markdown
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

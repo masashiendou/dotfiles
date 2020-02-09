@@ -8,7 +8,7 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 gaps inner 3
 gaps outer 2
 
@@ -30,6 +30,15 @@ set $base0C #97e0ff
 set $base0D #97bbf7
 set $base0E #c0b7f9
 set $base0F #6246bd
+set $base0G #00df00
+set $base0H #005fff
+set $mon1 DP2-1
+set $mon2 DP2-3
+set $mon3 DP2
+set $mon4 DP1
+set $mon5 eDP1
+set $ws1 "1:1 壱"
+workspace $ws1 output $mon5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -49,109 +58,438 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+minus exec urxvt -name terminal
-bindsym $mod+Shift+minus exec urxvt -name tmux
 
-# kill focused window
-bindsym $mod+Shift+w kill
+bindsym $mod+j mode "一"
+workspace $ws1 output $mon1
+workspace $ws2 output $mon1
+workspace $ws3 output $mon1
+workspace $ws4 output $mon1
+workspace $ws5 output $mon1
+workspace $ws6 output $mon1
+workspace $ws7 output $mon1
+workspace $ws8 output $mon1
+workspace $ws9 output $mon1
+workspace $ws10 output $mon1
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb black -sb tomato -l 10
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+mode "一" {
 
-# change focus
-bindsym $mod+h focus left exec $autokey
-bindsym $mod+t focus down exec $autokey
-bindsym $mod+n focus up exec $autokey
-bindsym $mod+s focus right exec $autokey
+	# start a terminal
+	# bindsym $mod+Return exec i3-sensible-terminal
+	bindsym $mod+minus exec urxvt -name terminal
+	bindsym $mod+Shift+minus exec urxvt -name tmux
+	
+	# kill focused window
+	bindsym $mod+Shift+w kill
+	
+	# start dmenu (a program launcher)
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	# There also is the (new) i3-dmenu-desktop which only displays applications
+	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+	# installed.
+	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+	
+	# change focus
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
+	
+	# move focused window
+	bindsym $mod+Shift+h move left
+	bindsym $mod+Shift+t move down
+	bindsym $mod+Shift+n move up
+	bindsym $mod+Shift+s move right
+	
+	# alternatively, you can use the cursor keys:
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+	
+	# split in horizontal orientation
+	bindsym $mod+z split h
+	
+	# split in vertical orientation
+	bindsym $mod+v split v
+	
+	# enter fullscreen mode for the focused container
+	bindsym $mod+e fullscreen toggle
+	
+	# change container layout (stacked, tabbed, toggle split)
+	# bindsym $mod+o layout stacking
+	bindsym $mod+Shift+a layout tabbed
+	bindsym $mod+Shift+o layout toggle split
+	
+	# Define names for default workspaces for which we configure key bindings later on.
+	# We use variables to avoid repeating the names in multiple places.
+	set $ws1 "1:1 壱"
+	set $ws2 "2:1 弐"
+	set $ws3 "3:1 参"
+	set $ws4 "4:1 肆"
+	set $ws5 "5:1 伍"
+	set $ws6 "6:1 陸"
+	set $ws7 "7:1 漆"
+	set $ws8 "8:1 捌"
+	set $ws9 "9:1 玖"
+	set $ws10 "10:1 拾"
+	
+	# switch to workspace
+	bindsym $mod+1 workspace $ws1 exec $autokey
+	bindsym $mod+2 workspace $ws2 exec $autokey
+	bindsym $mod+3 workspace $ws3 exec $autokey
+	bindsym $mod+4 workspace $ws4 exec $autokey
+	bindsym $mod+5 workspace $ws5 exec $autokey
+	bindsym $mod+6 workspace $ws6 exec $autokey
+	bindsym $mod+7 workspace $ws7 exec $autokey
+	bindsym $mod+8 workspace $ws8 exec $autokey
+	bindsym $mod+9 workspace $ws9 exec $autokey
+	bindsym $mod+0 workspace $ws10 exec $autokey
+	
+	# move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $ws1
+	bindsym $mod+Shift+2 move container to workspace $ws2
+	bindsym $mod+Shift+3 move container to workspace $ws3
+	bindsym $mod+Shift+4 move container to workspace $ws4
+	bindsym $mod+Shift+5 move container to workspace $ws5
+	bindsym $mod+Shift+6 move container to workspace $ws6
+	bindsym $mod+Shift+7 move container to workspace $ws7
+	bindsym $mod+Shift+8 move container to workspace $ws8
+	bindsym $mod+Shift+9 move container to workspace $ws9
+	bindsym $mod+Shift+0 move container to workspace $ws10
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-# 
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+t move down
-bindsym $mod+Shift+n move up
-bindsym $mod+Shift+s move right
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym $mod+j mode "default"
+	bindsym $mod+r mode "resize"
+	bindsym $mod+k mode "二"
+	bindsym $mod+Shift+j mode "三"
+	bindsym $mod+Shift+k mode "四"
+}
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+z split h
 
-# split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+k mode "二"
+workspace $ws11 output $mon2
+workspace $ws12 output $mon2
+workspace $ws13 output $mon2
+workspace $ws14 output $mon2
+workspace $ws15 output $mon2
+workspace $ws16 output $mon2
+workspace $ws17 output $mon2
+workspace $ws18 output $mon2
+workspace $ws19 output $mon2
+workspace $ws20 output $mon2
 
-# enter fullscreen mode for the focused container
-bindsym $mod+e fullscreen toggle
+mode "二" {
 
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+o layout stacking
-bindsym $mod+Shift+a layout tabbed
-bindsym $mod+Shift+o layout toggle split
+	# start a terminal
+	# bindsym $mod+Return exec i3-sensible-terminal
+	bindsym $mod+minus exec urxvt -name terminal
+	bindsym $mod+Shift+minus exec urxvt -name tmux
+	
+	# kill focused window
+	bindsym $mod+Shift+w kill
+	
+	# start dmenu (a program launcher)
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	# There also is the (new) i3-dmenu-desktop which only displays applications
+	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+	# installed.
+	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+	
+	# change focus
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
+	
+	# move focused window
+	bindsym $mod+Shift+h move left
+	bindsym $mod+Shift+t move down
+	bindsym $mod+Shift+n move up
+	bindsym $mod+Shift+s move right
+	
+	# alternatively, you can use the cursor keys:
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+	
+	# split in horizontal orientation
+	bindsym $mod+z split h
+	
+	# split in vertical orientation
+	bindsym $mod+v split v
+	
+	# enter fullscreen mode for the focused container
+	bindsym $mod+e fullscreen toggle
+	
+	# change container layout (stacked, tabbed, toggle split)
+	# bindsym $mod+o layout stacking
+	bindsym $mod+Shift+a layout tabbed
+	bindsym $mod+Shift+o layout toggle split
+	
+	# Define names for default workspaces for which we configure key bindings later on.
+	# We use variables to avoid repeating the names in multiple places.
+	set $ws11 "11:2 壱"
+	set $ws12 "12:2 弐"
+	set $ws13 "13:2 参"
+	set $ws14 "14:2 肆"
+	set $ws15 "15:2 伍"
+	set $ws16 "16:2 陸"
+	set $ws17 "17:2 漆"
+	set $ws18 "18:2 捌"
+	set $ws19 "19:2 玖"
+	set $ws20 "20:2 拾"
+	
+	# switch to workspace
+	bindsym $mod+1 workspace $ws11 exec $autokey
+	bindsym $mod+2 workspace $ws12 exec $autokey
+	bindsym $mod+3 workspace $ws13 exec $autokey
+	bindsym $mod+4 workspace $ws14 exec $autokey
+	bindsym $mod+5 workspace $ws15 exec $autokey
+	bindsym $mod+6 workspace $ws16 exec $autokey
+	bindsym $mod+7 workspace $ws17 exec $autokey
+	bindsym $mod+8 workspace $ws18 exec $autokey
+	bindsym $mod+9 workspace $ws19 exec $autokey
+	bindsym $mod+0 workspace $ws20 exec $autokey
+	
+	# move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $ws11
+	bindsym $mod+Shift+2 move container to workspace $ws12
+	bindsym $mod+Shift+3 move container to workspace $ws13
+	bindsym $mod+Shift+4 move container to workspace $ws14
+	bindsym $mod+Shift+5 move container to workspace $ws15
+	bindsym $mod+Shift+6 move container to workspace $ws16
+	bindsym $mod+Shift+7 move container to workspace $ws17
+	bindsym $mod+Shift+8 move container to workspace $ws18
+	bindsym $mod+Shift+9 move container to workspace $ws19
+	bindsym $mod+Shift+0 move container to workspace $ws20
 
-# toggle tiling / floating
-# bindsym $mod+Shift+space floating toggle
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym $mod+k mode "default"
+	bindsym $mod+r mode "resize"
+	bindsym $mod+j mode "一"
+	bindsym $mod+Shift+j mode "三"
+	bindsym $mod+Shift+k mode "四"
+}
 
-# change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-# bindsym $mod+p focus parent
+bindsym $mod+Shift+j mode "三"
+workspace $ws31 output $mon3
+workspace $ws32 output $mon3
+workspace $ws33 output $mon3
+workspace $ws34 output $mon3
+workspace $ws35 output $mon3
+workspace $ws36 output $mon3
+workspace $ws37 output $mon3
+workspace $ws38 output $mon3
+workspace $ws39 output $mon3
+workspace $ws40 output $mon3
 
-# focus the child container
-# bindsym $mod+c focus child
+mode "三" {
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:壱"
-set $ws2 "2:弐"
-set $ws3 "3:参"
-set $ws4 "4:肆"
-set $ws5 "5:伍"
-set $ws6 "6:陸"
-set $ws7 "7:漆"
-set $ws8 "8:捌"
-set $ws9 "9:玖"
-set $ws10 "10:拾"
+	# start a terminal
+	# bindsym $mod+Return exec i3-sensible-terminal
+	bindsym $mod+minus exec urxvt -name terminal
+	bindsym $mod+Shift+minus exec urxvt -name tmux
+	
+	# kill focused window
+	bindsym $mod+Shift+w kill
+	
+	# start dmenu (a program launcher)
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	# There also is the (new) i3-dmenu-desktop which only displays applications
+	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+	# installed.
+	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+	
+	# change focus
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
+	
+	# move focused window
+	bindsym $mod+Shift+h move left
+	bindsym $mod+Shift+t move down
+	bindsym $mod+Shift+n move up
+	bindsym $mod+Shift+s move right
+	
+	# alternatively, you can use the cursor keys:
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+	
+	# split in horizontal orientation
+	bindsym $mod+z split h
+	
+	# split in vertical orientation
+	bindsym $mod+v split v
+	
+	# enter fullscreen mode for the focused container
+	bindsym $mod+e fullscreen toggle
+	
+	# change container layout (stacked, tabbed, toggle split)
+	# bindsym $mod+o layout stacking
+	bindsym $mod+Shift+a layout tabbed
+	bindsym $mod+Shift+o layout toggle split
+	
+	# Define names for default workspaces for which we configure key bindings later on.
+	# We use variables to avoid repeating the names in multiple places.
+	set $ws31 "31:3 壱"
+	set $ws32 "32:3 弐"
+	set $ws33 "33:3 参"
+	set $ws34 "34:3 肆"
+	set $ws35 "35:3 伍"
+	set $ws36 "36:3 陸"
+	set $ws37 "37:3 漆"
+	set $ws38 "38:3 捌"
+	set $ws39 "39:3 玖"
+	set $ws40 "40:3 拾"
+	
+	# switch to workspace
+	bindsym $mod+1 workspace $ws31 exec $autokey
+	bindsym $mod+2 workspace $ws32 exec $autokey
+	bindsym $mod+3 workspace $ws33 exec $autokey
+	bindsym $mod+4 workspace $ws34 exec $autokey
+	bindsym $mod+5 workspace $ws35 exec $autokey
+	bindsym $mod+6 workspace $ws36 exec $autokey
+	bindsym $mod+7 workspace $ws37 exec $autokey
+	bindsym $mod+8 workspace $ws38 exec $autokey
+	bindsym $mod+9 workspace $ws39 exec $autokey
+	bindsym $mod+0 workspace $ws40 exec $autokey
+	
+	# move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $ws31
+	bindsym $mod+Shift+2 move container to workspace $ws32
+	bindsym $mod+Shift+3 move container to workspace $ws33
+	bindsym $mod+Shift+4 move container to workspace $ws34
+	bindsym $mod+Shift+5 move container to workspace $ws35
+	bindsym $mod+Shift+6 move container to workspace $ws36
+	bindsym $mod+Shift+7 move container to workspace $ws37
+	bindsym $mod+Shift+8 move container to workspace $ws38
+	bindsym $mod+Shift+9 move container to workspace $ws39
+	bindsym $mod+Shift+0 move container to workspace $ws40
 
-# switch to workspace
-bindsym $mod+1 workspace $ws1 exec $autokey
-bindsym $mod+2 workspace $ws2 exec $autokey
-bindsym $mod+3 workspace $ws3 exec $autokey
-bindsym $mod+4 workspace $ws4 exec $autokey
-bindsym $mod+5 workspace $ws5 exec $autokey
-bindsym $mod+6 workspace $ws6 exec $autokey
-bindsym $mod+7 workspace $ws7 exec $autokey
-bindsym $mod+8 workspace $ws8 exec $autokey
-# bindsym $mod+9 workspace $ws9
-bindsym $mod+9 workspace $ws9 exec $autokey
-# bindsym $mod+0 workspace $ws10
-bindsym $mod+0 workspace $ws10 exec $autokey
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym $mod+Shift+j mode "default"
+	bindsym $mod+r mode "resize"
+	bindsym $mod+j mode "一"
+	bindsym $mod+k mode "二"
+	bindsym $mod+Shift+k mode "四"
+}
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+k mode "四"
+workspace $ws41 output $mon4
+workspace $ws42 output $mon4
+workspace $ws43 output $mon4
+workspace $ws44 output $mon4
+workspace $ws45 output $mon4
+workspace $ws46 output $mon4
+workspace $ws47 output $mon4
+workspace $ws48 output $mon4
+workspace $ws49 output $mon4
+workspace $ws50 output $mon4
+
+mode "四" {
+
+	# start a terminal
+	# bindsym $mod+Return exec i3-sensible-terminal
+	bindsym $mod+minus exec urxvt -name terminal
+	bindsym $mod+Shift+minus exec urxvt -name tmux
+	
+	# kill focused window
+	bindsym $mod+Shift+w kill
+	
+	# start dmenu (a program launcher)
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	# There also is the (new) i3-dmenu-desktop which only displays applications
+	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+	# installed.
+	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+	
+	# change focus
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
+	
+	# move focused window
+	bindsym $mod+Shift+h move left
+	bindsym $mod+Shift+t move down
+	bindsym $mod+Shift+n move up
+	bindsym $mod+Shift+s move right
+	
+	# alternatively, you can use the cursor keys:
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+	
+	# split in horizontal orientation
+	bindsym $mod+z split h
+	
+	# split in vertical orientation
+	bindsym $mod+v split v
+	
+	# enter fullscreen mode for the focused container
+	bindsym $mod+e fullscreen toggle
+	
+	# change container layout (stacked, tabbed, toggle split)
+	# bindsym $mod+o layout stacking
+	bindsym $mod+Shift+a layout tabbed
+	bindsym $mod+Shift+o layout toggle split
+	# Define names for default workspaces for which we configure key bindings later on.
+	# We use variables to avoid repeating the names in multiple places.
+	set $ws41 "41:4 壱"
+	set $ws42 "42:4 弐"
+	set $ws43 "43:4 参"
+	set $ws44 "44:4 肆"
+	set $ws45 "45:4 伍"
+	set $ws46 "46:4 陸"
+	set $ws47 "47:4 漆"
+	set $ws48 "48:4 捌"
+	set $ws49 "49:4 玖"
+	set $ws50 "50:4 拾"
+	
+	# switch to workspace
+	bindsym $mod+1 workspace $ws41 exec $autokey
+	bindsym $mod+2 workspace $ws42 exec $autokey
+	bindsym $mod+3 workspace $ws43 exec $autokey
+	bindsym $mod+4 workspace $ws44 exec $autokey
+	bindsym $mod+5 workspace $ws45 exec $autokey
+	bindsym $mod+6 workspace $ws46 exec $autokey
+	bindsym $mod+7 workspace $ws47 exec $autokey
+	bindsym $mod+8 workspace $ws48 exec $autokey
+	bindsym $mod+9 workspace $ws49 exec $autokey
+	bindsym $mod+0 workspace $ws50 exec $autokey
+	
+	# move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace $ws41
+	bindsym $mod+Shift+2 move container to workspace $ws42
+	bindsym $mod+Shift+3 move container to workspace $ws43
+	bindsym $mod+Shift+4 move container to workspace $ws44
+	bindsym $mod+Shift+5 move container to workspace $ws45
+	bindsym $mod+Shift+6 move container to workspace $ws46
+	bindsym $mod+Shift+7 move container to workspace $ws47
+	bindsym $mod+Shift+8 move container to workspace $ws48
+	bindsym $mod+Shift+9 move container to workspace $ws49
+	bindsym $mod+Shift+0 move container to workspace $ws50
+
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym $mod+Shift+k mode "default"
+	bindsym $mod+r mode "resize"
+	bindsym $mod+j mode "一"
+	bindsym $mod+k mode "二"
+	bindsym $mod+Shift+j mode "三"
+}
+
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -176,45 +514,43 @@ bindsym $mod+Shift+l exec i3lock --color "$base02"
 
 # mouse focus
 focus_follows_mouse no
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym s resize shrink width 10 px or 10 ppt
-        bindsym n resize grow height 10 px or 10 ppt
-        bindsym t resize shrink height 10 px or 10 ppt
-        bindsym h resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-        bindsym $mod+minus mode "default"
-}
 
 bindsym $mod+r mode "resize"
+# resize window (you can also use the mouse for that)
+mode "resize" {
+	# These bindings trigger as soon as you enter the resize mode
+	bindsym s resize shrink width 10 px or 10 ppt
+	bindsym n resize grow height 10 px or 10 ppt
+	bindsym t resize shrink height 10 px or 10 ppt
+	bindsym h resize grow width 10 px or 10 ppt
+	
+	# same bindings, but for the arrow keys
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+	
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym $mod+r mode "default"
+	bindsym $mod+minus mode "default"
+	bindsym $mod+j mode "一"
+	bindsym $mod+k mode "二"
+	bindsym $mod+Shift+j mode "三"
+	bindsym $mod+Shift+k mode "四"
+}
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
 # Window Colours
 #                         border  background text    indicator
-  client.focused          $base01 $base01    $base07 $base0F
+  client.focused          $base01 $base0H    $base07 $base0F
   client.focused_inactive $base02 $base02    $base03 $base0F
   client.unfocused        $base02 $base02    $base03 $base0F
   client.urgent 	  $base02 $base08    $base00 $base0F
 
-hide_edge_borders both
+# hide_edge_borders both
 
 bar {
         # status_command i3status
@@ -230,10 +566,10 @@ bar {
               background $base01
               statusline $base05
 	      #                  border  background text
-              focused_workspace  $base01 $base01    $base07
-              active_workspace   $base01 $base02    $base03
+              focused_workspace  $base0D $base01    $base0D
+              active_workspace   $base0D $base02    $base0D
               inactive_workspace $base01 $base01    $base03
-	      urgent_workspace $base01 $base01 $base08
+	      urgent_workspace $base01 $base01 $base0G
 
 		}
 }

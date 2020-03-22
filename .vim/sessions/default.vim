@@ -19,9 +19,11 @@ map <silent>  <Plug>(RivProjectList)
 map <silent> wa <Plug>(RivProjectList)
 map <silent>  <Plug>(RivProjectIndex)
 map <silent> ww <Plug>(RivProjectIndex)
-nnoremap <NL> n
-nnoremap  N
+nnoremap <NL> N
+nnoremap  n
 nnoremap  
+vmap  <Plug>(caw:hatpos:toggle)
+nmap  <Plug>(caw:hatpos:toggle)
 map  <Plug>(ctrlp)
 vmap  <Plug>TwitvimVisual
 nnoremap  
@@ -34,6 +36,7 @@ nmap f :cs find f =expand('<cfile>')
 nmap e :cs find e =expand('<cword>')
 nmap d :cs find d =expand('<cword>')
 nmap c :cs find c =expand('<cword>')
+map  a
 nnoremap  a :Ack! 
 nnoremap <silent>  n :copen
 nnoremap <silent>  o :cclose
@@ -56,6 +59,11 @@ nnoremap <silent>  w :wincmd w
 nnoremap <silent>  T :NERDTreeToggle
 nnoremap $ ^
 nnoremap :di :vertical diffsplit 
+nnoremap :ret :UserTwitter GirlSearch01
+nnoremap :fav :FavTwitter
+nnoremap :ut :UserTwitter
+nnoremap :st :SearchTwitter
+nnoremap :ft :FriendsTwitter
 nnoremap :bk :Bookmark
 nnoremap ^ $
 nnoremap <silent> bo :bd
@@ -65,20 +73,96 @@ nnoremap <silent> bl ::CtrlPBuffer
 nnoremap bw :w
 nnoremap bz :vnew
 nnoremap bv :new
-nnoremap dj ]c
-nnoremap dk [c
+nnoremap dk ]c
+nnoremap dj [c
 nnoremap eo :q
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
+xmap gc <Plug>(caw:prefix)
+nmap gc <Plug>(caw:prefix)
 nnoremap h h
 nnoremap l e
 nnoremap m b
 nnoremap n k
 nnoremap s l
 nnoremap t j
-nnoremap <SNR>89_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+xmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
+nmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
+xmap <Plug>(caw:prefix)o <Plug>(caw:jump:comment-next)
+nmap <Plug>(caw:prefix)o <Plug>(caw:jump:comment-next)
+nnoremap <silent> <Plug>(caw:jump:comment-prev) :call caw#keymapping_stub('n', 'jump', 'comment-prev')
+nnoremap <silent> <Plug>(caw:jump:comment-next) :call caw#keymapping_stub('n', 'jump', 'comment-next')
+xmap <Plug>(caw:prefix)b <Plug>(caw:box:comment)
+nmap <Plug>(caw:prefix)b <Plug>(caw:box:comment)
+xnoremap <silent> <Plug>(caw:box:comment) :call caw#keymapping_stub('x', 'box', 'comment')
+nnoremap <silent> <Plug>(caw:box:comment) :call caw#keymapping_stub('n', 'box', 'comment')
+xmap <Plug>(caw:prefix)uw <Plug>(caw:wrap:uncomment)
+nmap <Plug>(caw:prefix)uw <Plug>(caw:wrap:uncomment)
+xmap <Plug>(caw:prefix)w <Plug>(caw:wrap:comment)
+nmap <Plug>(caw:prefix)w <Plug>(caw:wrap:comment)
+xnoremap <silent> <Plug>(caw:wrap:toggle) :call caw#keymapping_stub('x', 'wrap', 'toggle')
+nnoremap <silent> <Plug>(caw:wrap:toggle) :call caw#keymapping_stub('n', 'wrap', 'toggle')
+xnoremap <silent> <Plug>(caw:wrap:uncomment) :call caw#keymapping_stub('x', 'wrap', 'uncomment')
+nnoremap <silent> <Plug>(caw:wrap:uncomment) :call caw#keymapping_stub('n', 'wrap', 'uncomment')
+xnoremap <silent> <Plug>(caw:wrap:comment) :call caw#keymapping_stub('x', 'wrap', 'comment')
+nnoremap <silent> <Plug>(caw:wrap:comment) :call caw#keymapping_stub('n', 'wrap', 'comment')
+xmap <Plug>(caw:prefix)ua <Plug>(caw:dollarpos:uncomment)
+nmap <Plug>(caw:prefix)ua <Plug>(caw:dollarpos:uncomment)
+xmap <Plug>(caw:prefix)a <Plug>(caw:dollarpos:comment)
+nmap <Plug>(caw:prefix)a <Plug>(caw:dollarpos:comment)
+xnoremap <silent> <Plug>(caw:a:toggle) :call caw#keymapping_stub_deprecated('x', 'dollarpos', 'toggle', 'a')
+xnoremap <silent> <Plug>(caw:dollarpos:toggle) :call caw#keymapping_stub('x', 'dollarpos', 'toggle')
+nnoremap <silent> <Plug>(caw:a:toggle) :call caw#keymapping_stub_deprecated('n', 'dollarpos', 'toggle', 'a')
+nnoremap <silent> <Plug>(caw:dollarpos:toggle) :call caw#keymapping_stub('n', 'dollarpos', 'toggle')
+xnoremap <silent> <Plug>(caw:a:uncomment) :call caw#keymapping_stub_deprecated('x', 'dollarpos', 'uncomment', 'a')
+xnoremap <silent> <Plug>(caw:dollarpos:uncomment) :call caw#keymapping_stub('x', 'dollarpos', 'uncomment')
+nnoremap <silent> <Plug>(caw:a:uncomment) :call caw#keymapping_stub_deprecated('n', 'dollarpos', 'uncomment', 'a')
+nnoremap <silent> <Plug>(caw:dollarpos:uncomment) :call caw#keymapping_stub('n', 'dollarpos', 'uncomment')
+xnoremap <silent> <Plug>(caw:a:comment) :call caw#keymapping_stub_deprecated('x', 'dollarpos', 'comment', 'a')
+xnoremap <silent> <Plug>(caw:dollarpos:comment) :call caw#keymapping_stub('x', 'dollarpos', 'comment')
+nnoremap <silent> <Plug>(caw:a:comment) :call caw#keymapping_stub_deprecated('n', 'dollarpos', 'comment', 'a')
+nnoremap <silent> <Plug>(caw:dollarpos:comment) :call caw#keymapping_stub('n', 'dollarpos', 'comment')
+xmap <Plug>(caw:prefix)uI <Plug>(caw:zeropos:uncomment)
+nmap <Plug>(caw:prefix)uI <Plug>(caw:zeropos:uncomment)
+xmap <Plug>(caw:prefix)I <Plug>(caw:zeropos:comment)
+nmap <Plug>(caw:prefix)I <Plug>(caw:zeropos:comment)
+xnoremap <silent> <Plug>(caw:I:toggle) :call caw#keymapping_stub_deprecated('x', 'zeropos', 'toggle', 'I')
+xnoremap <silent> <Plug>(caw:zeropos:toggle) :call caw#keymapping_stub('x', 'zeropos', 'toggle')
+nnoremap <silent> <Plug>(caw:I:toggle) :call caw#keymapping_stub_deprecated('n', 'zeropos', 'toggle', 'I')
+nnoremap <silent> <Plug>(caw:zeropos:toggle) :call caw#keymapping_stub('n', 'zeropos', 'toggle')
+xnoremap <silent> <Plug>(caw:I:uncomment) :call caw#keymapping_stub_deprecated('x', 'zeropos', 'uncomment', 'I')
+xnoremap <silent> <Plug>(caw:zeropos:uncomment) :call caw#keymapping_stub('x', 'zeropos', 'uncomment')
+nnoremap <silent> <Plug>(caw:I:uncomment) :call caw#keymapping_stub_deprecated('n', 'zeropos', 'uncomment', 'I')
+nnoremap <silent> <Plug>(caw:zeropos:uncomment) :call caw#keymapping_stub('n', 'zeropos', 'uncomment')
+xnoremap <silent> <Plug>(caw:I:comment) :call caw#keymapping_stub_deprecated('x', 'zeropos', 'comment', 'I')
+xnoremap <silent> <Plug>(caw:zeropos:comment) :call caw#keymapping_stub('x', 'zeropos', 'comment')
+nnoremap <silent> <Plug>(caw:I:comment) :call caw#keymapping_stub_deprecated('n', 'zeropos', 'comment', 'I')
+nnoremap <silent> <Plug>(caw:zeropos:comment) :call caw#keymapping_stub('n', 'zeropos', 'comment')
+xmap <Plug>(caw:prefix)ui <Plug>(caw:hatpos:uncomment)
+nmap <Plug>(caw:prefix)ui <Plug>(caw:hatpos:uncomment)
+xmap <Plug>(caw:prefix)i <Plug>(caw:hatpos:comment)
+nmap <Plug>(caw:prefix)i <Plug>(caw:hatpos:comment)
+xnoremap <silent> <Plug>(caw:tildepos:toggle) :call caw#keymapping_stub_deprecated('x', 'hatpos', 'toggle', 'tildepos')
+xnoremap <silent> <Plug>(caw:i:toggle) :call caw#keymapping_stub_deprecated('x', 'hatpos', 'toggle', 'i')
+xnoremap <silent> <Plug>(caw:hatpos:toggle) :call caw#keymapping_stub('x', 'hatpos', 'toggle')
+nnoremap <silent> <Plug>(caw:tildepos:toggle) :call caw#keymapping_stub_deprecated('n', 'hatpos', 'toggle', 'tildepos')
+nnoremap <silent> <Plug>(caw:i:toggle) :call caw#keymapping_stub_deprecated('n', 'hatpos', 'toggle', 'i')
+nnoremap <silent> <Plug>(caw:hatpos:toggle) :call caw#keymapping_stub('n', 'hatpos', 'toggle')
+xnoremap <silent> <Plug>(caw:tildepos:uncomment) :call caw#keymapping_stub_deprecated('x', 'hatpos', 'uncomment', 'tildepos')
+xnoremap <silent> <Plug>(caw:i:uncomment) :call caw#keymapping_stub_deprecated('x', 'hatpos', 'uncomment', 'i')
+xnoremap <silent> <Plug>(caw:hatpos:uncomment) :call caw#keymapping_stub('x', 'hatpos', 'uncomment')
+nnoremap <silent> <Plug>(caw:tildepos:uncomment) :call caw#keymapping_stub_deprecated('n', 'hatpos', 'uncomment', 'tildepos')
+nnoremap <silent> <Plug>(caw:i:uncomment) :call caw#keymapping_stub_deprecated('n', 'hatpos', 'uncomment', 'i')
+nnoremap <silent> <Plug>(caw:hatpos:uncomment) :call caw#keymapping_stub('n', 'hatpos', 'uncomment')
+xnoremap <silent> <Plug>(caw:tildepos:comment) :call caw#keymapping_stub_deprecated('x', 'hatpos', 'comment', 'tildepos')
+xnoremap <silent> <Plug>(caw:i:comment) :call caw#keymapping_stub_deprecated('x', 'hatpos', 'comment', 'i')
+xnoremap <silent> <Plug>(caw:hatpos:comment) :call caw#keymapping_stub('x', 'hatpos', 'comment')
+nnoremap <silent> <Plug>(caw:tildepos:comment) :call caw#keymapping_stub_deprecated('n', 'hatpos', 'comment', 'tildepos')
+nnoremap <silent> <Plug>(caw:i:comment) :call caw#keymapping_stub_deprecated('n', 'hatpos', 'comment', 'i')
+nnoremap <silent> <Plug>(caw:hatpos:comment) :call caw#keymapping_stub('n', 'hatpos', 'comment')
+map <C-_> a
 nmap <C-Bslash>t :cs find t =expand('<cword>')
 nmap <C-Bslash>s :cs find s =expand('<cword>')
 nmap <C-Bslash>i :cs find i =expand('<cfile>')
@@ -278,12 +362,16 @@ nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 vmap <C-T> <Plug>TwitvimVisual
 vmap <M-t> <Plug>TwitvimVisual
 noremap <SNR>24_Visual y:call twitvim#post_twitter(@", 0)
+vmap <C-O> <Plug>(caw:hatpos:toggle)
+nmap <C-O> <Plug>(caw:hatpos:toggle)
 nnoremap <C-U> :noh
 nnoremap <C-N> 
 nnoremap <C-T> 
-nnoremap <C-K> N
-nnoremap <C-J> n
+nnoremap <C-J> N
+nnoremap <C-K> n
 imap  <Plug>DiscretionaryEnd
+inoremap <C+/> =EasyCloseTag()=SetCursor()
+inoremap </ =GetCloseTag()
 vmap ô <Plug>TwitvimVisual
 cnoreabbr Ack Ack!
 let &cpo=s:cpo_save
@@ -298,30 +386,34 @@ set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=en
 set hidden
 set hlsearch
+set imactivatefunc=FcitxPySet
+set imstatusfunc=FcitxPyGet
 set listchars=tab:>-,trail:.
 set nomodeline
 set pyxversion=2
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-polyglot/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/previm/,~/.vim/plugged/tabular/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-polyglot/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/vim-markdown/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-polyglot/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/previm/,~/.vim/plugged/tabular/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-polyglot/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/vim-markdown/after,~/.vim/plugged/tabular/after,~/.vim/plugged/caw.vim/after,~/.vim/after
 set shiftwidth=0
 set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
 set tabstop=3
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandaappanime_ec/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
 set undodir=~/.cache/vim/undo//
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/app/anime_ec/using-tree-shaking
+cd ~/
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
+$argadd /etc/lynx.cfg
+edit /etc/lynx.cfg
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -329,8 +421,6 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-enew
-file NERD_tree_1
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -347,18 +437,10 @@ inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
 inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
 inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
-nnoremap <buffer> <silent> <NL> :call nerdtree#ui_glue#invokeKeyMap("<C-j>")
-nnoremap <buffer> <silent>  :call nerdtree#ui_glue#invokeKeyMap("<C-k>")
-nnoremap <buffer> <silent> - :call nerdtree#ui_glue#invokeKeyMap("-")
-nnoremap <buffer> <silent> ? :call nerdtree#ui_glue#invokeKeyMap("?")
-nnoremap <buffer> <silent> A :call nerdtree#ui_glue#invokeKeyMap("A")
-nnoremap <buffer> <silent> B :call nerdtree#ui_glue#invokeKeyMap("B")
 inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
 inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
 inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
 inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
-nnoremap <buffer> <silent> C :call nerdtree#ui_glue#invokeKeyMap("C")
-nnoremap <buffer> <silent> CD :call nerdtree#ui_glue#invokeKeyMap("CD")
 inoremap <buffer> <silent> î :call AutoPairsJump()a
 inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
 inoremap <buffer> <silent> â =AutoPairsBackInsert()
@@ -367,37 +449,6 @@ inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
 inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
 inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
-nnoremap <buffer> <silent> D :call nerdtree#ui_glue#invokeKeyMap("D")
-nnoremap <buffer> <silent> F :call nerdtree#ui_glue#invokeKeyMap("F")
-nnoremap <buffer> <silent> I :call nerdtree#ui_glue#invokeKeyMap("I")
-nnoremap <buffer> <silent> J :call nerdtree#ui_glue#invokeKeyMap("J")
-nnoremap <buffer> <silent> K :call nerdtree#ui_glue#invokeKeyMap("K")
-nnoremap <buffer> <silent> O :call nerdtree#ui_glue#invokeKeyMap("O")
-nnoremap <buffer> <silent> P :call nerdtree#ui_glue#invokeKeyMap("P")
-nnoremap <buffer> <silent> R :call nerdtree#ui_glue#invokeKeyMap("R")
-nnoremap <buffer> <silent> T :call nerdtree#ui_glue#invokeKeyMap("T")
-nnoremap <buffer> <silent> U :call nerdtree#ui_glue#invokeKeyMap("U")
-nnoremap <buffer> <silent> X :call nerdtree#ui_glue#invokeKeyMap("X")
-nnoremap <buffer> <silent> cd :call nerdtree#ui_glue#invokeKeyMap("cd")
-nnoremap <buffer> <silent> e :call nerdtree#ui_glue#invokeKeyMap("e")
-nnoremap <buffer> <silent> f :call nerdtree#ui_glue#invokeKeyMap("f")
-nnoremap <buffer> <silent> go :call nerdtree#ui_glue#invokeKeyMap("go")
-nnoremap <buffer> <silent> gs :call nerdtree#ui_glue#invokeKeyMap("gs")
-nnoremap <buffer> <silent> gi :call nerdtree#ui_glue#invokeKeyMap("gi")
-nnoremap <buffer> <silent> h :call nerdtree#ui_glue#invokeKeyMap("h")
-nnoremap <buffer> <silent> i :call nerdtree#ui_glue#invokeKeyMap("i")
-nnoremap <buffer> <silent> m :call nerdtree#ui_glue#invokeKeyMap("m")
-nnoremap <buffer> <silent> o :call nerdtree#ui_glue#invokeKeyMap("o")
-nnoremap <buffer> <silent> p :call nerdtree#ui_glue#invokeKeyMap("p")
-nnoremap <buffer> <silent> q :call nerdtree#ui_glue#invokeKeyMap("q")
-nnoremap <buffer> <silent> r :call nerdtree#ui_glue#invokeKeyMap("r")
-nnoremap <buffer> <silent> s :call nerdtree#ui_glue#invokeKeyMap("s")
-nnoremap <buffer> <silent> u :call nerdtree#ui_glue#invokeKeyMap("u")
-nnoremap <buffer> <silent> <MiddleMouse> :call nerdtree#ui_glue#invokeKeyMap("<MiddleMouse>")
-nnoremap <buffer> <silent> <2-LeftMouse> :call nerdtree#ui_glue#invokeKeyMap("<2-LeftMouse>")
-nnoremap <buffer> <silent> <C-K> :call nerdtree#ui_glue#invokeKeyMap("<C-k>")
-nnoremap <buffer> <silent> <C-J> :call nerdtree#ui_glue#invokeKeyMap("<C-j>")
-nnoremap <buffer> <silent> <LeftRelease> <LeftRelease>:call nerdtree#ui_glue#invokeKeyMap("<LeftRelease>")
 noremap <buffer> <silent> <M-n> :call AutoPairsJump()
 noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
 inoremap <buffer> <silent>  =AutoPairsDelete()
@@ -423,9 +474,9 @@ setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
-setlocal bufhidden=hide
-setlocal nobuflisted
-setlocal buftype=nofile
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
 setlocal nocindent
 setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
@@ -434,8 +485,8 @@ setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=nvic
-setlocal conceallevel=3
+setlocal concealcursor=
+setlocal conceallevel=0
 setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
@@ -448,14 +499,14 @@ setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=%\\S%\\+\ \ %#%[cefi]%[rxod]%[eir]%[a-z]%#%\\x1b[0m\ %\\+%\\S%\\+%$%\\&%\\x1b%\\S%\\+\ \ %#%m%\\>%\\x1b[0m\ \ %#%f,%\\s\ %#%[cefi]%[rxod]%[eir]%[a-z]%#\ %\\+%\\S%\\+%$%\\&%\\s\ %#%m%\\>\ \ %#%f,\ %#Overwrite%.%#%\\S%\\+\ \ %#%m%\\x1b[0m\ \ %#%f,%-G\ %#Overwrite%.%#\"h\"%.%#,%+GStarted\ %\\u%\\u%.%#,%+GCompleted\ %\\d%\\d%\\d%.%#,%+G[ActiveJob]%.%#]\ Perform%.%#,%.%#rails\ test\ %f:%l,%+GCurrent\ version:%.%#,%+G\ %#Status\ %#Migration\ ID%.%#,%+G\ The\ fixture\ ID\ for\ %.%#,%f:\ %s\ (%m)%$%\\&%.%#/fixtures/%.%#(%\\d%\\+),%+G\ %#Prefix\ %#Verb%.%#,%+G\ %#Code\ LOC:\ %.%#,%+GAbout\ your\ application's\ environment,%+Grun\ %\\S%#::Application.routes,%+Irails\ %\\S%\\+%\\s%\\+#\ %.%#,%+Eruby:%.%#(LoadError),%+EUsage:%.%#,%+ECould\ not\ find\ generator%.%#,%+EType\ 'rails'\ for\ help.,%\\&completion=rails#complete_rails,%\\&start=console,%\\&terminal=%\\C%\\%%(console%\\|dbconsole%\\|server%\\|%[cs]%\\|db%\\)%\\>:%\\@!%\\ze%.%#,%\\&force_start=%\\C%\\%%(console%\\|dbconsole%\\|server%\\|%[cs]%\\|db%\\)%\\>:%\\@!%\\ze%.%#,%\\&default=default,%D(in\ %f),%\\s%#%\\d%#:%#\ %#from\ %f:%l:%m,%\\s%#%\\d%#:%#\ %#from\ %f:%l:,%\\s%##\ %f:%l:%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%##\ %f:%l%\\&%.%#%\\D:%\\d%\\+,%\\s%#[%f:%l:\ %#%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%#%f:%l:\ %#%m%\\&%.%#%\\D:%\\d%\\+:%.%#,%\\s%#%f:%l:,%m\ [%f:%l]:,%+Erake\ aborted!,%+EDon't\ know\ how\ to\ build\ task\ %.%#,%+Einvalid\ option:%.%#,%+Irake\ %\\S%\\+%\\s%\\+#\ %.%#,%\\&dir=/home/kanda/app/anime_ec,%\\&buffer=%%:s/.*/\\=rails#buffer(submatch(0)).default_task(exists('l#')\ ?\ l#\ :\ 0)/
+setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'nerdtree'
-setlocal filetype=nerdtree
+if &filetype != 'lynx'
+setlocal filetype=lynx
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
-setlocal nofoldenable
+setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
@@ -482,22 +533,22 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 set list
-setlocal nolist
+setlocal list
 setlocal makeencoding=
-setlocal makeprg=bin/rails
+setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
-setlocal nomodifiable
+setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
-setlocal nonumber
+setlocal number
 setlocal numberwidth=4
 setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
-setlocal readonly
+setlocal noreadonly
 setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
@@ -514,17 +565,17 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%{exists('b:NERDTree')?b:NERDTree.root.path.str():''}
+setlocal statusline=
 setlocal suffixesadd=
-setlocal noswapfile
+setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'nerdtree'
-setlocal syntax=nerdtree
+if &syntax != 'lynx'
+setlocal syntax=lynx
 endif
 setlocal tabstop=3
 setlocal tagcase=
 setlocal tagfunc=
-setlocal tags=~/app/anime_ec/tags,~/app/anime_ec/tmp/tags,./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandaappanime_ec/prj_tags
+setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
@@ -536,13 +587,18 @@ setlocal varsofttabstop=
 setlocal vartabstop=
 setlocal wincolor=
 setlocal nowinfixheight
-setlocal winfixwidth
-setlocal nowrap
+setlocal nowinfixwidth
+setlocal wrap
 setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 415 - ((17 * winheight(0) + 16) / 33)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+415
+normal! 0
 tabnext 1
-badd +7 package.json
-badd +4 src/js/app.js
-badd +16 webpack.config.js
+badd +0 /etc/lynx.cfg
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -554,7 +610,6 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

@@ -1,6 +1,8 @@
 "=========================
 " General settings
 "=========================
+"
+
 "" key mapping
 nnoremap h h
 nnoremap t j
@@ -10,8 +12,8 @@ nnoremap l e
 nnoremap m b
 nnoremap $ ^
 nnoremap ^ $
-nnoremap <C-j> n
-nnoremap <C-k> N
+nnoremap <C-k> n
+nnoremap <C-j> N
 nnoremap <C-t> <C-y>
 nnoremap <C-n> <C-e>
 nnoremap <C-u> :noh<CR>
@@ -19,13 +21,19 @@ nnoremap :bk :Bookmark
 nnoremap :ft :FriendsTwitter
 nnoremap :st :SearchTwitter
 nnoremap :ut :UserTwitter
+nnoremap :fav :FavTwitter
+nnoremap :ret :UserTwitter GirlSearch01
 "" For diff
 "" Also, do is diff obtain, dp is diff put
-nnoremap dk [c
-nnoremap dj ]c
+nnoremap dj [c
+nnoremap dk ]c
 nnoremap :di :vertical diffsplit 
 " nnoremap eh gT
 " nnoremap es gt
+set formatoptions-=or
+
+" Hide and Open line option
+au FileType vim setlocal foldmethod=marker
 
 "" Leader settings
 let mapleader = "\<Space>"
@@ -93,7 +101,26 @@ set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
 set tabstop=3
 set shiftwidth=0
 
-"=========================
+
+" "" Fctix setting for vim
+" set iminsert=2
+" nnoremap :fc autocmd set iminsert=0
+" set imsearch=0
+" " set imcmdline
+" set imactivatefunc=ImActivate
+" function! ImActivate(active)
+" 	if a:active
+" 		call system('fcitx-remote -o')
+" 	else
+" 		call system('fcitx-remote -c')
+" 	endif
+" endfunction
+" set imstatusfunc=ImStatus
+" function! ImStatus()
+" 	return system('fcitx-remote')[0] is# '2'
+" endfunction
+
+" =========================
 " Gtags, Ctags Quickfix settings
 "=========================
 "" Gtags and Ctags setting
@@ -160,8 +187,8 @@ au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
 
 
 "" gen_tags.vim
-let g:gen_tags#ctags_auto_gen = 0
-let g:gen_tags#gtags_auto_gen = 0
+let g:gen_tags#ctags_auto_gen = 1
+let g:gen_tags#gtags_auto_gen = 1
 let g:gen_tags#ctags_auto_update = 0
 let g:gen_tags#gtags_auto_update = 1
 let g:Gtags_Auto_Map = 0
@@ -254,6 +281,9 @@ augroup PrevimSettings
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
+" caw.vim setting
+nmap <C-o> <Plug>(caw:hatpos:toggle)
+vmap <C-o> <Plug>(caw:hatpos:toggle)
 
 "  vista.vim setting
 "function! NearestMethodOrFunction() abort
@@ -312,6 +342,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown' " For markdown
 Plug 'previm/previm' " For markdown
 Plug 'godlygeek/tabular' " For markdown
+Plug 'docunext/closetag.vim'
+Plug 'tyru/caw.vim'
+Plug 'koron/imcsc-vim'
+Plug 'mechatroner/rainbow_csv'
+" Plug 'chrisbra/csv.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

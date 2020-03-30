@@ -30,6 +30,7 @@ nnoremap dk ]c
 nnoremap :di :vertical diffsplit 
 " nnoremap eh gT
 " nnoremap es gt
+set wrap
 set formatoptions-=or
 
 " Hide and Open line option
@@ -61,6 +62,7 @@ nnoremap bw :<C-u>w<CR>
 nnoremap eo :<C-u>q<CR>
 " tagbar
 nnoremap <silent> <Leader>t :TagbarOpen fjc<CR>
+" Tips "gt" means next tag bar
 "nnoremap <C-v> :vsp <CR> :exe("tjump ".expand('<cword>'))<CR>
 "nnoremap <C-z> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
@@ -282,8 +284,8 @@ augroup PrevimSettings
 augroup END
 
 " caw.vim setting
-nmap <C-o> <Plug>(caw:hatpos:toggle)
-vmap <C-o> <Plug>(caw:hatpos:toggle)
+nmap <C-e> <Plug>(caw:hatpos:toggle)
+vmap <C-e> <Plug>(caw:hatpos:toggle)
 
 "  vista.vim setting
 "function! NearestMethodOrFunction() abort

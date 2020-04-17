@@ -19,12 +19,14 @@ map <silent>  <Plug>(RivProjectList)
 map <silent> wa <Plug>(RivProjectList)
 map <silent>  <Plug>(RivProjectIndex)
 map <silent> ww <Plug>(RivProjectIndex)
+vmap  <Plug>(caw:hatpos:toggle)
+nmap  <Plug>(caw:hatpos:toggle)
+snoremap <silent>  c
 nnoremap <NL> N
 nnoremap  n
 nnoremap  
-vmap  <Plug>(caw:hatpos:toggle)
-nmap  <Plug>(caw:hatpos:toggle)
 map  <Plug>(ctrlp)
+snoremap  "_c
 vmap  <Plug>TwitvimVisual
 nnoremap  
 nnoremap  :noh
@@ -76,7 +78,7 @@ nnoremap bv :new
 nnoremap dk ]c
 nnoremap dj [c
 nnoremap eo :q
-vmap gx <Plug>NetrwBrowseXVis
+xmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 xmap gc <Plug>(caw:prefix)
 nmap gc <Plug>(caw:prefix)
@@ -86,7 +88,11 @@ nnoremap m b
 nnoremap n k
 nnoremap s l
 nnoremap t j
-nnoremap <SNR>159_: :=v:count ? v:count : ''
+snoremap <C-R> "_c
+snoremap <silent> <C-H> c
+snoremap <silent> <Del> c
+snoremap <silent> <BS> c
+nnoremap <SNR>148_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 xmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
@@ -363,8 +369,8 @@ nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 vmap <C-T> <Plug>TwitvimVisual
 vmap <M-t> <Plug>TwitvimVisual
 noremap <SNR>24_Visual y:call twitvim#post_twitter(@", 0)
-vmap <C-O> <Plug>(caw:hatpos:toggle)
-nmap <C-O> <Plug>(caw:hatpos:toggle)
+vmap <C-E> <Plug>(caw:hatpos:toggle)
+nmap <C-E> <Plug>(caw:hatpos:toggle)
 nnoremap <C-U> :noh
 nnoremap <C-N> 
 nnoremap <C-T> 
@@ -402,6 +408,7 @@ set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.i
 set tabstop=3
 set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandamnt3minowww/prj_tags
 set undodir=~/.cache/vim/undo//
+set window=68
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -413,7 +420,7 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-edit src/Template/Layout/default.ctp
+edit src/Template/Element/labels_issuance_body.ctp
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -593,18 +600,20 @@ setlocal varsofttabstop=
 setlocal vartabstop=
 setlocal wincolor=
 setlocal nowinfixheight
-setlocal winfixwidth
+setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 112 - ((67 * winheight(0) + 34) / 68)
+let s:l = 134 - ((67 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-112
+134
 normal! 0
 tabnext 1
-badd +112 src/Template/Layout/default.ctp
+badd +134 src/Template/Element/labels_issuance_body.ctp
+badd +144 webroot/js/pages/jquery.arrival_information.js
+badd +279 src/Controller/AjaxController.php
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

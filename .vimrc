@@ -189,8 +189,8 @@ au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
 
 
 "" gen_tags.vim
-let g:gen_tags#ctags_auto_gen = 1
-let g:gen_tags#gtags_auto_gen = 1
+let g:gen_tags#ctags_auto_gen = 0
+let g:gen_tags#gtags_auto_gen = 0
 let g:gen_tags#ctags_auto_update = 0
 let g:gen_tags#gtags_auto_update = 1
 let g:Gtags_Auto_Map = 0

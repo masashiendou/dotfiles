@@ -1,0 +1,14 @@
+# Folder hooks
+folder-hook 'account.com.gmail.hujyorom' 'source ~/.neomutt/account.com.gmail.hujyorom'
+folder-hook 'account.com.naganosd.endo_masashi' 'source ~/.neomutt/account.com.naganosd.endo_masashi'
+
+# Default account
+# source ~/.neomutt/account.com.gmail.hujyorom
+source ~/.neomutt/account.com.naganosd.endo_masashi
+
+# Macros for switching accounts
+macro index J '<sync-mailbox><enter-command>source ~/.neomutt/account.com.gmail.hujyorom<enter><change-folder>!<enter>'
+macro index K '<sync-mailbox><enter-command>source ~/.neomutt/account.com.naganosd.endo_masashi<enter><change-folder>!<enter>'
+
+# Fetch mail shortcut
+bind index G imap-fetch-mail

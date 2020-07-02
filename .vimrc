@@ -30,7 +30,7 @@ nnoremap dk ]c
 nnoremap :di :vertical diffsplit 
 " nnoremap eh gT
 " nnoremap es gt
-set wrap
+" set wrap
 set formatoptions-=or
 
 " Hide and Open line option
@@ -170,6 +170,9 @@ set showmatch
 syntax on
 filetype plugin indent on
 filetype plugin on
+" setl tw=200
+setl tw=20000
+setl fo+=aw
 
 "" buffer setting
 :set hidden
@@ -195,6 +198,9 @@ let g:gen_tags#ctags_auto_update = 0
 let g:gen_tags#gtags_auto_update = 1
 let g:Gtags_Auto_Map = 0
 let g:Gtags_OpenQuickfixWindow = 1
+
+"" ZoomWin
+nnoremap <silent> <Leader>o :ZoomWin<CR>
 
 "" coc.vim
 "" General
@@ -349,6 +355,7 @@ Plug 'tyru/caw.vim'
 Plug 'koron/imcsc-vim'
 Plug 'mechatroner/rainbow_csv'
 " Plug 'chrisbra/csv.vim'
+Plug 'vim-scripts/ZoomWin'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

@@ -10,11 +10,12 @@ set ssl_starttls = yes
 set ssl_force_tls = yes
 
 set imap_user = "hujyorom@gmail.com"
-set folder = "imaps://imap.gmail.com:993"
+set folder = "imaps://hujyorom@gmail.com@imap.gmail.com:993"
 set smtp_url = "smtp://hujyorom@gmail.com@smtp.gmail.com:587/"
 set spoolfile = "+INBOX"
-set record = "+[Gmail]/Sent Mail"
+# set record = "+INBOX/inbox-senthistory"
 set postponed = "+[Gmail]/Drafts"
+set signature = "~/.neomutt/signatureForHujyorom"
 
 source "gpg -d ~/.neomutt/hujyorom.gpg |"
 
@@ -26,29 +27,3 @@ set message_cachedir = "~/.neomutt/com.gmail.hujyorom/cache/bodies"
 
 set sort = reverse-date
 set move = no
-
-# Sidebar Navigation
-set sidebar_visible = yes
-bind index <down>   sidebar-next
-bind index <up>     sidebar-prev
-bind index <right>  sidebar-open
-
-# Moving around
-bind pager / search
-bind attach,index,pager \CF next-page
-bind attach,index,pager \CB previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
-bind generic,pager,editor,index e previous-line
-bind generic,pager,editor,index o next-line
-bind generic,pager,editor,index n previous-entry
-bind generic,pager,editor,index t next-entry
-bind generic,pager,editor,index j search-next
-bind generic,pager,editor,index k search-opposite
-
-set editor = "vim"
-set charset = "utf-8"
-set record = ""
-

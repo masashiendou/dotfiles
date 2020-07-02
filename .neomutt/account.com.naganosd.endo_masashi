@@ -13,44 +13,15 @@ set imap_user = "endo_masashi@naganosd.com"
 set folder = "imaps://outlook.office365.com:993"
 set smtp_url = "smtp://endo_masashi@naganosd.com@smtp.office365.com:587/"
 set spoolfile = "+INBOX"
-set record = "+[Naganosd]/Sent Mail"
-set postponed = "+[Naganosd]/Drafts"
+set record = "+INBOX/sentHistory"
+set postponed = "+Drafts"
+set signature = "~/.neomutt/signatureForNaganosd"
 
 source "gpg -d ~/.neomutt/naganosd.gpg |"
 
-# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred +[Gmail]/All" "Mail
-mailboxes +INBOX "+Junk Email" +Sent +Drafts +INBOX/mino_shuk +INBOX/backlog/mino +INBOX/backlog/rcs
+mailboxes +INBOX "+Junk Email" +INBOX/mino_shuk "+Sent Items" +Drafts +INBOX/backlog/mino +INBOX/backlog/rcs
 # set imap_check_subscribed
-
 set header_cache = "~/.neomutt/com.naganosd.endo_masashi/cache/headers"
 set message_cachedir = "~/.neomutt/com.naganosd.endo_masashi/cache/bodies"
-
 set sort = reverse-date
 set move = no
-
-# Sidebar Navigation
-set sidebar_visible = yes
-bind index <down>   sidebar-next
-bind index <up>     sidebar-prev
-bind index <right>  sidebar-open
-
-# Moving around
-bind pager / search
-bind attach,index,pager \CF next-page
-bind attach,index,pager \CB previous-page
-bind pager g top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
-bind generic,pager,editor,index e previous-line
-bind generic,pager,editor,index o next-line
-bind generic,pager,editor,index n previous-entry
-bind generic,pager,editor,index t next-entry
-bind generic,pager,editor,index j search-next
-bind generic,pager,editor,index k search-opposite
-
-set editor = "vim"
-set charset = "utf-8"
-set record = ""
-
-

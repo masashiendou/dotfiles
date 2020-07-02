@@ -21,12 +21,10 @@ map <silent>  <Plug>(RivProjectIndex)
 map <silent> ww <Plug>(RivProjectIndex)
 vmap  <Plug>(caw:hatpos:toggle)
 nmap  <Plug>(caw:hatpos:toggle)
-snoremap <silent>  c
 nnoremap <NL> N
 nnoremap  n
 nnoremap  
 map  <Plug>(ctrlp)
-snoremap  "_c
 vmap  <Plug>TwitvimVisual
 nnoremap  
 nnoremap  :noh
@@ -78,7 +76,7 @@ nnoremap bv :new
 nnoremap dk ]c
 nnoremap dj [c
 nnoremap eo :q
-xmap gx <Plug>NetrwBrowseXVis
+vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 xmap gc <Plug>(caw:prefix)
 nmap gc <Plug>(caw:prefix)
@@ -88,11 +86,6 @@ nnoremap m b
 nnoremap n k
 nnoremap s l
 nnoremap t j
-snoremap <C-R> "_c
-snoremap <silent> <C-H> c
-snoremap <silent> <Del> c
-snoremap <silent> <BS> c
-nnoremap <SNR>148_: :=v:count ? v:count : ''
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 xmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
@@ -408,7 +401,6 @@ set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.i
 set tabstop=3
 set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandamnt3minowww/prj_tags
 set undodir=~/.cache/vim/undo//
-set window=68
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -420,7 +412,7 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-edit src/Template/Element/labels_issuance_body.ctp
+edit src/Controller/ArrivalInformationController.php
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -604,16 +596,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 134 - ((67 * winheight(0) + 34) / 68)
+let s:l = 1 - ((0 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-134
+1
 normal! 0
 tabnext 1
-badd +134 src/Template/Element/labels_issuance_body.ctp
-badd +144 webroot/js/pages/jquery.arrival_information.js
-badd +279 src/Controller/AjaxController.php
+badd +1 src/Controller/ArrivalInformationController.php
+badd +358 src/Template/Element/normal_shipment_body.ctp
+badd +592 webroot/js/pages/jquery.arrival_information.js
+badd +37 webroot/js/pages/jquery.update_detail.js
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -625,6 +618,7 @@ if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

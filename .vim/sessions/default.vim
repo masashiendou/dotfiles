@@ -28,6 +28,7 @@ map  <Plug>(ctrlp)
 vmap  <Plug>TwitvimVisual
 nnoremap  
 nnoremap  :noh
+nmap o <Plug>ZoomWin
 nmap t :cs find t =expand('<cword>')
 nmap s :cs find s =expand('<cword>')
 nmap i :cs find i =expand('<cfile>')
@@ -38,6 +39,7 @@ nmap d :cs find d =expand('<cword>')
 nmap c :cs find c =expand('<cword>')
 map  a
 nnoremap  a :Ack! 
+nnoremap <silent>  z :ZoomWin
 nnoremap <silent>  n :copen
 nnoremap <silent>  o :cclose
 nnoremap <silent>  k :cprevious
@@ -88,6 +90,7 @@ nnoremap s l
 nnoremap t j
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+nmap <C-W>o <Plug>ZoomWin
 xmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
 nmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
 xmap <Plug>(caw:prefix)o <Plug>(caw:jump:comment-next)
@@ -392,27 +395,27 @@ set listchars=tab:>-,trail:.
 set nomodeline
 set pyxversion=2
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-polyglot/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/previm/,~/.vim/plugged/tabular/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-polyglot/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/vim-markdown/after,~/.vim/plugged/tabular/after,~/.vim/plugged/caw.vim/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-polyglot/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/previm/,~/.vim/plugged/tabular/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-polyglot/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/vim-markdown/after,~/.vim/plugged/tabular/after,~/.vim/plugged/caw.vim/after,~/.vim/after
 set shiftwidth=0
 set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
 set tabstop=3
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandamnt3minowww/prj_tags
 set undodir=~/.cache/vim/undo//
-let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/mnt3/mino/www
+cd ~
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-edit src/Controller/ArrivalInformationController.php
+$argadd .urxvt/urxvtd-Kx250
+edit .urxvt/urxvtd-Kx250
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -448,10 +451,6 @@ inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
 inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
 inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
-onoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
-nnoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
-onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
-nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
 noremap <buffer> <silent> <M-n> :call AutoPairsJump()
 noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
 inoremap <buffer> <silent>  =AutoPairsDelete()
@@ -460,13 +459,11 @@ inoremap <buffer> <silent> " =AutoPairsInsert('"')
 inoremap <buffer> <silent> ' =AutoPairsInsert('''')
 inoremap <buffer> <silent> ( =AutoPairsInsert('(')
 inoremap <buffer> <silent> ) =AutoPairsInsert(')')
-inoremap <buffer> <silent> ? =AutoPairsInsert('?')
 noremap <buffer> <silent> î :call AutoPairsJump()
 noremap <buffer> <silent> ð :call AutoPairsToggle()
 inoremap <buffer> <silent> [ =AutoPairsInsert('[')
 inoremap <buffer> <silent> ] =AutoPairsInsert(']')
 inoremap <buffer> <silent> ` =AutoPairsInsert('`')
-inoremap <buffer> <silent> p =AutoPairsInsert('p')
 inoremap <buffer> <silent> { =AutoPairsInsert('{')
 inoremap <buffer> <silent> } =AutoPairsInsert('}')
 let &cpo=s:cpo_save
@@ -487,7 +484,7 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,:#
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
@@ -506,8 +503,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'php'
-setlocal filetype=php
+if &filetype != ''
+setlocal filetype=
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -521,16 +518,16 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=qrocb
+setlocal formatoptions=tcqaw
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
-setlocal include=\\(require\\|include\\)\\(_once\\)\\?
+setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetPhpIndent()
-setlocal indentkeys=0{,0},0),0],:,!^F,o,O,e,*<Return>,=?>,=<?,=*/
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -541,19 +538,19 @@ set list
 setlocal list
 setlocal makeencoding=
 setlocal makeprg=
-setlocal matchpairs=(:),{:},[:],<:>
+setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=phpcomplete#CompletePHP
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
-setlocal noreadonly
+setlocal readonly
 setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
@@ -570,12 +567,13 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
+setlocal spelloptions=
 setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'php'
-setlocal syntax=php
+if &syntax != ''
+setlocal syntax=
 endif
 setlocal tabstop=3
 setlocal tagcase=
@@ -584,7 +582,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=20000
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -596,17 +594,14 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 34) / 68)
+let s:l = 1 - ((0 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 0
 tabnext 1
-badd +1 src/Controller/ArrivalInformationController.php
-badd +358 src/Template/Element/normal_shipment_body.ctp
-badd +592 webroot/js/pages/jquery.arrival_information.js
-badd +37 webroot/js/pages/jquery.update_detail.js
+badd +0 .urxvt/urxvtd-Kx250
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -614,10 +609,10 @@ unlet! s:wipebuf
 set winheight=1 winwidth=20 shortmess=filnxtToOS
 set winminheight=1 winminwidth=1
 let s:sx = expand("<sfile>:p:r")."x.vim"
-if file_readable(s:sx)
+if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
-let &so = s:so_save | let &siso = s:siso_save
+let &g:so = s:so_save | let &g:siso = s:siso_save
 nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad

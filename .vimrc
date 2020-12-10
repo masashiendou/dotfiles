@@ -192,15 +192,15 @@ au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
 
 
 "" gen_tags.vim
-let g:gen_tags#ctags_auto_gen = 0
-let g:gen_tags#gtags_auto_gen = 0
+let g:gen_tags#ctags_auto_gen = 1
+let g:gen_tags#gtags_auto_gen = 1
 let g:gen_tags#ctags_auto_update = 0
-let g:gen_tags#gtags_auto_update = 1
+let g:gen_tags#gtags_auto_update = 0
 let g:Gtags_Auto_Map = 0
 let g:Gtags_OpenQuickfixWindow = 1
 
 "" ZoomWin
-nnoremap <silent> <Leader>o :ZoomWin<CR>
+nnoremap <silent> <Leader>z :ZoomWin<CR>
 
 "" coc.vim
 "" General
@@ -355,7 +355,7 @@ Plug 'tyru/caw.vim'
 Plug 'koron/imcsc-vim'
 Plug 'mechatroner/rainbow_csv'
 " Plug 'chrisbra/csv.vim'
-Plug 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/ZoomWin' " <silent> <Leader>z :ZoomWin
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

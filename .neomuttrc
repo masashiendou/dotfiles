@@ -1,7 +1,7 @@
 # Folder hooks
 folder-hook 'account.com.gmail.hujyorom' 'source ~/.neomutt/account.com.gmail.hujyorom'
 folder-hook 'account.com.gmail.girl.search01' 'source ~/.neomutt/account.com.gmail.girl.search01'
-folder-hook 'account.com.naganosd.endo_masashi' 'source ~/.neomutt/account.com.naganosd.endo_masashi'
+# folder-hook 'account.com.naganosd.endo_masashi' 'source ~/.neomutt/account.com.naganosd.endo_masashi'
 
 # Default account
 source ~/.neomutt/account.com.gmail.hujyorom
@@ -9,9 +9,9 @@ source ~/.neomutt/account.com.gmail.hujyorom
 # source ~/.neomutt/account.com.naganosd.endo_masashi
 
 # Macros for switching accounts
-macro generic,pager,editor,index J '<sync-mailbox><enter-command>source ~/.neomutt/account.com.gmail.hujyorom<enter><change-folder>!<enter>'
+macro generic,pager,editor,index K '<sync-mailbox><enter-command>source ~/.neomutt/account.com.gmail.hujyorom<enter><change-folder>!<enter>'
 macro generic,pager,editor,index X '<sync-mailbox><enter-command>source ~/.neomutt/account.com.gmail.girl.search01<enter><change-folder>!<enter>'
-macro generic,pager,editor,index K '<sync-mailbox><enter-command>source ~/.neomutt/account.com.naganosd.endo_masashi<enter><change-folder>!<enter>'
+# macro generic,pager,editor,index K '<sync-mailbox><enter-command>source ~/.neomutt/account.com.naganosd.endo_masashi<enter><change-folder>!<enter>'
 
 # # Fetch mail shortcut
 # bind index G imap-fetch-mail

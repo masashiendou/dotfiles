@@ -1,0 +1,22 @@
+MAILDIR = "imaps://hujyorom@gmail.com@imap.gmail.com:993"
+DEFAULT = "imaps://hujyorom@gmail.com@imap.gmail.com:993"
+
+if(/^From:.*@gmail.com/)
+{
+  to $MAILDIR/Mail/66.Nagano
+}
+
+if(/^From:.*@gmail.com/)
+{
+  to "$MAILDIR/Mail/66.Nagano"
+}
+
+if(/^From:.*@gmail.com/)
+{
+  to Mail/66.Nagano
+}
+
+if(/^From:.*@gmail.com/)
+{
+  to "Mail/66.Nagano"
+}

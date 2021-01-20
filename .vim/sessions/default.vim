@@ -2,7 +2,7 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <SNR>70_AutoPairsReturn =AutoPairsReturn()
+inoremap <silent> <SNR>69_AutoPairsReturn =AutoPairsReturn()
 inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 map <silent>  <Plug>(RivHelpFile)
@@ -364,7 +364,7 @@ nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
 nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 vmap <C-T> <Plug>TwitvimVisual
 vmap <M-t> <Plug>TwitvimVisual
-noremap <SNR>24_Visual y:call twitvim#post_twitter(@", 0)
+noremap <SNR>23_Visual y:call twitvim#post_twitter(@", 0)
 vmap <C-E> <Plug>(caw:hatpos:toggle)
 nmap <C-E> <Plug>(caw:hatpos:toggle)
 nnoremap <C-U> :noh
@@ -395,27 +395,26 @@ set listchars=tab:>-,trail:.
 set nomodeline
 set pyxversion=2
 set ruler
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-polyglot/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/previm/,~/.vim/plugged/tabular/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-polyglot/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/vim-markdown/after,~/.vim/plugged/tabular/after,~/.vim/plugged/caw.vim/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-endwise/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/riv.vim/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-polyglot/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-superman/,~/.vim/plugged/markdown-preview.nvim/,~/.vim/plugged/w3m.vim/,~/.vim/plugged/vim-github-dashboard/,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/riv.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-polyglot/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/caw.vim/after,~/.vim/after
 set shiftwidth=0
 set showmatch
 set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
 set tabstop=3
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandaProjectcalcnotecakephp4-projectapp/prj_tags
 set undodir=~/.cache/vim/undo//
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~
+cd ~/Project/calcnote/cakephp4-project/app
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .urxvt/urxvtd-Kx250
-edit .urxvt/urxvtd-Kx250
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -423,6 +422,9 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
+enew
+file NERD_tree_1
+balt NERD_tree_1
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <buffer> <silent> <M-n> :call AutoPairsJump()a
@@ -439,10 +441,18 @@ inoremap <buffer> <silent> <M-]> =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> <M-[> =AutoPairsMoveCharacter('[')
 inoremap <buffer> <silent> <M-)> =AutoPairsMoveCharacter(')')
 inoremap <buffer> <silent> <M-(> =AutoPairsMoveCharacter('(')
+nnoremap <buffer> <silent> <NL> :call nerdtree#ui_glue#invokeKeyMap("<C-j>")
+nnoremap <buffer> <silent>  :call nerdtree#ui_glue#invokeKeyMap("<C-k>")
+nnoremap <buffer> <silent> - :call nerdtree#ui_glue#invokeKeyMap("-")
+nnoremap <buffer> <silent> ? :call nerdtree#ui_glue#invokeKeyMap("?")
+nnoremap <buffer> <silent> A :call nerdtree#ui_glue#invokeKeyMap("A")
+nnoremap <buffer> <silent> B :call nerdtree#ui_glue#invokeKeyMap("B")
 inoremap <buffer> <silent> § =AutoPairsMoveCharacter('''')
 inoremap <buffer> <silent> ¢ =AutoPairsMoveCharacter('"')
 inoremap <buffer> <silent> © =AutoPairsMoveCharacter(')')
 inoremap <buffer> <silent> ¨ =AutoPairsMoveCharacter('(')
+nnoremap <buffer> <silent> C :call nerdtree#ui_glue#invokeKeyMap("C")
+nnoremap <buffer> <silent> CD :call nerdtree#ui_glue#invokeKeyMap("CD")
 inoremap <buffer> <silent> î :call AutoPairsJump()a
 inoremap <buffer> <silent> <expr> ð AutoPairsToggle()
 inoremap <buffer> <silent> â =AutoPairsBackInsert()
@@ -451,6 +461,37 @@ inoremap <buffer> <silent> ý =AutoPairsMoveCharacter('}')
 inoremap <buffer> <silent> û =AutoPairsMoveCharacter('{')
 inoremap <buffer> <silent> Ý =AutoPairsMoveCharacter(']')
 inoremap <buffer> <silent> Û =AutoPairsMoveCharacter('[')
+nnoremap <buffer> <silent> D :call nerdtree#ui_glue#invokeKeyMap("D")
+nnoremap <buffer> <silent> F :call nerdtree#ui_glue#invokeKeyMap("F")
+nnoremap <buffer> <silent> I :call nerdtree#ui_glue#invokeKeyMap("I")
+nnoremap <buffer> <silent> J :call nerdtree#ui_glue#invokeKeyMap("J")
+nnoremap <buffer> <silent> K :call nerdtree#ui_glue#invokeKeyMap("K")
+nnoremap <buffer> <silent> O :call nerdtree#ui_glue#invokeKeyMap("O")
+nnoremap <buffer> <silent> P :call nerdtree#ui_glue#invokeKeyMap("P")
+nnoremap <buffer> <silent> R :call nerdtree#ui_glue#invokeKeyMap("R")
+nnoremap <buffer> <silent> T :call nerdtree#ui_glue#invokeKeyMap("T")
+nnoremap <buffer> <silent> U :call nerdtree#ui_glue#invokeKeyMap("U")
+nnoremap <buffer> <silent> X :call nerdtree#ui_glue#invokeKeyMap("X")
+nnoremap <buffer> <silent> cd :call nerdtree#ui_glue#invokeKeyMap("cd")
+nnoremap <buffer> <silent> e :call nerdtree#ui_glue#invokeKeyMap("e")
+nnoremap <buffer> <silent> f :call nerdtree#ui_glue#invokeKeyMap("f")
+nnoremap <buffer> <silent> go :call nerdtree#ui_glue#invokeKeyMap("go")
+nnoremap <buffer> <silent> gs :call nerdtree#ui_glue#invokeKeyMap("gs")
+nnoremap <buffer> <silent> gi :call nerdtree#ui_glue#invokeKeyMap("gi")
+nnoremap <buffer> <silent> h :call nerdtree#ui_glue#invokeKeyMap("h")
+nnoremap <buffer> <silent> i :call nerdtree#ui_glue#invokeKeyMap("i")
+nnoremap <buffer> <silent> m :call nerdtree#ui_glue#invokeKeyMap("m")
+nnoremap <buffer> <silent> o :call nerdtree#ui_glue#invokeKeyMap("o")
+nnoremap <buffer> <silent> p :call nerdtree#ui_glue#invokeKeyMap("p")
+nnoremap <buffer> <silent> q :call nerdtree#ui_glue#invokeKeyMap("q")
+nnoremap <buffer> <silent> r :call nerdtree#ui_glue#invokeKeyMap("r")
+nnoremap <buffer> <silent> s :call nerdtree#ui_glue#invokeKeyMap("s")
+nnoremap <buffer> <silent> u :call nerdtree#ui_glue#invokeKeyMap("u")
+nnoremap <buffer> <silent> <MiddleMouse> :call nerdtree#ui_glue#invokeKeyMap("<MiddleMouse>")
+nnoremap <buffer> <silent> <2-LeftMouse> :call nerdtree#ui_glue#invokeKeyMap("<2-LeftMouse>")
+nnoremap <buffer> <silent> <C-K> :call nerdtree#ui_glue#invokeKeyMap("<C-k>")
+nnoremap <buffer> <silent> <C-J> :call nerdtree#ui_glue#invokeKeyMap("<C-j>")
+nnoremap <buffer> <silent> <LeftRelease> <LeftRelease>:call nerdtree#ui_glue#invokeKeyMap("<LeftRelease>")
 noremap <buffer> <silent> <M-n> :call AutoPairsJump()
 noremap <buffer> <silent> <M-p> :call AutoPairsToggle()
 inoremap <buffer> <silent>  =AutoPairsDelete()
@@ -476,9 +517,9 @@ setlocal balloonexpr=
 setlocal nobinary
 setlocal nobreakindent
 setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
+setlocal bufhidden=hide
+setlocal nobuflisted
+setlocal buftype=nofile
 setlocal nocindent
 setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
@@ -487,8 +528,8 @@ setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
+setlocal concealcursor=nvic
+setlocal conceallevel=3
 setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
@@ -503,12 +544,12 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != ''
-setlocal filetype=
+if &filetype != 'nerdtree'
+setlocal filetype=nerdtree
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
-setlocal foldenable
+setlocal nofoldenable
 setlocal foldexpr=0
 setlocal foldignore=#
 setlocal foldlevel=0
@@ -518,7 +559,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tcqaw
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
@@ -535,15 +576,15 @@ setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
 set list
-setlocal list
+setlocal nolist
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
-setlocal modifiable
+setlocal nomodifiable
 setlocal nrformats=bin,octal,hex
 set number
-setlocal number
+setlocal nonumber
 setlocal numberwidth=4
 setlocal omnifunc=
 setlocal path=
@@ -568,12 +609,12 @@ setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
 setlocal spelloptions=
-setlocal statusline=
+setlocal statusline=%{exists('b:NERDTree')?b:NERDTree.root.path.str():''}
 setlocal suffixesadd=
-setlocal swapfile
+setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != ''
-setlocal syntax=
+if &syntax != 'nerdtree'
+setlocal syntax=nerdtree
 endif
 setlocal tabstop=3
 setlocal tagcase=
@@ -582,7 +623,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=20000
+setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -590,18 +631,11 @@ setlocal varsofttabstop=
 setlocal vartabstop=
 setlocal wincolor=
 setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
+setlocal winfixwidth
+setlocal nowrap
 setlocal wrapmargin=0
-silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 16) / 33)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-1
-normal! 0
 tabnext 1
-badd +0 .urxvt/urxvtd-Kx250
+badd +1 .git/description
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

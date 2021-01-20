@@ -33,18 +33,19 @@ set $base0F #0000af
 set $base0G #00df00
 set $base0H #afdf00
 set $mon1 DP2-1
-set $mon2 eizo-virt-right
+set $mon2 DP2-2
+# set $mon2 eizo-virt-right
 set $mon3 eizo-virt-left
-# set $mon2 DP2-2
+# set $mon3 DP2-2
 # set $mon3 DP2
-set $mon4 DP1
-set $mon5 think-virt-left
-set $mon6 think-virt-right
+# set $mon4 DP1
+# set $mon5 think-virt-left
+# set $mon6 think-virt-right
 # set $mon6 eDP1
-set $ws1 "1:1 壱"
-set $ws11 "11:2 壱"
-workspace $ws1 output $mon1
-workspace $ws11 output $mon2
+# set $ws1 "1:1 壱"
+# set $ws11 "11:2 壱"
+# workspace $ws1 output $mon1
+# workspace $ws11 output $mon2
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -807,7 +808,7 @@ bar {
         # status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	# SCRIPT_DIR=~/git/dotfiles/i3/i3blocks-contrib
-	font pango: Hack 8.5
+	font pango: Hack 7
         position top
         strip_workspace_numbers yes
         # bindsym button4 nop
@@ -825,7 +826,8 @@ bar {
 		}
 }
 # exec --no-startup-id feh --bg-scale '/home/kanda/Downloads/Reflection-Wallpapers-42-1366-x-768.jpg'
-exec --no-startup-id feh --bg-scale '/home/kanda/Downloads/wallpapers/52286.jpg'
+# exec --no-startup-id feh --bg-scale '/home/kanda/Downloads/wallpapers/52286.jpg'
+exec --no-startup-id feh --bg-scale '/home/kanda/Downloads/wallpapers/4845.jpg'
 exec --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id fcitx

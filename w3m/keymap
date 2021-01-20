@@ -161,26 +161,41 @@ keymap C-t DOWN
 keymap C-f NEXT_PAGE
 keymap C-b PREV_PAGE
 keymap zz CENTER_V
+keymap zt CENTER_H
 keymap k SEARCH_NEXT
 keymap j SEARCH_PREV
 keymap ^ LINE_END
 keymap $ LINE_BEGIN
 keymap gg BEGIN
 keymap G END
+keymap HP GOTO_HOME
+keymap iv VIEW_IMAGE
+keymap id DISPLAY_IMAGE
+keymap :C CHARSET
+# keymap ee EDIT
+keymap ee EDIT_SCREEN
+keymap : MARK_URL
 
 ####################### hyperlink operations
 keymap u PEEK
 keymap U PEEK_LINK
-keymap gn GOTO
-keymap gt LINK_BEGIN
+# keymap gu GOTO
+keymap gt GOTO
+keymap gT LINK_BEGIN
 keymap gl LIST_MENU
 keymap gL LIST
+keymap eb EXTERN
+keymap iV COMMAND "EXTERN 'echo %s >> ~/.w3m/test01.txt'"
+# keymap iV EXTERN_LINK 'feh -. -x -B black -g 900x600-15+60 %s &'
 
 ####################### buffer operations
 keymap bs NEXT
 keymap bh PREV
 keymap bl SELECT_MENU
 keymap bo BACK
+keymap gh HISTORY
+keymap :R REINIT
+keymap :r RELOAD
 
 ####################### such as return
 ## default return key is C-j
@@ -190,8 +205,11 @@ keymap sb SUBMIT
 
 ####################### search
 keymap / SEARCH_FORE
-keymap w NEXT_LINK
-keymap m PREV_LINK
+# keymap W WRAP_TOGGLE
+keymap if ISEARCH
+keymap ib ISEARCH_BACK
+keymap v NEXT_LINK
+keymap w PREV_LINK
 
 ####################### quit
 keymap :q QUIT
@@ -199,11 +217,13 @@ keymap :Q ABORT
 
 ### Tab Operations ###
 #######################
-keymap tl TAB_MENU
-keymap tn NEW_TAB
+keymap el TAB_MENU
+keymap et NEW_TAB
 keymap es NEXT_TAB
 keymap eh PREV_TAB
 keymap eo CLOSE_TAB
+keymap EH TAB_LEFT
+keymap ES TAB_RIGHT
 
 ### Shell Scripts ###
 #######################
@@ -211,8 +231,8 @@ keymap r COMMAND "SHELL 'readable $W3M_URL -p html-title,html-content > /tmp/rea
 
 ### Bookmark ###
 #######################
-keymap ed VIEW_BOOKMARK
-keymap ea ADD_BOOKMARK
+keymap dl VIEW_BOOKMARK
+keymap da ADD_BOOKMARK
 
 ### Basic settings ###
 #######################

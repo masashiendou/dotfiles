@@ -347,15 +347,23 @@ Plug 'slim-template/vim-slim'
 Plug 'elzr/vim-json'
 Plug 'sheerun/vim-polyglot'
 Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown' " For markdown
-Plug 'previm/previm' " For markdown
-Plug 'godlygeek/tabular' " For markdown
+" Plug 'godlygeek/tabular' " For markdown
+" Plug 'plasticboy/vim-markdown' " For markdown
+Plug 'gabrielelana/vim-markdown' " For markdown
 Plug 'docunext/closetag.vim'
 Plug 'tyru/caw.vim'
 Plug 'koron/imcsc-vim'
 Plug 'mechatroner/rainbow_csv'
 " Plug 'chrisbra/csv.vim'
 Plug 'vim-scripts/ZoomWin' " <silent> <Leader>z :ZoomWin
+" Plug 'vim-utils/vim-man'
+Plug 'jez/vim-superman'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+"" Start the preview
+" :MarkdownPreview
+"" Stop the preview"
+" :MarkdownPreviewStop
+Plug 'yuratomo/w3m.vim'
 
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'

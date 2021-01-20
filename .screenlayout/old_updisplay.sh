@@ -1,1 +1,0 @@
-/home/kanda/git/dotfiles/arandr/updisplay.sh

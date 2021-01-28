@@ -402,8 +402,9 @@ set splitbelow
 set splitright
 set suffixes=.bak,~,.o,.info,.swp,.aux,.bbl,.blg,.brf,.cb,.dvi,.idx,.ilg,.ind,.inx,.jpg,.log,.out,.png,.toc
 set tabstop=3
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandaProjectcalcnotecakephp4-projectapp/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandaProjectcalcnotecakephp4-projectapp/prj_tags,~/.cache/tags_dir/homekanda/prj_tags
 set undodir=~/.cache/vim/undo//
+set window=53
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -635,7 +636,8 @@ setlocal winfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
 tabnext 1
-badd +1 .git/description
+badd +1 .git/config
+badd +1 ~/.git/config
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

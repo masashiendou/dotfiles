@@ -35,7 +35,7 @@ set $base0H #afdf00
 set $mon1 DP2-1
 set $mon2 DP2-2
 # set $mon2 eizo-virt-right
-set $mon3 eizo-virt-left
+set $mon3 eizo-virt-right
 # set $mon3 DP2-2
 # set $mon3 DP2
 # set $mon4 DP1
@@ -82,7 +82,7 @@ mode "一" {
 
 	# start a terminal
 	bindsym $mod+minus exec ~/urxvt_shell.sh
-	bindsym $mod+Shift+minus exec ~/urxvt_shell.sh -name tmux
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+Return exec i3-sensible-terminal
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14" -name terminal
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14, xft:IPAGothic:pixelsize=14" -name terminal
@@ -198,7 +198,7 @@ mode "二" {
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
 	bindsym $mod+minus exec ~/urxvt_shell.sh
-	bindsym $mod+Shift+minus exec ~/urxvt_shell.sh -name tmux
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
 	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
@@ -310,7 +310,7 @@ mode "三" {
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
 	bindsym $mod+minus exec ~/urxvt_shell.sh
-	bindsym $mod+Shift+minus exec ~/urxvt_shell.sh -name tmux
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
 	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
@@ -422,7 +422,7 @@ mode "四" {
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
 	bindsym $mod+minus exec ~/urxvt_shell.sh
-	bindsym $mod+Shift+minus exec ~/urxvt_shell.sh -name tmux
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
 	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
@@ -536,7 +536,7 @@ mode "五" {
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
 	bindsym $mod+minus exec ~/urxvt_shell.sh
-	bindsym $mod+Shift+minus exec ~/urxvt_shell.sh -name tmux
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
 	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
@@ -649,7 +649,7 @@ mode "六" {
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
 	bindsym $mod+minus exec ~/urxvt_shell.sh
-	bindsym $mod+Shift+minus exec ~/urxvt_shell.sh -name tmux
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
 	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
@@ -763,7 +763,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # i3lock
-bindsym $mod+Shift+l exec i3lock --color "$base02"
+bindsym $mod+Shift+l exec ~/.config/i3/i3lock
+# bindsym $mod+Shift+l exec i3lock --color "$base02"
 
 # mouse focus
 focus_follows_mouse no

@@ -43,17 +43,19 @@ nnoremap <silent> <Leader>T :NERDTreeToggle<CR>
 let NERDTreeMapOpenInTab='r'
 let NERDTreeMapCloseDir='h'
 let NERDTreeMapCustomOpen='-'
+let NERDTreeWinPos='right'
 " window focus changing
 nnoremap <silent> <Leader>w :wincmd w<CR>
 nnoremap <silent> <Leader>W :wincmd W<CR>
+nnoremap <silent> <Leader>h <C-w>r<CR>
 " window resize
 nnoremap <silent> <Leader><Leader>n :res +10<CR>
 nnoremap <silent> <Leader><Leader>t :res -10<CR>
 nnoremap <silent> <Leader><Leader>h :vertical res +10<CR>
 nnoremap <silent> <Leader><Leader>s :vertical res -10<CR>
 " window move
-nnoremap <silent> <Leader><Leader>T <C-w><C-x><CR>
-nnoremap <silent> <Leader><Leader>H <C-w><C-r><CR>
+" nnoremap <silent> <Leader><Leader>T <C-w><C-x><CR>
+" nnoremap <silent> <Leader><Leader>H <C-w><C-r><CR>
 " new blank buffer
 nnoremap bv :new<CR>
 nnoremap bz :vnew<CR>
@@ -96,7 +98,7 @@ set t_Co=256
 set cursorline
 " set cursorcolumn
 "" clipboard, encoding
-" set clipboard+=unnamed
+set clipboard=unnamedplus
 set encoding=utf-8
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
@@ -282,6 +284,7 @@ let twitvim_count = 600
 
 "vim-json setting
 autocmd Filetype json setl conceallevel=2
+autocmd FileType * setl formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Markdown
 let g:previm_open_cmd = 'firefox'
@@ -325,9 +328,9 @@ call plug#begin('~/.vim/plugged')
 " Plug 'nvie/vim-flake8'
 Plug 'slashmili/alchemist.vim'
 Plug 'dense-analysis/ale'
-Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-endwise'
 Plug 'elixir-editors/vim-elixir'
-Plug 'Rykka/riv.vim'
+" Plug 'Rykka/riv.vim'
 " Plug 'othree/yajs.vim'
 Plug 'b4b4r07/vim-shellutils'
 Plug 'scrooloose/nerdtree'
@@ -346,14 +349,14 @@ Plug 'lighttiger2505/gtags.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'slim-template/vim-slim'
 Plug 'elzr/vim-json'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " tmp
 Plug 'pangloss/vim-javascript'
 " Plug 'godlygeek/tabular' " For markdown
 " Plug 'plasticboy/vim-markdown' " For markdown
 Plug 'gabrielelana/vim-markdown' " For markdown
 Plug 'docunext/closetag.vim'
-Plug 'tyru/caw.vim'
-Plug 'koron/imcsc-vim'
+Plug 'tyru/caw.vim' " tmp
+Plug 'koron/imcsc-vim' " tmp
 Plug 'mechatroner/rainbow_csv'
 " Plug 'chrisbra/csv.vim'
 Plug 'vim-scripts/ZoomWin' " <silent> <Leader>z :ZoomWin

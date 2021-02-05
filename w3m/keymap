@@ -185,7 +185,7 @@ keymap gT LINK_BEGIN
 keymap gl LIST_MENU
 keymap gL LIST
 keymap eb EXTERN
-keymap iV COMMAND "EXTERN 'echo %s >> ~/.w3m/test01.txt'"
+keymap ec COMMAND "EXTERN 'echo %s |xsel -ib'"
 # keymap iV EXTERN_LINK 'feh -. -x -B black -g 900x600-15+60 %s &'
 
 ####################### buffer operations
@@ -199,8 +199,8 @@ keymap :r RELOAD
 
 ####################### such as return
 ## default return key is C-j
-keymap O GOTO_LINK
-keymap o TAB_LINK
+keymap o GOTO_LINK
+keymap O TAB_LINK
 keymap sb SUBMIT
 
 ####################### search

@@ -196,7 +196,7 @@ au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
 
 "" gen_tags.vim
 let g:gen_tags#ctags_auto_gen = 1
-let g:gen_tags#gtags_auto_gen = 1
+let g:gen_tags#gtags_auto_gen = 0
 let g:gen_tags#ctags_auto_update = 0
 let g:gen_tags#gtags_auto_update = 0
 let g:Gtags_Auto_Map = 0
@@ -292,6 +292,9 @@ augroup PrevimSettings
 	autocmd!
 	autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+nnoremap :mk :MarkdownPreview
+" let g:mkdp_markdown_css = '/home/kanda/.vim/plugged/markdown-preview.nvim/app/_static/markdown.css'
+" let g:mkdp_open_to_the_world = 1
 
 " caw.vim setting
 nmap <C-e> <Plug>(caw:hatpos:toggle)
@@ -363,6 +366,7 @@ Plug 'vim-scripts/ZoomWin' " <silent> <Leader>z :ZoomWin
 " Plug 'vim-utils/vim-man'
 Plug 'jez/vim-superman'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 "" Start the preview
 " :MarkdownPreview
 "" Stop the preview"

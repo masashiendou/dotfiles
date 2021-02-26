@@ -85,15 +85,19 @@ workspace $ws10 output $mon1
 mode "一" {
 
 	# start a terminal
+	bindsym $mod+minus exec ~/urxvt_shell.sh
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
 	# bindsym $mod+Return exec i3-sensible-terminal
-	bindsym $mod+minus exec urxvt -name terminal
-	bindsym $mod+Shift+minus exec urxvt -name tmux
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14" -name terminal
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14, xft:IPAGothic:pixelsize=14" -name terminal
+	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
 	# kill focused window
 	bindsym $mod+Shift+w kill
 	
 	# start dmenu (a program launcher)
-	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	# bindsym $mod+d exec dmenu_run -nb black -sb blue -l 7 -fn 'Hack 5'
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 8 -fn 'Hack 5'
 	# There also is the (new) i3-dmenu-desktop which only displays applications
 	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
 	# installed.
@@ -197,14 +201,16 @@ mode "二" {
 
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
-	bindsym $mod+minus exec urxvt -name terminal
-	bindsym $mod+Shift+minus exec urxvt -name tmux
+	bindsym $mod+minus exec ~/urxvt_shell.sh
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
+	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
 	# kill focused window
 	bindsym $mod+Shift+w kill
 	
 	# start dmenu (a program launcher)
-	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 8 -fn 'Hack 5'
 	# There also is the (new) i3-dmenu-desktop which only displays applications
 	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
 	# installed.
@@ -307,14 +313,16 @@ mode "三" {
 
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
-	bindsym $mod+minus exec urxvt -name terminal
-	bindsym $mod+Shift+minus exec urxvt -name tmux
+	bindsym $mod+minus exec ~/urxvt_shell.sh
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
+	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
 	# kill focused window
 	bindsym $mod+Shift+w kill
 	
 	# start dmenu (a program launcher)
-	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 8 -fn 'Hack 5'
 	# There also is the (new) i3-dmenu-desktop which only displays applications
 	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
 	# installed.
@@ -417,14 +425,16 @@ mode "四" {
 
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
-	bindsym $mod+minus exec urxvt -name terminal
-	bindsym $mod+Shift+minus exec urxvt -name tmux
+	bindsym $mod+minus exec ~/urxvt_shell.sh
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
+	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
 	# kill focused window
 	bindsym $mod+Shift+w kill
 	
 	# start dmenu (a program launcher)
-	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 8 -fn 'Hack 5'
 	# There also is the (new) i3-dmenu-desktop which only displays applications
 	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
 	# installed.
@@ -529,14 +539,16 @@ mode "五" {
 
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
-	bindsym $mod+minus exec urxvt -name terminal
-	bindsym $mod+Shift+minus exec urxvt -name tmux
+	bindsym $mod+minus exec ~/urxvt_shell.sh
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
+	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
 	# kill focused window
 	bindsym $mod+Shift+w kill
 	
 	# start dmenu (a program launcher)
-	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 8 -fn 'Hack 5'
 	# There also is the (new) i3-dmenu-desktop which only displays applications
 	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
 	# installed.
@@ -640,14 +652,16 @@ mode "六" {
 
 	# start a terminal
 	# bindsym $mod+Return exec i3-sensible-terminal
-	bindsym $mod+minus exec urxvt -name terminal
-	bindsym $mod+Shift+minus exec urxvt -name tmux
+	bindsym $mod+minus exec ~/urxvt_shell.sh
+	bindsym $mod+Shift+minus exec ~/urxvt_shell_dup.sh
+	# bindsym $mod+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name terminal
+	# bindsym $mod+Shift+minus exec urxvt -fn "xft:Hack:pixelsize=14,xft:IPAGothic:pixelsize=14" -name tmux
 	
 	# kill focused window
 	bindsym $mod+Shift+w kill
 	
 	# start dmenu (a program launcher)
-	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 10
+	bindsym $mod+d exec dmenu_run -nb black -sb blue -l 8 -fn 'Hack 5'
 	# There also is the (new) i3-dmenu-desktop which only displays applications
 	# shipping a .desktop file. It is a wrapper around dmenu, so you need that
 	# installed.
@@ -753,7 +767,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+g exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # i3lock
-bindsym $mod+Shift+l exec i3lock --color "$base02"
+bindsym $mod+Shift+l exec ~/.config/i3/i3lock
+# bindsym $mod+Shift+l exec i3lock --color "$base02"
 
 # mouse focus
 focus_follows_mouse no
@@ -812,7 +827,7 @@ bar {
         # status_command i3status
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	# SCRIPT_DIR=~/git/dotfiles/i3/i3blocks-contrib
-	font pango: Hack 8.5
+	font pango:Hack 9
         position top
         strip_workspace_numbers yes
         # bindsym button4 nop

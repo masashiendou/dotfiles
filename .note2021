@@ -45,8 +45,7 @@ twint -l ja --count --since 2021-01-25 --until 2021-01-29 -o /home/kanda/Project
 twint -l ja --count -o /home/kanda/Project/twitter/twint_results/2021-02-20_01.csv --csv --since 2021-02-15 --until 2021-02-20 -s "#投票"
 twint -l ja --count -o /home/kanda/Project/twitter/twint_results/2021-02-27_01.csv --csv --since 2021-02-23 --until 2021-02-26 -s "#ポケモン"
 ## Via proxy
-## 192.186.163.80 is assignment from blazing proxy
-twint -l ja --proxy-type http --proxy-host 192.186.163.80 --proxy-port 3128 --count -o /home/kanda/Project/twitter/twint_results/2021-03-03_01.csv --csv --since 2021-03-02 --until 2021-03-03 -s "#雛祭り"
+twint -l ja --proxy-type HTTP/HTTPS/SOCK --proxy-host PROXYIP --proxy-port PORT --count -o /home/kanda/Project/twitter/twint_results/2021-03-03_01.csv --csv --since 2021-03-02 --until 2021-03-03 -s "#雛祭り"
 
 # How to mount by cifs
 sudo mount -t cifs -o username=kanda,password=kma9ma7sa1sa7 //192.168.41.20/calibre mnt4

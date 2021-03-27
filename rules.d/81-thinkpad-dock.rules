@@ -1,0 +1,5 @@
+# Save this file (after modifying ID_VENDOR and ID_MODEL if necessary) as /etc/udev/rules.d/81-thinkpad-dock.rules
+
+# These values seem to work for "ThinkPad Dock"
+SUBSYSTEM=="usb", ACTION=="bind|unbind", ENV{PRODUCT}=="17ef/100f/1", RUN+="/sbin/thinkpad-dock.sh"
+# SUBSYSTEM=="usb", ACTION=="add|remove", ENV{ID_VENDOR_ID}=="17ef", ENV{ID_MODEL_ID}=="100f", RUN+="/sbin/thinkpad-dock.sh"

@@ -1,0 +1,8 @@
+[Unit]
+Description=Get global ip information of management network
+
+[Service]
+ExecStart=curl "https://www.cman.jp/network/support/go_access.cgi"|grep sysNowIp >> /var/log/mngip/MngGlobalIp.log
+
+[Install]
+WantedBy=multi-user.target

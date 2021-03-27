@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+        rails:
+                image: ruby:2.7.0-alpine3.11
+                container_name: anime_ec_rails
+                build:
+                        context: .
+                        dockerfile: Dockerfile_dev.yml
+                ports:
+                        - '3000:3000'
+                environment:
+                        MYSQL_USERNAME: root
+                        MYSQL_PASSWORD: test
+                        MYSQL_HOST: mysql
+                        # - RACK_ENV=development
+                        # - DATABASE_URL=mysql2://webapp:webapp@mysql/webapp_development
+                        # depends_on:
+                        #         - mysql
+                networks:
+                        - default
+                # command: bundle exec rails s -b 0.0.0.0
+                volumes:
+                        - type: bind
+                          source: /home/kanda/app/anime_ec
+                          target: /rails
+                        # - bundle_install:/rails/vendor/bundle
+                        # - bundle:/bundle
+                        # - node_modules:/rails/node_modules
+                stdin_open: true
+                tty: true
+                        #        mysql:
+                        #                image: mysql:5.7.28
+                        #                container_name: anime_ec_mysql
+                        #                command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+                        #                restart: always
+                        #                environment:
+                        #                        MYSQL_ROOT_PASSWORD: anime_ec_secret
+                        #                networks:
+                        #                        - default
+                        #                ports:
+                        #                        - '3306:3306'
+                        #                volumes:
+                        #                        - type: volume
+                        #                          source: mysql-data
+                        #                          target: /var/lib/mysql
+                        #volumes:
+                        #        mysql-data:
+                        #                # bundle_install:
+                        #                # bundle:
+                        #                # node_modules:
+                        #                # rails_cache:
+                        #                # packs:

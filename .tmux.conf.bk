@@ -1,0 +1,54 @@
+# Send prefix
+set-option -g prefix C-a
+unbind-key C-a
+bind-key C-a send-prefix
+
+# Use All-arrow keys to switch panes
+bind -n M-h select-pane -L
+bind -n M-t select-pane -D
+bind -n M-n select-pane -U
+bind -n M-s select-pane -R
+
+# Shift arrow to switch windows
+bind -n M-9 previous-window
+bind -n M-0 next-window
+
+# Set easier window split keys
+bind-key z split-window -h
+bind-key v split-window -v
+
+# Kill session or window
+bind -n M-w kill-pane
+bind -n M-W kill-window
+
+# Resize pane
+bind -r H resize-pane -L 5
+bind -r T resize-pane -D 5
+bind -r N resize-pane -U 5
+bind -r S resize-pane -R 5
+
+# Easy config reload
+bind-key r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded"
+
+# etc
+set -s escape-time 0
+set -g mouse on
+# setw -g mode-mouse on
+set-option -g status-position top
+bind Z resize-pane -Z
+
+# set window color
+setw -g window-status-fg black
+setw -g window-status-bg default
+setw -g window-status-attr dim
+# highlight active window
+setw -g window-status-current-fg white
+setw -g window-status-current-bg red
+setw -g window-status-current-attr bright
+
+# set boardar of pane
+set -g pane-border-fg blue
+set -g pane-border-bg black
+# highlight active pane
+set -g pane-active-border-fg white
+set -g pane-active-border-bg cyan

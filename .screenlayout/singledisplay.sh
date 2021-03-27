@@ -1,0 +1,1 @@
+/home/kanda/git/dotfiles/arandr/singledisplay.sh

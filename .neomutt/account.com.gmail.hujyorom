@@ -1,0 +1,34 @@
+# Basic setting
+set realname = "[Masashi Endo]"
+set from = "hujyorom@gmail.com"
+set use_from = yes
+set envelope_from = yes
+set sleep_time = 0
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+set imap_user = "hujyorom@gmail.com"
+set folder = "imaps://hujyorom@gmail.com@imap.gmail.com:993"
+set smtp_url = "smtp://hujyorom@gmail.com@smtp.gmail.com:587/"
+set spoolfile = "+INBOX"
+# set record = "+INBOX/inbox-senthistory"
+set postponed = "+[Gmail]/Drafts"
+set signature = "~/.neomutt/signatureForHujyorom"
+
+source "gpg -d ~/.neomutt/hujyorom.gpg |"
+
+# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +60.useless +[Gmail]/Trash +[Gmail]/Drafts" "Mail
+mailboxes +INBOX +[Gmail]/Important +[Gmail]/"All Mail" +[Gmail]/"Sent Mail" +60.useless +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred"
+# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +60.useless +66.Nagano +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred" "Mail
+# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +60.useless +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred +[Gmail]/All" "Mail
+# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +66.Nagano +60.useless +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred +[Gmail]/All" "Mail
+# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent" "Mail +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred +[Gmail]/All" "Mail
+# set imap_check_subscribed
+
+set header_cache = "~/.neomutt/com.gmail.hujyorom/cache/headers"
+set message_cachedir = "~/.neomutt/com.gmail.hujyorom/cache/bodies"
+
+set sort = reverse-date
+set move = no

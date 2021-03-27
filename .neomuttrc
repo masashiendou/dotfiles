@@ -1,0 +1,46 @@
+# Folder hooks
+folder-hook 'account.com.gmail.hujyorom' 'source ~/.neomutt/account.com.gmail.hujyorom'
+folder-hook 'account.com.gmail.girl.search01' 'source ~/.neomutt/account.com.gmail.girl.search01'
+# folder-hook 'account.com.naganosd.endo_masashi' 'source ~/.neomutt/account.com.naganosd.endo_masashi'
+
+# Default account
+# source ~/.neomutt/account.com.gmail.hujyorom
+source ~/.neomutt/account.com.gmail.girl.search01
+
+# Macros for switching accounts
+macro generic,pager,editor,index K '<sync-mailbox><enter-command>source ~/.neomutt/account.com.gmail.hujyorom<enter><change-folder>!<enter>'
+macro generic,pager,editor,index X '<sync-mailbox><enter-command>source ~/.neomutt/account.com.gmail.girl.search01<enter><change-folder>!<enter>'
+# macro generic,pager,editor,index K '<sync-mailbox><enter-command>source ~/.neomutt/account.com.naganosd.endo_masashi<enter><change-folder>!<enter>'
+
+# # Fetch mail shortcut
+# bind index G imap-fetch-mail
+
+# All Reply
+bind index,pager R noop
+bind index,pager R group-reply
+
+# Moving around
+bind pager / search
+bind attach,index,pager \CF next-page
+bind attach,index,pager \CB previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+bind generic,pager,editor,index e resend-message
+bind generic,pager,editor,index E edit
+bind generic,pager,editor,index N previous-line
+bind generic,pager,editor,index T next-line
+bind generic,pager,editor,index n previous-entry
+bind generic,pager,editor,index t next-entry
+bind generic,pager,editor,index j search-next
+bind generic,pager,editor,index k search-opposite
+
+# Sidebar Navigation
+set sidebar_visible = yes
+bind index <down>   sidebar-next
+bind index <up>     sidebar-prev
+bind index <right>  sidebar-open
+
+set editor = "vim"
+set charset = "utf-8"

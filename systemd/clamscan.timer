@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily scan of clamscan
+
+[Timer]
+OnCalendar=*-*-* 23:59:59
+Persistent=true
+
+[Install]
+WantedBy=timers.target

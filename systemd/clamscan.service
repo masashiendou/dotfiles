@@ -1,0 +1,8 @@
+[Unit]
+Description=Scan files by ClamAV virus files
+
+[Service]
+ExecStart=/usr/bin/clamscan -l /var/log/clamav/clamscan.log --recursive --infected /home
+
+[Install]
+WantedBy=multi-user.target

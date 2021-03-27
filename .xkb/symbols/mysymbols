@@ -1,0 +1,29 @@
+XKB_symbols "mysymbols" { 
+    // nocaps
+    replace key <CAPS> { [ Control_L, Control_L ] };
+    modifier_map Control { <CAPS>, <LCTL> };
+    // modified arrow keys
+    key <LALT> { [ISO_Level3_Shift ] };
+    modifier_map Mod5 { ISO_Level3_Shift };
+    key.type = "THREE_LEVEL";
+    key <AC07> { [ h, H,  Left ] };
+    key <AC08> { [ t, T,  Down ] };
+    key <AC09> { [ n, N,    Up ] };
+    key <AC10> { [ s, S, Right ] };
+    key <AD01> { [ quotedbl, apostrophe, apostrophe ] };
+    key <AC11> { [ minus, equal, Return ] };
+    key <AD12> { [ underscore, plus, bracketright ] };
+    key <AB06> { [ b, B, BackSpace ] };
+    key <AC06> { [ d, D,  Delete ] };
+    key <BKSL> { [ bar, backslash,  backslash ] };
+    key <BKSP> { [ space, BackSpace] };
+    key <RTRN> { [ space, Return, Return ] };
+    key <AD11> { [ slash, question, bracketleft ] };
+    key <AE09> { [ 9, parenleft, braceleft ] };
+    key <AE10> { [ 0, parenright, braceright ] };
+};
+XKB_symbols "I3andTmux" { 
+    // modified Mod key for i3 and tmux
+    key <RALT> { [ISO_Level3_Shift ] };
+    modifier_map Mod3 { ISO_Level3_Shift };
+};

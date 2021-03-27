@@ -1,0 +1,97 @@
+# How to confirm docker images with tag
+hub-tool tag ls circleci/python
+
+# How to generate from markdown to pdf
+php73 markdown-resume/bin/md2resume pdf -t modern README.md .
+php73 markdown-resume/bin/md2resume pdf -t swissen README.md .
+
+# How to disable beep in X11
+https://gist.github.com/jsburklund/404cb0af3d00b68e4f501803bd60a54e
+
+# /etc/profile.d/disable-beep.sh
+setterm -blength 0
+
+# /etc/inputrc 
+set bell-style none
+
+# find commands options
+## exclude './proc' directory
+find . -path ./proc -prune -false -o -name perl
+
+# youtube-viewer
+## like spotify
+youtube-viewer -C -I -n [search words]
+## option playing
+### <number>          : play the corresponding video
+### 3-8, 3..8         : same as 3 4 5 6 7 8
+### 8-3, 8..3         : same as 8 7 6 5 4 3
+### 8 2 12 4 6 5 1    : play the videos in a specific order
+### 10..              : play all the videos onwards from 10
+### :q(ueue)=i,i,...  : enqueue videos for playing them later
+### :pq, :play-queue  : play the enqueued videos (if any)
+### :anp, :nnp        : auto-next-page, no-next-page
+### :play=i,i,...     : play a group of selected videos
+### :regex=my?[regex] : play videos matched by a regex (/i)
+### :kregex=KEY,RE    : play videos if the value of KEY matches the RE
+## Others
+### :r(eturn)         : return to previous page of results
+### :refresh          : refresh the current list of results
+### :dv=i             : display the data structure of result i
+### -argv -argv2=v    : apply some arguments (e.g.: -u=google)
+### :reset, :reload   : restart the application
+### :q, :quit, :exit  : close the application
+
+# PDF viewer
+evince [firename]
+
+# Twitter tool
+twint -l ja --count --since 2021-01-25 --until 2021-01-29 -o /home/kanda/Project/twitter/twint_results/2021-01-29_04.csv --csv -s "#バイツァ・ダスト"
+twint -l ja --count -o /home/kanda/Project/twitter/twint_results/2021-02-20_01.csv --csv --since 2021-02-15 --until 2021-02-20 -s "#投票"
+twint -l ja --count -o /home/kanda/Project/twitter/twint_results/2021-02-27_01.csv --csv --since 2021-02-23 --until 2021-02-26 -s "#ポケモン"
+## Via proxy
+twint -l ja --proxy-type HTTP/HTTPS/SOCK --proxy-host PROXYIP --proxy-port PORT --count -o /home/kanda/Project/twitter/twint_results/2021-03-03_01.csv --csv --since 2021-03-02 --until 2021-03-03 -s "#雛祭り"
+
+# How to mount by cifs
+sudo mount -t cifs -o username='USERNAME',password='PASSWORD' //'IPADDRESS'/calibre 'MOUNTPOINT'
+
+# How to install aur package
+## 1. Check PKGBUILD, if don't have problem, just make packages
+makepkg -s
+## 2. Install packages by pacman
+pacman -U 'packagename.tar.xz'
+
+# How to browsing CSV
+vd 'test.csv'
+## If need to set character-set below option
+vd --encoding=shift-jis 'test.csv'
+## If need to parse to CSV that recommend tools is "miller"
+## https://www.linuxquestions.org/questions/linux-newbie-8/how-to-display-a-csv-file-in-a-nice-format-4175674705/
+
+# twitvim help
+## how to browsing timeline
+:FriendsTwitter
+## how to tweet
+:PosttoTweet
+## how to faverite
+<Leader>f
+## how to Retweets
+<Leader>R
+## how to retrieves user profile on current line
+<Leader>p
+## how to retrieves user timeline on current line
+<Leader>g
+## how to retrives in-reply-to on current line
+<Leader>@
+## back buffer
+Ctrl-O
+## forward buffer
+Ctrl-I
+## update timeline
+<Leader><Leader>
+
+# How to check battery status on linux
+upower -d
+acpi -V
+inxi -Fx
+# How to check usb devices on linux
+lsusb

@@ -1,0 +1,22 @@
+#cloud-config
+hostname: "rancher"
+
+rancher:
+        network:
+                dns:
+                        nameservers:
+                                - 192.168.10.254
+                interfaces:
+                        eth0:
+                                address: 192.168.10.101/24
+                                gateway: 192.168.10.254
+                                dhcp: false
+write_files:
+        - container: acpid
+          path: /etc/acpi/suspend.sh
+          permissions: "0644"
+          owner: root
+          content: |
+                  exit 0
+ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiahyKBBAyNB8Byfh+a21sRrEfGTUAB1m9UH640786uDczmeu5xt7k/b3QvPudsyE12OggvQzE8aWFwJpQop+2OdRjEu0OMbWU6FDcaq/eCFL6votS+b21HRfIx/ogC5uONBUrtH48j0Y30+Tg1qhPUs1raAWuE3N/GLiVlZFt46XPfX7gTIhJoLTYdLvpCTnI0zYcGvLj0u1NAcLA1VVLpgod7418K/CRdN+m4SZ7HSxcAhwIjkxaGFVgjedUiPoOpxuAHn0QgflWUV1dHeIJLkReQ1ffyLh7qp0Hj9zMpcMXIPeQKWLm4fBAp9wocZrcEyUKS++XZHBGgWVhbUH9 kanda@Kx250

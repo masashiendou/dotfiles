@@ -1,0 +1,22 @@
+#cloud-config
+hostname: "rancher"
+
+rancher:
+        units:
+                - name: 00-static.network
+                  contents: |
+                          [Match]
+                          Name=enp0s25
+
+                          [Network]
+                          DNS=192.168.10.254
+                          Address=192.168.10.101/24
+                          Gateway=192.168.10.254
+        users:
+                - name: rancher
+                  passwd: $1$2pbo.tP/$vUFpFKHavJglafnXW1Iyt0
+                  groups:
+                          - sudo
+                          - docker
+ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDH9Z+4E9mECSnuu8BjHIvcOiLlmkfZ67+16hnwbVwYJle7ZlCl2ndu433D1ox/3Fk+g5QC19FAbqNulyuh6TX6NIye6Y28p9Z3Dmp2ffgFwLZgbEhiJwxp+TA5N9znKSnZg4KpxvTm9oZFPzzuEypIujH8IgGQzOHhsH/Esm0SLTOcJhTzoJbOheL3AknfI8Wa6VPNfiUIOzMc93UaipPfuny5c21FLh1z8/rYkn81fiPdJRDzWtADsg4hu7kIhNxXWMQsu4EKK9D5IbRiOWfBPx4MCjzaZhaFQAVmHs8MIacYuuPb603jfpKuTp/iYMyjc+Jf+Nf0D7oD8SPlU5ToY13LjyTxH2j23Y3tBzABrFhFXshxbZq0wr/2Iv4FikxCNqPJTKEdTzOcxZfZH047DO8EzZABHp8lgHipK71Y3+sPocLaMEBoyXwIP5Gd0sReXz8bK8y6b4+EY4VPrmZBZP96RbsW8DjGqdektVDzTpMnFFwQPsj3Wg/fPwxrjYWFNUC7LRs9xNcNBKj54EBy5BYWRGaTtVR24i33xVTVbYsS+u95Rn8RY3yY9S9mMi4zKhVRkPhan43tPgJNAktI5aqCuOs8T68bYIqiyk0ZBifBVySLZ5QRQtc45T5zuEFMCwobIGfmM1a1gozyr/vvreuzwAcCL7GH1wS+FuKf+w== hujyorom@gmail.com

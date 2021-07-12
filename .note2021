@@ -1,3 +1,6 @@
+# How to confirm current host of distribution
+cat /etc/*release
+
 # How to confirm docker images with tag
 hub-tool tag ls circleci/python
 
@@ -13,6 +16,12 @@ setterm -blength 0
 
 # /etc/inputrc 
 set bell-style none
+
+# beep off
+xset b off
+
+# beep on
+xset b 100
 
 # find commands options
 ## exclude './proc' directory
@@ -67,11 +76,12 @@ vd --encoding=shift-jis 'test.csv'
 ## If need to parse to CSV that recommend tools is "miller"
 ## https://www.linuxquestions.org/questions/linux-newbie-8/how-to-display-a-csv-file-in-a-nice-format-4175674705/
 
+# VIM
 # twitvim help
 ## how to browsing timeline
 :FriendsTwitter
 ## how to tweet
-:PosttoTweet
+:PosttoTwitter
 ## how to faverite
 <Leader>f
 ## how to Retweets
@@ -89,9 +99,190 @@ Ctrl-I
 ## update timeline
 <Leader><Leader>
 
-# How to check battery status on linux
+## How to jump on cursor file path
+gf
+## or
+:e '+100' 'FILEPATH'
+## showing change history
+:change
+## showing jump history
+:jumps
+
+# How to check battery status in linux
 upower -d
 acpi -V
 inxi -Fx
-# How to check usb devices on linux
+# How to check usb devices in linux
 lsusb
+
+# How to check disk space in linux
+df -h
+df -k
+
+# How to check each directory size in linux
+du -hs
+du -sk * |sort -rn
+
+## Alternative method
+# How to check each directory size in linux
+ncdu -x
+
+# How to check largest package size on pacman
+pacgraph -c
+
+# How to check, if cache cleand on pacman
+cacheclean
+
+# How to check orphan packages on pacman
+pacman -Qdt
+
+# How to clear the cache on pacman
+pacman -Sc
+
+## Appendix for free up space on root disk
+https://bbs.archlinux.org/viewtopic.php?id=121474
+
+## How to count line via ls command
+ls |wc -l
+
+
+# CD ripping
+abcde -d /dev/sr0
+## Appendix
+https://linuxconfig.org/how-to-rip-cds-from-the-linux-command-line
+
+
+# how to burn iso image
+## for USB
+## NOTE: Run the following command, replacing /dev/sdx with your drive, e.g. /dev/sdb. (Do not append a partition number, so do not use something like /dev/sdb1):
+dd if="image.iso" of=/dev/"diskdevice"
+## for CD/DVD
+## and for DVD or BD:
+cdrecord -v -sao dev=/dev/sr0 isoimage.iso
+growisofs -dvd-compat -Z /dev/sr0=isoimage.iso
+
+# how to pair logitech/logicool devices
+ltunify pair
+
+# For windows 10 settings
+## Product key resetting
+### How to show
+wmic path softwarelicensingservice get OA3xOriginalProductKey
+### How to set
+## Change registory of key
+regedit
+HKEY_LOCAL_MACHINE - SOFTWARE - Microsoft - Windows NT - CurrentVersion - PasswordLess - Device - DevicePassword
+'change from 2 to 0' 
+## Change password policy
+netplwiz
+
+# list up files and move to target_directory
+ls |grep [^\x01-\x7E\xA1-\xDF].mp4|xargs -t -I{} mv {} 'target_directory'
+
+
+# Cisco router initialize process
+en
+erace startup-config
+reload
+
+(config)hostname
+(config)enable secret
+(config)enable password
+(config)service password-encryption
+(config)line console 0
+(config)logging synchronous
+
+# Git commands
+
+## usually use commands
+### how to undo add files
+git reset 'filename'
+### how to undo all of add files
+git reset
+
+### how to change HEAD
+git checkout 'commit id'
+
+### how to merge
+git checkout 'branch A'
+git merge 'branch B'
+
+## appendix; https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git
+## option 1: git reset --hard
+### Say you have this, where C is your HEAD and (F) is the state of your files.
+
+   (F)
+A-B-C
+    ↑
+  master
+
+### You want to nuke commit C and never see it again and lose all the changes in locally modified files. You do this:
+
+git reset --hard HEAD~1
+
+### The result is:
+
+ (F)
+A-B
+  ↑
+master
+
+### Now B is the HEAD. Because you used --hard, your files are reset to their state at commit B.
+
+## option 2: git reset
+
+### Ah, but suppose commit C wasn't a disaster, but just a bit off. You want to undo the commit but keep your changes for a bit of editing before you do a better
+### commit. Starting again from here, with C as your HEAD:
+
+   (F)
+A-B-C
+    ↑
+  master
+
+### You can do this, leaving off the --hard:
+
+git reset HEAD~1
+
+### In this case the result is:
+
+   (F)
+A-B-C
+  ↑
+master
+
+### In both cases, HEAD is just a pointer to the latest commit. When you do a git reset HEAD~1, you tell Git to move the HEAD pointer back one commit. But
+### (unless you use --hard) you leave your files as they were. So now git status shows the changes you had checked into C. You haven't lost a thing!
+
+## option 3: git reset --soft
+
+### For the lightest touch, you can even undo your commit but leave your files and your [101]index:
+
+git reset --soft HEAD~1
+
+### This not only leaves your files alone, it even leaves your index alone. When you do git status, you'll see that the same files are in the index as before. In
+### fact, right after this command, you could do git commit and you'd be redoing the same commit you just had.
+
+
+# Format device
+## Specify filetype with mkfs
+## Using ext2 is not very convenient or advisable. Most Linux systems these days recommend using ext4. You can specify the file system in the following manner:
+sudo mkfs -t ext4 /dev/sdb1
+## appendix;
+## https://linuxhandbook.com/mkfs-command/
+
+# Check ethernet alias
+ls /sys/class/net/
+
+# How to restart touchpad application
+libinput-gestures-setup restart
+## appendix;
+## https://github.com/bulletmark/libinput-gestures
+
+# Python tips
+## create virtual environment
+virtualenv 'foldername' # ex> virtualenv venv
+## execute virtualenv
+. venv/bin/activate
+## how to confirm pydoc in vim
+## press 'K' that it shows a popup with assignments;
+## appendix: https://www.cyberciti.biz/faq/how-to-access-view-python-help-when-using-vim/ 

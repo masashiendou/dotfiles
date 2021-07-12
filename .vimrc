@@ -29,7 +29,7 @@ set wrap
 set formatoptions-=or
 
 " Hide and Open line option
-au FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal foldmethod=marker
 
 "" Leader settings
 let mapleader = "\<Space>"
@@ -38,7 +38,8 @@ nnoremap <silent> <Leader>T :NERDTreeToggle<CR>
 let NERDTreeMapOpenInTab='r'
 let NERDTreeMapCloseDir='h'
 let NERDTreeMapCustomOpen='-'
-let NERDTreeWinPos='right'
+let NERDTreeWinPos='left'
+" let NERDTreeWinPos='right'
 " window focus changing
 nnoremap <silent> <Leader>w :wincmd w<CR>
 nnoremap <silent> <Leader>W :wincmd W<CR>
@@ -97,8 +98,11 @@ set clipboard=unnamedplus
 set encoding=utf-8
 set list  " can be view invisible charactor
 set listchars=tab:>-,trail:.  " View by Tab is '>---', Space is '.'
-set tabstop=8
-" set tabstop=3
+" set softtabstop=8
+" set tabstop=8
+" set tabstop=9
+set tabstop=3
+" set shiftwidth=4
 set shiftwidth=0
 
 
@@ -186,7 +190,7 @@ nnoremap <silent> bo :bd<CR>
 "=========================
 "" auto-pairs setting
 autocmd BufRead,BufNewFile *.rb,*.erb setfiletype ruby
-au FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
+autocmd FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
 
 
 "" gen_tags.vim
@@ -266,6 +270,11 @@ let g:coc_global_extensions = ['coc-solargraph']
 "=========================
 " ETC
 "=========================
+"Editting for manual file
+autocmd FileType text setl conceallevel=2
+autocmd FileType text setl syntax=help
+autocmd FileType text setl tabstop=9
+
 "ack.vim setting
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
@@ -340,6 +349,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'guns/xterm-color-table.vim' " :XtermColorTable, # -> yank, t -> toggle, f -> set current color
 Plug 'chrisbra/Colorizer' " :h Colorizer, :ColorHighlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build'  }
 " Plug 'liuchengxu/vista.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'

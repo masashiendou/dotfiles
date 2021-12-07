@@ -39,6 +39,7 @@ let NERDTreeMapOpenInTab='r'
 let NERDTreeMapCloseDir='h'
 let NERDTreeMapCustomOpen='-'
 let NERDTreeWinPos='left'
+let NERDTreeSortOrder=['\/$', '*', '[[-timestamp]]']
 " let NERDTreeWinPos='right'
 " window focus changing
 nnoremap <silent> <Leader>w :wincmd w<CR>
@@ -174,7 +175,7 @@ filetype plugin indent on
 filetype plugin on
 " setl tw=200
 setl tw=20000
-setl fo+=aw
+" setl fo+=aw
 
 "" buffer setting
 :set hidden
@@ -191,6 +192,9 @@ nnoremap <silent> bo :bd<CR>
 "" auto-pairs setting
 autocmd BufRead,BufNewFile *.rb,*.erb setfiletype ruby
 autocmd FileType ruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<' : '>'})
+" autocmd BufRead,BufNewFile *.py setfiletype python
+" autocmd FileType python let g:AutoPairs = AutoPairsDefine({'"' : '"', '"""' : '"""'})
+" autocmd FileType python let g:AutoPairs = AutoPairsDefine({'"""' : '"""'})
 
 
 "" gen_tags.vim
@@ -286,6 +290,8 @@ let twitvim_browser_cmd = 'firefox'
 let twitvim_force_ssl = 1
 let twitvim_count = 600
 let twitvim_show_header = 0
+let twitvim_woeid = 1118370
+" let twitvim_woeid = 23424977
 " let twitvim_filter_enable = 1
 
 "vim-json setting
@@ -359,7 +365,7 @@ Plug 'lighttiger2505/gtags.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'slim-template/vim-slim'
 Plug 'elzr/vim-json'
-Plug 'sheerun/vim-polyglot' " tmp
+" Plug 'sheerun/vim-polyglot' " the plugin could bad effect for automatical wrap
 Plug 'pangloss/vim-javascript'
 " Plug 'godlygeek/tabular' " For markdown
 " Plug 'plasticboy/vim-markdown' " For markdown

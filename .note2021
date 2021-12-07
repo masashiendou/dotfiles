@@ -61,7 +61,8 @@ twint -l ja --count -o /home/kanda/Project/twitter/twint_results/2021-02-27_01.c
 twint -l ja --proxy-type HTTP/HTTPS/SOCK --proxy-host PROXYIP --proxy-port PORT --count -o /home/kanda/Project/twitter/twint_results/2021-03-03_01.csv --csv --since 2021-03-02 --until 2021-03-03 -s "#雛祭り"
 
 # How to mount by cifs
-sudo mount -t cifs -o username='USERNAME',password='PASSWORD' //'IPADDRESS'/calibre 'MOUNTPOINT'
+sudo mount.cifs //'UNC_IP'/'UNC_FOLDER' -o username='USERNAME',password='PASSWORD',ip='IPADDRESS' 'MOUNTPOINT'
+# sudo mount -t cifs -o username='USERNAME',password='PASSWORD' //'IPADDRESS'/calibre 'MOUNTPOINT'
 
 # How to install aur package
 ## 1. Check PKGBUILD, if don't have problem, just make packages
@@ -194,6 +195,13 @@ reload
 
 # Git commands
 
+## project start
+git init
+gh create-repo [options] repo_name
+git remote add origin [users_url]
+git add . && git commit -m "commit masseges"
+git push origin master
+
 ## usually use commands
 ### how to undo add files
 git reset 'filename'
@@ -286,3 +294,7 @@ virtualenv 'foldername' # ex> virtualenv venv
 ## how to confirm pydoc in vim
 ## press 'K' that it shows a popup with assignments;
 ## appendix: https://www.cyberciti.biz/faq/how-to-access-view-python-help-when-using-vim/ 
+
+# powershell tips
+Get-ExecutionPolicy
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned

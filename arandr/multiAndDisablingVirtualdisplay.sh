@@ -8,3 +8,4 @@ xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output DP2-1 
 feh --bg-scale "Downloads/wallpapers/4845.jpg"
 fcitx -d
 ~/.xkb/script/i3-config.sh
+~/.config/netctl/stopMobile.sh

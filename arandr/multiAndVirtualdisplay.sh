@@ -16,3 +16,4 @@ feh --bg-scale "Downloads/wallpapers/4845.jpg"
 fcitx -d
 ~/.xkb/script/i3-config.sh
 i3 -c ~/.config/i3/config
+~/.config/netctl/stopMobile.sh

@@ -2,7 +2,9 @@
 Description=Daily scan of clamscan
 
 [Timer]
-OnCalendar=*-*-* 23:59:59
+OnCalendar=Wed *-*-* 23:59:59
+# OnCalendar=*/4 *-*-* 23:59:59
+# OnCalendar=*-*-* 23:59:59
 Persistent=true
 
 [Install]

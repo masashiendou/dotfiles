@@ -290,8 +290,9 @@ let twitvim_browser_cmd = 'firefox'
 let twitvim_force_ssl = 1
 let twitvim_count = 600
 let twitvim_show_header = 0
-let twitvim_woeid = 1118370
-" let twitvim_woeid = 23424977
+" let twitvim_woeid = 1118370 " Japan Tokyo
+let twitvim_woeid = 23424977 " United States
+" let twitvim_woeid = 23424975 " United Kingdom
 " let twitvim_filter_enable = 1
 
 "vim-json setting
@@ -387,8 +388,17 @@ Plug 'twitvim/twitvim'
 " :MarkdownPreviewStop
 Plug 'yuratomo/w3m.vim'
 
+" For PlantUML
+Plug 'aklt/plantuml-syntax'
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
+
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" For drawing textual diagram
+Plug 'vim-scripts/DrawIt'
+Plug 'PProvost/vim-ps1'
 
 " Example for plugin setting
 " Multiple Plug commands can be written in a single line using | separators

@@ -2,7 +2,7 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <SNR>59_AutoPairsReturn =AutoPairsReturn()
+inoremap <silent> <SNR>63_AutoPairsReturn =AutoPairsReturn()
 inoremap <silent> <Plug>CocRefresh =coc#_complete()
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 vmap  <Plug>(caw:hatpos:toggle)
@@ -24,6 +24,10 @@ nmap e :cs find e =expand('<cword>')
 nmap d :cs find d =expand('<cword>')
 nmap c :cs find c =expand('<cword>')
 map  a
+map  rwp <Plug>RestoreWinPosn
+map  swp <Plug>SaveWinPosn
+map  ds <Plug>DrawItStop
+map  di <Plug>DrawItStart
 nnoremap  a :Ack! 
 nnoremap <silent>  z :ZoomWin
 nnoremap <silent>  n :copen
@@ -71,10 +75,22 @@ nnoremap s l
 nnoremap t j
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+nmap <silent> <Plug>RestoreWinPosn :call RestoreWinPosn()
+nmap <silent> <Plug>SaveWinPosn :call SaveWinPosn()
+noremap <silent> <Plug>DrawItStop :set lz:call DrawIt#DrawItStop():set nolz
+noremap <silent> <Plug>DrawItStart :set lz:call DrawIt#DrawItStart():set nolz
+xnoremap <silent> <Plug>(openbrowser-smart-search) :call openbrowser#_keymap_smart_search('v')
+nnoremap <silent> <Plug>(openbrowser-smart-search) :call openbrowser#_keymap_smart_search('n')
+xnoremap <silent> <Plug>(openbrowser-search) :call openbrowser#_keymap_search('v')
+nnoremap <silent> <Plug>(openbrowser-search) :call openbrowser#_keymap_search('n')
+xnoremap <silent> <Plug>(openbrowser-open-incognito) :call openbrowser#_keymap_open('v', 0, ['--incognito'])
+nnoremap <silent> <Plug>(openbrowser-open-incognito) :call openbrowser#_keymap_open('n', 0, ['--incognito'])
+xnoremap <silent> <Plug>(openbrowser-open) :call openbrowser#_keymap_open('v')
+nnoremap <silent> <Plug>(openbrowser-open) :call openbrowser#_keymap_open('n')
 nnoremap <Plug>(twitvim-PosttoTwitter) :call twitvim#CmdLine_Twitter('', 0)
 vmap <C-T> <Plug>TwitvimVisual
 vmap <M-t> <Plug>TwitvimVisual
-noremap <SNR>67_Visual y:call twitvim#post_twitter(@", 0)
+noremap <SNR>71_Visual y:call twitvim#post_twitter(@", 0)
 nmap <C-W>o <Plug>ZoomWin
 xmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
 nmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
@@ -267,7 +283,8 @@ set helplang=en
 set hidden
 set hlsearch
 set listchars=tab:>-,trail:.
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/coc-jedi/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-superman/,~/.vim/plugged/markdown-preview.nvim/,~/.vim/plugged/twitvim/,~/.vim/plugged/w3m.vim/,~/.vim/plugged/vim-github-dashboard/,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/caw.vim/after,~/.vim/after
+set nomodeline
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/coc-jedi/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-superman/,~/.vim/plugged/markdown-preview.nvim/,~/.vim/plugged/twitvim/,~/.vim/plugged/w3m.vim/,~/.vim/plugged/plantuml-syntax/,~/.vim/plugged/open-browser.vim/,~/.vim/plugged/plantuml-previewer.vim/,~/.vim/plugged/vim-github-dashboard/,~/.vim/plugged/DrawIt/,~/.vim/plugged/vim-ps1/,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/caw.vim/after,~/.vim/after
 set shiftwidth=0
 set showmatch
 set splitbelow
@@ -285,8 +302,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .ssh/config
-edit .ssh/config
+$argadd /etc/netctl/mobile
+edit /etc/netctl/mobile
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -341,7 +358,7 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
-setlocal autoindent
+setlocal noautoindent
 setlocal backupcopy=
 setlocal balloonexpr=
 setlocal nobinary
@@ -374,8 +391,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'sshconfig'
-setlocal filetype=sshconfig
+if &filetype != 'conf'
+setlocal filetype=conf
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -389,7 +406,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=awql
+setlocal formatoptions=ql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
@@ -397,10 +414,10 @@ setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetSshconfigIndent(v:lnum)
-setlocal indentkeys=o,O,*<Return>,0=~host\ ,0=~match\ ,0#,!^F
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
-setlocal iskeyword=_,-,a-z,A-Z,48-57
+setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
 setlocal nolinebreak
 setlocal nolisp
@@ -410,7 +427,7 @@ setlocal list
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
-setlocal modeline
+setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
@@ -443,8 +460,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'sshconfig'
-setlocal syntax=sshconfig
+if &syntax != 'conf'
+setlocal syntax=conf
 endif
 setlocal tabstop=3
 setlocal tagcase=
@@ -466,14 +483,14 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 50 - ((46 * winheight(0) + 34) / 68)
+let s:l = 1 - ((0 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 50
-normal! 028|
+keepjumps 1
+normal! 0
 tabnext 1
-badd +0 .ssh/config
+badd +0 /etc/netctl/mobile
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

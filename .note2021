@@ -29,7 +29,9 @@ find . -path ./proc -prune -false -o -name perl
 
 # youtube-viewer
 ## like spotify
-youtube-viewer -C -I -n [search words]
+youtube-viewer -C -I -n [search word]
+## order by viewCount
+youtube-viewer -4 --within=1y --order=viewCount [search word]
 ## option playing
 ### <number>          : play the corresponding video
 ### 3-8, 3..8         : same as 3 4 5 6 7 8
@@ -200,7 +202,8 @@ git init
 gh create-repo [options] repo_name
 git remote add origin [users_url]
 git add . && git commit -m "commit masseges"
-git push origin master
+git branch -M main
+git push origin main
 
 ## usually use commands
 ### how to undo add files
@@ -298,3 +301,112 @@ virtualenv 'foldername' # ex> virtualenv venv
 # powershell tips
 Get-ExecutionPolicy
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+# ubuntu
+## how do i check version of ubuntu
+lsb_release -a
+
+# elasticsearch tips
+# fix for 429 error
+curl -XPUT --key secrets/certs/elasticsearch/elasticsearch.key --cert secrets/certs/elasticsearch/elasticsearch.crt -u user:pass -H "Content-Type: application/json" http://localhost:9200/_cluster/settings -d '{ "transient": { "cluster.routing.allocation.disk.threshold_enabled": false } }'
+curl -XPUT --key secrets/certs/elasticsearch/elasticsearch.key --cert secrets/certs/elasticsearch/elasticsearch.crt -u user:pass -H "Content-Type: application/json" http://localhost:9200/_all/_settings -d '{"index.blocks.read_only_allow_delete": null}'
+## appendix;
+## https://stackoverflow.com/questions/65368970/kibana-throwing-429-too-many-requests-when-trying-to-create-an-index-pattern
+## https://stackoverflow.com/questions/50609417/elasticsearch-error-cluster-block-exception-forbidden-12-index-read-only-all
+### temporarily
+sysctl -w vm.max_map_count=262144
+### permanently
+add "vm.max_map_count=262144" to /etc/sysctl.conf
+## appendix;
+## https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
+
+# docker tips
+# In order to delete all images, use the given command
+docker rmi $(docker images -q)
+# In order to delete all containers, use the given command
+docker rm $(docker ps -a -q)
+
+# docker build with Dockerfile
+docker build .
+
+# You can set image name when building a custom image, like this:
+docker build -t dude/man:v2 . # Will be named dude/man:v2
+
+# snmp tips
+apt-get install snmp-mibs-downloader
+## add lines of mibs directory
+### i.e>
+### path => /etc/snmp/snmp.conf
+### lines =>
+###  mibdirs +/usr/share/snmp/mibs/iana
+###  mibdirs +/usr/share/snmp/mibs/ietf
+###  mibs +ALL
+## OID and MIB can be checked from Linux, for example with the command:
+snmpwalk -v 2c -c public 192.168.1.1 .1
+snmpwalk -v 2c -c public -O f 192.168.1.1 1.3.6.1.2.1
+
+# how to check Kernel / Distribution
+# Linux Version
+cat /etc/issue
+cat /etc/*release
+# Kernel Version
+uname -r
+# How to Tell Whether You Are Using a 64-bit Kernel
+uname -a
+
+# playlist
+## example
+mpv --playlist=my_list.txt
+
+# How do I check my laptop cpu model
+less /proc/cpuinfo
+
+# List up docker PIDs
+ps -ef | grep docker | awk '{print $2}'
+
+# Installing docker-compose
+sudo wget –O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
+sudo chmod +x /usr/local/bin/docker-compose
+
+# chromium tips
+chromium --proxy-server="proxyip:port"
+
+# Configuring keyboard layout for ubuntu
+dpkg-reconfigure keyboard-configuration
+
+# Installation for ctag and gtag on ubuntu 22.04 lts
+## ctag
+sudo apt install make
+sudo apt install build-essential
+ls /usr/bin/make
+make -version
+sudo apt-get install autoconf pkg-config
+git clone https://github.com/universal-ctags/ctags.git
+cd ctags
+./autogen.sh
+./configure
+make
+sudo make install
+## gtag
+sudo apt-get install -y curl wget ncurses-dev python3
+wget https://ftp.gnu.org/pub/gnu/global/global-6.6.8.tar.gz
+tar zxvf global-6.6.8.tar.gz
+cd global-6.6.8
+./configure
+make
+sudo make install
+
+# du of tips
+## If you try to run du on your root directory to see storage space across the entire disk, keep in mind that you’ll need to execute that command with root
+## privileges and you should redirect standard error to /dev/null since you’ll get a lot of “permission denied” spam in your output.
+sudo du -h --max-depth=1 / | sort -h 2> /dev/null
+## https://linuxconfig.org/how-to-check-disk-usage-by-folder-on-linux
+
+# How to use commands of gh
+# Examples
+# create a repository interactively
+gh repo create
+# create a new remote repository and clone it locally
+gh repo create my-project --public --clone
+# create a remote repository from the current directory
+gh repo create my-project --private --source=. --remote=upstream

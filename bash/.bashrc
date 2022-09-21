@@ -17,6 +17,7 @@ alias ccsadmin='firefox -no-remote -P ccsadmin&'
 alias ccs01='firefox -no-remote -P ccs01&'
 alias ccs02='firefox -no-remote -P ccs02&'
 alias ccs03='firefox -no-remote -P ccs03&'
+alias proxy='firefox -no-remote -P expand_twitter&'
 alias vd='vd --encoding=shift-jis'
 alias w3='w3m $(xsel -op)'
 alias yt='youtube-viewer -4 $(xsel -op)'
@@ -24,11 +25,17 @@ alias k='kanban'
 alias pm='pulsemixer'
 alias 6807491325='cd ~/Documents/ccs/manual/main/manual'
 alias 400110='cd ~/Documents/makingNoteByVIM/400110'
+alias y194='cd ~/Documents/makingNoteByVIM/y194'
 alias 83='vim'
 alias 79='cp'
 alias 38='mv'
 alias 3714='mkdir'
 alias 71='cd'
+alias 673914='cd ~/Documents/makingNoteByVIM/673914'
+alias e2656='cd ~/Documents/makingNoteByVIM/EnglishNote'
+alias 6982126='cd ~/Documents/makingNoteByVIM/6982126'
+alias 074926='cd ~/Documents/makingNoteByVIM/074926'
+alias 3210='cd ~/Documents/makingNoteByVIM/3210'
 # alias khelp='w3m https://github.com/coderofsalvation/kanban.bash'
 alias grep='grep --color=auto'
 alias memory='vim ~/.note2021'
@@ -59,3 +66,9 @@ export VIMRUNTIME="/usr/local/share/vim/vim82"
 
 # export XDG_CONFIG_HOME=$HOME/test
 # export XDG_DATA_HOME=test newsboat
+
+PATH="/home/kanda/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/kanda/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/kanda/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/kanda/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/kanda/perl5"; export PERL_MM_OPT;

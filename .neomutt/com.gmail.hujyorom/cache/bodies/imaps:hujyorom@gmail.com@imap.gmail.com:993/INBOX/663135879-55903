@@ -1,0 +1,594 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp903561vkh;
+        Thu, 30 Sep 2021 17:42:23 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwaGieifiX5aXvGfdMeitZjFCkGLhUnRWdwCChWr3U8qJmM2saWz89A2R+SOw3fbsQxsr5m
+X-Received: by 2002:a37:507:: with SMTP id 7mr7131236qkf.96.1633048943611;
+        Thu, 30 Sep 2021 17:42:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633048943; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FF+o05M7+Cb98J1ploh5FClA8Y5885yayWFalc07cPoycbFEkNA9/d5zq4MUodIwjp
+         CypB58/EKTDMpmwyDjY+fupgsu6JlUUF4HR714BKho4VMt1FFygxQuWMTWxpt1qC3ZCs
+         e6Ln++btU1qy2uQQRCN44RnHzvEYYKT3zPG3UEbH2LdR/1NCuRN5i1wxDlTPkZFtjfEi
+         oeMQWm8BSIFvhg5/M86FODGOVD7r8Hebxg2Qt943BGMp9UymkYAfOGfCdYiPy0tIznci
+         U9VpnX93psP4kMBvN2x+2+dQWlRR6shYCK1g8cRZyNhhljibeXTWTpBlUv9eeIh2YCKN
+         /Qpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from
+         :dkim-signature:dkim-signature;
+        bh=VBWPqzFWch4OmeaGnzMjqSAFqkqMFbc/oMaNeecc9K0=;
+        b=HCCOhttKPlrZ2y9+xYZGWwWFA7NfU0fSnT5plFpSmtfIrd+qAjWU+orrxdmnAL6cti
+         Ue5DP7iGRZv/suBu5zUNDgdw4leb91wudKb9sLFe16k2SYATKrlhg1ZuAL+uXFHy1q1x
+         LA84Fd6W0vUGCdj6eu1hiBtM0U7vL+k+OXuDY5Fg6sQbS5rJpFfTNMLeJyBPNWOqsUbI
+         YucEkmFE3rNg086FKSNl3chOV5sCkoJGF6/Y2oDFze8lyCAjeKf1xFJPAo1j6vaJP4p7
+         tuNnEcJivyRjvR1pvekEI8oXDma1NrhKXePYwPg8l2UcvPJNKHdG8OpA++kvooXb07vM
+         I9hg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.com header.s=eaxkvsyelrnxjh4cicqyjjmtjpetuwjx header.b=Auafglv4;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=J8uvFHeg;
+       spf=pass (google.com: domain of 2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com designates 54.240.13.165 as permitted sender) smtp.mailfrom=2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+Return-Path: <2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com>
+Received: from a13-165.smtp-out.amazonses.com (a13-165.smtp-out.amazonses.com. [54.240.13.165])
+        by mx.google.com with ESMTPS id d13si3427714qkn.267.2021.09.30.17.42.23
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Thu, 30 Sep 2021 17:42:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com designates 54.240.13.165 as permitted sender) client-ip=54.240.13.165;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.com header.s=eaxkvsyelrnxjh4cicqyjjmtjpetuwjx header.b=Auafglv4;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=J8uvFHeg;
+       spf=pass (google.com: domain of 2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com designates 54.240.13.165 as permitted sender) smtp.mailfrom=2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=eaxkvsyelrnxjh4cicqyjjmtjpetuwjx; d=amazon.com; t=1633048943;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=VBWPqzFWch4OmeaGnzMjqSAFqkqMFbc/oMaNeecc9K0=;
+	b=Auafglv4/dkjPcLoZmDPI0VOFatY9bNqOtGebMvvWPz5Qi0e/AvBEXeYDGC181sF
+	nWwpi45HqJHUuAb4ow36msLm7o4+xz2nc1aRqgDaECzU2emK5av2U8DKCZKvHhTkNJY
+	OqUnDOBwjLawa/LsnWpYpiRjVzz5drzL8dW8rUQk=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1633048943;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=VBWPqzFWch4OmeaGnzMjqSAFqkqMFbc/oMaNeecc9K0=;
+	b=J8uvFHegquzatEOZW2xzqaZhDGnLIuarjRp5zSvKPkatpfrCwDA5ivcwvWseEmWb
+	BXk6uFdtLoSf7mx6yN5fj/w1PX1oYZOiYaHTlUZDTwJLCtH5FjbTdJ0hKfvnYARibme
+	oH66MLrm117LU0GFpISlprkAK7EYpsDxB2PfGSaM=
+From: no-reply@amazon.com
+To: hujyorom@gmail.com
+Message-ID: <0100017c394d5a1f-0277f238-252d-4468-a386-49efb0237864-000000@email.amazonses.com>
+Subject: =?UTF-8?B?5pel5pys5Zu95YaF44GuIEFXUyDjgqLjgqs=?=
+ =?UTF-8?B?44Km44Oz44OI44Gr5a++44GZ44KL44GU6KuL5rGC44Gr44Gk44GE?=
+ =?UTF-8?B?44Gm44Gu6YeN6KaB44Gq44GK55+l44KJ44GbIHwgQW4gSW1wb3J0YW50IFU=?=
+ =?UTF-8?B?cGRhdGUgZm9yIEFXUyBBY2NvdW50cyBhYg==?=
+ =?UTF-8?B?b3V0IExvY2FsIEJpbGxpbmcgaW4gSmFwYW4=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_19682878_329049026.1633048943124"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 2021100100422329b36e18258c4eb3867f7398b4e0p0na@bounces.amazon.com
+X-AMAZON-METADATA: CA=C2MCU0KOKXE5WX-CU=A3OG21R06UD3EG
+X-Original-MessageID: <urn.rtn.msg.2021100100422329b36e18258c4eb3867f7398b4e0p0na@1633048943125.rtn-svc-na-back-c42xl1a-1b8b968e.us-east-1.amazon.com>
+Date: Fri, 1 Oct 2021 00:42:23 +0000
+Feedback-ID: 1.us-east-1.ZHcGJK6s+x+i9lRHKog4RW3tECwWIf1xzTYCZyUaiec=:AmazonSES
+X-SES-Outgoing: 2021.10.01-54.240.13.165
+
+------=_Part_19682878_329049026.1633048943124
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<p><strong>[English follows Japanese]</strong></p><p>=E3=82=A2=E3=83=9E=E3=
+=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=
+=82=B9=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=
+=8D=E3=80=81=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=
+=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br /><br />2021 =E5=B9=B4 11 =E6=9C=88=
+ 1 =E6=97=A5=E3=82=88=E3=82=8A=E3=80=81Amazon Web Services, Inc. =E3=81=AB=
+=E6=9B=BF=E3=82=8F=E3=82=8A=E3=80=81=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =
+=E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=
+=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE =E3=81=8C=
+=E6=97=A5=E6=9C=AC=E5=9B=BD=E5=86=85=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=
+=83=B3=E3=83=88=E3=81=AB=E5=AF=BE=E3=81=99=E3=82=8B=E6=96=B0=E3=81=97=E3=81=
+=84 AWS =E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=82=B5=E3=83=BC=E3=83=93=E3=
+=82=B9=E3=82=BB=E3=83=A9=E3=83=BC=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=
+=99=E3=80=82=E3=81=93=E3=81=AE=E6=97=A5=E4=BB=98=E3=82=92=E5=A2=83=E3=81=AB=
+=E3=80=81=E6=97=A5=E6=9C=AC=E5=9B=BD=E5=86=85=E3=81=AE=E8=AB=8B=E6=B1=82=E6=
+=9B=B8=E6=89=95=E3=81=84=E3=81=AE=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AF=E3=80=
+=81Amazon Web Services Inc. =E3=81=A7=E3=81=AF=E3=81=AA=E3=81=8F=E3=80=81=
+=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=
+=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=
+=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=8B=E3=82=89=E3=82=B5=E3=83=BC=E3=83=93=E3=
+=82=B9=E3=82=92=E3=81=94=E8=B3=BC=E5=85=A5=E3=81=95=E3=82=8C=E3=82=8B=E3=81=
+=93=E3=81=A8=E3=81=AB=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=93=
+=E3=81=AE=E6=97=A5=E4=BB=98=E3=81=AF=E5=A4=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=
+=82=8B=E5=8F=AF=E8=83=BD=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=
+=99=E3=80=82<br /><strong><br />=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AB=E3=81=
+=8A=E9=A1=98=E3=81=84=E3=81=99=E3=82=8B=E3=81=94=E5=AF=BE=E5=BF=9C</strong>=
+</p><ul><li>AWS =E3=83=9E=E3=83=8D=E3=82=B8=E3=83=A1=E3=83=B3=E3=83=88=E3=
+=82=B3=E3=83=B3=E3=82=BD=E3=83=BC=E3=83=AB=E3=81=AE [<a href=3D"https://con=
+sole.aws.amazon.com/billing/home?region=3Dus-east-1#/paymentmethods">=E6=94=
+=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95</a>] =E3=83=9A=E3=83=BC=E3=82=B8=E3=
+=81=AB=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E3=81=97=E3=80=81=E6=94=AF=E6=89=
+=95=E3=81=84=E6=96=B9=E6=B3=95=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=BE=E3=81=9F=
+=E3=81=AF=E5=A4=89=E6=9B=B4=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=
+=81=84=E3=80=82</li><li>=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AE=E7=A4=BE=E5=86=
+=85=E3=83=99=E3=83=B3=E3=83=80=E3=83=BC=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=
+=E3=81=AE=E9=80=81=E9=87=91=E6=96=B9=E6=B3=95=E3=82=92=E5=A4=89=E6=9B=B4=E3=
+=81=97=E3=80=81=E3=81=93=E3=81=AE E =E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AE=E4=
+=B8=8B=E9=83=A8=E3=81=AB=E7=A4=BA=E3=81=99=E6=94=AF=E6=89=95=E3=81=84=E6=83=
+=85=E5=A0=B1=E3=82=92=E5=8F=8D=E6=98=A0=E3=81=95=E3=81=9B=E3=81=A6=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</li></ul><p><strong>=E3=81=93=E3=81=AE=
+=E5=A4=89=E6=9B=B4=E3=81=8C=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AB=E4=B8=8E=E3=
+=81=88=E3=82=8B=E5=BD=B1=E9=9F=BF </strong></p><ul><li>=E3=82=AF=E3=83=AC=
+=E3=82=B8=E3=83=83=E3=83=88=E3=82=AB=E3=83=BC=E3=83=89=E3=81=A7=E3=81=8A=E6=
+=94=AF=E6=89=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=80=81=E3=81=8A=E5=AE=
+=A2=E6=A7=98=E3=81=B8=E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AB=
+=E3=81=AF=E5=BD=B1=E9=9F=BF=E3=81=8C=E3=81=AA=E3=81=8F=E3=80=81=E5=BC=95=E3=
+=81=8D=E7=B6=9A=E3=81=8D Amazon Web Services, Inc. =E3=81=A8=E3=81=8A=E5=8F=
+=96=E5=BC=95=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=E3=80=82=
+</li><li>=E6=8C=AF=E8=BE=BC=E3=81=A7=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=
+=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AF =E7=B1=B3=E3=83=89=E3=83=AB (USD=
+) =E3=81=BE=E3=81=9F=E3=81=AF =E6=97=A5=E6=9C=AC=E5=86=86 (JPY) =E3=81=8B=
+=E3=82=89=E3=81=8A=E9=81=B8=E3=81=B3=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=
+=81=BE=E3=81=99=E3=80=82</li><li>=E3=81=8A=E9=81=B8=E3=81=B3=E3=81=84=E3=81=
+=9F=E3=81=A0=E3=81=84=E3=81=9F=E9=80=9A=E8=B2=A8=E3=81=AB=E5=BF=9C=E3=81=98=
+=E3=81=A6=E3=80=81=E6=97=A5=E6=9C=AC=E5=86=86 (JPY) =E3=81=BE=E3=81=9F=E3=
+=81=AF=E7=B1=B3=E3=83=89=E3=83=AB (USD) =E3=81=A7=E8=AB=8B=E6=B1=82=E6=9B=
+=B8=E3=81=8C=E7=99=BA=E8=A1=8C=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82=
+=E3=81=84=E3=81=9A=E3=82=8C=E3=81=AE=E5=A0=B4=E5=90=88=E3=82=82=E3=80=81AWS=
+ =E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E6=96=99=E9=87=91=E3=81=AF=
+=E7=B1=B3=E3=83=89=E3=83=AB (USD) =E3=81=A7=E8=A1=A8=E7=A4=BA=E3=81=95=E3=
+=82=8C=E3=81=BE=E3=81=99=E3=80=82</li><li>=E8=AB=8B=E6=B1=82=E6=9B=B8=E3=81=
+=AB=E3=81=AF=E6=97=A5=E6=9C=AC=E3=81=AE=E6=B6=88=E8=B2=BB=E7=A8=8E =E8=BE=
+=BC=E3=81=BF=E3=81=AE=E9=A1=8D=E3=81=8C=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=
+=E3=80=81=E6=97=A5=E6=9C=AC=E3=81=AE=E6=B3=95=E5=BE=8B=E3=81=AB=E5=9F=BA=E3=
+=81=A5=E3=81=84=E3=81=9F=E6=9C=89=E5=8A=B9=E3=81=AA=E8=AB=8B=E6=B1=82=E6=9B=
+=B8=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82</li><li>=E6=8C=AF=
+=E8=BE=BC=E3=81=A7=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AF=E3=
+=80=81=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=
+=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=83=91=E3=83=B3=E5=
+=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=8B=E3=82=89=E3=81=AE=E3=82=B5=E3=83=
+=BC=E3=83=93=E3=82=B9=E3=83=AD=E3=83=BC=E3=83=B3=E3=83=81=E5=BE=8C=E3=80=81=
+=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=
+=81=99=E3=80=82=E5=8F=A3=E5=BA=A7=E5=BC=95=E3=81=8D=E8=90=BD=E3=81=A8=E3=81=
+=97 (ACH =E3=81=8A=E3=82=88=E3=81=B3 SEPA) =E3=81=A7=E3=81=AE=E3=81=8A=E6=
+=94=AF=E6=89=95=E3=81=84=E3=81=AF=E3=80=81=E3=83=AD=E3=83=BC=E3=83=B3=E3=83=
+=81=E5=BE=8C=E3=80=81=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=
+=E3=81=91=E3=81=AA=E3=81=8F=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E5=
+=BF=85=E8=A6=81=E3=81=AA=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=E3=81=8A=E6=94=
+=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E5=A4=89=E6=9B=B4=E3=82=92=
+=E3=81=8A=E9=A1=98=E3=81=84=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</li><li><a =
+href=3D"https://aws.amazon.com/agreement/?nc1=3Dh_ls">AWS =E3=82=AB=E3=82=
+=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=A2=E3=82=B0=E3=83=AA=E3=83=BC=E3=83=A1=
+=E3=83=B3=E3=83=88</a>=E3=81=BE=E3=81=9F=E3=81=AF AWS =E3=81=AE=E3=82=B5=E3=
+=83=BC=E3=83=93=E3=82=B9=E5=88=A9=E7=94=A8=E3=82=92=E8=A6=8F=E5=AE=9A=E3=81=
+=99=E3=82=8B=E3=81=9D=E3=81=AE=E4=BB=96=E3=81=AE=E5=A5=91=E7=B4=84=E3=81=AB=
+=E3=81=8A=E3=81=84=E3=81=A6=E3=81=AF=E3=80=81=E6=97=A5=E6=9C=AC=E5=9B=BD=E5=
+=86=85=E3=81=AE=E6=9C=89=E5=8A=B9=E3=81=AA=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=
+=B3=E3=83=88=E3=81=AB=E5=AF=BE=E3=81=99=E3=82=8B=E3=82=B5=E3=83=BC=E3=83=93=
+=E3=82=B9=E3=83=97=E3=83=AD=E3=83=90=E3=82=A4=E3=83=80=E3=83=BC=E3=81=8C Am=
+azon Web Services, Inc. =E3=81=8B=E3=82=89=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=
+=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=
+=B8=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=
+=AB=E5=A4=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=EF=BC=882021=E5=
+=B9=B411=E6=9C=881=E6=97=A5=E5=8F=8D=E6=98=A0=E4=BA=88=E5=AE=9A=EF=BC=89=E3=
+=80=82=E4=B8=8A=E8=A8=98=E3=82=A2=E3=82=B0=E3=83=AA=E3=83=BC=E3=83=A1=E3=83=
+=B3=E3=83=88=E3=83=BB=E5=A5=91=E7=B4=84=E3=81=AE=E5=A4=89=E6=9B=B4=E5=BE=8C=
+=E3=81=AB=E3=80=81 AWS =E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=
+=92=E7=B6=99=E7=B6=9A=E3=81=97=E3=81=A6=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=
+=E3=81=9F=E3=81=A0=E3=81=8F=E3=81=93=E3=81=A8=E3=81=A7=E3=80=81=E6=96=B0=E5=
+=A5=91=E7=B4=84=E3=81=AB=E5=90=8C=E6=84=8F=E3=81=97=E3=81=9F=E3=82=82=E3=81=
+=AE=E3=81=A8=E3=81=BF=E3=81=AA=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82=
+</li><li>=E5=A4=89=E6=9B=B4=E3=81=AE=E4=B8=80=E7=92=B0=E3=81=A8=E3=81=97=E3=
+=81=A6=E3=80=81=E7=8F=BE=E5=9C=A8=E3=81=AE=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=
+=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=
+=B8=E3=83=A3=E3=83=91=E3=83=B3 =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE=E3=81=
+=AE=E6=B3=95=E4=BA=BA=E6=A0=BC=E3=81=AF=E3=80=8111 =E6=9C=88 1 =E6=97=A5=E3=
+=81=AB=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE (=E2=80=9CKK=E2=80=9D) =E3=81=8B=
+=E3=82=89=E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE (=E2=80=9CGK=E2=80=9D) =E3=81=
+=AB=E5=A4=89=E3=82=8F=E3=82=8A=E3=80=81=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3=
+ =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=
+=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE =E3=81=A8=
+=E3=81=97=E3=81=A6=E3=82=88=E3=82=8A=E3=83=AD=E3=83=BC=E3=82=AB=E3=83=A9=E3=
+=82=A4=E3=82=BA=E3=81=95=E3=82=8C=E3=81=9F=E3=82=AB=E3=82=B9=E3=82=BF=E3=83=
+=9E=E3=83=BC=E3=82=A8=E3=82=AF=E3=82=B9=E3=83=9A=E3=83=AA=E3=82=A8=E3=83=B3=
+=E3=82=B9=E3=82=92=E3=81=94=E6=8F=90=E4=BE=9B=E3=81=84=E3=81=9F=E3=81=97=E3=
+=81=BE=E3=81=99=E3=80=82</li></ul><p><strong>USD =E3=81=A7=E3=81=8A=E6=94=
+=AF=E6=89=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AE=E9=80=81=E9=87=91=
+=E6=83=85=E5=A0=B1</strong></p><ul><li>=E9=8A=80=E8=A1=8C=E5=90=8D: 0411/Th=
+e Hong Kong and Shanghai Banking Corporation Limited</li><li>=E6=94=AF=E5=
+=BA=97: 009/TOKYO Branch </li><li>=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=
+=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=
+=83=A3=E3=83=91=E3=83=B3 =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE(2021 =E5=B9=
+=B4 11 =E6=9C=88 1 =E6=97=A5=E3=81=8B=E3=82=89=E3=82=A2=E3=83=9E=E3=82=BE=
+=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =
+=E3=82=B8=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=
+=E3=81=AB=E5=A4=89=E6=9B=B4)</li><li>=E5=8F=A3=E5=BA=A7=E3=81=AE=E7=A8=AE=
+=E9=A1=9E: =E5=BD=93=E5=BA=A7</li><li>=E9=8A=80=E8=A1=8C=E4=BD=8F=E6=89=80:=
+ =E3=80=92103-0027 =E6=9D=B1=E4=BA=AC=E9=83=BD=E4=B8=AD=E5=A4=AE=E5=8C=BA=
+=E6=97=A5=E6=9C=AC=E6=A9=8B 3 =E4=B8=81=E7=9B=AE 11 =E7=95=AA 1 =E5=8F=B7 H=
+SBC =E3=83=93=E3=83=AB=E3=83=87=E3=82=A3=E3=83=B3=E3=82=B0</li><li>=E5=8F=
+=A3=E5=BA=A7=E7=95=AA=E5=8F=B7: 009-052317-006</li><li>SWIFT: HSBCJPJT</li>=
+</ul><p><strong>=E6=97=A5=E6=9C=AC=E5=86=86=E3=81=A7=E3=81=8A=E6=94=AF=E6=
+=89=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AE=E9=80=81=E9=87=91=E6=83=
+=85=E5=A0=B1</strong></p><ul><li>=E9=8A=80=E8=A1=8C=E5=90=8D: 0411/The Hong=
+ Kong and Shanghai Banking Corporation Limited</li><li>=E6=94=AF=E5=BA=97: =
+009/TOKYO Branch</li><li>=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=
+=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=
+=83=91=E3=83=B3 =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE(2021 =E5=B9=B4 11 =E6=
+=9C=88 1 =E6=97=A5=E3=81=8B=E3=82=89=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =
+=E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=
+=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=AB=
+=E5=A4=89=E6=9B=B4)</li><li>=E5=8F=A3=E5=BA=A7=E3=81=AE=E7=A8=AE=E9=A1=9E: =
+=E5=BD=93=E5=BA=A7</li><li>=E9=8A=80=E8=A1=8C=E4=BD=8F=E6=89=80: =E3=80=921=
+03-0027 =E6=9D=B1=E4=BA=AC=E9=83=BD=E4=B8=AD=E5=A4=AE=E5=8C=BA=E6=97=A5=E6=
+=9C=AC=E6=A9=8B 3 =E4=B8=81=E7=9B=AE 11 =E7=95=AA 1 =E5=8F=B7 HSBC =E3=83=
+=93=E3=83=AB=E3=83=87=E3=82=A3=E3=83=B3=E3=82=B0</li><li>=E5=8F=A3=E5=BA=A7=
+=E7=95=AA=E5=8F=B7: 0523172</li><li>SWIFT: HSBCJPJT</li></ul><p>=E7=A7=BB=
+=E8=A1=8C=E6=99=82=E3=81=AB=E3=81=8A=E3=81=84=E3=81=A6=E3=82=82 AWS =E3=81=
+=AE=E3=81=99=E3=81=B9=E3=81=A6=E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=
+=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=
+=81=BE=E3=81=99=E3=80=82=E3=82=B3=E3=83=B3=E3=83=86=E3=83=B3=E3=83=84=E3=80=
+=81=E8=A8=AD=E5=AE=9A=E3=80=81=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E6=A8=A9=
+=E9=99=90=E3=80=81=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E8=
+=A8=AD=E5=AE=9A=E3=82=82=E3=81=9D=E3=81=AE=E3=81=BE=E3=81=BE=E3=81=A7=E3=81=
+=99=E3=80=82<br /><br />=E3=82=88=E3=81=8F=E3=81=82=E3=82=8B=E8=B3=AA=E5=95=
+=8F (FAQ) =E3=82=92<a href=3D"https://aws.amazon.com/legal/awsjp/">=E3=81=
+=93=E3=81=A1=E3=82=89</a>=E3=81=AB=E3=81=94=E7=94=A8=E6=84=8F=E3=81=97=E3=
+=81=BE=E3=81=97=E3=81=9F=E3=80=82=E3=81=93=E3=81=AE=E5=86=85=E5=AE=B9=E3=81=
+=AF=E5=AE=9A=E6=9C=9F=E7=9A=84=E3=81=AB=E6=9B=B4=E6=96=B0=E3=81=95=E3=82=8C=
+=E3=81=BE=E3=81=99=E3=80=82=E3=82=88=E3=81=8F=E3=81=82=E3=82=8B=E8=B3=AA=E5=
+=95=8F=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=AE=E4=B8=8A=E3=80=81=E3=81=
+=95=E3=82=89=E3=81=AB=E3=81=94=E8=B3=AA=E5=95=8F=E3=81=8C=E3=81=82=E3=82=8B=
+=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81<a href=3D"https://console.aws.amazon.c=
+om/support/v1">=E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=
+=9D=E3=83=BC=E3=83=88</a>=E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=E3=81=84=E5=
+=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<br />=
+<br />=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E7=A8=8E=E5=8B=
+=99=E6=83=85=E5=A0=B1=E3=81=AE=E7=A2=BA=E8=AA=8D=E3=81=BE=E3=81=9F=E3=81=AF=
+=E5=A4=89=E6=9B=B4=E3=82=92=E3=81=94=E5=B8=8C=E6=9C=9B=E3=81=AE=E5=A0=B4=E5=
+=90=88=E3=81=AF=E3=80=81<a href=3D"https://console.aws.amazon.com/billing/h=
+ome?">=E3=81=93=E3=81=A1=E3=82=89</a>=E3=81=8B=E3=82=89=E7=A8=8E=E9=87=91=
+=E8=A8=AD=E5=AE=9A=E3=82=92=E3=81=94=E8=A6=A7=E3=81=8F=E3=81=A0=E3=81=95=E3=
+=81=84=E3=80=82<br /><br />=E4=BB=8A=E5=BE=8C=E3=81=A8=E3=82=82=E3=81=A9=E3=
+=81=86=E3=81=9E=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=
+=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br />=E3=82=A2=E3=
+=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=
+=83=93=E3=82=B9=E3=83=81=E3=83=BC=E3=83=A0</p><p>Greetings from Amazon Web =
+Services, <br /><br />On November 1st 2021, Amazon Web Services Japan G.K. =
+will replace Amazon Web Services, Inc. as the new AWS cloud services seller=
+ for accounts located in Japan. At that time, Japan based customers paying =
+by invoicing terms will purchase services from Amazon Web Services Japan G.=
+K. instead of Amazon Web Services, Inc. <br /><br /><strong>Things You Must=
+ Do To Prepare</strong></p><ul><li>Visit the <a href=3D"https://console.aws=
+.amazon.com/billing/home?region=3Dus-east-1#/paymentmethods">Payments Metho=
+d</a> page of the AWS Management Console to confirm or update your payment =
+method.</li><li>You must update your remittance instructions in your intern=
+al vendor systems to reflect the pay information listed in the bottom of th=
+is email.</li></ul><p><strong>How this affects you </strong></p><ul><li>If =
+you are paying by credit card, there will be no impact to your services and=
+ you will continue to transact with AWS Inc.</li><li>You may pay in US Doll=
+ar (USD) or Japanese Yen (JPY) if you are paying by wire transfer.</li><li>=
+Depending on the applicable currency, invoices will be issued in JPY or USD=
+, while AWS services remain priced in USD.</li><li>You will receive invoice=
+s that include Japanese Consumption Tax (JCT) and are valid tax invoices un=
+der Japanese law.</li><li>Wire transfer payments will be supported after la=
+unch. Direct Debit (ACH and SEPA) payments will no longer be supported afte=
+r launch. Please update your payment method accordingly. If you purchase se=
+rvices from AWS sellers outside your region, you will receive an invoice fr=
+om each seller. Please ensure that your default payment method supports int=
+ernational transactions.</li><li>As part of the change, the current Amazon =
+Web Services Japan K.K. entity will convert from a kabushiki kaisha (=E2=80=
+=9CKK=E2=80=9D), a joint stock company, to a godo kaisha (=E2=80=9CGK=E2=80=
+=9D), a joint limited liability company, Amazon Web Services Japan G.K. on =
+November 1<sup>st</sup> to provide you with a more localized customer exper=
+ience. </li><li>The <a href=3D"https://aws.amazon.com/agreement/?nc1=3Dh_ls=
+">AWS Customer Agreement</a>, or other agreement with us governing your use=
+ of AWS services, will be updated to replace Amazon Web Services, Inc. with=
+ Amazon Web Services Japan G.K. as the contracting party for your eligible =
+Japanese accounts. Your continued use of AWS services after the change will=
+ constitute your acceptance of the new agreement. </li></ul><p><strong>Remi=
+ttance Information if you are paying in USD</strong></p><ul><li>Bank Name: =
+0411/The Hong Kong and Shanghai Banking Corporation Limited</li><li>Branch:=
+ 009/TOKYO Branch </li><li>Account Name: Amazon Web Services Japan K.K (to =
+be changed to Amazon Web Services Japan G.K. after November 1st 2021)</li><=
+li>Account Type: Current Account</li><li>Bank Address: HSBC Building, 3-11-=
+1 NIHONBASHI CHUO-KU, TOKYO 103-0027, JAPAN</li><li>Account Number: 009-052=
+317-006</li><li>SWIFT: HSBCJPJT</li></ul><p><strong>Remittance Information =
+if you are paying in JPY</strong></p><ul><li>Bank Name: 0411/The Hong Kong =
+and Shanghai Banking Corporation Limited</li><li>Branch: 009/TOKYO Branch</=
+li><li>Account Name: Amazon Web Services Japan K.K. (to be changed to Amazo=
+n Web Services Japan G.K. after November 1st 2021)</li><li>Account Type: Cu=
+rrent Account</li><li>Bank Address: HSBC Building, 3-11-1 NIHONBASHI CHUO-K=
+U, TOKYO 103-0027, JAPAN</li><li>Account Number: 0523172</li><li>SWIFT: HSB=
+CJPJT</li></ul><p>All AWS services will continue to be available during thi=
+s change. Your content, configurations, access rights, and security setting=
+s will remain the same.<br /><br />We have prepared, and will be updating r=
+egularly, a list of frequently asked questions (FAQs), located <a href=3D"h=
+ttps://aws.amazon.com/legal/awsjp/">here</a>. If you have additional questi=
+ons after reviewing the FAQs, please contact <a href=3D"https://console.aws=
+.amazon.com/support/v1">Customer Support</a>. <br /><br />If you want to re=
+view and/or update the tax information for your account, please review your=
+ Tax Settings <a href=3D"https://console.aws.amazon.com/billing/home?">here=
+</a>. <br /><br />Sincerely, <br />The Amazon Web Services Team</p>
+------=_Part_19682878_329049026.1633048943124
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<img width=3D"1" height=3D"1" src=3D"https://www.amazon.com/gp/r.html?C=3D1=
+5TB16D0NQIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4e=
+b3867f7398b4e0p0na&R=3DHK7KZG2IQILY&T=3DO&U=3Dhttps%3A%2F%2Fimages-na.ssl-i=
+mages-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DOBWAW1WOARU2DMKOS=
+Y0UVCGC0DOA&ref_=3Dpe_3594660_606956130_opens" /><p><strong>[English follow=
+s Japanese]</strong></p><p>=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=
+=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=92=E3=81=94=
+=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E3=81=82=E3=
+=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=
+=99=E3=80=82<br /><br />2021 =E5=B9=B4 11 =E6=9C=88 1 =E6=97=A5=E3=82=88=E3=
+=82=8A=E3=80=81Amazon Web Services, Inc. =E3=81=AB=E6=9B=BF=E3=82=8F=E3=82=
+=8A=E3=80=81=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=
+=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=83=91=E3=83=
+=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE =E3=81=8C=E6=97=A5=E6=9C=AC=E5=9B=
+=BD=E5=86=85=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AB=
+=E5=AF=BE=E3=81=99=E3=82=8B=E6=96=B0=E3=81=97=E3=81=84 AWS =E3=82=AF=E3=83=
+=A9=E3=82=A6=E3=83=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=BB=E3=83=A9=
+=E3=83=BC=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=93=E3=
+=81=AE=E6=97=A5=E4=BB=98=E3=82=92=E5=A2=83=E3=81=AB=E3=80=81=E6=97=A5=E6=9C=
+=AC=E5=9B=BD=E5=86=85=E3=81=AE=E8=AB=8B=E6=B1=82=E6=9B=B8=E6=89=95=E3=81=84=
+=E3=81=AE=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AF=E3=80=81Amazon Web Services I=
+nc. =E3=81=A7=E3=81=AF=E3=81=AA=E3=81=8F=E3=80=81=E3=82=A2=E3=83=9E=E3=82=
+=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=
+=B9 =E3=82=B8=E3=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=
+=BE=E3=81=8B=E3=82=89=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=92=E3=81=94=
+=E8=B3=BC=E5=85=A5=E3=81=95=E3=82=8C=E3=82=8B=E3=81=93=E3=81=A8=E3=81=AB=E3=
+=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=93=E3=81=AE=E6=97=A5=E4=BB=
+=98=E3=81=AF=E5=A4=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=82=8B=E5=8F=AF=E8=83=BD=
+=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br /><stron=
+g><br />=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AB=E3=81=8A=E9=A1=98=E3=81=84=E3=
+=81=99=E3=82=8B=E3=81=94=E5=AF=BE=E5=BF=9C</strong></p><ul><li>AWS =E3=83=
+=9E=E3=83=8D=E3=82=B8=E3=83=A1=E3=83=B3=E3=83=88=E3=82=B3=E3=83=B3=E3=82=BD=
+=E3=83=BC=E3=83=AB=E3=81=AE [<a href=3D"https://www.amazon.com/gp/f.html?C=
+=3D15TB16D0NQIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e1825=
+8c4eb3867f7398b4e0p0na&R=3D330H51E50JJFV&T=3DC&U=3Dhttps%3A%2F%2Fconsole.aw=
+s.amazon.com%2Fbilling%2Fhome%3Fregion%3Dus-east-1%26ref_%3Dpe_3594660_6069=
+56130%23%2Fpaymentmethods&H=3DGOTAROKTQJ8RAU3LTIHR0VAE6VAA&ref_=3Dpe_359466=
+0_606956130">=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95</a>] =E3=83=9A=
+=E3=83=BC=E3=82=B8=E3=81=AB=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E3=81=97=E3=
+=80=81=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=82=92=E7=A2=BA=E8=AA=
+=8D=E3=81=BE=E3=81=9F=E3=81=AF=E5=A4=89=E6=9B=B4=E3=81=97=E3=81=A6=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</li><li>=E3=81=8A=E5=AE=A2=E6=A7=98=E3=
+=81=AE=E7=A4=BE=E5=86=85=E3=83=99=E3=83=B3=E3=83=80=E3=83=BC=E3=82=B7=E3=82=
+=B9=E3=83=86=E3=83=A0=E3=81=AE=E9=80=81=E9=87=91=E6=96=B9=E6=B3=95=E3=82=92=
+=E5=A4=89=E6=9B=B4=E3=81=97=E3=80=81=E3=81=93=E3=81=AE E =E3=83=A1=E3=83=BC=
+=E3=83=AB=E3=81=AE=E4=B8=8B=E9=83=A8=E3=81=AB=E7=A4=BA=E3=81=99=E6=94=AF=E6=
+=89=95=E3=81=84=E6=83=85=E5=A0=B1=E3=82=92=E5=8F=8D=E6=98=A0=E3=81=95=E3=81=
+=9B=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</li></ul><p><stro=
+ng>=E3=81=93=E3=81=AE=E5=A4=89=E6=9B=B4=E3=81=8C=E3=81=8A=E5=AE=A2=E6=A7=98=
+=E3=81=AB=E4=B8=8E=E3=81=88=E3=82=8B=E5=BD=B1=E9=9F=BF </strong></p><ul><li=
+>=E3=82=AF=E3=83=AC=E3=82=B8=E3=83=83=E3=83=88=E3=82=AB=E3=83=BC=E3=83=89=
+=E3=81=A7=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=
+=80=81=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=B8=E3=81=AE=E3=82=B5=E3=83=BC=E3=83=
+=93=E3=82=B9=E3=81=AB=E3=81=AF=E5=BD=B1=E9=9F=BF=E3=81=8C=E3=81=AA=E3=81=8F=
+=E3=80=81=E5=BC=95=E3=81=8D=E7=B6=9A=E3=81=8D Amazon Web Services, Inc. =E3=
+=81=A8=E3=81=8A=E5=8F=96=E5=BC=95=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=
+=BE=E3=81=99=E3=80=82</li><li>=E6=8C=AF=E8=BE=BC=E3=81=A7=E3=81=AE=E3=81=8A=
+=E6=94=AF=E6=89=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AF =E7=B1=B3=
+=E3=83=89=E3=83=AB (USD) =E3=81=BE=E3=81=9F=E3=81=AF =E6=97=A5=E6=9C=AC=E5=
+=86=86 (JPY) =E3=81=8B=E3=82=89=E3=81=8A=E9=81=B8=E3=81=B3=E3=81=84=E3=81=
+=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=E3=80=82</li><li>=E3=81=8A=E9=81=B8=
+=E3=81=B3=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E9=80=9A=E8=B2=A8=E3=
+=81=AB=E5=BF=9C=E3=81=98=E3=81=A6=E3=80=81=E6=97=A5=E6=9C=AC=E5=86=86 (JPY)=
+ =E3=81=BE=E3=81=9F=E3=81=AF=E7=B1=B3=E3=83=89=E3=83=AB (USD) =E3=81=A7=E8=
+=AB=8B=E6=B1=82=E6=9B=B8=E3=81=8C=E7=99=BA=E8=A1=8C=E3=81=95=E3=82=8C=E3=81=
+=BE=E3=81=99=E3=80=82=E3=81=84=E3=81=9A=E3=82=8C=E3=81=AE=E5=A0=B4=E5=90=88=
+=E3=82=82=E3=80=81AWS =E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E6=96=
+=99=E9=87=91=E3=81=AF=E7=B1=B3=E3=83=89=E3=83=AB (USD) =E3=81=A7=E8=A1=A8=
+=E7=A4=BA=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82</li><li>=E8=AB=8B=E6=
+=B1=82=E6=9B=B8=E3=81=AB=E3=81=AF=E6=97=A5=E6=9C=AC=E3=81=AE=E6=B6=88=E8=B2=
+=BB=E7=A8=8E =E8=BE=BC=E3=81=BF=E3=81=AE=E9=A1=8D=E3=81=8C=E8=A1=A8=E7=A4=
+=BA=E3=81=95=E3=82=8C=E3=80=81=E6=97=A5=E6=9C=AC=E3=81=AE=E6=B3=95=E5=BE=8B=
+=E3=81=AB=E5=9F=BA=E3=81=A5=E3=81=84=E3=81=9F=E6=9C=89=E5=8A=B9=E3=81=AA=E8=
+=AB=8B=E6=B1=82=E6=9B=B8=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=
+=82</li><li>=E6=8C=AF=E8=BE=BC=E3=81=A7=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=
+=E3=81=84=E3=81=AF=E3=80=81=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=
+=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=
+=E3=83=91=E3=83=B3=E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=8B=E3=82=89=E3=
+=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=83=AD=E3=83=BC=E3=83=B3=E3=83=
+=81=E5=BE=8C=E3=80=81=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=
+=E3=81=91=E3=81=BE=E3=81=99=E3=80=82=E5=8F=A3=E5=BA=A7=E5=BC=95=E3=81=8D=E8=
+=90=BD=E3=81=A8=E3=81=97 (ACH =E3=81=8A=E3=82=88=E3=81=B3 SEPA) =E3=81=A7=
+=E3=81=AE=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AF=E3=80=81=E3=83=AD=E3=
+=83=BC=E3=83=B3=E3=83=81=E5=BE=8C=E3=80=81=E3=81=94=E5=88=A9=E7=94=A8=E3=81=
+=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=AA=E3=81=8F=E3=81=AA=E3=82=8A=E3=81=BE=
+=E3=81=99=E3=80=82=E5=BF=85=E8=A6=81=E3=81=AA=E5=A0=B4=E5=90=88=E3=81=AF=E3=
+=80=81=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E6=96=B9=E6=B3=95=E3=81=AE=E5=A4=
+=89=E6=9B=B4=E3=82=92=E3=81=8A=E9=A1=98=E3=81=84=E3=81=97=E3=81=BE=E3=81=99=
+=E3=80=82</li><li><a href=3D"https://www.amazon.com/gp/f.html?C=3D15TB16D0N=
+QIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4eb3867f73=
+98b4e0p0na&R=3D18FLCNA4BNWBO&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Fagree=
+ment%2F%3Fnc1%3Dh_ls%26ref_%3Dpe_3594660_606956130&H=3DM0GU9COZKBJ725XZ4VFC=
+GH8GVAMA&ref_=3Dpe_3594660_606956130">AWS =E3=82=AB=E3=82=B9=E3=82=BF=E3=83=
+=9E=E3=83=BC=E3=82=A2=E3=82=B0=E3=83=AA=E3=83=BC=E3=83=A1=E3=83=B3=E3=83=88=
+</a>=E3=81=BE=E3=81=9F=E3=81=AF AWS =E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=
+=82=B9=E5=88=A9=E7=94=A8=E3=82=92=E8=A6=8F=E5=AE=9A=E3=81=99=E3=82=8B=E3=81=
+=9D=E3=81=AE=E4=BB=96=E3=81=AE=E5=A5=91=E7=B4=84=E3=81=AB=E3=81=8A=E3=81=84=
+=E3=81=A6=E3=81=AF=E3=80=81=E6=97=A5=E6=9C=AC=E5=9B=BD=E5=86=85=E3=81=AE=E6=
+=9C=89=E5=8A=B9=E3=81=AA=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=
+=AB=E5=AF=BE=E3=81=99=E3=82=8B=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=83=97=
+=E3=83=AD=E3=83=90=E3=82=A4=E3=83=80=E3=83=BC=E3=81=8C Amazon Web Services,=
+ Inc. =E3=81=8B=E3=82=89=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=
+=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=
+=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=AB=E5=A4=89=E6=
+=9B=B4=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=EF=BC=882021=E5=B9=B411=E6=9C=88=
+1=E6=97=A5=E5=8F=8D=E6=98=A0=E4=BA=88=E5=AE=9A=EF=BC=89=E3=80=82=E4=B8=8A=
+=E8=A8=98=E3=82=A2=E3=82=B0=E3=83=AA=E3=83=BC=E3=83=A1=E3=83=B3=E3=83=88=E3=
+=83=BB=E5=A5=91=E7=B4=84=E3=81=AE=E5=A4=89=E6=9B=B4=E5=BE=8C=E3=81=AB=E3=80=
+=81 AWS =E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=92=E7=B6=99=E7=
+=B6=9A=E3=81=97=E3=81=A6=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=
+=A0=E3=81=8F=E3=81=93=E3=81=A8=E3=81=A7=E3=80=81=E6=96=B0=E5=A5=91=E7=B4=84=
+=E3=81=AB=E5=90=8C=E6=84=8F=E3=81=97=E3=81=9F=E3=82=82=E3=81=AE=E3=81=A8=E3=
+=81=BF=E3=81=AA=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82</li><li>=E5=A4=
+=89=E6=9B=B4=E3=81=AE=E4=B8=80=E7=92=B0=E3=81=A8=E3=81=97=E3=81=A6=E3=80=81=
+=E7=8F=BE=E5=9C=A8=E3=81=AE=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=
+=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=
+=E3=83=91=E3=83=B3 =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE=E3=81=AE=E6=B3=95=
+=E4=BA=BA=E6=A0=BC=E3=81=AF=E3=80=8111 =E6=9C=88 1 =E6=97=A5=E3=81=AB=E6=A0=
+=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE (=E2=80=9CKK=E2=80=9D) =E3=81=8B=E3=82=89=E5=
+=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE (=E2=80=9CGK=E2=80=9D) =E3=81=AB=E5=A4=89=
+=E3=82=8F=E3=82=8A=E3=80=81=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=
+=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=
+=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE =E3=81=A8=E3=81=97=
+=E3=81=A6=E3=82=88=E3=82=8A=E3=83=AD=E3=83=BC=E3=82=AB=E3=83=A9=E3=82=A4=E3=
+=82=BA=E3=81=95=E3=82=8C=E3=81=9F=E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=
+=BC=E3=82=A8=E3=82=AF=E3=82=B9=E3=83=9A=E3=83=AA=E3=82=A8=E3=83=B3=E3=82=B9=
+=E3=82=92=E3=81=94=E6=8F=90=E4=BE=9B=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=
+=81=99=E3=80=82</li></ul><p><strong>USD =E3=81=A7=E3=81=8A=E6=94=AF=E6=89=
+=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AE=E9=80=81=E9=87=91=E6=83=85=
+=E5=A0=B1</strong></p><ul><li>=E9=8A=80=E8=A1=8C=E5=90=8D: 0411/The Hong Ko=
+ng and Shanghai Banking Corporation Limited</li><li>=E6=94=AF=E5=BA=97: 009=
+/TOKYO Branch </li><li>=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=
+=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=83=
+=91=E3=83=B3 =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE(2021 =E5=B9=B4 11 =E6=9C=
+=88 1 =E6=97=A5=E3=81=8B=E3=82=89=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=
+=82=A6=E3=82=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=
+=83=A3=E3=83=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=AB=E5=
+=A4=89=E6=9B=B4)</li><li>=E5=8F=A3=E5=BA=A7=E3=81=AE=E7=A8=AE=E9=A1=9E: =E5=
+=BD=93=E5=BA=A7</li><li>=E9=8A=80=E8=A1=8C=E4=BD=8F=E6=89=80: =E3=80=92103-=
+0027 =E6=9D=B1=E4=BA=AC=E9=83=BD=E4=B8=AD=E5=A4=AE=E5=8C=BA=E6=97=A5=E6=9C=
+=AC=E6=A9=8B 3 =E4=B8=81=E7=9B=AE 11 =E7=95=AA 1 =E5=8F=B7 HSBC =E3=83=93=
+=E3=83=AB=E3=83=87=E3=82=A3=E3=83=B3=E3=82=B0</li><li>=E5=8F=A3=E5=BA=A7=E7=
+=95=AA=E5=8F=B7: 009-052317-006</li><li>SWIFT: HSBCJPJT</li></ul><p><strong=
+>=E6=97=A5=E6=9C=AC=E5=86=86=E3=81=A7=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=
+=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AE=E9=80=81=E9=87=91=E6=83=85=E5=A0=B1</s=
+trong></p><ul><li>=E9=8A=80=E8=A1=8C=E5=90=8D: 0411/The Hong Kong and Shang=
+hai Banking Corporation Limited</li><li>=E6=94=AF=E5=BA=97: 009/TOKYO Branc=
+h</li><li>=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =
+=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=83=91=E3=83=B3 =
+=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE(2021 =E5=B9=B4 11 =E6=9C=88 1 =E6=97=
+=A5=E3=81=8B=E3=82=89=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=
+=A7=E3=83=96 =E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9 =E3=82=B8=E3=83=A3=E3=83=
+=91=E3=83=B3 =E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=AB=E5=A4=89=E6=9B=
+=B4)</li><li>=E5=8F=A3=E5=BA=A7=E3=81=AE=E7=A8=AE=E9=A1=9E: =E5=BD=93=E5=BA=
+=A7</li><li>=E9=8A=80=E8=A1=8C=E4=BD=8F=E6=89=80: =E3=80=92103-0027 =E6=9D=
+=B1=E4=BA=AC=E9=83=BD=E4=B8=AD=E5=A4=AE=E5=8C=BA=E6=97=A5=E6=9C=AC=E6=A9=8B=
+ 3 =E4=B8=81=E7=9B=AE 11 =E7=95=AA 1 =E5=8F=B7 HSBC =E3=83=93=E3=83=AB=E3=
+=83=87=E3=82=A3=E3=83=B3=E3=82=B0</li><li>=E5=8F=A3=E5=BA=A7=E7=95=AA=E5=8F=
+=B7: 0523172</li><li>SWIFT: HSBCJPJT</li></ul><p>=E7=A7=BB=E8=A1=8C=E6=99=
+=82=E3=81=AB=E3=81=8A=E3=81=84=E3=81=A6=E3=82=82 AWS =E3=81=AE=E3=81=99=E3=
+=81=B9=E3=81=A6=E3=81=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=82=92=E3=81=
+=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=
+=E3=80=82=E3=82=B3=E3=83=B3=E3=83=86=E3=83=B3=E3=83=84=E3=80=81=E8=A8=AD=E5=
+=AE=9A=E3=80=81=E3=82=A2=E3=82=AF=E3=82=BB=E3=82=B9=E6=A8=A9=E9=99=90=E3=80=
+=81=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E8=A8=AD=E5=AE=9A=
+=E3=82=82=E3=81=9D=E3=81=AE=E3=81=BE=E3=81=BE=E3=81=A7=E3=81=99=E3=80=82<br=
+ /><br />=E3=82=88=E3=81=8F=E3=81=82=E3=82=8B=E8=B3=AA=E5=95=8F (FAQ) =E3=
+=82=92<a href=3D"https://www.amazon.com/gp/f.html?C=3D15TB16D0NQIDQ&K=3D1SR=
+KHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4eb3867f7398b4e0p0na&R=
+=3D3R6MF72NMCAXU&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Flegal%2Fawsjp%2F%=
+3Fref_%3Dpe_3594660_606956130&H=3DRXMM7JVQQYBAGWXGAEWUJINALJUA&ref_=3Dpe_35=
+94660_606956130">=E3=81=93=E3=81=A1=E3=82=89</a>=E3=81=AB=E3=81=94=E7=94=A8=
+=E6=84=8F=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82=E3=81=93=E3=81=AE=E5=
+=86=85=E5=AE=B9=E3=81=AF=E5=AE=9A=E6=9C=9F=E7=9A=84=E3=81=AB=E6=9B=B4=E6=96=
+=B0=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82=E3=82=88=E3=81=8F=E3=81=82=
+=E3=82=8B=E8=B3=AA=E5=95=8F=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=AE=E4=
+=B8=8A=E3=80=81=E3=81=95=E3=82=89=E3=81=AB=E3=81=94=E8=B3=AA=E5=95=8F=E3=81=
+=8C=E3=81=82=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81<a href=3D"https:/=
+/www.amazon.com/gp/f.html?C=3D15TB16D0NQIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rtn:m=
+sg:2021100100422329b36e18258c4eb3867f7398b4e0p0na&R=3D3N7V46IE1WUSQ&T=3DC&U=
+=3Dhttps%3A%2F%2Fconsole.aws.amazon.com%2Fsupport%2Fv1%3Fref_%3Dpe_3594660_=
+606956130&H=3D6GXPIMWOGX2TPXUE1MIIXVCYJSCA&ref_=3Dpe_3594660_606956130">=E3=
+=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=
+=88</a>=E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=
+=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<br /><br />=E3=82=A2=E3=
+=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E7=A8=8E=E5=8B=99=E6=83=85=E5=A0=
+=B1=E3=81=AE=E7=A2=BA=E8=AA=8D=E3=81=BE=E3=81=9F=E3=81=AF=E5=A4=89=E6=9B=B4=
+=E3=82=92=E3=81=94=E5=B8=8C=E6=9C=9B=E3=81=AE=E5=A0=B4=E5=90=88=E3=81=AF=E3=
+=80=81<a href=3D"https://www.amazon.com/gp/f.html?C=3D15TB16D0NQIDQ&K=3D1SR=
+KHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4eb3867f7398b4e0p0na&R=
+=3DGIO2ROCBXGQK&T=3DC&U=3Dhttps%3A%2F%2Fconsole.aws.amazon.com%2Fbilling%2F=
+home%3Fref_%3Dpe_3594660_606956130&H=3DIJFPBATQC49PCRAMX15FC5L11KCA&ref_=3D=
+pe_3594660_606956130">=E3=81=93=E3=81=A1=E3=82=89</a>=E3=81=8B=E3=82=89=E7=
+=A8=8E=E9=87=91=E8=A8=AD=E5=AE=9A=E3=82=92=E3=81=94=E8=A6=A7=E3=81=8F=E3=81=
+=A0=E3=81=95=E3=81=84=E3=80=82<br /><br />=E4=BB=8A=E5=BE=8C=E3=81=A8=E3=82=
+=82=E3=81=A9=E3=81=86=E3=81=9E=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=
+=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br=
+ />=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3 =E3=82=A6=E3=82=A7=E3=83=96 =E3=82=
+=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=83=81=E3=83=BC=E3=83=A0</p><p>Greetings f=
+rom Amazon Web Services, <br /><br />On November 1st 2021, Amazon Web Servi=
+ces Japan G.K. will replace Amazon Web Services, Inc. as the new AWS cloud =
+services seller for accounts located in Japan. At that time, Japan based cu=
+stomers paying by invoicing terms will purchase services from Amazon Web Se=
+rvices Japan G.K. instead of Amazon Web Services, Inc. <br /><br /><strong>=
+Things You Must Do To Prepare</strong></p><ul><li>Visit the <a href=3D"http=
+s://www.amazon.com/gp/f.html?C=3D15TB16D0NQIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rt=
+n:msg:2021100100422329b36e18258c4eb3867f7398b4e0p0na&R=3D1KVCW5DFI0G4K&T=3D=
+C&U=3Dhttps%3A%2F%2Fconsole.aws.amazon.com%2Fbilling%2Fhome%3Fregion%3Dus-e=
+ast-1%26ref_%3Dpe_3594660_606956130%23%2Fpaymentmethods&H=3DSG2OZ7JPCPRYQRA=
+6LMH5TP2AK84A&ref_=3Dpe_3594660_606956130">Payments Method</a> page of the =
+AWS Management Console to confirm or update your payment method.</li><li>Yo=
+u must update your remittance instructions in your internal vendor systems =
+to reflect the pay information listed in the bottom of this email.</li></ul=
+><p><strong>How this affects you </strong></p><ul><li>If you are paying by =
+credit card, there will be no impact to your services and you will continue=
+ to transact with AWS Inc.</li><li>You may pay in US Dollar (USD) or Japane=
+se Yen (JPY) if you are paying by wire transfer.</li><li>Depending on the a=
+pplicable currency, invoices will be issued in JPY or USD, while AWS servic=
+es remain priced in USD.</li><li>You will receive invoices that include Jap=
+anese Consumption Tax (JCT) and are valid tax invoices under Japanese law.<=
+/li><li>Wire transfer payments will be supported after launch. Direct Debit=
+ (ACH and SEPA) payments will no longer be supported after launch. Please u=
+pdate your payment method accordingly. If you purchase services from AWS se=
+llers outside your region, you will receive an invoice from each seller. Pl=
+ease ensure that your default payment method supports international transac=
+tions.</li><li>As part of the change, the current Amazon Web Services Japan=
+ K.K. entity will convert from a kabushiki kaisha (=E2=80=9CKK=E2=80=9D), a=
+ joint stock company, to a godo kaisha (=E2=80=9CGK=E2=80=9D), a joint limi=
+ted liability company, Amazon Web Services Japan G.K. on November 1<sup>st<=
+/sup> to provide you with a more localized customer experience. </li><li>Th=
+e <a href=3D"https://www.amazon.com/gp/f.html?C=3D15TB16D0NQIDQ&K=3D1SRKHHK=
+ZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4eb3867f7398b4e0p0na&R=3D3=
+K1B5MTG6PM7V&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Fagreement%2F%3Fnc1%3D=
+h_ls%26ref_%3Dpe_3594660_606956130&H=3DXC6B22OA3IB2WIGA3DH8PFDGBHKA&ref_=3D=
+pe_3594660_606956130">AWS Customer Agreement</a>, or other agreement with u=
+s governing your use of AWS services, will be updated to replace Amazon Web=
+ Services, Inc. with Amazon Web Services Japan G.K. as the contracting part=
+y for your eligible Japanese accounts. Your continued use of AWS services a=
+fter the change will constitute your acceptance of the new agreement. </li>=
+</ul><p><strong>Remittance Information if you are paying in USD</strong></p=
+><ul><li>Bank Name: 0411/The Hong Kong and Shanghai Banking Corporation Lim=
+ited</li><li>Branch: 009/TOKYO Branch </li><li>Account Name: Amazon Web Ser=
+vices Japan K.K (to be changed to Amazon Web Services Japan G.K. after Nove=
+mber 1st 2021)</li><li>Account Type: Current Account</li><li>Bank Address: =
+HSBC Building, 3-11-1 NIHONBASHI CHUO-KU, TOKYO 103-0027, JAPAN</li><li>Acc=
+ount Number: 009-052317-006</li><li>SWIFT: HSBCJPJT</li></ul><p><strong>Rem=
+ittance Information if you are paying in JPY</strong></p><ul><li>Bank Name:=
+ 0411/The Hong Kong and Shanghai Banking Corporation Limited</li><li>Branch=
+: 009/TOKYO Branch</li><li>Account Name: Amazon Web Services Japan K.K. (to=
+ be changed to Amazon Web Services Japan G.K. after November 1st 2021)</li>=
+<li>Account Type: Current Account</li><li>Bank Address: HSBC Building, 3-11=
+-1 NIHONBASHI CHUO-KU, TOKYO 103-0027, JAPAN</li><li>Account Number: 052317=
+2</li><li>SWIFT: HSBCJPJT</li></ul><p>All AWS services will continue to be =
+available during this change. Your content, configurations, access rights, =
+and security settings will remain the same.<br /><br />We have prepared, an=
+d will be updating regularly, a list of frequently asked questions (FAQs), =
+located <a href=3D"https://www.amazon.com/gp/f.html?C=3D15TB16D0NQIDQ&K=3D1=
+SRKHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4eb3867f7398b4e0p0na=
+&R=3DN1HDKFRP2WYU&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Flegal%2Fawsjp%2F=
+%3Fref_%3Dpe_3594660_606956130&H=3DACACTHQYGZNUXUBJRXUSIHJYKXCA&ref_=3Dpe_3=
+594660_606956130">here</a>. If you have additional questions after reviewin=
+g the FAQs, please contact <a href=3D"https://www.amazon.com/gp/f.html?C=3D=
+15TB16D0NQIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18258c4=
+eb3867f7398b4e0p0na&R=3D207RT29FD3ZDY&T=3DC&U=3Dhttps%3A%2F%2Fconsole.aws.a=
+mazon.com%2Fsupport%2Fv1%3Fref_%3Dpe_3594660_606956130&H=3DFPUSO9BYDMUNDZ5O=
+UZPBA3KANREA&ref_=3Dpe_3594660_606956130">Customer Support</a>. <br /><br /=
+>If you want to review and/or update the tax information for your account, =
+please review your Tax Settings <a href=3D"https://www.amazon.com/gp/f.html=
+?C=3D15TB16D0NQIDQ&K=3D1SRKHHKZASDJP&M=3Durn:rtn:msg:2021100100422329b36e18=
+258c4eb3867f7398b4e0p0na&R=3D1PWACYXX1CWVP&T=3DC&U=3Dhttps%3A%2F%2Fconsole.=
+aws.amazon.com%2Fbilling%2Fhome%3Fref_%3Dpe_3594660_606956130&H=3D0ACHBTOVB=
+0USCJ1EA5QVMP3BH6CA&ref_=3Dpe_3594660_606956130">here</a>. <br /><br />Sinc=
+erely, <br />The Amazon Web Services Team</p><img width=3D"1" height=3D"1" =
+src=3D"https://www.amazon.com/gp/r.html?C=3D15TB16D0NQIDQ&K=3D1SRKHHKZASDJP=
+&M=3Durn:rtn:msg:2021100100422329b36e18258c4eb3867f7398b4e0p0na&R=3D2W34TA1=
+MWWF0D&T=3DE&U=3Dhttps%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FG=
+%2F01%2Fnav%2Ftransp.gif&H=3DYAWMVM4OGDAQMLBI3R1NGUNGAQOA&ref_=3Dpe_3594660=
+_606956130_open" />
+------=_Part_19682878_329049026.1633048943124--

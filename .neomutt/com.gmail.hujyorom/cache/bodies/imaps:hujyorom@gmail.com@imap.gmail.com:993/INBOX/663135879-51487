@@ -1,0 +1,526 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a05:6122:1696:0:0:0:0 with SMTP id 22csp3239466vkl;
+        Mon, 31 May 2021 20:24:42 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzElXzglS8lEgj5oHxkNDFoL8bSOxdlp00cA3GKPCUfDKH1092MRv92N2nj90QxJVV2/B7Z
+X-Received: by 2002:a05:6214:2125:: with SMTP id r5mr20293986qvc.28.1622517882840;
+        Mon, 31 May 2021 20:24:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622517882; cv=none;
+        d=google.com; s=arc-20160816;
+        b=UexwN2ebFw/AZo79+LkbAUX2wlFA30qOXC/k4W/NUAEQ5qxJiVUh3lL7phWNFlo2Yg
+         iy/pX3urtgyGaw/PA5uUReVXnC1+W94aHwT7xPFSZMx6jxacO1UoOV7NJJqyuOARgEEt
+         RzPAfB/ROsdq5ww/8kI9epk2aDmiXJanmXdmVVeM0MUn+Tkh+TOmOJi1+fRREM/N1/KX
+         w6+qODRtcMxh2VeMTWRrFXI3GvQdQpnIwaEPGE67Cp7tyRFM7a8e6yD1snZJgwJs81/e
+         t5JQSLJlmVRCU0CQQOFrayMPjDsA1zn5h0jPiYiuIg7v4DHhRquu038bUvgK735BOnyu
+         ZaHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:auto-submitted:mime-version:message-id:subject:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=JwGrRX9c3frpp2WBhGKYaKAy+1kd3rQo3EUg2xTCTec=;
+        b=crJpF3XIfSmTU8BUPQYZKlbat6Crz1G6uI7x4de6AJp4o74RnVmC8o95VMHKWROFNL
+         c61Ii48N97e1HPI5VnPlSXfKTDzBqVpwHIfDWSKJseP1ZpWPvzEAeS6aCNo7FJ2EuSC2
+         8tC1UF+CmDb+2NaBJEUWfQuXaitIfAjs9b1ipkboNb8b+z6ecQ2Y3J7TcrIlfciFrpZX
+         NAAgszB3x0KaLZufwrnzmhEv1AGhgKPEFnLRtOAqdEp0bA8+WT7bcQbbAGVD0KWA5XoX
+         hwtwetEPCAaL04lxLtvMVvgszK3A0z7AlCM82nYqoSBr9K0civ1M1UoqZQ899nmN4tuQ
+         v4tQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@slack.com header.s=awh63k4dkfmxz2frn2qxdlz7l34bhian header.b=OSMVDoks;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=W4XlaJuT;
+       spf=pass (google.com: domain of 01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@mail.slack.com designates 54.240.35.30 as permitted sender) smtp.mailfrom=01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@mail.slack.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=slack.com
+Return-Path: <01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@mail.slack.com>
+Received: from a35-30.smtp-out.amazonses.com (a35-30.smtp-out.amazonses.com. [54.240.35.30])
+        by mx.google.com with ESMTPS id u18si11727711qkp.71.2021.05.31.20.24.42
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Mon, 31 May 2021 20:24:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@mail.slack.com designates 54.240.35.30 as permitted sender) client-ip=54.240.35.30;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@slack.com header.s=awh63k4dkfmxz2frn2qxdlz7l34bhian header.b=OSMVDoks;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=W4XlaJuT;
+       spf=pass (google.com: domain of 01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@mail.slack.com designates 54.240.35.30 as permitted sender) smtp.mailfrom=01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@mail.slack.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=slack.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=awh63k4dkfmxz2frn2qxdlz7l34bhian; d=slack.com; t=1622517882;
+	h=From:Reply-To:To:Subject:Message-ID:Content-Type:MIME-Version:Date;
+	bh=whAXZ+1so8n0jKRnju4iRXqEnyhRgayljs4eM2k/nAs=;
+	b=OSMVDoksNKmAXo+VZdFqnLkbCIIjZbMnEyxVAMx/b4LZAF47Sc7hUjqi9GXgRQI2
+	I6cEWYgULhGxxh2KZfGlW5c19rNozP1LIeiqnQ1vV6pTZSDPNYy+zamKOlHJDJnnX8E
+	2h8iBRh0vaqUYOkJVxsBxdfv4rTpxDX0/RL5Zfnk=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1622517882;
+	h=From:Reply-To:To:Subject:Message-ID:Content-Type:MIME-Version:Date:Feedback-ID;
+	bh=whAXZ+1so8n0jKRnju4iRXqEnyhRgayljs4eM2k/nAs=;
+	b=W4XlaJuTkNwxj6HLMeWh+64aKvnYjqSCAtIgUycDYYW9kQcrNUzrDAsJVMQV1dw2
+	PHS/ocUc8Mj2R3aDcGzEj4tPV1+wxZkTisvWcUJDIMzgWB3x4dhkJ5oE/Rn7KLcdPpW
+	lBcap+OPhqfgjREq6g160G/zc3TGm3ZOzgvsRVik=
+From: Slack <no-reply-uPgXWeOX7bpcEAyp0tpntrlN@slack.com>
+Reply-To: no-reply-uPgXWeOX7bpcEAyp0tpntrlN@slack.com
+To: "" <hujyorom@gmail.com>
+Subject: =?utf-8?Q?Slack_confirmation_code=3a_YZQ=2dWAZ?=
+Message-ID: <01000179c59a1cf1-a2439f07-6135-4cfb-ad1c-93d26260fb99-000000@email.amazonses.com>
+Content-Type: multipart/alternative;
+ boundary="=_d431f6b5-9197-4479-874e-c041c65e7696"
+MIME-Version: 1.0
+Auto-Submitted: auto-generated
+X-Slack-Message-ID: ob-l6znu4nstbxmwe3minddpwf4ae
+Date: Tue, 1 Jun 2021 03:24:42 +0000
+Feedback-ID: 1.us-east-1.kwXgUBITdY2w2KyDhc4cKlXKai8tXy8Sx50cu3XZbqE=:AmazonSES
+X-SES-Outgoing: 2021.06.01-54.240.35.30
+
+--=_d431f6b5-9197-4479-874e-c041c65e7696
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Confirm your email address
+
+Your confirmation code is below =E2=80=94 enter it in your open browser win=
+dow and we'll help you get signed in.
+
+YZQ-WAZ
+
+If you didn=E2=80=99t request this email, there=E2=80=99s nothing to worry =
+about =E2=80=94 you can safely ignore it.
+--=_d431f6b5-9197-4479-874e-c041c65e7696
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns=3D"http://www.w3.org/1999/xht=
+ml"><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dutf-8"><meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-=
+scale=3D1.0"><link href=3D"https://fonts.googleapis.com/css?family=3DLato:4=
+00,700,900" rel=3D"stylesheet"><title>Slack confirmation code: YZQ-WAZ</tit=
+le><style type=3D"text/css">/* Global Resets */
+	body, .background_main, p, table, td, div { font-family: 'Lato', 'Helvetic=
+a Neue', Helvetica, Arial, sans-serif; }
+
+	img {
+		border: none;
+		-ms-interpolation-mode: bicubic;
+		max-width: 100%;
+	}
+
+	p {padding-bottom: 2px;}
+
+	body {
+		background: #fff;
+		font-size: 17px;
+		line-height: 24px;
+		margin: 0;
+		padding: 0;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	table {
+		border-collapse: collapse;
+		mso-table-lspace: 0pt;
+		mso-table-rspace: 0pt;
+		width: 100%;
+	}
+
+	td {
+		font-size: 17px;
+		line-height: 24px;
+		vertical-align: top;
+	}
+
+	/* Footer */
+	.email_footer td, .email_footer p, .email_footer span, .email_footer a {
+		font-size: 15px;
+		text-align: center;
+		color: #434245;
+	}
+
+	.email_footer td {padding-top: 20px;}
+
+	.preheader {
+		display: none;
+		mso-hide: all;
+	}
+
+	/* Typography */
+	h1, h2, h3, h4 {
+		color: #434245;
+		font-weight: 400;
+		line-height: 1.4;
+		margin: 0;
+		margin-bottom: 12px;
+	}
+
+	h1 {
+		font-size: 30px;
+		line-height: 36px;
+		font-weight: 900;
+		letter-spacing: -.75px;
+		text-align: left;
+	}
+
+	p, ul, ol {
+		font-size: 17px;
+		line-height: 24px;
+		font-weight: normal;
+		margin: 0;
+		margin-bottom: 15px;
+	}
+
+	p li, ul li, ol li {
+		list-style-position: inside;
+		margin-left: 5px;
+	}
+
+	a {
+		color: #3498db;
+		text-decoration: none;
+	}
+
+	a:hover {text-decoration: underline;}
+
+	.button_link::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 4px;
+	}
+
+	.button_link:hover::after {
+		box-shadow: inset 0 -2px #237c4a;
+	}
+
+	.button_link.is_secondary:hover::after {
+		box-shadow: none;
+	}
+
+	.button_link.plum:hover {
+		background-color: #4a154b !important;
+		border-color: #4a154b !important;
+	}
+
+	.button_link_wrapper.plum:hover {
+		background-color: #4a154b !important;
+	}
+
+	.button_link.plum:hover::after {
+		box-shadow: none;
+	}
+
+	.preview_text {
+		color: transparent;
+		display: none;
+		height: 0;
+		max-height: 0;
+		max-width: 0;
+		opacity: 0;
+		overflow: hidden;
+		mso-hide: all;
+		visibility: hidden;
+		width: 0;
+		font-size: 1px;
+		line-height:1px;
+	}
+
+	.preview_text a {
+		color: #3AA3E3 !important;
+		font-weight: bold;
+	}
+
+	/* Responsive and Mobile Friendly Styles */
+	/* Yahoo Mail has a history of rendering all media query styles with class=
+ selectors unless class is used as an attribute */
+	@media only screen and (max-width: 600px) {
+		table[class=3D"background_main"] .sm_full_width {
+			width: 100% !important;
+		}
+		table[class=3D"background_main"] .sm_90_percent_width {
+			width: 90% !important;
+			padding: 16px !important;
+			text-align: center !important;
+			float: none !important;
+		}
+		table[class=3D"background_main"] .sm_side_padding {
+			padding-right: 8px !important;
+			padding-left: 8px !important;
+			float: none !important;
+		}
+		table[class=3D"background_main"] .sm_small_top_padding {
+			padding-top: 8px !important;
+		}
+		table[class=3D"background_main"] .sm_top_padding {
+			padding-top: 16px !important;
+		}
+		table[class=3D"background_main"] .sm_auto_width {
+			width: auto !important;
+		}
+		table[class=3D"background_main"] .sm_auto_height {
+			height: auto !important;
+		}
+
+		table[class=3D"background_main"] .sm_border_box {
+			box-sizing: border-box !important;
+		}
+
+		table[class=3D"background_main"] .sm_block {
+			display: block !important;
+		}
+		table[class=3D"background_main"] .sm_inline_block {
+			display: inline-block !important;
+		}
+		table[class=3D"background_main"] .sm_table {
+			display: table !important;
+		}
+
+		table[class=3D"background_main"] .sm_no_side_padding {
+			padding-right: 0 !important;
+			padding-left: 0 !important;
+		}
+		table[class=3D"background_main"] .sm_no_border_radius {
+			border-radius: 0 !important;
+		}
+		table[class=3D"background_main"] .sm_no_padding {
+			padding-right: 0 !important;
+			padding-left: 0 !important;
+		}
+		table[class=3D"background_main"] .sm_os_icons_height {
+			/* this is to make the parent element the same height as the inline-bloc=
+k img inside */
+			height: 44px;
+		}
+		.social_img_bottom_margin {
+			/*this class is for social_user_outreach email only*/
+			margin-bottom: 20px !important;
+		}
+		.social_p_bottom_margin {
+			/*this class is for social_user_outreach email only*/
+			margin-bottom: 40px !important;
+		}
+	}
+
+	/* More client-specific styles */
+	@media all {
+		.ExternalClass {
+			width: 100%;
+		}
+		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass fon=
+t, .ExternalClass td, .ExternalClass div {
+			line-height: 100%;
+		}
+		.email_footer a {
+			color: #434245 !important;
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: inherit !important;
+			line-height: inherit !important;
+			text-decoration: none !important;
+		}
+	}
+	a:hover {
+		text-decoration: underline !important;
+	}
+
+	pre, code {
+		--saf-0: rgba(var(--sk_foreground_low, 29, 28, 29), 0.13);
+		border: 1px solid var(--saf-0);
+		background: rgba(var(--sk_foreground_min, 29, 28, 29), 0.04);
+		font-family: 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace !imp=
+ortant;
+		font-size: 12px;
+		line-height: 1.50001;
+		font-variant-ligatures: none;
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		word-break: normal;
+		-webkit-tab-size: 4;
+		-moz-tab-size: 4;
+		-o-tab-size: 4;
+		tab-size: 4;
+	}
+
+	code {
+		color: #e01e5a;
+		padding: 2px 3px 1px;
+		border-radius: 3px;
+	}
+
+	pre {
+		margin-bottom: 16px;
+		padding: 8px;
+		border-radius: 4px;
+	}
+
+	blockquote {
+		position: relative;
+		margin-bottom: 16px;
+		padding-left: 16px;
+		border-left: rgba(var(--sk_foreground_low_solid, 221, 221, 221), 1);
+		border-left-width: 4px;
+		border-left-style: solid;
+	}
+</style></head><body><div class=3D"preheader plaintext_ignore" style=3D"fon=
+t-size: 1px; display: none !important;"><div>Confirm your email address.  Y=
+our confirmation code is below =E2=80=94 enter it in your open browser wind=
+ow and we'll help you get signed in. </div></div><div class=3D"plaintext_ig=
+nore" style=3D"display: none; max-height: 0px; overflow: hidden;"> =C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0 =C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0 </=
+div><!--[if mso]><style type=3D"text/css">.background_main, table, table td=
+, p, div, h1, h2, h3, h4, h5, h6 {
+								font-family: Arial, sans-serif !important;
+							}</style><![endif]--><table style=3D"background-color: #ffffff; padd=
+ing-top: 20px;color: #434245;width: 100%;-webkit-font-smoothing:antialiased=
+; -moz-osx-font-smoothing:grayscale;   border: 0; text-align: center; borde=
+r-collapse: collapse;" class=3D"background_main"><tr><td style=3D"vertical-=
+align: top; padding: 0"><center><table id=3D"body" class=3D"card" style=3D"=
+border: 0; border-collapse: collapse; margin: 0 auto; background: white; bo=
+rder-radius: 8px; margin-bottom: 16px;"><tr><td style=3D"width: 546px; vert=
+ical-align: top; padding-top: 32px"><div style=3D"max-width: 600px; margin:=
+ 0 auto;"><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><img width=3D"120" height=3D"36" style=3D"margin-top: 0; margin=
+-right: 0; margin-bottom: 32px; margin-left: 0px; padding-right: 30px; padd=
+ing-left: 30px;" src=3D"https://slack.com/x-a2107324262199/img/slack_logo_2=
+40.png" alt=3D""><h1 style=3D"font-size: 30px; padding-right: 30px; padding=
+-left: 30px;">Confirm your email address</h1><p style=3D"font-size: 17px; p=
+adding-right: 30px; padding-left: 30px;"> Your confirmation code is below =
+=E2=80=94 enter it in your open browser window and we'll help you get signe=
+d in. </p><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><div style=3D"padding-right: 30px; padding-left: 30px; margin: =
+32px 0 40px;"><table style=3D"border-collapse: collapse; border: 0; backgro=
+und-color: #F4F4F4; height: 70px; table-layout: fixed; word-wrap: break-wor=
+d; border-radius: 6px;"><tr><td style=3D"text-align: center; vertical-align=
+: middle; font-size: 30px;">YZQ-WAZ</td></tr></table></div><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><p style=3D"font-size: 17px; padding-right: 30px; padding-left:=
+ 30px;"></p><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><p style=3D"font-size: 17px; padding-right: 30px; padding-left:=
+ 30px;">If you didn=E2=80=99t request this email, there=E2=80=99s nothing t=
+o worry about =E2=80=94 you can safely ignore it.</p><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--></div></td></tr></table></center></td></tr><tr><td class=3D"ema=
+il_footer" style=3D"font-size: 15px;color: #717274;text-align: center;width=
+: 100%;"><table style=3D"margin: 20px auto 0; background-color: white; bord=
+er: 0; text-align: center; border-collapse: collapse;"><tr><td>=C2=A0</td><=
+td><span style=3D"display: block; color: #1D1C1D; font-size: 15px;"> Made b=
+y <a href=3D"https://slack.com" style=3D"text-decoration: none; color: #1D1=
+C1D;">Slack Technologies, Inc</a>
+                <br/>
+                500 Howard Street&nbsp;|&nbsp;San&nbsp;Francisco,&nbsp;CA&n=
+bsp;94105&nbsp;|&nbsp;United States </span></td><td>=C2=A0</td></tr><tr><td=
+>=C2=A0</td><td style=3D"font-size: 15px; padding: 16px 8px 24px; vertical-=
+align: top; text-align: center;"><span><a href=3D"https://slackhq.com" styl=
+e=3D"color: #1D1C1D; text-decoration: underline !important;">Our Blog</a> =
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <a href=3D"https://slack.com/legal" st=
+yle=3D"color: #1D1C1D; text-decoration: underline !important;">Policies</a>=
+</span></td></tr></table></td></tr></table></body></html>
+--=_d431f6b5-9197-4479-874e-c041c65e7696--

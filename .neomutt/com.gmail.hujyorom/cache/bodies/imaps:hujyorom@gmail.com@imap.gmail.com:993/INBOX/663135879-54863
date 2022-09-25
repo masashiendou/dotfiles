@@ -1,0 +1,226 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a54:2b4f:0:0:0:0:0 with SMTP id y15csp364380ecr;
+        Thu, 2 Sep 2021 23:10:22 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxC4y/jCKmNhNXo2Wpfu7solvXo8VB1mYSys27iX1pbxI63F5RUhxdlh1KGZm5vjkYxeH0L
+X-Received: by 2002:a62:2c51:0:b029:329:932b:9484 with SMTP id s78-20020a622c510000b0290329932b9484mr2005163pfs.13.1630649422447;
+        Thu, 02 Sep 2021 23:10:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630649422; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=OnmM2NclbBXgJl2h99GbinH2HNmZ2g1sZx8Wy+db5V5NfpWG/Abv+b9RW+A5Vuc/rj
+         +zrVkmfGLwsjSq0JsM4ZzPea9uvb+k4SzdZBgAgdg7xJ9o4VLxwrYd1by4sEKoLlStBp
+         TPhVGLojBq3o04yWGybY1wk1D+7OfLv8nF9ishfVOfn5NM3S8Q73ILlbu5+keOrGsXbp
+         dYO9xa0/8v4+ASW8cik2H04CMKldkXDT93G0XcY1AAgR1Ow7ooKnUW4RPooSPmh5jRoY
+         2NSZqkVavWNV4QJ510lzvciLYW7n9jP5fOzqeMJ8OhcNEjYGd0XHWUBr6955RzFz1zhM
+         Ylmg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:mime-version:content-transfer-encoding:subject:message-id:from
+         :date:dkim-signature;
+        bh=giCw6avBjRIONXHP+eRheNSj0iyczA74NNvcTSNJUY0=;
+        b=FBmTsj9NnnJKgx/GQJOOnKx2LjhczncbSWPdneJOhT6Qj7A6LL2DtVF2Tk9i/Ew0NG
+         MPY5NpoTyjIuwEc8QpekF/HE+wt3bW19MWEm1VwckWXQFY0x/sT/pL1XPfLQiKEYl1NH
+         tPbFj3nljdxlEvifgn4rHqdYQYMqViMQXaGS/bkT7H2+7lxChBtrsub1ENTnpyYKlu2J
+         u3QoWuEqWAkeo+yRoBR3MItl96xGfxXPJnsI0+ICJ4SJWwhgJfU17vAgRvuqswe79j5a
+         zy5jo3vvyBi9z5DFNbzgNfteCDTRuNo0EviFZwfZQmLvNtLorR88SctjPkrSFDmoGgTZ
+         zVRw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@netforest.onmicrosoft.com header.s=selector1-netforest-onmicrosoft-com header.b=FnsIUFJt;
+       arc=pass (i=1 spf=pass spfdomain=isp-support.jp dkim=pass dkdomain=isp-support.jp dmarc=pass fromdomain=isp-support.jp);
+       spf=pass (google.com: domain of staff@isp-support.jp designates 54.199.67.255 as permitted sender) smtp.mailfrom=staff@isp-support.jp
+Return-Path: <staff@isp-support.jp>
+Received: from ps32.spcloud.jp (ps32.spcloud.jp. [54.199.67.255])
+        by mx.google.com with ESMTPS id o11si5272910pgn.123.2021.09.02.23.10.21
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Sep 2021 23:10:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of staff@isp-support.jp designates 54.199.67.255 as permitted sender) client-ip=54.199.67.255;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@netforest.onmicrosoft.com header.s=selector1-netforest-onmicrosoft-com header.b=FnsIUFJt;
+       arc=pass (i=1 spf=pass spfdomain=isp-support.jp dkim=pass dkdomain=isp-support.jp dmarc=pass fromdomain=isp-support.jp);
+       spf=pass (google.com: domain of staff@isp-support.jp designates 54.199.67.255 as permitted sender) smtp.mailfrom=staff@isp-support.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Hz3d6SSWKlYwez0kRJR4mL6bU22ytO/PWMAmAg9AMxIDg1Y/gUoiyBuv9eulLNYWqNuL3RzUru4815D50z/2M7j/ruP5Xi5N/jsEfPnZH2ejVtOt0p887S9zk1llLmqbwi8A6hAITOD6XPAYDGzF7oYUYMCZNQ4/eTBEDLK7l5Mpapu/arypHsFGHkdP115XirYxFNA//pP9awBh8FCNs9bwb/jt3E3oJKBqotmTZLgcIXQLYwFcuL6WtAxeSg+HH1YX312qlTw/zkPOiKj7eR/Scyr2+jP8/u/E78D0VjkRDXF/6ZiDBDPZ1pJeBcSJsCP1sTAbdBns2Cl0GyWr1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=giCw6avBjRIONXHP+eRheNSj0iyczA74NNvcTSNJUY0=;
+ b=gUc5doZKJstxl2xgjNINYinzSZ5kYu1DziCOgp6D/KVTnrkZ9Qg1kyD8qM6paOKyDRgyi2B+cZ7tOYxtzwnjm59nEyfiJL8ikF6P6qNuDLmbLpAMiuW2wTBEjXm2gXKJZiJ/qrj0gUppmIaVLQ0VwpjKdFXxPhCSTH1LxjTrSvs3wJMhyvHwtrxmpm1uNzD1eI1cso693heXTyWLPZosjktC/cRzRBd6wgsKpb1MM45VVmdp7uprbfV4ZNu/AMzK2+WUPxgjBacbBdqv9IB9gT6Qn3ln3GhHn492tfKtdz8B9JcaTtR9LO7zDAM9R4+tpz0quGs2URWEpKrRbAG65Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=isp-support.jp; dmarc=pass action=none
+ header.from=isp-support.jp; dkim=pass header.d=isp-support.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=netforest.onmicrosoft.com; s=selector1-netforest-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=giCw6avBjRIONXHP+eRheNSj0iyczA74NNvcTSNJUY0=;
+ b=FnsIUFJtI8vPcAEuadUn6/D54hXFLTht3JkLRblqePzFmYqGSBf+lRyTfgwrGkSLTfOw453G/6X4IlkWQtsueIsPgPiGZj5pAS1fUBm3z5izFB8mRWwRX6LMwdF6oHzhRzE4Qwm7j2fy326BSfkB8uziIUI2Il4OOnDEzBMrKrs=
+Authentication-Results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=isp-support.jp;
+Received: from SI2PR03MB5788.apcprd03.prod.outlook.com (2603:1096:4:158::7) by
+ SI2PR03MB5674.apcprd03.prod.outlook.com (2603:1096:4:155::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4500.7; Fri, 3 Sep 2021 06:10:04 +0000
+Received: from SI2PR03MB5788.apcprd03.prod.outlook.com
+ ([fe80::50f1:f6d9:f9a8:68d8]) by SI2PR03MB5788.apcprd03.prod.outlook.com
+ ([fe80::50f1:f6d9:f9a8:68d8%7]) with mapi id 15.20.4478.019; Fri, 3 Sep 2021
+ 06:10:04 +0000
+Date: Fri, 03 Sep 2021 15:07:02 +0900
+From: =?ISO-2022-JP?B?GyRCIUozdCFLJU0lQyVIJVUlKSVsJTklSBsoQiBJU1Ag?=
+ =?ISO-2022-JP?B?GyRCJTUlXSE8JUglOyVzJT8hPBsoQg==?= <staff@isp-support.jp>
+Message-ID: <163064922245744000002e15@nat.cybozu.com>
+Subject: =?ISO-2022-JP?B?W0dhbWluZytdIBskQjJzQH5CLkVZJHIlRCUkITwlSCQ3JEYbKEI=?=
+ =?ISO-2022-JP?B?GyRCRXZBKjNOTigbKEJVUBskQiEqGyhCVHdpdHRlcg==?=
+ =?ISO-2022-JP?B?GyRCJVUlKSVtITwbKEImGyRCJWolRCUkITwlSCUtJWMlcxsoQg==?=
+ =?ISO-2022-JP?B?GyRCJVohPCVzMys6RUNmGyhC?=
+X-Mailer: Cybozu MailWise 5.4.7
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TY2PR06CA0021.apcprd06.prod.outlook.com
+ (2603:1096:404:42::33) To SI2PR03MB5788.apcprd03.prod.outlook.com
+ (2603:1096:4:158::7)
+MIME-Version: 1.0
+Received: from nat.cybozu.com (103.79.14.67) by TY2PR06CA0021.apcprd06.prod.outlook.com (2603:1096:404:42::33) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4478.19 via Frontend Transport; Fri, 3 Sep 2021 06:07:02 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 4b29f93e-0d01-4305-994b-08d96ea10c4e
+X-MS-TrafficTypeDiagnostic: SI2PR03MB5674:
+X-Microsoft-Antispam-PRVS:
+	<SI2PR03MB567450DA1F006596D238355180CF9@SI2PR03MB5674.apcprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:59;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	0ejz8nqKiI+46P/Dj4ztW4DD4T7AYvXGPK19SaWif5guZEQkjq6LPwEkwL7V1uP0huZaplop2wmRbRs5WAnLNXgf4S70Wr/AVvidhPCuoDKs6pMZh5+DeEIr6vNLJCTqNjB6/qI95+10QnzGtV01kzsf6+Tm1YDGo6OhYVG7j4msPN2Vt8Wa1AGej0D7P09l1pGKdIPpanMumJyE2HybSIXmguS0JHRIp7CROTUf/DBcF98MmFl34V49x+lxbULO+0NfeEUtFuMynXQ+WK0bDua2tvYlqVxl5zIrf46R97yxNQujRxHQ9/YEQSwK6b8cBJ2afFiI/sQsPBb3I79FVenpHFH5nuxefYu4CkB9dPT2UtR9qrDxCKHDvZPpxzj44AKbZjItfpReSrCDdAbvr1q9K+W1OM2RPjCf2ij91QL8J+0CPa+2iX/QoXiaFMBMTeWLTel/UkrC3rdGcx0YGtx/LaAOTuyVhothhyRX8h9fJnOVEzmizKfr53Bz2BF3iIOIfHybMkzcCvXOfOisNXsuULnYfEGf6Cxj23o5vuMFlJGsQ/mhVTTekWR8aD0q+znA39II/y3FM4IHU78gCv2SnNSosK41/K2YcG3EkvZHglud+8eyS4oymswi1W9iq5lW2lcdvFEfuAjrkEYZANel4m5JQiTf7o8oZWoUV22yAsvq36OKYuNYbxih2PcKYFzzp78wlBx2q4rvb6KtWwb6+detz3pwh6o0nOSpJfrl/NfOYYpEq5TP3CcqNJG7CkEL2vrYbaaG2pBhaEHpkmPrdbPZ83Uq1TZ1ZdPnzQVqAYB2triDAQNGqk89d8HD
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR03MB5788.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(376002)(39840400004)(346002)(366004)(396003)(136003)(2906002)(224303003)(5660300002)(956004)(966005)(38350700002)(6916009)(508600001)(66946007)(66556008)(9686003)(86362001)(55016002)(8936002)(66476007)(38100700002)(186003)(26005)(316002)(7696005)(6506007)(52116002)(18906007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?iso-2022-jp?B?RXB4MHVJeEJMUzk1RVV4WUF1Q3I2T3hwZWtmN1hzdlFVTDEzYnVGUmNW?=
+ =?iso-2022-jp?B?dWtBV3BVZjNtaUJkZzJvWmIwd3JOdUk3VytwWEVKVXNTWlhWNGpNOWVB?=
+ =?iso-2022-jp?B?dVFEaEVsRFE1SEZzbWRnMm5wVlozQlo1ZEc4WWlNcytjS1oyZGlEd0VQ?=
+ =?iso-2022-jp?B?ZUVsaTZpZ2VDSjFxZDdpcHErU3I1czFFU09oaWpIWWZZZEVac0lGNUFp?=
+ =?iso-2022-jp?B?QUluVkNuaFgxVTdFbEprMm90WEMvRUhISFI1cTU2SE05YStKczNwakxP?=
+ =?iso-2022-jp?B?b2t2UkpwbWptM0FMTlh3amlyb0tXVVE0MXlxb1lZSjFHSk1jbVo0KzVI?=
+ =?iso-2022-jp?B?K1k3OStNbVIwc0IzUHp1bmNnaHY5Q2REbUZ5MHFLM1lBM21UeEI2N0xY?=
+ =?iso-2022-jp?B?WEFOdkN5ZXlZdDlZYjEwSVhJSEUxVDByaDZJVUxySHduaFNuYVJCS0tO?=
+ =?iso-2022-jp?B?enMrc2pMa2FjWEFNRkNCQnM1cGd1akx0OTRMWVVFUkpGV283VGE3RDZ4?=
+ =?iso-2022-jp?B?UWNDb09iQytjbURpS0pkTVJGa3RVeDZ4NHpkb3N2MjJmNWRTMzJXalpI?=
+ =?iso-2022-jp?B?WlZJQXpqaW96QkNSSzBSWGxiQXJldDd0TFBKY3MvMDAxWnBvdjkxejRW?=
+ =?iso-2022-jp?B?Q2p4Rko2SUpnUGVQa2VYQjhhc20wRjVLaDZzd0NDMTJJL2Y2UWN0dUZ4?=
+ =?iso-2022-jp?B?V2NhWndrSVpFRDVmNTFmaFNkZVhsbWQ4TWpNU215bURWa1FjWTFUTXV2?=
+ =?iso-2022-jp?B?YUtFV2pMWHpGWnZEUnlTVU9jQ2Q5K2VQeTV2VjNWbDUvYkFBRUdNMmlh?=
+ =?iso-2022-jp?B?MUtlKzU0Q09vZVBGcHcxQWFaK0NHbEdUekVaQ1NWZEYraEx5WjA0Mm5Y?=
+ =?iso-2022-jp?B?V1BJMDc1OXNXamlzQXByZTRMVE1jcE4vUHhDaUljT01CQmJLVHh3Zlpr?=
+ =?iso-2022-jp?B?K1Ftbm4rajJ2RUptSlVKdVdFMjJUTjB0WTVMZ3hOcStXSmxsZVZHMlVW?=
+ =?iso-2022-jp?B?ZHU1WXJHZXhBODgrQ2EwM0dqOUd5WElXT2pnb0h6ZjlVVHlITU9GNExM?=
+ =?iso-2022-jp?B?L1FMdjQ1amR0Z205bWFyYkgzcGEwdnpVVExOVDJXYVJTOUhzY0RaZjBz?=
+ =?iso-2022-jp?B?allqbEgwZWE5TGlLNnNLRHZSWVBJSHp6T1ZjRTkxSG1nZmprK0FUakha?=
+ =?iso-2022-jp?B?TUFOODVvdldiays2SVNqTDBaSVY4UExaUkM3L3NtQ2V6blF4WFhuek5L?=
+ =?iso-2022-jp?B?SlhCNnFNWTk1WFQvU245V0pvUitmWEZSUWN1MzNaSSs0c1YyWXpOekdU?=
+ =?iso-2022-jp?B?T2l5S05ZdllqMlRqZXJpcVg3a0wwU2xweklKUkNMRW9NUDd5WUlBK3RO?=
+ =?iso-2022-jp?B?cW9tUW1SMHZzTjA2enJaRit0QzJWV2VGLzFMMHN1c0FyL3VRRUFKWHN3?=
+ =?iso-2022-jp?B?NzE0OGl2cHJ6QUpYQnVKSTBLL3NhUGd4SlZ0OHd1OGVEamRaVEZ5a0J5?=
+ =?iso-2022-jp?B?MERJcC9zbE16SEtwWE1pTlhBTGtwcStGSWtMSTEvMlNKOFEvaTdkd3Er?=
+ =?iso-2022-jp?B?RVhyK1RLZEtYRkFTQktvWGlEbUlXQm8rRThtUHdXQjVwWkxKVkRBbDE2?=
+ =?iso-2022-jp?B?aDlRMFNlK2FPenpBN3E3cmZUN1NtOFpER2VrTVAybFN1eEx6dnorZ2lR?=
+ =?iso-2022-jp?B?enJBTHJZeTFaRFRtdFFwNHZUaHN0d0swR09Pc1ZiOWxCbHlVWEtULzN0?=
+ =?iso-2022-jp?B?MDFNWERSdU1qanAyd0NBb0RtYWR0Qkxuck1pYklBQU53UVJ5bzU4YVcv?=
+ =?iso-2022-jp?B?b3B4Qm40R2cvOWRJZlhNcHpob244Yy84UlJDM0ZzaUxhakVWQk5KK29a?=
+ =?iso-2022-jp?B?WXo5RjVlWHRRQWFaSXdvSnZSR2V6UlZieWNTN3FjMGgzRHd1Z0FIRjJ2?=
+X-OriginatorOrg: isp-support.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b29f93e-0d01-4305-994b-08d96ea10c4e
+X-MS-Exchange-CrossTenant-AuthSource: SI2PR03MB5788.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2021 06:07:02.6088
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 94dbc9c6-ee7d-49a6-bd15-b1bfbbbd1c2c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zWb6iJgcRgIVb7oqnn+XRsVCSwZ7d0qUIhHP2tTGmMSj4M+RWvdcnNfQoM8I3G6WeFJvfNyLR5821RG3LNWcYA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR03MB5674
+X-CC-Mail-RelayStamp:CC/Mail Relayed
+X-CC-Mail-RelayStamp: CC/Mail EncServer Relayed
+To: hujyorom@gmail.com
+
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+このメールは、Gaming+をご利用のお客様に送信しております。
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+　　
+　　　　　　　　　　　　　　　　　　　　　　　　　　   2021年 9月  3日
+
+会員各位
+  　　　　　　　　　　　　　　　　　　　　　　株式会社ネットフォレスト
+ 　　　　　　　　　　　　　　　　　　　　　　　　　ISPサポートセンター
+
+
+　　　　　　「Twitterフォロー&リツイートキャンペーン開催中」
+
+
+
+　平素は弊社サービスをご利用いただき、誠にありがとうございます。
+
+　現在、Gaming+公式TwitterアカウントにてTwitterフォロー&リツイートキャ
+ンペーンを開催中です。
+
+　Gaming+をご利用中の皆様は、回線速度測定結果画像を添付して引用リツイ
+ートしていただくと当選確率がUPします！
+
+　プロeスポーツチームのDetonatioN Gaming関連グッズが抽選で20名様に当た
+るお得なキャンペーンとなりますので、ぜひご参加ください!
+
+---------------------------------------------------------------------
+■キャンペーン概要
+
+Gaming+公式Twitterアカウントをフォローして、対象のキャンペーン投稿をリ
+ツイートすると、抽選で20名様にDNGグッズが当たる!! 
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+　　
+■キャンペーン期間
+
+2021年9月12日（日）23:59 [日本時間] まで
+
+■賞品　　　　　
+
+下記のDNGＴシャツやパーカーを抽選で20名様(各4名様)にプレゼント！
+何が当たるかお楽しみに♪
+
+・DNG パーカー2021
+・DNG ゲーミングプラクティス Tシャツ2020(BLACK)
+・DNG ゲーミングプラクティス Tシャツ2020(WHITE)
+・DNG Tシャツ2021(BLACK)
+・DNG Tシャツ2021(WHITE)
+
+※いずれもLサイズです。
+※当選賞品はご選択いただけません。
+
+■応募方法【会員限定】
+
+STEP1　スピードテストサイトにて回線速度を測定し、画像をキャプチャする
+　　　https://fast.com/ja/
+　　　※上記サイトは、一例です。サイトの指定はございません。
+
+STEP2 公式Twitterアカウント（@gaming_plus2016）をフォロー
+　　　https://twitter.com/gaming_plus2016
+
+STEP3 対象のキャンペーン投稿に測定結果画像を添付し、引用リツイート！
+　　　https://twitter.com/gaming_plus2016/status/1429665386283163655
+
+■抽選・当選発表
+
+キャンペーン応募期間終了後、ご応募いただいた方の中から事務局で抽選の
+上、当選者にのみTwitterのDM（ダイレクトメッセージ）で賞品発送先登録フ
+ォームを送付いたします。手順に沿って期限内にご入力ください。
+
+---------------------------------------------------------------------
+詳細は Web サイトのキャンペーンページを御覧ください。
+ https://www.gaming-plus.net/topics/2021/08/002254.html
+
+今後とも弊社サービスを末永くご愛顧いただけますようお願いいたします。
+┌───────────────────────┐
+　株式会社ネットフォレスト ISPサポートセンター
+　　　TEL   : 0120-273-037 (フリーダイヤル)
+　　　(平日10:00-12:00、13:00-17:00)
+
+　　　FAX   : 045-548-5502
+　　　MAIL  : staff@isp-support.jp
+└───────────────────────┘
+
+

@@ -1,0 +1,106 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp2200144vkh;
+        Thu, 7 Oct 2021 17:05:04 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJx8/KRxIp3NxbDhJK/XxNYYJs0lmBK2RRXR2dSI+eeMsUeTC6Ivi+50d++IyQPYabnivaWg
+X-Received: by 2002:a17:90b:3687:: with SMTP id mj7mr4925945pjb.196.1633651503968;
+        Thu, 07 Oct 2021 17:05:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633651503; cv=none;
+        d=google.com; s=arc-20160816;
+        b=W7LX0+sTZL0ZPdLeiBwEnXYJWTWvK26wnGVkD9QI8RITVMaykvEvJ4dRL/G3hzLmxO
+         EwT8vpQpBHQ+Ic9fPG6IBY8LAoElhwPTolZNOSv7gWuteflZEYgtxEy1duYNLrCoOx0v
+         4xWRTvN8jc79PzoS+3s4hvrYYeW31G4lEjf/3XmNoTSgu//GJWaKiNmOJQN3pelyDgv5
+         /QFYZifJAwu4fksZ1ijHDUniQOi/IDTcWKkTugHDBOus25pMa2rYIMLjsT6BHrJMEfTS
+         KcR0nLjHqhqQtDls1viY/ypvIJKnSRqOpzI4X8d31OMxR/pHGVPvg+BOojkiPr4ZMG7Q
+         7Q8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=rlnMl4WKLi89mfr/n3AV9PtvD66yR9ZtIzv7tkXlw98=;
+        b=igxROBS26Nkpxeh+XsTX9NvkClCZHufBijoYERpT1j9pDMGiZ6GkapM5d2RH/GiZVZ
+         PHPCp+9w9oKwHBu7T/4hu7mjJFiVgE8pfFGTRoSFdNa5IZWg4KzK1AyMbvmjRBm//dSo
+         tzjNX1zgRJrldrIdVH7e6F5dnseh92tSGsB1vtWhZ2TeF3YaWfjzqx0fSw1sq9IdGLvm
+         L8zjpKUUn0JWECyGTT/UvO3fzCGTLQw11k3Y2Hzh+Avh1R9bDnSKDk4LA28nT8l1i+8i
+         z0HH3XvXh+Y7Nme6klyeTCVLw1Um+pXQiHlIK2QCG7rRgg0X+sCJwTaqslqnY8E0rxOg
+         1gyA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@staffservice.ne.jp header.s=SSEDKIM2 header.b=GqWca5Kz;
+       spf=pass (google.com: domain of noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com designates 101.53.164.237 as permitted sender) smtp.mailfrom="noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com>
+Received: from smtp14-ukb-sp1.mta.salesforce.com (smtp14-ukb-sp1.mta.salesforce.com. [101.53.164.237])
+        by mx.google.com with ESMTPS id j3si1076276plx.247.2021.10.07.17.05.03
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 07 Oct 2021 17:05:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com designates 101.53.164.237 as permitted sender) client-ip=101.53.164.237;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@staffservice.ne.jp header.s=SSEDKIM2 header.b=GqWca5Kz;
+       spf=pass (google.com: domain of noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com designates 101.53.164.237 as permitted sender) smtp.mailfrom="noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=staffservice.ne.jp;
+	s=SSEDKIM2; t=1633651499;
+	bh=zu4OkzwNdXbuAL8bAG3/eUouYbGE1sC380gZkLPy0Fs=;
+	h=Date:From:To:Subject:MIME-Version:Content-Type;
+	b=GqWca5Kz8sDpskSzVR5/6kTFmoO1NIW3fKb3hEN/arA/GXKxTFtLnRGgxEsqBfBsa
+	 iHbDGqF0wSKXrUWWb6u254WrFF+G6Ei02Jw6r+zQOOLurMIiOqcGO19DlwjGHgP0En
+	 ItjMZsf06jDkIpkvO5gtjcvc6ZrgcNk+X20PlwBFC+b1QDb7A8jwK45WqOzP8Qj8G8
+	 KfGf0fH6PG+lD7rbbs0fQAIS006nvxdFo3FrQOZ7ai2CeeTvVW5+prKIbh8HKcWFGs
+	 32AdHZn/sTBA1gGulsyydWhCOuvVgtLE/yPjf4HjYIIuI4S1bSOeUhb6YXNJI+9Y8H
+	 UPvJ7XsP+bjhw==
+Authentication-Results:  mx2-ukb-sp1.mta.salesforce.com x-tls.subject="/C=US/ST=California/L=San Francisco/O=salesforce.com, inc./OU=0:app;1:ukb;2:ukb-sp1;3:ap3;4:prod/CN=ap3-app2-23-ukb.ops.sfdc.net"; auth=pass (cipher=ECDHE-RSA-AES256-GCM-SHA384)
+Received: from [10.218.192.102] ([10.218.192.102:50362] helo=ap3-app2-23-ukb.ops.sfdc.net)
+	by mx2-ukb-sp1.mta.salesforce.com (envelope-from <noreply_sse-webtc2=staffservice.ne.jp__0-s1lav64ujo6o75@edu1zipeobrji.1-bm8heaa.ap3.bnc.salesforce.com>)
+	(ecelerity 4.2.38.62368 r(Core:release/4.2.38.0)) with ESMTPS (cipher=ECDHE-RSA-AES256-GCM-SHA384
+	subject="/C=US/ST=California/L=San Francisco/O=salesforce.com, inc./OU=0:app;1:ukb;2:ukb-sp1;3:ap3;4:prod/CN=ap3-app2-23-ukb.ops.sfdc.net") 
+	id 6B/D4-07107-B2B8F516; Fri, 08 Oct 2021 00:04:59 +0000
+Date: Fri, 8 Oct 2021 00:04:59 +0000 (GMT)
+From: =?ISO-2022-JP?B?V0VCGyRCJUYlLxsoQjIbJEI7dkwzNkkbKEI=?=
+ <noreply_sse-webtc2@staffservice.ne.jp>
+To: "hujyorom@gmail.com" <hujyorom@gmail.com>
+Message-ID: <u9GlU000000000000000000000000000000000000000000000R0MTI700o0XBJM8xTNWTiUyrAKX_1w@sfdc.net>
+Subject: =?ISO-2022-JP?B?U1NFGyRCISEbKEIyMDIxGyRCRy9FWRsoQiAbJEIhWhsoQg==?=
+ =?ISO-2022-JP?B?GyRCNSEzI01XQUc5VjpCGyhCIBskQkZ+TGdKVCFbJE4bKEI=?=
+ =?ISO-2022-JP?B?GyRCJDQwRkZiIUobKEJXRUIbJEIlRiUvGyhCMhskQiUkJXMbKEI=?=
+ =?ISO-2022-JP?B?GyRCJVUlKSVhITwlNyVnJXMkTiQqQ04kaSQ7IUsbKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+X-SFDC-LK: 00D10000000bm8h
+X-SFDC-User: 00510000004SnBw
+X-Sender: postmaster@salesforce.com
+X-mail_abuse_inquiries: http://www.salesforce.com/company/abuse.jsp
+X-SFDC-TLS-NoRelay: 1
+X-SFDC-Binding: 1WrIRBV94myi25uB
+X-SFDC-EmailCategory: workflowActionAlert
+X-SFDC-EntityId: 01W10000000DgoJ
+X-SFDC-Interface: internal
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+※このメールは送信専用アドレスから配信しておりますので、返信をいただきましても返信内容の
+確認およびご返答ができません。あらかじめご了承ください。
+お問い合わせにつきましては、＜お知らせ元＞に記載されている部署宛にお願いいたします。
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+遠藤様 
+
+WEBテク2よりインフォメーションが届きました。 
+ご確認をお願いします。 
+
+
+＜インフォメーション名＞ 
+SSE　2021年度 【機械要素講座 入門編】のご案内 
+
+＜お知らせ元＞ 
+神奈川HRセンター 
+
+＜公開日＞ 
+2021/10/08〜2022/10/07 
+
+＜リンク先＞ 
+https://sse-webtc2.force.com/s/detail/a0R5F00000iqjJv 
+
+よろしくお願い申し上げます。 
+スタッフサービス・エンジニアリング

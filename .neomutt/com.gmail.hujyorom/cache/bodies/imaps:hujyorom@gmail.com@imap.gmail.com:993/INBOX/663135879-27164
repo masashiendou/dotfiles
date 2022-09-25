@@ -1,0 +1,79 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a5d:9904:0:0:0:0:0 with SMTP id x4csp512001iol;
+        Tue, 27 Nov 2018 02:19:54 -0800 (PST)
+X-Google-Smtp-Source: AFSGD/XHPVBXD4aMQH7YavZOA3J4D/5NfALLZaeLGeId35YZ/YfK6h4kOO4/dJ9WkUKk5AscvBLx
+X-Received: by 2002:a62:2044:: with SMTP id g65mr5819468pfg.127.1543313993977;
+        Tue, 27 Nov 2018 02:19:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1543313993; cv=none;
+        d=google.com; s=arc-20160816;
+        b=IsAlJzyW8aXjgxJr26y18/lRSCDRNxH/TLl5Fp2clMuARL9OnQ6W1U0mH9N8NcZ0ru
+         yMIpxIq6wzYnJ5og5r7JLmmOFSXBCa5EtX/PUDf/d8B87Xg3OkFrffTruburVjKMcmFq
+         Q8Vf9pHiFgvimvn4/cmP7LbVbKSL50ctbOiXy/JZy2BCzbU6Yvot1uUJyB07tEwSEI99
+         O3IdYC1fytTrj+cB9gZkruCzcflamdwCSQ13vf8UDHwg5rb+xsF/wD+6TqIMVlHADDFS
+         zOSXm014txMf/3wWfTwbzf/Ns+jz7vXK1erCjqjikyKBgTnRxS08pmRT1ASJxohdXr+x
+         /ocQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:to:subject:from:date:message-id:domainkey-signature
+         :dkim-signature;
+        bh=WrblNDib8M+JERGwp24XFjskG6gFLUR71pOsrDkQ/Lo=;
+        b=K+d2vyNXXLzGtjQ5kPDwacex+fCN/nBb0X8tnkUAHGWJX9PXEkzn8j5FJTay4Yc0j4
+         DeTA+hVWk9aESdSSw+4ZnArlLgTmdy6qIAyPtp64q2wul4kVku7UwHZqL0AM0W7Yy5Ex
+         y33FK7+54QeJFdXB2wBpQv7tqrrRlDiSqeYHIFqTSzuheBwu4mfgp26dX7KxScYpTvPf
+         EzTuUSPuHGj5iSOaHgZsPjAmEQOOFxTYJW1MnDIPza+PNitgm1ZPk3viw/PP/yrWP0D5
+         RGPkyqjgn7kprKBmAwnhehaH6puAsHfy90SJnPL9bM80VTaEI/vQe4wj8gtXQgq5vk/8
+         6o7A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@yahoo.co.jp header.s=yj20110701 header.b=FRIAKmTj;
+       spf=pass (google.com: domain of rediscal@yahoo.co.jp designates 182.22.90.34 as permitted sender) smtp.mailfrom=rediscal@yahoo.co.jp
+Return-Path: <rediscal@yahoo.co.jp>
+Received: from nh602-vm9.bullet.mail.ssk.yahoo.co.jp (nh602-vm9.bullet.mail.ssk.yahoo.co.jp. [182.22.90.34])
+        by mx.google.com with SMTP id e63si3174558pgc.239.2018.11.27.02.19.53
+        for <hujyorom@gmail.com>;
+        Tue, 27 Nov 2018 02:19:53 -0800 (PST)
+Received-SPF: pass (google.com: domain of rediscal@yahoo.co.jp designates 182.22.90.34 as permitted sender) client-ip=182.22.90.34;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@yahoo.co.jp header.s=yj20110701 header.b=FRIAKmTj;
+       spf=pass (google.com: domain of rediscal@yahoo.co.jp designates 182.22.90.34 as permitted sender) smtp.mailfrom=rediscal@yahoo.co.jp
+Received: from [182.22.66.105] by nh602.bullet.mail.ssk.yahoo.co.jp with NNFMP; 27 Nov 2018 10:19:52 -0000
+Received: from [182.22.91.130] by t603.bullet.mail.ssk.yahoo.co.jp with NNFMP; 27 Nov 2018 10:19:52 -0000
+Received: from [127.0.0.1] by omp603.mail.ssk.yahoo.co.jp with NNFMP; 27 Nov 2018 10:19:52 -0000
+X-Yahoo-Newman-Property: ymail-3
+X-Yahoo-Newman-Id: 836228.33847.bm@omp603.mail.ssk.yahoo.co.jp
+Received: (qmail 74577 invoked by uid 60001); 27 Nov 2018 10:19:52 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.co.jp; s=yj20110701; t=1543313992; bh=WrblNDib8M+JERGwp24XFjskG6gFLUR71pOsrDkQ/Lo=; h=Message-ID:X-YMail-OSG:Received:X-Mailer:X-YMail-JAS:Date:From:Subject:To:MIME-Version:Content-Type; b=FRIAKmTjCrCPMthLV5BnM5xF47fSQBzHfEU65TfPHzAY2EqpxQ0htGm2hHC+K2Yxd7nJX8ox/zFN8L96B5DkFKYXsuQl0J9jW/Up1AxTMrAuBScSOb1xerFX7k7CvoMEtIHhwEs2NWbM0NHRQQrtB7KyF895APCyBcjIT2EZ6Sc=
+DomainKey-Signature:a=rsa-sha1; q=dns; c=nofws;
+  s=yj20110701; d=yahoo.co.jp;
+  h=Message-ID:X-YMail-OSG:Received:X-Mailer:X-YMail-JAS:Date:From:Subject:To:MIME-Version:Content-Type;
+  b=AbGSjKkA/EMM+/lm4I5vjOFDWl43o68zJxVgZ0im2vJ25500EVpB+/Eafp0otFoFtQTNmgko5tg6Vmt0053kk+3sbjgRSWjbFt2E30M8+1BY9D30LRE664WtjeNU2eOM8/Lq7zFte/aYdqYaExTelKY3jNu0F2FkfOX49y0SBtc=;
+Message-ID: <687957.60792.qm@web102813.mail.ssk.yahoo.co.jp>
+X-YMail-OSG: wQuXi6IVM1k4oncn3RS9NXffflwTWjM_AxkMDNhHLpWjo4YhPvoatgzopPrJE.jN9P5wlRTVZGEmTZY6v.AjaoWbJjrEn4TCW7xGmAS6jAPjfPTVnPj4_xCk.y5hK7KqCluwl68vUkdP9zh5Bn0EGDX50hXQnkf5tgH7TAFCt8FlEGnDHV_SgunD_OwMdeE8tDtVZ1mvE5kDrN.hXRWNd4PLunX7iFLStxRR1TNQJ4j3a6tWogV.e0LHcmkT3HZGJvZGdXrywM1exCQkB2FlulVV0AZcL8cZA3GGeojBaE15.zsM.qZYudTJ6kiSKH1GnB5txX8jNK5VsiCvjdtrQXK82b4zbiuwFd25QK1I09LBd5KTpyDCWBWOJRIyrccwbf.Jk8AAV9.kCfqumeCskWQgefAaeNbk9uB5ecncgW548DP7n9ipXoqKMmiUdkHSgUaLmfGiEC_6U_CSj.Vkz9Hbb7jYkVdcBNWI2rzGM_IjgEq6IBe3M.Pe8_kOU8FkwjozpHKtw_MXIB2Bv3P3DhyO6MPVr7soBaC6vJi1K8DlhCXTiyscS7iiSrGoKtSyNrezzJmuA9iNF6N8x6B1EwnZqn71oO7TPIC3MNR_dvlOZUUOogEb_2kTqSqxSzoBIQM-
+Received: from [125.30.90.109] by web102813.mail.ssk.yahoo.co.jp via HTTP; Tue, 27 Nov 2018 19:19:52 JST
+X-Mailer: YahooMailWebService/0.8.111_74
+X-YMail-JAS: OLm1dxQVM1nTZCyWHx50Zp_dOJSK.3g08XuF1NDfM8YIFQqSDsX9W.zBRYgepPg5P6S65Dfo3ytwwge4Co6c2uZT73N_3LS1V7zFYDjFvyRFt5PDrMmXwlAj7DCWau4yaw74
+Date: Tue, 27 Nov 2018 19:19:52 +0900 (JST)
+From: "rediscal@yahoo.co.jp" <rediscal@yahoo.co.jp>
+Subject: =?iso-2022-jp?B?GyRCPGo9USRLOl0kNyRGJE5PIkJTSl0+Wj9NJE43bxsoQg==?=
+To: "kei6@docomo.ne.jp" <kei6@docomo.ne.jp>,
+  "akiras2222s@docomo.ne.jp" <akiras2222s@docomo.ne.jp>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-2022-jp
+
+ご無沙汰しております。
+真奈です。ご心配をおかけして申し訳ありません。
+
+唇が大きく腫れて会話が不明瞭なため將司さんからお話してもらいましたが、本来なら私が直接お願いすべき所を失礼致しました。
+
+
+事故の状況を少し詳しく説明しますと、牧場では子馬を広い所にまとめて一斉に放すという作業があります。
+充分安全に留意して行うものではありますが、今回はたまたま他の人が放した馬に私が体当たりされ、倒れた所を馬が通過して蹄が顔に接触しました。
+
+鼻の上部と、そこに繋がる眼窩の下の頬骨がスポンと下に（わずかですが）陥没したため、それを持ち上げて固定し直す手術を行います。
+
+痛み止を処方され特に辛いことも無く、腫れた唇も少しずつですが元に戻ってきています。
+気力体力食欲全ていつも通りで、將司さんがとても大事に面倒を見てくれているので、唇以外何も不自由はありません。
+
+件名の書類を早めに送りますので、お手数ですがよろしくお願いいたします。
+
+
+
+真奈

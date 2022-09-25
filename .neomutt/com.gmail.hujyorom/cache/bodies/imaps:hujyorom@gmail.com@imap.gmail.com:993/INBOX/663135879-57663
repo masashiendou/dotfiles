@@ -1,0 +1,114 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9bc7:0:0:0:0:0 with SMTP id d190csp237810vke;
+        Wed, 10 Nov 2021 20:45:21 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzimZcOrhsK8v+ZYx6Ezzdwf2zTmpp2a1Lfx6XXrAbeRD0gFVrTcBiqrKvoS0DtXXIM3sqG
+X-Received: by 2002:a05:6e02:1d9d:: with SMTP id h29mr2526323ila.29.1636605921850;
+        Wed, 10 Nov 2021 20:45:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1636605921; cv=none;
+        d=google.com; s=arc-20160816;
+        b=i0q4enDUKkDDxv5FbO4A/5hY72jnuivR0kt0F+IQmTrZtg+57ThK7+bafK4XaASgx6
+         pdS8tyDROjhnvqogKGEfIqZ+UIFAqZyCB12lRc/cS7O0+yB4PWlkH4JDKxYSbuJTIbce
+         i4iMPz/acR3185DEr2p29QhWOLiWYdpndtQmIG1tRXGNZr/CyFCSaoB24NDPDJ003Csu
+         oW+anjMpsti+/kfSiozPBHNg8w/SHusbbAHdcqgQr3NKxWex0VbYqZPLQ0st8dk+Wfb+
+         ZpfDx0KPz9rAPOOMJbTlSdJuIZMQixuiRV6Ar0Q1gX6hmkBw17LMW3ino1PBxAx2yN4J
+         TP4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:date:message-id:subject:to
+         :from:dkim-signature;
+        bh=s9NmwtqjbFk1qmBQWhxnGKhXLwzzAcMs6jTZ4aYJL0E=;
+        b=x10ghIvD2iLWKwLTgGPmPnuDtHOoCPI9lXsp1qjqMIQujcEWNXdsnsHj820IlG3wd5
+         QwP4mg8ZljGvtL/77kD4K5DWY9U+jQEMHRe6bWnZej53DA5EBDzRFe8aN4YoNnzOwDq/
+         xI4YZmvCG2x7iL+H1unfcXruUHWdO4TSwYYW4ueqsTBFlxGmsliyxG7R+Ql9/8DUJ7JZ
+         iWdTNzyoNmBAxQ5lq0+s3cUW0Gonbg/ept1MavNsVhmuleloVxiM0WIHZK8yN3dX0lio
+         DV4V0RBTGPk+9VBbdOsYgYbVfv3T4kf2bPrVCeYGVRo/uK8Nin/vI0Uv/8QO9dUJIuMu
+         W0Ow==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=re202009-sp header.b="ejNU4r+/";
+       spf=pass (google.com: domain of 0000y9-0016n@b201.repica.jp designates 182.236.83.135 as permitted sender) smtp.mailfrom=0000y9-0016n@b201.repica.jp
+Return-Path: <0000y9-0016n@b201.repica.jp>
+Received: from b20103.repica.jp (b20103.repica.jp. [182.236.83.135])
+        by mx.google.com with ESMTPS id v12si4035862jat.133.2021.11.10.20.45.21
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 10 Nov 2021 20:45:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0000y9-0016n@b201.repica.jp designates 182.236.83.135 as permitted sender) client-ip=182.236.83.135;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=re202009-sp header.b="ejNU4r+/";
+       spf=pass (google.com: domain of 0000y9-0016n@b201.repica.jp designates 182.236.83.135 as permitted sender) smtp.mailfrom=0000y9-0016n@b201.repica.jp
+Received: from b201 (HELO) (127.0.0.1)
+  by b201.repica.jp with SMTP; Thu, 11 Nov 2021 13:45:08 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=iijmio.jp;
+	s=re202009-sp; t=1636605908;
+	bh=V0bueHNsjXb/Gb6pl4ZbSOwp+kTFXN7zo8btYaBWWXY=;
+	h=From:To:Subject:Message-Id:Date:MIME-Version:
+	 Content-Transfer-Encoding;
+	b=ejNU4r+/l/D4S1Ut4guVycoEzqkIOKXS+lsNq22XDHJ+nJdw9/V/Gi1LgqwDOqM0n
+	 Nko8XYlmo/vGDmNc6nxHlld2aJQD22/m3q1O15Qok0JBfiHNY/jXCchVA2pCL6H+iv
+	 BveAxhFibv9heGOAj0+Xttij7WeHwCi7P9raI1vo=
+From: =?ISO-2022-JP?B?SUlKbWlv?= <announce-noreply@iijmio.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?QklDIFNJTRskQiQ0TXhNUUNmJE4kKjVSTU0kWCEqJVMlQyUvJV0lJCVzJUgkcjtIJEMkRiQ0TXhNUU5BNmIkcjtZSickJjxqQjMkLSRPJGIkJiQqOlEkXyRHJDkkKyEpGyhC?=
+Message-Id: <0000y9-0016n@b201.repica.jp>
+Date: Thu, 11 Nov 2021 13:45:08 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: quoted-printable
+X-SE-GID: 0000y9@b201.repica.jp
+X-SE-HID: b201.repica.jp.1636605908726090
+
+=1B$B!Z9f30![=1B(BIIJmio=1B$B$+$i$N$*CN$i$;=1B(B 2021=1B$BG/=1B(B11=1B$B7n=
+=1B(B11=1B$BF|=1B(B
+=1B$B(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,=1B(B
+=1B$BK\%a!<%k$O!"=1B(BIIJmio=1B$B$N$*CN$i$;G[?.EPO?$5$l$?J}$K$*Aw$j$7$F$$$^=
+$9!#=1B(B
+
+=1B$B"($3$N%a!<%k$OAw?.@lMQ%"%I%l%9$GAw?.$7$F$*$j$^$9!#$4JV?.$$$?$@$$$F$bBP=
+1~$G$-$+$M$^$9$N$GM=3D$a$4N;>5$/$@$5$$!#=1B(B
+=1B$B"(G[?.$NDd;_$K$D$$$F$O!"K\%a!<%k$NKvHx$r$4Mw$/$@$5$$!#=1B(B
+
+=1B$B"#(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,"#=1B(B
+=1B$B%S%C%/%]%$%s%H$r;H$C$F7n!9$N=1B(BBIC SIM=1B$B$4MxMQNA6b$r$b$C$H$*%H%/$=
+K!*=1B(B
+=1B$B"#(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,"#=1B(B
+BIC SIM=1B$B$J$i7n!9$N$*;YJ'$$$K%S%C%/%]%$%s%H$,;H$($k!*=1B(B
+=1B$B%S%C%/%]%$%s%H$O=1B(B1=1B$B%]%$%s%HC10L$G$4MxMQ2DG=3D!*=1B(B
+=1B$B%]%$%s%H$O=1B(B1=1B$B%S%C%/%]%$%s%H!a=1B(B1=1B$B1_$H$7$F$*;H$$$$$?$@$1=
+$^$9!#=1B(B
+11=1B$B7nJ,$N$4MxMQNA6b$KBP$7$F%S%C%/%]%$%s%HMxMQ$r$44uK>$N>l9g!"=1B(B11/20=
+(=1B$BEZ=1B(B)=1B$B$^$G$K$4MxMQ<jB3$-$r$*4j$$$$$?$7$^$9!#=1B(B
+
+=1B$B!z$4MxMQJ}K!$O=1B(BWEB=1B$B$G4JC1=1B(B3=1B$B%9%F%C%W!z=1B(B
+1.=1B$B%S%C%/%+%a%i=1B(B.com ID=1B$B$N$4EPO?=1B(B
+2.IIJmio=1B$B2q0w%5%$%H$X%m%0%$%s=1B(B
+3.=1B$B2q0w%5%$%H$+$i%S%C%/%+%a%i=1B(B.com=1B$B$XO"7H@_Dj=1B(B
+
+=1B$B$4MxMQ<jB3$-$NJ}K!$K$D$$$F>\$7$/$O$3$A$i!d=1B(B
+https://bicsim.com/service/bicpoint.html?utm_source=3Diijmio_mailmagazin&ut=
+m_medium=3Demail&utm_campaign=3DBP_PR_2111
+=1B$B(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,=1B(B
+BIC SIM=1B$B8x<0=1B(BTwitter=1B$B%"%+%&%s%H$O$3$A$i=1B(B
+https://twitter.com/bicsim_official
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+=1B$B!ZG[?.Dd;_![=1B(B
+ =1B$B%a!<%kG[?.$NDd;_$r$44uK>$NJ}$O!"2<5-$N%Z!<%8$G@_DjJQ99$r$*4j$$$$$?$7$=
+^$9!#=1B(B
+ https://www.iijmio.jp/customer/account/optmail/
+
+=1B$B!ZLd$$9g$o$;%U%)!<%`![=1B(B
+ https://www.iijmio.jp/service/inquiry/
+
+=1B$B!ZG[?.85![=1B(B
+ =1B$B3t<02q<R%$%s%?!<%M%C%H%$%K%7%"%F%#%V=1B(B 
+
+=1B$B"($3$N%a!<%k$OAw?.@lMQ%"%I%l%9$GAw?.$7$F$*$j$^$9!#$4JV?.$$$?$@$$$F$bBP=
+1~$G$-$+$M$^$9$N$GM=3D$a$4N;>5$/$@$5$$!#=1B(B
+=1B$B"(6b3[$O@G9~2A3J$G$9!#=1B(B
+=1B$B"(5-:\$N<RL>5Z$S@=3DIJL>Ey$O0lHL$K3F<R$N>&I8$^$?$OEPO?>&I8$G$9!#=1B(B
+=1B$B"(K\%a!<%k$NL5CGG[I[!&E>:\Ey$O6X;_$7$^$9!#=1B(B
+
+Copyright (C) 2021 Internet Initiative Japan Inc.
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+

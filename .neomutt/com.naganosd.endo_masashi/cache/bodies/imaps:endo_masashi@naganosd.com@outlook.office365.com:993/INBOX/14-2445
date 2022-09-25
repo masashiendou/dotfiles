@@ -1,0 +1,762 @@
+Received: from SL2PR06MB3388.apcprd06.prod.outlook.com (2603:1096:202:14::20)
+ by HK0PR06MB2739.apcprd06.prod.outlook.com with HTTPS via
+ HK2PR04CA0052.APCPRD04.PROD.OUTLOOK.COM; Mon, 6 Jul 2020 00:03:04 +0000
+Received: from OS0P286CA0019.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:9d::6) by
+ SL2PR06MB3388.apcprd06.prod.outlook.com (2603:1096:100:3c::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3153.21; Mon, 6 Jul 2020 00:03:02 +0000
+Received: from OS2JPN01FT016.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:604:9d:cafe::d0) by OS0P286CA0019.outlook.office365.com
+ (2603:1096:604:9d::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3153.24 via Frontend
+ Transport; Mon, 6 Jul 2020 00:03:02 +0000
+Authentication-Results: spf=pass (sender IP is 54.64.234.13)
+ smtp.mailfrom=backlog.com; naganosd.com; dkim=none (message not signed)
+ header.d=none;naganosd.com; dmarc=bestguesspass action=none
+ header.from=backlog.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of backlog.com designates
+ 54.64.234.13 as permitted sender) receiver=protection.outlook.com;
+ client-ip=54.64.234.13; helo=mta-front52.tokyo.backlog.com;
+Received: from mta-front52.tokyo.backlog.com (54.64.234.13) by
+ OS2JPN01FT016.mail.protection.outlook.com (10.152.184.146) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3153.24 via Frontend Transport; Mon, 6 Jul 2020 00:03:01 +0000
+Received: (qmail 20042 invoked from network); 6 Jul 2020 09:03:01 +0900
+Received: from unknown (HELO app52-b.backlog.internal) (10.5.0.112)
+  by mta.backlog.internal with SMTP; 6 Jul 2020 09:03:01 +0900
+Received: (qmail 9753 invoked from network); 6 Jul 2020 09:02:58 +0900
+Received: from unknown (HELO app52-b) (127.0.0.1)
+  by localhost.backlog.internal with SMTP; 6 Jul 2020 09:02:58 +0900
+Date: Mon, 6 Jul 2020 09:02:58 +0900 (JST)
+From: Backlog <no-reply@backlog.com>
+To: endo_masashi@naganosd.com
+Message-ID: <1593993778554.1722251048733140@backlog.com>
+Subject: =?UTF-8?Q?=E4=BB=8A=E9=80=B1=E3=81=AEBacklog=E3=83=9E=E3=82=A4=E3=83=AC?=
+ =?UTF-8?Q?=E3=83=9D=E3=83=BC=E3=83=88(2020=E5=B9=B47=E6=9C=886=E6=97=A5)?=
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_4889255_1156659431.1593993778554"
+X-ML-Name: Backlog-naganosd
+Return-Path: return@backlog.com
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Jul 2020 00:03:01.7590
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 8641d92d-dc50-4893-7a5f-08d8213ff311
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3a723edf-b2e9-465d-826a-d5ccf5e64f13:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-Forefront-Antispam-Report:
+ CIP:54.64.234.13;CTRY:JP;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta-front52.tokyo.backlog.com;PTR:mta-front52.tokyo.backlog.com;CAT:NONE;SFTY:;SFS:(286005)(6916009)(336012)(224303003)(2160300002)(7126003)(2616005)(166002)(1096003)(966005)(26005)(36756003)(7636003)(7596003)(33964004)(356005)(42242002)(579004);DIR:INB;SFP:;
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ OS2JPN01FT016.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 8641d92d-dc50-4893-7a5f-08d8213ff311
+X-MS-TrafficTypeDiagnostic: SL2PR06MB3388:
+X-MS-Oob-TLC-OOBClassifiers: OLM:1923;
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:1;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2020 00:03:01.7270
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8641d92d-dc50-4893-7a5f-08d8213ff311
+X-MS-Exchange-CrossTenant-Id: 3a723edf-b2e9-465d-826a-d5ccf5e64f13
+X-MS-Exchange-CrossTenant-AuthSource:
+ OS2JPN01FT016.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2PR06MB3388
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.2514429
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.3153.029
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(20160514016)(750128)(520011016)(944506458)(944626604);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?blRZblZ5alpXcGxDZjdITzFSYUxQWWdoall4SDlqQzFzalFPbnBKWGFzNXRS?=
+ =?utf-8?B?Z2NYK0M2MU5lZHV2U2poTW0zZUV2cVpoV2N5WDQ2SnlFbkVwbnNQeksxdFRH?=
+ =?utf-8?B?elVtWHBwQU82ZDA5WW5YNnIrMGNqcERvcDVvL0RabkJKZm1GQXcyeU1SZ09T?=
+ =?utf-8?B?VzJWa2JTd0pURHFQbmVFV1FZYTRpb3RQYjlzQWJtcGpMRWZqRHBxUDRtZTAy?=
+ =?utf-8?B?aGpHTnNQSUM1WWZkQTl0NmkrWVo0SnA1TmpHUlJpcTFIbUJoQkZuMDU3YnVY?=
+ =?utf-8?B?eGN2MlVTUEtqNldJNlBic1ZzQy9VTUhFcWcyTWE5U3hWcDh1QkJIR1hObXhM?=
+ =?utf-8?B?ZE5FbFI0R3RyWkZueGxCZXpEU0ZoUHRQR01LcW9Ddml5NURLQllSY2J6OFg3?=
+ =?utf-8?B?VURnNkRVU2tya0VsTldQZWpyc3RkUE1WUEtJbDJYOFBFUnE3eTdNVGxEVlRw?=
+ =?utf-8?B?TGhrazJvRmorL3YvOHF5Ym1FUDNsbFdNeWowSm5hWHQ1eW85Q1RMbnVtTThO?=
+ =?utf-8?B?dG5sUW1FZGtjUzFpb1lnK2k0WTJaNkpVWGI1N0tWOVUxWjFYTjI5NUplaXdY?=
+ =?utf-8?B?UWgwWUFZT3FYT2d6TER2RW9KcWhsVTJhRHdad0dWQlhXZkZrNkFBeDFzTCtH?=
+ =?utf-8?B?QWFoS3gxdTFXTyswdEFiVHdQcmNCQld1Vm5SVkFDYTJHYVI5bkROZkhFVHov?=
+ =?utf-8?B?SnZkNURhLzd1TUF3alpNeUg4dVdtNE9VRnVYcGVhWm1sYUg1U05ET1JDRm1a?=
+ =?utf-8?B?eEpBdGJka3dNczlMUTE3cmtzQkFLQkNXcUFOdEhxVmZTWi9MSWhKSlVLNjVz?=
+ =?utf-8?B?QWlGQ3lyTVRyM2ZOQ09wY0VTd21nZTYwKzduNThkUmx0SU84QmxCbWJWVnd5?=
+ =?utf-8?B?aFdTYklZRkNOSnpockZPVERuMnJLeTR4QWd0Ymg3WDlLTWJzMFpFZTk4cmVV?=
+ =?utf-8?B?QjVISDJtVy9JVEVROFRSOEQ1Qk5ZOEFSZHFWQnhOMmtmUlprS0lKVENQckZZ?=
+ =?utf-8?B?cmVVWXNDU3F3MlJ2MFQxazZjWmd4YUIrYTNwZG1KVTE5MzF6VHNqaEJkQWd2?=
+ =?utf-8?B?ZmllazI4QlNqQWEvTGNZQi9nSVF2UXU4R2lNK2NkYit2SVJpSnhRaUZ2YVdS?=
+ =?utf-8?B?SzVYRVJRYUd3cUxsdkFOaXlvc2RqdzJLa3pGckpGL3JXRVRHaG5NblpEQ2gr?=
+ =?utf-8?B?dWcyU2x0YjZ1bnRGZXp2M1V2T2FnaTdBN3lpMDZ5V2xmc0d3NFhvcG1aMmQy?=
+ =?utf-8?B?aHMxVzgvRE5KTERURmNIRGV4NnVXL21XVjBHekRDdmxWQVJqRjcxY0RsdnJM?=
+ =?utf-8?B?a3pBQmpSZVBINktTdnU2ZlZXajFDWmxKMWdzMG05NjFYcjBYc25IdUsyMlJ2?=
+ =?utf-8?B?TWdieVNLSHVNeFhHeVBVdVVadmpuUi9SbU1heDVzM21LNjNkUVlaTlJ5NVJ4?=
+ =?utf-8?B?cWNrYXV6WEpzNFBhTVV4OXZWdUxKVmpyTFdZVFZldHUxdURzdUhIa1l0YTlz?=
+ =?utf-8?B?MlZHQlFEOTN5T2l1Tk5SaFRhMjhXRFZBcExoeFN1VXVna3VYTmJBRndjN1A2?=
+ =?utf-8?B?dzRtaktud2hjZHQ0Y2dRdWpiNGdmOVk0TTdick52S0wzZmhTeWV3dlNta0Zz?=
+ =?utf-8?B?S3FUUDBlZDN4NmdDeWdPRGQvVjVTSjBEZ2hkNU1HMUg3ekt5NUJydDlzM2VE?=
+ =?utf-8?B?MitpckUwYTU4UWliRHhnRDQxMkM0MjZXU0tTMHZHU3hFTFB4dng1eUw0RFFo?=
+ =?utf-8?B?MEM4VzFBeUw5QXl0bE1RZXhEb0pVOWpYakpVOStlSkhuM2RlVnlUWXNmbG81?=
+ =?utf-8?B?TWpJYXVrMzVSUHZ2L1BPQVVsUjNuV0xiUWxKWVJwTmRxdWFneGk4NTVNNFBJ?=
+ =?utf-8?B?OW1WcXhndjZUL1FNaHFPU2lvT0ZHblVZbWg0elBmMzVMcUpzTWFVZWFydTR1?=
+ =?utf-8?Q?lsqOA43sVZw=3D?=
+MIME-Version: 1.0
+
+------=_Part_4889255_1156659431.1593993778554
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+長野システム開発株式会社 今週のマイレポート(2020年7月6日(月))
+
+------------------------------------------
+もうすぐ期限の課題とマイルストーン
+------------------------------------------
+- 7月6日(月)
+- 7月7日(火)
+    (MINO-106)製作出荷情報: 複数の副問合せ(IN)を含む22000件以上の一覧表示のときDB応答が極端に遅くなる
+    https://naganosd.backlog.com/view/MINO-106
+- 7月8日(水)
+- 7月9日(木)
+    (MINO-82)製作出荷情報：検索機能　初期表示：当日日付で検索されていない。
+    https://naganosd.backlog.com/view/MINO-82
+    (MINO-89)製作出荷情報：一覧　解除をクリックしても、保留フラグが0に更新されない。
+    https://naganosd.backlog.com/view/MINO-89
+    (MINO-92)製作出荷情報：検索機能　出荷日指定組合せによって、検索されない場合がある。
+    https://naganosd.backlog.com/view/MINO-92
+    (MINO-101)製作出荷情報：検索機能　出荷日(自)を変更し検索を実行するとエラー表示される。
+    https://naganosd.backlog.com/view/MINO-101
+- 7月10日(金)
+    (MINO-77)DB更新処理の実装 ( 製作出荷情報 )
+    https://naganosd.backlog.com/view/MINO-77
+    (MINO-114)製作出荷情報の実装 ( Ver1.0.0 )
+    https://naganosd.backlog.com/view/MINO-114
+- 7月11日(土)
+- 7月12日(日)
+
+------------------------------------------
+完了した担当課題数
+------------------------------------------
+先週は先々週よりも課題完了の達成度が上がりました！パチパチ。今週もがんばってください。
+
+先週　：1個
+先々週：0個
+３週前：0個
+
+
+------------------------------------------
+スター獲得
+------------------------------------------
+先週はスターをもらえませんでした。今週はがんばりましょう！
+
+先週　：0個
+先々週：0個
+３週前：0個
+
+
+今週もはりきって頑張りましょう！
+
+長野システム開発株式会社 を開く
+https://naganosd.backlog.com
+
+
+新しいマイレポートが作成されたため、このメールが送信されました。
+メールの設定を変更する場合は下記のメール設定を変更してください。
+https://naganosd.backlog.com/EditMail.action
+
+------=_Part_4889255_1156659431.1593993778554
+Content-Type: multipart/related; 
+	boundary="----=_Part_4889256_1082743124.1593993778554"
+
+------=_Part_4889256_1082743124.1593993778554
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!doctype html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>長野システム開発株式会社 今週のマイレポート&lt;p style='font-size: 21px; font-weight: 400; margin-top: 3px; margin-bottom: 0;'&gt;2020年7月6日&lt;/p&gt;</title>
+  <!--[if !mso]><!-- -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--<![endif]-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+  #outlook a { padding: 0; }
+  .ReadMsgBody { width: 100%; }
+  .ExternalClass { width: 100%; }
+  .ExternalClass * { line-height:100%; }
+  body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  p { display: block; margin: 13px 0; }
+</style>
+<!--[if !mso]><!-->
+<style type="text/css">
+  @media only screen and (max-width:480px) {
+    @-ms-viewport { width:320px; }
+    @viewport { width:320px; }
+  }
+</style>
+<!--<![endif]-->
+<!--[if mso]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<!--[if lte mso 11]>
+<style type="text/css">
+  .outlook-group-fix {
+    width:100% !important;
+  }
+</style>
+<![endif]-->
+
+<!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600,700" rel="stylesheet" type="text/css">
+    <style type="text/css">
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+    </style>
+  <!--<![endif]--><style type="text/css">
+            a {
+                color: #4cbd9b;
+                text-decoration: none;
+            }
+
+            /* Remove tel-num style for iPhone/iOS */
+            .footer-timestamp a[x-apple-data-detectors] {
+                color:#f2f2f2 !important;
+            }
+
+            @media all and (max-width: 480px) {
+
+                .contents-section-block {
+                    padding-right: 5px !important;
+                    padding-left:  5px !important;
+                }
+
+                .footer-nav {
+                    float: none !important;
+                    width: 100% !important;
+                    text-align: center !important;
+                }
+                .footer-social {
+                    float: none !important;
+                    width: 100% !important;
+                    text-align: center !important;
+                }
+
+                .divider {
+                    padding-right: 5px !important;
+                    padding-left:  5px !important;
+                }
+
+                .comment-detail {
+                    margin-left:  0 !important;
+                    padding-left: 12px !important;
+                }
+
+                .cta-button {
+                    font-size: 18px !important;
+                    padding-left:  25px !important;
+                    padding-right: 25px !important;
+                }
+
+                .myreport-star-award-comment {
+                    padding-left:  5px !important;
+                    padding-right: 5px !important;
+                }
+                .myreport-star-award-icon {
+                    padding-left:  5px !important;
+                    padding-right: 5px !important;
+                }
+
+                /*==== .table-diff =====================*/
+
+                .table-diff {
+                    font-size: 12px !important;
+                    line-height: 18px !important;
+                }
+                .table-diff__th {
+                    padding-left:  15px !important;
+                    padding-right: 5px !important;
+                }
+                .table-diff__td {
+                    padding-left:  5px !important;
+                    padding-right: 15px !important;
+                }
+
+                /*==== .table-data-list =====================*/
+
+                .table-data-list__th {
+                    padding-left:  15px !important;
+                    padding-right: 5px !important;
+                }
+                .table-data-list__td {
+                    padding-left:  5px !important;
+                    padding-right: 15px !important;
+                }
+
+                /*==== .table-striped-list =====================*/
+
+                .table-striped-list {
+                    font-size: 12px !important;
+                    line-height: 18px !important;
+                }
+                .table-striped-list__th {
+                    padding-left:  15px !important;
+                    padding-right: 10px !important;
+                }
+                .table-striped-list__td {
+                    padding-left:  10px !important;
+                    padding-right: 15px !important;
+                }
+
+                /*=== content-header =====================*/
+
+                .contents-header-top-spacer {
+                    height: 12px !important;
+                }
+                .content-header {
+                    display: block !important;
+                    margin-top: 25px !important;
+                }
+                .content-header__icon {
+                    display: block !important;
+                    width: 100% !important;
+                    text-align: center !important;
+                    padding-right: 0 !important;
+                }
+                .content-header__title {
+                    display: block !important;
+                    text-align: center !important;
+                    padding-top: 13px !important;
+                }
+
+            }
+            @media screen and (-webkit-min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+                body {
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+            }
+        </style><style type="text/css">
+  @media only screen and (min-width:480px) {
+    .mj-column-per-100 { width:100%!important; }
+.mj-column-per-50 { width:50%!important; }
+.mj-column-px-370 { width:370px!important; }
+.mj-column-px-200 { width:200px!important; }
+  }
+</style>
+</head>
+<body style="background: #f2f2f2;">
+  
+  <div class="mj-container" style="padding: 0 10px; background-color: #f2f2f2;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;" border="0"><tbody><tr><td><div style="margin:0px auto;max-width:600px;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px 30px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:middle;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:middle;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" style="vertical-align:middle;" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:inherit;line-height:inherit;text-align:center;"><a href="http://www.backlog.jp" target="_blank" style="color: #4cbd9b; text-decoration: none;"><img width="158" src="https://assets.backlog.com/backlog-mail/images/mail/common/logo_backlog_color@2x.png"></a></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div></td></tr></tbody></table><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#4cbd9b;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#4cbd9b;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:28px 15px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="center"><div style="cursor:auto;color:#fff;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:24px;font-weight:600;line-height:36px;text-align:center;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                            長野システム開発株式会社 今週のマイレポート<p style="font-size: 21px; font-weight: 400; margin-top: 3px; margin-bottom: 0;">2020年7月6日</p>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:15px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;font-weight:600;line-height:28px;text-align:left;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">もうすぐ期限の課題とマイルストーン</div></div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:left;"><!-- for protect style on the mailer -->
+                        <div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table-striped-list" style="border-collapse: collapse; width: 100%; font-size: 16px; line-height: 22px; color: #4a4a4a; border-bottom: solid 1px #eee;">
+                            <tbody>
+                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px;" valign="top">
+                                                                        7月6日(月)
+                                                                        </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px;">
+                                                                                                            </td>
+                                </tr>
+                                                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px; background-color: #eee; border-top-color: #eee; border-left-color: #eee;" valign="top" bgcolor="#eee">
+                                                                        7月7日(火)
+                                                                        </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px; background-color: #eee; border-top-color: #eee; border-left-color: #fff; border-right-color: #eee;" bgcolor="#eee">
+                                                                                                                <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-106" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-106</a> <span class="myreport-icon-label" style="vertical-align: middle;">製作出荷情報: 複数の副問合せ(IN)を含む22000件以上の一覧表示のときDB応答が極端に遅くなる</span>
+                                        </p>
+                                                                        </td>
+                                </tr>
+                                                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px;" valign="top">
+                                                                        7月8日(水)
+                                                                        </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px;">
+                                                                                                            </td>
+                                </tr>
+                                                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px; background-color: #eee; border-top-color: #eee; border-left-color: #eee;" valign="top" bgcolor="#eee">
+                                                                        7月9日(木)
+                                                                        </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px; background-color: #eee; border-top-color: #eee; border-left-color: #fff; border-right-color: #eee;" bgcolor="#eee">
+                                                                                                                <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-82" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-82</a> <span class="myreport-icon-label" style="vertical-align: middle;">製作出荷情報：検索機能　初期表示：当日日付で検索されていない。</span>
+                                        </p>
+                                                                            <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-89" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-89</a> <span class="myreport-icon-label" style="vertical-align: middle;">製作出荷情報：一覧　解除をクリックしても、保留フラグが0に更新されない。</span>
+                                        </p>
+                                                                            <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-92" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-92</a> <span class="myreport-icon-label" style="vertical-align: middle;">製作出荷情報：検索機能　出荷日指定組合せによって、検索されない場合がある。</span>
+                                        </p>
+                                                                            <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-101" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-101</a> <span class="myreport-icon-label" style="vertical-align: middle;">製作出荷情報：検索機能　出荷日(自)を変更し検索を実行するとエラー表示される。</span>
+                                        </p>
+                                                                        </td>
+                                </tr>
+                                                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px;" valign="top">
+                                                                        7月10日(金)
+                                                                        </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px;">
+                                                                                                                <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-77" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-77</a> <span class="myreport-icon-label" style="vertical-align: middle;">DB更新処理の実装 ( 製作出荷情報 )</span>
+                                        </p>
+                                                                            <p class="table-striped-list__td-inner" style="margin-top: 8px; margin-bottom: 6px;"><img class="myreport-icon" width="14px" height="16px" alt="" src="https://assets.backlog.com/backlog-mail/images/mail/app/myreport/icon_issue@2x.png" style="vertical-align: text-top; margin-right: 5px;">
+                                            <a class="myreport-icon-label" href="https://naganosd.backlog.com/view/MINO-114" target="_blank" style="color: #4cbd9b; text-decoration: none; vertical-align: middle;">MINO-114</a> <span class="myreport-icon-label" style="vertical-align: middle;">製作出荷情報の実装 ( Ver1.0.0 )</span>
+                                        </p>
+                                                                        </td>
+                                </tr>
+                                                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px; background-color: #eee; border-top-color: #eee; border-left-color: #eee;" valign="top" bgcolor="#eee">
+                                    <span style="color: #D8133E;">                                    7月11日(土)
+                                    </span>                                    </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px; background-color: #eee; border-top-color: #eee; border-left-color: #fff; border-right-color: #eee;" bgcolor="#eee">
+                                                                                                            </td>
+                                </tr>
+                                                                                            <!-- 以下、odd/evenでスタイル変えるためだけに同じ内容ですが分岐(mjml build後スタイルがあたります) -->
+                                                                <tr>
+                                    <th class="table-striped-list__th" style="width: 25%; font-weight: 400; vertical-align: top; border-top: solid 1px #eee; border-left: solid 1px #eee; padding-top: 12px; padding-left: 20px; padding-right: 15px; padding-bottom: 12px;" valign="top">
+                                    <span style="color: #ca2a4e">                                    7月12日(日)
+                                    </span>                                    </th>
+                                    <td class="table-striped-list__td" style="font-weight: 400; border-top: solid 1px #eee; border-left: solid 1px #eee; border-right: solid 1px #eee; padding-top: 4px; padding-left: 15px; padding-right: 20px; padding-bottom: 4px;">
+                                                                                                            </td>
+                                </tr>
+                                                                                        </tbody>
+                            </table>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;" data-class=""><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:300px;">
+      <![endif]--><div class="mj-column-per-50 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;font-weight:600;line-height:28px;text-align:left;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                            完了した担当課題数
+                        </div></div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:12px;line-height:18px;text-align:left;"><!-- for protect style on the mailer -->
+                        <div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                                                            先週は先々週よりも課題完了の達成度が上がりました！<br>パチパチ。今週もがんばってください。
+                                                    </div></div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:inherit;line-height:inherit;text-align:center;"><img width="260px" src="cid:issue9092988470401645408.png" alt="Graph:Assigned issues completed" style="margin-top: 10px;"></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td><td style="vertical-align:top;width:300px;">
+      <![endif]--><div class="mj-column-per-50 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;font-weight:600;line-height:28px;text-align:left;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                            スター獲得数
+                        </div></div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:12px;line-height:18px;text-align:left;"><!-- for protect style on the mailer -->
+                        <div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                                                            先週はスターをもらえませんでした。<br>今週はがんばりましょう！
+                                                    </div></div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:inherit;line-height:inherit;text-align:center;"><img width="260px" src="cid:star2278224418267656365.png" alt="Graph:Stars awarded to you" style="margin-top: 10px;"></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="center"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:center;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">今週もはりきって頑張りましょう！ <a href="https://naganosd.backlog.com" target="_blank" style="color: #4cbd9b; text-decoration: none;">長野システム開発株式会社 を開く</a></div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:40px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#f2f2f2;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#f2f2f2;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:22px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:5px 20px;padding-top:20px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center"><div style="cursor:auto;color:#74758b;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:12px;font-weight:400;line-height:20px;text-align:center;">新しいマイレポートが作成されたため、このメールが送信されました。<br>
+                    メールの設定を変更する場合は <a href="https://naganosd.backlog.com/settings/mail/" style="color: #74758b; text-decoration: underline;" target="_blank">こちら</a> から設定してください。</div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;padding-bottom:20px;padding-top:5px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;padding-top:0px;padding-bottom:0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:left;"><div class="contents-section-block footer-links" style="padding-right: 25px; padding-left: 25px;">
+                            <div class="footer-nav" style="float: left; width: 68%; vertical-align: middle; white-space: nowrap;">
+                                <a class="footer-nav-link" href="https://backlog.com/ja/contact/" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline;">お問い合わせ</a>
+                                <a class="footer-nav-link" href="https://nulab.com/ja/blog/backlog/" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline; margin-left: 20px;">ブログ</a>
+                                <a class="footer-nav-link" href="https://itunes.apple.com/jp/app/backlog/id863872037" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline; margin-left: 20px;">iOS</a>
+                                <a class="footer-nav-link" href="https://play.google.com/store/apps/details?id=backlog.android&amp;hl=ja" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline; margin-left: 20px;">Android</a>
+                            </div>
+                            <div class="footer-social" style="float: right; width: 30%; text-align: right; vertical-align: middle; padding-top: 3px; white-space: nowrap;">
+                                <a class="footer-social-link" href="https://www.facebook.com/Backlogapp" target="_blank" style="color: #4cbd9b; text-decoration: none; margin-left: 7px;"><img src="https://assets.backlog.com/backlog-mail/images/mail/common/facebook-icon_blue@2x.png" alt="" width="16" height="16"></a>
+                                <a class="footer-social-link" href="https://twitter.com/backlogapp" target="_blank" style="color: #4cbd9b; text-decoration: none; margin-left: 7px;"><img src="https://assets.backlog.com/backlog-mail/images/mail/common/twitter-icon_blue@2x.png" alt="" width="16" height="16"></a>
+                                <a class="footer-social-link" href="https://www.linkedin.com/company/nulab" target="_blank" style="color: #4cbd9b; text-decoration: none; margin-left: 7px;"><img src="https://assets.backlog.com/backlog-mail/images/mail/common/linkedin-icon_blue@2x.png" alt="" width="16" height="16" align="bottom"></a>
+                            </div>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#f2f2f2;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#f2f2f2;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:40px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><p class="footer-timestamp" style="color:#f2f2f2; font-size: 10px; margin: 0; height: 10px; line-height: 10px; text-align: center;">End of Mail : 1593993778458</p><p></p><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></div>
+</body>
+</html>
+------=_Part_4889256_1082743124.1593993778554
+Content-Type: application/octet-stream; name=issue9092988470401645408.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=issue9092988470401645408.png
+Content-ID: <issue9092988470401645408.png>
+
+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
+Ejr+C6XZeJrbbUS7AAAAAElFTkSuQmCC
+
+------=_Part_4889256_1082743124.1593993778554
+Content-Type: application/octet-stream; name=star2278224418267656365.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline; filename=star2278224418267656365.png
+Content-ID: <star2278224418267656365.png>
+
+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
+
+------=_Part_4889256_1082743124.1593993778554--
+
+------=_Part_4889255_1156659431.1593993778554--

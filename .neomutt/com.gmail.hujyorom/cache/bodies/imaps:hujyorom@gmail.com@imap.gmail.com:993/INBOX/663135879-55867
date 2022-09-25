@@ -1,0 +1,238 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp3383vkh;
+        Wed, 29 Sep 2021 20:50:20 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyjfnCi3vXr2hTRpC3SPdJrMjazJB4le/iKGkDCaqi937ow/4FTspDhUGwaqRSiM4V3a9gW
+X-Received: by 2002:a17:902:9684:b0:13e:32cb:c95d with SMTP id n4-20020a170902968400b0013e32cbc95dmr2182162plp.31.1632973820336;
+        Wed, 29 Sep 2021 20:50:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632973820; cv=none;
+        d=google.com; s=arc-20160816;
+        b=IuD6Af/ePVdJIp0/gJwTWzPGqHRy6Yf9HTN7op2gnf/qmnkr1nAk+pwaE4tFVAjZzH
+         6AY/ivUcQ92nfNckWgrtV+YnX1Nd6K+KTn3EXFIgIVY0Z8u8twIAoLbX7vVED1hZZhhG
+         3LkkmrbX+u0Aze3LWzxcAn+uKZGt98bueBlNRxpa3z7Rrzv9T7GC+fno9jjYuPyFTWeH
+         rr0oqyfgxisaytm8x67WotUXFPztj7Q7/7pHjrHbMfML5q3Omv4yt5eK2ebSJe8TLsn7
+         Q0uDh1xK/PHd9bRiaWAXkBJsoN0SuDXGlE1QjGI/DiBtVcnssi3DSCWPSAuqefBbK31w
+         /f+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:mime-version:subject:message-id:from:date:dkim-signature
+         :dkim-signature;
+        bh=biVl0+yp7wtMOmY7+kz1CJJJvbvt66CvPLvcj/6favk=;
+        b=neZmk480c9RsoLItDraKcloleXphdHrNMoUBhioC7WLiG1Ujly1CMyWaoD5I2a35dx
+         lMg9TJoBhR4KDgkDF3nOJHz84cCcIGoYwJrjZRAcaBtevRrIWqmJCZxxE/aiOH/5ONRI
+         sDUuNuS4KmepN4QYWCcHG2dzAHZqGBbzPVRcT61FCKk2XiWx9nAgHpYLIRi3s86CszwO
+         +WbjDxyeU428Y9FviEAUwk8xNbdCttKJuuKF3EvvvreuBP5mYQP5zGnqubp0Ye0HGC5t
+         OQ09Dczh4uMxLkHOa7yUeMI96IXsIjcFfC/+eCsqMyO+BT7iSqsoGscNlpCTSAamvzxe
+         YzcQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail-id.cisco.com header.s=s1 header.b="ykjgL/Bi";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=oBibRDaS;
+       spf=pass (google.com: domain of bounces+18146743-d749-hujyorom=gmail.com@mail.mail-id.cisco.com designates 167.89.110.192 as permitted sender) smtp.mailfrom="bounces+18146743-d749-hujyorom=gmail.com@mail.mail-id.cisco.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cisco.com
+Return-Path: <bounces+18146743-d749-hujyorom=gmail.com@mail.mail-id.cisco.com>
+Received: from o3.mailrelay.okta.com (o3.mailrelay.okta.com. [167.89.110.192])
+        by mx.google.com with ESMTPS id y34si2115571pgl.133.2021.09.29.20.50.02
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 29 Sep 2021 20:50:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+18146743-d749-hujyorom=gmail.com@mail.mail-id.cisco.com designates 167.89.110.192 as permitted sender) client-ip=167.89.110.192;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail-id.cisco.com header.s=s1 header.b="ykjgL/Bi";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=oBibRDaS;
+       spf=pass (google.com: domain of bounces+18146743-d749-hujyorom=gmail.com@mail.mail-id.cisco.com designates 167.89.110.192 as permitted sender) smtp.mailfrom="bounces+18146743-d749-hujyorom=gmail.com@mail.mail-id.cisco.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cisco.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail-id.cisco.com;
+	h=from:subject:mime-version:x-feedback-id:to:content-type;
+	s=s1; bh=biVl0+yp7wtMOmY7+kz1CJJJvbvt66CvPLvcj/6favk=;
+	b=ykjgL/BiDw4fQbR1b8NnIEKnjSuEMeindfE5DGtCTzVHHHAd6OTNl1Py1ax5jMlb6UCd
+	LlI8EC8M0C1QIwXkLbnJZ9RwDFAkrkmO+AwaersWa34WqraSnJ2+JBtZzXG69z/NRwnaoT
+	CDm11/+D1+HLLegIkGMEwu0nMicFgGA5Fq/iBxaNSzWMMntLYODETM0l/G5/DaI5I456U/
+	BCbsrq7g21Y8yJtXVI0rmcPGYXlI1DGqWyboS7JD4hQA1r45xrFiNwk7GBqeRDyApQ1H0M
+	HvM/ARRA8Y2aqrGKkOkR8vzF2J4hyHyp2d8IXkTQOL/gUfRYaTLc8DumkciUoozw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:mime-version:x-feedback-id:to:content-type;
+	s=smtpapi; bh=biVl0+yp7wtMOmY7+kz1CJJJvbvt66CvPLvcj/6favk=;
+	b=oBibRDaSM+CvFPRVnJv4uDDR45i0LZx/O3xcd3fgjnJrSfFhi7HQ/OD1Mb+SFJ2IF/30
+	zGFGLPjJSb7Y/hxXFJ72NL2bvA+bj9nzhS6PkOM2DHu0rVrS5cAU9EsmwtyUSNCMVkzRdX
+	5Zhy6Q2b4XE3ebe13dzIRzQ+M6g3I3L7I=
+Received: by filterdrecv-766cf57cc-llh2l with SMTP id filterdrecv-766cf57cc-llh2l-1-615533E9-75
+        2021-09-30 03:50:01.842643106 +0000 UTC m=+2438930.457679016
+Received: from mailrelay.okta.com (unknown)
+	by ismtpd0047p1las1.sendgrid.net (SG) with ESMTP id m672FeD7SDmKAtAca93pUw
+	for <hujyorom@gmail.com>; Thu, 30 Sep 2021 03:50:01.790 +0000 (UTC)
+Date: Thu, 30 Sep 2021 03:50:01 +0000 (UTC)
+From: "Cisco.com" <no-reply@mail-id.cisco.com>
+Message-ID: <445438482.8198.1632973801475@okta.com>
+Subject: Cisco password reset request
+MIME-Version: 1.0
+X-Feedback-ID: 18146743:SG
+X-SG-EID: 
+ =?us-ascii?Q?WuRJF6E59R8n=2FsGfztj4t8F0udP=2FE3IPVk+ljyYVqz3m9hH6r4K3fqQ+DFVXXT?=
+ =?us-ascii?Q?GQgA0Fkj2zt6UMxw7OBTkwPKPhIe+8UvNT58IG=2F?=
+ =?us-ascii?Q?nfLjcCC12dZcC6FmMQXrj=2FTxy9DYEkIWg=2F0t7sa?=
+ =?us-ascii?Q?FwEBy6txLReeD07ZpCROJprUGwhuxxEPV4kyj6K?=
+ =?us-ascii?Q?oAUgKv23AA01Nc6p+h=2FVSZN=2FU6C8eqZWXDeG0ET?=
+ =?us-ascii?Q?+xxMeIcDxKuIyJhxMHmiKIcKi9bWjJaRVqbp8=2F?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsbzlN+weYuWWYHzIDs9J=2Fhn7EWGZLZ=2FpdIJLO6aFvUr?=
+ =?us-ascii?Q?cn04QZhLGiDoV+eZtR2q9DlA=3D=3D?=
+To: hujyorom@gmail.com
+X-Entity-ID: LHHONrbQQ926ZfCL72mgkg==
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_8198_598792972.1632973801475"
+
+------=_Part_8198_598792972.1632973801475
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+
+  
+    
+      
+        
+           
+        
+      
+      
+        
+          
+            
+              
+                
+                  Password Reset Request
+                
+              
+              
+                
+                  Hi ,
+                
+              
+              
+                
+                  Someone requested a new password for your Cisco account
+                  hujyorom@gmail.com.
+                
+              
+              
+                
+                  
+                      Contact support
+                    
+                  
+                  immediately, if you did not make this request.
+                
+              
+              
+                
+                  Please click the button to complete the process.
+                
+              
+              
+                
+                  
+                    
+                      
+                        
+                          
+                              Reset Password
+                              
+                              
+                        
+                      
+                      
+                        
+                          Expires in
+                          1 day.
+                        
+                      
+                    
+                  
+                
+              
+              
+                
+                  Visit
+                  
+                    
+                      help
+                    
+                    
+                  for login, password, and account information.
+                  
+                    
+                      Contact support
+                    
+                  
+                  for help accessing your account.
+                
+              
+            
+          
+        
+      
+      
+        
+          This is an automatically generated message from
+          Cisco. 
+          Replies are not monitored or answered.
+        
+      
+    
+  
+
+
+------=_Part_8198_598792972.1632973801475
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body><div><div style="background-color:#fafafa;margin:0"> 
+  <table style="font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
+    <tbody>
+      <tr align="middle">
+        <td style="padding-top:30px;padding-bottom:32px"> </td>
+      </tr>
+      <tr bgcolor="#ffffff">
+        <td> 
+          <table bgcolor="#ffffff" style="width:100%;line-height:20px;padding:32px;border:1px solid;border-color:#f0f0f0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="color:#5e5e5e;font-size:22px;line-height:22px"> Password Reset Request </td>
+              </tr>
+              <tr>
+                <td style="padding-top:24px;vertical-align:bottom"> Hi , </td>
+              </tr>
+              <tr>
+                <td style="padding-top:24px"> Someone requested a new password for your Cisco account hujyorom@gmail.com. </td>
+              </tr>
+              <tr>
+                <td style="padding-top:24px"> <a href="mailto:web-help@cisco.com" style="color:#007dc1;text-decoration:none"><span style="color:#007dc1;text-decoration:none"> Contact support </span> </a> immediately, if you did not make this request. </td>
+              </tr>
+              <tr>
+                <td style="padding-top:24px"> Please click the button to complete the process. </td>
+              </tr>
+              <tr>
+                <td align="center"> 
+                  <table border="0" cellpadding="0" cellspacing="0" valign="top">
+                    <tbody>
+                      <tr>
+                        <td align="center" style="height:32px;padding-top:24px;padding-bottom:8px"> <a id="reset-password-link" href="https://id.cisco.com/signin/reset-password/dfpWCB7jmxvwAQ3PZfQx" style="text-decoration:none"><span style="padding:9px 32px 7px 31px;border:1px solid;text-align:center;cursor:pointer;color:#fff;border-radius:3px;background-color:#00bceb;border-color:#00bceb #00bceb #1e4471;box-shadow:0 1px 0 #d8d8d8"> Reset Password </span> </a> </td>
+                      </tr>
+                      <tr>
+                        <td align="center" style="color:#999"> Expires in 1 day. </td>
+                      </tr>
+                    </tbody>
+                  </table> </td>
+              </tr>
+              <tr>
+                <td style="padding-top:24px"> Visit <a href="https://www.cisco.com/c/en/us/about/help/login-account-help.html" style="color:#007dc1;text-decoration:none"> <span style="color:#007dc1;text-decoration:none"> help </span> </a> for login, password, and account information. <a href="mailto:web-help@cisco.com" style="color:#007dc1;text-decoration:none"> <span style="color:#007dc1;text-decoration:none"><br /> Contact support </span> </a> for help accessing your account. </td>
+              </tr>
+            </tbody>
+          </table> </td>
+      </tr>
+      <tr>
+        <td style="font-size:12px;padding:16px 0 30px 50px;color:#999;text-align:center"> This is an automatically generated message from <a href="http://www.cisco.com" style="color:rgb( 97 , 97 , 97 )">Cisco</a>. Replies are not monitored or answered. </td>
+      </tr>
+    </tbody>
+  </table> 
+</div></div></body></html>
+------=_Part_8198_598792972.1632973801475--

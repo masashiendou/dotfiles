@@ -1,0 +1,196 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:a8ce:0:0:0:0:0 with SMTP id r197csp787547vke;
+        Wed, 2 Sep 2020 13:50:25 -0700 (PDT)
+X-Received: by 2002:a25:97c9:: with SMTP id j9mr13588395ybo.420.1599079825703;
+        Wed, 02 Sep 2020 13:50:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599079825; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hpQR9w5JNmn1vG20j3zdH312NvGOiYo8Np/HkP3NdiSF76ecten8HZ38gBA8nOes6Z
+         AIj00Gpd/UdZY8krYPpf24iUaWvQvqjVGjEk8iXiWwSL1tWrxrYSngYhHVgdWyJ4+QAB
+         D55fZVGU7hqyjAINzODveBdJHuEYGg30RQuUwNR+2h6CZDJ/fHy4QE1FND3m5KRYJ8Ej
+         sqGKk6H73PniJGX9KURmJui/uhg3M9NKzT6S2b+D5Mko5T98ii3qDdw2+YaKeItwsiCi
+         zngp42OW1y6PNmrZJnBsqgOLsIOOTkzUwi33FcXwbaY7N9aAkdot29AGPGkBz/pW9t9x
+         +vfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:date:message-id:auto-submitted:reply-to
+         :mime-version:dkim-signature;
+        bh=TbI1LSNLXu0dye9nFLs1RyWPS7tykouEgaH21S/oiPA=;
+        b=Yc1a0pVF0iVyzrPLoZziOjK1vVlh/RLhOva3pWqIq0v9mNLZsJmB6V9/1BwSrJFCJs
+         iH4KTQoEP4QIHIuAULTKb73TGpPA1551cuqxXpUST4Dn58LlmyWbPiIbKrvV6zVZ94o3
+         yZ45wrkNdl0/sj8P5cQqDECDMS1rsdDM9JEKoaCtVJ1AJZjm8j/LtdqXNo16XIbuinRA
+         Pq1T/qZRiUvNVb2OPeXM+g0CHK3dBeK7y+5U3jGaUV95AAzdOH8IpI2jV+Qk6MEE55xm
+         jBGRQ+z8GGIagcNJ21qXWKREHvVhUzpCT0LF6V+gXl6FT2Snhg+lRCXMcViFi6y43E/k
+         Rzkg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=RbQpU8BC;
+       spf=pass (google.com: domain of 3kqvqxwgjcnwfshwmpmkek8gj.amkfshwmpmkek8gj.amk@calendar-server.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3kQVQXwgJCNwFSHWMPMKEK8GJ.AMKFSHWMPMKEK8GJ.AMK@calendar-server.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3kQVQXwgJCNwFSHWMPMKEK8GJ.AMKFSHWMPMKEK8GJ.AMK@calendar-server.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id a11sor194964ybl.114.2020.09.02.13.50.25
+        for <hujyorom@gmail.com>
+        (Google Transport Security);
+        Wed, 02 Sep 2020 13:50:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3kqvqxwgjcnwfshwmpmkek8gj.amkfshwmpmkek8gj.amk@calendar-server.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=RbQpU8BC;
+       spf=pass (google.com: domain of 3kqvqxwgjcnwfshwmpmkek8gj.amkfshwmpmkek8gj.amk@calendar-server.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3kQVQXwgJCNwFSHWMPMKEK8GJ.AMKFSHWMPMKEK8GJ.AMK@calendar-server.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:reply-to:auto-submitted:message-id:date:subject:from
+         :to;
+        bh=TbI1LSNLXu0dye9nFLs1RyWPS7tykouEgaH21S/oiPA=;
+        b=RbQpU8BCf1Ma6+BwnC6ZODHKELQZCcpG9yFgKNSVSu2rTvpUORyf6O6DpnJrpWh8iJ
+         RDS2popXm2uZ3g5Y81Ht+S8WJvdGdZS86UZ1lf/HDjZ2YTuH7WKTRAnaDk+BBVdo91Ly
+         +eHCk9vSYgJWkw7GE6guVfNuU95VyQIDPMZJAcT0X9iJr7wGf0L8YQYZTe3YszApDKFO
+         65xraOIUwy+AD0Q9bHU17HXRWf66BQVCwo0/1fqJxY0KBntQwE4Xbyy81tM7oNvOMdQ2
+         gcKyZdUbPD6Dfil3WPtAd0AYr2WC8Q2r6n3of+qaNxUqq+pAN1Rcw2/S6ZHUUjbldw44
+         ejcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:auto-submitted:message-id
+         :date:subject:from:to;
+        bh=TbI1LSNLXu0dye9nFLs1RyWPS7tykouEgaH21S/oiPA=;
+        b=Hr6TnPFwukclOHXzj6rpZlZvIpBIqlRSgmtTNt8EPMcmMWyCIBCvr+y/vX0jmMHabk
+         9INvS+Jg5JzWp7sMv8lkNJTZGWQFWqn2O9gzSDmfaKLOL2HYxeWiEnBjzYoTOh1S8aTL
+         Hng8rLgFv+dsmL7MkW2at+Uf7YqYbWWOMn9euPLRzGw8JPh+0NQhdqUT6LANZDj9Npxb
+         Hb6W5a6K4+b2u2WGIQS3zjH6K79dxecToBAm5kb8TgvHJiMjV1QIJQEEom8U+dYTxBgf
+         Tpcc5Q2HWnAJcShf2mGjahnphWbvE000FwaH2ApYtdpBbmAy1Mb/5kemR2MhVbYfcIar
+         vgsQ==
+X-Gm-Message-State: AOAM533J6bZ2udpY7jqG3EM6i2aCNlpvWPGAN4m436Xd7+RLBvCbAXdA
+	pziLbK+wZI0P+AqCdFJhUt8C3yrNoK2jADTGL6FI
+X-Google-Smtp-Source: ABdhPJwQJ6QK6YQfrw283d6XNuz2IwotmRLhmSYo4ZCUp4Wo527bdiQeaBmIGcX7gPaGsHwZFQKsuEmeD1YoFI4SEyTH
+MIME-Version: 1.0
+X-Received: by 2002:a25:2e12:: with SMTP id u18mr11501500ybu.200.1599079825014;
+ Wed, 02 Sep 2020 13:50:25 -0700 (PDT)
+Reply-To: masashi endou <hujyorom@gmail.com>
+Auto-Submitted: auto-generated
+Message-ID: <000000000000f0064405ae5ac8f7@google.com>
+Date: Wed, 02 Sep 2020 20:50:25 +0000
+Subject: Daily Agenda for masashi endou as of 5am
+From: Google Calendar <calendar-notification@google.com>
+To: masashi endou <hujyorom@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000f0062f05ae5ac8f4"
+
+--000000000000f0062f05ae5ac8f4
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+aHVqeW9yb21AZ21haWwuY29tLCBoZXJlIGlzIHlvdXIgc2NoZWR1bGUgZm9yIFRodSAyMDIwLTA5
+LTAzDQoNCjA2OjAwIOKAkyAwODowMAlFbmdsaXNoIGNsYXNzCWh1anlvcm9tQGdtYWlsLmNvbQ0K
+DQoNClZpZXcgeW91ciBjYWxlbmRhciBhdCBodHRwczovL3d3dy5nb29nbGUuY29tL2NhbGVuZGFy
+Lw0KDQpZb3UgYXJlIHJlY2VpdmluZyB0aGlzIGVtYWlsIGF0IHRoZSBhY2NvdW50IGh1anlvcm9t
+QGdtYWlsLmNvbSBiZWNhdXNlIHlvdSAgDQphcmUgc3Vic2NyaWJlZCB0byByZWNlaXZlIGRhaWx5
+IGFnZW5kYXMgZm9yIHRoZSBmb2xsb3dpbmcgY2FsZW5kYXJzOiAgDQpodWp5b3JvbUBnbWFpbC5j
+b20uDQoNClRvIGNoYW5nZSB3aGljaCBjYWxlbmRhcnMgeW91IHJlY2VpdmUgZGFpbHkgYWdlbmRh
+cyBmb3IsIHBsZWFzZSBsb2cgaW4gdG8gIA0KaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9jYWxlbmRh
+ci8gYW5kIGNoYW5nZSB5b3VyIG5vdGlmaWNhdGlvbiBzZXR0aW5ncyBmb3IgIA0KZWFjaCBjYWxl
+bmRhci4NCg==
+--000000000000f0062f05ae5ac8f4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"padding:10px 7px;font-size:14px;line-height:1.4;font-family:A=
+rial,Sans-serif;text-align:left;bgcolor=3D#ffffff"><a href=3D"https://www.g=
+oogle.com/calendar"><img alt=3D"Google Calendar" src=3D"https://calendar.go=
+ogle.com/googlecalendar/images/calendarlogo/calendar_logo_en_41px_1x_r1.png=
+"></a>
+<p style=3D"margin:0;color:#0">hujyorom@gmail.com,&nbsp;here is your schedu=
+le for:
+<h2 style=3D"margin:5px 0;font-size:18px;line-height:1.4;color:#0">Thu 2020=
+-09-03</h2></p>
+<table cellspacing=3D"0" cellpadding=3D"0" style=3D"font-size:14px;line-hei=
+ght:1.4;font-family:Arial,Sans-serif;text-align:left;"><tr style=3D"line-he=
+ight:1.4;"><td>&nbsp;</td><td bgcolor=3D"#9FE1E7" width=3D"8px" title=3D"En=
+glish class"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxbnFmNWx=
+ocnRxNDU2N3ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=3D"tex=
+t-decoration:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;">06:00 &ndash; 08:00</td>
+<td style=3D"padding-left:11px;"><a href=3D"https://www.google.com/calendar=
+/r?eid=3DNmZxbnFmNWxocnRxNDU2N3ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3=
+JvbUBt" style=3D"color:#0BBCB2;text-decoration:none;">English class</a></td=
+>
+<td style=3D"color:#0BBCB2;;padding-left:11px;">hujyorom@gmail.com</td></tr=
+>
+<tr style=3D"line-height:0.2;"><td>&nbsp;</td><td bgcolor=3D"#9FE1E7" title=
+=3D"English class"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxb=
+nFmNWxocnRxNDU2N3ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=
+=3D"text-decoration:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr> <tr style=3D"line-height:1.4;">=
+<td>&nbsp;</td><td bgcolor=3D"#9FE1E7" width=3D"8px" title=3D"English class=
+"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxbnFmNWxocnRxNDU2N3=
+ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=3D"text-decoratio=
+n:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr>
+<tr style=3D"line-height:0.2;"><td>&nbsp;</td><td bgcolor=3D"#9FE1E7" title=
+=3D"English class"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxb=
+nFmNWxocnRxNDU2N3ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=
+=3D"text-decoration:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr> <tr style=3D"line-height:1.4;">=
+<td>&nbsp;</td><td bgcolor=3D"#9FE1E7" width=3D"8px" title=3D"English class=
+"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxbnFmNWxocnRxNDU2N3=
+ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=3D"text-decoratio=
+n:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr>
+<tr style=3D"line-height:0.2;"><td>&nbsp;</td><td bgcolor=3D"#9FE1E7" title=
+=3D"English class"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxb=
+nFmNWxocnRxNDU2N3ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=
+=3D"text-decoration:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr> <tr style=3D"line-height:1.4;">=
+<td>&nbsp;</td><td bgcolor=3D"#9FE1E7" width=3D"8px" title=3D"English class=
+"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxbnFmNWxocnRxNDU2N3=
+ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=3D"text-decoratio=
+n:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr>
+<tr style=3D"line-height:0.2;"><td>&nbsp;</td><td bgcolor=3D"#FFFFFF" title=
+=3D"English class"><a href=3D"https://www.google.com/calendar/r?eid=3DNmZxb=
+nFmNWxocnRxNDU2N3ZsaWowcTNoZmhfMjAyMDA5MDJUMjEwMDAwWiBodWp5b3JvbUBt" style=
+=3D"text-decoration:none">&nbsp;</a></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr> <tr style=3D"line-height:1.4;">=
+<td>&nbsp;</td><td bgcolor=3D"#E0ECFF" width=3D"8px" title=3D""></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr>
+<tr style=3D"line-height:0.2;"><td>&nbsp;</td><td bgcolor=3D"#E0ECFF" title=
+=3D""></td>
+<td width=3D"2px"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td>
+<td style=3D"padding-left:11px;"></td></tr></table>
+<a href=3D"https://www.google.com/calendar"><img alt=3D"Google Calendar" sr=
+c=3D"https://calendar.google.com/googlecalendar/images/calendarlogo/calenda=
+r_logo_en_41px_1x_r1.png"></a>
+<p style=3D"font-family:Arial,Sans-serif;color:#666;font-size:11px">You are=
+ receiving this email at the account hujyorom@gmail.com because you are sub=
+scribed to receive daily agendas for the following calendars: <a href=3D"ht=
+tps://www.google.com/calendar/render?cid=3Dhujyorom%40gmail.com">hujyorom@g=
+mail.com</a>.</p>
+<p style=3D"font-family:Arial,Sans-serif;color:#666;font-size:11px">To chan=
+ge which calendars you receive daily agendas for, please log in to https://=
+www.google.com/calendar/ and change your notification settings for each cal=
+endar.</p></div>
+--000000000000f0062f05ae5ac8f4--

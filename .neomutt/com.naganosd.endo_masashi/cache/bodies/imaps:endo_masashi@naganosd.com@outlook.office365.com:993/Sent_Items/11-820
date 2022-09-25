@@ -1,0 +1,762 @@
+Received: from Kx250 (125.30.78.201) by
+ TYAPR01CA0034.jpnprd01.prod.outlook.com (2603:1096:404:28::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3326.19 via Frontend Transport; Tue, 25 Aug 2020 06:05:00 +0000
+Date: Tue, 25 Aug 2020 15:04:58 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+To: mino_shukka_ml@system-quest.co.jp
+Subject: Re: [mino_shuk:00283] Re: [mino_shu
+Message-ID: <20200825060458.fk3ux67sifwmhwak@Kx250>
+References: <TY2PR06MB27662FC682A609151DCA5806F0560@TY2PR06MB2766.apcprd06.prod.outlook.com>
+ <CACzEcNjp+S7Ur2+=LvwhQWyaazD1MYUjXTFa4agM6ZqGFvGvSQ@mail.gmail.com>
+ <TY2PR06MB27667780E766A3828BA0E353F0570@TY2PR06MB2766.apcprd06.prod.outlook.com>
+ <CACzEcNgd9_DkzvUmmGbsgfv99MfuWwQBuy+OFRoxCrgkWK3rLA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACzEcNgd9_DkzvUmmGbsgfv99MfuWwQBuy+OFRoxCrgkWK3rLA@mail.gmail.com>
+X-MS-Exchange-Organization-ExpirationStartTime: 25 Aug 2020 06:05:00.7576
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ c6f77a33-ce18-44e8-2af3-08d848bccd41
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.201]
+X-ClientProxiedBy: TYAPR01CA0034.jpnprd01.prod.outlook.com
+ (2603:1096:404:28::22) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社
+北澤様
+
+お世話なっております
+長野システム開発 遠藤です
+
+解析の結果をお知らせします。
+
+結論としては、httpd.conf上のAI出荷用のDocumentRootの指定、
+ならびに複数サイトを同じポート(80)でListenしていたことが、
+GETエラーの原因でした。
+
+仮対策として、apacheのListenに8080を追加して、AI出荷用に割り当てました。
+teamviwerの検証用クライアントのブラウザから、"http://192.168.6.151:8080"に接続、
+臨時出荷登録を開いても、GETエラーは再現しない状態です。
+===
+以下確認した内容;
+apacheのhttpd.confで、80番ポートにアクセスするDocumentRootが複数ある(※1)
+※1
+1 - /var/www/html
+2 - /var/www/html/shipping(※2)
+3 - /var/www/html/fusya(※3)
+※2 正しくは/var/www/html/shipping/webrootとする必要がある
+　(cakephp公式cookbookには以下のとおり記載されている
+　　webroot ディレクトリーは、あなたのアプリケーションのパブリックドキュメントルートです。 それはあなたが公開したいすべてのファイルを含みます。)
+　"https://book.cakephp.org/3/ja/intro/cakephp-folder-structure.html"
+※3 別システムの風車で使用していると推察
+
+AI出荷用に使用しているのは2番目で、MINO様環境ではブラウザのURLに"192.168.6.151/shipping"と指定して、接続していた。
+しかし、Ver0.9.7_4のRouteはルートディレクトリが"~/webroot"であることが前提で動作している。
+よって、GETエラーは、臨時出荷登録ボタン押下時にAjax通信で営業所リストを取得して、その際、cakephpは/ajaxのRouteを
+参照するのだが、apacheのDocumentRootが誤っていたため、cakephpがRouteを見つけられなくてGETエラーとなっていた。
+
+httpd.confのDocumentRootを正しい値(/var/www/html/shipping/webroot)としたが、
+80番ポートにアクセスするDocumentRootが複数あるために、クライアント側(Windows,Chrome)が認識できない。
+試験的にhttpd.confにServerAlias www.ai.comを指定、クライアント側のhostsに"192.168.6.151 www.ai.com"を指定
+クライアントのブラウザで"http://www.ai.com"にアクセス、ログインして臨時出荷登録を開くと、
+GETエラーは発生せず、営業所リストを取得できた。
+
+以上のことから、1つのWebサーバで複数サイトを運用する、という視点の設定が不足していたこと、
+ならびにcakephpの"~/webroot"が正しくDocumentRootに設定されていなかったため、GETエラーが発生していました。
+
+===
+変更箇所;
+httpd.conf で 新しく8080 をListenする設定として、"http://192.168.6.151:8080"に接続すると"~/webroot"を参照する設定としました。
+当該設定でGETエラーは再現しないことを確認済みです。
+また、風車の方はTOP画面が表示されることを確認済みです。
+※検証端末(192.168.6.151)のhttpd.conf変更箇所 23行目/94行目/96行目/98行目
+ 
+8/21(金)お知らせしたパーミッション周りの設定をする場合は、
+本日(8/25(火))北澤様よりご連絡いただいたとおり、httpd.conf上で"<Directory "/var/www/html">"の設定変更を合わせてお願いします。
+
+よろしくお願いします。
+
+以上
+
+On Tue, Aug 25, 2020 at 02:32:11PM +0900, 北澤孝清 wrote:
+> お世話になっております。
+> MINO北澤です
+> 
+> ひとつ発見したことがあります。
+> shipping 以下のオーナーをapacheにするとパーミッション751でも動作します。
+> それとhttpd.confの
+>    <Directory "/var/www/html">
+>         Options Indexes FollowSymLinks
+>         AllowOverride None(ALLからNone)
+>         Require all granted
+>     </Directory>
+> にしても動作します。
+> 
+> 情報共有したいと思います。
+> が、動作は相変わらずGETエラーとなります。
+> よろしくおねがいします。
+> 
+> 
+> 
+> 
+> 
+> 
+> 2020年8月25日(火) 10:10 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> 
+> > MINO株式会社 北澤様
+> >
+> >
+> >
+> > お忙しい所、ご対応ありがとうございます。
+> >
+> >
+> >
+> > TeamViewerで接続は確認できましたので、これから解析にはいらさせて頂きます。
+> >
+> > 以上、よろしくお願いします。
+> >
+> >
+> >
+> > 長野システム開発 棚橋
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Tuesday, August 25, 2020 9:55 AM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00277] Re: [mino_shu
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> > MINO北澤です。
+> >
+> >
+> >
+> > TeamViewerの情報は下記のとおりです。
+> >
+> > 775174833/8q6UkNTz
+> >
+> >
+> >
+> > リモート接続ができない等の不具合がごさいましたら、携帯に電話お願いします：080-4120-2537
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月24日(月) 16:33 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> >
+> > 北澤様
+> >
+> >
+> >
+> > お世話になります。
+> >
+> > 長野システム開発 棚橋です。
+> >
+> >
+> >
+> > ご指摘のエラーログについては、既知の事象となります。
+> >
+> > https://naganosd.backlog.com/view/MINO-210
+> >
+> > 他の動作には影響がない為、ログイン周りの修正と合わせて対応を行う予定です。
+> >
+> >
+> >
+> > AM10:00～でもよろしいでしょうか？
+> >
+> >
+> >
+> > 以上、よろしくお願いします。
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Monday, August 24, 2020 4:23 PM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00275] Re: [mino_shuk:00274] RE: [mino_shuk:00273]
+> > RE: [mino_shuk:00272] Re: [mino_shuk:00271] RE: [mino_shuk:00270] Re:
+> > [mino_shuk:00268] RE: [mino_shuk:00267] Re: [mino_shuk:00266] RE:
+> > [mino_shuk:00265] Re: [mino_shuk:00264] RE: [mino_shuk...
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> > MINO北澤です
+> >
+> >
+> >
+> > logsのerror.logの中をみると下記のエラーが出てます。他の行でも出現しております。
+> >
+> > 2020-08-24 13:10:39 Warning: Warning (2): Invalid argument supplied for
+> > foreach() in
+> > [/var/www/html/shipping/src/Template/Element/extra_shipment_insert_body.ctp,
+> > line 342]
+> >
+> >
+> >
+> > お伝えするのを忘れてました。
+> >
+> >
+> >
+> > 会議の件、了解しました。
+> >
+> > Google Meetで用意いたします。
+> >
+> > 何時からがよろしいでしょうか？
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月24日(月) 16:10 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> >
+> > MINO株式会社 北澤様
+> >
+> >
+> >
+> > お世話になります。
+> >
+> > 長野システム開発 棚橋です。
+> >
+> >
+> >
+> > データベース送付ありがとうございます。
+> >
+> > 取り急ぎ、受領したデータベースに置き換え、取込確認しましたが、こちらでは、エラー発生しませんでした。
+> >
+> >
+> >
+> > TeamsやGoogle Meetなどで、御社でエラー発生する環境を確認させて頂くことは可能でしょうか？
+> >
+> > 可能であれば、明日以降でお願いできればと思います。
+> >
+> >
+> >
+> > 以上、お手数ですがご検討よろしくお願い致します。
+> >
+> >
+> >
+> >
+> >
+> > *From:* 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>
+> > *Sent:* Monday, August 24, 2020 2:47 PM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00273] RE: [mino_shuk:00272] Re: [mino_shuk:00271]
+> > RE: [mino_shuk:00270] Re: [mino_shuk:00268] RE: [mino_shuk:00267] Re:
+> > [mino_shuk:00266] RE: [mino_shuk:00265] Re: [mino_shuk:00264] RE:
+> > [mino_shuk:00261] Re: [mino_shuk:00260] Re: [AI出荷] 動作環...
+> >
+> >
+> >
+> > 北澤様
+> >
+> >
+> >
+> > Googleアカウント 以下になります。
+> >
+> > tanahashi.katsuhiro@gmail.com
+> >
+> >
+> >
+> > 長野システム開発 棚橋
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Monday, August 24, 2020 2:44 PM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00272] Re: [mino_shuk:00271] RE: [mino_shuk:00270]
+> > Re: [mino_shuk:00268] RE: [mino_shuk:00267] Re: [mino_shuk:00266] RE:
+> > [mino_shuk:00265] Re: [mino_shuk:00264] RE: [mino_shuk:00261] Re:
+> > [mino_shuk:00260] Re: [AI出荷] 動作環境について
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> > MINO北澤です
+> >
+> >
+> >
+> > Googleドライブにアップロードしますので、Gmailのアカウントを教えて下さい。
+> >
+> >
+> >
+> > よろしくおねがいします。
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月24日(月) 14:32 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> >
+> > MINO株式会社 北澤様
+> >
+> >
+> >
+> > お世話になります。
+> >
+> > 長野システム開発 棚橋です。
+> >
+> >
+> >
+> > 状況のご連絡ありがとうございます。
+> >
+> > ・製作日出荷一覧は正常に表示されるとのことで、製作日出荷一覧表示の際に、unkown判定されない、
+> >
+> > 変更や追加のあったカラム周りを見て、事象再現するかの確認をしておりますが、いまだ再現ができておりません。
+> >
+> > そこで、御社のデータベースとこちらのデータベースを比較し、何かエラーとなる差があるか解析をさせて頂きたいと思います。
+> >
+> >
+> >
+> > つきましては、お忙しい所、恐縮ですが、御社のデータベースのダンプを送付頂けますでしょうか
+> >
+> >
+> >
+> > 以上
+> >
+> >
+> >
+> > ご協力の程、よろしくお願い致します。
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Monday, August 24, 2020 1:23 PM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00270] Re: [mino_shuk:00268] RE: [mino_shuk:00267]
+> > Re: [mino_shuk:00266] RE: [mino_shuk:00265] Re: [mino_shuk:00264] RE:
+> > [mino_shuk:00261] Re: [mino_shuk:00260] Re: [AI出荷] 動作環境について
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> > MINO北澤です
+> >
+> >
+> >
+> > 追伸ですが、製作日出荷一覧から編集を押すと"GETエラー"となります
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月24日(月) 13:16 北澤孝清 <t-kitazawa@nuan.jp>:
+> >
+> > お世話になっております。
+> >
+> > MINO北澤です
+> >
+> >
+> >
+> > メニューで出荷準備→臨時出荷登録を押すてすぐにGETエラーとなります。
+> >
+> >
+> >
+> > 製作日出荷一覧は、出荷日開始、終了ともに空白してから検索で問題なく表示されます。
+> >
+> >
+> >
+> > よろしくおねがいします。
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月24日(月) 11:40 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> >
+> > MINO株式会社
+> >
+> > 北澤様
+> >
+> >
+> >
+> > お世話になります。
+> >
+> > 長野システム開発 棚橋です。
+> >
+> >
+> >
+> > こちらで再現させることができておりません。
+> >
+> > そこで、以下について 情報提供をお願い致します。
+> >
+> >    1. 臨時出荷登録でGETエラーは
+> >
+> > TOPページ画面の「出荷準備」→「臨時出荷登録」を選択したタイミングで発生しているでしょうか？
+> >
+> > 又は、臨時出荷登録を開いた後、「登録」を押したタイミングでしょうか？
+> >
+> > 上記、２点以外の動作で発生している場合、お手数ですが手順の教えていただけますでしょうか？
+> >
+> >
+> >
+> >    1. 製作出荷日一覧の表示について
+> >
+> > 出荷日（自）、出荷日（至）を空白にし、検索をした場合、一覧は問題なく表示されるでしょうか？
+> >
+> >
+> >
+> > なお、弊社では、特定の操作を行った場合、GETエラーが発生することは確認しております。(但し、Firefoxのみで発生しており、Chrome
+> > では発生していない)
+> >
+> > https://naganosd.backlog.com/view/MINO-226
+> >
+> >
+> >
+> >
+> >
+> > 以上、お忙しい所、お手数ですがご回答、よろしくお願い致します。
+> >
+> >
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Monday, August 24, 2020 8:35 AM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00267] Re: [mino_shuk:00266] RE: [mino_shuk:00265]
+> > Re: [mino_shuk:00264] RE: [mino_shuk:00261] Re: [mino_shuk:00260] Re: [AI
+> > 出荷] 動作環境について
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> >
+> >
+> > MINO北澤です
+> >
+> >
+> >
+> > 出荷システムですが、臨時出荷登録でGETエラーとなります。
+> >
+> > 最新のバージョンと思われます。
+> >
+> >
+> >
+> > よろしくおねがいします。
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月21日(金) 17:38 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> >
+> > MINO株式会社
+> >
+> > 北澤様
+> >
+> >
+> >
+> > お世話になります。
+> >
+> > 長野システム開発 棚橋です。
+> >
+> >
+> >
+> > 大変なことかどうかは一概に判断はできません。又、
+> >
+> > 全てを同じ環境にする必要性があるかというと、その必要性もないとは思います。
+> >
+> > しかし、バージョンを共有していなかったことにより、実際障害が発生しております。
+> >
+> > 問題発生時の判断材料の１つとして、双方の環境を共有させて頂きたいと考えております。
+> >
+> >
+> >
+> > 以上
+> >
+> >
+> >
+> > よろしくお願い致します。
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Friday, August 21, 2020 5:16 PM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00265] Re: [mino_shuk:00264] RE: [mino_shuk:00261]
+> > Re: [mino_shuk:00260] Re: [AI出荷] 動作環境について
+> >
+> >
+> >
+> > MINO北澤です
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> >
+> >
+> > 動作環境についてですが、PHP7以上というのは大変なことなのでしょうか？
+> >
+> > PHPのバージョンを判定するようなことをしているのであれば、
+> >
+> > PHPのバージョンを上げることを検討したいと思います。
+> >
+> >
+> >
+> > PHP7.0で作成された風車をPHP7.2で稼働させているのですが問題ないように見えます。(表面上)
+> >
+> >
+> >
+> > 以上、よろしくおねがいします。
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月21日(金) 17:08 棚橋 克弘 <tanahashi_katsuhiro@naganosd.com>:
+> >
+> > MINO株式会社
+> >
+> > 北澤様
+> >
+> >
+> >
+> > お世話になります。
+> >
+> > 長野システム開発 棚橋です。
+> >
+> >
+> >
+> > 「AI出荷のディレクトリのパーミッションは777にしないと動作しないようです。」
+> >
+> > については、遠藤のほうで確認中です。
+> >
+> >
+> >
+> > バージョンが更新されていますが、こちらは検証環境のみでしょうか？
+> >
+> > 本番環境は、「PHP 7.0.32」のままで変更はないでしょうか
+> >
+> >
+> >
+> > ご確認の程、お願い致します。
+> >
+> >
+> >
+> > =====================
+> >
+> > 動作環境は、
+> >
+> > PHP 7.2.33
+> >
+> > OS:CentOS Linux release 7.8.2003 (Core)
+> >
+> > Server version: Apache/2.4.6 (CentOS)
+> >
+> > です。
+> >
+> > =====================
+> >
+> >
+> >
+> > ＜8/17 頂いた環境＞
+> >
+> > 環境について
+> >
+> > PHPのバージョンについて
+> > 本番環境：PHP 7.0.32
+> > テスト環境：PHP 7.1.33
+> >
+> >
+> >
+> > *From:* 北澤孝清 <t-kitazawa@nuan.jp>
+> > *Sent:* Friday, August 21, 2020 11:02 AM
+> > *To:* mino_shukka_ml@system-quest.co.jp
+> > *Subject:* [mino_shuk:00261] Re: [mino_shuk:00260] Re: [AI出荷] 動作環境について
+> >
+> >
+> >
+> > お世話になっております。
+> >
+> >
+> >
+> > MINO北澤です。
+> >
+> >
+> >
+> > 色々サポートしてありがとうございました。
+> >
+> >
+> >
+> > 結論からいうと、httpdの動作が変わったようです。
+> >
+> > htttpd.confの
+> >
+> >
+> >
+> >    <Directory "/var/www/html">
+> >         Options FollowSymLinks
+> >         AllowOverride None→Allへ変更
+> >         Require all granted
+> >     </Directory>
+> >
+> >
+> >
+> > にしたところ、動作しました。(いままではNoneで動作しておりました)
+> >
+> >
+> >
+> > 動作環境は、
+> >
+> > PHP 7.2.33
+> >
+> > OS:CentOS Linux release 7.8.2003 (Core)
+> >
+> > Server version: Apache/2.4.6 (CentOS)
+> >
+> > です。
+> >
+> >
+> >
+> > しかしながらAI出荷のディレクトリのパーミッションは777にしないと動作しないようです。
+> >
+> > (すべてのファイルのパーミッションを変更しております)
+> >
+> >
+> >
+> > 以上、ありがとうございました。お騒がせしました。
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月21日(金) 10:00 [Masashi Endo] <endo_masashi@naganosd.com>:
+> >
+> > MINO株式会社
+> > 北澤様
+> >
+> > お世話なっております
+> > 長野システム開発 遠藤です
+> >
+> > > 申し訳ないのですが、/etc/php.iniを送っていただけないでしょうか
+> > 承知しました。ファイルを添付して送付いたします。
+> >
+> > よろしくお願いします。
+> >
+> > 以上
+> >
+> > On Fri, Aug 21, 2020 at 09:15:07AM +0900, 北澤孝清 wrote:
+> > > お世話になっております。
+> > >
+> > > MINO北澤です
+> > >
+> > > 申し訳ないのですが、/etc/php.iniを送っていただけないでしょうか
+> > >
+> > > よろしくおねがいします。
+> > >
+> > >
+> > >
+> > >
+> > > 2020年8月20日(木) 13:43 [Masashi Endo] <endo_masashi@naganosd.com>:
+> > >
+> > > > MINO株式会社
+> > > > 北澤様
+> > > >
+> > > > お世話なっております
+> > > > 長野システム開発 遠藤です
+> > > >
+> > > > 何度か当社の動作環境をお伝えしましたが、改めてお伝えいたします。
+> > > > 既にリリースしているコードの動作環境の再構築などをする場合、ご参考いただければ幸いです。
+> > > >
+> > > > DBサーバ/webサーバ/phpの各バージョンと、phpパッケージの差異がマイナーバージョン
+> > > > のリビジョン違い程度であれば、同様の動作をすると想定されます。
+> > > > ===
+> > > > 当社の環境ではVagrant(Vagrant 2.2.7,VirtualBox 6.1)を使用しています
+> > > > LinuxはCentOS6.7系
+> > > > DBサーバはMySQL バージョンは5.7系 (5.7.28）
+> > > > WebサーバはApache (2.2.15)
+> > > > PHPバージョンは7.0系 (7.0.33）
+> > > > mbstring PHP 拡張
+> > > > intl PHP 拡張
+> > > > simplexml PHP 拡張
+> > > >
+> > > > 以下当社環境のPHPパッケージ一覧
+> > > > [vagrant@localhost www]$ yum list installed |grep php
+> > > > php.x86_64           7.0.33-22.el6.remi @remi-php70
+> > > > php-cli.x86_64       7.0.33-22.el6.remi @remi-php70
+> > > > php-common.x86_64    7.0.33-22.el6.remi @remi-php70
+> > > > php-devel.x86_64     7.0.33-22.el6.remi @remi-php70
+> > > > php-gd.x86_64        7.0.33-22.el6.remi @remi-php70
+> > > > php-intl.x86_64      7.0.33-22.el6.remi @remi-php70
+> > > > php-json.x86_64      7.0.33-22.el6.remi @remi-php70
+> > > > php-mbstring.x86_64  7.0.33-22.el6.remi @remi-php70
+> > > > php-mcrypt.x86_64    7.0.33-22.el6.remi @remi-php70
+> > > > php-mysqlnd.x86_64   7.0.33-22.el6.remi @remi-php70
+> > > > php-pdo.x86_64       7.0.33-22.el6.remi @remi-php70
+> > > > php-xml.x86_64       7.0.33-22.el6.remi @remi-php70
+> > > >
+> > > > よろしくお願いします
+> > > >
+> > > > 以上
+> > > > --
+> > > > 長野システム開発株式会社
+> > > > 遠藤 將司 ( Masashi Endo )
+> > > > e-Mail <endo_masashi@naganosd.com>
+> > > > 〒399-4301 長野県上伊那郡宮田村5672-2
+> > > > URL: http://www.naganosd.com/
+> > > >
+> > > >
+> >
+> > --
+> > 長野システム開発株式会社
+> > 遠藤 將司 ( Masashi Endo )
+> > e-Mail <endo_masashi@naganosd.com>
+> > 〒399-4301 長野県上伊那郡宮田村5672-2
+> > URL: http://www.naganosd.com/
+> >
+> >
+
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

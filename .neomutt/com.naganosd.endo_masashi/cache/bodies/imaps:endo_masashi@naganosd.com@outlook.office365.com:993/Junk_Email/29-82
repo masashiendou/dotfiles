@@ -1,0 +1,519 @@
+Received: from TY2PR06MB3088.apcprd06.prod.outlook.com (2603:1096:202::11) by
+ HK0PR06MB2739.apcprd06.prod.outlook.com with HTTPS via
+ HK2PR0302CA0001.APCPRD03.PROD.OUTLOOK.COM; Thu, 6 Aug 2020 13:38:22 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=fail;
+ b=ilaY4S5dllORFnb4H723DNp4RqM6fRqR53q22hrSDdXydQhtDlgk8Q2szPR0EZbl4wboxdfi0h6LkVSI8DLGuK8K3wLeKydLTItkNEAOkpY20scRYbDwvqKv9QDcNXIUN/r4Uyu5Vc22n0jWmTwUdsBgTm4jIzn7e6sij0TSN4uXwwTcBLtIgc2Vxn0upLFQvGO8pqu/rm4VyUKRgVpAYXamSu55su1Yv46xqp+eypCZmN3qDAdu8G+bR75OC382YGIaKtAablpNkTOJjzFLqlnCfBPbyVK8f4RCnqdYDSCk4kzBs53clJIJETnalj4o3FnGTmQA862ProrxJ4xH1Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PXBbX3ZI/m6FPnp/C+B05byxrPwUIkP6/gNVKVdj0vM=;
+ b=QcCTMd3Z3g2zoToXqDQTuQ4ZT+iWcPS6hvMaown39hw+AHtaJJ9kqLWY3GSw9cXCnanwA9O4sae5pSVhgniQ116l7YEJd4vorpFXMBq5fEM0g57Fr2YqIo5sWBVhG3rvs02C34vgGooKOQBHqyA0zS/PNq6uwfteRRR9ov8EqhwyCkgks6RaDQCebKbl6TOwwJVkn7cj4vocUpIZbbWM2N6zHVQMNwbeQV5TAh/LbnFV+z+Aq7A4KSBbcnm7c5gWxgmNMDYz/oMcDjah+crPe/yWTXlzZQMeBPQLEQl28FXCBbZG02aZ8q+k8nrP+RBpqRpTeDLy2ddLAmMsLoVtMg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 219.94.192.34) smtp.rcpttodomain=naganosd.com
+ smtp.mailfrom=system-quest.co.jp; dmarc=none action=none
+ header.from=naganosd.com; dkim=fail (signature did not verify)
+ header.d=naganosdcom.onmicrosoft.com; arc=fail (48)
+Received: from TYAPR03CA0015.apcprd03.prod.outlook.com (2603:1096:404:14::27)
+ by TY2PR06MB3088.apcprd06.prod.outlook.com (2603:1096:404:98::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3261.19; Thu, 6 Aug
+ 2020 13:38:21 +0000
+Received: from TY1JPN01FT003.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:404:14:cafe::d0) by TYAPR03CA0015.outlook.office365.com
+ (2603:1096:404:14::27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3283.6 via Frontend
+ Transport; Thu, 6 Aug 2020 13:38:21 +0000
+Authentication-Results: spf=pass (sender IP is 219.94.192.34)
+ smtp.mailfrom=system-quest.co.jp; naganosd.com; dkim=fail (signature did not
+ verify) header.d=naganosdcom.onmicrosoft.com;naganosd.com; dmarc=none
+ action=none header.from=naganosd.com;compauth=fail reason=601
+Received-SPF: Pass (protection.outlook.com: domain of system-quest.co.jp
+ designates 219.94.192.34 as permitted sender)
+ receiver=protection.outlook.com; client-ip=219.94.192.34;
+ helo=www1624.sakura.ne.jp;
+Received: from www1624.sakura.ne.jp (219.94.192.34) by
+ TY1JPN01FT003.mail.protection.outlook.com (10.152.187.74) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3261.16 via Frontend Transport; Thu, 6 Aug 2020 13:38:21 +0000
+Received: from fsav305.sakura.ne.jp (fsav305.sakura.ne.jp [153.120.85.136])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 076DcEYj053072;
+	Thu, 6 Aug 2020 22:38:14 +0900 (JST)
+	(envelope-from mino_shukka_ml-admin@system-quest.co.jp)
+Received: from www1624.sakura.ne.jp (219.94.192.34)
+ by fsav305.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav305.sakura.ne.jp);
+ Thu, 06 Aug 2020 22:38:14 +0900 (JST)
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav305.sakura.ne.jp)
+Received: from system-quest1.sakura.ne.jp (localhost [IPv6:::1])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 076DcEWd053069;
+	Thu, 6 Aug 2020 22:38:14 +0900 (JST)
+	(envelope-from mino_shukka_ml-admin@system-quest.co.jp)
+Received: from fsav107.sakura.ne.jp (fsav107.sakura.ne.jp [27.133.134.234])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 076DcDKw053062
+	for <mino_shukka_ml@system-quest.co.jp>; Thu, 6 Aug 2020 22:38:13 +0900 (JST)
+	(envelope-from tanahashi_katsuhiro@naganosd.com)
+Received: from www1624.sakura.ne.jp (219.94.192.34)
+ by fsav107.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav107.sakura.ne.jp);
+ Thu, 06 Aug 2020 22:38:13 +0900 (JST)
+Received: from APC01-PU1-obe.outbound.protection.outlook.com (mail-eopbgr1320070.outbound.protection.outlook.com [40.107.132.70])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTPS id 076DcD5T053046
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL)
+	for <mino_shukka_ml@system-quest.co.jp>; Thu, 6 Aug 2020 22:38:13 +0900 (JST)
+	(envelope-from tanahashi_katsuhiro@naganosd.com)
+Received: from TY2PR06MB2766.apcprd06.prod.outlook.com (2603:1096:404:35::16)
+ by TY2PR06MB3582.apcprd06.prod.outlook.com (2603:1096:404:f7::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3261.19; Thu, 6 Aug
+ 2020 13:38:09 +0000
+Received: from TY2PR06MB2766.apcprd06.prod.outlook.com
+ ([fe80::f54b:79be:2463:504c]) by TY2PR06MB2766.apcprd06.prod.outlook.com
+ ([fe80::f54b:79be:2463:504c%5]) with mapi id 15.20.3261.019; Thu, 6 Aug 2020
+ 13:38:09 +0000
+Date: Thu, 6 Aug 2020 13:38:09 +0000
+From: =?iso-2022-jp?B?GyRCQyo2NhsoQiAbJEI5bjkwGyhC?=
+	<tanahashi_katsuhiro@naganosd.com>
+Reply-To: mino_shukka_ml@system-quest.co.jp
+Subject: [mino_shuk:00229] =?ISO-2022-JP?B?W0FJGyRCPVAyWRsoQg==?=
+	=?ISO-2022-JP?B?XRskQiVpJVklayEmQXckaj51SC85VCEnQ2UbKEI=?=
+	=?ISO-2022-JP?B?GyRCRnw7WERqJE5JPTwoPnI3byRLJEQkJCRGGyhC?=
+To: "mino_shukka_ml@system-quest.co.jp" <mino_shukka_ml@system-quest.co.jp>
+Message-Id:
+ <TY2PR06MB2766BB59330EDB56B4886B75F0480@TY2PR06MB2766.apcprd06.prod.outlook.com>
+X-ML-Name: mino_shukka_ml
+X-Mail-Count: 00229
+X-MLServer: fml [fml 4.0 STABLE (20040215/4.0.4_BETA)]; post only (only members can post)
+X-ML-Info: If you have a question, send e-mail with the body
+	"help" (without quotes) to the address mino_shukka_ml-ctl@system-quest.co.jp;
+	help=<mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=help>
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav107.sakura.ne.jp)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=NONzvXEbjtIVCDiFxynru0LKiJ3A/ylswERd3yAOb4fDK6KKF2WD6fv0WQ/jqVzSr8r7gGT0YaCsWmDM/lsixeKsvcwO9/TOGn2vPno9EiAR8fQhTohtI4yJYFL8/RAwVv3a2c3T9g4HpSHyqLci5CNOPl6aqkawttqUqFSRatTxSs+EgCQTxQYfCQqj6vYp3w6yzcxmlRb3xSnCkiedrhF6e1NB0YKWYhCU3uyIg1aPJIDtmcrEHdEyNQt9E+XHj+Jo73uiYkKCZC//7Re4J+KREBZkld73Pd/jGRsAtekX6UHyBIhKDUK+vmdbWeSVq5+bmHyWHGnw26zTlglTOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PXBbX3ZI/m6FPnp/C+B05byxrPwUIkP6/gNVKVdj0vM=;
+ b=G3do3q1j/LsMP1OMk2nq/nyZnis1kg5gFGdspGM8ajsMXdnbv/LmepSNsH61FMb4WFO3Fms9LFXbm2rjRyG9r3rq+Fff12oeFXjtiR28jHkd2Szi82a4bvHR+HdUrTNwyilxCKgmGEn2v/lSkZUz2pNYB8sgaHwjDF62Q0kr4Kmpby+t/G/KNVgbZ9vRgzb4KAey8UXYFtBDAbz6cO4YZcojkrFzmifDQnBSqLm95SbO+bNhN1Vys6OJCTjHq29f+5vftur50WiXJOsCOz+xG8L3j+gt7M0YVh7h7GncjA8PlvCvqnNLOfmK2QhiADPyVtNlPMx53QpforUGTN1Img==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=naganosd.com; dmarc=pass action=none header.from=naganosd.com;
+ dkim=pass header.d=naganosd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=naganosdcom.onmicrosoft.com; s=selector2-naganosdcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PXBbX3ZI/m6FPnp/C+B05byxrPwUIkP6/gNVKVdj0vM=;
+ b=TYIyEOvVdEY95PSspAUjSdZu6UbRRyy8sxfnJ0y52evtJQDHvc3p8PraWC40iY3IHZ0amMRx677WdoYMGjnH4iRqizNcvwyI40SOIt1OzNcDQaEqBf85P+nDKLL31OTKyYTwFTqBlB9ibzh2PtcbYHc/5+NdYeFYeXcD+PLnx40=
+Thread-Topic:
+ =?iso-2022-jp?B?W0FJGyRCPVAyWRsoQl0bJEIlaSVZJWshJkF3JGo+dUgvOVQhJ0NlGyhC?=
+ =?iso-2022-jp?B?GyRCRnw7WERqJE5JPTwoPnI3byRLJEQkJCRGGyhC?=
+Thread-Index: AdZr9cHmuoqEwSPcS4qfcZTrJJ6hUg==
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Authentication-Results-Original: system-quest.co.jp; dkim=none (message not
+ signed) header.d=none;system-quest.co.jp; dmarc=none action=none
+ header.from=naganosd.com;
+x-originating-ip: [14.8.106.160]
+x-ms-publictraffictype: Email
+X-MS-Office365-Filtering-Correlation-Id: 33089e9e-ffc7-4aec-5cf5-08d83a0dfc0b
+x-ms-traffictypediagnostic: TY2PR06MB3582:|TY2PR06MB3088:
+x-microsoft-antispam-prvs:
+ <TY2PR06MB358282BC2B4CCA24F22B56DFF0480@TY2PR06MB3582.apcprd06.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:525;OLM:525;
+x-ms-exchange-senderadcheck: 1
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ yDyEGE2NhS22L1o4zQef3bloap0KqRqP6UtM6vxFA3CAEXR2RXP9kbYvF5/CHehAra4Wi/ZtxyDZJEoXm+Nz1V2VztA5MEyT+oWdbGZO9C3p96GAZJYc9x/F+h0YIEbGaaw9zPwibwXRrs4SurMvVpxpC3IlcGHMwiysskTAgn/hqiJI3RiAz5QLPpOqa5sQMaGkyNFciQWh/EfdDCFG0r0KgxxABfKZCENL8i+/7FP6kWI870l6TXqqfD708u+qJmWaiw/XsU9KCl1yagZGaIK4DXlpO748Gk+lqM6ljtEmmVS/nig8sXSc2L6yS/2HAurlLguTJrIVvUtpotC5qYuMARf613n4ajNGlaH3J3Z0XxtA0w3wJrkPbdUwtb9Hn0HOp6NufMccXuHPBc7ARA==
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PR06MB2766.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(396003)(42606007)(39830400003)(366004)(136003)(376002)(346002)(86362001)(76116006)(966005)(66476007)(64756008)(66946007)(66556008)(66446008)(8936002)(508600001)(316002)(26005)(85182001)(71200400001)(2906002)(55016002)(4744005)(186003)(52536014)(33656002)(9686003)(224303003)(166002)(5660300002)(7696005)(6916009)(6506007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata:
+ SiLfTcxUa8y1me1nnFkBovQMKmhlhbjnl7FwxIqZMil39eBax+aIEMPxb6RRVi+Q4ksv0XdAv7ael6dA2fKjRlB3li4bndJqWclQTKcpKAbgj0xkwiL3VME+ZbAz7SErDRNBmQOZHLRXF/GxQSzTIX7nIkDb0ulaFnA+gaXG1deQGrb9Tvj5dHTC9bVUtCImYeIj9Kb8oTwCbK25x4Jq255JYb5IYkwLxDuPcwFdo+O3Lh5UHdQk7f01rbVChvwqfRiGvEmXX43YSDbEdE7qVCWlYjJP9CyB+PLjRY1m3MfGPOViyPgYizLPGHpB6jHObNhNrTLLUMIAr+u1OF5AAVXTekZ5jBT44n4AaMX2WAYGml8phi49bd1RcZ6Gy8ootsLwdQlVBt7wnOTUMznhYybeS3YjqIpB4/jwmd0WvCKyUw0pEQ6rH8PAFFIO0b+2B2HSHMfhUulcrxUZ9+pOpFF/PO+/H0F778KPY4OxBGVoqU9LXGzCbcMZ8dgbOwTf36TyCv/oilAcVfsxbjKBrIw5u6abFRpvwRxuWyk+jWo/CrQ5P+D9rSjVUeRVQT3eN0OnHtcpgHC9+YRcxIKIYXWYZA/1ruByEM9khkqnkvb8bb0ovzbIq3WJsXjps+l48v9F+vwoaHK6d6U1/0n6dg==
+x-ms-exchange-transport-forked: True
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PR06MB3582
+Content-Type: multipart/alternative;
+	boundary="_000_TY2PR06MB2766BB59330EDB56B4886B75F0480TY2PR06MB2766apcp_"
+Precedence: bulk
+Lines: 293
+List-Id: mino_shukka_ml.system-quest.co.jp
+List-Software: fml [fml 4.0 STABLE (20040215/4.0.4_BETA)]
+List-Post: <mailto:mino_shukka_ml@system-quest.co.jp>
+List-Owner: <mailto:mino_shukka_ml-admin@system-quest.co.jp>
+List-Help: <mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=help>
+List-Unsubscribe: <mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=unsubscribe>
+Return-Path: mino_shukka_ml-admin@system-quest.co.jp
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Aug 2020 13:38:21.0514
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 33089e9e-ffc7-4aec-5cf5-08d83a0dfc0b
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3a723edf-b2e9-465d-826a-d5ccf5e64f13:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ TY1JPN01FT003.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthSource:
+ TY1JPN01FT003.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ e88945be-7013-4a0f-68ad-08d83a0df504
+X-MS-Exchange-Organization-SCL: 5
+X-Forefront-Antispam-Report:
+ CIP:219.94.192.34;CTRY:JP;LANG:ja;SCL:5;SRV:;IPV:NLI;SFV:SPM;H:www1624.sakura.ne.jp;PTR:www1624.sakura.ne.jp;CAT:SPOOF;SFTY:;SFS:(52536014)(224303003)(6506007)(55016002)(9686003)(19810500001)(1096003)(7696005)(85182001)(33656002)(6862004)(966005)(66346011)(7596003)(356005)(166002)(5660300002)(83170400001)(7636003)(26005)(8636004)(336012)(42882007)(73996006);DIR:INB;SFP:;
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2020 13:38:21.0074
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 33089e9e-ffc7-4aec-5cf5-08d83a0dfc0b
+X-MS-Exchange-CrossTenant-Id: 3a723edf-b2e9-465d-826a-d5ccf5e64f13
+X-MS-Exchange-CrossTenant-AuthSource:
+ TY1JPN01FT003.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PR06MB3088
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.3860045
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.3261.019
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:1;auth:0;dest:J;ENG:(20160513016)(750128)(520011016)(944506458)(944626604);
+X-Microsoft-Antispam-Message-Info:
+	=?iso-2022-jp?B?ak9UOXlRRTJBSk1Xb2ZldTEyc2EvVWF4bWtzRk1jSkE4WFE5ZHo2Y1No?=
+ =?iso-2022-jp?B?ZlpTL2FuOFVoVHNWS2ZJNW01c3pFZHpYbG9YNGt3M3VoN3EvQnBjRHhZ?=
+ =?iso-2022-jp?B?cmlFMWJWY1BXTUJUOWMvcEVCMzZCcWtZRTU4QjN5ZmVacVdsN0xiWVhi?=
+ =?iso-2022-jp?B?V2E1NE4vMVhwSkkrdFpxRGt2eWVnelYySVorN3g0b1pHam43WjkvVE4w?=
+ =?iso-2022-jp?B?L1U1R1pZQzJoSDdYK0xDV1J3SEQwWTIyQ1hVUm9kaFExSEtkeHN6WCtk?=
+ =?iso-2022-jp?B?WklhdWw4d2ROd3NicFREb3NlNVUwOGFQeXpFdmw1dHkreWg2ODBTZDE4?=
+ =?iso-2022-jp?B?c1dwZm5VK01DNDJiVjFiNkRoWERwZDRsWW9Oak1oc2NTUnVZdGVpdFZ6?=
+ =?iso-2022-jp?B?ZmczWmNqVi9wZjNBdDd1Z1dldkJuK0lYSHBSSUovME94S1dKRlNybkRH?=
+ =?iso-2022-jp?B?MU9tdlN1eTZINmRKc2lmbzhEeFAwNDhIM0tNeVZ2MVNRN3VRelNXeHZh?=
+ =?iso-2022-jp?B?VnEyRVhLSWpvTThoeGw0dlRQSERMTVNac1dCRE1nOGdYSHR0MU15OXJu?=
+ =?iso-2022-jp?B?TVdHb08wNHg3RmJ3MHNSMWNROFVPc3I4WXVtYm1YY2RBNnBob2p3UFRk?=
+ =?iso-2022-jp?B?cUtEdUJSWnVQdm10cGQvSlBmb09mVG5hSk1Idmdua3FJNnFaYmY3M0Mr?=
+ =?iso-2022-jp?B?Z3ZHM09pMVBlVWd1K2l3aStMTmttVW94dGZiYksxNHF3aDdFcDRhZVd5?=
+ =?iso-2022-jp?B?TklOeEtoRmNuMmxiWDgwYjZDdWtyT0dMQm5janJaUFZQRkMybkVxVERZ?=
+ =?iso-2022-jp?B?K2RXSGtoLzhWcjRtZ1orMDR4NzdtMVBVZDRTdzZxb2d5Y3dzZVFoNnI1?=
+ =?iso-2022-jp?B?VExDcGJ4My9RTjFESHJuQlUzQ3h1emswTHBiM3pieHAvMU5iK25jQUho?=
+ =?iso-2022-jp?B?eGdTWHZySkhsdFRzL2NEWTVHZGNLQXJ1TkViZEhIRHA5aURkVXh5MzlG?=
+ =?iso-2022-jp?B?S2IrSUhSSnlyK0MyYWxpVjRFNXg3dlNUK2RsSmE3OERRMW5wU2NkT0tE?=
+ =?iso-2022-jp?B?bytabU90elJ0N0VYcWhiS3UwLzhUQ2k5NU51UmdYRCtDYkxLNkpBOGs3?=
+ =?iso-2022-jp?B?d2R6blg0cU4rdkwzaDgwVFdTUDMyTGVFRURKQncxenFPUUNXVGlsYlFO?=
+ =?iso-2022-jp?B?UlhwNzlPQjNoYTdPY0VlMXdSK1U5b2JxNktIb0ZFcWFYSHhRSUpDOEVZ?=
+ =?iso-2022-jp?B?Y1JvVkNkUDBKbjVaT0pXWE9wUWFWTHZWK2pUKzdLcjk3cmsvVTJzaUtO?=
+ =?iso-2022-jp?B?UkxMbkREQ3g2Z1dTU1NFMDI5MzMzajl5Tlc0ZDhkaCtwZ0dLb09Ucjlj?=
+ =?iso-2022-jp?B?Q3hqSjBOb0p2YW5zVmVEeW1laTRWUTFCYnNuMi8ydDY5aUNPVStEUVRZ?=
+ =?iso-2022-jp?B?cHdldk5PdWd0SzdNZHhhQnMya3FscXVHS1h4R25ZWDV4Y0dWMmYweldV?=
+ =?iso-2022-jp?B?aEpUR0ltTS9yS01sYkFjanhHUVJqZ1FpZXM5ZjRpQSt1TThXcDhIcjVl?=
+ =?iso-2022-jp?B?SW04c0YyZEJSMnUzOUR4UTFhRmVva3ZBeXpSaitiWXlYNUhvTWppTk8z?=
+ =?iso-2022-jp?B?SWJqSGIrbS90aXMwekhDUENtOWdoSGVIekx2TzR6N0g5cmhsZHAxZG9M?=
+ =?iso-2022-jp?B?RjVROVJmUFBNS1Q0UXR2UnRTVkhDUXlEV1IwdkxtSE8xRCtmT3BZYlls?=
+ =?iso-2022-jp?B?by9NTlNPZ094bDBKNmp3eHJoVkZYS1RSMFdtZXBXbk1wWmhFQUd6Q2NE?=
+ =?iso-2022-jp?B?YXl6aXFCZTczMWlTNE1aSVozZXgrbXg0ak5nbDVnQ0FBL01hNnBBalI0?=
+ =?iso-2022-jp?B?aE1aWWlQT3VMZDNkVkdnejlSam16UEVseGZ2cUFaK1VXSG9oeElPZXl0?=
+ =?iso-2022-jp?B?bjd4YWdNd05HQk16VUFyRk1RTlRjY0wxZ2R0T1dKZFB5UlV1R1hSbnNI?=
+ =?iso-2022-jp?B?SUZtZDhBOTBkOW1nRjFVdHBMKzA0K0FONDNrdVFWK3RDN0hPdmpoVTg5?=
+ =?iso-2022-jp?B?Q05DRHlwTjVHTTN6WXU2TUUxTHBrQUlBNjBrWTNhaW5ZWk5kR1RkNmN2?=
+ =?iso-2022-jp?B?Ni9VNTAwNjBhdC9UOXJ0clJHQlpQdzdEdzNsT052UVJoZkVPUDlBek9D?=
+ =?iso-2022-jp?B?ZzVvOTkrUjFiRUpRZ0sweDBvWVhycVpleThhTmtnWmFDYWdHZVI3K0FY?=
+ =?iso-2022-jp?B?cnplNFI0bTF4UDN4RFFmWnJHM1BrZ1V1UlFJV1FpMmRLYVkzaTArSkRx?=
+ =?iso-2022-jp?B?RXhFbDBrcVN1ZnBaeXZ2TmtINjNYaGdoWW5qV1ZaWDFuVmRNbTJZd0cx?=
+ =?iso-2022-jp?B?K0NBWWxQQUF4M0RFQStGR0ljbzVKVXA5bEw5MlZVSFMwVVF5RVNsQVFw?=
+ =?iso-2022-jp?B?S01MTXl6TktYSEN4WXlFNTJ4UHpOMVBIUHAvakxVbTR0TXA5Q3l5Yk94?=
+ =?iso-2022-jp?B?MXVwelZ0ZW5tN3BPS1RYUjdKQ2tiR1RPVnlvNGdOdDhQWjRXRkI2Q1pp?=
+ =?iso-2022-jp?B?d1ZMWjh0RVZUd1IvQ1FSa0t5RUFXSW9kak5nNkU1TEwreTd1KzRvMzA0?=
+ =?iso-2022-jp?B?akp4NHpCMnVndjBBQVdGQXBWRTZsa2s5ck1TL2NjeEsvR3FkbGQzcGZB?=
+ =?iso-2022-jp?B?aW4ybE5EM1V4cnZZRlN0ZHpBMDlvR1I1aER3K1hUaHVDM3BLWDhsWkxN?=
+ =?iso-2022-jp?B?YlNSRk1WVnFTZThqUi9YRlNsdmdobWQyR3REUG1IQlVlRUE5OXlOQmNi?=
+ =?iso-2022-jp?B?eVc3dkZvQnRmaG1wQ2RETTcrQVN1cDdHaVp0SS9LUThKOXFwQVAzL3dL?=
+ =?iso-2022-jp?B?bmp6TklFRjVFd2ZTT3RBYWxJUERlSUhBQTErMi9peGNuZVI5Z2laSk1t?=
+ =?iso-2022-jp?B?N2grMVk4NzNja2Q1cFMya1VhUE0xRkoyQ3pUZENTaVU=?=
+MIME-Version: 1.0
+
+--_000_TY2PR06MB2766BB59330EDB56B4886B75F0480TY2PR06MB2766apcp_
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+MINO=1B$B3t<02q<R!!;0BpMM=1B(B
+
+=1B$B$*@$OC$K$J$j$^$9!#=1B(B
+=1B$BD9Ln%7%9%F%`3+H/!!C*66$G$9!#=1B(B
+
+=1B$B%i%Y%k!&Aw$j>uH/9T!'CeF|;XDj$NI=3D<(>r7o$K$D$$$F=1B(B
+
+=1B$BCeF|$N;XDj$,$J$/!";~4V;XDj!J=1B(BAM=1B$B!"=1B(BPM=1B$BEy!K$N$_@_Dj$7$F=
+$$$k>l9g!"=1B(B
+=1B$B%i%Y%k!&Aw$j>uH/9T2hLL$NCeF|;XDj$O!"=1B(B
+
+  1.  =1B$BI=3D<($7$J$$=1B(B
+  2.  =1B$B;~4V$N$_I=3D<(=1B(B
+=1B$B$I$A$i$K$J$k$G$7$g$&$+!)=1B(B
+
+=1B$B$J$*!"!V=1B(B0=1B$B!';XDj$7$J$$!W$,@_Dj$5$l$F$$$k>l9g$O!";~4V;XDj$J$7$=
+HF1Ey$N07$$$H$9$k$?$a!"=1B(B
+=1B$BCeF|;XDj$J$7!";~4V;XDj$J$7!!$H$J$j"*%i%Y%k<+BN$rI=3D<($7$J$$=1B(B
+
+https://naganosd.backlog.com/view/MINO-212
+
+=1B$B0J>e=1B(B
+
+=1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+=1B$B!!D9Ln%7%9%F%`3+H/3t<02q<R!!!!=1B(B
+=1B$B!!!!!!!!!!!!!!!!!!!!5;=3DQ3+H/It!!=1B(B
+=1B$B!!C*66!!9n90=1B(B
+=1B$B!!=1B(Btanahashi_katsuhiro@naganosd.com
+=1B$B!!")=1B(B399-4301
+=1B$B!!D9Ln8)>e0KFa745\EDB<=1B(B5672-2
+=1B$B!!=1B(BTel: 0265-85-3385  Fax: 0265-85-3398
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+--_000_TY2PR06MB2766BB59330EDB56B4886B75F0480TY2PR06MB2766apcp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:=1B$B^b%4%7%C%/=1B(B;
+	panose-1:2 11 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@=1B$B^b%4%7%C%/=1B(B";
+	panose-1:2 11 4 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"\@=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0mm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0mm;
+	margin-right:0mm;
+	margin-bottom:0mm;
+	margin-left:42.0pt;
+	margin-bottom:.0001pt;
+	mso-para-margin-top:0mm;
+	mso-para-margin-right:0mm;
+	mso-para-margin-bottom:0mm;
+	mso-para-margin-left:4.0gd;
+	mso-para-margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+span.17
+	{mso-style-type:personal-compose;
+	font-family:=1B$B^b%4%7%C%/=1B(B;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+/* Page Definitions */
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:99.25pt 30.0mm 30.0mm 30.0mm;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:1988196654;
+	mso-list-type:hybrid;
+	mso-list-template-ids:63473344 -1844391036 67698711 67698705 67698703 6769=
+8711 67698705 67698703 67698711 67698705;}
+@list l0:level1
+	{mso-level-number-format:decimal-enclosed-circle;
+	mso-level-text:%1;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+@list l0:level2
+	{mso-level-number-format:aiueo-full-width;
+	mso-level-text:"\(%2\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:42.0pt;
+	text-indent:-21.0pt;}
+@list l0:level3
+	{mso-level-number-format:decimal-enclosed-circle;
+	mso-level-text:%3;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:63.0pt;
+	text-indent:-21.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:84.0pt;
+	text-indent:-21.0pt;}
+@list l0:level5
+	{mso-level-number-format:aiueo-full-width;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:105.0pt;
+	text-indent:-21.0pt;}
+@list l0:level6
+	{mso-level-number-format:decimal-enclosed-circle;
+	mso-level-text:%6;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:126.0pt;
+	text-indent:-21.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:147.0pt;
+	text-indent:-21.0pt;}
+@list l0:level8
+	{mso-level-number-format:aiueo-full-width;
+	mso-level-text:"\(%8\)";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:168.0pt;
+	text-indent:-21.0pt;}
+@list l0:level9
+	{mso-level-number-format:decimal-enclosed-circle;
+	mso-level-text:%9;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:189.0pt;
+	text-indent:-21.0pt;}
+ol
+	{margin-bottom:0mm;}
+ul
+	{margin-bottom:0mm;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026">
+<v:textbox inset=3D"5.85pt,.7pt,5.85pt,.7pt" />
+</o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"JA" link=3D"#0563C1" vlink=3D"#954F72" style=3D"text-justify-=
+trim:punctuation">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt">MINO=
+</span><span style=3D"font-size:11.0pt">=1B$B3t<02q<R!!;0BpMM=1B(B<span lan=
+g=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B$*@$OC$K$J$j$^=
+$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$BD9Ln%7%9%F%`3+=
+H/!!C*66$G$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B%i%Y%k!&Aw$j>u=
+H/9T!'CeF|;XDj$NI=3D<(>r7o$K$D$$$F=1B(B<span lang=3D"EN-US"><o:p></o:p></sp=
+an></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$BCeF|$N;XDj$,$J=
+$/!";~4V;XDj!J=1B(B<span lang=3D"EN-US">AM</span>=1B$B!"=1B(B<span lang=3D"=
+EN-US">PM</span>=1B$BEy!K$N$_@_Dj$7$F$$$k>l9g!"=1B(B<span lang=3D"EN-US"><o=
+:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B%i%Y%k!&Aw$j>u=
+H/9T2hLL$NCeF|;XDj$O!"=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></=
+p>
+<ol style=3D"margin-top:0mm" start=3D"1" type=3D"o">
+<li class=3D"MsoListParagraph" style=3D"margin-left:-18.0pt;mso-para-margin=
+-left:0gd;mso-list:l0 level1 lfo1">
+<span style=3D"font-size:11.0pt">=1B$BI=3D<($7$J$$=1B(B<span lang=3D"EN-US"=
+><o:p></o:p></span></span></li><li class=3D"MsoListParagraph" style=3D"marg=
+in-left:-18.0pt;mso-para-margin-left:0gd;mso-list:l0 level1 lfo1">
+<span style=3D"font-size:11.0pt">=1B$B;~4V$N$_I=3D<(=1B(B<span lang=3D"EN-U=
+S"><o:p></o:p></span></span></li></ol>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B$I$A$i$K$J$k$G=
+$7$g$&$+!)=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B$J$*!"!V=1B(B<=
+span lang=3D"EN-US">0</span>=1B$B!';XDj$7$J$$!W$,@_Dj$5$l$F$$$k>l9g$O!";~4V=
+;XDj$J$7$HF1Ey$N07$$$H$9$k$?$a!"=1B(B<span lang=3D"EN-US"><o:p></o:p></span=
+></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$BCeF|;XDj$J$7!"=
+;~4V;XDj$J$7!!$H$J$j"*%i%Y%k<+BN$rI=3D<($7$J$$=1B(B<span lang=3D"EN-US"><o:=
+p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><a href=3D"https://naganosd.bac=
+klog.com/view/MINO-212">https://naganosd.backlog.com/view/MINO-212</a></spa=
+n><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B0J>e=1B(B<span=
+ lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">=1B$B$h$m$7$/$*4j$$=
+$7$^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:11.0pt"><o:p=
+>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span lang=
+=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B=
+%4%7%C%/=1B(B&quot;">=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D<o:p></o:p></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!D9Ln%7%9%F%`3+H/3t<02q<R!!!!=1B(B<span lang=3D"EN-US"><o:p></o:=
+p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!!!!!!!!!!!!!!!!!!!5;=3DQ3+H/It!!=1B(B<span lang=3D"EN-US"><o:p>=
+</o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!C*66!!9n90=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></=
+p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!=1B(B<span lang=3D"EN-US">tanahashi_katsuhiro@naganosd.com<o:p>=
+</o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!")=1B(B<span lang=3D"EN-US">399-4301<o:p></o:p></span></span></=
+p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!D9Ln8)>e0KFa745\EDB<=1B(B<span lang=3D"EN-US">5672-2<o:p></o:p>=
+</span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B%4%7%C%/=1B(B&qu=
+ot;">=1B$B!!=1B(B<span lang=3D"EN-US">Tel: 0265-85-3385&nbsp; Fax: 0265-85-=
+3398<o:p></o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span lang=
+=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;=1B$B#M#S=1B(B =1B$B=
+%4%7%C%/=1B(B&quot;">=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US"><o:p>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_TY2PR06MB2766BB59330EDB56B4886B75F0480TY2PR06MB2766apcp_--

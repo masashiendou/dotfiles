@@ -1,0 +1,669 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp330998vky;
+        Sat, 20 Feb 2021 00:31:03 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyWhDlRDRfK4F5C4gP+2yiuMyD9tDYF7f4G6siYDIK95QkORupQVAyXq8p3Ts57HgHuYdos
+X-Received: by 2002:a05:622a:1d1:: with SMTP id t17mr12235447qtw.305.1613809862873;
+        Sat, 20 Feb 2021 00:31:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613809862; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PdZVohiH8pT4u1iH3zEX68972FftnfLMNQNkW9u3OQXPzycYt7N9zUcJ8e1DegzcSq
+         fbMrxRvVU+NV6hlRLCWPLaunUD6HgkWxBKEL6BRtXbNCYPLLCJDqqVJkdkBcU3et38iQ
+         0fP6qewImXpVqBlpZACgB4gpRS8fTE5HOo0HUZAAjuUdnOAcrOswgVw1WnCQITOed2RU
+         4fQDIWm+ZxMY8gX7r+QfLJtPDcosCWOXfoBHzWbhb64JDAO5apOcFPQli2rpVwPJUBhv
+         H7A2V5z5xs3cg8lJes1siis7OzXdEkIqytcZ/FKwVtoabj5tK8zGI4ejhzMyyShI7vyR
+         r3fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:auto-submitted:mime-version:message-id:subject:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=bAIH+V6l+blxaHDnuW/hhuXYOWK18im37ftKTAAu6Tk=;
+        b=OOYx8mPaJkeB1PAgpJy9WmVWOk012lvcWJTNqNVHR8wpM0tJ7u+6RpzcK+Kkth8coJ
+         MzsEIi9Kc/hUK++dSdH87Cf6JjgowpWln0YurSTkkPkWrM076r81FRz3N19eA8mKjy+W
+         i4s6V49fJ27x7b/Bg7XN1Dbmra/hGVjWKKO4z7o1WQf4tAziQkuPJdJyIU+eyyHxcFvp
+         qSYqA9x+oz2ZXYvmX/n4gggpjR0Xpn0GyEUIhtuFTtNbqE7wCcZquxnGw9UOQ/fuKK6w
+         +UW83xJ6o6l9J7LyKEFHNMdcHlLWWgg+A1qP449m0LKaSnptrGMnuEjEgdUehUblSr67
+         mquA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@slack.com header.s=s4xolb5s7tnx6yxtrm4adems7glgsuyf header.b=WKW7xZZ7;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=ZasVgEeq;
+       spf=pass (google.com: domain of 01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@mail.slack.com designates 54.240.37.228 as permitted sender) smtp.mailfrom=01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@mail.slack.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=slack.com
+Return-Path: <01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@mail.slack.com>
+Received: from a37-228.smtp-out.amazonses.com (a37-228.smtp-out.amazonses.com. [54.240.37.228])
+        by mx.google.com with ESMTPS id j32si6183349qva.117.2021.02.20.00.31.02
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Sat, 20 Feb 2021 00:31:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@mail.slack.com designates 54.240.37.228 as permitted sender) client-ip=54.240.37.228;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@slack.com header.s=s4xolb5s7tnx6yxtrm4adems7glgsuyf header.b=WKW7xZZ7;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=ZasVgEeq;
+       spf=pass (google.com: domain of 01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@mail.slack.com designates 54.240.37.228 as permitted sender) smtp.mailfrom=01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@mail.slack.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=slack.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=s4xolb5s7tnx6yxtrm4adems7glgsuyf; d=slack.com; t=1613809862;
+	h=From:Reply-To:To:Subject:Message-ID:Content-Type:MIME-Version:Date;
+	bh=Q2+OpyMIILgW83XE7MqQU00zv1Fk34D3C/VacFVp9RI=;
+	b=WKW7xZZ7f423SDilu67AkcHobR+c9Wgz4y+xN9p+2fQ7FW1IDJTu9MdXagTgZgsj
+	sJkvz+PV03FeftTxeKWJhVgc8+1YcxltYgNWaVm9wFP9WXoP92+eUaICbRSlEeD1rlS
+	6OCYhZ/9RXhIcqkudOPAAj62oGo7ZdX5uMq/p5J4=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1613809862;
+	h=From:Reply-To:To:Subject:Message-ID:Content-Type:MIME-Version:Date:Feedback-ID;
+	bh=Q2+OpyMIILgW83XE7MqQU00zv1Fk34D3C/VacFVp9RI=;
+	b=ZasVgEeq5YqFFnLVfwC9vVPKlYP15XO+Ew+YOz9yXNKb1hPFTDtqtQ9dBbzb1KdA
+	ymPir9b9XByrGAhVlhjP/ouiRanaxFjXsKfPo9qe94yzHRn6ZV8V780vG1vxL2hF9iM
+	sYQ7aEYImcBL2C+fowRNjhJKdh5aOxrCocTc1c8A=
+From: Slack <feedback@slack.com>
+Reply-To: no-reply@slack.com
+To: "" <hujyorom@gmail.com>
+Subject: Eddie Welker has invited you to work with them in Slack
+Message-ID: <01000177be904768-424d0818-a6db-41b7-9d82-e76be47fbc35-000000@email.amazonses.com>
+Content-Type: multipart/alternative;
+ boundary="=_4d08f796-fc13-4787-a7b3-fc404356e625"
+MIME-Version: 1.0
+X-Slack-Team-ID: T0B3P7TQC
+X-Slack-Email-Template: welcome_email_invite
+Auto-Submitted: auto-generated
+X-Slack-Message-ID: ob-aaaaaauxdyk2iexkqdimlvo4ae
+Date: Sat, 20 Feb 2021 08:31:02 +0000
+X-SES-Outgoing: 2021.02.20-54.240.37.228
+Feedback-ID: 1.us-east-1.kwXgUBITdY2w2KyDhc4cKlXKai8tXy8Sx50cu3XZbqE=:AmazonSES
+
+--=_4d08f796-fc13-4787-a7b3-fc404356e625
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Join your team on Slack
+
+Eddie Welker (eddie.welker@gmail.com) has invited you to use Slack with the=
+m, in a workspace called Python Community.
+
+Workspace name: Python Community
+
+python-community.slack.com []
+
+Join Now [https://join.slack.com/t/python-community/invite/enQtMTc3NTA3MzQ1=
+NTkzOS04M2YzY2M4OGE4M2E4NTY4MWI2ZGVjYTc0MjBmNjMyMzQ4ZjEwOWNjMDhkZmQyMTAxNzJ=
+mZDM1OTJlNzgzYzM1?x=3Dx-p11125265828-11663106145-1787497113089]
+
+Eddie Welker and 6,825 others have already joined
+
+[Profile picture of Matt Rasband.][Profile picture of cstrap.][Profile pict=
+ure of nikivi.][Profile picture of John Hess.][Profile picture of Scott M.]=
+[Profile picture of Joel Stanner.][Profile picture of Phil Vacca.][Profile =
+picture of Eddie Welker.]
+
+What is Slack?
+
+Slack is a messaging app for teams, a place you can collaborate on projects=
+ and organize conversations =E2=80=94 so you can work together, no matter w=
+here you are. Learn more about Slack [https://python-community.slack.com/x-=
+p11125265828-11663106145-1787497113089/?utm_medium=3Demail&utm_source=3Dinv=
+itation-to-join]
+--=_4d08f796-fc13-4787-a7b3-fc404356e625
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns=3D"http://www.w3.org/1999/xht=
+ml"><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dutf-8"><meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-=
+scale=3D1.0"><link href=3D"https://fonts.googleapis.com/css?family=3DLato:4=
+00,700,900" rel=3D"stylesheet"><title>Eddie Welker has invited you to work =
+with them in Slack</title><style type=3D"text/css">/* Global Resets */
+	body, .background_main, p, table, td, div { font-family: 'Lato', 'Helvetic=
+a Neue', Helvetica, Arial, sans-serif; }
+
+	img {
+		border: none;
+		-ms-interpolation-mode: bicubic;
+		max-width: 100%;
+	}
+
+	p {padding-bottom: 2px;}
+
+	body {
+		background: #fff;
+		font-size: 17px;
+		line-height: 24px;
+		margin: 0;
+		padding: 0;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	table {
+		border-collapse: collapse;
+		mso-table-lspace: 0pt;
+		mso-table-rspace: 0pt;
+		width: 100%;
+	}
+
+	td {
+		font-size: 17px;
+		line-height: 24px;
+		vertical-align: top;
+	}
+
+	/* Footer */
+	.email_footer td, .email_footer p, .email_footer span, .email_footer a {
+		font-size: 15px;
+		text-align: center;
+		color: #434245;
+	}
+
+	.email_footer td {padding-top: 20px;}
+
+	.preheader {
+		display: none;
+		mso-hide: all;
+	}
+
+	/* Typography */
+	h1, h2, h3, h4 {
+		color: #434245;
+		font-weight: 400;
+		line-height: 1.4;
+		margin: 0;
+		margin-bottom: 12px;
+	}
+
+	h1 {
+		font-size: 30px;
+		line-height: 36px;
+		font-weight: 900;
+		letter-spacing: -.75px;
+		text-align: left;
+	}
+
+	p, ul, ol {
+		font-size: 17px;
+		line-height: 24px;
+		font-weight: normal;
+		margin: 0;
+		margin-bottom: 15px;
+	}
+
+	p li, ul li, ol li {
+		list-style-position: inside;
+		margin-left: 5px;
+	}
+
+	a {
+		color: #3498db;
+		text-decoration: none;
+	}
+
+	a:hover {text-decoration: underline;}
+
+	.button_link::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-radius: 4px;
+	}
+
+	.button_link:hover::after {
+		box-shadow: inset 0 -2px #237c4a;
+	}
+
+	.button_link.is_secondary:hover::after {
+		box-shadow: none;
+	}
+
+	.button_link.plum:hover {
+		background-color: #4a154b !important;
+		border-color: #4a154b !important;
+	}
+
+	.button_link_wrapper.plum:hover {
+		background-color: #4a154b !important;
+	}
+
+	.button_link.plum:hover::after {
+		box-shadow: none;
+	}
+
+	.preview_text {
+		color: transparent;
+		display: none;
+		height: 0;
+		max-height: 0;
+		max-width: 0;
+		opacity: 0;
+		overflow: hidden;
+		mso-hide: all;
+		visibility: hidden;
+		width: 0;
+		font-size: 1px;
+		line-height:1px;
+	}
+
+	.preview_text a {
+		color: #3AA3E3 !important;
+		font-weight: bold;
+	}
+
+	/* Responsive and Mobile Friendly Styles */
+	/* Yahoo Mail has a history of rendering all media query styles with class=
+ selectors unless class is used as an attribute */
+	@media only screen and (max-width: 600px) {
+		table[class=3D"background_main"] .sm_full_width {
+			width: 100% !important;
+		}
+		table[class=3D"background_main"] .sm_90_percent_width {
+			width: 90% !important;
+			padding: 16px !important;
+			text-align: center !important;
+			float: none !important;
+		}
+		table[class=3D"background_main"] .sm_side_padding {
+			padding-right: 8px !important;
+			padding-left: 8px !important;
+			float: none !important;
+		}
+		table[class=3D"background_main"] .sm_small_top_padding {
+			padding-top: 8px !important;
+		}
+		table[class=3D"background_main"] .sm_top_padding {
+			padding-top: 16px !important;
+		}
+		table[class=3D"background_main"] .sm_auto_width {
+			width: auto !important;
+		}
+		table[class=3D"background_main"] .sm_auto_height {
+			height: auto !important;
+		}
+
+		table[class=3D"background_main"] .sm_border_box {
+			box-sizing: border-box !important;
+		}
+
+		table[class=3D"background_main"] .sm_block {
+			display: block !important;
+		}
+		table[class=3D"background_main"] .sm_inline_block {
+			display: inline-block !important;
+		}
+		table[class=3D"background_main"] .sm_table {
+			display: table !important;
+		}
+
+		table[class=3D"background_main"] .sm_no_side_padding {
+			padding-right: 0 !important;
+			padding-left: 0 !important;
+		}
+		table[class=3D"background_main"] .sm_no_border_radius {
+			border-radius: 0 !important;
+		}
+		table[class=3D"background_main"] .sm_no_padding {
+			padding-right: 0 !important;
+			padding-left: 0 !important;
+		}
+		table[class=3D"background_main"] .sm_os_icons_height {
+			/* this is to make the parent element the same height as the inline-bloc=
+k img inside */
+			height: 44px;
+		}
+		.social_img_bottom_margin {
+			/*this class is for social_user_outreach email only*/
+			margin-bottom: 20px !important;
+		}
+		.social_p_bottom_margin {
+			/*this class is for social_user_outreach email only*/
+			margin-bottom: 40px !important;
+		}
+	}
+
+	/* More client-specific styles */
+	@media all {
+		.ExternalClass {
+			width: 100%;
+		}
+		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass fon=
+t, .ExternalClass td, .ExternalClass div {
+			line-height: 100%;
+		}
+		.email_footer a {
+			color: #434245 !important;
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: inherit !important;
+			line-height: inherit !important;
+			text-decoration: none !important;
+		}
+	}
+	a:hover {
+		text-decoration: underline !important;
+	}
+
+	pre, code {
+		--saf-0: rgba(var(--sk_foreground_low, 29, 28, 29), 0.13);
+		border: 1px solid var(--saf-0);
+		background: rgba(var(--sk_foreground_min, 29, 28, 29), 0.04);
+		font-family: 'Monaco', 'Menlo', 'Consolas', 'Courier New', monospace !imp=
+ortant;
+		font-size: 12px;
+		line-height: 1.50001;
+		font-variant-ligatures: none;
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		word-break: normal;
+		-webkit-tab-size: 4;
+		-moz-tab-size: 4;
+		-o-tab-size: 4;
+		tab-size: 4;
+	}
+
+	code {
+		color: #e01e5a;
+		padding: 2px 3px 1px;
+		border-radius: 3px;
+	}
+
+	pre {
+		margin-bottom: 16px;
+		padding: 8px;
+		border-radius: 4px;
+	}
+
+	blockquote {
+		position: relative;
+		margin-bottom: 16px;
+		padding-left: 16px;
+		border-left: rgba(var(--sk_foreground_low_solid, 221, 221, 221), 1);
+		border-left-width: 4px;
+		border-left-style: solid;
+	}
+</style></head><body><div class=3D"preheader plaintext_ignore" style=3D"fon=
+t-size: 1px; display: none !important;">Join your team on Slack. <strong>Ed=
+die Welker</strong> (<a href=3D"mailto:eddie.welker@gmail.com">eddie.welker=
+@gmail.com</a>) has invited you to use Slack with them, in a workspace call=
+ed <strong>Python Community</strong>.</div><div class=3D"plaintext_ignore" =
+style=3D"display: none; max-height: 0px; overflow: hidden;"> =C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0 =C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=
+=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=
+=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=
+=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0 </div><!=
+--[if mso]><style type=3D"text/css">.background_main, table, table td, p, d=
+iv, h1, h2, h3, h4, h5, h6 {
+								font-family: Arial, sans-serif !important;
+							}</style><![endif]--><table style=3D"background-color: #ffffff; padd=
+ing-top: 20px;color: #434245;width: 100%;-webkit-font-smoothing:antialiased=
+; -moz-osx-font-smoothing:grayscale;   border: 0; text-align: center; borde=
+r-collapse: collapse;" class=3D"background_main"><tr><td style=3D"vertical-=
+align: top; padding: 0"><center><table id=3D"body" class=3D"card" style=3D"=
+border: 0; border-collapse: collapse; margin: 0 auto; background: white; bo=
+rder-radius: 8px; margin-bottom: 16px;"><tr><td style=3D"width: 546px; vert=
+ical-align: top; padding-top: 32px"><div style=3D"max-width: 600px; margin:=
+ 0 auto;"><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><img width=3D"120" height=3D"36" style=3D"margin-top: 0; margin=
+-right: 0; margin-bottom: 32px; margin-left: 0px; padding-right: 30px; padd=
+ing-left: 30px;" src=3D"https://python-community.slack.com/x-p11125265828-1=
+1663106145-1787497113089/img/slack_logo_240.png" alt=3D""><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><h1 style=3D"font-size: 30px; padding-right: 30px; padding-left=
+: 30px;">Join your team on Slack</h1><p style=3D"font-size: 17px; padding-r=
+ight: 30px; padding-left: 30px;"><strong>Eddie Welker</strong> (<a href=3D"=
+mailto:eddie.welker@gmail.com">eddie.welker@gmail.com</a>) has invited you =
+to use Slack with them, in a workspace called <strong>Python Community</str=
+ong>.</p><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><div style=3D"padding-right: 30px; padding-left: 30px; padding-=
+bottom: 30px;"><h4 class=3D"plaintext_only" style=3D"display: none">Workspa=
+ce name: Python Community</h4><table style=3D"table-layout: fixed; border: =
+1px solid #A0A0A2; border-radius: 8px; padding: 40px 0; margin-top: 20px; w=
+idth: 100%; border-collapse: separate; text-align: center"><tr><td style=
+=3D"vertical-align: middle;"><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"38">
+<![endif]--><img src=3D"https://avatars.slack-edge.com/2015-09-22/111252632=
+99_19f28e4718f02b72036b_88.jpg" style=3D"height: 38px; width: 38px; min-wid=
+th: 38px; border-radius: 4px; color: #FFFFFF; font-size: 18px; line-height:=
+ 38px; mso-line-height-rule: exactly; mso-text-raise: 10px;margin: auto" al=
+t=3D""><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"420">
+<![endif]--><h3 class=3D"plaintext_ignore" style=3D"font-weight: 900; paddi=
+ng-top: 10px; margin-bottom: 7px; font-size: 21px; font-size: 21px; margin-=
+bottom: 2px; width: 70%; margin: auto; text-align: center; margin-top: 0;">=
+Python Community</h3><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><h4 style=3D"margin-bottom: 2px;font-size: 17px; margin-bottom:=
+ 12px;"><a style=3D"white-space: nowrap; color: #717274; text-decoration: n=
+one !important;">python-community.slack.com</a></h4><table style=3D"width: =
+100%; text-align: center;" class=3D"sm_table"><tr style=3D"width: 100%;"><t=
+d style=3D"width: 100%;"><span style=3D"display: inline-block; position:rel=
+ative; border-radius:4px; background-color:#611f69; " class=3D"button_link_=
+wrapper plum"><a class=3D"button_link  plum" href=3D"https://join.slack.com=
+/t/python-community/invite/enQtMTc3NTA3MzQ1NTkzOS04M2YzY2M4OGE4M2E4NTY4MWI2=
+ZGVjYTc0MjBmNjMyMzQ4ZjEwOWNjMDhkZmQyMTAxNzJmZDM1OTJlNzgzYzM1?x=3Dx-p1112526=
+5828-11663106145-1787497113089" style=3D"border-top:13px solid; border-bott=
+om:13px solid; border-right:24px solid; border-left:24px solid; border-colo=
+r:#611f69; border-radius:4px; background-color:#611f69; color:#ffffff; font=
+-size:16px; line-height:18px; word-break:break-word;  display: inline-block=
+; text-align: center; font-weight: 900; text-decoration: none !important;">=
+Join Now</a></span></td></tr></table><div style=3D"margin-top: 16px; displa=
+y: block; border-top: 1px solid #E1E1E4; padding-top: 16px; padding-bottom:=
+ 16px; margin-left: 24px; margin-right: 24px; text-align: center"><h4 style=
+=3D"font-size: 17px;font-weight: 900;">Eddie Welker and 6,825 others have a=
+lready joined</h4><img src=3D"https://avatars.slack-edge.com/2015-10-06/119=
+88618517_32d9e3626e2e0ca15f2a_72.jpg" height=3D"40" width=3D"40" style=3D"h=
+eight: 40px; width: 40px; border-radius: 4px; margin-right: 8px; " alt=3D"P=
+rofile picture of Matt Rasband." title=3D"Profile picture of Matt Rasband."=
+><img src=3D"https://avatars.slack-edge.com/2015-10-02/11777045216_42789253=
+a5d755820088_72.jpg" height=3D"40" width=3D"40" style=3D"height: 40px; widt=
+h: 40px; border-radius: 4px; margin-right: 8px; " alt=3D"Profile picture of=
+ cstrap." title=3D"Profile picture of cstrap."><img src=3D"https://avatars.=
+slack-edge.com/2018-06-18/384423727254_9398659d5db5101f994b_72.jpg" height=
+=3D"40" width=3D"40" style=3D"height: 40px; width: 40px; border-radius: 4px=
+; margin-right: 8px; " alt=3D"Profile picture of nikivi." title=3D"Profile =
+picture of nikivi."><img src=3D"https://avatars.slack-edge.com/2015-12-04/1=
+5962340755_56993f0a2a6d75e1a7eb_72.jpg" height=3D"40" width=3D"40" style=
+=3D"height: 40px; width: 40px; border-radius: 4px; margin-right: 8px; " alt=
+=3D"Profile picture of John Hess." title=3D"Profile picture of John Hess.">=
+<img src=3D"https://avatars.slack-edge.com/2018-07-17/399867344162_0bfc12ab=
+df294d9782dc_72.jpg" height=3D"40" width=3D"40" style=3D"height: 40px; widt=
+h: 40px; border-radius: 4px; margin-right: 8px; " alt=3D"Profile picture of=
+ Scott M." title=3D"Profile picture of Scott M."><img src=3D"https://avatar=
+s.slack-edge.com/2016-01-12/18361744787_806f89ce7c0f341857cb_72.png" height=
+=3D"40" width=3D"40" style=3D"height: 40px; width: 40px; border-radius: 4px=
+; margin-right: 8px; " alt=3D"Profile picture of Joel Stanner." title=3D"Pr=
+ofile picture of Joel Stanner."><img src=3D"https://avatars.slack-edge.com/=
+2015-10-08/12180933733_4fc53d5795a7f5cf8546_72.jpg" height=3D"40" width=3D"=
+40" style=3D"height: 40px; width: 40px; border-radius: 4px; margin-right: 8=
+px; " alt=3D"Profile picture of Phil Vacca." title=3D"Profile picture of Ph=
+il Vacca."><img src=3D"https://secure.gravatar.com/avatar/503da17c6c06585c6=
+1bc0f82523af5df.jpg?s=3D72&amp;d=3Dhttps%3A%2F%2Fa.slack-edge.com%2Fdf10d%2=
+Fimg%2Favatars%2Fava_0008-72.png" height=3D"40" width=3D"40" style=3D"heigh=
+t: 40px; width: 40px; border-radius: 4px; margin-right: 8px; " alt=3D"Profi=
+le picture of Eddie Welker." title=3D"Profile picture of Eddie Welker."></d=
+iv></td></tr></table></div><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--><!--[if mso]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"padding: 0=
+; margin: 0; width: 100%;">
+    <tr>
+        <td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; =
+height: 20px;" height=3D"20">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style=3D"padding: 0; margin: 0;">&nbsp;</td>
+        <td style=3D"padding: 0; margin: 0;" width=3D"540">
+<![endif]--><h1 style=3D"font-size: 24px; padding-right: 30px; padding-left=
+: 30px;">What is Slack?</h1><p style=3D"font-size: 17px; padding-right: 30p=
+x; padding-left: 30px;">Slack is a messaging app for teams, a place you can=
+ collaborate on projects and organize conversations =E2=80=94 so you can wo=
+rk together, no matter where you are. <a style=3D"text-decoration: underlin=
+e !important;" href=3D"https://python-community.slack.com/x-p11125265828-11=
+663106145-1787497113089/?utm_medium=3Demail&utm_source=3Dinvitation-to-join=
+">Learn more about Slack</a></p><!--[if mso]>
+		</td>
+		<td style=3D"padding: 0; margin: 0; font-size: 20px; height: 20px;">&nbsp=
+;</td>
+	</tr>
+	<tr>
+		<td colspan=3D"3" style=3D"padding: 0; margin: 0; font-size: 20px; height=
+: 20px; height: 20px;">&nbsp;</td>
+	</tr>
+</table>
+<![endif]--></div></td></tr></table></center></td></tr><tr><td class=3D"ema=
+il_footer" style=3D"font-size: 15px;color: #717274;text-align: center;width=
+: 100%;"><table style=3D"margin: 20px auto 0; background-color: white; bord=
+er: 0; text-align: center; border-collapse: collapse;"><tr><td>=C2=A0</td><=
+td><span style=3D"display: block; color: #1D1C1D; font-size: 15px;"> Made b=
+y <a href=3D"https://slack.com" style=3D"text-decoration: none; color: #1D1=
+C1D;">Slack Technologies, Inc</a>
+                <br/>
+                500 Howard Street&nbsp;|&nbsp;San&nbsp;Francisco,&nbsp;CA&n=
+bsp;94105&nbsp;|&nbsp;United States </span></td><td>=C2=A0</td></tr><tr><td=
+>=C2=A0</td><td style=3D"font-size: 15px; padding: 16px 8px 24px; vertical-=
+align: top; text-align: center;"><span><a href=3D"https://slackhq.com" styl=
+e=3D"color: #1D1C1D; text-decoration: underline !important;">Our Blog</a> =
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <a href=3D"https://slack.com/legal" st=
+yle=3D"color: #1D1C1D; text-decoration: underline !important;">Policies</a>=
+</span></td></tr></table></td></tr></table></body></html>
+--=_4d08f796-fc13-4787-a7b3-fc404356e625--

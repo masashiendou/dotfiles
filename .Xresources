@@ -1,0 +1,93 @@
+! URxvt.font: \
+! 	xft:Noto Sans Mono:size=10, \
+! 	xft:IPAGothic:size=10
+! URxvt.font: \
+! 	xft::size=10, \
+! 	xft:IPAGothic:size=10
+URxvt.font: \
+	xft:Hack:size=9, \
+	xft:IPAGothic:size=9
+URxvt.scrollBar: false
+URxvt.pointerBlank: true
+URxvt.cursorUnderline: true
+URxvt.cursorBlink: true
+URxvt.cursorColor: #ffffff
+! URxvt.cursorColor: #00ad9c
+! URxvt.cursorColor: #df00ff
+URxvt.pointerBlankDelay: 1
+! URxvt.pointerShape: gumby
+URxvt.transparent: true
+! URxvt.shading: 40
+URxvt.shading: 20
+! URxvt.shading: 50
+URxvt.fading: 30
+URxvt.fadeColor: black
+
+*background: #19171c
+!!*foreground: #8b8792
+*foreground: #bcbcbc
+
+!! black
+*color0: #1b1918
+*color8: #766e6b
+!! red
+*color1: #f22c40
+*color9: #f22c40
+!! green
+*color2: #5ab738
+*color10: #5ab738
+!! yellow
+*color3: #d5911a
+*color11: #d5911a
+!! blue
+*color4: #407ee7
+*color12: #407ee7
+!! magenta
+*color5: #6666ea
+*color13: #6666ea
+!! cyan
+*color6: #00ad9c
+*color14: #00ad9c
+!! white
+*color7: #a8a19f
+*color15: #f1efee
+
+URxvt.colorIT: #8ec07c
+URxvt.colorBD: #fe8019
+URxvt.colorUL: #83a598
+
+URxvt.intensityStyles:	false
+
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,-searchable-scrollback,new-window
+! URxvt.perl-ext-common:	default,matcher,resize-font,url-select,-searchable-scrollback
+! URxvt.perl-ext-common:	default,matcher,resize-font,-searchable-scrollback
+!! URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+!! url-select
+URxvt.new-window: urxvt
+! URxvt.url-launcher:	urxvt
+URxvt.url-select.autocopy: true
+! URxvt.url-select.launcher:	urxvt|w3m https://www.google.com
+! URxvt.url-select.launcher:	qutebrowser < &1<2
+! URxvt.url-launcher:	firefox
+URxvt.url-launcher:	qutebrowser
+!! URxvt.urlLauncher:	/usr/bin/w3m > /home/kanda/.urxvt/test.txt 2>&1
+!! URxvt.url-launcher:	w3m
+! URxvt.keysym.M-u:	perl:url-select:select_next
+! URxvt.url-select.launcher: /usr/bin/urxvt
+!! URxvt.url-select.launcher: /usr/bin/w3m
+!! URxvt.url-select.launcher: /usr/bin/w3m > /home/kanda/.urxvt/test.txt 2>&1
+! URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.url-select.underline: true
+! URxvt.matcher.button: 1
+!! URxvt.url-select.launcher: /usr/bin/firefox
+!! keyboard-select:
+!! URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+!! URxvt.resize-font.smaller:	C-Down
+!! URxvt.resize-font.bigger:	C-Up
+URxvt.keysym.C-Down: resize-font:smaller
+URxvt.keysym.C-Up: resize-font:bigger
+URxvt.resize-font.step: 1
+!! Matcher
+!! URxvt.url-launcher:	/usr/bin/firefox

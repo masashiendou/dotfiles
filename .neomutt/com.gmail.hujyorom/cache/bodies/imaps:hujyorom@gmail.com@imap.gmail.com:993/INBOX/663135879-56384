@@ -1,0 +1,732 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp7021901vkh;
+        Tue, 12 Oct 2021 19:18:11 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJz/HnrZy0pJ2r+nWv+X4qs0WJRMZG2WW6ZXEfRySJFjVMcao2hayEy/i1wPbn+MZyI68wIF
+X-Received: by 2002:a05:6830:30ba:: with SMTP id g26mr17660000ots.32.1634091491333;
+        Tue, 12 Oct 2021 19:18:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1634091491; cv=none;
+        d=google.com; s=arc-20160816;
+        b=YsaeM873X9QSpDaf/giYEM/V7V5qhErvoki0bc1MIRERr2sy1SYZVpCxt1Wtu8jsk9
+         /6KcOKsCBsuUNf5CjwHym0vMYxxLFh3rMFr8nS/fWn+lscPBmmffa2eInTW5DaMyd2Lf
+         TqVmBV8Jrl2S+NbpAREVNDiVo2E5UswQfxKoNAbkq8KRS/RKKjfcpWzXQXQ18MYqNU77
+         tYZ3rqJYooR096Cgd7RKwkyxkCD/NeRvZTNALCh3LHVfQ9vON0y93BUy7ul9xjSnLQCT
+         9PkI+2JrqCYtJPUky/bePBPw4qVS7ZFYNz9YPhjPEBrBGy4mDqxRXL0R3J+leBu8aRby
+         NyuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=QY5kLHgS4NygWUE2dz5FPWkxAowtZDuZBeM2JWmuBsU=;
+        b=V9UHHDtrx2MEZ5soLudrIHXP8EiEaglef6qUq5vIwJAfVxQirgByYL+Lt4tf5Gx+fa
+         //pCRCTl4rD63w7xcZMyj9/svAaNBpkLzuqX67B76iydxlW8h6wDe8MKfoFnBK63aqAQ
+         oPH4qdE2a6DY+KHDi2RJ62odKkMyBFGifzlpElaA7qjYaHGPEeLbF5M6xA/wPmi0vg7Q
+         NsmrOC8qUHTzakxIzQoau1qJ12kiUtRWUqNeGx0oN3eRtRshROQsM29R+EbELFzu24MA
+         xriZ1QDbJwA5inzULuf4Nbun4LaSAM+HMFRWM+TQkEln6JBF1UG+rtAkggGVMnrgdrID
+         CinA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@microsoft.regsvc.com header.s=ec header.b=cTvCBzlK;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=TSD+L3nc;
+       spf=pass (google.com: domain of bounces+9793797-6e69-hujyorom=gmail.com@activity.microsoft.regsvc.com designates 168.245.5.19 as permitted sender) smtp.mailfrom="bounces+9793797-6e69-hujyorom=gmail.com@activity.microsoft.regsvc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=microsoft.regsvc.com
+Return-Path: <bounces+9793797-6e69-hujyorom=gmail.com@activity.microsoft.regsvc.com>
+Received: from o47.stats.microsoft.regsvc.com (o47.stats.microsoft.regsvc.com. [168.245.5.19])
+        by mx.google.com with ESMTPS id e11si13101302oti.16.2021.10.12.19.18.10
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Oct 2021 19:18:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+9793797-6e69-hujyorom=gmail.com@activity.microsoft.regsvc.com designates 168.245.5.19 as permitted sender) client-ip=168.245.5.19;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@microsoft.regsvc.com header.s=ec header.b=cTvCBzlK;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=TSD+L3nc;
+       spf=pass (google.com: domain of bounces+9793797-6e69-hujyorom=gmail.com@activity.microsoft.regsvc.com designates 168.245.5.19 as permitted sender) smtp.mailfrom="bounces+9793797-6e69-hujyorom=gmail.com@activity.microsoft.regsvc.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=microsoft.regsvc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.regsvc.com;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	x-feedback-id:to;
+	s=ec; bh=QY5kLHgS4NygWUE2dz5FPWkxAowtZDuZBeM2JWmuBsU=;
+	b=cTvCBzlK16XDUo5hoA7neC8NonjVIEuP0/Re/uagHBK5dvIU6TZ2zARPT1Wd1Ao1iV3e
+	TB+SG+t0GT6I+gCq46nm3UzPbHNho/JjILOjWXTLFUiixlCfxK7dgDYp66GF0lsZLXBpgQ
+	8G5mujTCWJNrdjBUQVrCSXmRFf5tt8066GuCt0Qxckt5gL7K4ARLcdi3Vx4XdfoLZNRXE7
+	GK86ziPSvZZSiSYi/eWQn+nxcUlMBRujA0Q+dNXc+AVJQ1lM6OFKwvj0q9fGJpd0QxZ+9U
+	uYJsV1uErk+AKW3BRFwFurMbgE/X2DR3iqXCG9ELkPt3X/V+D2fLwwjYasccwpNQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	x-feedback-id:to;
+	s=smtpapi; bh=QY5kLHgS4NygWUE2dz5FPWkxAowtZDuZBeM2JWmuBsU=;
+	b=TSD+L3ncwiQzNmLZUuGdi5FQjVIimAxkOBP1ngELg6EVWjfnVeUaLAh0We/Nuk+vB5vn
+	h99pPJnQGIW8NJ+2ibiGdsXlVCN6JmfERd8mCW9y5s8zcSkoq00XXrp6E+s6cbV/MHnIWr
+	5HC2aNPhrAIEHgKl93QvVj5dnVOona8Nw=
+Received: by filterdrecv-7495dc4f9-qszbr with SMTP id filterdrecv-7495dc4f9-qszbr-1-616641E1-19
+        2021-10-13 02:18:09.434092158 +0000 UTC m=+3556629.524123009
+Received: from OTc5Mzc5Nw (unknown)
+	by geopod-ismtpd-3-0 (SG) with HTTP
+	id Nrg7IhRGQT-r-sBKOrKk-A
+	Wed, 13 Oct 2021 02:18:09.132 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Wed, 13 Oct 2021 02:18:09 +0000 (UTC)
+From: Microsoft Ignite <microsoftignite@microsoft.regsvc.com>
+Mime-Version: 1.0
+Message-ID: <Nrg7IhRGQT-r-sBKOrKk-A@geopod-ismtpd-3-0>
+Subject: You have successfully registered for Microsoft Ignite!
+X-Feedback-ID: 9793797:SG
+X-SG-EID: 
+ =?us-ascii?Q?4m3mfVhje6RDNYP7g29g7VqR0PL5AyxSsZoMqVP0ea1ANXHBoWHmk+AO=2FX+ltO?=
+ =?us-ascii?Q?Z9QAlbJthzeyP2pRza6CBgFIHVMrczglgdIffru?=
+ =?us-ascii?Q?hcJcF4anPlq4Un3vjoTN8v0MmZqaxk0gsojU7lN?=
+ =?us-ascii?Q?C9c+5J9ocDj35yjfQFUETvu5lf7fDV8eaGuR8tS?=
+ =?us-ascii?Q?q5PVrw8sBj76lWheTrJRl13IJcGbuTt1Ko0JQG2?=
+ =?us-ascii?Q?kx5lm5aCweRgoAWxARL9AIqa5LhSonyv8s2TUWc?=
+ =?us-ascii?Q?XbbRCrOArmMZNq0b9LOfg=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJoybIRQTdtWFHBxMuvrw?=
+ =?us-ascii?Q?jpMVHUeP0SPGqyhrN0ZSIP2JHKiIDcf4kFqOh7G?=
+ =?us-ascii?Q?+XqdkP+F0zsPRT0KbEwOkQiUga9wzxbJNpqB4Zd?=
+ =?us-ascii?Q?Jm6PQLQKxA=3D=3D?=
+To: hujyorom@gmail.com
+X-Entity-ID: 2NXO0ap4GeSZdnNyKrk5Gw==
+
+<!--
+    **UPDATE** | search for **UPDATE** throughout the html template to find=
+ important styles & settings that must be updated or reviewed when building=
+ a mail.
+    SUBJECT: You have successfully registered for Microsoft Ignite!
+    MAIL CATEGORY -- ONLY FOR EXTERNAL MS EVENTS: Transactional
+    ACTION: Registered
+    DESCRIPTION:
+    SENDING NOTES:
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml"
+      xmlns:v=3D"urn:schemas-microsoft-com:vml"
+      xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <!-- <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+iso-8859-1"/> -->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+" />
+    <meta name=3D"format-detection" content=3D"telephone=3Dno" />
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width; initial-scale=
+=3D1.0; maximum-scale=3D1.0; user-scalable=3Dno;" />
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3D9; IE=3D8; IE=3D7;=
+ IE=3DEDGE" />
+    <link rel=3D"icon" type=3D"image/png" href=3D"https://ustproduction.blo=
+b.core.windows.net/eventcore/icons/msft-favicon.ico" sizes=3D"128x128" /> <=
+!-- **UPDATE** favicon here. You must link to an .ico file and update the s=
+izes attribute to the dimensions of the file. -->
+    <title>You have successfully registered for Microsoft Ignite!</title> <=
+!-- **UPDATE** accessibility/page title here. Use the subject line as page =
+title if not specified by client. -->
+    <style type=3D"text/css">
+        /* Prevents email clients from resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        /* Removes space around the email design added by some email client=
+s. Note that it can remove the padding / margin and add a background color =
+to replies. */
+        html,
+        body,
+        center {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            font-size: 16px;
+            background-color: #ffffff; /* **UPDATE** background color here.=
+ You must update 3 more instances of background-color: #ffffff; below, star=
+ting at the opening body tag. Always use a 6-character hex code to declare =
+color in HTML email. */
+            word-break: break-word;
+        }
+        /* Centers email on Android 4.4. */
+        div[style*=3D"margin: 16px 0"] {
+            margin: 0 !important;
+        }
+        /* Fixes webkit padding issue. */
+        table {
+            border: 0;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        /* Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+        body,=20
+        table {
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif; /* **UPD=
+ATE** font stack here. */
+            /* For non-MS events, replace font stack with "font-family: Ari=
+al, Helvetica, sans-serif;", or another font stack. */
+            font-size: 16px;
+            color: #4d4d4d; /* **UPDATE** heading text color here. Always u=
+se a 6-character hex code to declare color in HTML email. */
+        }
+        /* Forces Samsung Android mail clients to use the entire viewport. =
+*/
+        #MessageViewBody,
+        #MessageWebViewDiv {
+            width: 100% !important;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        a,=20
+        a:link,=20
+        a:visited {
+            text-decoration: none; /* Prevents Windows 10 Mail from underli=
+ning links despite inline CSS. Styles for underlined links should be inline=
+. */
+            color: #D83B01; /* **UPDATE** link color here. Always use a 6-c=
+haracter hex code to declare color in HTML email. */
+        }=20
+        a:hover {
+            text-decoration: underline;
+        }
+        #outlook a {
+            padding: 0;
+            color: #D83B01; /* **UPDATE** link color here and under a. */
+        }
+        img {
+            outline: none;
+            text-decoration: none;
+            border: 0 none;
+            height: auto;
+            line-height: 100%;
+            -ms-interpolation-mode: bicubic; /* Uses a better rendering met=
+hod when resizing images in IE. */
+        }
+        a img {
+            border: 0 none;
+        }
+        /* Some email clients add space below images by default, attach the=
+ .imageFix class to remove the space. */
+        .imageFix {
+            display: block;
+        }
+        /* A work-around for email clients automatically linking certain te=
+xt strings. */
+        /* iOS */
+        a[x-apple-data-detectors],
+        .unstyle-auto-detected-links a,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+        u + #body a,        /* Gmail */
+        #MessageViewBody a  /* Samsung Mail */
+        {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+        /* Prevents Gmail from changing the text color in threads. */
+        .im {
+            color: inherit !important;
+        }
+        /* Prevents Gmail from displaying an download button on large, non-=
+linked images. */
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+        /* If the above doesn't work, add a .g-img class to any image in qu=
+estion. */
+        img.g-img + div {
+            display: none !important;
+        }
+        /* Overwrite Outlook.com's embedded CSS. */
+        table {
+            border-collapse: separate;
+        }
+        h2,
+        h2 a,
+        h2 a:visited,
+        h3,
+        h3 a,
+        h3 a:visited,
+        h4,
+        h5,
+        h6,
+        .t_cht {
+            font-family: "Segoe UI Semibold", "Segoe UI", Arial, Helvetica,=
+ sans-serif; /* **UPDATE** heading font stack here. */
+            color: #4d4d4d !important; /* **UPDATE** heading text color her=
+e. Always use a 6-character hex code to declare color in HTML email. */
+        }
+        /* Centers the email in Outlook.com. */
+        .ExternalClass {
+            width: 100%;
+        }
+        .ExternalClass p,=20
+        .ExternalClass span,=20
+        .ExternalClass font,=20
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+        /* FONT FACES */
+        /* **UPDATE** If using a web font, insert styles here. See doc site=
+ for instructions. */
+    </style>
+    <!-- **UPDATE** fallback font stack below - should match heading/body f=
+ont stacks declared above. -->
+    <!--[if (gte mso 9)|(IE)]>
+        <style type=3D"text/css">
+            body, table, td, a, p, ul, li {font-family: "Segoe UI", Arial, =
+Helvetica, sans-serif !important;}
+            h1, h2, h3 {font-family: "Segoe UI Semibold", "Segoe UI", Arial=
+, Helvetica, sans-serif !important;}
+        </style>
+        <![endif]-->
+    <!-- Helps DPI scaling in Outlook 2007-2013 -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+</head>
+<!-- any 'width' or height' on tables or tds needs to be reiterated with a =
+style=3D"width/height: Xpx;" -->
+<body width=3D"100%" bgcolor=3D"#e6e6e6" style=3D"margin: 0; padding: 0 !im=
+portant; background-color: #e6e6e6; mso-line-height-rule: exactly; word-bre=
+ak: break-word;">
+    <!-- **UPDATE** background color set here for most email clients - you =
+must update 2 more instances of bgcolor=3D"#e6e6e6" and background-color: #=
+e6e6e6; below. -->
+    <center bgcolor=3D"#e6e6e6" style=3D"width: 100%; margin: 0 auto; backg=
+round-color: #e6e6e6;">
+        <!-- **UPDATE** background color set here for Gmail and Inbox mobil=
+e apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcas=
+t, freenet, Mail.ru, Orange.fr -->
+        <!-- **UPDATE** background color set below for Windows 10 Mail -->
+        <!--[if mso | IE]>
+        <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" bgcolor=3D"#e6e6e6" style=3D"background-color: #e=
+6e6e6;">
+        <tr>
+            <td>
+        <![endif]-->
+        <!-- Hidden Preview Text START -->
+        <div style=3D"display: none; font-size: 1px; line-height: 1px; max-=
+height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; f=
+ont-family: sans-serif;">
+            Microsoft Ignite
+            <!-- **UPDATE** if using - (Optional) Insert text outside of th=
+is comment tag to use preview text. Preview text will appear in the inbox p=
+review, but not the email body. In mail clients that support preview text, =
+text character limits vary from 40 - 140 characters depending on the mail c=
+lient. -->
+        </div>
+        <!-- Whether using preview text or not, leave the &zwnj;&nbsp; solu=
+tion below as is - it will either display preview text as white space only =
+or will append the text with white space. -->
+        <div style=3D"display: none; font-size: 1px; line-height: 1px; max-=
+height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; f=
+ont-family: sans-serif;">
+            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;=
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zw=
+nj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;
+        </div>
+        <!-- Hidden Preview Text END -->
+        <div class=3D"email-container" style=3D"max-width: 600px; margin: 0=
+ auto;">
+            <!--[if mso]>
+            <table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0" width=3D"600" align=3D"center">
+            <tr>
+            <td>
+            <![endif]-->
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"max-width: 600px; width: 100%;">
+                <tr>
+                    <td bgcolor=3D"#222222" style=3D"background-color: #222=
+222; font-size: 16px;">
+                        <!-- **UPDATE** change banner bgcolor and backgroun=
+d-color to be a complimentary color of the banner in case the image doesn't=
+ load. -->
+                        <!-- HEADER CONTENT GOES HERE (usually a banner ima=
+ge) -->
+                        <img src=3D"https://1811msignite20prodeast.blob.cor=
+e.windows.net/web/mailBannerSM.png?sp=3Dr&st=3D2021-08-20T18:50:08Z&se=3D20=
+24-06-15T06:59:59Z&spr=3Dhttps&sv=3D2020-08-04&sr=3Dc&sig=3DGsiRdMw0QMfChJI=
+VEuzFHf0tIVsgC3AEOA%2FeaJ4VhFk%3D" width=3D"600" height=3D"auto" alt=3D"Mic=
+rosoft Ignite" style=3D"width: 100%; max-width: 600px; height: auto; displa=
+y: block;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor=3D"#ffffff" style=3D"font-family: 'Segoe UI=
+', Arial, Helvetica, sans-serif; background-color: #ffffff; font-size: 16px=
+; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-botto=
+m: 30px;">
+                        <!-- MAIL CONTENT GOES HERE -->
+                        <!-- You MUST reiterate font and link styling inlin=
+e, including the font-family, font-weight, font-size, font color, margin on=
+ headings and paragraphs, link color, and link decoration. -->
+                       =20
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Dear Masashi Endo,
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Thank you for registering for Microsoft Ignite!=
+ We are excited that you will be joining us on November 2-4 for our all-dig=
+ital event experience. Details about the event, including session informati=
+on, speakers, and daily agendas, are continuously updated <a style=3D"color=
+: #D83B01; text-decoration: underline;" target=3D"_blank" href=3D"http://st=
+ats.microsoft.regsvc.com/ls/click?upn=3DvhfpwUiF7CHrYM7mOM1GER0TeJwtPQg-2Bh=
+FylJPFVPNUxT7kqJVMnLqd4dcHmhQKKT-2FcrS0SvEy1QxWz0hvswCTNwNnb7-2FAZW7UIEEyGD=
+WBekHHuSNT2bHNEjI7BR7gAq6f-2Bk6HlYk3TZX7xnwP4-2B1Q-3D-3D0FYi_rhSNMFNIT1rxdj=
+gOzzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZ=
+ijTcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQc=
+HN2bYv2YByLoifuXr8F9R0-2B1drotrCldpBnVAR5qOEnQKlse-2FyzwL0iBJ490G2sQ3P3yO-2=
+BCPi-2FxtvQ32U9hz-2F6NeHH2pdPcucHPM0U5K55jhjf8LZkF57ZDzJaYchDIo8CKDuH4ajBG6=
+ABGYVejgGnQtAJplfI2nGkj3">on our website</a>. Announcements and updates wil=
+l be provided via email and <a style=3D"color: #D83B01; text-decoration: un=
+derline;" target=3D"_blank" href=3D"http://stats.microsoft.regsvc.com/ls/cl=
+ick?upn=3DvhfpwUiF7CHrYM7mOM1GEdB08C3xUylkv-2BCnpZ7wwd5vYjQ-2BcuXT2x990jW70=
+CV9b1K7_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDozeg=
+HFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2F=
+anSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoifvPBNfMQiMGTYiY2cXmvKV4f4AEhoZfzEkrEoOS2=
+-2Fp6UYFSacDabe71Fu5qz-2FNeCjxUMPps0rfJ-2BXQvf2L-2FT5MHq026YGMOUBSIcJlFKZLS=
+dDvvNBAj9li1MUX7-2BHwlyX4L8uBkyRbrY5dOA7A6qRe1">social media channels</a> a=
+s well.
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            <strong><a style=3D"color: #D83B01; text-decora=
+tion: underline;" target=3D"_blank" href=3D"http://stats.microsoft.regsvc.c=
+om/ls/click?upn=3DvhfpwUiF7CHrYM7mOM1GERRMD6msLfERZkT-2B4sUQMSOmPwJBaJXrXKv=
+zLE-2BuAc0y4bAYo5GlhJkuDY3phZOZ3pF8NkI-2BpbOPLWI4woteTorhWJoI89SSOnc6ibJFCJ=
+9-2FI4KU3Qc-2Fae4h8d2lnBKmdqmDkFQfdf-2B2lcUFk4wo7lDQIIw9KAXEYURjw94Rwx3aO8V=
+IaAWqn6vnvjv4coXivh6o3l6P8B-2Bw6vWoq5unLAjKQ5p5vluDBJj-2BEPRY2Yok2CfC3sYEGd=
+tPNgCVE7qDQA-2BQiPwK7vMYb-2B3PhASgtdxrNkAHkBnZXADGLe-2F8Q-2Fev6FS3gTPpMXvpj=
+WMXH7uaNQ-3D-3DHgQo_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneT=
+eu-2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4X=
+vJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoifuLvo7q7NIoM-2FiMoDLeuteJdX6=
+mIbTdX6x5uvt2naPoIoeCwiO9CTQojB7Sk0nCnlU5cdrrafs2Pr-2B03If2zYFdzE0GjtSJI-2F=
+ZQOMQupcyGR4ZQflCOIiI3hLDgzXvI-2BtmuyPvTaInN-2F-2F-2Fqn7642zUu">Add to cale=
+ndar</a></strong>
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Please save this email for future reference. If=
+ you have questions, please contact the support team using the contact info=
+rmation below.
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            <strong>Registration Identification Number: 533=
+98126</strong>
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            To view or update your registration, visit the =
+<a style=3D"color: #D83B01; text-decoration: underline;" target=3D"_blank" =
+href=3D"http://stats.microsoft.regsvc.com/ls/click?upn=3DvhfpwUiF7CHrYM7mOM=
+1GETvASZjSZoDbG3DuhZOF7yMPapkqo5U329Q0I18z5ja12L2r_rhSNMFNIT1rxdjgOzzNmuUxT=
+kxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhX=
+SETk66I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YBy=
+Loifvyg93h-2BOCJkoDkic1G-2BQQlxEC9PsWGmAqe1mJB1-2Fm-2F5E91XJTWQ6tOU5sRi3bmX=
+9K2S6LEdHhvyfm5Y7t8T43KxFXg76UEJ47Njd6rszp1nJzL2LGWCBvBVRZjP3JiyS529-2BVNui=
+VJG-2F5xQ2kEKorM">registration website</a> and sign in using your <strong>
+                           =20
+                           =20
+                           =20
+                           =20
+                           =20
+                            Username and Password</strong>=20
+                            credentials.
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 18px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            <strong>Start Connecting</strong>
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Tell your friends and network that you've regis=
+tered - simply download one of these social images to your favorite social =
+platform using the hashtag #MSIgnite.=20
+                        </p>
+                       =20
+                        <table role=3D"presentation" width=3D"540" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"width: 540px;">
+                            <tr>
+                                <td width=3D"270" align=3D"left" valign=3D"=
+middle" style=3D"width: 270px; text-align: left; vertical-align: middle;">
+                                    <img src=3D"https://1811msignite20prode=
+ast.blob.core.windows.net/web/MS_Ignite_SocialStickers_v03_1920x1080-just-r=
+egistered_A_thumb.png?sp=3Dr&st=3D2021-08-20T18:50:08Z&se=3D2024-06-15T06:5=
+9:59Z&spr=3Dhttps&sv=3D2020-08-04&sr=3Dc&sig=3DGsiRdMw0QMfChJIVEuzFHf0tIVsg=
+C3AEOA%2FeaJ4VhFk%3D" width=3D"250" height=3D"" alt=3D"Graphic design on a =
+blue background that reads 'I just registered! Come join me at Microsoft Ig=
+nite November 2-4, 2021'" border=3D"0" style=3D"width: 250px; height: auto;=
+" />
+                                </td>
+                                <td width=3D"270" align=3D"left" valign=3D"=
+middle" style=3D"width: 270px; text-align: left; vertical-align: middle;">
+                                    <img src=3D"https://1811msignite20prode=
+ast.blob.core.windows.net/web/MS_Ignite_SocialStickers_v03_1920x1080-just-r=
+egistered_B_Thumb.png?sp=3Dr&st=3D2021-08-20T18:50:08Z&se=3D2024-06-15T06:5=
+9:59Z&spr=3Dhttps&sv=3D2020-08-04&sr=3Dc&sig=3DGsiRdMw0QMfChJIVEuzFHf0tIVsg=
+C3AEOA%2FeaJ4VhFk%3D" width=3D"250" height=3D"" alt=3D"Graphic design on a =
+black background that reads 'I just registered! Come join me at Microsoft I=
+gnite November 2-4, 2021'" border=3D"0" style=3D"width: 250px; height: auto=
+;" />
+                                </td>
+                            </tr>
+                             <tr>
+                                <td width=3D"260" align=3D"left" valign=3D"=
+middle" style=3D"width: 260px; text-align: left; vertical-align: top;">
+                                    <p style=3D"font-family: 'Segoe UI', Ar=
+ial, Helvetica, sans-serif; font-size: 15px; margin-top: 15px;">
+                                        <a style=3D"color: #D83B01; text-de=
+coration: underline;" target=3D"_blank" href=3D"http://stats.microsoft.regs=
+vc.com/ls/click?upn=3DvhfpwUiF7CHrYM7mOM1GERRMD6msLfERZkT-2B4sUQMSOmPwJBaJX=
+rXKvzLE-2BuAc0y4bAYo5GlhJkuDY3phZOZ3sRJblFIhh3dx0TQTmeCKg5L4gnJbHAt0-2FGjHB=
+UZ3tsnil7KP1vjKr57vgeCnhxHmcZu8jzQWxSa85hhiZVkA1DvI3slTlVAdN0D6cH-2FO1bhEAY=
+-2BYPB3S2EAJ-2BaNAbSW5nOsf8xrp-2FPTErAB8CBKwM6sn6nPMoDLiOUd9-2FJ7hh-2Fbo0Wx=
+PC3yrrGcJvxbOQ4CEbwyKK-2FSkPBGG7P3lS28EnB5-2FwRxKx88rc3DZwUFtwF1auk-2FzEpM-=
+2BlgQbm6ks3itDVrjEGpdbKUZNP-2BhrGSWFjg-3DSQ16_rhSNMFNIT1rxdjgOzzNmuUxTkxXFb=
+EyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk6=
+6I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoift=
+LKigkqvSfEWlXrPgS2XZHnykfNzlic1HUWS2H6QRnY0njn1seuOmxyRrcvEEYCOwjSq03NFQnem=
+-2F-2F0S4lipyh9SPorDKPXbiM55brn8XCJf8lukIRq6GrkKTGw-2Bm-2BHopBcEd-2BH4Nnkrn=
+aFN-2Bf1ZvW">Download Image</a>
+                                    </p>
+                                </td>
+                                <td width=3D"260" align=3D"left" valign=3D"=
+middle" style=3D"width: 260px; text-align: left; vertical-align: top;">
+                                    <p style=3D"font-family: 'Segoe UI', Ar=
+ial, Helvetica, sans-serif; font-size: 15px; margin-top: 15px;">
+                                        <a style=3D"color: #D83B01; text-de=
+coration: underline;" target=3D"_blank" href=3D"http://stats.microsoft.regs=
+vc.com/ls/click?upn=3DvhfpwUiF7CHrYM7mOM1GERRMD6msLfERZkT-2B4sUQMSOmPwJBaJX=
+rXKvzLE-2BuAc0y4bAYo5GlhJkuDY3phZOZ3sRJblFIhh3dx0TQTmeCKg5L4gnJbHAt0-2FGjHB=
+UZ3tsnil7KP1vjKr57vgeCnhxHmXGc95omO6eaXA-2FessG7z8HxGrsCjtme9m3kAdY4uQY6C63=
+pQARykIShxdue3WoK7Xm-2BY0p4sYKPe7VBJ-2FFb9yfQIJ6jnXYG1K2FUhp-2BQKVwAOyo2rMp=
+828kJg0n4eNzN9-2FonYbXtG8UeFaibh-2FcsyUsO8LUABPepPtjaqPSooJq3Zcjs5EKZ3RtkVP=
+mdzfr-2F0JE0zEbb027rXWP4Xxpo4U-3DZhNq_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7g=
+XvUM1SZeeFVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-=
+2FcQWllepHDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoiftocjc-2BC=
+n-2FAMycCdfAJbvYBFWIv4D0ImHMbHBH3NegaB3byBopA1ItJgCUW0IujBYl3FFpbRywS2s4RG8=
+obKUFrRpx-2FDZ3lakCwfvYsHDlEjfFh-2B9vcq4twCZFZRw2X-2F-2FCmKOQMzbS7mwYIeMF46=
+yGP">Download Image</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Follow us on Twitter <a style=3D"color: #D83B01=
+; text-decoration: underline;" target=3D"_blank" href=3D"http://stats.micro=
+soft.regsvc.com/ls/click?upn=3DvhfpwUiF7CHrYM7mOM1GEdB08C3xUylkv-2BCnpZ7wwd=
+5vYjQ-2BcuXT2x990jW70CV9Olm__rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7gXvUM1SZee=
+FVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-2FcQWllep=
+HDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoiftivb3DjfRVJEWuptvJ=
+-2BhyXXNGco7ktKLAFpxghdZ7oKN6zFig4ynuKPVvFhaOKbErKxrG-2BPzKU2nneyGCb5Y6nbS3=
+lurtkSz242fJVR54FYmyjzodZOuODqC6GerYpgPSzAQwHI9SMtlACcHr-2FoXmh">@MS_Ignite=
+</a>. We will post session catalog updates, speaker announcements and more.
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 18px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                        <strong>Interested In Deeper Skilling?</strong>
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Continue your learning journey with Microsoft V=
+irtual Training Days that provide free, instructor-led, technical skilling=
+=E2=80=AFin multiple languages and time zones across a variety of topics.=20
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            <strong><a style=3D"color: #D83B01; text-decora=
+tion: underline;" target=3D"_blank" href=3D"http://stats.microsoft.regsvc.c=
+om/ls/click?upn=3DQDEPLM-2BHAl6U1Ir8aeW3i1au9-2BYAyg48MF25CZ-2FHb9xse-2FJo1=
+-2FGaUf2q-2FZIppMVFpuI8ycF25EW27Hz6TKRxn-2FQnpXR-2BSMrJe8XpYsZ7tsOQb4midjaq=
+NZrViJcwosRDl0Uz_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-=
+2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4XvJw=
+R1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoifslDg232UF-2BVgLaM-2FYTwV-2B5XL=
+mqNffxNOw60AxtNHDG-2Bf-2BBTcrmKs8Uw7wYlsKcQH5vMLHoxqaL1CZykpieOXtNT2NtgobxC=
+wxVVujt7MNq4hEl2sy6kCHsSdwrZyuIPc635WEhLPJp6vKZSKT2ZQpJ">Register for one t=
+oday</a></strong>
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            We look forward to getting together=E2=80=94vir=
+tually=E2=80=94in November!
+                        </p>
+
+                        <p style=3D"font-family: 'Segoe UI', Arial, Helveti=
+ca, sans-serif; font-weight: normal; font-size: 16px; margin-top: 15px; mar=
+gin-right: 0; margin-bottom: 15px; margin-left: 0;">
+                            Microsoft Ignite support team<br />
+                            <a style=3D"color: #D83B01; text-decoration: un=
+derline;" target=3D"_blank" href=3D"http://stats.microsoft.regsvc.com/ls/cl=
+ick?upn=3DvhfpwUiF7CHrYM7mOM1GER0TeJwtPQg-2BhFylJPFVPNWyrIlVncw7LdTYDvgzDQk=
+0TYwo_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDozegHF=
+fe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2Fan=
+SIsbNPuRKJGArRqlxZQcHN2bYv2YByLoifs80PNgxXAe81gx0lUP1e6xSj6nwWQX4SCU-2FFu2c=
+AzBChuYJvcWpcWfPT7XalGDpi3yR0xIdTVu0Ao0yT2PDJ9Q9REjkSE80-2B5Ckz6FwZwOhfoiom=
+UJMhPR3mTNIn2b3HMNr5sYBjUBKhUS-2BJMPyBAp">Event Website</a>=E2=80=AF|=E2=80=
+=AF<a style=3D"color: #D83B01; text-decoration: underline;" target=3D"_blan=
+k" href=3D"http://stats.microsoft.regsvc.com/ls/click?upn=3DvhfpwUiF7CHrYM7=
+mOM1GEW9k4CMNhe5RPJGQw3cn3OncNFXlOA1nIg-2B06rnrqrcjb3gQzRtKRpc7vxMCVBr5vA-3=
+D-3D6rLk_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDoze=
+gHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2=
+FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoifsQcz2gDjfE-2BCGRHNq-2F0rBmP28oawUcO7R6=
+Sg2-2FgC1P3gV0P51iv3RjPkCWiUJUFYnRx8ZDm-2BYtr4XptdhQZLYGwbPENSvdeGn1kVHWtmm=
+hgdOCLyH2VQg-2FbKG-2FGmnJylCbNxzZ-2B-2BU3-2BRE4QC2rSZFa">Need Help?</a>=E2=
+=80=AF|=E2=80=AF<a style=3D"color: #D83B01; text-decoration: underline;" ta=
+rget=3D"_blank" href=3D"http://stats.microsoft.regsvc.com/ls/click?upn=3Dvh=
+fpwUiF7CHrYM7mOM1GEW9k4CMNhe5RPJGQw3cn3OncNFXlOA1nIg-2B06rnrqrcjXOZ40quWtWA=
+u7-2FUOkzEbcjMqLFLn48O8qZkIRyPmWSo-3DhbQJ_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzp=
+VE7gXvUM1SZeeFVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZijTcODYHhXSETk66I-2=
+Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN2bYv2YByLoiftx888=
+Tnuf3dxvoBD-2FqD6HmYyc3GWXniFu0r0HjJ56W-2BTjGcYHx8zJfReywtyGS-2FkiHDd2jtF-2=
+FKaCC7I-2B0Ros4NKRRsE1tQSJcBFaIpeHteKoVMcy3fRMFuhh5nAZ1G07zdlDU3OaNv-2FDGAI=
+1Kfetb5">Contact Us</a>
+                        </p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style=3D"font-family: 'Segoe UI', Arial, Helvetica,=
+ sans-serif; font-weight: normal; font-size: 12px; color: #444444; padding-=
+top: 20px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                        <!-- **UPDATE** MAIL FOOTERS GO HERE. Remove any fo=
+oter content that isn't needed. -->
+                        <!-- Microsoft footer - the footers below are for E=
+xternal Microsoft events. -->
+                        <br />
+                        <table role=3D"presentation" cellpadding=3D"0" cell=
+spacing=3D"0" border=3D"0" width=3D"100%">
+                            <tbody>
+                                <tr>
+                                    <td style=3D"font-size: 12px; color: #4=
+44444;" valign=3D"top">
+                                        <!-- **UPDATE** EXTERNAL transactio=
+nal mail footer -->
+                                        <span style=3D'display:none;'><Dyna=
+micFooterFetched></DynamicFooterFetched></span><span style=3D'display:none;=
+'><DynamicFooterMarkupFetched></DynamicFooterMarkupFetched></span><a style=
+=3D"color: #444444; text-decoration: underline;" href=3D"http://stats.micro=
+soft.regsvc.com/ls/click?upn=3DDW-2BGHSxWI9eVqubfI19qG09-2FD-2BrVNyAxcMhZqj=
+pJj0Y2N4mGaupo3EurfdmJEzrRaiUfoQr9LBm1LF9u9NMu8w-3D-3Dwz88_rhSNMFNIT1rxdjgO=
+zzNmuUxTkxXFbEyzpVE7gXvUM1SZeeFVyfCRneTeu-2BjWDozegHFfe13YseuQOXG2UDwEOGZij=
+TcODYHhXSETk66I-2Fc2-2FcQWllepHDk8G5o4XvJwR1yqzP-2FanSIsbNPuRKJGArRqlxZQcHN=
+2bYv2YByLoift4Tqi3Tj7rjVJXSK17KJWQ146x1xoYNPT8-2Fxi7Bmz-2B25fu-2FIQ8lXWki4Y=
+WTTm85XovTCOdjGSAuroykF-2FvGS-2BWI1wqqL48yubfAEVje2YHcnxdQ3Kf3-2B-2FvNlvcM6=
+TM4Gu-2Fu9XbJvIR5VCmUvui5rvX">Privacy Statement</a><br />Microsoft Corporat=
+ion<br />One Microsoft Way<br />Redmond, WA 98052
+                                    </td>
+                                    <td style=3D"color: #444444; padding-ri=
+ght: 10px;" valign=3D"bottom" align=3D"right">
+                                        <img src=3D"https://ustproduction.b=
+lob.core.windows.net/microsoft/MSFT_logo_gray_100_x2.png" width=3D"100" hei=
+ght=3D"21.5" border=3D"0" style=3D"display: block;" alt=3D"Microsoft Logo" =
+/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- end Microsoft Footer -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if mso | IE]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </center>
+<img src=3D"http://stats.microsoft.regsvc.com/wf/open?upn=3DdMT6-2BoPwzsZrq=
+rjnXlyDZMkYDsHwxmBRETf-2BJf2luZ0EPTJeqcqx41sNfCwq80gYngyBRuYCGdiXrGJRARsW5M=
+B6UuyrdmHTZ9zheMvq9d1dplZFr3cxXFHTdF7Iyaz3Wi2TssUnRjcuOG2toDJ7uBx8qIRTJ6Jkj=
+kDe07Ro7Ld6AT8iRCdRwvAtpSlKf5rVFnTV3wQHr-2FKnS21h0T70MdTW3IJEQrYIlocKZuve41=
+kuNd3eDyragmP-2FYRo51ouCK4Mdh8t-2Bx5akpv9qVmRPXhKIuGAVnwrIjGkM6iS5lQBc0dy7y=
+8NRQdUw33Z4atrTpDQlXIvcV4Y0Zf-2Bc1KLxAQ-3D-3D" alt=3D"" width=3D"1" height=
+=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bor=
+der-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;m=
+argin-right:0 !important;margin-left:0 !important;padding-top:0 !important;=
+padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !impo=
+rtant;"/></body>
+</html>

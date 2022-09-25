@@ -1,0 +1,194 @@
+Received: from TY2PR06MB3648.apcprd06.prod.outlook.com (2603:1096:202:16::26)
+ by HK0PR06MB2739.apcprd06.prod.outlook.com with HTTPS via
+ HK2PR02CA0142.APCPRD02.PROD.OUTLOOK.COM; Fri, 26 Jun 2020 00:34:28 +0000
+Received: from TY2PR02CA0049.apcprd02.prod.outlook.com (2603:1096:404:e2::13)
+ by TY2PR06MB3648.apcprd06.prod.outlook.com (2603:1096:404:fa::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3131.21; Fri, 26 Jun
+ 2020 00:34:26 +0000
+Received: from TY1JPN01FT017.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:404:e2:cafe::53) by TY2PR02CA0049.outlook.office365.com
+ (2603:1096:404:e2::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3131.20 via Frontend
+ Transport; Fri, 26 Jun 2020 00:34:26 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.166.177)
+ smtp.mailfrom=nuan.jp; naganosd.com; dkim=pass (signature was verified)
+ header.d=nuan-jp.20150623.gappssmtp.com;naganosd.com; dmarc=bestguesspass
+ action=none header.from=nuan.jp;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of nuan.jp designates
+ 209.85.166.177 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.166.177; helo=mail-il1-f177.google.com;
+Received: from mail-il1-f177.google.com (209.85.166.177) by
+ TY1JPN01FT017.mail.protection.outlook.com (10.152.186.98) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3131.20 via Frontend Transport; Fri, 26 Jun 2020 00:34:25 +0000
+Received: by mail-il1-f177.google.com with SMTP id u4so187692ilk.4
+        for <endo_masashi@naganosd.com>; Thu, 25 Jun 2020 17:34:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nuan-jp.20150623.gappssmtp.com; s=20150623;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=6gZqC8jOsVzZUebyhqv8KgtexK0oFCrkViAW258Rc6M=;
+        b=C+4WMN2v98uTZbUbMsfzSI3rYTJXocV2eoNj2IKGDvqWbUQIvcFtotQFLGMjuF6Q4P
+         BJPC7KQ+rP7ap/jwugN175U+S7k1UXBBKAwOvElvuy7AX+QvR1U+gmVwMesSUdEWJP6V
+         EX5F5f+xRMTlTfzzgnI49RGJmOWvVmkuT95IIie3mhAFMG1+CbzXw+DGzT3ZeIGaMs5B
+         kVexG+i3weiq5AyHBo/lFmj1UEW2WL5j9kZfwSb+aX7wAhcwqgV2WVyyorhIGOp2VVu3
+         VIpJdeeGUGtlM10WBZ5viEBsEwFidtyNRov4f9dfIan/L2votPJbROStbW9P1F9S8OTm
+         HywQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=6gZqC8jOsVzZUebyhqv8KgtexK0oFCrkViAW258Rc6M=;
+        b=dhlU+QTDmXf2ruhktL37js+jTfgK8KK7oYLAEtRm/p9aJZ/FdSdVqInjTH7MeP9Xn3
+         ZC8JhPDybUfE49DotJa5ve6TrZPuifURSM/7cxLwCEoMVRzHbzbt4EZ4+rSaH0nejiyb
+         jaOFppTKziyygp0Xw+FA7UY5VCwdhUN9mRWTQOuCJD5lv46z0DVO1i7aYTg2vd+FbtGY
+         cjU+SRZiAjAz4+ZfGorT+qzwO0ydTsh/NQkQ9Lk0xJKpvzxDAHkOMFiZKEKr4ELum0Kf
+         G4oF3m1Bdpk9Xj83IQP2o0QIj5+B7tSi/3/l6sTpWnhvpW4vmOOZ8Oq/LcQkzoZRzVIG
+         nGAw==
+X-Gm-Message-State: AOAM530/4c24rh/raUOFA9jG2+n4CWC+uTJX16+q0+NjZQQsoxr9Hs2F
+	x77aYAztqqWhIqdSSoAb9cxsiZcHkcvrP+qOQGQopQ==
+X-Google-Smtp-Source: ABdhPJxl9D/9dllGRHY+9irb7Kuxknqv1ws86U0FFYQ98Ciw5xI2ICIaUTZpgxvps7cym7Wule5EIIFVsAp24LXdbl8=
+X-Received: by 2002:a92:cd42:: with SMTP id v2mr531227ilq.99.1593131664445;
+ Thu, 25 Jun 2020 17:34:24 -0700 (PDT)
+References: <TY2PR06MB276699E0AB0EFFA8DF5BD4D0F09A0@TY2PR06MB2766.apcprd06.prod.outlook.com>
+ <TY2PR06MB2766405E3BAC6807A021E715F0920@TY2PR06MB2766.apcprd06.prod.outlook.com>
+ <CAMn1dDxC+Qy=+i==0ToiSqEWBqaqGt6sLyv-rOzS8Okv1cEzbQ@mail.gmail.com>
+In-Reply-To: <CAMn1dDxC+Qy=+i==0ToiSqEWBqaqGt6sLyv-rOzS8Okv1cEzbQ@mail.gmail.com>
+From: =?UTF-8?B?5LiJ5a6F5pit5aSr?= <a-miyake@nuan.jp>
+Date: Fri, 26 Jun 2020 09:34:10 +0900
+Message-ID: <CAMn1dDze9FZctJfC_cdiArd2Jn1tADY1tMe8WX3v1gQrsf6SaA@mail.gmail.com>
+Subject: =?UTF-8?B?5Zue562U5LqL6aCF?=
+To: =?UTF-8?B?5qOa5qmLIOWFi+W8mA==?= <tanahashi_katsuhiro@naganosd.com>
+Cc: "mino_shukka_ml@system-quest.co.jp" <mino_shukka_ml@system-quest.co.jp>, 
+	NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>, =?UTF-8?B?6YGg6JekIOWwh+WPuA==?= <endo_masashi@naganosd.com>
+Content-Type: multipart/alternative; boundary="000000000000f0ab5c05a8f1deae"
+Return-Path: a-miyake@nuan.jp
+X-MS-Exchange-Organization-ExpirationStartTime: 26 Jun 2020 00:34:25.9706
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 1221d8f7-c402-4761-d894-08d81968ae03
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3a723edf-b2e9-465d-826a-d5ccf5e64f13:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-Forefront-Antispam-Report:
+ CIP:209.85.166.177;CTRY:US;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-il1-f177.google.com;PTR:mail-il1-f177.google.com;CAT:NONE;SFTY:;SFS:(7596003)(33964004)(85182001)(336012)(1096003)(4326008)(6666004)(6862004)(224303003)(55446002)(7636003)(54906003)(42186006)(966005)(5660300002)(26005)(2160300002)(9686003)(356005)(86362001)(166002);DIR:INB;SFP:;
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ TY1JPN01FT017.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 1221d8f7-c402-4761-d894-08d81968ae03
+X-MS-TrafficTypeDiagnostic: TY2PR06MB3648:
+X-MS-Oob-TLC-OOBClassifiers: OLM:1051;
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2020 00:34:25.9605
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1221d8f7-c402-4761-d894-08d81968ae03
+X-MS-Exchange-CrossTenant-Id: 3a723edf-b2e9-465d-826a-d5ccf5e64f13
+X-MS-Exchange-CrossTenant-AuthSource:
+ TY1JPN01FT017.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PR06MB3648
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6774688
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.3109.027
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(20160514016)(750128)(520011016)(944506458)(944626604);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?N0NaTEtHemN6SmxmL2hLaWI1dzZoNmlSRkhTZnUwU0dyN0NCMi9FYm5CaWx0?=
+ =?utf-8?B?VjBCNlloT1h0ODc1dnZIbWlBZGx5aEJmV3J5NmFiSGNXMElOTlRnQUxOSWtO?=
+ =?utf-8?B?b3VhR042NkpWNjk2cHdsTUhMMmcrKzBlSXNmNU9Uc0g1d0IzNm9PZGlmc2NF?=
+ =?utf-8?B?dGtXVTg2L3ZMdGtnckpWbWxSNjhsWUtCUndvSEViY0ZPdFlpSjJHMmFFamUy?=
+ =?utf-8?B?MkQzbEVKcGc5amhNZUErTGg3ZytwcDVnV2s3VEcwTkJoeW4wRW5tUzlUTGNL?=
+ =?utf-8?B?OXlBYjlham13MXpUVG5NWmhjN0FydUdXbVVxbzZrSW1pWnV1T3FuWHlGeU9H?=
+ =?utf-8?B?VjVqZTdSZGNFSGFmcjBvSkQzeTVHTXZ1Lzh6bi9iVkprZDROSmxDa1lMd3hL?=
+ =?utf-8?B?bDJLaFRWeC9wOGlObDUzYUE3UHI1OWdCbHErZTgvbW1UVTVnUWdVeVQvT3d5?=
+ =?utf-8?B?V1NZYWlpMktHRkczN2w1cXBQZ3RIeHZnTEYzakFaUVRSMFRZS2tFa1lvb29W?=
+ =?utf-8?B?MmpNZkdrY0xMbXZVb2ppYytQeDJQQkV1aUtYSVZ4SFR4VXVaRmNERDRPc0ho?=
+ =?utf-8?B?MlBsclNOMWdILzJqOHhweEhObDl1cDA4LzdnL2hseENnTGJqYTZkT05qZDRK?=
+ =?utf-8?B?ODViQllKaWYxcG5tVXc5dmVKUUE4VGs0LzYvQ09udjYybzA4cC9GbGs1MVJy?=
+ =?utf-8?B?NTRRMzlrOHk3S3VnTFdMaVJ3ZVBkaThhOVRKc1RLeXhiRE10TVRLclY0R2FD?=
+ =?utf-8?B?dU80aDhCc2hyWk1NN2VBdjhkRUVlVXFab0dOZGc5TjM4Mm5HRVpRNWx6S1lp?=
+ =?utf-8?B?YzFEQy9wdHZyKzJuYjQwZDJHSnJHbGFaQUF3NU1RUjVNZHBiNUd4ZDFINFl4?=
+ =?utf-8?B?cGtIWm05UnZtZURxVDduMWRYcnl4OW5TZ1RhcWsycHFMcldmc2E2U0R1VTdw?=
+ =?utf-8?B?RHAvczZwalR4ZkVPVmhCUUlYRmdpNnpnK1RlTzhKSmIyZHVSODBtUGowMi9J?=
+ =?utf-8?B?WHpVTktFdm9qcTNtZ3pOMEgxTythcTcwWVp1Z0lQWEtnKzNEMHBmbzlLTkE5?=
+ =?utf-8?B?UWlMSVlPTHc3ejhjaCtLRjAzQ0FCc0JCbFc5Sk9XU09Ed2Q5Z1dWS1E5aG40?=
+ =?utf-8?B?Q0Z3Y3g0bzgyN0QrS2RwbWw2bjNadGx0bk1PMFpPdzJkcFlueHpWTzM4eWxC?=
+ =?utf-8?B?UlFva1hEL0t6VXBDaXRYVGtxQ2QwcWJVZU50OTBaZE1ETEx0L01OT3hmVDBB?=
+ =?utf-8?B?S3JLYW56N1R5MTdVN0dxWVdVM1RjdnRhMGZkdWE0OUVyZ0pZalArOFZXcTNB?=
+ =?utf-8?B?MnVKUENneERKSjFlWlNWS0FmaGJzOXNUNmtwNXA4dEVMRnQwUEVrTmNpWUZX?=
+ =?utf-8?B?S29oeHdjZElDeGRHbnFBRWYxbEgvY0dpcGNDc2U3b3V0czUzVTVhZkJiSXUw?=
+ =?utf-8?B?Yk96bzZzYU5pMTRFaGxSdS9MOHRzQXVnSFJzS0wrbWFQMHBCRXBWcXBQZHpV?=
+ =?utf-8?B?ZFRLeWo2ZVNMLzlPTlo1VTRsb3N2SGFXTFIrVWw5ekZTU1ZlOWxMSnR1clUx?=
+ =?utf-8?B?QUZadmRwd2t5Zm5tYjFVdUlOaUpoOUh5OFVKREp4dkYxOWQ4YkZRY1FtZkox?=
+ =?utf-8?B?KzlEM2xqTm10L3JiYWpUYWFENzJLM1IyVWJKbFFnS3pkemNIOXF3TWZkbGxJ?=
+ =?utf-8?Q?1ZMY/NfIkQVD1UMDXJdU?=
+MIME-Version: 1.0
+
+--000000000000f0ab5c05a8f1deae
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+6ZW36YeO44K344K544OG44Og6ZaL55m6IOajmuapi+anmA0KDQrjgYrkuJboqbHjgavjgarjgorj
+gb7jgZnjgIINCu+8re+8qe+8ru+8r+agquW8j+S8muekvuODu+aKgOihk+mDqOOBruS4ieWuheOB
+p+OBmeOAgg0KDQroq7jjgIXjga7lm57nrZTjgYzjgIHlpKflpInpgYXjgozjgabnlLPjgZfoqLPj
+gYLjgorjgb7jgZvjgpPjgIINCg0K54++5Zyo44CB6Kqy6aGM5Lit44GuDQrnqK7liKXvvJros6rl
+lY8NCuaLheW9k+iAhe+8mmFraW8gbWl5YWtlDQrjgafntZ7jgaPjgabjgIHlm57nrZTjgZfjgabj
+gYTjgb7jgZnjgIINCg0K5LuK5pyd44Gu5q616ZqO44Gn44CB5LiA6YCa44KK5Zue562U44GX44Gm
+44GE44KL44GL44Go5oCd44GE44G+44GZ44Gu44GnDQrnorroqo3jgY/jgaDjgZXjgYTjgIINCg0K
+44KI44KN44GX44GP44GK6aGY44GE44GX44G+44GZ44CCDQoNCuKAu+mbu+ipseOBr+OAgeS4i+io
+mOOBruS8muekvuaQuuW4r+OBq+OBiumhmOOBhOOBl+OBvuOBmeOAgg0K4oi94oi94oi94oi94oi9
+4oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi9
+4oi94oi94oi94oi94oi94oi94oi9DQogICAgIO+8re+8qe+8ru+8r+agquW8j+S8muekvg0K5LyK
+6YKj5pys56S+44O75oqA6KGT6YOoDQogICAgICAg5LiJ5a6FIOaYreWkqyAgIE1peWFrZSBBa2lv
+DQogICAgICAg44CSMzk5LTQ1MDENCiAgICAg6ZW36YeO55yM5LyK6YKj5biC6KW/566V6LyqMjcw
+MA0KICAgICDkvIrpgqPjgqTjg7Pjgr/jg7zlt6Xmpa3lm6PlnLDlhoUNCiAgICAgICAgICAgICAg
+ICAgIFRFTCDvvJogMDkwLTY0OTgtMDU5NSAgICAgRkFYIO+8miAwMjY1LTczLTMyNTANCiAgICAg
+RS1tYWlsIDphLW1peWFrZUBudWFuLmpwDQogICAgIFVSTCA6IGh0dHBzOi8vbnVhbi5qcCA8aHR0
+cDovL251YW4uanAvPg0K4oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi9
+4oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi9DQo=
+--000000000000f0ab5c05a8f1deae
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJz
+ZXQ9dXRmLTgiPjxkaXYgZGlyPSJsdHIiPjxkaXYgZGlyPSJsdHIiPumVt+mHjuOCt+OCueODhuOD
+oOmWi+eZuuOAgOajmuapi+anmDxkaXY+PGJyPjxkaXY+44GK5LiW6Kmx44Gr44Gq44KK44G+44GZ
+44CCPC9kaXY+PGRpdj7vvK3vvKnvvK7vvK/moKrlvI/kvJrnpL7jg7vmioDooZPpg6jjga7kuInl
+roXjgafjgZnjgII8L2Rpdj48L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PuiruOOAheOBruWbnuet
+lOOBjOOAgeWkp+WkiemBheOCjOOBpueUs+OBl+ios+OBguOCiuOBvuOBm+OCk+OAgjwvZGl2Pjxk
+aXY+PGJyPjwvZGl2PuePvuWcqOOAgeiqsumhjOS4reOBrjxicj7jgIDnqK7liKXvvJros6rllY88
+YnI+44CA5ouF5b2T6ICF77yaYWtpbyBtaXlha2U8YnI+44Gn57We44Gj44Gm44CB5Zue562U44GX
+44Gm44GE44G+44GZ44CCPC9kaXY+PGRpdiBkaXI9Imx0ciI+PGJyPjwvZGl2PjxkaXYgZGlyPSJs
+dHIiPuS7iuacneOBruautemajuOBp+OAgeS4gOmAmuOCiuWbnuetlOOBl+OBpuOBhOOCi+OBi+OB
+qOaAneOBhOOBvuOBmeOBruOBpzwvZGl2PjxkaXYgZGlyPSJsdHIiPueiuuiqjeOBj+OBoOOBleOB
+hOOAgjwvZGl2PjxkaXYgZGlyPSJsdHIiPjxicj48L2Rpdj48ZGl2IGRpcj0ibHRyIj7jgojjgo3j
+gZfjgY/jgYrpoZjjgYTjgZfjgb7jgZnjgII8L2Rpdj48ZGl2IGRpcj0ibHRyIj48YnI+PGRpdj48
+ZGl2IGRpcj0ibHRyIiBjbGFzcz0iZ21haWxfc2lnbmF0dXJlIiBkYXRhLXNtYXJ0bWFpbD0iZ21h
+aWxfc2lnbmF0dXJlIj48ZGl2IGRpcj0ibHRyIj48ZGl2IGRpcj0ibHRyIj48ZGl2IGRpcj0ibHRy
+Ij48ZGl2IGRpcj0ibHRyIj48ZGl2PuKAu+mbu+ipseOBr+OAgeS4i+iomOOBruS8muekvuaQuuW4
+r+OBq+OBiumhmOOBhOOBl+OBvuOBmeOAgjwvZGl2PjxkaXY+4oi94oi94oi94oi94oi94oi94oi9
+4oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi9
+4oi94oi94oi94oi94oi9PGJyPjwvZGl2PjxkaXY+Jm5ic3A7ICZuYnNwOyAmbmJzcDvvvK3vvKnv
+vK7vvK/moKrlvI/kvJrnpL7jgIA8L2Rpdj48ZGl2PuOAgOOAgOOAgOS8iumCo+acrOekvuODu+aK
+gOihk+mDqDxicj4mbmJzcDsg44CAJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7IOS4ieWuheOAgOaY
+reWkqyZuYnNwOyZuYnNwOyBNaXlha2UgQWtpbzxicj4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsg
+44CAJm5ic3A7IOOAkjM5OS00NTAxPGJyPuOAgOOAgCZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyDj
+gIDplbfph47nnIzkvIrpgqPluILopb/nrpXovKoyNzAwPGJyPuOAgOOAgCZuYnNwOyZuYnNwOyZu
+YnNwOyZuYnNwOyDjgIDkvIrpgqPjgqTjg7Pjgr/jg7zlt6Xmpa3lm6PlnLDlhoU8L2Rpdj48ZGl2
+PiZuYnNwOyAmbmJzcDsgJm5ic3A7ICZuYnNwOyAmbmJzcDsgJm5ic3A7ICZuYnNwO+OAgCZuYnNw
+OyDjgIAmbmJzcDsgVEVMIO+8miAwOTAtNjQ5OC0wNTk1ICZuYnNwOyAmbmJzcDsgRkFYIO+8miAw
+MjY1LTczLTMyNTA8L2Rpdj48ZGl2PuOAgOOAgOOAgCZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyDj
+gIBFLW1haWwgOjxhIGhyZWY9Im1haWx0bzphLW1peWFrZUBudWFuLmpwIiB0YXJnZXQ9Il9ibGFu
+ayI+YS1taXlha2VAbnVhbi5qcDwvYT48YnI+44CA44CA44CAJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5i
+c3A7IOOAgFVSTCA6IDxhIGhyZWY9Imh0dHA6Ly9udWFuLmpwLyIgdGFyZ2V0PSJfYmxhbmsiPmh0
+dHBzOi8vbnVhbi5qcDwvYT48YnI+4oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi9
+4oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi94oi9
+PC9kaXY+PC9kaXY+PC9kaXY+PC9kaXY+PC9kaXY+PC9kaXY+PC9kaXY+PC9kaXY+PC9kaXY+DQo=
+
+--000000000000f0ab5c05a8f1deae--

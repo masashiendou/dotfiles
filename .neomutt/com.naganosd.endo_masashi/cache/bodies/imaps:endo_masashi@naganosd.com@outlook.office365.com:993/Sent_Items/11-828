@@ -1,0 +1,88 @@
+Received: from Kx250 (125.30.77.206) by
+ TYAPR01CA0107.jpnprd01.prod.outlook.com (2603:1096:404:2a::23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3370.16 via Frontend Transport; Mon, 14 Sep 2020 03:46:50 +0000
+Date: Mon, 14 Sep 2020 12:46:47 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+To: mino_shukka_ml@system-quest.co.jp
+Cc: =?utf-8?B?5LiJ5a6F5pit5aSr?= <a-miyake@nuan.jp>,
+	NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>,
+	=?utf-8?B?5qOa5qmLIOWFi+W8mA==?= <tanahashi_katsuhiro@naganosd.com>
+Subject: =?utf-8?B?W0FJ5Ye66I23XSBWZXJfMC45LjhfMeOBruODquODquODvOOCuQ==?=
+ =?utf-8?B?44Gr44Gk44GE44Gm?=
+Message-ID: <20200914034647.nle6otluwgnnkiat@Kx250>
+Reply-To: mino_shukka_ml@system-quest.co.jp
+References: <0a9c970c-9ce0-0ce5-a205-5249e8ede857@naganosd.com>
+ <CAMn1dDzahPGO04WQvYv012eyc6JjgSYT29TycOD2LkF5-g=G6g@mail.gmail.com>
+ <20200420072234.tkdsf6stnisikrzv@Kx250>
+ <CAMn1dDzZJzBYkTtY3Xhgb9aqshrtb58+uzGHhhtvUgphArxpmQ@mail.gmail.com>
+ <CACzEcNhg+6PLZpKu4ZVabbN6NDsUJdYnW3DonKD23jUp9NVdJQ@mail.gmail.com>
+ <20200422041729.kpfuis52krib4i5f@Kx250>
+ <CACzEcNi4sQS-YA_Urz5Jvvs-WL2_bnLu5=si5dt_ekeJALxWvw@mail.gmail.com>
+ <20200422062528.3osi4ktpboq2zfky@Kx250>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20200422062528.3osi4ktpboq2zfky@Kx250>
+X-MS-Exchange-Organization-ExpirationStartTime: 14 Sep 2020 03:46:51.1309
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 002c1f0b-ebc1-4600-814e-08d85860d083
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.77.206]
+X-ClientProxiedBy: TYAPR01CA0107.jpnprd01.prod.outlook.com
+ (2603:1096:404:2a::23) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社
+三宅様
+北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+指示書Noでの検索およびDB未更新でページ離脱する場合の通知を実装した、Ver.0.9.8_1をリリースいたします。
+===
+Ver.0.9.8_1 リリースノート
+1. 指示書Noでの検索
+　　MINO-74 指示書No入力後他フォーカス時の検索機能の実装
+　　　→ 製作出荷詳細 / 臨時出荷登録 / 臨時出荷編集画面の"検索用指示書No入力"
+　　　　にて指示書Noを入力して"検索"ボタンを押下すると、任意の指示書Noを
+　　　　該当する編集画面にて開くことができます
+
+2. 製作出荷情報画面で変更項目がありページ離脱しようとした場合のメッセージ表示
+　　MINO-183 変更した項目があるにも関わらずDB未更新でページ移動するときメッセージが何も表示されない
+　　　→ 製作出荷情報画面で変更項目がある場合に、ページ離脱(ページ移動または編集画面
+　　　　(製作出荷詳細/臨時出荷登録と編集)を開く)をしようとすると、変更項目がDB更新されていないことを
+　　　　お知らせします
+　　
+3. その他 各画面における修正
+　　MINO-215 各詳細テンプレート（３つ）：送り先担当のプルダウンが表示されない。
+　　MINO-242 明細開いた時に、検索用指示書No入力がアクティブな状態にする。
+　　MINO-243 指示書No検索ボタン押下後の各テンプレートで製作場所の数量が反映されない
+　　MINO-244 指示書No検索処理：一覧表示されている指示書Noで検索をかけても見つからないと表示される。
+　　MINO-246 臨時出荷登録：営業所、送り先の設定が有効な状態にし、臨時出荷を閉じ、再表示すると、営業所、送り先が選択可能となってしまう。
+　　MINO-247 臨時出荷登録と編集 / 製作出荷詳細のselect2適用フォームで値を選択後、戻るボタン押下後再度テンプレートを表示したときに初期化されていない
+==========================
+ダウンロード先:
+"https://www.dropbox.com/s/yjmsuqhmmenwof5/mino-develop2-20200914-cd7b754.zip?dl=0"
+※ドキュメントルート以下のファイル一式をzipにまとめています
+
+よろしくお願いします。
+
+以上
+--
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

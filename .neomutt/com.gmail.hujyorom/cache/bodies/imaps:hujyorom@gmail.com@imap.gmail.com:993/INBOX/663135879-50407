@@ -1,0 +1,93 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:3816:0:0:0:0:0 with SMTP id f22csp413541vka;
+        Thu, 29 Apr 2021 03:30:59 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyP5o0PK+22ZOWm9IPL/wg70g4FhP25KTRHTR7xABSfpf+JVYJZrPsL1SUBPHsamXNc9bMV
+X-Received: by 2002:a9d:4911:: with SMTP id e17mr27599403otf.38.1619692258879;
+        Thu, 29 Apr 2021 03:30:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619692258; cv=none;
+        d=google.com; s=arc-20160816;
+        b=S3EBaQfnBGoTjuBneIaz8em6hYH6Q3FkA2+kA1OKTDlWoH1fSwHVyPAfdtSsScdZ+y
+         kjfX7C7+WeiMBrhKuUTfWRXDVbgsByIQ1IxyXUjbGc9oEXDj37Fxr1mezlG/XDdMhA3V
+         0yYwBQOlaJVv4Td3msxKlVu0ub1cEagpXLN0E7plF7cIBjFZtzTf7X7yaQxFjShLeZJK
+         DI/UYuImXx7VsS7ekOQAgcB2YYnYbkRe4amMuwt3Kl0k2Hikxu4CH/WbSF5j7Gev29UG
+         FCV1PRImu9pZ8tf2KIf5f5dsP+qzbabfCrIXU0GxAXp8x4ze6fAHJgXwrcxVJK5lDiKu
+         8wgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:to:subject;
+        bh=4tgXKgVNxUJfK9ao4sJv0eRmDZysX6SmrTbOCG3rpUU=;
+        b=feTy1Fk1e3WIjnneNSB0LV+zpBgzw0zZSw67pUh7UAEGpG3lxPuZZGWWktMZMwquel
+         pldDHB6zrpYdzTAUq6L0yqorBcCUJsoJscs+RcPxFpfb4W+bYGiXuZeMU9q/wjVN8sVV
+         df0NVk/GwJINZXX5sd+XhsUUVG0LkA0HP6UWgzkNg6t+8jxPA/tUQH+yY/uGANdjcyH5
+         aeBbXVRJ0YT2cK56nmq/de2MMdqGb2Z3ChL2Uxur+xkE/tsQEDHdY146vsOfhkYPYd44
+         wKRtiPh7SOzv0DDE7qu9WfOq/a1D8vnSRqlPI1wzWZR7lzVvfq1s8RoIfPNM8/9GCPJp
+         sOOw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 202.189.181.210 is neither permitted nor denied by best guess record for domain of info1@videonews.com) smtp.mailfrom=info1@videonews.com
+Return-Path: <info1@videonews.com>
+Received: from pmgd06.wadax.ne.jp (pmgd06.wadax.ne.jp. [202.189.181.210])
+        by mx.google.com with ESMTPS id j17si3107312otk.206.2021.04.29.03.30.58
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 29 Apr 2021 03:30:58 -0700 (PDT)
+Received-SPF: neutral (google.com: 202.189.181.210 is neither permitted nor denied by best guess record for domain of info1@videonews.com) client-ip=202.189.181.210;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 202.189.181.210 is neither permitted nor denied by best guess record for domain of info1@videonews.com) smtp.mailfrom=info1@videonews.com
+Received: from pmgd06.wadax.ne.jp (localhost.localdomain [127.0.0.1])
+	by pmgd06.wadax.ne.jp (Proxmox) with ESMTP id E501456EEA4E
+	for <hujyorom@gmail.com>; Thu, 29 Apr 2021 19:24:31 +0900 (JST)
+Received: from wx13.wadax.ne.jp (wx13.wadax.ne.jp [202.189.180.2])
+	by pmgd06.wadax.ne.jp (Proxmox) with ESMTPS id E437056EEA47
+	for <hujyorom@gmail.com>; Thu, 29 Apr 2021 19:24:30 +0900 (JST)
+Received: from [192.168.11.8] (y234098.ppp.asahi-net.or.jp [118.243.234.98])
+	by wx13.wadax.ne.jp (Postfix) with ESMTPSA id CF5B7C00D1;
+	Thu, 29 Apr 2021 19:24:30 +0900 (JST)
+Subject: =?UTF-8?B?VmltZW/jgafjga7ljZjlk4Hosqnlo7Llho3plovjga7jgYrnn6Xjgok=?=
+ =?UTF-8?B?44GbL+ODk+ODh+OCquODi+ODpeODvOOCueODu+ODieODg+ODiOOCs+ODoA==?=
+To: hujyorom@gmail.com
+References: <6Neiw8ZfRHaflYv6by707A@geopod-ismtpd-2-0>
+From: VideoNews <info1@videonews.com>
+Message-ID: <c488f261-5625-40a7-74e9-812b3958613a@videonews.com>
+Date: Thu, 29 Apr 2021 19:24:30 +0900
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.0
+MIME-Version: 1.0
+In-Reply-To: <6Neiw8ZfRHaflYv6by707A@geopod-ismtpd-2-0>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Language: en-US
+X-SPAM-LEVEL: Spam detection results:  0
+	AWL                    -0.029 Adjusted score from AWL reputation of From: address
+	BAYES_00                 -3.8 Bayes spam probability is 0 to 1%
+	KAM_LAZY_DOMAIN_SECURITY      1 Sending domain does not have any anti-forgery methods
+	RCVD_IN_DNSWL_NONE     -0.0001 Sender listed at https://www.dnswl.org/, no trust
+	SPF_HELO_PASS          -0.001 SPF: HELO matches SPF record
+	SPF_NONE                0.001 SPF: sender does not publish an SPF Record
+	URIBL_BLOCKED           0.001 ADMINISTRATOR NOTICE: The query to URIBL was blocked.  See http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block for more information.
+
+遠藤 將司様
+
+いつもビデオニュース・ドットコムをご利用いただき、ありがとうございます。
+この度は、放送を終了した番組の販売が一時的にご利用いただけない状態となり、お客様におかれましてはご不便をおかけして申し訳ありませんでした。
+Vimeoでの販売ページが復旧しましたので、お知らせいたします。
+
+今後はサービスの管理をより徹底し、再発防止に取り組んでまいります。
+引き続き、ビデオニュース・ドットコムをお引き立てのほどお願い申し上げます。
+
+ビデオニュース・ドットコム
+カスタマーサポート
+https://www.videonews.com/
+
+On 2021/03/19 12:27, VIDEO NEWS wrote:
+> 差出人: 遠藤 將司
+> メールアドレス： hujyorom@gmail.com
+> ID：
+> メッセージ本文:
+> 以前貴社twitterアカウント(@videonewscom)の方にも送りましたが、依然として問題が解決されていなかったようですので、こちらにもお送りします。
+> もし問題が判明して解決したら、@videonewscomのアカウントで広報されたほうが良いと思います。同様の状況で、購入しようと思ってエラーとなった方がいらっしゃると思うので。
+>
+> 以下本文です
+> ===
+> 過去放送分をvimeoで購入しようとしたところ、いくつかの放送分のvimeoリンクが機能していないようです。少なくとも、934 / 913回分は駄目でした。リンクの有効期間などを確認されたほうが良いと思われます。
+>
+

@@ -1,0 +1,175 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp1275257vkl;
+        Fri, 13 Nov 2020 03:02:09 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwDXch7kWPzq4WM5VXMLtajHvpRZ2Jc+CrsfdMzCdF7Qp8aTVwtobvhIbGVRGhczIivEnVA
+X-Received: by 2002:aca:5f46:: with SMTP id t67mr1039708oib.156.1605265329246;
+        Fri, 13 Nov 2020 03:02:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1605265329; cv=none;
+        d=google.com; s=arc-20160816;
+        b=bstQsa3hjVtfS81PaJ9fjyQM04Okl1795Sa0yfmKQJV5vy6ABxJARX/4w6fsfWLv1L
+         Ty2o39n2s+wY6oa7UTbCRhwPgklnb6uAygkcZJX/ttkMmgqPawEnetG0Z7+KnuETaFJN
+         Xi3FJHJkFIiv0J0uGHATmPge0hAJHryQpx8vmLYWAMKq5GyPfYlpQSFetjkRybnpZJGA
+         LgesDsihCjV34nOYr2R2qT9bDu/mCUliVaIkl2IVZDZAwdRlb5G+nrsutg+bLT5c5Y7p
+         +qVZ5RxLlHhzaBtN1uzSJrcpb385pdxASIHbrWJEplyJVWXvuyCiimRozbx44q4jy+1g
+         4dRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:sender:dkim-signature:dkim-signature;
+        bh=gFR/vdCYInI1VWHZCA/Nstg9DSr7g/CodX5Ng9SAInU=;
+        b=jIMQYc9kQiND7d4MxlRFe+iKIhHjGKNBQgcT2C5JAjsuyl7Usjqhpab6b/vvqgkcCp
+         By/goe/gqFSe/92d9/pvHjnWofmTQhfFZJSGJp/GMp/KaX0QZ66MHZfSzUwG2gh5apAk
+         4fDY06SCjHBHzqYSfEE7bTaXBdFZnduo+wLO6vAGw5FcadNNyVUYTzydMjIZ1nAbPR4O
+         DeXp+skdhnJTwQRDmGj0WvZSz2KmDZxNhYNjG/f8gTPSiebi70S32jH3GdpWlnQR7aqW
+         vEKNzqJfLZP2KIOvVjW3xIZr6kEVRToKIzda4v4dLPqicZTrZ39nCmfo3UYqahLJwNFm
+         dO7A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@heroku.com header.s=mx header.b=sUttEeM1;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=YSEw9pEa;
+       spf=pass (google.com: domain of bounce+199e85.034c41-hujyorom=gmail.com@heroku.com designates 69.72.32.153 as permitted sender) smtp.mailfrom="bounce+199e85.034c41-hujyorom=gmail.com@heroku.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=notifications.heroku.com
+Return-Path: <bounce+199e85.034c41-hujyorom=gmail.com@heroku.com>
+Received: from m32-153.mailgun.net (m32-153.mailgun.net. [69.72.32.153])
+        by mx.google.com with UTF8SMTPS id e8si4680917oif.205.2020.11.13.03.02.07
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Nov 2020 03:02:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+199e85.034c41-hujyorom=gmail.com@heroku.com designates 69.72.32.153 as permitted sender) client-ip=69.72.32.153;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@heroku.com header.s=mx header.b=sUttEeM1;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=YSEw9pEa;
+       spf=pass (google.com: domain of bounce+199e85.034c41-hujyorom=gmail.com@heroku.com designates 69.72.32.153 as permitted sender) smtp.mailfrom="bounce+199e85.034c41-hujyorom=gmail.com@heroku.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=notifications.heroku.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=heroku.com; q=dns/txt; s=mx;
+ t=1605265329; h=Content-Transfer-Encoding: Content-Type: Mime-Version:
+ Subject: Message-ID: To: From: Date: Sender: X-Feedback-Id;
+ bh=gFR/vdCYInI1VWHZCA/Nstg9DSr7g/CodX5Ng9SAInU=; b=sUttEeM1olVSewBZNsWe5DM+ukh5X9fUlAVUHoXMSyHyVc7cHpTfUVqd8lkb5Oe3Jl7xIRJG
+ t/Z8c63sJ7lwCwkh/PvLkFILsxJFjJJZJtIjHKeeqU+lQz3qucIjcSyDGyKD69scxXIvWwjU
+ 0j59zUklUOaFePSFTuDiWItfyEg=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1605265329; h=Content-Transfer-Encoding: Content-Type: Mime-Version:
+ Subject: Message-ID: To: From: Date: Sender: X-Feedback-Id;
+ bh=gFR/vdCYInI1VWHZCA/Nstg9DSr7g/CodX5Ng9SAInU=; b=YSEw9pEa58snPiFHJVyCRAkxbOFh7GSWcpKycxd9/T32FPlKfjCbgsPli9hcM+xt06fA7mEV
+ NnP5N7EfW9fiCpg1Av+QdN1jPH7HIxI3TopMQCUUiiDzEkc5F0up2DEm3jY8w1MtYOf9Pn7V
+ mzSnZsh6Je/fyNWF531QQoP1nYs=
+X-Feedback-Id: 5b80668dfa60950001f60ef0:mailgun
+X-Mailgun-Sending-Ip: 69.72.32.153
+X-Mailgun-Sid: WyJmOTIxMiIsICJodWp5b3JvbUBnbWFpbC5jb20iLCAiMDM0YzQxIl0=
+Received: from localhost.localdomain
+ (ec2-54-144-158-133.compute-1.amazonaws.com [54.144.158.133]) by
+ smtp-out-n08.prod.us-west-2.postgun.com with SMTP id
+ 5fae6799d3e05bb6db5a0c6f (version=TLS1.3, cipher=TLS_AES_128_GCM_SHA256);
+ Fri, 13 Nov 2020 11:01:45 GMT
+Sender: bot@notifications.heroku.com
+Date: Fri, 13 Nov 2020 11:01:44 +0000
+From: Heroku Notifications <bot@notifications.heroku.com>
+To: hujyorom@gmail.com
+Message-ID: <0c14797c-b346-4842-b784-32c2e039b81a@notifications.heroku.com>
+Subject: Automatic deployment of exercise0001 failed.
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5fae67986a1b_33fc3244b7e28560043b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5fae67986a1b_33fc3244b7e28560043b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+An automatic deployment for exercise0001 failed. To inspect the failure you can [view the build log](https://dashboard.heroku.com/apps/exercise0001/activity/builds/ab76fda2-8aec-4f16-bf5f-b864e5b4da69).
+
+You can check that the user who connected the app or pipeline to GitHub still has access to the app and to the Github repository.
+
+In this case, reconnecting to GitHub will often fix the issue.
+
+If you believe that this build failure was not due to an issue in your app, please [open a support ticket](https://help.heroku.com).
+
+----==_mimepart_5fae67986a1b_33fc3244b7e28560043b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body style="width: 100% !important; -webkit-text-size-adjust: none; margin: 0; padding: 0;">
+    <center>
+      <table id="backgroundTable" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; height: 100% !important; width: 100% !important; color: #4c4c4c; font-size: 15px; line-height: 150%; background: #ffffff; margin: 0; padding: 0; border: 0;">
+        <tr style="vertical-align: top; padding: 0;">
+          <td align="center" valign="top" style="vertical-align: top; padding: 0;">
+            <table id="templateContainer" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; height: 100%; width: 600px; color: #4c4c4c; font-size: 15px; line-height: 150%; background: #ffffff; margin: 40px 0; padding: 0; border: 0;">
+              <tr style="vertical-align: top; padding: 0;">
+                <td class="templateContainerPadding" align="center" valign="top" style="vertical-align: top; padding: 0 40px;">
+                  <table id="templateContent" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; height: 100%; width: 100%; background: #ffffff; margin: 0; padding: 0; border: 0;">
+                    <tr style="vertical-align: top; padding: 0;">
+                      <td style="vertical-align: top; text-align: left; padding: 0;" align="left" valign="top">
+                        <h1 id="logo" style="color: #6E5BAA; display: block; font-family: hybrea, proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; font-size: 32px; font-weight: 200; text-align: left; margin: 0 0 40px;" align="left"><img src="https://s3.amazonaws.com/heroku.newsletter/heroku-logo.png" alt="heroku" width="120" height="42" style="outline: none; text-decoration: none; border: 0;" /></h1>
+
+                        <p style="margin: 20px 0;">
+
+                          <p>An automatic deployment for exercise0001 failed. To inspect the failure you can <a href="https://dashboard.heroku.com/apps/exercise0001/activity/builds/ab76fda2-8aec-4f16-bf5f-b864e5b4da69">view the build log</a>.</p>
+
+<p>You can check that the user who connected the app or pipeline to GitHub still has access to the app and to the Github repository.</p>
+
+<p>In this case, reconnecting to GitHub will often fix the issue.</p>
+
+<p>If you believe that this build failure was not due to an issue in your app, please <a href="https://help.heroku.com">open a support ticket</a>.</p>
+
+
+                        </p>
+
+                          <img src="https://telex.heroku.com/user/notifications/0c14797c-b346-4842-b784-32c2e039b81a/read.png" height="1" width="1">
+
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </center>
+
+<style type="text/css">
+body {
+width: 100% !important;
+}
+.ReadMsgBody {
+width: 100%;
+}
+.ExternalClass {
+width: 100%;
+}
+body {
+-webkit-text-size-adjust: none;
+}
+body {
+margin: 0; padding: 0;
+}
+img {
+border: 0; outline: none; text-decoration: none;
+}
+#backgroundTable {
+height: 100% !important; margin: 0; padding: 0; width: 100% !important;
+}
+#backgroundTable {
+color: #4c4c4c; background-color: #ffffff; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; font-size: 15px; line-height: 150%;
+}
+@media (max-width: 540px) {
+  #templateContainer {
+    width: 100% !important;
+  }
+  #templateContainer .templateContainerPadding {
+    padding: 0 5% !important;
+  }
+}
+</style>
+</body>
+</html>
+
+
+----==_mimepart_5fae67986a1b_33fc3244b7e28560043b--

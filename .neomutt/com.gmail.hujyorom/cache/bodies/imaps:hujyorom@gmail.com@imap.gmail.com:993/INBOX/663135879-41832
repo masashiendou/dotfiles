@@ -1,0 +1,347 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:93ce:0:0:0:0:0 with SMTP id v197csp1628508vkd;
+        Thu, 2 Jul 2020 12:27:59 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwqbXEVh8ouMaGn+yLuxZ12ezU6gOj44nW2kQqTn/tflvzhyn/jrRFbyCIs9A3G4u4tqbF/
+X-Received: by 2002:a63:495c:: with SMTP id y28mr26119649pgk.30.1593718078873;
+        Thu, 02 Jul 2020 12:27:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593718078; cv=none;
+        d=google.com; s=arc-20160816;
+        b=m//Ejp4kJFFKUeAt0bBoavMjalHou7qSF0lVVY3S9EVR4kgSK+P4p9NRZe7QakuYjL
+         DIP+cFc2fWayPsx1uUsOlQ4HWyYzF2LN33jNwodBkw5S97uDxlaL48XCwf9GYJ45cWGl
+         T5CBlxoCNKDxGDrhhbempAjzibFiYZ6VCwk7eK+sznbupdlN+7lEUOk2Xj9ce0qo0uqb
+         1Fafw5gJ1yz2ea3cy3b2ZrOeFawJf9tDtFLJQNw9tB+x6U7sbOtrdoF8lndJtPrnNzk1
+         32lofIex8lrzT0ok0h8hwUvveHsPhlBT3AeaT3fSqYVWxvACS/5OCvTsgzPHbtKvAmGG
+         4kYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:list-id:reply-to:mime-version
+         :list-unsubscribe:date:subject:to:from:dkim-signature;
+        bh=M4HDzwtFHMX/U/Ix4ENwAU0a2051xj5+3FanrOoUS2k=;
+        b=GXONZZoGpP+V+8gJZPZ8va5sSw/vsErtpZPUtfchcBl5CNc7J0NWxny1673pbfLNbx
+         v7tNopo9vPsG8ARW8nli9Z59ClQ7fY2TqKIRml9bk8GWUwCSNg9cpjHEalvYkgTEJNbZ
+         tbRdvHBH6xuGsd3sboCQG/kR4fiw9XkPZx9o+qSaIvOGr/nS00ZWPIxKuQ1R0QUXx6mG
+         iza9OrRkssyWkAKI9y8qg76Cs5qocFuQgthD+0nC3j05zpNNHNRCMGeQOGk+jv6IXapd
+         sTIX5YRrxX8fIxj9+ex1XS2TqpG28pjoaIRZL7Oely7VkYdaoz01czD7lq79CJgZjdYe
+         ZNWQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@e.mozilla.org header.s=200608 header.b=olVCl6Eh;
+       spf=pass (google.com: domain of bounce-100_html-391371813-5305263-1065730-1884@bounce.e.mozilla.org designates 199.122.127.163 as permitted sender) smtp.mailfrom=bounce-100_HTML-391371813-5305263-1065730-1884@bounce.e.mozilla.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.mozilla.org
+Return-Path: <bounce-100_HTML-391371813-5305263-1065730-1884@bounce.e.mozilla.org>
+Received: from mta3.e.mozilla.org (mta3.e.mozilla.org. [199.122.127.163])
+        by mx.google.com with ESMTPS id f13si6806385pfd.316.2020.07.02.12.27.58
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Jul 2020 12:27:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-100_html-391371813-5305263-1065730-1884@bounce.e.mozilla.org designates 199.122.127.163 as permitted sender) client-ip=199.122.127.163;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@e.mozilla.org header.s=200608 header.b=olVCl6Eh;
+       spf=pass (google.com: domain of bounce-100_html-391371813-5305263-1065730-1884@bounce.e.mozilla.org designates 199.122.127.163 as permitted sender) smtp.mailfrom=bounce-100_HTML-391371813-5305263-1065730-1884@bounce.e.mozilla.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.mozilla.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=200608; d=e.mozilla.org;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:List-ID:
+ X-CSA-Complaints:Message-ID:Content-Type; i=Mozilla@e.mozilla.org;
+ bh=M4HDzwtFHMX/U/Ix4ENwAU0a2051xj5+3FanrOoUS2k=;
+ b=olVCl6EhaCw8CAKpp9ioeGLpTNOsrc0Mq6FlQ74XcpMVieaJzE6d+Xjb5cVuq3C9JNme6JWXCy9z
+   USPtg5H7l6xErrvc1VBI6cfK5/frouqq788hd7ldkycpDWElikZldjfMC4gSMKwRa5T8x1wZzZmi
+   9inxxl7eZcOyzTrreRk=
+Received: by mta3.e.mozilla.org id hvoqjk2fmd4p for <hujyorom@gmail.com>; Thu, 2 Jul 2020 19:25:04 +0000 (envelope-from <bounce-100_HTML-391371813-5305263-1065730-1884@bounce.e.mozilla.org>)
+From: "Mozilla" <Mozilla@e.mozilla.org>
+To: <hujyorom@gmail.com>
+Subject: Facebook ads boycott
+Date: Thu, 02 Jul 2020 13:25:08 -0600
+List-Unsubscribe: <mailto:leave-fd5a1570750b5c392848-fe2b17797467037c7d1573-fe9711737561067b76-fe9915707361037e75-ff2a15787d60@leave.e.mozilla.org>
+MIME-Version: 1.0
+Reply-To: "Mozilla" <reply-fe9711737561067b76-100_HTML-391371813-1065730-1884@e.mozilla.org>
+List-ID: <1065730.xt.local>
+X-CSA-Complaints: whitelist-complaints@eco.de
+X-SFMC-Stack: 4
+x-job: 1065730_5305263
+Message-ID: <c5347f28-6331-4040-b013-56cb386f24c6@las1s04mta928.xt.local>
+Feedback-ID: 1065730:5305263:199.122.127.163:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="MASQE9r6r8gd=_?:"
+
+This is a multi-part message in MIME format.
+
+--MASQE9r6r8gd=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Hello, 
+ 
+Facebook has a major problem with hate speech and disinformation on its platform. Despite groups calling it out on its inaction, including Mozilla, it's yet to make changes.
+ 
+But Facebook has an Achilles heel: 99% of its $70 billion in revenue comes from advertisers.
+ 
+We're calling on Mozilla's peers — tech companies and companies that rely heavily on the internet in their core business — who are among Facebook's top advertisers to pull their ads from Facebook and #StopHateForProfit, including: Amazon, Uber, Samsung, Disney, and Apple.
+ 
+We need your help to encourage them to join the growing movement against hate speech and misinformation online. Can you send a tweet telling companies to #StopHateForProfit?
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c5c5e1b12d27337d32fb255e089facf2546afd910a167f72bc54e69012f35f17450e7baf7cbbf6228562f1cfe8e1af68f
+ 
+Tweet at Them:
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c5c5e1b12d27337d32fb255e089facf2546afd910a167f72bc54e69012f35f17450e7baf7cbbf6228562f1cfe8e1af68f
+ 
+(our tool will randomly choose a different tech company for you)
+ 
+Don’t have Twitter? You can also post a message to your Facebook wall:
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c54653788a7357578f697776a4712dd45700f08856e0b9bb099065e52cf7f2ca2297f5432a7bc1c7e0c0eb2c2e699fed2
+
+ 
+Public pressure works. Already, some of the world's biggest advertisers have pulled their ads from Facebook, including Unilever (a global consumer goods company), Coca-Cola, Starbucks, Lego, and Pepsi.
+ 
+As a result, Facebook's value has dropped by $60 billion in just a few days. We've also just learned that Facebook CEO, Mark Zuckerberg, has said he's planning to sit down with our partners at Color of Change, ADL and the NAACP to discuss the boycott and advertiser recommendations. Facebook is clearly feeling the pressure — now we need to turn up the heat by encouraging more large companies to join the #StopHateForProfit campaign.
+ 
+With your help, Facebook will make its platform more accountable to its users, remove hate speech, and provide support to its users most affected by extreme, hateful content.
+ 
+Can you send a tweet today to encourage leading tech companies to join the #StopHateForProfit boycott?
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c5c5e1b12d27337d32fb255e089facf2546afd910a167f72bc54e69012f35f17450e7baf7cbbf6228562f1cfe8e1af68f
+ 
+Tweet Now:  
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c5c5e1b12d27337d32fb255e089facf2546afd910a167f72bc54e69012f35f17450e7baf7cbbf6228562f1cfe8e1af68f
+ 
+Thank you so much,
+ 
+Jon, on behalf of the Mozilla team
+ 
+
+ 
+Connect with us
+
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c3b2dad04bd51d045e37b3caf775c5b391b178490dc0d8113032c0715a4982ffe0f425585cf5e2779cf3776884af32073
+
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880cbd856abddc6749c94407b7bd834d0b04431346f0852a25510c506ff798f8578b5153d052b01b924491f72fc08b3d6056
+
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880cb5bfa00892c0e144696f3fd02dc18fb15202d87a120aae6c3e1bed4167239aaea6437132b65de0560662bf92316e785a
+
+Thanks for reading!
+
+
+
+You're receiving this email because we think you’re neat, AND you subscribed to hear from us. If our emails aren’t sparking joy, we’ll understand if you unsubscribe.
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c0c7bfd9a5968d95910f7f03213d092cb73681f766e46f7cde123966a1503cf86f0353776d4b99ef9ba3d6f441dabef3a
+
+You can also update your email preferences  at any time.
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c0c7bfd9a5968d95910f7f03213d092cb73681f766e46f7cde123966a1503cf86f0353776d4b99ef9ba3d6f441dabef3a
+
+
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c4ba5b0e262457bd6a10962df0349b9307be2742f684036b0493ef460436caae8abc41e22d392494350d4b4e16b46a463
+
+Donate to Mozilla
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c6e896fee22b5f39250dda500d69febef28d16a14c92a035701554e057ee19cacd818016fd449e5d3ed455985be4c2a74
+
+Download Firefox
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c12952f6e9fc3ec0be3f413426c60c414f2de822e234463a2f2fde95b854b4820081bfcecfa71af4d165000eade9cfdcf
+
+331 E. Evelyn Avenue Mountain View CA 94041
+
+Legal
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880ccd3bab2990fc74b2c8fe7ddff5ade054656b025138bc3eb9dae0d73b2059ddbeda7eda9d6769e6bcb321bb5e1a98ca2d
+Privacy
+https://click.e.mozilla.org/?qs=2a4be0ff5d54880c3c30371a14bdab6ca5b1fe716af91a5a7c1392cc9d2842b9e5cf563f25889765039a056e55f70b46e6f829c394d62685
+
+--MASQE9r6r8gd=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <style>
+
+        body {margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } a, a:link{color:#2A5DB0; text-decoration: underline;} table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
+
+    </style>
+
+    <style>
+ .scalable-image img{max-width:100% !important;height:auto !important}.button a{transition:background-color .25s, border-color .25s}.button a:hover{background-color:#e1e1e1 !important;border-color:#0976a5 !important}@media only screen and (max-width: 400px){.preheader{font-size:12px !important;text-align:center !important}.header--white{text-align:center}.header--white .header__logo{display:block;margin:0 auto;width:118px !important;height:auto !important}.header--left .header__logo{display:block;width:118px !important;height:auto !important}}@media screen and (-webkit-device-pixel-ratio), screen and (-moz-device-pixel-ratio){.sub-story__image,.sub-story__content{display:block
+ !important}.sub-story__image{float:left !important;width:200px}.sub-story__content{margin-top:30px !important;margin-left:200px !important}}@media only screen and (max-width: 550px){.sub-story__inner{padding-left:30px !important}.sub-story__image,.sub-story__content{margin:0 auto !important;float:none !important;text-align:center}.sub-story .button{padding-left:0 !important}}@media only screen and (max-width: 400px){.featured-story--top table,.featured-story--top td{text-align:left}.featured-story--top__heading td,.sub-story__heading td{font-size:18px !important}.featured-story--bottom:nth-child(2) .featured-story--bottom__inner{padding-top:10px
+ !important}.featured-story--bottom__inner{padding-top:20px !important}.featured-story--bottom__heading td{font-size:28px !important;line-height:32px !important}.featured-story__copy td,.sub-story__copy td{font-size:14px !important;line-height:20px !important}.sub-story table,.sub-story td{text-align:center}.sub-story__hero img{width:100px !important;margin:0 auto}}@media only screen and (max-width: 400px){.footer td{font-size:12px !important;line-height:16px !important}}
+     @media screen and (max-width:600px) {
+    table[class="columns"] {
+        margin: 0 auto !important;float:none !important;padding:10px 0 !important;
+    }
+    td[class="left"] {
+     padding: 0px 0 !important;
+    </style>
+
+</head>
+
+<body style="background: #e1e1e1;font-family:Arial, Helvetica, sans-serif; font-size:1em;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Facebook has a major problem with hate speech and disinformation on its platform, but we can do something about it.</div>
+    <table id="backgroundTable" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#e1e1e1;">
+        <tr>
+            <td class="body" align="center" valign="top" style="background:#e1e1e1;" width="100%">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="640">
+                            <table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0">
+ <tr>
+  <td width="640" align="left">
+   <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+     <td class="header header--left" style="padding: 20px 10px;" align="left">
+      <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c49f372e75483f085fb6f6cbd56e9fe4a5aca665720bd12e9c594bee5ce50796f60ba00ff34dadb579d9cdddffa906909" ><img class="header__logo" src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/moz-logo-bw-rgb158.png" alt="Mozilla" style="display: block; border: 0;" width="158" height="45"></a>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table></td></tr></table></td>
+                    </tr>
+                    <tr>
+                        <td class="main" width="640" align="center" style="padding: 0 10px;">
+                            <table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table style="background-color: #e7ebed; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; width: 100%; margin: 0 auto; padding: 0;" width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td style="background-color: #ffffff; width: 30px;" width="30">&nbsp;&nbsp;&nbsp;</td>
+    <td valign="top" align="center">
+      <table style="background-color: #ffffff; max-width: 700px!important; min-width: 100%; width: 100%;" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td style="background-color: #ffffff; height: 12px;" valign="top">&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="background-color: #ffffff; color: #4b4b4b; font-size: 15px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left; line-height: 150%;" valign="top">
+
+            <table style="max-width: 300px; width: 300px;" cellspacing="0" cellpadding="0" align="right">
+                <tr>
+                  <td>
+                    <table style="box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; margin-left: 8px; margin-top: 5px; margin-bottom: 8px; min-width: 300px;" cellspacing="0" cellpadding="0" border="1" bgcolor="#ffffff">
+                        <tr>
+                          <td style="padding: 8px; text-align: left; line-height: 125%; font-family: 'Open Sans', sans-serif; overflow-wrap: break-word;">
+
+                            <p>We're calling on Facebook's biggest advertisers to stop placing ads on Facebook until Facebook takes concrete steps to address hate and disinformation on the platform.</p>
+
+                            <p><strong>Could you tweet at Facebook's advertisers to join us to tell Facebook to #stophateforprofit?</strong></p>
+
+                            <p style="text-align: center;">
+                              <a style="background-color: #0c99d5; display: inline-block; padding: 10px 42px; margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; color: #fff; font-size: 16px; font-weight: bold; text-transform: uppercase; text-align: center; text-decoration: none;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cc428dfd755de47eff60d81fbf41625ef4f3f53abd52746825136c569bb118bf419ec2eb7ebd9e9511dc1b5eeb6e8d356" >&nbsp;&nbsp;Send a Tweet&nbsp;&nbsp;</a>
+                            </p>
+                          </td>
+                        </tr>
+                    </table>
+                  </td>
+                </tr>
+            </table>
+
+            <p>Hello, </p>
+
+            <p><strong>Facebook has a major problem with hate speech and disinformation on its platform.</strong> Despite groups calling it out on its inaction, including Mozilla, it's yet to make changes.</p>
+
+            <p>But Facebook has an Achilles heel: 99% of its $70 billion in revenue comes from advertisers.</p>
+
+            <p>We're calling on Mozilla's peers &mdash; tech companies and companies that rely heavily on the internet in their core business &mdash; who are among Facebook's top advertisers to pull their ads from Facebook and #StopHateForProfit, including: Amazon, Uber, Samsung, Disney, and Apple.</p>
+
+            <p>We need your help to encourage them to join the growing movement against hate speech and misinformation online. <a style="text-decoration: underline; color: #0c99d5; font-weight: bold;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cbe9305e062f6c56ebb83c1c5a92e139a947960ebdc7424356d03db2596466ff1073260e19f36a3fd3b571884fcb31419" >Can you send a tweet telling companies to #StopHateForProfit?</a></p>
+
+            <p style="text-align: center;"><a style="background-color: #0c99d5; display: inline-block; padding: 10px 42px; margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; color: #fff; font-size: 16px; font-weight: bold; text-transform: uppercase; text-align: center; text-decoration: none;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c6ed088304c7c3172e70f10a669c2adcf6981850e12b55617eb38589b2958a942d5310412efcbe741ab7ec0d685d4b8b0" >&nbsp;&nbsp;Tweet at Them&nbsp;&nbsp;</a></p>
+
+            <div align="center"><em>(our tool will randomly choose a different tech company for you)</em></div>
+
+            <p>Don’t have Twitter? You can also <a style="text-decoration: underline; color: #0c99d5; font-weight: bold;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c349dbf85aa97d47cb6aa8182517701ecc086e6a09cb2be3ba73360abda1c2bea8ee6dd30065a394412415882a3ec6320" >post a message to your Facebook wall</a>.</p>
+
+            <p><strong>Public pressure works.</strong> Already, some of the world's biggest advertisers have pulled their ads from Facebook, including Unilever (a global consumer goods company), Coca-Cola, Starbucks, Lego, and Pepsi.</p>
+
+            <p>As a result, Facebook's value has dropped by $60 billion in just a few days. We've also just learned that Facebook CEO, Mark Zuckerberg, has said he's planning to sit down with our partners at Color of Change, ADL and the NAACP to discuss the boycott and advertiser recommendations. Facebook is clearly feeling the pressure &mdash; now we need to turn up the heat by encouraging more large companies to join the #StopHateForProfit campaign.</p>
+
+            <p><strong>With your help, Facebook will make its platform more accountable to its users, remove hate speech, and provide support to its users most affected by extreme, hateful content.</strong></p>
+
+            <p><a style="text-decoration: underline; color: #0c99d5; font-weight: bold;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c5207643aa67379d0088febc68db9ec958c62bd031097c73899de9687a1d123fabbc63e31bd1ca1a5c448607d7766d655" >Can you send a tweet today to encourage leading tech companies to join the #StopHateForProfit boycott?</a></p>
+
+            <p style="text-align: center;"><a style="background-color: #0c99d5; display: inline-block; padding: 10px 42px; margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; color: #fff; font-size: 16px; font-weight: bold; text-transform: uppercase; text-align: center; text-decoration: none;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880ccbdfc8e4b299a365190c7dcdb8a48426b81d53ac3d92091d72e9d5dc5e4d9d177867cc7ead4209841eb49276baafa606" >&nbsp;&nbsp;Tweet Now&nbsp;&nbsp;</a></p>
+
+            <p>Thank you so much,<br>
+              Jon, on behalf of the Mozilla team</p>
+            
+            
+            <p> P.S. During this global pandemic, a healthy internet to keep us all connected is more vital than ever before. If you support Mozilla's mission to keep the web open and healthy as a global public resource, would you consider <a style="text-decoration: underline; color: #0c99d5; font-weight: bold;" href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cca6d8434b65b7b4ccf0aabee92587f8e0c7a82fc5249903785825cd7a96e1797ec1b650643a317a63b848ac03ad8f685" >a small donation to support our work?</a> <strong>Thank you!</strong></p>
+            
+          </td>
+        </tr>
+        <tr>
+          <td style="background-color: #ffffff; height: 30px;" colspan="3">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+    <td style="background-color: #ffffff; width: 30px;" width="30">&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</td></tr></table><table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><br>
+<table cellspacing="0" cellpadding="0" align="center">
+     <tr>
+<td colspan="3" style="font-family: 'Gill Sans MT', Calibri, sans-serif; font-size: 22px; color: #6e899e; padding-bottom: 15px;" align="center">
+      Connect with us
+      </td>
+     </tr>
+     <tr>
+      <td style="padding: 0 10px;" align="right">
+      <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cd7f4725aa2e0b407ed9470385b5a3681b43ae2c9da964e7f6bb13faadcafb40fafe701560db065a9508f3ff303242eda"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/youtube-icon-blue-transparent.png" alt="YouTube" style="display: block; border: 0;" width="45"></a>
+      </td>
+      <td style="padding: 0 12px;" align="center">
+      <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c246209ee8b3ea1c7aaac2150e1bb1f69147488cae61ad561c8f03c334cd04e672fbcbdad47609214392bbdb0db0a843c"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/2/mozilla-email-twitter.png" alt="Twitter" style="display: block; border: 0;" width="45"></a>
+      </td>
+             <td style="padding: 0 12px;" align="left">
+      <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c61dafbca9d29820c3effa5eb99d08fd50311192e491fc1a7380f84b6e5a030fb244091cd5963a01001e895e0455599f8"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/5/8624d65d-230d-4423-9f8e-dde004af246d.png" alt="Instagram" style="display: block; border: 0;" width="45"></a>
+      </td>
+      
+     </tr>
+    </table>
+</td></tr></table></td>
+                    </tr>
+                    <tr>
+                     <td class="footer" width="640" align="center" style="padding-top: 10px;">
+                      <table cellspacing="0" cellpadding="0">
+                       <tr>
+                        <td align="center" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 14px; line-height: 18px; color: #738597; padding: 0 20px 40px;">
+                                      <br>      <br>
+<strong>Thanks for reading!</strong>
+
+<br> 
+
+You're receiving this email because we think you’re neat, AND you subscribed to hear from us. If our emails aren’t sparking joy, we’ll understand if you  <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880ced755c8a246ead998856f31c934b4bc983c8b3811c8751247985c0dd0ac228a333c59d3a961e67f61347d5574c9f7ed0"  style="color: #0c99d5;">unsubscribe.</a>
+
+<br>
+<br>
+You can also <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c76845f3496441ba578d202b3041199ff8f5f4bd12a8a2b0bb199de2d81ed19717a3a29425168395400a37bc1e4a64884"  style="color: #0c99d5;">update your email preferences</a> at any time.
+<br>
+<br>
+
+
+
+                         <br>
+<a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c39187eb030315f259d143f1d516aee70dc109205319aad84973b46551a85c42bf760fae7a3654144a1678c4432a9d621"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/Mozilla-Logo-2017.png" alt="Mozilla" style="display: block; border: 0;" width="100"></a>
+      <br>
+<strong><a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cae072fe1c1b1d7ce960368463f88581e3c6e6b8911a9a8a478eea788b93e2b9a7465c689dc3fab106f39b9db6f72232f" style="color: #0c99d5;"  target="_blank">Donate to Mozilla</a></strong>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<strong><a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880c6df08ab2e9fb23020270fe009a53d8a04812d7786874eb58e6003f683690ad7d34a2a6d6436fce01b723319362a7335a" style="color: #0c99d5;"  target="_blank">Download Firefox</a></strong>
+<br><br>
+
+
+                         331 E. Evelyn Avenue Mountain View CA 94041 
+                         <br>
+                         <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cfec17be88040661fee5398f914b88bd33b591dfead6e7bd50a8b6e10404c8cd49abe41dfcd698e047f6e64d0ab846a21"  style="color: #0c99d5;">Legal</a> • <a href="https://click.e.mozilla.org/?qs=2a4be0ff5d54880cac4a229fbc3517432d7f7f65a449854bcf404739eb9405fb036cc3a3e746d77134da1ff0fd25b6c2ff9dd74de1dd2b5d"  style="color: #0c99d5;">Privacy</a>
+
+                        </td>
+                       </tr>
+                      </table>
+                     </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Exact Target tracking code -->
+    <img src="https://click.e.mozilla.org/open.aspx?ffcb10-fe9711737561067b76-fdf616717264037972107470-fe9915707361037e75-ff6e157075-fe2b17797467037c7d1573-ff2a15787d60&d=40116" width="1" height="1">
+</custom></body>
+</html>
+
+--MASQE9r6r8gd=_?:--
+

@@ -1,0 +1,204 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2dd2:0:0:0:0:0 with SMTP id t201csp397558vkt;
+        Wed, 14 Jul 2021 22:30:29 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzjjg/5i1uvsGq2GopCgkowYsJzZil6oButiAp1BgnOnVchOzkikV8qDfiyQY6HXgwPk65/
+X-Received: by 2002:a17:90b:3607:: with SMTP id ml7mr8067045pjb.153.1626327028988;
+        Wed, 14 Jul 2021 22:30:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626327028; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xHKKtdfTynGvNxt40+S+0T3GGJf/sPw0N9ndBwJBlN6FAarOimHeLGkrWgfISe8cZf
+         nNgfMS/2sQtl5d+Ny9nOYImO449yuwubx2cpiZefyhumw5SKRNm72yOLjUblVzlX8kR7
+         umS6Aaq20EESWVG6gYkbzjWRXvm2b2e/T0k09MXStHQiHs5qec9RDHXNxeQA476rudvF
+         aniRTEM5R5A8d0RKz/iV2RNSd3WVOsxWE7ZhuDMgtIe/DgR8uK2bCRFhBHinrPWDQLbz
+         akL54lSHEDuDfFi5hdfftQtyGZg6DYGvgswhLF0pQl2EArjcK2u1dDhh5JTM+ueZwvUV
+         WKJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:errors-to:dkim-signature;
+        bh=rYe1z/lHXAEgdIb6mKbc21CHctMmCqxvxnrvHG2HZSU=;
+        b=TvSJwX7aR7yTXkJYL9eadcFWE6Jp23JRR/TJBWJbGYrRtj+YtcuHGch97ruIUnq179
+         goIlvrMyk5MUD7yXtxbm6ZfyjEo+f+zlX8B1yEXIeWvs1P4CgZqpldnNcSiXHGz5Lw/y
+         GRfoHRU2+Z1lXyH/0ippNNZTorMnM4aHuxhBFw9tqXw2NHf+OlLhccIlBXThWrS894X8
+         Dg6WjMqJETzC2GrJzm/hC/BBJHvHY7u0+MtswfAV5umiR2zoC+ZeMP3w4vFspllQN+Wi
+         B1tqbYVIu7tmNTI/JXuLdQ9X+8vNRd4Y9Xf8G7jeFxzd3D4GNXtt92NEub2mI/MyrBBo
+         NNgQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b=T8MEQJQg;
+       spf=pass (google.com: domain of z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.55 as permitted sender) smtp.mailfrom=z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+Return-Path: <z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp>
+Received: from bmmpq1201.jpx1.mta.emberpoint.com (bmmpq1201.jpx1.mta.emberpoint.com. [106.185.100.55])
+        by mx.google.com with ESMTPS id x1si5713227plo.64.2021.07.14.22.30.28
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 14 Jul 2021 22:30:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.55 as permitted sender) client-ip=106.185.100.55;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b=T8MEQJQg;
+       spf=pass (google.com: domain of z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.55 as permitted sender) smtp.mailfrom=z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1626327028;
+	s=en-japanmail201805; d=en-japan.com;
+	h=Date:From:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=rYe1z/lHXAEgdIb6mKbc21CHctMmCqxvxnrvHG2HZSU=;
+	b=T8MEQJQgaNB0O8Way6d/w+el8o6ZQczuhLkkMtiLqKxc1W8GlU9CU6LxL5itJZoG
+	r7baZMmv6iFn5JjyyziJXbrZSPbeoe3Mxe66VhInijwKzWsSv11kXHZwl7oFiRON1JS
+	sqPqzdRl6GV7bJl+MpozZpl1Gzl61sZdX0Zp++mc=
+Errors-To: z-enhaken-xfcevn-0-j0-008hujyoromgmail.com@bma.mpse.jp
+Date: Thu, 15 Jul 2021 14:30:18 +0900 (JST)
+From: =?ISO-2022-JP?B?IhskQiUoJXNHSTgvO3ZMMzZJGyhCIg==?=
+ <haken-news@en-japan.com>
+To: hujyorom@gmail.com
+Message-Id: <1626327018153.2021157203.enhaken.0.684.00000000@ad143se.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCIVpLTDMkRjtIRyFbQFE2SzpOTVFDZiEqPzdDZSROJCobKEI=?=
+ =?ISO-2022-JP?B?GyRCO0U7diVIJVQlQyUvJTkkLDh4MyskNSRsJF4kNyQ/ISobKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+
+【みんなの疑問を解決！派遣Ｑ＆Ａ】職歴は派遣先の会社名を伏せるべきなのでしょうか？
+━━━━━━━━━━━━━━━
+耳より情報満載！
+エン派遣　ＮＥＷＳ☆=
+━━━━━━━━━━━━━━━
+
+こんにちは！エン派遣 事務局の鈴木です。
+
+本日は、週に一度の「お仕事トピックス」の公開日です！
+積極採用中のお仕事ですので、ぜひチェックしてくださいね。
+
+▼ 新着！お仕事トピックスはこちらから
+https://haken.en-japan.com/uex_STXhPj2/
+
+
+◆【未経験OK】ワクチン接種に関する予約受付など10名以上！時給1280円・週払い可／札幌
+https://haken.en-japan.com/uex_q0ZB6vi/
+[ラブキャリア]
+
+
+━━━━━━━━━━━━━━━
+【？→！】みんなの疑問を解決！派遣Ｑ＆Ａ
+━━━━━━━━━━━━━━━
+
+【　Ｑ　】職歴は派遣先の会社名を伏せるべきなのでしょうか？
+
+【　Ａ　】派遣先と特別に秘密保持契約などを結んでいない限り…
+
+▼ 続きはこちら！
+https://haken.en-japan.com/uex_r9uM8y8/
+
+▼その他の派遣のお仕事Ｑ＆Ａはこちら
+https://haken.en-japan.com/uex_QlizUGS/
+
+▼みなさんからのご質問も募集中！
+https://haken.en-japan.com/uex_njxxE52/
+
+
+━━━━━━━━━━━━━━━
+【★】7月度就業お祝いキャンペーン 募集中！
+━━━━━━━━━━━━━━━
+
+エン派遣では、毎月『就業お祝いキャンペーン』を行っています。
+
+期間中に当サイトを通じてお仕事が決まった方の中から30名様に、2000円分の商品券をプレゼント！
+
+お仕事が決まった際には、ぜひご応募ください！
+
+▽ ご応募はこちら！
+https://haken.en-japan.com/uex_ulqBDw7/
+
+▽ お仕事が決まった方からの応援メッセージはこちら！
+https://haken.en-japan.com/uex_0IhbYzz/
+
+【就業お祝いキャンペーン 当選者からのメッセージ】
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+今回、お仕事を選ぶ際に選択肢を広げて探してみたところ、結果的に好条件の案件に巡り会えました。ちょっと視野を広げて探してみるのも良いことがあるかもしれません！
+（M.H.さん）
+
+○ 派遣会社／横浜ビジネスプロモーション
+○ 決まったお仕事／マンション巡回・設備点検等
+
+
+━━━━━━━━━━━━━━━
+☆ あなたの志向に合わせたオススメ求人♪
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+あなたがサイト上で見たお仕事情報を分析！
+
+条件が似ているお仕事や志向に合わせたお仕事をオススメしています。
+
+自分では見つけられなかったお仕事が見つかる可能性も！ぜひチェックしてくださいね。
+
+▼ あなたにオススメのお仕事はこちら！
+https://haken.en-japan.com/uex_bf1TjhG/
+
+
+━━━━━━━━━━━━━━
+☆ 便利機能♪「気になる！リスト」がオススメ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+保存した求人情報をまとめてチェックできるだけでなく、あなたが興味を持っていることが匿名で企業に通知されます！
+
+応募前に「応募歓迎」「面談確約」など、派遣会社からのアプローチが届く可能性も！自信をもって応募していただけます。
+
+どんどん活用して、よいお仕事を見つけてくださいね。
+
+▼ 「気になる！リスト」はこちら
+https://haken.en-japan.com/uex_7SDN7wS/
+
+ぜひエン派遣で、いいお仕事を見つけてくださいね！
+
+▼ エン派遣のトップページはこちら
+https://haken.en-japan.com/?mmid=273609&utm_campaign=enhaken&utm_medium=email&utm_source=mm
+
+━━━━━━━━━━━━━━━
+☆ 大人気！エン派遣のスマホアプリ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+iOS版 ― https://goo.gl/GYA8lu
+
+Android版 ― https://goo.gl/o2C3A0
+
+☆──────────────*
+┌───┐
+│＼＿／│事務局だより〜
+└───┘
+
+約60年ぶりに誕生石が見直されるそうです。
+
+2〜4月、6〜9月、12月の誕生石が追加される予定だそうですよ。
+
+私は誕生月が4月でして、これまでの誕生石はダイヤモンドです。
+
+子供のころは「透明でつまらないな…」などと言って、エメラルドのような色のついた誕生石をうらやましく思っていたものです。
+
+今回、4月の誕生石にはモルガナイトが追加されるそうです。
+
+初めて聞く名前で全くイメージが湧かず…調べてみました。
+
+オレンジっぽいピンク〜ピンク色の石で、「清純・愛情・優美」を象徴するのだとか。
+
+なんだか高貴で、身に着けるのが申し訳ない気持ちです（身に着ける予定はありません）。
+
+ちなみに誕生石は、月だけでなく"月日"の誕生石もあるそうです。
+
+本日7月15日生まれの方（おめでとうございます！）の誕生日石はアメトリンとルビー。
+
+どちらもとても綺麗で、画像検索するだけで気持ちが明るくなりました。
+
+本物はなかなか手を出せませんが、時々SNSなどで宝石の画像をチェックしてみようと思いました＾＾
+
+（山）
+
+━━━━━━━━━━━━━━━
+エン・ジャパン株式会社
+エン派遣 事務局
+
+÷-÷-÷-÷-÷-÷-÷-÷-÷-
+【配信停止】https://haken.en-japan.com/uex_7S5aQnj/
+【お問い合わせ】https://haken.en-japan.com/uex_0284G8t/
+※当メールのアドレスは送信専用です。このメールへの返信にはお答えできません。
+本メールに掲載された記事を許可なく転載することを禁じます。
+━━━━━━━━━━━━━━━

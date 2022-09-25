@@ -1,0 +1,682 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp861024vkh;
+        Tue, 21 Sep 2021 00:59:54 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxhTbsVMhJQBsXkvuEnX3hWvIFiLtlEM9Rm9utpUsZnYps8oG0o6idCvvJrFhqJnT8nveu3
+X-Received: by 2002:a17:902:c205:b0:13c:a76c:4904 with SMTP id 5-20020a170902c20500b0013ca76c4904mr23134314pll.85.1632211194277;
+        Tue, 21 Sep 2021 00:59:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632211194; cv=none;
+        d=google.com; s=arc-20160816;
+        b=RxPYnxcTKGQojfY6wEcLNTOtRyt7nl9UnVmr+qfFh5/F8Xi33J0lXdm6NQCRCoTr4T
+         IdhKNNS1lfaXJM0EMoc9LHf6m2w7u0Jipx/7TKYCr+7KPwG084W8Y7EzxeJ0L7SB+n1p
+         XHUXruojNL7eQdsZV4KuDzSK9psVsBPeAZsTpHXlGnV6Z0cwokssV+Bc37g4JrVgPyIl
+         cnXCmxM+f4l1Dh+LjlQSUVZeMfAnYwg4kASQ/DqZ6SKjvM2ikskj2xqChNnvhziChBbg
+         rMAxDf6OfLyqCIZrjXK1GZDO2/UDR+NUtvyxNpHYeuGu5QUorvcAArd9nJoC51V1OzhM
+         T4dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:to:reply-to:message-id:subject:mime-version:from
+         :date:dkim-signature:dkim-signature;
+        bh=0j213YLXTpIGkoxOl/l38YkjOpcxnWfF2lWEZpaP+D4=;
+        b=iSgaxDU1VIBP04bcaGOafkxztAbsggbMcG7JCaSBKetYr9fM2yqmI1EjSvxibpyy0I
+         2S/b5trgRBA0y++NjLiGJyOpj3tSL4LsWdPMvirVVPDjwh60jo3uDpl9trSTMY520T2j
+         DiVwKQp5001IvkxFdw1PlboOA7e3PK1Mva4CnXrXevozuXwkYNzlHocqx0vE7wddaK7W
+         /iCQzTpC27YNosV7/roA4THQGcUuohGuyWmiSNAyBsHwqsbUie72rG3P4C8BX+nsp8TL
+         vQRd52p9/0XCQBj6Dn+XMtFc1iMgiuBANvswsf2f4lp1PNbFooOEw1qMfnbLGlI/7uJM
+         2Enw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@goworkship.com header.s=s1 header.b=fPUYjT2X;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=SMHNs5kZ;
+       spf=pass (google.com: domain of bounces+8631556-cd10-hujyorom=gmail.com@em9422.goworkship.com designates 50.31.33.20 as permitted sender) smtp.mailfrom="bounces+8631556-cd10-hujyorom=gmail.com@em9422.goworkship.com"
+Return-Path: <bounces+8631556-cd10-hujyorom=gmail.com@em9422.goworkship.com>
+Received: from o50-31-33-20.outbound-mail.sendgrid.net ([50.31.33.20])
+        by mx.google.com with ESMTPS id 7si21198975pfx.258.2021.09.21.00.59.54
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Sep 2021 00:59:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+8631556-cd10-hujyorom=gmail.com@em9422.goworkship.com designates 50.31.33.20 as permitted sender) client-ip=50.31.33.20;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@goworkship.com header.s=s1 header.b=fPUYjT2X;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=SMHNs5kZ;
+       spf=pass (google.com: domain of bounces+8631556-cd10-hujyorom=gmail.com@em9422.goworkship.com designates 50.31.33.20 as permitted sender) smtp.mailfrom="bounces+8631556-cd10-hujyorom=gmail.com@em9422.goworkship.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goworkship.com;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:
+	list-unsubscribe;
+	s=s1; bh=0j213YLXTpIGkoxOl/l38YkjOpcxnWfF2lWEZpaP+D4=;
+	b=fPUYjT2Xn0ZiMxxEpCj7d2Vxl9svxeEEHoRW8ToxukOvL0hxx2KLQ5Smm30wkU9SjBv7
+	7CFk/4+kkjOx6iKMnOFXqWC4mvNPgaGm5unKd+VVoysEGBsW5P4OZfuEDJ98eABUwSwa7N
+	Fe27pZbiXFBCvcHHgKe/piY9c8RXES/E0mytMR41PpFP8smRm7X8e0Gcki2diJ2AsN/EdH
+	2adTeHxPlw1+SjhzBglvONalUndMMCWw5dS+YYY/7MzXvCOH/rFd1q+Ual2URyGp0o7f67
+	HVCMkKVTCi7ReSZY2lgLfcycbHElHARbkkh4i1dmpKSzjKFWvZLmeH3YhEkCzHIg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:
+	list-unsubscribe;
+	s=smtpapi; bh=0j213YLXTpIGkoxOl/l38YkjOpcxnWfF2lWEZpaP+D4=;
+	b=SMHNs5kZX7PEBjA9MV8mo0gQF1zw/LjnoD0a7yN7MgU7TYFT4xijErvJyxKU7YsXj6Nf
+	7rLlIGRILpkJCN/E29VJoVj9x4UGcaEo1Zn1WOljOukSNgbVhxja1VacrcHviSdwji+bej
+	1ZPxbSXuvYgdmFpGmLelYShiKoIIZnaCc=
+Content-Type: multipart/alternative; boundary=7a90d47b114491ac01b10788445c2613b0beb32e498dcaeede932a6bed10
+Date: Tue, 21 Sep 2021 07:59:53 +0000 (UTC)
+From: =?utf-8?q?Workship_=E9=81=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80?=
+	<support@goworkship.com>
+Mime-Version: 1.0
+Subject: 
+ =?UTF-8?B?44CQV29ya3NoaXDjgJHjgqLjg7PjgrHjg7zjg4jlm57nrZTjgq3jg6Pjg7Pjg5rjg7zjg7Pjga7jgYrnn6XjgonjgZs=?=
+Message-ID: <IM7tmayqTxy8KidxWolXbw@geopod-ismtpd-4-2>
+Reply-To: support@goworkship.com
+X-Feedback-ID: 8631556:SG
+X-SG-EID: 
+ =?us-ascii?Q?9dkFDRIWoI22Hw1WpnxG98B4NKSJ9d0BDPdMfipB43yHeMyB0ODo7HLUgEYWka?=
+ =?us-ascii?Q?VfjuRY6FWkEKmRST51DWE=2FLWNIyWCzCA6a1pfyB?=
+ =?us-ascii?Q?EXRbrVcXfH72RQZ8oezQwz=2FgoagrPP2pLU9aCHu?=
+ =?us-ascii?Q?X1RN9Fd2Rrs54BQUYd9QHDXdhQ=2Fid6d6JK+CRul?=
+ =?us-ascii?Q?GqXdqMnvj82J0zDl8hAlpM0nFQlDqmYHDRu6j6K?=
+ =?us-ascii?Q?91XYZywqhIi69b5H3i72wouB+cfVkLUeXbtDZcz?=
+ =?us-ascii?Q?eG2jVl6xECdxCkodO1j8Q=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?3Pj6BAFONQhe5xn5MQIS2A+i7snYjEyY7JEK6a5vO1U9M6m23B6FxqsoPLYdQk?=
+ =?us-ascii?Q?mQAcMyFXBW0qDkvmT2neSOgyKLLBTHGUjbHnTzY?=
+ =?us-ascii?Q?CElUJH3c3MiQHNfMAlZWXYkmEirPRGFrGmJrqHV?=
+ =?us-ascii?Q?Y6klec8CaXhPZ1wA6JJOg95SOhAvsi+jP6QWxCw?=
+ =?us-ascii?Q?IPQXhlHkLoijeHTC82dzkW6lVz7rFsdY0oHrM4s?=
+ =?us-ascii?Q?g9K91fbo45p1jolSFO+nZPpxVnEna4Efg7xjjl?=
+To: hujyorom@gmail.com
+X-Entity-ID: faTbXPyd1nZGEBp/RivTIQ==
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3Aunsubscribe=40em9422=2Egoworkship=2Ecom=3Fsubject=3D8631556=2EEvND?=
+ =?us-ascii?Q?u0VMhu9fc1oYOq81XeziIdMq0zM-AJQB97A5CRn?=
+ =?us-ascii?Q?09EByejPCrhNFpJvvB-5p=5FBAbMRPR2W8iEIF-kB?=
+ =?us-ascii?Q?gs-oCNu5WT1sik=5FZcFsbcG1GtFd4pZgpoeCrOhr?=
+ =?us-ascii?Q?8tq4r1i=5FkQ6vIqMVkwWehTqdN4M6-D7D6=5FJIBPG?=
+ =?us-ascii?Q?llEoK-Rl2fY=3D=2ExbqqkyJe=5FOrcmK4ojScukylsH7?=
+ =?us-ascii?Q?nmoCiqNZ0Hauutk5s5I1NMkrXLs8vl2wrMmtSuc?=
+ =?us-ascii?Q?MimGYkWvftWAQ64EOkga48L2v=5F77hAO-b9fsvuT?=
+ =?us-ascii?Q?Quh-xWg1sEZ-c-a6IuQ2Sm0De=5FThYNpEMtw6xn9?=
+ =?us-ascii?Q?3XesUGG58rOGp87peAIcEcpuBxDi-8rm0OZq=5FOa?=
+ =?us-ascii?Q?k=5F8eTbkcJ1dINwoXE8Ua8ojW6ApSspuRVKqNgqe?=
+ =?us-ascii?Q?h=5F3cqjGBRWuIlhF3ZerF-aGbwKLap5XuABInwNh?=
+ =?us-ascii?Q?xc7ixAtro9jwJRTsU=5FM3wxCrq-8ejUPthPUkXrx?=
+ =?us-ascii?Q?Fshjq0AQn4FJFZtZt7rTcRWzp70N8dZy2pl2WPY?=
+ =?us-ascii?Q?tFTxk6CoqUcVFHQCVib6bMfbt0VjF96utzysZVI?=
+ =?us-ascii?Q?sKtEQowMPKcYpv=5FvoWjLlOg2DHixEBh0lZ6tmTf?=
+ =?us-ascii?Q?3alzId25Lq5FKjR3CnPCNUvZyVzvmcsp=3E?=
+
+--7a90d47b114491ac01b10788445c2613b0beb32e498dcaeede932a6bed10
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Workship=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=
+=81=84=E3=81=A6=E3=81=84=E3=82=8B=E7=9A=86=E6=A7=98=E3=81=B8
+
+=E3=81=84=E3=81=A4=E3=82=82Workship=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=
+=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=
+=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82
+
+=E3=81=93=E3=81=AE=E5=BA=A6=E3=80=81Workship=E8=AA=BF=E6=9F=BB=E4=BC=81=E7=
+=94=BB=E3=80=8C=E3=81=BF=E3=82=93=E3=81=AA=E3=81=AE=E5=89=AF=E6=A5=AD=E3=83=
+=BB=E8=A4=87=E6=A5=AD =E6=9C=88=E5=8F=8E=E7=B7=A8=E3=80=8D=E3=81=A8=E3=81=
+=97=E3=81=A6=E3=80=81=E6=8A=BD=E9=81=B8=E3=81=A7Amazon=E3=82=AE=E3=83=95=E3=
+=83=88=E5=88=B81000=E5=86=86=E5=88=86=E3=81=8C10=E5=90=8D=E6=A7=98=E3=81=AB=
+=E5=BD=93=E3=81=9F=E3=82=8B=E3=82=A2=E3=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E3=
+=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=82=92=E5=AE=9F=E6=96=
+=BD=E3=81=97=E3=81=BE=E3=81=99=EF=BC=81
+
+3=E5=88=86=E3=81=BB=E3=81=A9=E3=81=A7=E3=81=94=E5=9B=9E=E7=AD=94=E3=81=84=
+=E3=81=9F=E3=81=A0=E3=81=91=E3=82=8B=E5=86=85=E5=AE=B9=E3=81=A8=E3=81=AA=E3=
+=81=A3=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=80=
+=81=E3=81=9C=E3=81=B2=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=
+=E3=81=AB=E3=81=94=E5=8F=82=E5=8A=A0=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=
+=81=BE=E3=81=9B=EF=BC=81
+
+=E2=80=BB=E5=BD=93=E9=81=B8=E3=81=95=E3=82=8C=E3=81=9F=E6=96=B9=E3=81=AB=E3=
+=81=AF1=E9=80=B1=E9=96=93=E4=BB=A5=E5=86=85=E3=81=AB=E3=83=A1=E3=83=BC=E3=
+=83=AB=E3=81=A7Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=82=92=E3=81=8A=
+=E9=80=81=E3=82=8A=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+
+=E5=89=8D=E5=9B=9E=E3=81=AE=E3=82=A2=E3=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E7=
+=B5=90=E6=9E=9C=E3=83=AA=E3=83=AA=E3=83=BC=E3=82=B9=E3=81=AF=E3=81=93=E3=81=
+=A1=E3=82=89=EF=BC=9A
+
+https://bit.ly/3lpmN7Z https://bit.ly/3lpmN7Z
+
+=E3=82=A2=E3=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E3=82=92=E5=9B=9E=E7=AD=94=E3=
+=81=99=E3=82=8B https://forms.gle/DdD6chqUDbSpfLBBA
+
+=E2=80=BB=E5=9B=9E=E7=AD=94=E6=9C=9F=E9=99=90=EF=BC=9A9/27=EF=BC=88=E6=9C=
+=88=EF=BC=8919=EF=BC=9A00
+
+=E3=81=94=E4=B8=8D=E6=98=8E=E7=82=B9=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=
+=81=97=E3=81=9F=E3=82=89=E3=81=84=E3=81=A4=E3=81=A7=E3=82=82Workship=E9=81=
+=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80=E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=
+=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=
+=81=BE=E3=81=9B=E3=80=82
+
+=E5=BC=95=E3=81=8D=E7=B6=9A=E3=81=8D=E3=80=8CWorkship=E3=80=8D=E3=82=92=E3=
+=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=
+=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+
+Workship=E9=81=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80
+
+=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=
+=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=
+=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=
+=E3=83=BC=E3=83=BC
+
+=E2=96=A0 Workship =E3=82=B3=E3=83=A9=E3=83=9C=E3=83=AC=E3=83=BC=E3=82=B7=
+=E3=83=A7=E3=83=B3=E3=82=92=E5=8A=A0=E9=80=9F=E3=81=95=E3=81=9B=E3=82=8B=E3=
+=82=B9=E3=82=AD=E3=83=AB=E3=82=B7=E3=82=A7=E3=82=A2=E3=82=B5=E3=83=BC=E3=83=
+=93=E3=82=B9
+
+https://goworkship.com/ https://goworkship.com/
+
+=E2=96=A0 =E9=81=8B=E5=96=B6=E4=BC=9A=E7=A4=BE : GIG inc.
+
+=E2=96=A0 MAIL=EF=BC=9Ainfo@goworkship.com mailto:info@goworkship.com
+
+=E2=96=A0 =E5=96=B6=E6=A5=AD=E6=99=82=E9=96=93 : =E5=B9=B3=E6=97=A510=E6=99=
+=82=E3=80=9C19=E6=99=82(=E5=9C=9F=E6=97=A5=E7=A5=9D=E4=BC=91=E3=81=BF)
+
+=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=
+=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=
+=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=
+=E3=83=BC=E3=83=BC
+
+https://www.facebook.com/goworkship/
+
+https://twitter.com/goworkship
+
+Workship =E9=81=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80
+
+=E6=9D=B1=E4=BA=AC=E9=83=BD=E4=B8=AD=E5=A4=AE=E5=8C=BA=E6=97=A5=E6=9C=AC=E6=
+=A9=8B=E6=B5=9C=E7=94=BA1=E4=B8=81=E7=9B=AE11-8 4=E9=9A=8E, =E6=9D=B1=E4=BA=
+=AC=E9=83=BD,  103-0007=20
+
+Unsubscribe https://u8631556.ct.sendgrid.net/asm/unsubscribe/?user_id=3D863=
+1556&data=3DhBAWkQQfSTeKC6CQlVHI7WPWUw5GssGRnDzMxWsy99dKMypl8GF5YnC0-sms6jN=
+I-4ZmBQUioHqeaq_moPJEdxWxQpr9fYetRd2CKJwBoD74EUtGxsj8DPY1X97KgmmqvXbe4KHgok=
+SWIS5Rf1tx_-lM4l0LcZpZ7cxY3jLOlpfFQ9pYdl31rf-bAIJxF5u15cGTOQOueMKdeet7GRRZ5=
+eR5_ZfQHDE5Aa0Bcti3sJU9eCBNb_3KA5OOPaxbx2soAlsJoRBZbIarbVknL-q4S5O58i8XtbGA=
+tvxmhOYYAk5xsBz5CbQBcI_XgXDKgg9f2qLO-5F7ezNvlqh3emIbBiioU03LN0b-azXSH-1cOrP=
+HcaWA7mD_OBL5BGuxZiGtJ08NxjUEg7A2x7kvC2gFoST2_16HwZP0MC-E-r3Jnvh_g6nWyOkp1h=
+VR1uKdafEPTmo90bdfS4tI54RIT1lFiyi92uUBfaVGw7gv3ZdcVywR6v5GT2W3Gw-1evGSyU3BP=
+gdV3kPUOjuvWCr1NxkVgr4DQh7cwrErf4vdBfwsvpkXRlp0Jz0NVh7eVR_3Z1jRlVmt_sQ4wQjx=
+2EsK4rVEZJpV4BJwstQkh7uPuD4ZpEI=3D - Unsubscribe Preferences https://u86315=
+56.ct.sendgrid.net/asm/?user_id=3D8631556&data=3DzaSwv1S6tP8BOM5kYrUsKzu3RB=
+74h83Xmevgrscv9cHZeZd-cNb8Dnt3emh4HCT4wEmOKgyozWCTM5LDRGwiL15VJ6NJZbfZheEBB=
+HRlquigZZnMbch-8uHyD_YX5SQKEI91FNLmr7VYXgwbpNW8fdz6A3LzQXMnqDRAamq48PKQvu5N=
+4i2sjSmLZTjrpHNY_UkMTeUQJC86jsdTaIe3VXPdy7kayP4t0yIXZoo_CGIc3xImd5XVKrjdhaT=
+cTomwgocx4n46P4O9BoIazvcMfQvBWPAqaJtIYpZ7KDVMeW_SI94C_Vk_ocaD4lqOuOGGbL32M2=
+ylm2LFKx2qw0_HV0qo6lx9i6wjahn1R0efudkmn02k-1DaPoJ_12Jy453nVZbDnvgppej6uix-H=
+sGcPS6q-SURIugUSlokxIAr0rhEaEynb8fO4_MSOdeE47yep67Y8R5R5e2XmGBabxFrPXccbezI=
+d0wmOd5oq92deYITZeeJT4bpqLhDktmrB3heyNpoM9VPDMYBjwdqGxl2puGqeQ0KoF2TdkIvxwn=
+aUKOuIrwK1_XR9XpWyet7SWSTbQlxF_MauuIO8nKLci0HgRKYsfRQJBQIG0UVAyXSlOM=3D
+--7a90d47b114491ac01b10788445c2613b0beb32e498dcaeede932a6bed10
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version=3D"2" class=3D"sg-campaigns" xmlns=3D"http://www.=
+w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+" />
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1, minimum-scale=3D1, maximum-scale=3D1" /><!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3DEdge" /><!--<![end=
+if]-->
+    <!--[if (gte mso 9)|(IE)]>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <!--[if (gte mso 9)|(IE)]>
+    <style type=3D"text/css">
+      body {width: 600px;margin: 0 auto;}
+      table {border-collapse: collapse;}
+      table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+      img {-ms-interpolation-mode: bicubic;}
+    </style>
+    <![endif]-->
+
+    <style type=3D"text/css">
+      body, p, div {
+        font-family: arial;
+        font-size: 14px;
+      }
+      body {
+        color: #000000;
+      }
+      body a {
+        color: #1188E6;
+        text-decoration: none;
+      }
+      p { margin: 0; padding: 0; }
+      table.wrapper {
+        width:100% !important;
+        table-layout: fixed;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      img.max-width {
+        max-width: 100% !important;
+      }
+      .column.of-2 {
+        width: 50%;
+      }
+      .column.of-3 {
+        width: 33.333%;
+      }
+      .column.of-4 {
+        width: 25%;
+      }
+      @media screen and (max-width:480px) {
+        .preheader .rightColumnContent,
+        .footer .rightColumnContent {
+            text-align: left !important;
+        }
+        .preheader .rightColumnContent div,
+        .preheader .rightColumnContent span,
+        .footer .rightColumnContent div,
+        .footer .rightColumnContent span {
+          text-align: left !important;
+        }
+        .preheader .rightColumnContent,
+        .preheader .leftColumnContent {
+          font-size: 80% !important;
+          padding: 5px 0;
+        }
+        table.wrapper-mobile {
+          width: 100% !important;
+          table-layout: fixed;
+        }
+        img.max-width {
+          height: auto !important;
+          max-width: 480px !important;
+        }
+        a.bulletproof-button {
+          display: block !important;
+          width: auto !important;
+          font-size: 80%;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+        .columns {
+          width: 100% !important;
+        }
+        .column {
+          display: block !important;
+          width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+      }
+    </style>
+    <!--user entered Head Start-->
+   =20
+     <!--End Head user entered-->
+  </head>
+  <body>
+    <center class=3D"wrapper" data-link-color=3D"#1188E6" data-body-style=
+=3D"font-size: 14px; font-family: arial; color: #000000; background-color: =
+#ffffff;">
+      <div class=3D"webkit">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"10=
+0%" class=3D"wrapper" bgcolor=3D"#ffffff">
+          <tr>
+            <td valign=3D"top" bgcolor=3D"#ffffff" width=3D"100%">
+              <table width=3D"100%" role=3D"content-container" class=3D"out=
+er" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                <tr>
+                  <td width=3D"100%">
+                    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0">
+                      <tr>
+                        <td>
+                          <!--[if mso]>
+                          <center>
+                          <table><tr><td width=3D"600">
+                          <![endif]-->
+                          <table width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0" style=3D"width: 100%; max-width:600px;" align=3D"cent=
+er">
+                            <tr>
+                              <td role=3D"modules-container" style=3D"paddi=
+ng: 0px 0px 0px 0px; color: #000000; text-align: left;" bgcolor=3D"#ffffff"=
+ width=3D"100%" align=3D"left">
+                               =20
+    <table class=3D"module preheader preheader-hide" role=3D"module" data-t=
+ype=3D"preheader" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"100%"
+           style=3D"display: none !important; mso-hide: all; visibility: hi=
+dden; opacity: 0; color: transparent; height: 0; width: 0;">
+      <tr>
+        <td role=3D"module-content">
+          <p></p>
+        </td>
+      </tr>
+    </table>
+ =20
+    <table class=3D"wrapper" role=3D"module" data-type=3D"image" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-layout=
+: fixed;">
+      <tr>
+        <td style=3D"font-size:6px;line-height:10px;padding:30px 0px 20px 0=
+px;" valign=3D"top" align=3D"center">
+          <img class=3D"max-width" border=3D"0" style=3D"display:block;colo=
+r:#000000;text-decoration:none;font-family:Helvetica, arial, sans-serif;fon=
+t-size:16px;" src=3D"https://marketing-image-production.s3.amazonaws.com/up=
+loads/0f93566f62c12da92da3fd92f47a8fd7339ca5449c611a93e82d12c515c629510ef94=
+adb455f5ce49698bc45cf264d3a7eca15d79fe430981e6578ce953d8c04.png" alt=3D"" w=
+idth=3D"200" data-proportionally-constrained=3D"true" height=3D"58">
+        </td>
+      </tr>
+    </table>
+ =20
+    <table class=3D"module" role=3D"module" data-type=3D"text" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-layout: =
+fixed;">
+      <tr>
+        <td style=3D"padding:12px 0px 12px 0px;line-height:22px;text-align:=
+justify;"
+            height=3D"100%"
+            valign=3D"top"
+            bgcolor=3D"">
+            <div><span style=3D"color:#696969;">Workship=E3=82=92=E3=81=94=
+=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=81=84=E3=
+=82=8B=E7=9A=86=E6=A7=98=E3=81=B8</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style=3D"color:#696969;">=E3=81=84=E3=81=A4=E3=82=82Workship=E3=
+=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=
+=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=
+=E3=81=99=E3=80=82</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style=3D"color:#696969;">=E3=81=93=E3=81=AE=E5=BA=A6=E3=80=81Wor=
+kship=E8=AA=BF=E6=9F=BB=E4=BC=81=E7=94=BB=E3=80=8C=E3=81=BF=E3=82=93=E3=81=
+=AA=E3=81=AE=E5=89=AF=E6=A5=AD=E3=83=BB=E8=A4=87=E6=A5=AD =E6=9C=88=E5=8F=
+=8E=E7=B7=A8=E3=80=8D=E3=81=A8=E3=81=97=E3=81=A6=E3=80=81=E6=8A=BD=E9=81=B8=
+=E3=81=A7Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B81000=E5=86=86=E5=88=86=
+=E3=81=8C10=E5=90=8D=E6=A7=98=E3=81=AB=E5=BD=93=E3=81=9F=E3=82=8B=E3=82=A2=
+=E3=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=
+=83=BC=E3=83=B3=E3=82=92=E5=AE=9F=E6=96=BD=E3=81=97=E3=81=BE=E3=81=99=EF=BC=
+=81<br>
+3=E5=88=86=E3=81=BB=E3=81=A9=E3=81=A7=E3=81=94=E5=9B=9E=E7=AD=94=E3=81=84=
+=E3=81=9F=E3=81=A0=E3=81=91=E3=82=8B=E5=86=85=E5=AE=B9=E3=81=A8=E3=81=AA=E3=
+=81=A3=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=80=
+=81=E3=81=9C=E3=81=B2=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=
+=E3=81=AB=E3=81=94=E5=8F=82=E5=8A=A0=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=
+=81=BE=E3=81=9B=EF=BC=81<br>
+=E2=80=BB=E5=BD=93=E9=81=B8=E3=81=95=E3=82=8C=E3=81=9F=E6=96=B9=E3=81=AB=E3=
+=81=AF1=E9=80=B1=E9=96=93=E4=BB=A5=E5=86=85=E3=81=AB=E3=83=A1=E3=83=BC=E3=
+=83=AB=E3=81=A7Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=82=92=E3=81=8A=
+=E9=80=81=E3=82=8A=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</s=
+pan></div>
+
+<div>&nbsp;</div>
+
+<div><span style=3D"color:#696969;">=E5=89=8D=E5=9B=9E=E3=81=AE=E3=82=A2=E3=
+=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E7=B5=90=E6=9E=9C=E3=83=AA=E3=83=AA=E3=83=
+=BC=E3=82=B9=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=EF=BC=9A</span></div>
+
+<div><span style=3D"color:#696969;"><a href=3D"https://u8631556.ct.sendgrid=
+.net/ls/click?upn=3D4ZWf7RgQArYw3yRHa6e9uUH-2BkFwzVZDvPO2-2FpDRwoKQ-3DCIur_=
+rhSNMFNIT1rxdjgOzzNmuf2vlK0B4hB2o-2FM6eMQO4y7cVvBlisM21CKIF54NzBuyciL8FCSNd=
+QYZpncaSuCrolToDyUgK-2BveYNA7-2BxkFf53t2sfzv1qqgApJmhNbyd4V-2BgOF6yFLQ47tfq=
+V4m2ZxGycZt3iK2vWKUgLoYkgSw2P0voumKfqsllQQ0POfG2IUbQZKc85y7kckOazPjTFXog3O8=
+r8SeVb5HGvR7Kxj1TJSUbv1FlUhMoDIox1AY7zVPdsVXaKeJnBjslKszEBJyscWY1zLXM8NybTB=
+XNmlwuFk0j9nxHGkpyQqTAewWpETFoALLHrNQwxkIPVbs0MfmhrffV-2Bmg2U-2BnJMaMnIJyyV=
+YHXD-2BSmfwyp4guzJrj-2BcIu7DxYgRHreJkOtp9Vp0Y7qY45fZ34kKpL34GqJt379-2BwvM9h=
+7XTLcD-2BXU5RnX65ZqIYj6xUx591-2Ff2URrpxBDw-3D-3D">https://bit.ly/3lpmN7Z</a=
+></span></div>
+
+<div>&nbsp;</div>
+        </td>
+      </tr>
+    </table>
+  <table border=3D"0" cellPadding=3D"0" cellSpacing=3D"0" class=3D"module" =
+data-role=3D"module-button" data-type=3D"button" role=3D"module" style=3D"t=
+able-layout:fixed" width=3D"100%"><tbody><tr><td align=3D"center" class=3D"=
+outer-td" style=3D"padding:0px 0px 0px 0px"><table border=3D"0" cellPadding=
+=3D"0" cellSpacing=3D"0" class=3D"button-css__deep-table___2OZyb wrapper-mo=
+bile" style=3D"text-align:center"><tbody><tr><td align=3D"center" bgcolor=
+=3D"#3C8B86" class=3D"inner-td" style=3D"border-radius:6px;font-size:16px;t=
+ext-align:center;background-color:inherit"><a style=3D"background-color:#3C=
+8B86;border:1px solid #333333;border-color:#3C8B86;border-radius:6px;border=
+-width:1px;color:#ffffff;display:inline-block;font-family:arial,helvetica,s=
+ans-serif;font-size:16px;font-weight:700;letter-spacing:0px;line-height:25p=
+x;padding:18px 018px 12px 18px;text-align:center;text-decoration:none" href=
+=3D"https://u8631556.ct.sendgrid.net/ls/click?upn=3D4ZWf7RgQArYw3yRHa6e9uUe=
+aN5E5t6jUjJe1OgEerhGRs2AIV0ujM5nNsizD5nZe8jCn_rhSNMFNIT1rxdjgOzzNmuf2vlK0B4=
+hB2o-2FM6eMQO4y7cVvBlisM21CKIF54NzBuyciL8FCSNdQYZpncaSuCrolToDyUgK-2BveYNA7=
+-2BxkFf53t2sfzv1qqgApJmhNbyd4V-2BgOF6yFLQ47tfqV4m2ZxGycZt3iK2vWKUgLoYkgSw2P=
+0voumKfqsllQQ0POfG2IUbQZKc85y7kckOazPjTFXog3O8r8SeVb5HGvR7Kxj1TJSUbv1FlUhMo=
+DIox1AY7zVPdsVXaKeJnBjslKszEBJyscWY1zLXM8NybTBXNmlwuGCKZrEUkZCAnMSofFG-2B9-=
+2FwfzGdZmzo7mj0STkjMt-2FM8s1S-2FaF5ZSuSgWwgUTBCbtHReQqkx02q8gbJ6j2iCZvDvyAv=
+v2bzzBgj9bIDrWV09i6gTQKKuGFMNmYVBXkACvjfap1LL1MJmwyvtMg-2FEEO1BGOQVRkSSW43D=
+KaoAA9ccQ-3D-3D" target=3D"_blank">=E3=82=A2=E3=83=B3=E3=82=B1=E3=83=BC=E3=
+=83=88=E3=82=92=E5=9B=9E=E7=AD=94=E3=81=99=E3=82=8B</a></td></tr></tbody></=
+table></td></tr></tbody></table>
+    <table class=3D"module" role=3D"module" data-type=3D"text" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-layout: =
+fixed;">
+      <tr>
+        <td style=3D"padding:12px 0px 12px 0px;line-height:22px;text-align:=
+justify;"
+            height=3D"100%"
+            valign=3D"top"
+            bgcolor=3D"">
+            <p dir=3D"ltr" style=3D"line-height: 1.2; margin-top: 0pt; marg=
+in-bottom: 0pt; text-align: left;">&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"line-height: 1.2; margin-top: 0pt; margin-bottom: 0=
+pt; text-align: left;"><span style=3D"font-size:14px;"><span style=3D"color=
+:#696969;">=E2=80=BB=E5=9B=9E=E7=AD=94=E6=9C=9F=E9=99=90=EF=BC=9A9/27=EF=BC=
+=88=E6=9C=88=EF=BC=8919=EF=BC=9A00</span></span></p>
+
+<p dir=3D"ltr" style=3D"line-height: 1.2; margin-top: 0pt; margin-bottom: 0=
+pt; text-align: left;">&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"line-height: 1.2; margin-top: 0pt; margin-bottom: 0=
+pt; text-align: left;"><span style=3D"font-size:14px;"><span style=3D"color=
+:#696969;">=E3=81=94=E4=B8=8D=E6=98=8E=E7=82=B9=E3=81=94=E3=81=96=E3=81=84=
+=E3=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=81=84=E3=81=A4=E3=81=A7=E3=82=82Wor=
+kship=E9=81=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80=E3=81=BE=E3=81=A7=E3=81=
+=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=
+=E3=81=84=E3=81=BE=E3=81=9B=E3=80=82<br>
+=E5=BC=95=E3=81=8D=E7=B6=9A=E3=81=8D=E3=80=8CWorkship=E3=80=8D=E3=82=92=E3=
+=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=
+=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</span></span></p>
+
+<p dir=3D"ltr" style=3D"color: rgb(56, 56, 56); font-family: Arial, Helveti=
+ca, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures=
+: normal; font-variant-caps: normal; font-weight: 400; margin-bottom: 0px; =
+text-align: left;"><br>
+<span style=3D"font-size:14px;"><span style=3D"color:#696969;">Workship=E9=
+=81=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80<br>
+<br>
+=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=
+=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=
+=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=
+=E3=83=BC=E3=83=BC<br>
+=E2=96=A0 Workship =E3=82=B3=E3=83=A9=E3=83=9C=E3=83=AC=E3=83=BC=E3=82=B7=
+=E3=83=A7=E3=83=B3=E3=82=92=E5=8A=A0=E9=80=9F=E3=81=95=E3=81=9B=E3=82=8B=E3=
+=82=B9=E3=82=AD=E3=83=AB=E3=82=B7=E3=82=A7=E3=82=A2=E3=82=B5=E3=83=BC=E3=83=
+=93=E3=82=B9</span><br>
+<a data-saferedirecturl=3D"https://www.google.com/url?q=3Dhttps://goworkshi=
+p.com/&amp;source=3Dgmail&amp;ust=3D1604997851610000&amp;usg=3DAFQjCNGDFv4C=
+JdCvqF8F9Z98q6DOy0PuMg" href=3D"https://u8631556.ct.sendgrid.net/ls/click?u=
+pn=3D4ZWf7RgQArYw3yRHa6e9ue5kal9N-2Feo8xmigg05-2B30Y-3D7kS-_rhSNMFNIT1rxdjg=
+OzzNmuf2vlK0B4hB2o-2FM6eMQO4y7cVvBlisM21CKIF54NzBuyciL8FCSNdQYZpncaSuCrolTo=
+DyUgK-2BveYNA7-2BxkFf53t2sfzv1qqgApJmhNbyd4V-2BgOF6yFLQ47tfqV4m2ZxGycZt3iK2=
+vWKUgLoYkgSw2P0voumKfqsllQQ0POfG2IUbQZKc85y7kckOazPjTFXog3O8r8SeVb5HGvR7Kxj=
+1TJSUbv1FlUhMoDIox1AY7zVPdsVXaKeJnBjslKszEBJyscWY1zLXM8NybTBXNmlwuEdqMg-2F1=
+0EcIF5p44HhVcBycyoH95-2FGCR7h3UmTYBivQYAQ0G-2B2hrkczOELI3zgwF0tGnckJBxaUa0s=
+Khs-2Fzs3mTXGSmy4y-2FWEWOGaNkOLgwGZS0s9FPL-2FfYXn1PBRoE38PySRY-2Fc3uySnk2Jl=
+rC8jBbCTJySe9HeRTIhhrG-2Bw3Sw-3D-3D" style=3D"color: rgb(17, 85, 204);" tar=
+get=3D"_blank"><span style=3D"color:#696969;">https://goworkship.com/</span=
+></a><br>
+<br>
+<span style=3D"color:#696969;">=E2=96=A0 =E9=81=8B=E5=96=B6=E4=BC=9A=E7=A4=
+=BE : GIG inc.<br>
+=E2=96=A0 MAIL=EF=BC=9A</span><a href=3D"mailto:info@goworkship.com" style=
+=3D"color: rgb(17, 85, 204);" target=3D"_blank"><span style=3D"color:#69696=
+9;">info@goworkship.com</span></a><br>
+<span style=3D"color:#696969;">=E2=96=A0 =E5=96=B6=E6=A5=AD=E6=99=82=E9=96=
+=93 : =E5=B9=B3=E6=97=A510=E6=99=82=E3=80=9C19=E6=99=82(=E5=9C=9F=E6=97=A5=
+=E7=A5=9D=E4=BC=91=E3=81=BF)<br>
+=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=
+=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=
+=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=
+=E3=83=BC=E3=83=BC</span></span></p>
+
+<div style=3D"text-align: left;">&nbsp;</div>
+        </td>
+      </tr>
+    </table>
+ =20
+    <table class=3D"module" role=3D"module" data-type=3D"social" align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td valign=3D"top" style=3D"padding:0px 0px 0px 0px;font-size:6px=
+;line-height:10px;">
+            <table align=3D"center">
+              <tbody>
+                <tr>
+                  <td style=3D"padding: 0px 5px;">
+        <a role=3D"social-icon-link"  href=3D"https://u8631556.ct.sendgrid.=
+net/ls/click?upn=3D4ZWf7RgQArYw3yRHa6e9udFAk2ErnBAVQ8mtl633AkXcJtyRiP7cJLN9=
+yaKcEji3e_I7_rhSNMFNIT1rxdjgOzzNmuf2vlK0B4hB2o-2FM6eMQO4y7cVvBlisM21CKIF54N=
+zBuyciL8FCSNdQYZpncaSuCrolToDyUgK-2BveYNA7-2BxkFf53t2sfzv1qqgApJmhNbyd4V-2B=
+gOF6yFLQ47tfqV4m2ZxGycZt3iK2vWKUgLoYkgSw2P0voumKfqsllQQ0POfG2IUbQZKc85y7kck=
+OazPjTFXog3O8r8SeVb5HGvR7Kxj1TJSUbv1FlUhMoDIox1AY7zVPdsVXaKeJnBjslKszEBJysc=
+WY1zLXM8NybTBXNmlwuEBBbUwpQ0XBGCuGZyEpqCkuX-2FLBfuNLKyEnMHPMYfMf3-2BBjHEMSi=
+dr1m5yN05z2DL-2B6whxZ6Rmgm2hGIF9qcQvXIEZ5r5l63WYzjV-2BnjCFYvCAavy-2FbZ7UO3M=
+h7PoUakTh8FahmnB0-2FDmtLXNlJzJAWrw42Pc4ljncvl3XE-2BhpWQ-3D-3D" target=3D"_b=
+lank" alt=3D"Facebook"
+          data-nolink=3D"false"
+          title=3D"Facebook "
+          style=3D"-webkit-border-radius:2px;-moz-border-radius:2px;border-=
+radius:2px;display:inline-block;background-color:#3B579D;">
+          <img role=3D"social-icon" alt=3D"Facebook" title=3D"Facebook "
+            height=3D"30"
+            width=3D"30"
+            style=3D"height: 30px, width: 30px"
+            src=3D"https://marketing-image-production.s3.amazonaws.com/soci=
+al/white/facebook.png" />
+        </a>
+      </td>
+                  <td style=3D"padding: 0px 5px;">
+        <a role=3D"social-icon-link"  href=3D"https://u8631556.ct.sendgrid.=
+net/ls/click?upn=3D4ZWf7RgQArYw3yRHa6e9uaJgngPb6OGomKgWMUPFR-2BQ-2FGNaTbLeT=
+qe-2BRwrpkypgBCXwh_rhSNMFNIT1rxdjgOzzNmuf2vlK0B4hB2o-2FM6eMQO4y7cVvBlisM21C=
+KIF54NzBuyciL8FCSNdQYZpncaSuCrolToDyUgK-2BveYNA7-2BxkFf53t2sfzv1qqgApJmhNby=
+d4V-2BgOF6yFLQ47tfqV4m2ZxGycZt3iK2vWKUgLoYkgSw2P0voumKfqsllQQ0POfG2IUbQZKc8=
+5y7kckOazPjTFXog3O8r8SeVb5HGvR7Kxj1TJSUbv1FlUhMoDIox1AY7zVPdsVXaKeJnBjslKsz=
+EBJyscWY1zLXM8NybTBXNmlwuFVNJTDrdiaGxElrSy4PqxgzKZAKEj-2BpdRUdSK8mar7spl6jI=
+CATJ49W4JawAUKyQ7unEZylUh0j61qMlU7g-2Fw5i4ZKL2Ze-2F5lQcvriWA1gUe7thPi-2FyT3=
+-2BOK6-2B8My8qEjMSKByFlVi71QBvXjchD3AeZTmnRfuD6AdeEVF1SP4vg-3D-3D" target=
+=3D"_blank" alt=3D"Twitter"
+          data-nolink=3D"false"
+          title=3D"Twitter "
+          style=3D"-webkit-border-radius:2px;-moz-border-radius:2px;border-=
+radius:2px;display:inline-block;background-color:#7AC4F7;">
+          <img role=3D"social-icon" alt=3D"Twitter" title=3D"Twitter "
+            height=3D"30"
+            width=3D"30"
+            style=3D"height: 30px, width: 30px"
+            src=3D"https://marketing-image-production.s3.amazonaws.com/soci=
+al/white/twitter.png" />
+        </a>
+      </td>
+                 =20
+                 =20
+                 =20
+                 =20
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <div data-role=3D"module-unsubscribe" class=3D"module unsubscribe-css__un=
+subscribe___2CDlR" role=3D"module" data-type=3D"unsubscribe" style=3D"color=
+:#444444;font-size:12px;line-height:20px;padding:16px 16px 16px 16px;text-a=
+lign:center"><div class=3D"Unsubscribe--addressLine"><p class=3D"Unsubscrib=
+e--senderName" style=3D"font-family:Arial,Helvetica, sans-serif;font-size:1=
+2px;line-height:20px">Workship =E9=81=8B=E5=96=B6=E4=BA=8B=E5=8B=99=E5=B1=
+=80</p><p style=3D"font-family:Arial,Helvetica, sans-serif;font-size:12px;l=
+ine-height:20px"><span class=3D"Unsubscribe--senderAddress">=E6=9D=B1=E4=BA=
+=AC=E9=83=BD=E4=B8=AD=E5=A4=AE=E5=8C=BA=E6=97=A5=E6=9C=AC=E6=A9=8B=E6=B5=9C=
+=E7=94=BA1=E4=B8=81=E7=9B=AE11-8 4=E9=9A=8E</span>, <span class=3D"Unsubscr=
+ibe--senderCity">=E6=9D=B1=E4=BA=AC=E9=83=BD</span>, <span class=3D"Unsubsc=
+ribe--senderState"></span> <span class=3D"Unsubscribe--senderZip">103-0007<=
+/span> </p></div><p style=3D"font-family:Arial,Helvetica, sans-serif;font-s=
+ize:12px;line-height:20px"><a class=3D"Unsubscribe--unsubscribeLink" href=
+=3D"https://u8631556.ct.sendgrid.net/asm/unsubscribe/?user_id=3D8631556&amp=
+;data=3DhBAWkQQfSTeKC6CQlVHI7WPWUw5GssGRnDzMxWsy99dKMypl8GF5YnC0-sms6jNI-4Z=
+mBQUioHqeaq_moPJEdxWxQpr9fYetRd2CKJwBoD74EUtGxsj8DPY1X97KgmmqvXbe4KHgokSWIS=
+5Rf1tx_-lM4l0LcZpZ7cxY3jLOlpfFQ9pYdl31rf-bAIJxF5u15cGTOQOueMKdeet7GRRZ5eR5_=
+ZfQHDE5Aa0Bcti3sJU9eCBNb_3KA5OOPaxbx2soAlsJoRBZbIarbVknL-q4S5O58i8XtbGAtvxm=
+hOYYAk5xsBz5CbQBcI_XgXDKgg9f2qLO-5F7ezNvlqh3emIbBiioU03LN0b-azXSH-1cOrPHcaW=
+A7mD_OBL5BGuxZiGtJ08NxjUEg7A2x7kvC2gFoST2_16HwZP0MC-E-r3Jnvh_g6nWyOkp1hVR1u=
+KdafEPTmo90bdfS4tI54RIT1lFiyi92uUBfaVGw7gv3ZdcVywR6v5GT2W3Gw-1evGSyU3BPgdV3=
+kPUOjuvWCr1NxkVgr4DQh7cwrErf4vdBfwsvpkXRlp0Jz0NVh7eVR_3Z1jRlVmt_sQ4wQjx2EsK=
+4rVEZJpV4BJwstQkh7uPuD4ZpEI=3D">Unsubscribe</a> - <a class=3D"Unsubscribe--=
+unsubscribePreferences" href=3D"https://u8631556.ct.sendgrid.net/asm/?user_=
+id=3D8631556&amp;data=3DzaSwv1S6tP8BOM5kYrUsKzu3RB74h83Xmevgrscv9cHZeZd-cNb=
+8Dnt3emh4HCT4wEmOKgyozWCTM5LDRGwiL15VJ6NJZbfZheEBBHRlquigZZnMbch-8uHyD_YX5S=
+QKEI91FNLmr7VYXgwbpNW8fdz6A3LzQXMnqDRAamq48PKQvu5N4i2sjSmLZTjrpHNY_UkMTeUQJ=
+C86jsdTaIe3VXPdy7kayP4t0yIXZoo_CGIc3xImd5XVKrjdhaTcTomwgocx4n46P4O9BoIazvcM=
+fQvBWPAqaJtIYpZ7KDVMeW_SI94C_Vk_ocaD4lqOuOGGbL32M2ylm2LFKx2qw0_HV0qo6lx9i6w=
+jahn1R0efudkmn02k-1DaPoJ_12Jy453nVZbDnvgppej6uix-HsGcPS6q-SURIugUSlokxIAr0r=
+hEaEynb8fO4_MSOdeE47yep67Y8R5R5e2XmGBabxFrPXccbezId0wmOd5oq92deYITZeeJT4bpq=
+LhDktmrB3heyNpoM9VPDMYBjwdqGxl2puGqeQ0KoF2TdkIvxwnaUKOuIrwK1_XR9XpWyet7SWST=
+bQlxF_MauuIO8nKLci0HgRKYsfRQJBQIG0UVAyXSlOM=3D">Unsubscribe Preferences</a>=
+</p></div>
+                              </td>
+                            </tr>
+                          </table>
+                          <!--[if mso]>
+                          </td></tr></table>
+                          </center>
+                          <![endif]-->
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </center>
+  <img src=3D"https://u8631556.ct.sendgrid.net/wf/open?upn=3DdMT6-2BoPwzsZr=
+qrjnXlyDZOut59Fx8VShryCWe55ekJAoNhrpZ-2BfiskvVbgjXHJui8hckcm0Jrff6SfFNWo0c5=
+fcUSfFCouvR0SYxM4PVUoren1r-2BCqhcVHu4P-2BzrtgWBQ5qU2hWeZA7AsQa9rQRWENA8whJl=
+Lu8lPx18p6-2FpIDLpEDJvAnUDwIilqIQk94OhiMRl-2FV1r6TumMSTof-2B1VDhmcCcZDbevHh=
+718uAPSgUUv858z1j5OGPE8-2B9oPQ5DZdDqu4GZWBZt3GR9ioGgrJlzd52IW0P6YWJatWqqwne=
+wDaqfYluZCOXGPLJITun-2FyUz61dQo89yc7Ry99QPMyN2QN8ce-2B1mp9608D4R-2Fw0kF3mAT=
+zS0rezRiJoC-2BDrp0Rm1Mw8U9gY4I5dxXoroSYhobmu-2FBMdnHzWsXiupItYm0AQajnCrqeaR=
+e2VVPITuHheEawSvXP96IeCjPJ2omro3HXpAB7UYEYKoN5hjV6W0I-3D" alt=3D"" width=3D=
+"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !imp=
+ortant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !i=
+mportant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !=
+important;padding-bottom:0 !important;padding-right:0 !important;padding-le=
+ft:0 !important;"/></body>
+</html>
+--7a90d47b114491ac01b10788445c2613b0beb32e498dcaeede932a6bed10--

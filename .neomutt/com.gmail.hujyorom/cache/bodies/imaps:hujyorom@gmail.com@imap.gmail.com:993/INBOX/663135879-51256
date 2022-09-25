@@ -1,0 +1,100 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a05:6122:1696:0:0:0:0 with SMTP id 22csp50596vkl;
+        Tue, 25 May 2021 18:39:32 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy2RxstdqVQiN4PSgkJcA+Nn0uktKHVHFNVxDMsxJTm9OeiOseQeUOov/3qRPD0XmNMqDVN
+X-Received: by 2002:a17:90a:89:: with SMTP id a9mr1283357pja.47.1621993172508;
+        Tue, 25 May 2021 18:39:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621993172; cv=none;
+        d=google.com; s=arc-20160816;
+        b=cgBJCVBWsMKczF3n3H7huVNnhxNTdy1OVC8jV1FrpDnywQznGTpjqQcLKAPmAZiH9G
+         05cDMzHg9rbVm5F7im7/tejHXBspcMf94qL6Xiv6qMaREur6kF0aV59kKB7H96CwS+Rt
+         LrJCoVGG+cwHCWXz4K182C7PXorWcBNciOjLkadFaHWOl3T5sKNSGJeFTEDBRRQRhwVi
+         vGkud28voTl0fY/6eUY/oFswkVTrWhrW9uOYhkeol7sV2nA38/TD0XKqJ5P1v1BdYTUh
+         5a7bu3cfpUAsemoHI/JlndKAy1YItxrZWcjUNUH2SldKShCu6b1I6/PK4//L/WdkKR6Y
+         OKQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :mime-version;
+        bh=nLTbAvXgeOne4UBb0uzPjPVqSBaJ4t0SSlHUGYLnSsw=;
+        b=eS1UlwqlZ5uR1UpAhwT2kNqsRKZ2k/qXnRvkYOn90MYOFDwBsNEKMWxAf4l7K04Izu
+         jiLbOaXAa+xetv4z6PUJt4j/1PzPl9EcVZ1m/k4FVWeMz+F+FkmR+ohO2W03eqHVatd9
+         HLv0RPoOsVdakiGN2BbPFtSM9tPF2zHbxNchT2aO2p0pWiMMXVs2kiE1bfP67HOfG1e4
+         qcQdQIoxbyGBFRnxCFY5KxUzvCME/a1DDcb9RzfunbeCAkP9uwwCaQQYExstB8EdiE03
+         AybEUZ1wfqeVjyK3tGpy32Emoe6Z7xBBjNLJYzWPlDPCkyZc3pyt5FF3yyajifXRxROg
+         C78w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of seki.atsuhiro@classmethod.jp designates 202.241.206.45 as permitted sender) smtp.mailfrom=seki.atsuhiro@classmethod.jp
+Return-Path: <seki.atsuhiro@classmethod.jp>
+Received: from ss11.activegate-ss.jp (ss11.activegate-ss.jp. [202.241.206.45])
+        by mx.google.com with ESMTPS id i3si23574858pfb.346.2021.05.25.18.39.31
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 25 May 2021 18:39:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of seki.atsuhiro@classmethod.jp designates 202.241.206.45 as permitted sender) client-ip=202.241.206.45;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of seki.atsuhiro@classmethod.jp designates 202.241.206.45 as permitted sender) smtp.mailfrom=seki.atsuhiro@classmethod.jp
+Received: from mail.d.activegate-ss.jp (agproxy-out11.ariake.ss.jp [10.16.39.41]) (envelope sender: <seki.atsuhiro@classmethod.jp>)
+	(not using TLS) by ss11.activegate-ss.jp (Active!gate) with ESMTP id aKm012917A;
+	Wed, 26 May 2021 10:38:54 +0900
+Received: by mail-lj1-f200.google.com with SMTP id h21-20020a2ea4950000b0290113ab72f778so1208117lji.7;
+        Tue, 25 May 2021 18:38:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
+         :content-transfer-encoding;
+        bh=nLTbAvXgeOne4UBb0uzPjPVqSBaJ4t0SSlHUGYLnSsw=;
+        b=LMKpPdN+6O3BshmKF8LKdAwfk7eMoNmbuPQLLHCAkt11of5JBUp3xqE8gET3DpsTV8
+         M67Txa5teFXVcojGewrQsNZ1kZdyocTyVyqyQLN3+zdAVmp7vkKsHczS01LAPP09kCAf
+         kRM8NpghUapsA62oE2nSDTpWOd8+E7YsShzJ84bYAAudFhrKaVvAGAd7mdLO4pHKOsjd
+         8PqoTmCHHLbZFrWI2fmYfeu4clyoe7Hl0/pi2DPc6gQScYuRfWfsiLkILNEAO44g3loo
+         wha2N4yH00oKQIAOIe7AP9pfQQbdjw3ypycB/yGTanvOPj8D8hQf/Przqni2WTzcJB/P
+         H4EA==
+X-Gm-Message-State: AOAM5319TUHKEA+Z4oCK+qbyqe1FRLhl4v2whq+W6HdbRGKqLDKKebrf
+	Ui5g3Ao0SZjRHOrzPvnCdlUyBLrICSlpsjRt9Bet7NKegoTPRx/6wbYveXq3v0FJ/NGdo5OK2ZB
+	6X5DMtT5MmTPqnxBSmXQ6V33a76d+y3MeGdpFis0tPYtm0W87KKCGAn/VDnsuseqkKg==
+X-Received: by 2002:a05:651c:104e:: with SMTP id x14mr326572ljm.345.1621993131689;
+        Tue, 25 May 2021 18:38:51 -0700 (PDT)
+X-Received: by 2002:a05:651c:104e:: with SMTP id x14mr326565ljm.345.1621993131372;
+ Tue, 25 May 2021 18:38:51 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?B?5o6h55So44OB44O844Og?= <recruit@annotation.co.jp>
+Date: Wed, 26 May 2021 10:38:33 +0900
+Message-ID: <CAFHDDDYo5N__0B=wqKGNh8hdu7zcpxsOTd7VgwQo4Xfb8ug_0A@mail.gmail.com>
+Subject: =?UTF-8?B?44CQ44Ki44OO44OG44O844K344On44Oz44CR5YaN5b+c5Yuf44Gu5Lu244Gr44Gk44GN?=
+	=?UTF-8?B?44G+44GX44Gm?=
+To: hujyorom@gmail.com
+Cc: recruit <recruit@annotation.co.jp>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+6YGg6JekIOWwh+WPuCDmp5gNCg0K44GK5LiW6Kmx44Gr44Gq44Gj44Gm44GK44KK44G+44GZ44CC
+44Ki44OO44OG44O844K344On44Oz5qCq5byP5Lya56S+IOaOoeeUqOaLheW9k+OBp+OBlOOBluOB
+hOOBvuOBmeOAgg0K4oC75Lul5LiLR3JlZW7kuIrjgafjgoLlkIzmp5jjgavpgIHku5jjgZXjgZvj
+gabjgYTjgZ/jgaDjgY3jgb7jgZfjgZ/jgYzjgIHlv7Xjga7jgZ/jgoHjg6Hjg7zjg6vjgqLjg4nj
+g6zjgrnlrpvjgavjgoLpgIHku5jjgZXjgZvjgabjgYTjgZ/jgaDjgY3jgb7jgZfjgZ/jgIINCg0K
+5pys5Lu244GU6L+U5L+h44GE44Gf44Gg44GN6Kqg44Gr44GC44KK44GM44Go44GG44GU44GW44GE
+44G+44GZ44CCDQrlho3luqbjgZTlv5zli5/jgYTjgZ/jgaDjgZHjgovjgajjga7ku7blpKflpInl
+rInjgZfjgY/mgJ3jgaPjgabjgYrjgorjgb7jgZnjgILlvIrnpL7jgYvjgonjga7kuI3our7jgarj
+gZTmj5DmoYjjgpLjgZTlv6voq77jgYTjgZ/jgaDjgY3ph43jga3jgabmhJ/orJ3nlLPjgZfkuIrj
+gZLjgb7jgZnjgIINCg0K44OV44Kp44Ot44O844Ki44OD44OX44Gu5Lu244Gn44GZ44GM44CBDQrj
+gb7jgZrnj77lnKjjgrDjg6vjg7zjg5fkvJrnpL7jga7jgq/jg6njgrnjg6Hjgr3jg4Pjg4nnpL7j
+gYzpgYvllrbjgZfjgabjgYrjgorjgb7jgZnjgqrjgqbjg7Pjg4njg6Hjg4fjgqPjgqLjgIxEZXZl
+bG9wZXJzSU/jgI3jgavjgabjgIENCuaVsOWQjeOBruekvuWToeOBjOWft+ethuOBl+OBpuOBiuOC
+iuOBvuOBmeODluODreOCsOiomOS6i+OCkuOBlOahiOWGheOBleOBm+OBpuOBhOOBn+OBoOOBkeOC
+jOOBsOW5uOOBhOOBp+OBmeOAgg0KDQpodHRwczovL2Rldi5jbGFzc21ldGhvZC5qcC9hcnRpY2xl
+cy90cnlpbmctY2xvdWQtcHJhY3RpdGlvbmVyLWluLTEtbW9udGgvDQpodHRwczovL2Rldi5jbGFz
+c21ldGhvZC5qcC9hcnRpY2xlcy9jZXJ0aWZpZWQtc2FhLTAyLXNhbGVzLw0KDQrigLvlvIrnpL7p
+gbjogIPjgavpgLLjgpPjgafjgYTjgZ/jgaDjgY/kuIrjgaflj5blvpfjgpLmjqjlpajjgZXjgZvj
+gabjgYTjgZ/jgaDjgYTjgabjgYTjgovjga7jga8NCkFXU+OCveODquODpeODvOOCt+ODp+ODs+OC
+ouODvOOCreODhuOCr+ODiOOCouOCveOCt+OCqOOCpOODiOS7luOAgeOCouOCveOCt+OCqOOCpOOD
+iOODrOODmeODq+S7peS4iuOBruizh+agvOOBqOOBquOCiuOBvuOBmeOAgg0KDQrjgb7jgZ/jgIHk
+u4rlvozjga7jgZTnirbms4HkvLrjgYTjgavjgaTjgYTjgabjgafjgZnjgYzjgIHjgYrkvLrjgYTj
+gZfjgZ/jg6Hjg7zjg6vjgqLjg4njg6zjgrnlrpvvvIhodWp5b3JvbUBnbWFpbC5jb23vvInjgavn
+m7TmjqXjgZTmoYjlhoXjgZXjgZvjgabjgYTjgZ/jgaDjgZHjgozjgbDlubjjgYTjgavlrZjjgZjj
+gb7jgZnjgIINCg0K5LiA5pem44GT44Gh44KJ44Gu44GU5b+c5Yuf44Gr44Gk44GE44Gm44Gv44GK
+6KaL6YCB44KK44Go44GV44Gb44Gm44GE44Gf44Gg44GN44CBDQrjgZTpg73lkIjjgavlkIjjgo/j
+gZvjgablho3luqbjgYrmiYvmlbDjgafjgZnjgYxHcmVlbuS4iuaxguS6uuOBq+OBlOW/nOWLn+OB
+hOOBn+OBoOOBkeOCjOOBsOW5uOOBhOOBp+OBmeOAgg0KDQrku5bkuI3mmI7ngrnjgarjganjgYLj
+gozjgbDjgYrmsJfou73jgavjgYrnlLPjgZfjgaTjgZHjgY/jgaDjgZXjgYTjgb7jgZvjgIINCg0K
+5Lul5LiK44CB44GU5aSa55So44Gu44Go44GT44KN5oGQ44KM5YWl44KK44G+44GZ44GM44CB44KI
+44KN44GX44GP44GK6aGY44GE44GE44Gf44GX44G+44GZ44CCDQo=

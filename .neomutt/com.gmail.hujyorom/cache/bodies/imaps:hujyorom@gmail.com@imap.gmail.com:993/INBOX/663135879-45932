@@ -1,0 +1,111 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:ac86:0:0:0:0:0 with SMTP id v128csp3234560vke;
+        Mon, 14 Dec 2020 14:56:31 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyhw834RmNxBJwNxt8NsCfp1DcMpINWV6NtktoXUXmErvw44Ayb46GRxmTdgQZRY95r4naT
+X-Received: by 2002:a62:37c4:0:b029:197:bfa9:2078 with SMTP id e187-20020a6237c40000b0290197bfa92078mr25860245pfa.15.1607986591825;
+        Mon, 14 Dec 2020 14:56:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607986591; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yI72+FGNTIF+/X9mV+cwXU4hVF7PWdRHpYP2D79HBPQ50wdEcdlAyQRrf/1/mwxxJZ
+         m1rupEN1yoj6szKQZ15yuen1mLeP4SFQX9uuPGbo0fffSdAtkSSsSfgwFTtTgaQ820Jd
+         Mx9jsYHJJ98rUSGbj2qFOvhekiU6X1zlDKi5OWm0cV13LdtToAqiJqHLig9eaMxFa7SB
+         J7atxjgEOJKlyFmfSTOQXxxbUMxXQa0j1y02o1mrn7ZD2VXMZitn+CncRtOUV/RX5E/U
+         pl7xTxCvUP8vfBruqCtR61fhWaUTn3TCIiYSaXWuSyBMRZW+2rQEbs76mneUZavqDtXX
+         DDBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=y7epfSoONJMtnqBWSnCNOOYhIyqgtMDIaunmz8a3ilo=;
+        b=jjmGQ35AxmGW/lpUUZAeh/I5EdelBHgfGhRM0nkYG0qixccPiCrF9laIIy5VxtESAf
+         kU1sY/Pwwbk8qTgYlEjESf9PUbBYzPLkAAH9WuV/XSKoBt8nvNIO8xfKhG8K6YHnar7X
+         Gd6jQJlEnenPiW8e5E0H/FCfdXVx8FcpcnAMgdihgBmsGkAHEqYMqnHvLiq4KygHPMEp
+         YjVal624Lwwe/xaCIY1TnQO7G3Acn9I4YVxNfQfvEczo6EsfX4woiLD/AtZRTLbNYlC0
+         wDwUptkaMyUMG6CNVw4pTk9QXSRV0cmHTKWddmKB7ejd6b7Nih7E0ZshlU1erNgn430z
+         01nw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=TaLZa09e;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.120 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml102.ymt.japannetbank.co.jp (mml102.ymt.japannetbank.co.jp. [202.238.157.120])
+        by mx.google.com with ESMTP id o13si17021682pfu.50.2020.12.14.14.56.31
+        for <hujyorom@gmail.com>;
+        Mon, 14 Dec 2020 14:56:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.120 as permitted sender) client-ip=202.238.157.120;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=TaLZa09e;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.120 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer1@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1607986591;
+	bh=y7epfSoONJMtnqBWSnCNOOYhIyqgtMDIaunmz8a3ilo=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=TaLZa09emmQ7ibr5w1tAHJ8luIqT8W42rOl0ybS5uAVFBgX1Y2iErZAk0M0P4zb4R
+	 uq3e9xToHvKUIdkxgXE2y/3yIsbTD4x4+8GTlH8xJGRuJgX1X5rcgzyxrzCd52beoY
+	 KFvyQPUPhGG2W7wWjevaeEyOmBlCyGkc1sj1q1pg=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer1@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer1@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCPTs9akpROTkkTyNXI2UjYiRHJCo8akIzJC0kJBsoQg==?=
+ =?ISO-2022-JP?B?GyRCJD8kQCQxJF4kORsoSg==?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20201214225631.05A4BC60A8@mml102.ymt.japannetbank.co.jp>
+Date: Tue, 15 Dec 2020 07:55:31 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもジャパンネット銀行をご利用いただきありがとうございます。
+
+------------------------------------
+ご登録住所に変更はございませんか？
+------------------------------------
+ジャパンネット銀行では、お客さまへの大切なお知らせ等を、郵送でご連絡させていただくことがあります。
+ご住所が変更になった場合、ジャパンネット銀行の住所変更手続もお忘れなくお願いいたします。
+※変更後のご連絡は不要です。
+
+【ご住所の確認・変更方法】トークンが必要です。
+▽パソコン・スマートフォンの場合
+以下のURLからログインして確認・変更いただけます。
+お客さま情報の変更（ログイン画面が開きます）
+https://login.japannetbank.co.jp/wctx/LoginAction.do?screen=ChangeDtail
+※ログイン後、該当の画面が表示できない場合は、Welcome Pageから、「各種手続」＞「お客さま情報の変更」より変更いただけます。
+
+▽携帯電話の場合
+ログイン後、「登録・変更」＞「お届け事項の変更」よりお手続きください。
+※BA-PLUSをご契約のお客さまは、パソコンまたはスマートフォンでログイン後、「一般取引」＞「各種手続」＞「お客さま情報の変更」よりお手続きください。
+
+本メールに関するお問い合わせは、こちらまでお願いいたします。
+
+▽チャットでお問い合わせ
+https://www.japannetbank.co.jp/help/chat/index.html
+パソコンまたはスマートフォンよりお問い合わせください。
+営業時間：平日9時〜17時
+休業日：土曜日・日曜日・祝日、12月31日〜1月3日
+
+チャットがご利用いただけない場合、またはBA-PLUSをご利用のお客さまは下記の各種手続専用ダイヤルよりお問い合わせください。
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+ジャパンネット銀行　各種手続専用ダイヤル
+
+■個人のお客さま
+0120-007-410（通話料無料）
+フリーダイヤルをご利用いただけない場合 03-6739-5012（通話料有料）
+営業時間：9時〜17時
+休業日：12月31日〜1月3日、5月3日〜5月5日
+
+■法人・営業性個人のお客さま
+0120-007-709（通話料無料）
+フリーダイヤルをご利用いただけない場合 03-6739-5044（通話料有料）
+営業時間：平日9時〜17時
+休業日：土曜日・日曜日・祝日、12月31日〜1月3日
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+ジャパンネット銀行
+https://www.japannetbank.co.jp/
+====================================

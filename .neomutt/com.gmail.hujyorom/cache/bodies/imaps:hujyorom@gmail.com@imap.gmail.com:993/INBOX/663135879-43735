@@ -1,0 +1,302 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9e8d:0:0:0:0:0 with SMTP id h135csp638036vke;
+        Wed, 23 Sep 2020 09:33:28 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJx9EL1DOmpNDLxPdPjcbpON6m8t57lRNNEBWknKv53BcqeIml68PRpZKGeP3A9tkL8ASeCU
+X-Received: by 2002:a63:fe57:: with SMTP id x23mr455065pgj.309.1600878808427;
+        Wed, 23 Sep 2020 09:33:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600878808; cv=none;
+        d=google.com; s=arc-20160816;
+        b=KKdQe9jCpBsPJ1o01uUWLpBztMuEtnZ/zm/b9+CnBgYNPuS8tOl//NfYknN4L4Hlpi
+         3SevNkAMBYpklG2mWh9Bkn66yN3Olcut54y2Q9oITMJNJ4xpLd8l3ZiIHr1CEinQfyAy
+         luRCh4IimEY18UJh+4ciiWyx1JMGuJBmyv82hx7PnT3XCrvOxn/Fl+FGxjV38mUCPdt0
+         vL3XoxaOQm1Lzky3+8eOhWyJvfyYd005UjvPrS2al+/faQdopOVuuQyZTeRIYiBwaRte
+         n+JR1f0LUJN8W6c8nMACNBPPu+X1UnTnr4loq66IuobmouXHXJFkUztXxQd7/OedV5jt
+         Jv2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:list-id:reply-to:mime-version
+         :list-unsubscribe:date:subject:to:from:dkim-signature;
+        bh=pBf6wTUOUZpEAGWTWsijXVe01S/LadfkCgdRsSWh/Ow=;
+        b=wVyFVUv+CLAErsSniOPAR6GWTnKlSp4TIArnXjijZAjmbv4SpugIaeipN5QIltfeeg
+         Tzn29PvGJbi+GHLjkSQbKx7lTcH6gMsuJ/Oc2mprQjrPHjVNnQyhCwT81P3+IuJy50yS
+         rRrd+V9y+OGrO8rIYTxanUQj3NdOhjKfzisc/f8kUA6MRxlRpVFjtLlgP9LHLZprAz8U
+         i8EmUDvnbAMGRFm2vgeyQjlJLHwRvZBLft6P+kBeKnVe+m+28zOtnElgvFhvIhrEUObE
+         jPTcZ+8mgHiH5jdzgl8UZgkswzesC9bZiJcl+DSSPwYVIsIq57HuKtf/bNlOz9sDWLaQ
+         jhhA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@e.mozilla.org header.s=200608 header.b=bHLrzCKh;
+       spf=pass (google.com: domain of bounce-100_html-391371813-5341559-1065730-108@bounce.e.mozilla.org designates 136.147.137.188 as permitted sender) smtp.mailfrom=bounce-100_HTML-391371813-5341559-1065730-108@bounce.e.mozilla.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.mozilla.org
+Return-Path: <bounce-100_HTML-391371813-5341559-1065730-108@bounce.e.mozilla.org>
+Received: from mta6.e.mozilla.org (mta6.e.mozilla.org. [136.147.137.188])
+        by mx.google.com with ESMTPS id v4si174929ply.415.2020.09.23.09.33.28
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 23 Sep 2020 09:33:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-100_html-391371813-5341559-1065730-108@bounce.e.mozilla.org designates 136.147.137.188 as permitted sender) client-ip=136.147.137.188;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@e.mozilla.org header.s=200608 header.b=bHLrzCKh;
+       spf=pass (google.com: domain of bounce-100_html-391371813-5341559-1065730-108@bounce.e.mozilla.org designates 136.147.137.188 as permitted sender) smtp.mailfrom=bounce-100_HTML-391371813-5341559-1065730-108@bounce.e.mozilla.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=e.mozilla.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=200608; d=e.mozilla.org;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:List-ID:
+ X-CSA-Complaints:Message-ID:Content-Type; i=Mozilla@e.mozilla.org;
+ bh=pBf6wTUOUZpEAGWTWsijXVe01S/LadfkCgdRsSWh/Ow=;
+ b=bHLrzCKhrScjh7gLubQNEg4mDE0TvmDzE3EhFSPsu8QhJ62TfJrnYoWI5kTzKCakfR8hKo3gwD5U
+   89qDysT9kLBTvnwFV0rIL87mcqBZprfEccoJaa2MYupYD+3Tej8X9o1K5GTaIukm3vmw80zY2bj8
+   r4OKv5kDtRfxYIkBei8=
+Received: by mta6.e.mozilla.org id hddsdg2fmd42 for <hujyorom@gmail.com>; Wed, 23 Sep 2020 16:33:04 +0000 (envelope-from <bounce-100_HTML-391371813-5341559-1065730-108@bounce.e.mozilla.org>)
+From: "Sarah Allen, Mozilla Festival" <Mozilla@e.mozilla.org>
+To: <hujyorom@gmail.com>
+Subject: Sneak Peek into MozFest 2021
+Date: Wed, 23 Sep 2020 10:33:04 -0600
+List-Unsubscribe: <mailto:leave-fd5a1570750b5c392848-fe2b17797467037c7d1573-fe8f1173716501787c-fe9915707361037e75-ff6615707d@leave.e.mozilla.org>
+MIME-Version: 1.0
+Reply-To: "Mozilla Festival Team" <reply-fe8f1173716501787c-100_HTML-391371813-1065730-108@e.mozilla.org>
+List-ID: <1065730.xt.local>
+X-CSA-Complaints: whitelist-complaints@eco.de
+X-SFMC-Stack: 4
+x-job: 1065730_5341559
+Message-ID: <c0e3d511-437a-4320-89d5-5fe2e7f66356@las1s04mta1282.xt.local>
+Feedback-ID: 1065730:5341559:136.147.137.188:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="fv7wI3t82UfL=_?:"
+
+This is a multi-part message in MIME format.
+
+--fv7wI3t82UfL=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+Hello, 
+ 
+MozFest is a place to empower people, to fuel movements, and to build bridges.
+ 
+The next MozFest is slated to begin March 8, 2021. Given the uncertainty of the pandemic, MozFest will primarily be online.
+ 
+CATCH A SNEAK PEEK OF THE FESTIVAL
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34ef4a5c500d6f4b59ee0f05ffafca865378653857509efd08304450c2356d7ce95d5830a47865dd1bb0f95668d3e100631
+ 
+The Call for Session Proposals, where you're invited to propose an interactive workshop to host at the festival, will be open October 26 to November 23. We invite you to share your experience and work with our community to create a festival that’s greater than the sum of its parts.
+ 
+New to MozFest? Learn more about our commitment to diversity and inclusion, our federated design, and our community.
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34e07ff964a1b9cce54771c2c87c03cb8bfdc9c446b1fdc974db2885d74dae5fb0ce1714a0a3eaf01f85e00de8d6fba6f3a
+ 
+Looking forward to March!
+
+Sarah and The MozFest Team
+ 
+Connect with us
+ 
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34e7edfa2b9ab8198c5afe06b79107d67c48947cbfc8efb31915a79a07297cc7a2eacee19c02949d9fa947652355f6ceed1
+ 
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34e7d01f8c8da38cc622817e6e3933419144cc821f168fb5c2f2087c58e8327bdf4044b90c0f2aee71b72db245a88477979
+ 
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34e1c081c0824f6f84d3de572a7d251f8c2825ac7e61600b483d1fc91133359a81a50e59afc4eb372d1bce078d55bb3ee20
+ 
+Thanks for reading!
+ 
+ 
+
+You're receiving this email because we think you’re neat, AND you subscribed to hear from us. If our emails aren’t sparking joy, we’ll understand if you unsubscribe.
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34eb201e3dafa7e0ef1314d63c926fcf2775657879750be1a0debc48ca1635212cf3b429b29cc8e4a5b601cfc866d749bd8
+
+You can also update your email preferences  at any time.
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34eb201e3dafa7e0ef1314d63c926fcf2775657879750be1a0debc48ca1635212cf3b429b29cc8e4a5b601cfc866d749bd8
+
+
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34e3e68b7ac53ffbb6a3a3ee54cdd0167de83530fff66d59d82dfffb77985632377776fc907ebea794c866f7ad24f483113
+
+Donate to Mozilla
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34ed5b065c75194f4306b0bea557aa58acefd034555d0ef2c0605a48acdc6089136d5efd16efe894d402a6579a88162df5a
+
+Download Firefox
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34ed84a2fffc600aee28c6045990952770dd27ab8398d44fd1ef1427661f263c8be403cdbda2127bbfe59eea7658455b6c1
+
+331 E. Evelyn Avenue Mountain View CA 94041
+
+Legal
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34e01fc76a9c7eaa88c074ec5c54f7a920ce3f193c3d3bf20e569f7fccd529098bd1cacde7a7dc34d737482fb92944b63e5
+Privacy
+https://click.e.mozilla.org/?qs=22bb9ce540e3d34eb27c041bda62b9682fd25540824ddb8c235bad7ecf6b1a970fa8474dfda62154182b92f5c3c6b58e95ecfcb708bf8179
+
+--fv7wI3t82UfL=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <style>
+
+        body {margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;} img{line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} a img{border: none;} #backgroundTable {margin:0; padding:0; width:100% !important; } a, a:link{color:#2A5DB0; text-decoration: underline;} table td {border-collapse:collapse;} span {color: inherit; border-bottom: none;} span:hover { background-color: transparent; }
+
+    </style>
+
+    <style>
+ .scalable-image img{max-width:100% !important;height:auto !important}.button a{transition:background-color .25s, border-color .25s}.button a:hover{background-color:#e1e1e1 !important;border-color:#0976a5 !important}@media only screen and (max-width: 400px){.preheader{font-size:12px !important;text-align:center !important}.header--white{text-align:center}.header--white .header__logo{display:block;margin:0 auto;width:118px !important;height:auto !important}.header--left .header__logo{display:block;width:118px !important;height:auto !important}}@media screen and (-webkit-device-pixel-ratio), screen and (-moz-device-pixel-ratio){.sub-story__image,.sub-story__content{display:block
+ !important}.sub-story__image{float:left !important;width:200px}.sub-story__content{margin-top:30px !important;margin-left:200px !important}}@media only screen and (max-width: 550px){.sub-story__inner{padding-left:30px !important}.sub-story__image,.sub-story__content{margin:0 auto !important;float:none !important;text-align:center}.sub-story .button{padding-left:0 !important}}@media only screen and (max-width: 400px){.featured-story--top table,.featured-story--top td{text-align:left}.featured-story--top__heading td,.sub-story__heading td{font-size:18px !important}.featured-story--bottom:nth-child(2) .featured-story--bottom__inner{padding-top:10px
+ !important}.featured-story--bottom__inner{padding-top:20px !important}.featured-story--bottom__heading td{font-size:28px !important;line-height:32px !important}.featured-story__copy td,.sub-story__copy td{font-size:14px !important;line-height:20px !important}.sub-story table,.sub-story td{text-align:center}.sub-story__hero img{width:100px !important;margin:0 auto}}@media only screen and (max-width: 400px){.footer td{font-size:12px !important;line-height:16px !important}}
+     @media screen and (max-width:600px) {
+    table[class="columns"] {
+        margin: 0 auto !important;float:none !important;padding:10px 0 !important;
+    }
+    td[class="left"] {
+     padding: 0px 0 !important;
+    </style>
+
+</head>
+
+<body style="background: #e1e1e1;font-family:Arial, Helvetica, sans-serif; font-size:1em;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Tools and resources from around the internet health community.</div>
+    <table id="backgroundTable" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#e1e1e1;">
+        <tr>
+            <td class="body" align="center" valign="top" style="background:#e1e1e1;" width="100%">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="640">
+                            <table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table cellspacing="0" cellpadding="0">
+ <tr>
+  <td width="640" align="left">
+   <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+     <td class="header header--left" style="padding: 20px 10px;" align="left">
+      <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e18d026e70530058ca8c15f8e181468f62be8f8dc66541bc949ff3d603572c48f65910c663b7b13cfef37deda848abe1c" ><img class="header__logo" src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/moz-logo-bw-rgb158.png" alt="Mozilla" style="display: block; border: 0;" width="158" height="45"></a>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table></td></tr></table></td>
+                    </tr>
+                    <tr>
+                        <td class="main" width="640" align="center" style="padding: 0 10px;">
+                            <table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="100%" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e6b308c31e3ab6f2ac196011d15aa7a89d08e0bd0b4186aa895f9510d2b6b0da419315b55e8ba6e8bb075dc37c963f11e" title=""   data-linkto="https://"><img data-assetid="86156" src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/6/a5ad4b30-d37b-4c0d-b6eb-7833079e12f2.png" alt="The next MozFest is slated to begin March 8, 2021" style="display: block; padding: 0px; text-align: center; height: auto; width: 100%; border: 0px none transparent;" width="2240"></a></td></tr></table></td></tr>
+</table><table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table style="background-color: #ffffff; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" width="100%" cellspacing="0" cellpadding="0" border="0">
+	
+		<tr>
+			<td style="background-color: #ffffff; width: 30px;" width="30">
+			</td><td style="background-color: #ffffff;">
+				<br>
+				&nbsp;</td><td style="background-color: #ffffff; width: 30px;" width="30">
+			</td></tr><tr>
+			<td style="background-color: rgb(255, 255, 255); width: 30px;" width="30">
+			</td><td style="background-color: #ffffff; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #4b4b4b; text-align: left; line-height: 150%;font-size: 16px;">
+				Hello, <br>
+				<br>
+				MozFest is a place to empower people, to fuel movements, and to build bridges.<br>
+				<br>
+				<b>The next MozFest is slated to begin March 8, 2021. </b>Given the uncertainty of the pandemic, MozFest will primarily be online.</td><td style="background-color: #ffffff; width: 30px;" width="30">
+			</td></tr></table></td></tr></table><table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table style="background-color: #ffffff; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" width="100%" cellspacing="0" cellpadding="0" border="0">
+ 
+  <tr>
+   <td style="background-color: #ffffff; width: 30px;" width="30">
+   </td><td style="background: #ffffff; padding-bottom: 20px;">
+   </td><td style="background-color: #ffffff; width: 30px;" width="30">
+   </td></tr><tr>
+   <td style="background-color: #ffffff; width: 30px;" width="30">
+   </td><td style="background-color: #ffffff; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #000000; text-align: left;">
+    <p style="text-align: center;">
+     <a   data-linkto="https://" href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e3546c97a5e1d6bbbea6d4cd6016a889519c34ab3a28c1bcc0eef6af4ed80166ce50ac383c46e3eeba108ec7250b1b4c7" style="color:#FFFFFF;text-decoration:none;background-color: #0c99d5; display: inline-block; padding: 10px 42px; margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; font-size: 16px; font-weight: bold; text-transform: uppercase; text-align: center;" title="Catch a Sneak Peek of the Festival">&nbsp;&nbsp;CATCH A SNEAK PEEK OF THE FESTIVAL&nbsp;&nbsp;</a></p></td><td style="background-color: #ffffff; width: 30px;" width="30">
+   </td></tr><tr>
+   <td style="background-color: #ffffff; width: 30px;" width="30">
+   </td><td style="background: #ffffff; padding-bottom: 20px;">
+   </td><td style="background-color: #ffffff; width: 30px;" width="30">
+   </td></tr></table></td></tr></table><table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><table style="background-color: #ffffff; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" width="100%" cellspacing="0" cellpadding="0" border="0">
+ 
+  <tr>
+   <td style="background-color: #ffffff; width: 30px;" width="30">
+   </td><td style="background-color: #ffffff;">
+   </td><td style="background-color: #ffffff; width: 30px;" width="30">
+   </td></tr><tr>
+   <td style="background-color: #ffffff; width: 30px;" width="30">
+   </td><td style="background-color: #ffffff; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #4b4b4b; text-align: left; line-height: 150%;font-size: 16px;">
+    <b>The Call for Session Proposals, where you're invited to propose an interactive workshop to host at the festival, will be open October 26 to November 23.</b> We invite you to share your experience and work with our community to create a festival that&rsquo;s greater than the sum of its parts.&nbsp;&nbsp;<br>
+    <br>
+    New to MozFest? <a   data-linkto="https://" href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e53ff6213487ed58c5abc223289827cf3be03748bf41f7f05d88a2978769320bc2ce30c54dbf9b561f8ef855280d9d295" style="color:#0c99d5;text-decoration:underline; font-weight: bold;" title="Uniquely MozFest">Learn more</a> about our commitment to diversity and inclusion, our federated design, and our community.&nbsp;<br>
+    <br>
+    Looking forward to March!<br>
+    Sarah and The MozFest Team</td><td style="background-color: #ffffff; width: 30px;" width="30">
+   </td></tr><tr>
+   <td style="padding-bottom: 20px;">
+   </td></tr></table></td></tr></table><table style="min-width: 100%; " class="stylingblock-content-wrapper" width="100%" cellspacing="0" cellpadding="0"><tr><td class="stylingblock-content-wrapper camarker-inner"><br>
+<table cellspacing="0" cellpadding="0" align="center">
+     <tr>
+<td colspan="3" style="font-family: 'Gill Sans MT', Calibri, sans-serif; font-size: 22px; color: #6e899e; padding-bottom: 15px;" align="center">
+      Connect with us
+      </td>
+     </tr>
+     <tr>
+      <td style="padding: 0 10px;" align="right">
+      <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e2e349bec8a756aaf02d53d3b48023352536d33c205f97e7b692da3ba4518d7b17ee2dab897fd110338348a4acfb5db97"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/youtube-icon-blue-transparent.png" alt="YouTube" style="display: block; border: 0;" width="45"></a>
+      </td>
+      <td style="padding: 0 12px;" align="center">
+      <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34eddc715fc6883cdd1ada7b61cd27b26da89d7fcd7c10979eef3dec647b0822491468a0099bdac36b73bc991339902c962"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/2/mozilla-email-twitter.png" alt="Twitter" style="display: block; border: 0;" width="45"></a>
+      </td>
+             <td style="padding: 0 12px;" align="left">
+      <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34eea31a1b77f96560225972aa40eb43417a6bc38679aed69cd9b9368ac9f99e26a0b83078c94eac2b68ffa92449a3d95d9"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/5/8624d65d-230d-4423-9f8e-dde004af246d.png" alt="Instagram" style="display: block; border: 0;" width="45"></a>
+      </td>
+      
+     </tr>
+    </table>
+</td></tr></table></td>
+                    </tr>
+                    <tr>
+                     <td class="footer" width="640" align="center" style="padding-top: 10px;">
+                      <table cellspacing="0" cellpadding="0">
+                       <tr>
+                        <td align="center" style="font-family: Geneva, Tahoma, Verdana, sans-serif; font-size: 14px; line-height: 18px; color: #738597; padding: 0 20px 40px;">
+                                      <br>      <br>
+<strong>Thanks for reading!</strong>
+
+<br> 
+
+You're receiving this email because we think you’re neat, AND you subscribed to hear from us. If our emails aren’t sparking joy, we’ll understand if you  <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34ec1e991344f8684164bfa106e5129e4f1e12e135678d7ef10b71fc48c128fd0b8090776ca0319a17a8987e20a6955cbe6"  style="color: #0c99d5;">unsubscribe.</a>
+
+<br>
+<br>
+You can also <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34ea04e5e8ce4ff9810cf18060a0631db28b46b116e7bc7908e101f19db3360990cebc977225d136bb815b42442d5fb728b"  style="color: #0c99d5;">update your email preferences</a> at any time.
+<br>
+<br>
+
+
+
+                         <br>
+<a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e2ed4bf72557dbb75006ff6090b4914a8ae08fa24ec91c210de9cf8f0904da05a6aef6b8d97bb55286c28728ef84062cb"  target="_blank"><img src="https://image.e.mozilla.org/lib/fe9915707361037e75/m/3/Mozilla-Logo-2017.png" alt="Mozilla" style="display: block; border: 0;" width="100"></a>
+      <br>
+<strong><a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e4ae6f295bffafbe83ff54bf4f06141f2275f90ca7b20e3500f81475c083d0d46be685992a4658e3905962c60e2fc1f9a" style="color: #0c99d5;"  target="_blank">Donate to Mozilla</a></strong>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<strong><a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e5458584647246567edd8bcea252979376347d59f53789083aee5f063bceb32fd21bd52cb11265e528e7872a8d561da32" style="color: #0c99d5;"  target="_blank">Download Firefox</a></strong>
+<br><br>
+
+
+                         331 E. Evelyn Avenue Mountain View CA 94041 
+                         <br>
+                         <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e3494dfc9d9349842e52ceb32d888b10f26715f9c75926939b5310e96bbdacd0c514e0f6056b7345c146498c134798c66"  style="color: #0c99d5;">Legal</a> • <a href="https://click.e.mozilla.org/?qs=22bb9ce540e3d34e1df64ba86bd6a535e5fca0cde4b31401f00052e46e0a5d5f2e0676df300d3f29bf5389bdc6b91df481c09a6ddc69046c"  style="color: #0c99d5;">Privacy</a>
+
+                        </td>
+                       </tr>
+                      </table>
+                     </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Exact Target tracking code -->
+    <img src="https://click.e.mozilla.org/open.aspx?ffcb10-fe8f1173716501787c-fdf616717264037972107470-fe9915707361037e75-ff6e157075-fe2b17797467037c7d1573-ff6615707d&d=40114" width="1" height="1">
+</custom></body>
+</html>
+
+--fv7wI3t82UfL=_?:--
+

@@ -1,0 +1,132 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp2310858vkx;
+        Sat, 10 Apr 2021 22:35:03 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxYI9EzHazBQadAu5Lfo0X0/aox1nD9exAb4cYs9/rasCV8iA1QB+5sY3YL3t9fTGm0Cqsb
+X-Received: by 2002:a05:620a:1679:: with SMTP id d25mr21708475qko.102.1618119303180;
+        Sat, 10 Apr 2021 22:35:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618119303; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fAOr+rLS2IR2J0aUUjDMRNkNQh9C//FNMtIoJ44zNQdARevZGKT30cAFquTD9FWlQZ
+         Uydz7CKqBPN+GpdgzQOF8Ks1kB6CLF5Rrni7R4eOSjUEKA4GxnDWft+q9n4EK32VrfCI
+         cv1AM61Vn7RAuNYKk/SgQL3I7KgyxrA5He8yDQFaL5BTMta1w3nh7TsVPhE0U0cs/3pQ
+         8SjKyzSpleqsH2eW0p5F8NMoOKMrC3KlAlo9EInbFWGzg1GsECRu38Q9deVlX3RHpueQ
+         QlQ2E0TjF6kQ2qjKFW6Q9TBLpPKyyupIWXZs6CI6qDVEXKNTK/bRf+VrIE16TNAAVXXq
+         KMMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from
+         :dkim-signature:dkim-signature;
+        bh=mX3Qxjw4v7sSKHe03tfBxq6h3eGLe/hCoI084rg8E0s=;
+        b=lMqbC5T1614QOQnxUcY6E5M1Kr7bxjTQtSkexFW/1x6qYrzIqXhR5yAIvUCrL1DkKt
+         dQ/dKBGvUdUdqtBTbKvay9xoLdGpD1mUgnsecJdz76DQUEZTo1DyxnewcRTy0u3Y9c/X
+         XB7ngM4Gy6l/wkZzeoUN8l+1Dd02bYbqeM50TJQ6dFEcNq1S6DMs7pGi8mpwJZbaHNzx
+         d/WqC+Zg4Qw92z6NGGx/e8ouTfynOCF+22NR3lNuI/3X7XkMPjjlsvtJkN5MAMZg1Zqx
+         A0Z6vRZkWroIYJHLch7+ncVD/6SYW8o4q7oDHfRdNnYto2k1BZ0kvThoCgDjl1s7XT/I
+         3QDg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.com header.s=yg4mwqurec7fkhzutopddd3ytuaqrvuz header.b=EfaS3Y6j;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=ZO26gN7K;
+       spf=pass (google.com: domain of 202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com designates 54.240.13.137 as permitted sender) smtp.mailfrom=202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+Return-Path: <202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com>
+Received: from a13-137.smtp-out.amazonses.com (a13-137.smtp-out.amazonses.com. [54.240.13.137])
+        by mx.google.com with ESMTPS id k13si5430981qtx.133.2021.04.10.22.35.03
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Sat, 10 Apr 2021 22:35:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com designates 54.240.13.137 as permitted sender) client-ip=54.240.13.137;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.com header.s=yg4mwqurec7fkhzutopddd3ytuaqrvuz header.b=EfaS3Y6j;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=ZO26gN7K;
+       spf=pass (google.com: domain of 202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com designates 54.240.13.137 as permitted sender) smtp.mailfrom=202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=yg4mwqurec7fkhzutopddd3ytuaqrvuz; d=amazon.com; t=1618119302;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=mX3Qxjw4v7sSKHe03tfBxq6h3eGLe/hCoI084rg8E0s=;
+	b=EfaS3Y6j3ViVZeiWrDV2E4B488rsvwZoZirvpr6bTJjI8jgWdr3oYdZ1VkW66+h3
+	pu32df54XJBuUCBN1rakmTUEaXU0rLoxLYIZItFwnrfxa4xJfO1raexJhwAYqIzwr2A
+	/HhBG8nN/4FONMvY2O0RmVbPcVDTOo8B0d1lytcA=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1618119302;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=mX3Qxjw4v7sSKHe03tfBxq6h3eGLe/hCoI084rg8E0s=;
+	b=ZO26gN7KIYZKxlspScsUAGgjQfkjtqe4t+9SSQQMpe5GXXOWn+Am7Vimi0+jUF88
+	kwp4pNx1i9jWA0vbgTOgEihusGqfcVVXV8nNaHKJfDeTAEcWZyZrO9fKODKe7qDMM3w
+	jM98+6RF4Qb287+gDnzvF5ct4fu6w46ezPv/EwlQ=
+From: Amazon Web Services <no-reply-aws@amazon.com>
+To: hujyorom@gmail.com
+Message-ID: <01000178bf6d1eda-a82a9e2d-7037-4c78-ac6b-9fa50a43b891-000000@email.amazonses.com>
+Subject: AWS Email Verification
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_50887715_96976563.1618119302870"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 202104110535029f3d8a5431d3428782a2f1e305d0p0na@bounces.amazon.com
+X-AMAZON-METADATA: CA=C1DDVHCX1HY5KG
+X-Original-MessageID: <urn.rtn.msg.202104110535029f3d8a5431d3428782a2f1e305d0p0na@1618119302871.rtn-svc-na-back-c42xl1d-b83fb7d8.us-east-1.amazon.com>
+Date: Sun, 11 Apr 2021 05:35:02 +0000
+Feedback-ID: 1.us-east-1.ZHcGJK6s+x+i9lRHKog4RW3tECwWIf1xzTYCZyUaiec=:AmazonSES
+X-SES-Outgoing: 2021.04.11-54.240.13.137
+
+------=_Part_50887715_96976563.1618119302870
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><body><img width=3D"1" height=3D"1" src=3D"https://www.amazon.com/gp/=
+r.html?C=3D3LMI68DSWA8LQ&M=3Durn:rtn:msg:202104110535029f3d8a5431d3428782a2=
+f1e305d0p0na&R=3DG2WTSK0CY2VM&T=3DO&U=3Dhttps%3A%2F%2Fimages-na.ssl-images-=
+amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DBPOJSLDP7GPM9FKUSUGENO6=
+REQOA&ref_=3Dpe_2640180_239088560_opens" />Hi <span id=3D'userFullName'>mas=
+ashi endou</span>,<br><br>You recently requested access to your AWS account=
+ #<span id=3D'userAccountId'>565430765126</span> by using an alternative fa=
+ctor of authentication.<br>To continue signing in, choose the following lin=
+k:<br><br><a id=3D'emailVerificationUrl' href=3D'https://www.amazon.com/gp/=
+f.html?C=3D3LMI68DSWA8LQ&M=3Durn:rtn:msg:202104110535029f3d8a5431d3428782a2=
+f1e305d0p0na&R=3D18LBSWF652JR2&T=3DC&U=3Dhttps%3A%2F%2Fsignin.aws.amazon.co=
+m%2FnoMfa%3Faction%3DverifyEmail%26token%3Dkxk7ER0WXz6wXJR1DHWxYZ7JGvB-81aN=
+Q3SQDR9MMfVVRXD3ffjZkwmvJ6bgFmMSzW72hvx_UVE-6ut48UThqE_ndz8mUJQLLAD5Zp1tCan=
+gXPFrHa3d6SAheK4knlShTeZeCRGu8-WKzXJX8_uSc2kVcjVoxOGPjEfEbWKvpIt6J3lwUbTpQy=
+A9SGueljylgqWdpxAViL1VfQ-aphhKpqmbnOQ199lk9GnKsFxum2_3veGRSlFr4S_XPWqmrqcI_=
+ww_FaVIBMi8U0c6A09209URaHs1gby1tr3W7PLvysL3on91zOlCUQBiKZ_7NIHXLju600B8-BZk=
+%26key%3DAQEDAHjMwJfuh-ohxMDQKpdYSt8qIEJ4qDrPemN-CLZFK-eh0wAAAH4wfAYJKoZIhv=
+cNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDG5CqlvCsSbQBVep7QIBE=
+IA7CfGSZVho7l1yU6NrqQvvwBWQs8SW_TzLmTMCgvRvg06fQDcGWKVtpRYYxT71xjDKeR3QBUzc=
+cj48d1g%26ref_%3Dpe_2640180_239088560&H=3DEC95OSVNJ9XMH8LD3YO1XPW0AXIA&ref_=
+=3Dpe_2640180_239088560'><strong>Verify your email address</strong></a><br>=
+<div style=3D'opacity:0.5'>(this link expires in 15 minutes)</div><br>Or co=
+py and paste the link below into your browser:<br><div id=3D'copyPasteUrl'>=
+https://signin.aws.amazon.com/noMfa?action=3DverifyEmail&token=3Dkxk7ER0WXz=
+6wXJR1DHWxYZ7JGvB-81aNQ3SQDR9MMfVVRXD3ffjZkwmvJ6bgFmMSzW72hvx_UVE-6ut48UThq=
+E_ndz8mUJQLLAD5Zp1tCangXPFrHa3d6SAheK4knlShTeZeCRGu8-WKzXJX8_uSc2kVcjVoxOGP=
+jEfEbWKvpIt6J3lwUbTpQyA9SGueljylgqWdpxAViL1VfQ-aphhKpqmbnOQ199lk9GnKsFxum2_=
+3veGRSlFr4S_XPWqmrqcI_ww_FaVIBMi8U0c6A09209URaHs1gby1tr3W7PLvysL3on91zOlCUQ=
+BiKZ_7NIHXLju600B8-BZk&key=3DAQEDAHjMwJfuh-ohxMDQKpdYSt8qIEJ4qDrPemN-CLZFK-=
+eh0wAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEED=
+G5CqlvCsSbQBVep7QIBEIA7CfGSZVho7l1yU6NrqQvvwBWQs8SW_TzLmTMCgvRvg06fQDcGWKVt=
+pRYYxT71xjDKeR3QBUzccj48d1g</div><br><br><div>If you did not initiate this =
+email, then <a id=3D'userFeedbackUrl' href=3D'https://www.amazon.com/gp/f.h=
+tml?C=3D3LMI68DSWA8LQ&M=3Durn:rtn:msg:202104110535029f3d8a5431d3428782a2f1e=
+305d0p0na&R=3D2E08OUGDMBF0A&T=3DC&U=3Dhttps%3A%2F%2Fsignin.aws.amazon.com%2=
+FnoMfa%3Faction%3DuserFeedback%26token%3DB5IOhR5xiKmHUCWGCDrWp4TG9HIZfP_vkN=
+17ikD1oPWGL9phAMLf27qfdDXW0I3hJaGtpWL4Nb9eXedWbiSxod0cJ1vtkzfgNjTR77OAYckFI=
+PYxkwW2EPoigiRhE5LwOEReJjI36tt1M3rLldudUcAO2dVaansxgOYSzdRbS4nsYLNjII690BE_=
+MXJq2OGX89HxlLzzEDBGaO0sc2opo3fh7_3K2MmETQVPf4hAxPtPJF8tMp_0KsAIuVFJzWsSmop=
+BSU1TGmx6xBBisRLGAR8hXd-aU3Ud9_8lMUml93AoTTW-OwUMpcjGRl1A3qfX9rJeobwc2PbNFy=
+PJCBwSNuPenoazXC9ZXufFj_CVLX0mYBVxWvUnaMLGGmOEgNbfh9to7KBnc16wuIbccz55SMcav=
+FQNDNUbt5vakADSV2Q0j2Ve6tB0wU28xVgSQnjES3rKqkGlGRhACwDa9YawUp3LchHnVZc0OjO7=
+VSry%26key%3DAQEDAHjMwJfuh-ohxMDQKpdYSt8qIEJ4qDrPemN-CLZFK-eh0wAAAH4wfAYJKo=
+ZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDB5bVb-rJ6IAkMl5L=
+wIBEIA7lAeE5c4BSffz11BRtHdfnsvb_UH8rVAtseqrCCuaCe2Q8y2DUoY4nCKd9bY8nhapoGP7=
+yw_R8h3IcKY%26ref_%3Dpe_2640180_239088560&H=3DB15CS5AAWGVAWDINULZTB3R4SC8A&=
+ref_=3Dpe_2640180_239088560'>cancel this request</a>. If you have additiona=
+l concerns, please contact <a href=3D'https://www.amazon.com/gp/f.html?C=3D=
+3LMI68DSWA8LQ&M=3Durn:rtn:msg:202104110535029f3d8a5431d3428782a2f1e305d0p0n=
+a&R=3D748MRQM4N8Y7&T=3DC&U=3Dhttps%3A%2F%2Faws.amazon.com%2Fcontact-us%2F%3=
+Fref_%3Dpe_2640180_239088560&H=3DLK90MNFI2AGRJBTAMQQZNSC2XQGA&ref_=3Dpe_264=
+0180_239088560'>AWS support</a>.<br>Do not reply to this message. This mail=
+box is not monitored.</div><img width=3D"1" height=3D"1" src=3D"https://www=
+.amazon.com/gp/r.html?C=3D3LMI68DSWA8LQ&M=3Durn:rtn:msg:202104110535029f3d8=
+a5431d3428782a2f1e305d0p0na&R=3DEKLMV08FNZG&T=3DE&U=3Dhttps%3A%2F%2Fimages-=
+na.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3D2ZCLAHQ0E=
+59ZELKDGO05SJYZAZYA&ref_=3Dpe_2640180_239088560_open" /></body></html>
+------=_Part_50887715_96976563.1618119302870--

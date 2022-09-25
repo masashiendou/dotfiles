@@ -1,0 +1,192 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2356:0:0:0:0:0 with SMTP id j83csp2472271vkj;
+        Sun, 6 Jun 2021 18:57:55 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzHkxi3ON2CTWhyFPDnn6JTqorFDa7SFTA3TDcoVls4zXEuSUH1DQ44DEXj4OUaQ1OIAlN1
+X-Received: by 2002:a17:90a:ad82:: with SMTP id s2mr18278196pjq.69.1623031075300;
+        Sun, 06 Jun 2021 18:57:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623031075; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=gB7rwFkJPnWXc65WI30FrBzwHtcCWp0YY2MCfm0omubJVYEMRnM15Cwu2V3h5ajfPs
+         zoZtQSic+UtjYwXah4I/uymnzEx1sduHblyTv5Qo6wVXU90u7umK6w+uMsdxBfYAK5Q0
+         Kwte4lus6oyrArmO4v/WSlnJ/YgU4HmZFYH1DGTmuWEsIDrJisEfxexHecdWjaD6GxSI
+         TLM1ojKYWLtAO06Azafnr5N39F4oTLMwTLBP4wMQ1s4bDdD9iY6VkLKpFvyulm0vZmZB
+         2YSThlf9XFv+w8fMwaWXX47UbuXN89UUtr1dGXbKCGud0O2vsU7hH/56ksBeMP4hLjHJ
+         emqw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:mime-version:content-transfer-encoding:subject:message-id:from
+         :date:dkim-signature;
+        bh=CtekFLILi584529lCE7vGevWe/uUBVNjc+QIIn5+GYs=;
+        b=jPAZc9wBcc8lzld1b46OWWbL8yRG5E+lf6N8gd66WYY+0sBDN0cTn9uereZpmhuyB2
+         qUPzPxZHk1QmV4EHJTaEow3EYHpROzCC0erIv5PX4/aWWEIyxVaYpUFk8YRZFFTRRu5Z
+         PifoVVkPf1D2g+SDASae60uBKtnoCLdsuOXhNHrUM9EcsXiQgsfNjYe1gpMCBlqSo9uZ
+         JdPAt6dA67YmDVNe9IiX9PIYVHfGAEvIkS+W2pv23lS5QEvzMyKSVm1TzUtoNHVAm+go
+         nlJZLR5Lwabzcjr6hVklZDOYlkv3Ht3VFeiTZ6WQyHYm72QDKbRaijiy8dWRV5EWvnIa
+         tWWQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@netforest.onmicrosoft.com header.s=selector1-netforest-onmicrosoft-com header.b="RDX/H1M/";
+       arc=pass (i=1 spf=pass spfdomain=isp-support.jp dkim=pass dkdomain=isp-support.jp dmarc=pass fromdomain=isp-support.jp);
+       spf=pass (google.com: domain of staff@isp-support.jp designates 175.41.211.57 as permitted sender) smtp.mailfrom=staff@isp-support.jp
+Return-Path: <staff@isp-support.jp>
+Received: from ps33.spcloud.jp (ps33.spcloud.jp. [175.41.211.57])
+        by mx.google.com with ESMTPS id z75si10878563pgz.219.2021.06.06.18.57.54
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 06 Jun 2021 18:57:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of staff@isp-support.jp designates 175.41.211.57 as permitted sender) client-ip=175.41.211.57;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@netforest.onmicrosoft.com header.s=selector1-netforest-onmicrosoft-com header.b="RDX/H1M/";
+       arc=pass (i=1 spf=pass spfdomain=isp-support.jp dkim=pass dkdomain=isp-support.jp dmarc=pass fromdomain=isp-support.jp);
+       spf=pass (google.com: domain of staff@isp-support.jp designates 175.41.211.57 as permitted sender) smtp.mailfrom=staff@isp-support.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=HAVaEPC9JwZ+UBelwFSiTSNpulOks9vltn4iHDyxau/h0Vw5uWIOI6ScECEjRMXwyEcwaY3TBx1IcEi6dwwCZfbkNLE3ZwfL5Wu1sYgG9UX33T2KU4LN9eoYwh3/lu6SqjbQuPa/tjiULuB5d4Y1C3vhLNfKW/9xSJ/HkU0L6sCAgvPg7hIDVUqyAKHrGqS1Z2Z/K87K7SPk5ag2KO2VKJ0RKpzVwYLTcafRu3pCTgEQNv9cc7l9jEkDHsbBfVTZ0ePpz9DkicRMFGFp+5+jCC13kw0+CuQw8W13KL+xFPoafWT4u1PGBTd6LQw0BOOR3o2EgnwG//mC64U1bVNFHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CtekFLILi584529lCE7vGevWe/uUBVNjc+QIIn5+GYs=;
+ b=HbOYLuBhubxA5GYCGk8NKWgqTfidL+T5ZHtJSdcJJvNR8DGwO5bV1wDxhGrq/pEwByVdhXR1WDdCXyy2+J2Pjf399NNZEKwUORaGxSrvcJuXEJx+fNtfY4dzGn5+ZTkiL80G87S/hXlTCjhyI4izEz4Idl8UZLMQuADZUUIxi7zwsYPvqZj0eg4UCaEDtI0qFHZ2RjFHVwDfG8fsPl0bJsEJ2BW/fQC/wxWBA9XqdIXYrCOXRb4CsdaA2lYqbrw2fvWIUnvgYQQol3+IHkxG5k/5dYsXMI+SDy2UoF6mnt7nWsOm3xpgxwAXBggqTq/m2n7/uDYKp1ggfLZDfda5Xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=isp-support.jp; dmarc=pass action=none
+ header.from=isp-support.jp; dkim=pass header.d=isp-support.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=netforest.onmicrosoft.com; s=selector1-netforest-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CtekFLILi584529lCE7vGevWe/uUBVNjc+QIIn5+GYs=;
+ b=RDX/H1M/wmEfUZjA8cCwl+ttRQ/Aw0o6f/bLjK/NchVHCpqC/t3wiCkjNWgKmlyFpizhGC/UKv/4Giae5VsWUlr8EZ1S+xdBsXuw8Btd89R8u9rhZos8NLsnXGDl1sYtIhUr3TbRFtUh15sE2cfSz6AK2m0J5G+IRzdn+7uYEG8=
+Authentication-Results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=isp-support.jp;
+Received: from SG2PR03MB2926.apcprd03.prod.outlook.com (2603:1096:3:20::16) by
+ SG2PR03MB2799.apcprd03.prod.outlook.com (2603:1096:3:23::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4219.9; Mon, 7 Jun 2021 01:57:39 +0000
+Received: from SG2PR03MB2926.apcprd03.prod.outlook.com
+ ([fe80::2876:c55f:e184:b9eb]) by SG2PR03MB2926.apcprd03.prod.outlook.com
+ ([fe80::2876:c55f:e184:b9eb%7]) with mapi id 15.20.4219.019; Mon, 7 Jun 2021
+ 01:57:39 +0000
+Date: Mon, 07 Jun 2021 10:53:49 +0900
+From: =?ISO-2022-JP?B?GyRCIUozdCFLJU0lQyVIJVUlKSVsJTklSBsoQiBJU1Ag?=
+ =?ISO-2022-JP?B?GyRCJTUlXSE8JUglOyVzJT8hPBsoQg==?= <staff@isp-support.jp>
+Message-ID: <16230308296788940000607d@nat.cybozu.com>
+Subject: =?ISO-2022-JP?B?W0dhbWluZytdIBskQjt2TDM2SRsoQiAbJEJOVzt+NVk2SBsoQg==?=
+ =?ISO-2022-JP?B?GyRCJE4kKkNOJGkkOxsoQg==?=
+X-Mailer: Cybozu MailWise 5.4.7
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [103.79.14.77]
+X-ClientProxiedBy: TYAPR01CA0026.jpnprd01.prod.outlook.com
+ (2603:1096:404:28::14) To SG2PR03MB2926.apcprd03.prod.outlook.com
+ (2603:1096:3:20::16)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from nat.cybozu.com (103.79.14.77) by TYAPR01CA0026.jpnprd01.prod.outlook.com (2603:1096:404:28::14) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.21 via Frontend Transport; Mon, 7 Jun 2021 01:53:49 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 046891d4-9d1f-497e-ff65-08d929571859
+X-MS-TrafficTypeDiagnostic: SG2PR03MB2799:
+X-Microsoft-Antispam-PRVS:
+	<SG2PR03MB2799621407631FDD5440BE3780389@SG2PR03MB2799.apcprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:1728;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	G627FUCNLm85E6CPOfZZk4KpbWHQncTAZRxggm5IEbsCnkTusZpywmiFP+CoeBvYDnSKlRrLtzQexVTCYHN0HuuBStOKkg1EpCw1CEGjTO23oq2klHKs1kFB/bPHwKQeNQscGF6o7gvmyHLx2zSJIeePZa5ZEonvgTUCBIcIY2gd1kmqS4cgfQBBNavnSW6AEiJ2UUUz5lZ4zT9EpyO/lFihs5diZIheoSFyH8qqsh+EUiuZYAnvxrX3Pl5LVXuieiuVP1sqSY8I4VTmDfwz5Ew8IAkRxmV3KRmPqwV88Fiqne88VUhp3KLwB/F75elyRYGP+BcKIRCfD8ABwyVJ4/HYrsMI7jCQrZqw/ir2szsRwxPaBqZDJch92B7Bfd4qIORbIzGmi8zf9gGZufkabyxa+MLeNBWMy88byMCxjj8kQwUNcFwDiE5RE0D+Buzs4e0UqTpO3T+QgM0ZNhrtyCJ6OmfdACzPwBzSAgz/asniwofn8Vg4KLXm+QdQR20MzXILHV8se5Gr4yt2yJOqIXTb2zb347nxEmTQWwnXGIg7nKaX0haClSjVsZDwkRqZs9foH7MSR85qB9xubLUtVo6w6vGEkr7gMdAcfvo0+6qIhaGRQTxubG1AwnEmPhEGwz+jPGiAYa4+TZRf+wwGuAcUpd5Cx2EcGkGG/EX6beU=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SG2PR03MB2926.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(396003)(136003)(346002)(376002)(366004)(39840400004)(478600001)(186003)(16526019)(8936002)(26005)(5660300002)(6506007)(6916009)(52116002)(38100700002)(956004)(4744005)(38350700002)(9686003)(7696005)(316002)(224303003)(55016002)(66556008)(66946007)(2906002)(66476007)(86362001)(18906007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData:
+	=?iso-2022-jp?B?ZCtZOE8vRzJjbDdCRVpyMzlqcHhTSDNQMG1Rd2tXdnNoUElDVjRhS2dD?=
+ =?iso-2022-jp?B?VkpwbGJMN3JhZ1AwUGFsUzFYbGFsc1hWbEJ3eVFLc1ExNXM3LzZEdmtN?=
+ =?iso-2022-jp?B?VTVzZGZ0SXVMNDdQTUhNOXJIbEl0WFdJUWJMNmlUSzhLSGR5cmNxamhp?=
+ =?iso-2022-jp?B?cUhRaTlTemNJakZqbCt3NTRXLzBxaGdiQUU5K0NFbTg0ckpBVDNmL0ta?=
+ =?iso-2022-jp?B?ZFk1UHpOekJ5eUlLZHFac3JiS0Y2ZklRc3J1MWlCM0dpTXNHV1YxRHBU?=
+ =?iso-2022-jp?B?S21VN3FuQTVremNTYnNQeFlqcG9uR0QxVXVRcGNyRW13Y2NQanpuY2c4?=
+ =?iso-2022-jp?B?N0pXb2c3a1A5RWRmeXFOOHVxRmU5T1FGMlVIR3czTU01dTlIYWtZdURG?=
+ =?iso-2022-jp?B?cFZaMFluSHF3aWlkblJVeXhBT1o1dHQ0c3UzaXdZZW5NejdlMXJsRFNH?=
+ =?iso-2022-jp?B?QmdqY2R6Zk5CejFrazFkVVIxZG95VHdZdUI2SWZvZEplcjJmRzJwNWhR?=
+ =?iso-2022-jp?B?ay9aaG5RVEF2d0xCNVFadlNHM0NpTTR4dXhWTDM1UWltaFJ4cGZ2ZG9w?=
+ =?iso-2022-jp?B?TUdOMFVVS21sTEREZGx4TlJzSko2RU1xOXlNdUp5WXQvaXZqMGpOQ2RH?=
+ =?iso-2022-jp?B?Q1dKN2dpVnhWQ2FoYVhwM0QwRDFYaVhQSEhlZFhBZFRZNDcxeFNhV3BS?=
+ =?iso-2022-jp?B?bUh3M0ptaGR5ekV6T2VmUURHT2RaME1ZQ0NFN0llSnBqalhCWGlraFE1?=
+ =?iso-2022-jp?B?cHZZMUNNalMwdXN6cStBc1MyaHFmRVM5YUJ0ZHdWTnFxNEJkbEN0Unp5?=
+ =?iso-2022-jp?B?V3ZFekxrS2w1a1dHRFByQUY0OE1sOUhjQ0R4QTY3bWpOeTZMamhzelVE?=
+ =?iso-2022-jp?B?WmRQTnVDMDNXVzNGYW83OHRsOGNPTC8xSUxlMXlGZDNHYi9wYk1WSlk3?=
+ =?iso-2022-jp?B?eXNvS3E2Vk8rWEM0cjNsaEQwcFJYWUFpOGJoR2tMRzB4djFIMy85ODVW?=
+ =?iso-2022-jp?B?U3F3SXo4UHo0aVNUWEJLMDk3N0lEZ3ZCenJiTS9YbkRrSTZoUUVVR3Jz?=
+ =?iso-2022-jp?B?c05YNU45akFnREdpSUptY0NGUmd2UUlqVDBwalYxS1Z3MkR2S3lEcGQz?=
+ =?iso-2022-jp?B?bWVBK2ZXS0Z0cjlKdWRjK0xRSExuK0VhWm0wcmpJQ2czLzM1NDQ2Z1Q3?=
+ =?iso-2022-jp?B?NGc5bDNyTDhHdCtvWFZaWHd3Y3pacVpWM0NtR09vRlFzaFBZbFd2N1px?=
+ =?iso-2022-jp?B?U0QwQTc2djdmek5jSE9YcUJhTDc5a1VHRHZFbkczbDNERldTd1Y0bnJk?=
+ =?iso-2022-jp?B?by84WjJ2MUxmN093V3kvSlhZVmwzSXBTN2NTQy94K1dLWUtIQmZ6eEc0?=
+ =?iso-2022-jp?B?dG9SSWQ1ZlRLL2ZYc2lBelZ0c3BLYjU3RmpQaW0zY3pUODdYdEk0MlBu?=
+ =?iso-2022-jp?B?MVRDeU1DNEtOS1ErVWN6VC9SWXUrdDI0V2x1MjVYVmlTRlJPNDRGRktX?=
+ =?iso-2022-jp?B?RWplMlE4YjVpRStGQkJrdUNEMmVVVUxMQ1BGd0RlaUtIeS9uT05qSS9L?=
+ =?iso-2022-jp?B?Qk1oakNna2t6dFY5MFpzMlhmTHBBKzd6QXJYNG52cnovd3U1Vzc4VVlI?=
+ =?iso-2022-jp?B?TWFQd00wRGpsaWQ0OGdMdmtwbWVBM3ppT2dnTkV4dndMNjZQYmlXckE2?=
+ =?iso-2022-jp?B?MkRQMXFGUXkvTDVjM1lWTHd5aDFzdVhjWVgvSll2QllyTmFkaUZWTmFr?=
+ =?iso-2022-jp?B?amFmV200SWlrck1BOTlzQmxwSjdlcWhHdTFhQVRNWGpDZTFsdWgwMnZT?=
+ =?iso-2022-jp?B?UjVpQmRjc0huZlROUEM3b0FvWnhZSjR3d0pLU2h3c3JLZVQ2aHVER29F?=
+ =?iso-2022-jp?B?QnRSd01GejhPeFU3TjNPd0JPTUVNRzB0YnlvRkFiU0kvVVI1cFNxaTdK?=
+X-OriginatorOrg: isp-support.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 046891d4-9d1f-497e-ff65-08d929571859
+X-MS-Exchange-CrossTenant-AuthSource: SG2PR03MB2926.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jun 2021 01:53:49.8359
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 94dbc9c6-ee7d-49a6-bd15-b1bfbbbd1c2c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7SRUGPTmp/gbVA6JGrlxpoSeUacdVZieHODCoPWKtQ3S583D6uiWKvCjwXdWJinvcn19aBfwzgQGGpgIS/M58w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB2799
+X-CC-Mail-RelayStamp:CC/Mail Relayed
+X-CC-Mail-RelayStamp: CC/Mail EncServer Relayed
+To: hujyorom@gmail.com
+
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+このメールは、Gaming+をご利用のお客様に送信しております。
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+
+
+ 　　　　　　　　　　　　　　　　　　　　　　　  　 2021年   6月   7日
+
+会員各位
+　　　　　　　　　　　　　　　　　　　　　　　株式会社ネットフォレスト
+ 　　　　　　　　　　　　　　　　　　　　　　　　　ISPサポートセンター
+
+
+　　　　　　　　　　　「事務局 臨時休業のお知らせ」
+
+
+　平素は弊社サービスをご利用いただき、誠にありがとうございます。
+
+　誠に勝手ながら社内研修に伴い弊社事務局を下記の通り休業とさせていただ
+きます。
+
+
+
+　　休業日時：　2021年 6月 24日（木） 15:00 - 17:00
+
+
+　　休業業務：　お電話でのお問い合わせ対応
+　　　　　　　　サービス登録・変更業務全般
+　　　　　　　　メール、FAXによるお問い合わせ対応（※）
+
+
+　　（※）メール、FAXによるお問合せは休業中もお受け致しますが、
+　　　　　対応は翌営業日以降となる場合がございます。
+　　　　　予めご了承くださいますようお願い申し上げます。
+　　　　　尚、障害発生時などはこの限りではありません。
+
+
+
+　ご多用の折り、皆様にはご迷惑をお掛け致しますが、何卒ご理解とご協力の
+程、宜しくお願い申し上げます。
+
+今後とも弊社サービスを末永くご愛顧いただけますようお願いいたします。
+
+┌───────────────────────┐
+　株式会社ネットフォレスト ISPサポートセンター
+　　　TEL   : 0800-800-6244 (フリーダイヤル)
+　　　(平日10:00-12:00、13:00-17:00)
+
+　　　FAX   : 045-548-5502
+　　　MAIL  : staff@isp-support.jp
+└───────────────────────┘
+
+

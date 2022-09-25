@@ -1,0 +1,104 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2dd2:0:0:0:0:0 with SMTP id t201csp417678vkt;
+        Wed, 14 Jul 2021 22:59:36 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxeNUNQaNl0GVjHYjNyDhOV2BZSI6VbjCIYJA2V3CpbQzXps8nI6Nu5vLdnUWQQfeBhl/5Z
+X-Received: by 2002:aca:ef06:: with SMTP id n6mr2166839oih.66.1626328776813;
+        Wed, 14 Jul 2021 22:59:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626328776; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BzcQl30nsOwy7b8augdX821KGJFDebc3Kkx+s9dTuF1lF8LFJ8EyYG4UcWRqmDf4CL
+         xE2N0lq3pGa9Z2TCvL1RUAGPEGZ7iHvSZM1hclAQBx8Hy1ItQ7QCEq80XrUbUmkZJSie
+         btQU26LbJ0YXyFXoK5BB+pOt3KlUgx7RW30duKfm226WZMMW67Ql/0A3mCrV/J8fEGzq
+         m3uTPsTk2wE47tgODapp2DKTrDQNrGgc2wlaxzQdkSttNZL4+D9qKBM/GmbDOuOPfzW8
+         pg4ruvSHIaFdU1WXc2iJwQlp9LHHJpGLz2Xg19RA1MkLSe239bXMNGAK9iK4W09Yj8T/
+         GCcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:mime-version:subject:message-id:to:from;
+        bh=oHfhKCSYzWFHFUNTjPcyhB++DjxYiPveU9B6MybONeg=;
+        b=flt2RKRIyImASToyOyd2/8OGrA7sCY9CoAloKJ+ck8P17eUT042ew5Ak7Y/qrDHMhu
+         cnbVeosFEvZlqhYMqM0znsq9uBmVqmvxCMScHW31lMwkxPywoT/KiXRbinp7ZIdJjDvb
+         Mkjs84mzOu2aRJ57AgGEmD90c28SeyNBzAPGv9gJHsGZ1vkhp1/xd2hJjMcfFQLLeOFq
+         NC1YDNqPGcpJFEQElw6iyiWgBj9kDZmxVQM+w1mHRDASQn0d41xpiAHlDonTCwH6yqLi
+         gzFT73wf3x5QzBWMJaUNPlKqXqvyDr7I1ymmBhE6t0okOhK++eoApzSqSRQILPlFPfbW
+         UoKg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of ysdmh40@staffservice.ne.jp designates 160.17.13.18 as permitted sender) smtp.mailfrom=ysdmh40@staffservice.ne.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <ysdmh40@staffservice.ne.jp>
+Received: from mgw13.x.recruit.co.jp (mgw13.x.recruit.co.jp. [160.17.13.18])
+        by mx.google.com with ESMTP id r19si4159050oiw.103.2021.07.14.22.59.36
+        for <hujyorom@gmail.com>;
+        Wed, 14 Jul 2021 22:59:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ysdmh40@staffservice.ne.jp designates 160.17.13.18 as permitted sender) client-ip=160.17.13.18;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of ysdmh40@staffservice.ne.jp designates 160.17.13.18 as permitted sender) smtp.mailfrom=ysdmh40@staffservice.ne.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Received: from mgw13.x.recruit.co.jp (localhost.localdomain [127.0.0.1])
+	by postfix.imss91 (Postfix) with ESMTP id E1BE856113B;
+	Thu, 15 Jul 2021 14:59:35 +0900 (JST)
+Received: from mail201rlt.b.rlt.raftel (unknown [172.17.2.24])
+	by mgw13.x.recruit.co.jp (Postfix) with ESMTP id D7442560E5A;
+	Thu, 15 Jul 2021 14:59:35 +0900 (JST)
+Received: from batch201sse.b.rlt.raftel (unknown [172.17.3.51])
+	by mail201rlt.b.rlt.raftel (Postfix) with ESMTP id D5C526B8177;
+	Thu, 15 Jul 2021 14:59:35 +0900 (JST)
+Received: from batch201sse (localhost.localdomain [127.0.0.1])
+	by batch201sse.b.rlt.raftel (Postfix) with ESMTP id D41A5642A1;
+	Thu, 15 Jul 2021 14:59:35 +0900 (JST)
+From: =?utf-8?B?5a6J55SwIOe+juepgg==?= <ysdmh40@staffservice.ne.jp>
+To: =?utf-8?B?6YGg6Jek44CA5bCH5Y+4?= <hujyorom@gmail.com>
+Message-ID: <1995337539.428793.1626328775868@batch201sse>
+Subject: =?utf-8?B?6YGg6JekIOanmOOAkOWwsealreWJjQ==?=
+ =?utf-8?B?6Kqs5piO5Lya44Gu44GU5qGI5YaF44CR?=
+ =?utf-8?B?44K544K/44OD44OV44K144O844OT44K5?=
+ =?utf-8?B?44O744Ko44Oz44K444OL44Ki44Oq44Oz44Kw?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_428792_1429888526.1626328775792"
+Date: Thu, 15 Jul 2021 14:59:35 +0900 (JST)
+X-TM-AS-GCONF: 00
+
+------=_Part_428792_1429888526.1626328775792
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+DQrpgaDol6TjgIDlsIflj7jjgIDmp5gNCg0K44GK5LiW6Kmx44Gr44Gq44Gj44Gm44GK44KK44G+
+44GZ44CCDQrjgrnjgr/jg4Pjg5XjgrXjg7zjg5Pjgrnjg7vjgqjjg7Pjgrjjg4vjgqLjg6rjg7Pj
+grDjgIDlronnlLDjgafjgZnjgIINCg0K5pys5pel44Gv44GK5pmC6ZaT44KS6aCC44GN44GC44KK
+44GM44Go44GG44GU44GW44GE44G+44GZ44CCDQrjgYroqbHjgZfjgabjgYrjgorjgb7jgZfjgZ/j
+gIE35pyIMTnml6UxNOaZgu+9nuOBruWwsealreWJjeiqrOaYjuS8muOBq+OBpOOBjeOBvuOBl+OB
+puOBr+OAgQ0K5LiL6KiYVVJM44KI44KK44GU5Y+C5Yqg44KS44GK6aGY44GE44GE44Gf44GX44G+
+44GZ44CCDQoNCmh0dHBzOi8vdGVhbXMubWljcm9zb2Z0LmNvbS9sL21lZXR1cC1qb2luLzE5JTNh
+bWVldGluZ19ZelJrTVRGak4yUXRNekJtTlMwME9EY3hMVGt4TjJZdFkyUTVPRGN4WTJKa1lUYzAl
+NDB0aHJlYWQudjIvMD9jb250ZXh0PSU3YiUyMlRpZCUyMiUzYSUyMmUwZjVkYmQ5LTU0NDQtNDEw
+Yi04MDlkLTY1ZDA0M2QyMWI2OCUyMiUyYyUyMk9pZCUyMiUzYSUyMjZmYWIwYjZkLTQ1NTMtNGY2
+OS05N2VhLWUxOWNkOWQ0MDVhNyUyMiU3ZA0KDQrjgYrpgIHjgorjgZnjgovmm7jpoZ7jga7kuK3j
+gavjgIHlsLHmpa3jgavjgYLjgZ/jgaPjgabjga7oqpPntITmm7jjgYzlhaXjgaPjgabjgYrjgorj
+gb7jgZnjga7jgacNCuS6i+WJjeOBq+OBiuaJi+WFg+OBq+WxiuOBjeOBvuOBl+OBn+OCieOBlOS4
+gOiqreOBhOOBn+OBoOOBkeOBvuOBmeOBqOW5uOOBhOOBp+OBmeOAgg0K5bqm44CF44GK5pmC6ZaT
+44KS6aCC44GN5oGQ44KM5YWl44KK44G+44GZ44GM44CB5b2T5pel44Gv44KI44KN44GX44GP44GK
+6aGY44GE44GE44Gf44GX44G+44GZ44CCDQoNCuKYheKApeKApeKYheKApeKApeKYheKApeKApeKY
+heKApeKApeKYheKApeKApeKYheKApeKApeKYheKApeKApeKYheKApeKApeKYheKApeKApeKYhQ0K
+44CA44K544K/44OD44OV44K144O844OT44K544O744Ko44Oz44K444OL44Ki44Oq44Oz44Kw44CA
+5pyt5bmM44OG44Kv44OL44Kr44Or44K744Oz44K/44O8DQrjgIDlronnlLDjgIDnvo7nqYINCuKA
+u+ODhuODrOODr+ODvOOCr+OBrueCuuOCquODleOCo+OCueWbuuWumumbu+ipseOBjOe5i+OBjOOC
+iuOBq+OBj+OBj+OBquOBo+OBpuOBiuOCiuOBvuOBmeOAgg0K44CA44GK6Zu76Kmx44KS6aCC44GR
+44G+44GZ6Zqb44Gv5LiL6KiY5pC65biv6Zu76Kmx44G+44Gn44GU6YCj57Wh44KS44GK6aGY44GE
+44GE44Gf44GX44G+44GZ44CCDQrjgIBQaG9uZe+8mjA3MC00MTQ5LTE2MznjgIBNYWls77yaeXNk
+bWg0MEBzdGFmZnNlcnZpY2UubmUuanANCuOAkjA2MC0wMDA1DQrmnK3luYzluILkuK3lpK7ljLrl
+jJc15p2h6KW/Mi0144CASlLvvoDvvpzvvbDvvbXvvozvvajvvb3vvozvvp/vvpfvvbvvvp7jgZXj
+gaPjgb3jgo0yMOmajuOAgA0KVEVM77yaMDExLTIxMC04ODE2LzAxMjAtNDA5LTQ4MyDjgIBGQVjv
+vJowMTEtMjEwLTg4MDUNCuKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKA
+peKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKApeKApQ0K44GT44GuRS1tYWls44Gr
+44Gv5qmf5a+G5oOF5aCx44GM5ZCr44G+44KM44Gm44GE44KL5aC05ZCI44GM44GC44KK44G+44GZ
+44CCDQrkuIfjgYzkuIDjgIHlvZPmlrnjga7miYvpgZXjgYTjgavjgojjgorosrTmlrnmp5jjgYzl
+vZPmlrnjgYzmhI/lm7PjgZfjgZ8NCuWPl+S/oeiAheOBp+OBquOBhOWgtOWQiOOBq+OBr+OAgeOB
+iuaJi+aVsOOCkuOBiuOBi+OBkeOBhOOBn+OBl+OBvuOBmeOBjOOAgQ0K6YCf44KE44GL44Gr44GT
+44GuRS1tYWls44KS56C05qOE44GX44Gm44GE44Gf44Gg44GN44G+44GZ44KI44GGDQrjgYrpoZjj
+gYTnlLPjgZfkuIrjgZLjgb7jgZnjgILjgb7jgZ/jgIHoqqDjgavmgZDnuK7jgafjgZTjgZbjgYTj
+gb7jgZnjgYzjgIENCuebtOOBoeOBq+ODoeODvOODq+i/lOS/oeOBq+OBpuOBlOmAo+e1oeiznOOC
+jOOBsOW5uOeUmuOBq+WtmOOBmOOBvuOBmeOAgg0K4piF4oCl4oCl4piF4oCl4oCl4piF4oCl4oCl
+4piF4oCl4oCl4piF4oCl4oCl4piF4oCl4oCl4piF4oCl4oCl4piF4oCl4oCl4piF4oCl4oCl4piF
+
+------=_Part_428792_1429888526.1626328775792--
+

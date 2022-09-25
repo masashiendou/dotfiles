@@ -1,0 +1,100 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp3558186vkh;
+        Sun, 3 Oct 2021 22:39:58 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxmPDU3ZgX2Q2LYMIWVhW9Rb/Az30+ZL39A7JgtAeDc3cnb9NkEIMkt42ZfS6Efx8smNhGH
+X-Received: by 2002:a17:902:8488:b029:129:97e8:16e7 with SMTP id c8-20020a1709028488b029012997e816e7mr21677338plo.39.1633325998231;
+        Sun, 03 Oct 2021 22:39:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633325998; cv=none;
+        d=google.com; s=arc-20160816;
+        b=s7XsUVWcwVm5D73T34UgUro0jg7UHoGV5V0R3VoVhEvCjZITUt3wRpGJqQadG1CvLX
+         ivAtS4mwo2dVKsxk0AYZnDGf6UaB4bJKSKJQ6dixWKGnE63+/5+12tK8BaKjgIWDAnh5
+         QxFTVhtD6p6Njs1E676w0eiWeEk+0Ypf3V9Y3zNati5e9iDCeUz8G7sDbK7I5ofiqeMa
+         tUIJ2IlNZ9eL3WbDELYFUpiU8lI1Cvd1XQAdqSWN46EHXCC9I/TS+vy+ErcHunDmdXXg
+         anWhs0jkTYilQcyAUKgsaYNWEE8JuCCGlo185E5Z9DHe3Vt2z8qvMB88kegmlkF1Nz8C
+         Q75g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:precedence
+         :list-unsubscribe:reply-to:errors-to:to:from:dkim-signature
+         :dkim-filter;
+        bh=/Qwtxh7K5/1Z5od9hAmfIy1xOja3b+BJXpGhSRQkhko=;
+        b=OBHenHS4gMOqvoLtABbXBKuwCis2SXifrYHxFUuMbYRbycH00nm5tJZAffNSBDBA0S
+         nPL9c6CUbbOltMGM9ZAgxQK1xsd5bFduvzntFkbDHAIIFeu4SkLT0in9ftyCTxq3ysqu
+         PRFhCc/YINVcTO4g3F+Gpuge2MTbUHWSaa1++848rhZ1nrkjaiNY+FnYMc94zqKXaPVX
+         Wn1E4Gx0o5t5nKxZSgfwx5dMPPDKs43a4LO5WO61lUMwj2DsWoRdRshMr8mRhu3D4usR
+         R7UrszC6f4xk11oDKFsAs/czObGE7r6FyDQ6kIvLC3GQPVR7vYKvau9z9MJSu+u/VYHv
+         VSEQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@pkg.y-ml.com header.s=selector header.b=me5gxfTi;
+       spf=pass (google.com: domain of bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com designates 153.122.61.60 as permitted sender) smtp.mailfrom="bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=y-ml.com
+Return-Path: <bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com>
+Received: from pkg.y-ml.com (ch.ptr178.ptrcloud.net. [153.122.61.60])
+        by mx.google.com with ESMTPS id 23si20134238pfw.196.2021.10.03.22.39.57
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 03 Oct 2021 22:39:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com designates 153.122.61.60 as permitted sender) client-ip=153.122.61.60;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pkg.y-ml.com header.s=selector header.b=me5gxfTi;
+       spf=pass (google.com: domain of bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com designates 153.122.61.60 as permitted sender) smtp.mailfrom="bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=y-ml.com
+Received: by pkg.y-ml.com (Postfix, from userid 48)
+	id B8D2E508F8; Mon,  4 Oct 2021 14:39:54 +0900 (JST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 pkg.y-ml.com B8D2E508F8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pkg.y-ml.com;
+	s=selector; t=1633325996;
+	bh=/Qwtxh7K5/1Z5od9hAmfIy1xOja3b+BJXpGhSRQkhko=;
+	h=From:To:Reply-To:List-Unsubscribe:Subject:Date:From;
+	b=me5gxfTiaKmeukKMzTijQjwoi9gqi9Jt2ozOYzXGyLwwiXYOuZobrTsYt6OD+Mkal
+	 /+WB9nZPc6lWFfwvgZcAP4zpn5yhuhJ5osMVHeGxHWn6WrHmRG4/Y1DJ5h+3nYtxpi
+	 Vz9qBUIaK3LRUs/YDW3hVMhAKbRAX4/s5Qz4CXTw=
+From: =?ISO-2022-JP?B?GyRCIVpNP0J0TWMbKEIgGyRCOHg8MCFbGyhC?=<info@pkg.y-ml.com>
+To: =?ISO-2022-JP?B?aHVqeW9yb21AZ21haWwuY29tIBskQk1NGyhC?=<hujyorom@gmail.com>
+Errors-To: bounce+main-11842-1-hujyorom=gmail.com@pkg.y-ml.com
+Reply-To: info@give-wing.com
+List-Unsubscribe: <http://pkg.y-ml.com/_rm?m=main&u=05a77ac7338a9cf1&exe_unlink=true>
+X-List-Unsubscribe: <http://pkg.y-ml.com/_rm?m=main&u=05a77ac7338a9cf1&exe_unlink=true>
+Precedence: bulk
+Subject: =?ISO-2022-JP?B?GyRCJDRMNTo7QkEkNyRGJCokaiReJDkhIxsoQg==?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20211004053956.B8D2E508F8@pkg.y-ml.com>
+Date: Mon,  4 Oct 2021 14:39:54 +0900 (JST)
+
+皆さん、こんにちは。
+
+本当に久しぶりにメルマガ出させてもらいました。
+
+今後メール不要の方はワンクリックで削除していただけます。
+
+ちなみにブログ等にこのメルマガの登録フォームを設置してありますが、たまにいたずらで他人のアドレスを入れる人がいます。そのため登録した覚えがない方は以下の解除リンクを押していただければ解除できます。
+
+ワンクリック解除（一度押しただけで解除されます）
+http://pkg.y-ml.com/_rm?m=main&u=05a77ac7338a9cf1&h=11842
+
+メールアドレス変更
+http://pkg.y-ml.com/form_if.cgi?id=main&u=05a77ac7338a9cf1&modify=1
+
+登録フォーム（誤って解除された場合など）
+http://pkg.y-ml.com/form_if.cgi?id=main&u=05a77ac7338a9cf1
+
+私は9月26日付けでドバイに戻ってきました。
+またYouTubeの無料版を再開していく予定です。
+https://www.youtube.com/watch?v=WSTWFlFSFD0
+
+新しい本が10月18日講談社から発売されます&#9786;
+お金に愛される「真・投資術」
+　→　https://amzn.to/3ovrHUj
+タイトル、テーマ、本文、写真、図解、用語、定義、チャート、見出し、はじめに、おわりに、奥付まで全文一字一句自分の言葉で書いてかつ監修してます。何度破棄したか。本当これには苦労しました。
+
+良ければ読んでみて下さい。
+
+またメルマガも再開するかもしれません。
+
+宜しくお願いします。
+
+与沢翼
+
+配信を解除する場合は下記URLをクリックしてください。
+http://pkg.y-ml.com/_rm?m=main&u=05a77ac7338a9cf1&h=11842
+

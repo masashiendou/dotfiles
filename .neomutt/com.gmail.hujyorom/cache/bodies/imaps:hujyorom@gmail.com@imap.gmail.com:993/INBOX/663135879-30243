@@ -1,0 +1,290 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a6b:cf15:0:0:0:0:0 with SMTP id o21csp2927337ioa;
+        Sun, 7 Apr 2019 15:09:31 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqz1jrQborEmzgjr1wZeM3X1LJEWFPFvpt330zXzDUQhTqR15bExgyZTCm/ZsfJvD9fYFDJK
+X-Received: by 2002:a62:1815:: with SMTP id 21mr26608586pfy.107.1554674971554;
+        Sun, 07 Apr 2019 15:09:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1554674971; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gjaHf71a7VAyyNG13CQtpAV+LpLnK4oXWRxQ7k6pKKsJiikNf2Z3TAV82pnbLlMaqH
+         6yU/Ha7grUauTsJ0tz8Iz8Kziv06NdsdqFDAS+EbDALKFTrNY3Fasw0MCc1Q3H0GJO5c
+         0/ziSxST4ni0qAgBZjQ0MTevbqmkSQ8WYkc0IYNRkIf3GPLq/aNOzQunmgOtr+2iYpLd
+         7p+1+4TKisBxkR9VRwfhKtu992w7iOyre3PmNlbGGYpSZkOrbte0Xf7WpeeUlUtMHRew
+         KiDZyRXS3obJRvZ/PBDfSxREOxO+yPmxPOyX7vLicg6Nkcemynb1GD3GcmBjtbY46ORk
+         AhCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=envelope-from:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date;
+        bh=QnUo/+/iKf2l+qmUsgrDIz7Wgt/Bl3bxrddqdTh9ltA=;
+        b=XjFv0ptpgViSkHVYlRCJzikB3Tl3AxPtKDLb9187jlTqX2S3nP6+xbqyFeDofUsO+v
+         lbTuXtxZQJ35GnEfouvOaClgUvgbIeaGFlu56Xj8APh3iwCe57YvBOMR4RpIWJ0XecB9
+         vEFzluRF4Wvf98fwush2sgZYEi2afS4aaGmTihsBtemXSMp+Eug7xj+tNFxfGjKuMX1t
+         FVvYvwF8j76r58ptnoefkdrgK0Dtzx+8HTmMdr4K9dWzhPJSxWlM4HobUMDAruOrlgOY
+         xOaBBJi4Yz18dZIPWbe5wLGfcKYWAi0QOcX101cZYe8yoBI9lM2i7PFUGAtpOTKLXfDZ
+         agfg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of bounce@jalan.net designates 160.17.13.16 as permitted sender) smtp.mailfrom=bounce@jalan.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=jalan.net
+Return-Path: <bounce@jalan.net>
+Received: from mgw11.x.recruit.co.jp (mgw11.x.recruit.co.jp. [160.17.13.16])
+        by mx.google.com with ESMTP id e2si23924223plt.197.2019.04.07.15.09.30
+        for <hujyorom@gmail.com>;
+        Sun, 07 Apr 2019 15:09:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce@jalan.net designates 160.17.13.16 as permitted sender) client-ip=160.17.13.16;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bounce@jalan.net designates 160.17.13.16 as permitted sender) smtp.mailfrom=bounce@jalan.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=jalan.net
+Received: from mgw11.x.recruit.co.jp (localhost.localdomain [127.0.0.1])
+	by postfix.imss71 (Postfix) with ESMTP id E633D560C30
+	for <hujyorom@gmail.com>; Mon,  8 Apr 2019 07:09:29 +0900 (JST)
+Received: from batch202jln.b.jln.raftel (unknown [172.17.2.24])
+	by mgw11.x.recruit.co.jp (Postfix) with ESMTP id DB4AE560B03
+	for <hujyorom@gmail.com>; Mon,  8 Apr 2019 07:09:29 +0900 (JST)
+Received: from web307jln.b.jln.raftel (web307jln.b.jln.raftel [172.27.52.212])
+	by batch202jln.b.jln.raftel (Postfix) with ESMTP id DA526710051
+	for <hujyorom@gmail.com>; Mon,  8 Apr 2019 07:09:29 +0900 (JST)
+Received: from web307jln (localhost.localdomain [127.0.0.1])
+	by web307jln.b.jln.raftel (Postfix) with ESMTP id D6DCF71005D
+	for <hujyorom@gmail.com>; Mon,  8 Apr 2019 07:09:29 +0900 (JST)
+Date: Mon, 8 Apr 2019 07:09:29 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCJVslRiVrJWshPCVIJSQlc0BpOlAxWEEwIUokOCRjJGkkcxsoQm5ldBskQk09THMlNSE8JVMlOSFLGyhC?= <info4-j@jalan.net>
+Reply-To: info4-j@jalan.net
+To: hujyorom@gmail.com
+Message-ID: <844106719.243.1554674969879.JavaMail.jlnadm@web307jln>
+Subject: =?ISO-2022-JP?B?GyRCJVslRiVrJWshPCVIJSQlc0BpOlAxWEEwTT1MczNORycbKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+Envelope-From: bounce@jalan.net
+
+-----------------------------------------------------------------------
+※本メールは、自動的に配信しています。
+こちらのメールは送信専用のため、直接ご返信いただいてもお問い合わせには
+お答えできませんので、あらかじめご了承ください。
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+【お得情報】北海道の遊び・レジャー体験で使える
+お得なクーポン配付中！
+http://www.jalan.net/activity/theme/coupon/?vos=fsjlnxsyjlnboct20160118001
+
+★北海道のオススメ遊び・レジャー体験はこちら！
+http://www.jalan.net/activity/?vos=fsjlnxsyjlnrsys20161019
+-----------------------------------------------------------------------
+このたびは、ホテルルートイン千歳駅前をご予約いただき誠にありがとうございます。
+ご予約いただいた内容をお知らせします。
+
+宿泊施設の所在地・連絡先をご確認ください。
+このメールを印刷してご持参いただくことをお勧めします。
+印刷時は、内容が途切れないように印刷設定にご注意ください。
+
+-----------------------------------------------------------------------
+■旅先の移動は、レンタカーが便利！
+石狩・空知・千歳のレンタカーを探す
+http://www.jalan.net/rentacar/search/010000/LRG_012900/?vos=fsjlnpcnjlnacin20150005006
+
+★クーポン配布中！！
+http://www.jalan.net/rentacar/coupons/?vos=fsjlnpcnjlnacin20150004006
+-----------------------------------------------------------------------
+
+予約受付日時：2019年04月08日07:09
+
+予約番号：00GTT291
+宿泊代表者氏名：遠藤 將司 様
+宿名：ホテルルートイン千歳駅前
+電話番号：050-5847-7579
+所在地：〒066-0062 北海道千歳市千代田町５−３−１
+チェックイン日時：2019年04月27日22:00
+宿泊日数：1泊
+部屋タイプ：本館禁煙セミダブルルーム
+部屋数：1室
+
+プラン名：ルートイン千歳駅前★　スタンダードプラン
+チェックイン可能時間：15:00〜26:00
+チェックアウト時間：10:00
+プラン内容：スタンダードなプランです。
+            バイキングスタイルの朝食は無料サービスです！！
+            男女別大浴場でゆっくりとおくつろぎくださいませ。
+            ※周辺情報※
+            ＜観光＞
+            支笏洞爺国立公園：支笏湖〜車で約３０分
+            インデアン水車〜車で約５分
+            千歳さけのふるさと館〜車で約５分
+            青葉公園〜車で約１０分
+            名水ふれあい公園〜車で約１５分
+            アウトレットモールレラ〜車で約１５分
+            北海道箱根牧場〜車で約４０分
+            新千歳モーターランド〜車で約１５分
+            ＜自衛隊＞
+            自衛隊千歳基地〜車で約５分
+            自衛隊東千歳駐屯地〜車で約１５分
+            自衛隊北千歳駐屯地〜車で約１０分
+            自衛隊南恵庭駐屯地〜車で約２０分
+            自衛隊北恵庭駐屯地〜車で約２５分
+            自衛隊島松駐屯地〜車で約３０分
+            ＜工業団地＞
+            千歳臨空工業団地〜車で約１５分
+            千歳サイエンスパーク〜車で約２５分
+            千歳第四工業団地〜車で約１５分
+            千歳流通業務団地〜車で約１５分
+            美々ワールド〜車で約２０分
+            千歳根志越工業団地〜車で約１５分
+            苫小牧東部工業地帯〜車で約３０分
+            ＜学校＞
+            日本航空専門学校〜車で約１５分
+            千歳科学技術大学〜車で約１５分
+            ＜交通＞
+            千歳駅〜徒歩３分
+            新千歳空港〜車で約１５分
+            苫小牧西港フェリーターミナル〜車で約４０分
+            苫小牧東港フェリーターミナル〜車で約６０分　
+            ＜近隣のルートイン＞
+            ルートイン苫小牧駅前〜車で約４５分
+            ルートイン東室蘭駅前〜車で約１００分
+食事：朝あり
+      夕なし
+
+キャンセル規定：
+  7日〜1日前：宿泊料金の20%
+  当日：宿泊料金の50%
+  無連絡キャンセル：宿泊料金の100%
+
+料金明細
+
+  （1泊目）
+    （1部屋目）
+         7,000円（大人）× 2名
+  小計：14,000円
+
+合計：14,000円（税込・サービス料込）
+利用ポイント：200ポイント
+※ポイントやクーポンを利用してご予約され、現地で精算される場合は、
+「ポイント／クーポンを使っています」とお伝えいただくとスムーズです♪
+また精算時に、ポイントやクーポン分が割引されているかどうかご確認ください。
+ポイント・クーポン利用後：13,800円（税込）
+支払料金：13,800円（税込・サービス料込）
+支払い方法：現地決済（現地で宿泊施設に直接お支払いください）
+
+じゃらんnetからの予約変更・キャンセル締切：
+  宿泊1日前の24時00分まで
+  上記を過ぎた場合は、宿泊施設に直接ご連絡ください。
+
+
+★チェックインの時間の変更や予約金・料金確認など詳細のお問合せにつきましては、
+下記宿泊施設まで直接ご連絡下さい★
+宿名：ホテルルートイン千歳駅前
+電話番号：050-5847-7579
+■予約の変更・キャンセルについてはこちら■
+http://www.jalan.net/jalan/doc/howto/03yoyaku.html?vos=djalrmgmz10070600100
+
+■ホテルルートイン千歳駅前の詳細情報はこちら■
+http://www.jalan.net/uw/uwp3000/uww3001.do?yadNo=337731&rootCd=58&vos=djalrmgmz10070600100
+
+■ホテルルートイン千歳駅前周辺の観光スポット・イベント情報はこちら■
+http://www.jalan.net/ou/oup1300/ouw1301.do?lrgCd=012900&vos=fsjlnxsyjlnnsys234
+ホテルルートイン千歳駅前
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+・・○●じゃらんｎｅｔからのお願い●○・・
+
+▼予約確認メールについて
+ご宿泊時には本メールをプリントアウトし、ご持参いただくことをお勧めいたします。
+※ポイントやクーポンを利用してご予約され、現地で精算される場合は、
+「ポイント／クーポンを使っています」とお伝えいただくとスムーズです♪
+また精算時に、ポイントやクーポン分が割引されているかどうかご確認ください。
+
+▼宿泊時に発生したトラブルについて
+掲載内容と違う、ポイントやクーポンを利用できなかった等、宿泊時に発生したトラブルに
+つきましては、早期に解決するためにも、まずは宿泊施設へ
+お申し出くださいますようお願いします。
+
+・・●じゃらんnetからのお知らせ●・・
+
+旅行で！ 普段のお買い物で！
+どこで使っても『リクルートカード』はポイント還元率1.2%で年会費無料！
+▼リクルートカード詳細はこちらから
+https://recruit-card.jp/?campaignCd=jlna0001&vos=cprcdorgcjal130514008
+
+
+高速バスご利用で500ポイントプレゼントキャンペーン
+じゃらん高速バスなら、エントリー＆期間中3,000円ご乗車で500ポイントプレゼント！
+今すぐチェック！
+https://www.jalan.net/bus/cp/buspoint/?vos=dbusmailbpc500ptourokutksn
+
+
+【Pontaポイントが必ずもらえる】じゃらんnetで使えるポイントプレゼント中！
+お買い物や無料トライアルお申し込み等の特典参加で、
+じゃらんnetでも使えるPontaポイントをプレゼント。5,000ポイント以上の高ポイント特典あり！
+https://rls-link.jp/link/adptg_mid=11345&adptg_lid=3
+
+
+
+・・●旅先でのアクティビティ・レジャーの手配は済みましたか？●・・
+
+お得なクーポン配付中！
+北海道の遊び・レジャー体験の全施設でご利用できます！
+http://www.jalan.net/activity/theme/coupon/?vos=fsjlnxsyjlnboct20160118001
+
+
+■北海道のオススメ遊び・レジャー体験はこちら！
+・【当日朝まで受付可】わくわくドキドキ！北海道最大淡水魚水族館の裏側...
+http://www.jalan.net/kankou/spt_01224cc3320040577/activity/l000011E96/?vos=fsjlnxsyjlnboct20160118002
+大人 700円〜
+サケのふるさと千歳水族館（北海道＞石狩・空知・千歳）
+
+・＜ジェラート作り体験＞レークヒル牧場の牛乳を使って手作りジェラート...
+http://www.jalan.net/kankou/spt_guide000000173113/activity/l0000025B5/?vos=fsjlnxsyjlnboct20160118002
+大人 1,296円〜
+レークヒルファーム（北海道＞洞爺・登別・苫小牧）
+
+・入館料
+http://www.jalan.net/kankou/spt_01204cc3300034055/activity/l000011156/?vos=fsjlnxsyjlnboct20160118002
+大人 700円〜
+雪の美術館（北海道＞旭川・層雲峡）
+
+北海道の遊び・レジャー体験を探す
+http://www.jalan.net/kankou/010000/?asobi=1&vos=fsjlnxsyjlnboct20160118002
+
+※最新情報はプラン詳細画面にてご確認下さい。
+
+・・●じゃらんnetで、旅の準備ができます●・・
+
+☆★旅先で訪ねる観光スポットはもうお決まりですか？★☆
+じゃらん観光ガイドでは、気になる観光スポットの詳細情報はもちろん、
+周辺のオススメスポットまでの距離や、イベント、宿泊施設の情報も一緒に
+確認できます。旅行先で計画を立てる時に効率よく活用しよう！
+▼観光ガイドはこちらから
+http://www.jalan.net/ou/oup1300/ouw1301.do?lrgCd=012900&vos=fsjlnxsyjlnnsys234
+
+・・●じゃらんnetで、交通手段を予約できます●・・
+
+☆★レンタカーをラクラク予約！★☆
+新千歳空港　1日 8400円〜  全国の主要レンタカー会社から検索！
+▼新千歳空港のレンタカーを探す
+https://www.jalan.net/rentacar/search/AIR_A005/?vos=cpjrenaffaff0130212001
+★クーポン配布中！！
+http://www.jalan.net/rentacar/coupons/?vos=fsjlnpcnjlnacin20150004006
+
+
+☆★高速バスでお得に旅行！★☆
+札幌-函館　4200円〜  豊富な品揃えから検索！お得に旅しよう！
+▼北海道の高速バスを探す
+https://www.jalan.net/bus/A_10000/?vos=cpjrenaffaff0130212001
+
+☆★航空券の予約もじゃらんnetで★☆
+JAL・ANAの航空券が予約・購入できます！
+▼じゃらんnet 航空券の予約はこちらから
+http://c.p-advg.com/adpCnt/r?mid=841068&lid=2&vos=djalrmgmz10070600100
+
+☆★帰ってきたら、ぜひあなたの感想・おすすめ情報を教えて下さい★☆
+クチコミ投稿はこちらから↓
+https://www.jalan.net/ji/pc/jit6001Login.do?TEMP4=LEVEL_K&TEMP5=https://www.jalan.net/uw/uwp0300/uww0301init.do&TEMP1=vos%2bdjalrmgmz10070600100
+
+▼セキュリティ関連のお知らせ
+https://www.jalan.net/jalan/doc/howto/security_info.html
+
+株式会社リクルート
+じゃらんnet 宿予約サービス
+
+(C) Recruit Lifestyle Co.,Ltd.

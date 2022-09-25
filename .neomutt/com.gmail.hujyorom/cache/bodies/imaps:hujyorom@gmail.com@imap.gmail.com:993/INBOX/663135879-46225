@@ -1,0 +1,771 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:8d47:0:0:0:0:0 with SMTP id p68csp6161627vkd;
+        Thu, 24 Dec 2020 16:25:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJw4biSqvHlv+put3j1sIk6FUGTqm/m9qeq8oVXRt9C8rIEfETX5kKkXq+j8p6pHwEDTTBWz
+X-Received: by 2002:a5e:aa0d:: with SMTP id s13mr26828400ioe.210.1608855939339;
+        Thu, 24 Dec 2020 16:25:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608855939; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nNe4YINqKQ54oiVavkuAhLAoRaFBEnnv//2LaIvbSPmw0YUTWMpenVfvQ5MwqOIqjd
+         EvFAsJ4yAkQwnOJW1HQYgs2RFKU9uMLp8BSkw4G4C3X4F8sg99MYoMZTKuEBP3IVfS/x
+         Pgr0OCc155AZHItR/zcmb967AFzxsB5fvh526op0VKMSxIh1HAaI2AP/xozP0CNgo2/e
+         oAlmMTAizAih31mZtZntTVqz5kLtpkhr91LZMI5Mb9aVmIHywe1gyLLESfgUmTUBWpOC
+         GHm9Zi+i+oyqvB1vimahLQIKbaKHsQrMr5xpoxlKuDTRN9V8U11CwMLHmgiGBPbUgqUS
+         1zgA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=categories:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=TKcnHdbSZQp7MyspZjZV80iAhw6WOS+y/3/+jr2JBDg=;
+        b=iY5YsHYHXD5SMwx78ZMKiYKRq73DJxsN3MJP6/JxebqsPDaZkJf8m3EVsRROC7Snx+
+         MxT34ijTJxv8hXIfkxn/thCIsyQQ68WnlZBmbsaZg7D+oQyWjmmwGg5yMUqeQr+YYUGO
+         e2779ePiQ1ExEH0D8mNff3vUIKgsL/PZW/sr6gkHHfdDE+j3SLHbeBrWqYn5x5kR5o2P
+         kZNUOvMsO4gaXeo3F8V7kibhD2TLf+t2CMk83wjZP2fDPq4I0b6WqGeKNXXKwK3Bobm3
+         q0ZODE6NEmzXknoh+FMsv6beuYjnc0Md0HuUq+BeWzkzlRJNxEQfUKl1u9ftj6G1j/sa
+         xL/w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=s20150108 header.b="swE/46wG";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="CI/GLaYR";
+       spf=pass (google.com: domain of bounces+848413-e449-hujyorom=gmail.com@sgmail.github.com designates 192.254.112.99 as permitted sender) smtp.mailfrom="bounces+848413-e449-hujyorom=gmail.com@sgmail.github.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=github.com
+Return-Path: <bounces+848413-e449-hujyorom=gmail.com@sgmail.github.com>
+Received: from o4.sgmail.github.com (o4.sgmail.github.com. [192.254.112.99])
+        by mx.google.com with ESMTPS id z1si20022757ilm.141.2020.12.24.16.25.39
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 24 Dec 2020 16:25:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+848413-e449-hujyorom=gmail.com@sgmail.github.com designates 192.254.112.99 as permitted sender) client-ip=192.254.112.99;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=s20150108 header.b="swE/46wG";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="CI/GLaYR";
+       spf=pass (google.com: domain of bounces+848413-e449-hujyorom=gmail.com@sgmail.github.com designates 192.254.112.99 as permitted sender) smtp.mailfrom="bounces+848413-e449-hujyorom=gmail.com@sgmail.github.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=github.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding; 
+	s=s20150108; bh=TKcnHdbSZQp7MyspZjZV80iAhw6WOS+y/3/+jr2JBDg=; b=
+	swE/46wGAHJjbhAx6fZDMcj5/ld62uzQi7b2Me4yZHDsC1s8EOHx1YLP0VNgFole
+	v5PssqLI01yeNXYYUi/qF3kuvEAdLivPGqSGyKjMc94UX3f40uTzGBz5Nq9+d1yL
+	dW2gc8F2mviK2hQ2i0mEJgK842VgPpe9GfvE+071yDk=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding:x-feedback-id; 
+	s=smtpapi; bh=TKcnHdbSZQp7MyspZjZV80iAhw6WOS+y/3/+jr2JBDg=; b=CI
+	/GLaYROrvHNTEX4dUeFbPumShM1sRc7agM3fBRaIAoElzX9LwPw0WhWXRoGjIEyY
+	XpQPhm3bhWPam5M5NSCu69zKE5eRJTOZJw4kKzChOEWHSHod7BSkgQa7Qabbq0Y1
+	42keF/s1Br8HvpOAItaBTsGzRuyH1OH1v0KlvyUFA=
+Received: by filter2838p1mdw1.sendgrid.net with SMTP id filter2838p1mdw1-12624-5FE53182-17
+        2020-12-25 00:25:38.876421818 +0000 UTC m=+1147216.850567172
+Received: from smtp.github.com (unknown)
+	by ismtpd0089p1iad2.sendgrid.net (SG) with ESMTP id FKWe4H3rTKKciy099AIDWQ
+	for <hujyorom@gmail.com>; Fri, 25 Dec 2020 00:25:38.828 +0000 (UTC)
+Received: from github.com (hubbernetes-node-83a3702.ash1-iad.github.net [10.56.115.21])
+	by smtp.github.com (Postfix) with ESMTPA id B76A3840D12
+	for <hujyorom@gmail.com>; Thu, 24 Dec 2020 16:25:38 -0800 (PST)
+Date: Fri, 25 Dec 2020 00:25:38 +0000 (UTC)
+From: GitHub <noreply@github.com>
+To: Masashi Endo <hujyorom@gmail.com>
+Message-ID: <5fe53182abb48_6f4219b41135d2@lowworker-85945fc495-hscl7.mail>
+Subject: GitHub Explore today Dec 25
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5fe53182ab309_6f4219b41134cf";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Auto-Response-Suppress: All
+categories: explore,explore-period-daily
+X-SG-EID: Fp6lE/7LJK1wPu9bx/HoQrxIWk8IcJQz0apvhLRDJVrs+4PZGMdT0QCScgNMhSmyQJEh9uGZQAQ8eO
+ lHAKRmxqohNXlHWgO/U94cKTBc/YhL9AUnj2+jlsAzO4vsjQKdD4x1jfGpaFIOZ4sL4r11n0fVs/+2
+ c2kI3zRwEdHIPC3e2SyBe7IJypmmzDHbV59INn7Mi4EMn1BF0KJMq3fn8A==
+X-SG-ID: Bc4JW+xVSelhQo5SaiCrmaHirxKbrqGWb3uj2rssPD8lqALlVr++cctjM/jE32ZK
+X-Entity-ID: /f+S0XqulHHajbNb6hGdxg==
+X-Feedback-ID: 848413:6xvVEJqleZlAW7/vhv7PzD/cv5tamo2SWZDKyvugGvg=:e1uQgjNxhgkwFkdQR0UAhQ==:SG
+
+----==_mimepart_5fe53182ab309_6f4219b41134cf
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Explore today on GitHub, Dec 24 - Dec 25=0D
+=0D
+Based on your interests=0D
+-----------------------=0D
+=0D
+1. gnotclub/xst=0D
+  https://github.com/gnotclub/xst=0D
+  Description: st fork that uses Xresources and some pretty good patches=0D
+  Primary Language: C=0D
+  Stars: 435=0D
+  Forks: 67=0D
+  Reason: =0D
+=0D
+2. ioof-holdings/redux-dynostore=0D
+  https://github.com/ioof-holdings/redux-dynostore=0D
+  Description: These libraries provide tools for building dynamic Redux sto=
+res.=0D
+  Primary Language: JavaScript=0D
+  Stars: 120=0D
+  Forks: 15=0D
+  Reason: =0D
+=0D
+=0D
+See more repositories based on your interests at https://github.com/explore=
+=0D
+=0D
+Recommended topic=0D
+-----------------=0D
+=0D
+https://github.com/topics/ytppluscli=0D
+=0D
+=0D
+=0D
+App recommended by GitHub=0D
+-------------------------=0D
+=0D
+https://github.com/marketplace/cirrus-ci=0D
+Cirrus CI=0D
+Enjoy unlimited concurrency for fast and secure development cycle=0D
+=0D
+=0D
+=0D
+Collection recommended by GitHub=0D
+--------------------------------=0D
+=0D
+Text editors=0D
+https://github.com/collections/text-editors=0D
+The text editor is a sacred tool for developers. Here's a showcase of some =
+amazingly awesome open source editors.=0D
+=0D
+=0D
+=0D
+That's everything we found for you, for now.=0D
+Visit https://github.com/explore to see the latest, or change your email su=
+bscription at https://github.com/explore/email.=0D
+=0D
+Trending repositories=0D
+---------------------=0D
+=0D
+1. nondanee/UnblockNeteaseMusic=0D
+   https://github.com/nondanee/UnblockNeteaseMusic=0D
+   Description: Revive unavailable songs for Netease Cloud Music=0D
+   Primary Language: JavaScript=0D
+   Stars: 12.6k=0D
+   Forks: 1.9k=0D
+=0D
+2. hotwired/turbo=0D
+   https://github.com/hotwired/turbo=0D
+   Description: The speed of a single-page web application without having t=
+o write any JavaScript.=0D
+   Primary Language: TypeScript=0D
+   Stars: 792=0D
+   Forks: 19=0D
+=0D
+3. hotwired/hotwire-rails-demo-chat=0D
+   https://github.com/hotwired/hotwire-rails-demo-chat=0D
+   Description: Repository from the Hotwire demo=0D
+   Primary Language: Ruby=0D
+   Stars: 102=0D
+   Forks: 7=0D
+=0D
+4. mapsme/omim=0D
+   https://github.com/mapsme/omim=0D
+   Description: =F0=9F=97=BA=EF=B8=8F MAPS.ME =E2=80=94 Offline OpenStreetM=
+ap maps for iOS and Android=0D
+   Primary Language: C++=0D
+   Stars: 4k=0D
+   Forks: 1.1k=0D
+=0D
+5. hotwired/turbo-rails=0D
+   https://github.com/hotwired/turbo-rails=0D
+   Description: Turbo gives you the speed of a single-page web application =
+without having to write any JavaScript.=0D
+   Primary Language: JavaScript=0D
+   Stars: 314=0D
+   Forks: 20=0D
+=0D
+=0D
+See more trending repositories at https://github.com/trending=0D
+=0D
+=0D
+Trending developers=0D
+-------------------=0D
+=0D
+1. Sean McArthur=0D
+   https://github.com/seanmonstar=0D
+2. Jan De Dobbeleer=0D
+   https://github.com/JanDeDobbeleer=0D
+3. Dan Davison=0D
+   https://github.com/dandavison=0D
+4. Jos=C3=A9 Padilla=0D
+   https://github.com/jpadilla=0D
+5. Matthias Urhahn=0D
+   https://github.com/d4rken=0D
+=0D
+See more trending developers at https://github.com/trending/developers=0D
+=0D
+=0D
+=0D
+Manage the emails you get from us. https://github.com/settings/emails=0D
+Unsubscribe from this newsletter. https://github.com/email/unsubscribe?toke=
+n=3DAF6DF3LM2EKISZIRLUCK66TBYZSQFANENZQW2ZNHMV4HA3DPOJSQ=0D
+=0D
+GitHub, Inc. 88 Colin P Kelly Jr Street, San Francisco, CA 94107=0D
+=0D
+
+----==_mimepart_5fe53182ab309_6f4219b41134cf
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Explore today on GitHub</title>
+    
+
+  </head>
+
+  <body bgcolor="#fafafa" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 14px; height: 100% !important; line-height: 1.5; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; width: 100% !important; background-color: #fafafa; min-width: 100%; -webkit-font-smoothing: antialiased; color: #333333; font-weight: normal; margin: 0; padding: 0;">
+
+    <table class="body" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #fff; border-spacing: 0; vertical-align: top; height: 100%; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" width="100%" bgcolor="#fff">
+      <tr style="vertical-align: top; padding: 0;">
+        <td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 14px; vertical-align: top; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; color: #333333; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top"></td>
+        <td class="container" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 14px; vertical-align: top; display: block; max-width: 580px; width: 580px; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; color: #333333; font-weight: normal; line-height: 20px; margin: 0 auto; padding: 24px;" width="580" valign="top">
+          <div class="content" style="box-sizing: border-box; display: block; max-width: 580px; margin: 0 auto;">
+
+            <div class="mark" style="text-align: center;" align="center">
+              <a href="https://github.com/explore?auto_subscribed=false&amp;email_source=explore" style="display: block; text-align: center; color: #0366d6; text-decoration: none;">
+                <img src="https://github.githubassets.com/images/email/global/wordmark.png" width="102" height="28" class="center logo-wordmark" alt="GitHub" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; float: none; text-align: center; margin: 0 auto; padding: 25px 0 17px; border: none;" align="none">
+              </a>
+            </div>
+            <h1 style="font-size: 1.6em; text-align: center; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; margin: 0 20px 24px; padding: 0;" align="center">
+              <span style="color: #6a737d; font-weight: normal;">Explore code and developers on GitHub today,</span> <span class="text-bold" style="font-weight: bold;">today, <strong style="color: #333;">Dec 25</strong>.</span>
+            </h1>
+
+            <div class="panel" style="background-color: #ffffff; border-radius: 0 0 3px 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; border: 1px solid #efefef;">
+              <h2 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.6em; margin: 0 0 32px; padding: 0;">
+                Here's what we found based on your interests...
+              </h2>
+
+                <div class="feed-item" style="margin-bottom: 32px;">
+  <div style="margin-bottom: 8px;">
+    <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+      <tr style="vertical-align: top; padding: 0;">
+        <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+          <img src="https://github.githubassets.com/images/email/explore/octicon-telescope.png" height="14" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+        </td>
+        <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td style="font-size: 12px; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top">
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="18px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/gnotclub?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">
+            gnotclub /
+          </a>
+          <a href="https://github.com/gnotclub/xst?auto_subscribed=false&amp;email_source=explore" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            xst
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    st fork that uses Xresources and some pretty good patches
+  </div>
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+        <td style="color: #586069; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top">
+          &#9733;
+          435
+          &#160;&#160;
+        </td>
+        <td width="8" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+          <img src="https://github.githubassets.com/images/email/explore/octicon-fork.png" height="14" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+        </td>
+        <td width="2" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td style="color: #586069; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top">
+          67
+        </td>
+    </tr>
+  </table>
+
+
+</div>
+
+                <div class="feed-item" style="margin-bottom: 32px;">
+  <div style="margin-bottom: 8px;">
+    <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+      <tr style="vertical-align: top; padding: 0;">
+        <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+          <img src="https://github.githubassets.com/images/email/explore/octicon-telescope.png" height="14" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+        </td>
+        <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td style="font-size: 12px; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top">
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="18px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/ioof-holdings?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">
+            ioof-holdings /
+          </a>
+          <a href="https://github.com/ioof-holdings/redux-dynostore?auto_subscribed=false&amp;email_source=explore" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            redux-dynostore
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    These libraries provide tools for building dynamic Redux stores.
+  </div>
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+        <td style="color: #586069; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top">
+          &#9733;
+          120
+          &#160;&#160;
+        </td>
+        <td width="8" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+          <img src="https://github.githubassets.com/images/email/explore/octicon-fork.png" height="14" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+        </td>
+        <td width="2" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td style="color: #586069; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top">
+          15
+        </td>
+    </tr>
+  </table>
+
+
+    <div style="margin-top: 8px; margin-bottom: 4px;">
+      <strong>
+        <a href="https://github.com/ioof-holdings/redux-dynostore/contribute?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">Good first issues</a>
+      </strong>
+    </div>
+      <div style="margin-bottom: 4px;">
+        <a href="https://github.com/ioof-holdings/redux-dynostore/issues/263" style="color: #0366d6; text-decoration: none;">
+          type declaration is necessary for typescript user
+        </a>
+      </div>
+</div>
+
+
+              <!--// Topic //-->
+  <div class="feed-item" style="margin-bottom: 32px;">
+    <div style="margin-bottom: 8px;">
+      <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+        <tr style="vertical-align: top; padding: 0;">
+          <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+            <img src="https://github.githubassets.com/images/email/explore/octocat.v2.png" height="14" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+          </td>
+          <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+          <td style="font-size: 12px; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top">
+            GitHub topic recommendation
+          </td>
+        </tr>
+      </table>
+    </div>
+    <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+      <tr style="vertical-align: top; padding: 0;">
+        <td colspan="2" valign="middle" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+          <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 4px 0; padding: 0;">
+            <a href="https://github.com/topics/ytppluscli?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" data-ga-click="Explore, go to topic, location:explore mailer; text:ytppluscli" style="color: #0366d6; text-decoration: none;">
+              # ytppluscli
+            </a>
+          </h3>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+              <!--// Spotlight //-->
+
+
+
+              <!--// Marketplace app //-->
+
+  <div class="feed-item" style="margin-bottom: 32px;">
+      <a href="https://github.com/marketplace/cirrus-ci?email_source=explore" style="display: block; color: #0366d6; text-decoration: none;">
+        <img src="https://marketplace-screenshots.githubusercontent.com/953/d4ab48a4-3d70-11e8-8325-d44fcc6c75fe" alt="" width="530" style="display: block; max-width: 100% !important; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; border: none;">
+      </a>
+
+    <div style="margin-bottom: 8px;">
+      <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+        <tr style="vertical-align: top; padding: 0;">
+          <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+            <img src="https://github.githubassets.com/images/email/explore/octocat.v2.png" height="14" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+          </td>
+          <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+          <td style="font-size: 12px; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top">
+            App recommended by GitHub
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0 0 4px; padding: 0;">
+      <a href="https://github.com/marketplace/cirrus-ci" class="a-style-2 a-style-font" style="color: #0366d6; text-decoration: none;">
+        Cirrus CI
+      </a>
+    </h3>
+
+    <div style="color: #586069;">
+      <p style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; color: #333333; line-height: 20px; margin: 0; padding: 0;"></p>
+<p style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; color: #333333; line-height: 20px; margin: 0; padding: 0;">Cirrus CI makes your development cycle fast, efficient, and secure by leveraging modern cloud technologies. Cirrus CI scales with your team and makes shipping software faster and cheaper.</p>
+    </div>
+  </div>
+
+
+
+              <!--// Event //-->
+
+
+
+              <!--// Collection //-->
+  <div class="feed-item" style="margin-bottom: 32px;">
+    <a href="https://github.com/collections/text-editors?auto_subscribed=false&amp;email_source=explore" style="display: block; color: #0366d6; text-decoration: none;">
+      <img style="display: block; width: 160px !important; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; border: none;" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/collections/text-editors/text-editors.png" alt="Text editors" width="160">
+    </a>
+
+    <div style="margin-bottom: 8px;">
+      <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+        <tr style="vertical-align: top; padding: 0;">
+          <td width="14px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+            <img src="https://github.githubassets.com/images/email/explore/octocat.v2.png" height="14" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+          </td>
+          <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+          <td style="font-size: 12px; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top">
+            Collection recommended by GitHub
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0 0 4px; padding: 0;">
+      <a href="https://github.com/collections/text-editors?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">
+        Text editors
+      </a>
+    </h3>
+
+    <div style="color: #586069;">
+      The text editor is a sacred tool for developers. Here's a showcase of some amazingly awesome open source editors.
+    </div>
+
+    <div style="color: #586069;">
+      <a href="https://github.com/collections/text-editors?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">
+        See the 27 items in this collection
+      </a>
+    </div>
+  </div>
+
+
+
+              <!--// Spotlight //-->
+
+
+              <!-- Trending -->
+  <div style="margin-bottom: 16px;">
+    <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+      <tr style="vertical-align: top; padding: 0;">
+        <td width="24px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+          <img src="https://github.githubassets.com/images/email/explore/octicon-telescope.png" height="24" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+        </td>
+        <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+        <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top">
+          <h2 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.6em; margin: 0; padding: 0;">Trending repositories</h2>
+        </td>
+      </tr>
+    </table>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="24px" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/nondanee?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            nondanee /
+          </a>
+          <a href="https://github.com/nondanee/UnblockNeteaseMusic?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            UnblockNeteaseMusic
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    Revive unavailable songs for Netease Cloud Music
+  </div>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="24px" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/hotwired?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            hotwired /
+          </a>
+          <a href="https://github.com/hotwired/turbo?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            turbo
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    The speed of a single-page web application without having to write any JavaScript.
+  </div>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="24px" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/hotwired?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            hotwired /
+          </a>
+          <a href="https://github.com/hotwired/hotwire-rails-demo-chat?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            hotwire-rails-demo-chat
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    Repository from the Hotwire demo
+  </div>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="24px" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/mapsme?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            mapsme /
+          </a>
+          <a href="https://github.com/mapsme/omim?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            omim
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    &#128506;&#65039; MAPS.ME &#8212; Offline OpenStreetMap maps for iOS and Android
+  </div>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="24px" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <img src="https://github.githubassets.com/images/email/explore/octicon-repo.png" height="16" alt="repository" style="margin-top: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/hotwired?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            hotwired /
+          </a>
+          <a href="https://github.com/hotwired/turbo-rails?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" class="text-bold" style="font-weight: bold; color: #0366d6; text-decoration: none;">
+            turbo-rails
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+  <div style="color: #586069;">
+    Turbo gives you the speed of a single-page web application without having to write any JavaScript.
+  </div>
+</div>
+
+    <p style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; color: #333333; line-height: 20px; margin: 0; padding: 0;">
+      <a href="https://github.com/trending?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">See more trending repositories &#8594;</a>
+    </p>
+  </div>
+
+  <div style="margin-top: 32px;">
+    <div style="margin-bottom: 16px;">
+      <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+        <tr style="vertical-align: top; padding: 0;">
+          <td width="24px" valign="middle !important" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;">
+            <img src="https://github.githubassets.com/images/email/explore/octicon-telescope.png" height="24" style="vertical-align: middle; margin-right: 4px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%;">
+          </td>
+          <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+          <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top">
+            <h2 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.6em; margin: 0; padding: 0;">Trending developers</h2>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="40" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <a style="display: block; color: #0366d6; text-decoration: none;" href="https://github.com/seanmonstar?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily">
+          <img src="https://avatars1.githubusercontent.com/u/51479?v=4" width="28" height="28" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; border: none;">
+        </a>
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/seanmonstar?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            Sean McArthur
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="40" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <a style="display: block; color: #0366d6; text-decoration: none;" href="https://github.com/JanDeDobbeleer?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily">
+          <img src="https://avatars1.githubusercontent.com/u/2492783?v=4" width="28" height="28" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; border: none;">
+        </a>
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/JanDeDobbeleer?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            Jan De Dobbeleer
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="40" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <a style="display: block; color: #0366d6; text-decoration: none;" href="https://github.com/dandavison?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily">
+          <img src="https://avatars1.githubusercontent.com/u/52205?v=4" width="28" height="28" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; border: none;">
+        </a>
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/dandavison?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            Dan Davison
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="40" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <a style="display: block; color: #0366d6; text-decoration: none;" href="https://github.com/jpadilla?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily">
+          <img src="https://avatars0.githubusercontent.com/u/83319?v=4" width="28" height="28" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; border: none;">
+        </a>
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/jpadilla?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            Jos&#233; Padilla
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
+
+      <div style="margin-bottom: 16px;">
+  <table style="border-spacing: 0; border-collapse: collapse; vertical-align: top; padding: 0;">
+    <tr style="vertical-align: top; padding: 0;">
+      <td width="40" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <a style="display: block; color: #0366d6; text-decoration: none;" href="https://github.com/d4rken?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily">
+          <img src="https://avatars0.githubusercontent.com/u/1439229?v=4" width="28" height="28" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; border: none;">
+        </a>
+      </td>
+      <td width="4" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="top"></td>
+      <td style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: normal; line-height: 20px; font-size: 14px; margin: 0; padding: 0;" valign="middle">
+        <h3 style="color: #333333; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.3; word-break: normal; font-size: 1.3em; margin: 0; padding: 0;">
+          <a href="https://github.com/d4rken?auto_subscribed=false&amp;email_source=explore&amp;utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=daily" style="color: #0366d6; text-decoration: none;">
+            Matthias Urhahn
+          </a>
+        </h3>
+      </td>
+    </tr>
+  </table>
+</div>
+
+    <p style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; color: #333333; line-height: 20px; margin: 0; padding: 0;">
+      <a href="https://github.com/trending/developers?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">See more trending developers &#8594;</a>
+    </p>
+  </div>
+
+            </div>
+
+            <div class="footer-links" style="margin-top: 32px;">
+  <p class="footer-text" style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; color: #999; line-height: 20px; text-align: center; margin: 0; padding: 0;" align="center"><a href="https://github.com/email/unsubscribe?auto_subscribed=false&amp;email_source=explore&amp;token=AF6DF3LM2EKISZIRLUCK66TBYZSQFANENZQW2ZNHMV4HA3DPOJSQ" style="color: #0366d6; text-decoration: none;">Unsubscribe</a> &#8226; <a href="https://github.com/settings/emails?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">Email preferences</a></p>
+  <p class="footer-text" style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; color: #999; line-height: 20px; text-align: center; margin: 0; padding: 0;" align="center"><a href="https://docs.github.com/articles/github-terms-of-service?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">Terms</a> &#8226; <a href="https://docs.github.com/articles/github-privacy-policy?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">Privacy</a> &#8226; <a href="https://github.com/login?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">Log in to GitHub</a></p>
+</div>
+<div class="content center-text" style="text-align: center;" align="center">
+  <a href="https://github.com/explore?auto_subscribed=false&amp;email_source=explore" style="color: #0366d6; text-decoration: none;">
+    <img class="logo-invertocat" src="https://github.githubassets.com/images/email/global/invertocat-mark.png" width="40" height="38" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100%; border: none;">
+  </a>
+</div>
+<div class="content">
+  <p class="footer-text" style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; color: #999; line-height: 20px; text-align: center; margin: 0; padding: 0;" align="center">GitHub, Inc.</p>
+  <p class="footer-text" style="word-wrap: normal; hyphens: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: normal; color: #999; line-height: 20px; text-align: center; margin: 0; padding: 0;" align="center">88 Colin P Kelly Jr St.<br> San Francisco, CA 94107</p>
+</div>
+
+          </div>
+        </td>
+        <td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 14px; vertical-align: top; word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; color: #333333; font-weight: normal; line-height: 20px; margin: 0; padding: 0;" valign="top"></td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+----==_mimepart_5fe53182ab309_6f4219b41134cf--

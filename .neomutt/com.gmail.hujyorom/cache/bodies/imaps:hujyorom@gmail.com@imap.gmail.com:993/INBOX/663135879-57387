@@ -1,0 +1,103 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9bc7:0:0:0:0:0 with SMTP id d190csp1439618vke;
+        Thu, 4 Nov 2021 22:11:14 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwRq3MYr8IdJC41JswWv9l1y/fROHzHSPVP+/cc1KI4o1STT/pXq/IfZfyghSioORoqGcXw
+X-Received: by 2002:a17:90b:384d:: with SMTP id nl13mr3284710pjb.80.1636089074408;
+        Thu, 04 Nov 2021 22:11:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1636089074; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jfPIDZPgKJNEbyFj3yvcL0AERLl8VpZgXJXRck/x57hzyvT3PpjWvIMj9RrbXECVGl
+         psBZXInuSl0GLeaX3pTISPDwiMA319VkRLVWRoOs2OhhSuaey/3/SuM8RLb8iLOCpgfj
+         V3GzTf6EbYlpuekkicAIJvpa3mAreaASDIAgRWkWfzPSJHSYG9CqVFJOA+hxE7tPonAI
+         TLzcnchLGkdurVy+QLA/lQ82ZPXH6iWtT1ZdQB/hsZVuUdww5O4V38VRwuJMsr8YWHYp
+         PIAL9eCc1fPZmxMEh3O7gHHB+5y2grIPLstBmPJI8KJiqovoER2r4woWWTAKSShAsUDv
+         53GA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=dmuOiDJTCNBt5a5Se8oH+TYS5z6Jglxdl+x5ZFj0sIU=;
+        b=0UPywtR4ea8xQ+H7ZJoLFRY8Nl3HuWXWRtRVRlS06WjMBJRbspUt7k9eAdwCWDvy8X
+         9UfYFCpf4/GheonHF8OLXnZIdPd/RNPenFOz18Oe9jhe3O36hKSXGIyOqfi1GUDfgnZ4
+         lwDmblcH9UYRInt4/pqiqizs496Nx04hVVZbmF4B0JLhPnkf3UQ40qDG0hfU7xYneS65
+         /f4Y1PIbNw6Wj6v3XWcmNZJCx/kdQpqRUIZN+KnPk4VCcLX9b4g6mLKiaPE6G+NqRYeG
+         2TH/v4gEw6JQfPpEIYNKPhDd20WfAUPR16oWX6mCIOxahcsGMoGVTno1s2HZu+RvoMRc
+         oJOg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.paypay-bank.co.jp header.s=20210727-dkim header.b=IfSIXatS;
+       spf=pass (google.com: domain of post3@cc.paypay-bank.co.jp designates 202.238.157.119 as permitted sender) smtp.mailfrom=post3@cc.paypay-bank.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cc.paypay-bank.co.jp
+Return-Path: <post3@cc.paypay-bank.co.jp>
+Received: from mml102.ymt.paypay-bank.co.jp (mml102.ymt.japannetbank.co.jp. [202.238.157.119])
+        by mx.google.com with ESMTP id lx6si6789186pjb.116.2021.11.04.22.11.14
+        for <hujyorom@gmail.com>;
+        Thu, 04 Nov 2021 22:11:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of post3@cc.paypay-bank.co.jp designates 202.238.157.119 as permitted sender) client-ip=202.238.157.119;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.paypay-bank.co.jp header.s=20210727-dkim header.b=IfSIXatS;
+       spf=pass (google.com: domain of post3@cc.paypay-bank.co.jp designates 202.238.157.119 as permitted sender) smtp.mailfrom=post3@cc.paypay-bank.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=cc.paypay-bank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.paypay-bank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.paypay-bank.co.jp; s=20210727-dkim; t=1636089073;
+	bh=dmuOiDJTCNBt5a5Se8oH+TYS5z6Jglxdl+x5ZFj0sIU=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=IfSIXatSqtwuDId4yS4fzBpsfHQxPi1uBQiaDL/vS853jcjONxBP8NtSF0b5gUhNt
+	 pJpW0SNAaKYMQeXPHbPIE31wWuHebZ9TZNB9+tN1yJq1Cy+H8895632W6AroBNC+VF
+	 IhWEP0rT7KIUug42MVxf/at8icIxNtvcYkLXL6P4=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.paypay-bank.co.jp>
+Errors-To: error3@cc.paypay-bank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.paypay-bank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIVojViNpI3MjYSVHJVMlQyVIIVskNE14TVFCZRsoQg==?=
+ =?ISO-2022-JP?B?GyRCNmIkKjB6JC1NbiRIJDckTiQqQ04kaSQ7GyhK?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20211105051113.BD48CC60EA@mml102.ymt.paypay-bank.co.jp>
+Date: Fri,  5 Nov 2021 14:11:05 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもPayPay銀行をご利用いただきありがとうございます。
+Visaデビットのご利用代金を普通預金口座よりお引き落としいたしました。
+請求内容詳細は加盟店へお問い合わせください。
+
+お引落日時：2021/11/05 14:07:59
+お引落金額：398円
+加盟店名：ＭＥＲＣＡＲＩ
+取引明細番号：1A309002
+
+
+▽お得な特典・キャンペーン
+https://www.paypay-bank.co.jp/service/payment/cardless/campaign.html?aatc=vi2012jb04a
+
+「PayPay銀行アプリ」でご利用明細が簡単に確認できます。
+▽アプリのダウンロード・詳細はこちら
+https://www.paypay-bank.co.jp/apps/general.html?aatc=vi2002jb04r
+
+▽Visaデビットカードで困ったら　覚えのない引き落としについて
+https://www.paypay-bank.co.jp/service/payment/cardless/answer.html?aatc=vi2001jb04d#notremember
+
+▽Visaデビットの利用特典について
+https://help.japannetbank.co.jp/hc/ja/articles/900002663566?aatc=vi2002jb04s
+
+■ご注意■
+・月額料金や一部加盟店でのお引き落としは、お客さまの実際のご利用日と異なる場合があります。
+・お取引内容に変更やキャンセルが生じた場合、利用特典は変更または取り消しされます。
+
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+PayPay銀行　Visaデビットカスタマーセンター
+https://www.paypay-bank.co.jp/help/customer.html#visa
+営業時間：9時〜17時
+休業日：12月31日〜1月3日、5月3日〜5月5日
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+PayPay銀行
+東京都新宿区西新宿2-1-1　新宿三井ビル
+https://www.paypay-bank.co.jp/
+====================================

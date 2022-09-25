@@ -1,0 +1,1586 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:8d47:0:0:0:0:0 with SMTP id p68csp8243666vkd;
+        Mon, 28 Dec 2020 01:20:32 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzQ23orRNNTfnLDKgn9HUvHU9kTrun+ANmCA6GbrbbggBDlc2EQL/EarKSMXCdl7gqOTf7w
+X-Received: by 2002:a63:5416:: with SMTP id i22mr42849890pgb.43.1609147232201;
+        Mon, 28 Dec 2020 01:20:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1609147232; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pKML30HwgI/EQeN4+OqkqkjUly8ii7BYQxSg2QupBxfL83rG/HSmye6mDxQg5GCaD8
+         wu0eLpCKU8NsNmeXAK4dlAs8Lf4v8k/5RBMFn3n0hGAnu+yBFdFeNTTHzfOzlaaX0ESL
+         m/qGv1Tcde5U/QhKQ3thT+/GrFC5SoxjA9XRpK+4oXah94F5tUCRvm1AjV+zxR+b3Fd2
+         Mla0cvsWqm72H6tfkccluNuyVMgyepr9cfFQtlQ/T4v/CuZ3nEGYYb0DDa4tR5W2yDFi
+         oFXiInLXM4/DzxgqaebCgXA3UA5v1je1/AiSe2x5SoEoet1XdpQe6p5vK5Zcl7sLHSpv
+         C1nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=X4tQFPLvJuFFuWPK2jO5ts50jqP3K43HmgxQSpkSyXw=;
+        b=bzOSPEcE587MhPLgqAxjYrsdoV8+H/d2+G0deSkYYud0sZ81NdObPoajNYZcm7XwSn
+         7nqvwwn5rpvWFrIs/kKrltNfTshYMbeIEHn87KoOIdzEs5M2lTbTHywuuMsRasGOYVV8
+         Dj0oRYBJW/V27A+zLUCIzQZgKnF5SkPGucr3yhC1gfkpJywM8897HI4VoL9JRql7uhgY
+         Sb+RjDn+vw59aQXnVwGQNst+jL58+XsAUcJgjhMWqfToBAnGCohpdNoZ8eK0Yqvs0V79
+         VdgnW1bWuxXX1WlNV3NmEtG+9wEk82JgG53YfD7OpVjw59iQgAbDaO67nvhWg5SRMmgk
+         lqng==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4 header.b=kxq5yv4i;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=b7nlg7Ts;
+       spf=pass (google.com: domain of rte+ne-null-850dda03292052oqlxvj4lyisr@sellernotifications.amazon.com designates 54.240.25.48 as permitted sender) smtp.mailfrom=RTE+NE-null-850ddA03292052OQLXVJ4LYISR@sellernotifications.amazon.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <RTE+NE-null-850ddA03292052OQLXVJ4LYISR@sellernotifications.amazon.com>
+Received: from a25-48.smtp-out.us-west-2.amazonses.com (a25-48.smtp-out.us-west-2.amazonses.com. [54.240.25.48])
+        by mx.google.com with ESMTPS id z20si8168192pga.317.2020.12.28.01.20.32
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Mon, 28 Dec 2020 01:20:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of rte+ne-null-850dda03292052oqlxvj4lyisr@sellernotifications.amazon.com designates 54.240.25.48 as permitted sender) client-ip=54.240.25.48;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4 header.b=kxq5yv4i;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=b7nlg7Ts;
+       spf=pass (google.com: domain of rte+ne-null-850dda03292052oqlxvj4lyisr@sellernotifications.amazon.com designates 54.240.25.48 as permitted sender) smtp.mailfrom=RTE+NE-null-850ddA03292052OQLXVJ4LYISR@sellernotifications.amazon.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4; d=amazon.co.jp; t=1609147231;
+	i=@marketplace.amazon.co.jp;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=bBk0sPXAkO73FHbB1xzb8vsyNmwI8kOwY5BHeQCyq6g=;
+	b=kxq5yv4i2SxfL/r2J3gLt5ozPWsTh5hqE2XcwVklwzNtQU4nCcz4kDbfzhOFhupm
+	ijqNMaUftwnR+CRTHKEiULJa2w/7axhmYNzeclo+daAhf+3psbba5bB13ee5K5FsG6I
+	3uFka9DldNliNQZTfQ+b7cmv6hwO7hz9jjYynSaQ=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1609147231;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=bBk0sPXAkO73FHbB1xzb8vsyNmwI8kOwY5BHeQCyq6g=;
+	b=b7nlg7Tsgnec5x2FLHQA3pNJXTEzANI22VBNf76m+fG/eiWkUPn9yG68vcvf+TmG
+	Eg3PEYfmny9pXttLc+fJQaHfa3AldcISNqwK+nkWdcBEuj9JdyVbslzEo9ETLlgXxpd
+	7NsO5wXqvtByc7U2kldae5NvDGpX0waNquFBU1SE=
+From: =?UTF-8?B?44ON44OD44OI44Kq44OVIC0gQW1heg==?= =?UTF-8?B?b24g44Oe44O844Kx44OD44OI44OX44Os44Kk44K5?= <x07fhp8y8hnlmmh@marketplace.amazon.co.jp>
+Reply-To: 
+	=?UTF-8?B?44ON44OD44OI44Kq44OVIC0gQW1heg==?= =?UTF-8?B?b24g44Oe44O844Kx44OD44OI44OX44Os44Kk44K5?= <x07fhp8y8hnlmmh@marketplace.amazon.co.jp>
+To: hujyorom@gmail.com
+Message-ID: <01010176a8a62e21-e45daa1c-c1ab-4511-b394-f3f0be4ec620-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?B?W+mHjeimgV3jgJDjg43jg4Pjg4jjgqrjg5XjgqLjg57jgr7jg7Plupc=?=
+ =?UTF-8?B?44CR44GU5rOo5paH5ZWG5ZOB44Gr44Gk44GE44Gm44Gu44GK55+l44KJ44Gb?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_18598794_1784515545.1609147231762"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: RTE+NE-null-850ddA03292052OQLXVJ4LYISR@sellernotifications.amazon.com
+X-AMAZON-METADATA: CA=C1YGTM15XB3YYU-CU=A10PIR4I6DYV8A
+X-Original-MessageID: <urn.rtn.msg.20201228092031b640c4ba2158494c9ecb0e160ad0p0fe@1609147231763.rtn-svc-fe-back-c42xl2a-cc63399c.us-west-2.amazon.com>
+Date: Mon, 28 Dec 2020 09:20:31 +0000
+X-SES-Outgoing: 2020.12.28-54.240.25.48
+Feedback-ID: 1.us-west-2.rdzROVNU4Ie6UEvJOunP6JDKqJ3if06FJy9qthmk+BU=:AmazonSES
+
+------=_Part_18598794_1784515545.1609147231762
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml"
+      xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+
+
+<!-- Email Header -->
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"html; charset=3DUTF-8"></m=
+eta>
+    <!-- Included header file, can be cloned and/or replaced. -->
+   =20
+<!--[if gte mso 15]>
+<xml>
+=09<o:OfficeDocumentSettings>
+=09<o:AllowPNG/>
+=09<o:PixelsPerInch>96</o:PixelsPerInch>
+=09</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<!--[if !mso]><!-->
+=09=09<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+=09<!--<![endif]-->
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+ />
+<style type=3D"text/css">
+=09
+@font-face {
+  font-family: 'Ember';
+  font-style: bold;
+  font-weight: 600;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Bd._CB1515450239_.WOFF) format('woff');
+    }
+@font-face {
+  font-family: 'Ember';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Rg._CB1515450239_.WOFF) format('woff');
+    }
+@font-face {
+  font-family: 'Ember';
+  font-style: light;
+  font-weight: 200;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Lt._CB1515450239_.WOFF) format('woff');
+    }
+@font-face {
+  font-family: 'Ember';
+  font-style: medium;
+  font-weight: 500;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Md._CB1515450239_.WOFF) format('woff');
+    }
+   =20
+=09.nbus-survey{color: #FFF;font-family:Ember, Arial, ember;font-size:13px;=
+line-height:150%;text-align:center}
+=09.nbus-survey:visited{color: #FFF;font-family:Ember, Arial, ember;font-si=
+ze:13px;line-height:150%;text-align:center}
+=09.nbus-survey:hover{color: #FFF;font-family:Ember, Arial, ember;font-size=
+:13px;line-height:150%;text-align:center}
+=09.nbus-survey:focus{color: #FFF;font-family:Ember, Arial, ember;font-size=
+:13px;line-height:150%;text-align:center}
+=09.nbus-survey:active{color: #FFF;font-family:Ember, Arial, ember;font-siz=
+e:13px;line-height:150%;text-align:center}
+=09
+=09one-column{border-spacing:0px;background-color:#FFFFFF;border:0px;paddin=
+g:0px;width:100%;column-count:1;}
+=09endrImageBlock{padding:0px;border-spacing:0px;min-width:100%;border-coll=
+apse:collapse;width:100%;border:0px;}
+=09endrImageBlockInner{padding:0px;}
+=09endrImageContentContainer{adding:0px;border-spacing:0px;min-width:100%;b=
+order-collapse:collapse;width:100%;border:0px;}
+=09endrTextContentContainer{min-width:100%;width:100%;border-collapse:colla=
+pse;background-color:#FFFFFF;border:0px;padding:0px;border-spacing:0px;}
+=09endrTextBlock{min-width:100%;border-collapse:collapse;background-color:#=
+FFFFFF;width:100%padding:0px;border-spacing:0px;border:0px;}
+=09preview-text{display:none;font-size:1px;line-height:1px;max-height:0px;m=
+ax-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: Ember, Ari=
+al, ember;font-weight:400;
+=09font-size:12px;}
+=09
+=09p{
+=09text-align:left;
+=09margin-top:10px;
+=09margin-bottom:10px;
+=09margin-right:0;
+=09margin-left:0;
+=09padding-top:0;
+=09padding-bottom:0;
+=09padding-right:0;
+=09padding-left:0;
+=09line-height:185%;
+=09font-family:Ember, Arial, ember;
+=09font-weight:400;
+=09font-size:12px;
+=09}
+=09small{
+=09font-family:Ember, Arial, ember;
+=09=09
+=09}
+=09table{
+=09border-collapse:collapse;
+=09}
+=09h1,h2,h3,h4,h5,h6{
+=09display:block;
+=09margin:0;
+=09padding:0;
+=09font-family:Ember, Arial, ember;
+=09}
+=09img,a img{
+=09border:0;
+=09height:auto;
+=09outline:none;
+=09text-decoration:none;
+=09font-family:Ember, Arial, ember;
+=09}
+=09pre{
+=09height:100%;
+=09margin:0px;
+=09padding:0px;
+=09width:100%;
+=09font-family:Ember, Arial, ember;min-width:100%;
+=09font-weight:400;
+=09font-size:12px;
+=09white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+=09}
+=09body,#bodyTable,#bodyCell{
+=09height:100%;
+=09margin:0px;
+=09padding:0px;
+=09width:100%;
+=09background-color:#e4e3e4;
+=09color:#999999
+=09font-family:Ember, Arial, ember;min-width:100%;
+=09}
+=09#outlook a{
+=09padding:0;
+=09}
+=09img{
+=09-ms-interpolation-mode:bicubic;
+=09}
+=09table{
+=09mso-table-lspace:0pt;
+=09mso-table-rspace:0pt;
+=09}
+=09.ReadMsgBody{
+=09width:100%;
+=09}
+=09.ExternalClass{
+=09width:100%;
+=09}
+=09p,a,li,td,blockquote{
+=09mso-line-height-rule:exactly;
+=09}
+=09a[href^=3Dtel],a[href^=3Dsms]{
+=09color:inherit;
+=09cursor:default;
+=09text-decoration:none;
+=09}
+=09p,a,li,td,body,table,blockquote{
+=09-ms-text-size-adjust:100%;
+=09-webkit-text-size-adjust:100%;
+=09}
+=09.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.Ex=
+ternalClass span,.ExternalClass font{
+=09line-height:100%;
+=09}
+=09a[x-apple-data-detectors]{
+=09color:inherit !important;
+=09text-decoration:none !important;
+=09font-size:inherit !important;
+=09font-family:inherit !important;
+=09font-weight:inherit !important;
+=09line-height:inherit !important;
+=09}
+=09.templateContainer{
+=09max-width:600px !important;
+=09}
+=09.endrImage{
+=09vertical-align:bottom;
+=09}
+=09.endrTextContent{
+=09word-break:break-word;
+=09padding-top:15px;
+=09padding-bottom:10px;
+=09padding-right:18px;
+=09padding-left:18px;
+=09text-align:left;
+=09}
+=09.endrTextContent img{
+=09height:auto !important;
+=09}
+=09.endrDividerBlock{
+=09table-layout:fixed !important;
+=09}
+=09body { margin:0 !important; }
+=09div[style*=3D"margin: 16px 0"] { margin:0 !important; }
+
+=09body,#bodyTable{
+=09background-color:#e4e3e4;
+=09color:#999999;
+=09font-family:Ember, Arial, ember;
+=09}
+=09
+=09.templateBlocks{
+=09background-color:#FFFFFF;
+=09border-top-width:0;
+=09border-bottom-width:0;
+=09padding-top:0;
+=09padding-bottom:0;
+=09font-size:15px;
+=09line-height:185%;
+=09text-align:left;
+=09background-color:#FFFFFF;
+=09}
+=09
+=09.templateQuoteBlocks{
+=09background-color:#F04D44;
+=09}
+=09
+=09#bodyCell{
+=09border-top:0;
+=09}
+
+=09h1{
+=09color:#455c64;
+=09font-family:Ember, Arial, ember;
+=09font-size:30px;
+=09font-style:normal;
+=09font-weight:normal;
+=09line-height:120%;
+=09letter-spacing:normal;
+=09padding-top:2px;
+=09padding-bottom:2px;
+=09}
+
+=09a{
+=09color:#e74c3c;
+=09font-weight:normal;
+=09text-decoration:underline;
+=09}
+
+=09h2{
+=09color:#848484;
+=09font-family:Ember, Arial, ember;
+=09font-size:15px;
+=09font-style:normal;
+=09font-weight:normal;
+=09line-height:145%;
+=09letter-spacing:1px;
+=09padding-top:5px;
+=09padding-bottom:4px;
+=09}
+
+=09h3{
+=09color:#455c64;
+=09font-family:Ember, Arial, ember;
+=09font-size:20px;
+=09font-style:normal;
+=09font-weight:normal;
+=09line-height:140%;
+=09letter-spacing:normal;
+=09text-align:left;
+=09padding-top:2px;
+=09padding-bottom:2px;
+=09}
+
+=09h4{
+=09color:#666666;
+=09font-family:Ember, Arial, ember;
+=09font-size:16px;
+=09font-style:normal;
+=09font-weight:normal;
+=09line-height:125%;
+=09letter-spacing:normal;
+=09text-align:left;
+=09padding-top:11px;
+=09padding-bottom:4px;
+=09}
+
+=09h5{
+=09color:#ffffff;
+=09font-family:Ember, Arial, ember;
+=09font-size:20px;
+=09font-style:normal;
+=09font-weight:normal;
+=09line-height:135%;
+=09letter-spacing:normal;
+=09text-align:left;
+=09padding-top:11px;
+=09padding-right:20px;
+=09padding-bottom:8px;
+=09padding-left:20px;
+=09}
+
+=09h6{
+=09color:#ffffff;
+=09font-family:Ember, Arial, ember;
+=09font-size:26px;
+=09font-style:normal;
+=09font-weight:normal;
+=09line-height:135%;
+=09letter-spacing:normal;
+=09text-align:right;
+=09padding-top:11px;
+=09padding-right:20px;
+=09padding-bottom:8px;
+=09padding-left:20px;
+=09}
+
+=09#templatePreheader{
+=09border-top:0;
+=09border-bottom:0;
+=09padding-top:4px;
+=09padding-bottom:12px;
+=09}
+
+=09#templatePreheader .endrTextContent,#templatePreheader .endrTextContent =
+p{
+=09color:#fbfbfb;
+=09font-family:Ember, Arial, ember;
+=09font-size:12px;
+=09line-height:150%;
+=09text-align:center;
+=09}
+
+=09#templatePreheader .endrTextContent a,#templatePreheader .endrTextConten=
+t p a{
+=09color:#fbfbfb;
+=09font-weight:normal;
+=09text-decoration:underline;
+=09}
+
+=09#templateHeader{
+=09background-color:#303942;
+=09border-top:0px solid #e4e3e4;
+=09border-bottom:0;
+=09padding-top:0px;
+=09padding-bottom:0px;
+=09}
+
+=09#templateHeader .endrTextContent,#templateHeader .endrTextContent p{
+=09color:#ffffff;
+=09font-family:Ember, Arial, ember;
+=09font-size:13px;
+=09line-height:100%;
+=09text-align:right;
+=09}
+
+=09#templateHeader .endrTextContent,#templateHeader .endrTextContent h1{
+=09color:#ffffff;
+=09font-family:Ember, Arial, ember;
+=09font-size:20px;
+=09line-height:100%;
+=09text-align:right;
+=09}
+
+=09#templateHeader .endrTextContent a,#templateHeader .endrTextContent p a{
+=09color:#ffffff;
+=09font-weight:normal;
+=09text-decoration:none;
+=09}
+
+=09#templateSeparator{
+=09padding-top:8px;
+=09padding-bottom:8px;
+=09}
+
+=09.templateLowerBody{
+=09background-color:#455C64;
+=09border-bottom:0;
+=09padding-top:1px;
+=09padding-bottom:1px;
+=09}
+
+=09.templateLowerBody .endrTextContent,.templateLowerBody .endrTextContent =
+p{
+=09color:#ffffff;
+=09font-family:Ember, Arial, ember;
+=09font-size:13px;
+=09line-height:150%;
+=09text-align:left;
+=09}
+
+=09.templateLowerBody .endrTextContent a,.templateLowerBody .endrTextConten=
+t p a{
+=09color:#ffffff;
+=09font-weight:normal;
+=09text-decoration:underline;
+=09}
+
+=09.templateLowerBody .endrTextContent h1 {
+=09color:#ffffff;
+=09font-weight:700;
+=09font-size:18px;
+=09}
+
+=09.templateSocial{
+=09background-color:#e4e3e4;
+=09padding-top:13px;
+=09padding-bottom:3px;
+=09}
+
+=09#templateFooter{
+=09border-top:0;
+=09border-bottom:0;
+=09padding-top:5px;
+=09padding-bottom:5px;
+=09}
+
+=09#templateFooter .endrTextContent,#templateFooter .endrTextContent p{
+=09color:#fbfbfb;
+=09font-family:Ember, Arial, ember;
+=09font-size:12px;
+=09line-height:150%;
+=09text-align:center;
+=09}
+
+=09#templateFooter .endrTextContent a,#templateFooter .endrTextContent p a{
+=09color:#fbfbfb;
+=09font-weight:normal;
+=09text-decoration:underline;
+=09}
+=09
+=09@media only screen and (min-width:768px){
+=09.templateContainer{
+=09width:600px !important;
+=09}
+=09}=09
+=09
+=09@media only screen and (max-width: 480px){
+=09
+=09.templateHeader{
+=09=09display: none;
+=09}
+=09=09
+=09.bigimage .endrImageContent{
+=09padding-top:0px !important;
+
+=09}
+=09.templateContainer{
+=09width:100% !important;
+=09max-width:600px;
+=09}=09@media only screen and (max-width: 480px){
+=09body,table,td,p,a,li,blockquote{
+=09-webkit-text-size-adjust:none !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09body{
+=09width:100% !important;
+=09min-width:100% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09#bodyCell{
+=09padding-top:10px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.columnWrapper{
+=09max-width:100% !important;
+=09width:100% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrImage{
+=09width:100% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrCaptionTopContent,.endrCaptionBottomContent,.endrTextContentContain=
+er,.endrBoxedTextContentContainer,.endrImageGroupContentContainer,.endrCapt=
+ionLeftTextContentContainer,.endrCaptionRightTextContentContainer,.endrCapt=
+ionLeftImageContentContainer,.endrCaptionRightImageContentContainer,.endrIm=
+ageCardLeftTextContentContainer,.endrImageCardRightTextContentContainer{
+=09max-width:100% !important;
+=09width:100% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrBoxedTextContentContainer{
+=09min-width:100% !important;
+=09}
+=09} @media only screen and (max-width: 480px){
+=09.column{
+=09width:100% !important;
+=09max-width:100% !important;
+=09}
+=09} @media only screen and (max-width: 480px){
+=09.endrImageGroupContent{
+=09padding:9px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrCaptionLeftContentOuter .endrTextContent,.endrCaptionRightContentOu=
+ter .endrTextContent{
+=09padding-top:9px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrImageCardTopImageContent,.endrCaptionBlockInner .endrCaptionTopCont=
+ent:last-child .endrTextContent{
+=09padding-top:18px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrImageCardBottomImageContent{
+=09padding-bottom:9px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrImageGroupBlockInner{
+=09padding-top:0 !important;
+=09padding-bottom:0 !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrImageGroupBlockOuter{
+=09padding-top:9px !important;
+=09padding-bottom:9px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrTextContent,.endrBoxedTextContentColumn{
+=09padding-right:18px !important;
+=09padding-left:18px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.endrImageCardLeftImageContent,.endrImageCardRightImageContent{
+=09padding-right:18px !important;
+=09padding-bottom:0 !important;
+=09padding-left:18px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09.mcpreview-image-uploader{
+=09display:none !important;
+=09width:100% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09h1{
+=09font-size:22px !important;
+=09line-height:125% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09h2{
+=09font-size:20px !important;
+=09line-height:125% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09h3{
+=09font-size:18px !important;
+=09line-height:125% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09h4{
+=09font-size:16px !important;
+=09line-height:150% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+=09
+=09.endrBoxedTextContentContainer .endrTextContent,.endrBoxedTextContentCon=
+tainer .endrTextContent p{
+=09font-size:14px !important;
+=09line-height:150% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09#templatePreheader{
+=09display:block !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09#templatePreheader .endrTextContent,#templatePreheader .endrTextContent =
+p{
+=09font-size:12px !important;
+=09line-height:150% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09#templateHeader .endrTextContent,#templateHeader .endrTextContent p{
+=09font-size:16px !important;
+=09line-height:100% !important;
+=09text-align:center !important;
+=09}
+
+=09#templateHeader .endrTextContent, #templateHeader .endrTextContent h1{
+=09font-size:20px !important;
+=09line-height:100% !important;
+=09padding-bottom:10px !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09#templateUpperBody .endrTextContent,#templateUpperBody .endrTextContent =
+p{
+=09font-size:16px !important;
+=09line-height:150% !important;
+=09}
+=09
+=09}=09@media only screen and (max-width: 480px){
+
+=09#templateColumns .columnContainer .endrTextContent,#templateColumns .col=
+umnContainer .endrTextContent p{
+=09font-size:16px !important;
+=09line-height:150% !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09.templateLowerBody .endrTextContent,.templateLowerBody .endrTextContent =
+p{
+=09font-size:16px !important;
+=09line-height:150% !important;
+=09text-align:center !important;
+=09}
+=09}=09@media only screen and (max-width: 480px){
+
+=09#templateFooter .endrTextContent,#templateFooter .endrTextContent p{
+=09font-size:12px !important;
+=09line-height:150% !important;
+=09}
+=09}
+</style>
+
+<!--[if mso]>
+<style type=3D"text/css">
+body, table, td {font-family: Arial, Helvetica, sans-serif !important;}
+h1 {font-family: Arial, Helvetica, sans-serif !important;}
+h2 {font-family: Arial, Helvetica, sans-serif !important;}
+h3 {font-family: Arial, Helvetica, sans-serif !important;}
+h4 {font-family: Arial, Helvetica, sans-serif !important;}
+h5 {font-family: Arial, Helvetica, sans-serif !important;}
+h6 {font-family: Arial, Helvetica, sans-serif !important;}
+h7 {font-family: Arial, Helvetica, sans-serif !important;}
+p {font-family: Arial, Helvetica, sans-serif !important;}
+</style>
+<![endif]-->
+
+<!--[if gt mso 15]>
+<style type=3D"text/css" media=3D"all">
+/* Outlook 2016 Height Fix */
+table, tr, td {border-collapse: collapse;}
+tr {border-collapse: collapse; }
+body {background-color:#ffffff;}
+</style>
+<![endif]-->
+    <!-- Title - Optional content - The title tag shows in email notificati=
+ons on mobile devices -->
+    <title>
+   =20
+    </title>
+    <style type=3D"text/css">
+        p.solid {
+            border-style: solid;
+            border-width: 1px;
+            padding: 5px
+        }
+
+        button-style {
+            background: #222222;
+            border: 15px solid #222222;
+            padding: 0 10px;
+            color: #ffffff;
+            font-family: Ember, Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.1;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        tablebutton {
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+    </style>
+</head>
+
+<!-- Email Body -->
+<body style=3D"body">
+<center class=3D"wrapper" style=3D"width:100%;table-layout:fixed;background=
+-color:#e4e3e4;">
+    <div class=3D"webkit" style=3D"max-width:600px;margin:0 auto;">
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" id=3D"bodyTable"
+               style=3D"border-collapse:collapse;height:100%;margin-top:0;m=
+argin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;=
+padding-right:0;padding-left:0;width:100%;background-color:#e4e3e4;color:#5=
+a5a5a;font-family:Ember, Arial, sans-serif">
+            <tr>
+                <td align=3D"center" valign=3D"top" id=3D"bodyCell"
+                    style=3D"height:100%;margin-top:0;margin-bottom:0;margi=
+n-right:0;margin-left:0;width:100%;padding-top:10px;padding-bottom:10px;bor=
+der-top-width:0;">
+                    <!-- BEGIN TEMPLATE // -->
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align=3D"center" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" width=3D"600"
+                           style=3D"width:600px;border-collapse:collapse;">
+                        <tr>
+                            <td align=3D"center" valign=3D"top" width=3D"60=
+0" style=3D"width:600px;">
+                    <![endif]-->
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"templateContainer"
+                           style=3D"width:100%;max-width:600px;border-colla=
+pse:collapse;">
+                        <tr>
+                            <td>
+
+
+                                <!-- Previewtext - Optional content - This =
+text will appear in the inbox preview, but not the email body. div class =
+=3D "preview-text" -->
+                                <div style=3D"display:none;font-size:1px;li=
+ne-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hi=
+de:all;font-family:Ember, Arial, sans-serif;"
+                                >
+                                </div>
+
+                                <!-- Included header file(graphics)  -->
+                                <!-- BLOCK Logo Center -->
+                                <table class=3D"one-column" border=3D"0" ce=
+llpadding=3D"4" cellspacing=3D"0" width=3D"100%"
+                                       style=3D"border-spacing:0;">
+
+                                    <tr valign=3D"top"
+                                        style=3D"border-top-width:0;border-=
+bottom-width:0;font-size:14px;line-height:185%;text-align:left;background-c=
+olor:#fff;">
+                                        <td valign=3D"top" class=3D"templat=
+eLowerBody" style=3D"background-color:#fff;">
+                                        <td align=3D"left">
+                                            <div style=3D"width:306px; disp=
+lay:inline-block;background-color:#fff"
+                                                 class=3D"full">
+                                                <table align=3D"left" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0"
+                                                       bgcolor=3D"#ffffff">
+                                                    <tr>
+                                                        <td align=3D"left">=
+<a
+                                                                href=3D"htt=
+ps://sellercentral.amazon.co.jp/nms/redirect/e40e5234-a726-3ed8-80b4-401efe=
+9b78bf?sk=3DEOb-ZhJcysewXxRyEICnvlDy7u50CdT5JtABFs0KyeQ3AfHFUSXQD-mxNtk8_vJ=
+WxQOAkBrdnr9y2ISxdcrUuw&amp;n=3D1&amp;u=3DaHR0cDovL3d3dy5hbWF6b24uY28uanAvZ=
+3Avci5odG1sP0M9Mlc5TzNBM0NVVlFYWiZNPXVybjpydG46bXNnOjIwMTgwNTE3MTkyNDI3ODM1=
+MmMyMTMxNWEzNDdjMjljODRjMTk1Y2ZlMHAwbmEmUj0yM1dLRkZaQ1k0Rk44JlQ9QyZVPWh0dHB=
+zJTNBJTJGJTJGd3d3LmFtYXpvbi5jb20lMkZyZWYlM0RwZV8xNzI1NzYwXzE1NzI5NzUzMF9wZV=
+9mb290ZXJfYW1hem9ubG9nbyUyRiZIPUhIT0JTRzZYSE1SUlZYVTJRNU5USVhMUVQzNEEmcmVmX=
+z1wZV8xNzI1NzYwXzE1NzI5NzUzMF9wZV9mb290ZXJfYW1hem9ubG9nbw"
+                                                                target=3D"_=
+blank"><img
+                                                                src=3D"http=
+s://m.media-amazon.com/images/G/01/logo/a_com_logo_220x96v2._V516822156_.jp=
+g"
+                                                                width=3D"93=
+" height=3D"auto" alt=3D"Amazon" border=3D"0"
+                                                                style=3D"di=
+splay:block; width:93px; height:auto;"/></a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- ENDR Header  -->
+                                                            </td>
+                        </tr>
+                    </table>
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"templateContainer" width=3D"100%"
+                           style=3D"width:100%;max-width:600px;border-colla=
+pse:collapse;background-color:#ffffff;"
+                           bgcolor=3D"#ffffff">
+                        <tr>
+                            <td>
+
+                                <!-- General Block of text - modify/replace=
+ with your content -->
+                                <table class=3D"one-column">
+                                    <tr valign=3D"top" class=3D"templateBlo=
+cks">
+                                        <td valign=3D"top">
+                                            <table class=3D"endrTextBlock">
+                                                <tbody class=3D"endrTextBlo=
+ckOuter">
+                                                <tr>
+                                                    <td valign=3D"top" clas=
+s=3D"endrTextBlockInner">
+                                                        <table align=3D"lef=
+t" class=3D"endrTextContentContainer">
+                                                            <tbody>
+                                                            <tr>
+
+                                                           =20
+                                                                <td valign=
+=3D"top" class=3D"endrTextContent" align=3D"center"
+                                                                    style=
+=3D"padding-top:0px;">
+                                                                    <p styl=
+e=3D"font-size:13px;color: black;text-align:left;margin-top:0px;margin-bott=
+om:10px;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding=
+-right:0;padding-left:0;line-height:185%;border-top: 1px solid">
+                                                                   =20
+<h4 style=3D"color:black">
+    <strong>
+           Amazon=E5=87=BA=E5=93=81=E8=80=85=E3=81=8B=E3=82=89=E3=81=AE=E3=
+=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=8C=E5=B1=8A=E3=81=8D=E3=81=
+=BE=E3=81=97=E3=81=9F -  =E3=83=8D=E3=83=83=E3=83=88=E3=82=AA=E3=83=95<br/>
+        </strong>
+</h4>
+
+                                                                    <p styl=
+e=3D"color:#000000;font-family:Ember, Arial, sans-serif; font-size: 15px;">=
+=E6=B3=A8=E6=96=87=E7=95=AA=E5=8F=B7 249-0351925-6533458</p>
+<table width=3D"100%" align=3D"center" cellspacing=3D"0" cellpadding=3D"10"=
+ border-collapse=3D"collapse" style=3D"color:#000000;font-family:Ember, Ari=
+al, sans-serif; font-size: 13px;">
+<tr>
+    <td align=3D"left" nowrap=3D"nowrap" style=3D"width:10%; border-top: 2p=
+x solid #ccc; border-bottom: 2px solid #ccc;">=E3=82=AB=E3=82=A6=E3=83=B3=
+=E3=83=88</td>
+    <td align=3D"left" colspan=3D"2" style=3D"border-top: 2px solid #ccc; b=
+order-bottom: 2px solid #ccc;">=E5=95=86=E5=93=81=E5=90=8D=E3=81=A8ASIN </t=
+d>
+</tr>
+<tr style=3D"border-top: 2px solid #ccc;">
+    <td align=3D"center">=20
+=09=09=09    =091
+=09        </td>
+    =09=09<td>
+    =09=09<img style=3D"float: left;" src=3Dhttps://m.media-amazon.com/imag=
+es/I/41hpbCPsoIL._SS100_.jpg alt=3D"product image">=20
+     =09</td>
+        <td>
+       =09<span style=3D"display: table-cell;vertical-align: top;height: 10=
+0%;">
+   =09=09=09        =09=09=E3=82=82=E3=81=A3=E3=81=9F=E3=81=84=E3=81=AA=E3=
+=81=84=E4=B8=BB=E7=BE=A9=E2=80=95=E4=B8=8D=E6=99=AF=E6=B0=97=E3=81=A0=E3=81=
+=8B=E3=82=89=E3=82=A2=E3=82=A4=E3=83=87=E3=82=A2=E3=81=8C=E6=B9=A7=E3=81=84=
+=E3=81=A6=E3=81=8F=E3=82=8B! (=E5=B9=BB=E5=86=AC=E8=88=8E=E6=96=B0=E6=9B=B8=
+)
+    =09=09   =09=09=09<br>
+   =09=09=09<span style=3D"color:#808080;">
+=09   =09=09=09=09        =09=09ASIN: 4344981162
+=09               =09=09=09</span>
+
+       =09</span>
+
+    </td>
+</tr>
+</table>
+                                                                       =20
+                                                                           =
+                                                            =20
+                                                                    <table =
+border=3D"0"
+                                                                           =
+style=3D"margin:0px;width:100%;border-spacing:0;border-top: 1px solid;borde=
+r-bottom: 1px solid;">
+                                                                    <tr>
+                                                                        <th=
+ style=3D"padding:5px;text-align: left">
+
+                                                                           =
+                                                                           =
+      <div style=3D"font-weight:normal;color:black;margin:5%;font-size:13px=
+;font-family:Ember, Arial, sans-serif;color:black;"> <html><head></head><bo=
+dy><pre style=3D"white-space: pre-wrap">&#12372;&#27880;&#25991;&#30058;&#2=
+1495;&#65306;&#12288;249-0351925-6533458&#65288;3-20201227-01934-0&#65289;
+
+&#36960;&#34276;&#12288;&#23559;&#21496;&#12288;&#27096;
+----------------------------------------------------
+&#12304;&#24180;&#26411;&#24180;&#22987;&#12398;&#12372;&#23550;&#24540;&#1=
+2395;&#12388;&#12365;&#12414;&#12375;&#12390;&#12305;
+
+&#12362;&#21839;&#12356;&#21512;&#12431;&#12379;&#23550;&#24540;&#12399;&#1=
+2289;12&#26376;30&#26085;&#65288;&#27700;&#65289;&#12316;1&#26376;4&#26085;=
+&#65288;&#26376;&#65289;&#12398;&#26399;&#38291;&#12289;&#12362;&#20241;&#1=
+2415;&#12392;&#12373;&#12379;&#12390;&#12356;&#12383;&#12384;&#12365;&#1241=
+4;&#12377;&#12290;
+&#12371;&#12398;&#38291;&#12395;&#12362;&#23458;&#27096;&#12363;&#12425;&#1=
+2362;&#23492;&#12379;&#12356;&#12383;&#12384;&#12356;&#12383;&#12513;&#1254=
+0;&#12523;&#12395;&#12424;&#12427;&#21508;&#31278;&#12362;&#21839;&#12356;&=
+#21512;&#12431;&#12379;&#12539;&#25163;&#32154;&#12365;&#31561;&#12399;&#12=
+289;1&#26376;5&#26085;&#65288;&#28779;&#65289;&#20197;&#38477;&#38918;&#274=
+25;&#23550;&#24540;&#12373;&#12379;&#12390;&#12356;&#12383;&#12384;&#12365;=
+&#12414;&#12377;&#12290;
+&#12414;&#12383;&#12289;12&#26376;28&#26085;&#65288;&#26376;&#65289;&#12316=
+;1&#26376;5&#26085;&#65288;&#28779;&#65289;&#12398;&#12362;&#21839;&#12356;=
+&#21512;&#12431;&#12379;&#23550;&#24540;&#12399;&#12289;PM15:00&#12414;&#12=
+391;&#12392;&#12394;&#12426;&#12414;&#12377;&#12290;
+----------------------------------------------------
+
+&#12493;&#12483;&#12488;&#12458;&#12501;&#12434;&#12372;&#21033;&#29992;&#1=
+2356;&#12383;&#12384;&#12365;&#12414;&#12375;&#12390;&#12354;&#12426;&#1236=
+4;&#12392;&#12358;&#12372;&#12374;&#12356;&#12414;&#12377;&#12290;
+
+&#12372;&#27880;&#25991;&#12356;&#12383;&#12384;&#12365;&#12414;&#12375;&#1=
+2383;&#21830;&#21697;1&#28857;&#12398;&#12358;&#12385;&#12289;
+
+1&#28857;
+&#24187;&#20908;&#33294; &#12300;&#12418;&#12387;&#12383;&#12356;&#12394;&#=
+12356;&#20027;&#32681;&#65311;&#19981;&#26223;&#27671;&#12384;&#12363;&#124=
+25;&#12450;&#12452;&#12487;&#12450;&#12364;&#28263;&#12356;&#12390;&#12367;=
+&#12427;&#65281;&#65311;&#12301; &#36820;&#37329;&#38989;&#65306; &#65509;2=
+81
+
+&#12395;&#12388;&#12365;&#12414;&#12375;&#12390;&#12289;&#24330;&#31038;&#3=
+3258;&#31038;&#12469;&#12452;&#12488;&#12392;&#12398;&#20341;&#22770;&#2183=
+0;&#21697;&#12398;&#28858;&#12289;&#22312;&#24235;&#20999;&#12428;&#12392;&=
+#12394;&#12387;&#12390;&#12362;&#12426;&#12414;&#12377;&#12290;
+&#12379;&#12387;&#12363;&#12367;&#12372;&#27880;&#25991;&#12356;&#12383;&#1=
+2384;&#12356;&#12383;&#12395;&#12418;&#12363;&#12363;&#12431;&#12425;&#1237=
+8;&#12289;&#30003;&#12375;&#35379;&#12372;&#12374;&#12356;&#12414;&#12379;&=
+#12435;&#12290;
+
+&#35488;&#12395;&#21213;&#25163;&#12394;&#12364;&#12425;&#12289;&#19978;&#3=
+5352;&#21830;&#21697;&#20195;&#37329;&#12392;&#36865;&#26009;&#12398;&#1237=
+2;&#36820;&#37329;&#20966;&#29702;&#12434;&#20986;&#33655;&#24460;&#25968;&=
+#26085;&#20197;&#20869;&#12395;&#12373;&#12379;&#12390;&#38914;&#12365;&#12=
+414;&#12377;&#12290;
+&#20966;&#29702;&#24460;Amazon&#12510;&#12540;&#12465;&#12483;&#12488;&#125=
+03;&#12524;&#12452;&#12473;&#12424;&#12426;&#12372;&#36820;&#37329;&#12395;=
+&#38306;&#12377;&#12427;&#12513;&#12540;&#12523;&#12364;&#37197;&#20449;&#1=
+2373;&#12428;&#12414;&#12377;&#12398;&#12391;&#12289;
+&#12372;&#30906;&#35469;&#38914;&#12369;&#12414;&#12377;&#12424;&#12358;&#1=
+2362;&#39000;&#12356;&#33268;&#12375;&#12414;&#12377;&#12290;
+&#23578;&#12289;&#12372;&#27880;&#25991;&#12356;&#12383;&#12384;&#12356;&#1=
+2383;&#21830;&#21697;&#12377;&#12409;&#12390;&#12364;&#12461;&#12515;&#1253=
+1;&#12475;&#12523;&#12392;&#12394;&#12427;&#22580;&#21512;&#12399;&#35531;&=
+#27714;&#12399;&#30330;&#29983;&#33268;&#12375;&#12414;&#12379;&#12435;&#12=
+290;
+&#12372;&#36855;&#24785;&#12434;&#12362;&#12363;&#12369;&#12356;&#12383;&#1=
+2375;&#12414;&#12375;&#12383;&#12371;&#12392;&#12362;&#35435;&#12403;&#3000=
+3;&#12375;&#19978;&#12370;&#12414;&#12377;&#12290;
+
+&#36820;&#37329;&#38989;&#65306;&#12288;&#65509;281
+
+=20
+
+Amazon&#12510;&#12540;&#12465;&#12483;&#12488;&#12503;&#12524;&#12452;&#124=
+73;&#20986;&#21697;&#21830;&#21697;&#12395;&#12388;&#12365;&#12414;&#12375;=
+&#12390;&#12399;&#12289; <a href=3D"https://sellercentral.amazon.co.jp/nms/=
+redirect/a35f0275-36b7-3982-8928-5404084d29bf?sk=3DlYftsE1GzR5UqTKPeRdpX4UP=
+v0R6g5NHlLsSqjUScPOru3BwpsAasTqBYI2kFetzYlzWENdv-Gf2koUsVCal-w&amp;n=3D1&am=
+p;u=3DaHR0cDovL0FtYXpvbi5jby5qcA">Amazon.co.jp</a> &#32076;&#30001;&#12398;
+&#27770;&#28168;&#12395;&#12394;&#12426;&#12414;&#12377;&#12290;&#24330;&#3=
+1038;&#12363;&#12425;&#12398;&#36820;&#37329;&#12487;&#12540;&#12479;&#1236=
+4;Amazon&#12395;&#23626;&#12365;&#27425;&#31532;&#12424;&#12426;&#36820;&#3=
+7329;&#20966;&#29702;&#12364;&#12373;&#12428;&#12414;&#12377;&#12290;
+Amazon&#12462;&#12501;&#12488;&#21048;&#12289;&#12471;&#12519;&#12483;&#125=
+00;&#12531;&#12464;&#12459;&#12540;&#12489;&#12395;&#12390;&#27770;&#28168;=
+&#12373;&#12428;&#12383;&#12362;&#23458;&#27096;&#12399;&#12289;&#27531;&#3=
+9640;&#12395;&#21152;&#31639;&#12398;&#24418;&#12391;
+&#36820;&#37329;&#12373;&#12428;&#12414;&#12377;&#12290;
+&#12463;&#12524;&#12472;&#12483;&#12488;&#12459;&#12540;&#12489;&#12395;&#1=
+2390;&#27770;&#28168;&#12373;&#12428;&#12383;&#12362;&#23458;&#27096;&#1239=
+9;&#12289;&#12463;&#12524;&#12472;&#12483;&#12488;&#12461;&#12515;&#12531;&=
+#12475;&#12523;&#20966;&#29702;&#12395;&#12390;&#36820;&#37329;&#12373;&#12=
+428;&#12414;&#12377;&#12290;
+
+&#12362;&#21839;&#21512;&#12379;&#31561;&#12372;&#12374;&#12356;&#12414;&#1=
+2375;&#12383;&#12425;&#12371;&#12398;&#12513;&#12540;&#12523;&#12395;&#3682=
+0;&#20449;&#12395;&#12390;&#12289;&#12493;&#12483;&#12488;&#12458;&#12501;&=
+#12362;&#23458;&#27096;&#12475;&#12531;&#12479;&#12540;&#12414;&#12391;
+&#12372;&#36899;&#32097;&#12367;&#12384;&#12373;&#12356;&#12414;&#12379;&#1=
+2290;
+
+&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#947=
+3;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9=
+473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&=
+#9473;&#9473;&#9473;
+&#12288;&#9632;&#12493;&#12483;&#12488;&#12458;&#12501;&#12362;&#23458;&#27=
+096;&#12475;&#12531;&#12479;&#12540;&#9632;
+&#12288;&#12288;&#12288;&#12306;474-0055&#12288;&#24859;&#30693;&#30476;&#2=
+2823;&#24220;&#24066;&#19968;&#23627;&#30010;&#19977;&#19969;&#30446;45&#30=
+058;&#22320;
+&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#947=
+3;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9=
+473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&=
+#9473;&#9473;&#9473;
+
+
+
+</pre><img src=3D"https://sellercentral.amazon.co.jp/nms/img/88e06729-8fe7-=
+36fb-a991-027151dbd347?sk=3DjbUJlhzkTKlBHNyiVlz6ZIFvsQ-TIm_Uz0KnnMBtWKGZNzY=
+JzsXs9m6xzIZYk8iocA7SEnVtcA63TpYHTYb8iQ&amp;n=3D1" height=3D"1" width=3D"1"=
+ border=3D"0" alt=3D""></body></html></div>
+                                                                           =
+                                                                         </=
+th>
+                                                                    </tr>
+                                                                </table>
+
+
+                                                                   =20
+
+                                                                           =
+                                                             =09           =
+                                                                           =
+                                                     =20
+                                                                    <table =
+cellspacing=3D"2"
+                                                                           =
+cellpadding=3D"1" border=3D"0" align=3D"center"
+                                                                           =
+style=3D"border-collapse: separate;border-spacing:5px;width:100%;">
+                                                                        <tr=
+>
+                                                                           =
+ <th colspan=3D"3" style=3D"text-align:left">
+                                                                           =
+                                                                           =
+              <font style=3D"font-weight:normal;font-size:13px;font-family:=
+Ember, Arial, sans-serif;color:black;">=E3=81=93=E3=81=AE=E3=83=A1=E3=83=83=
+=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=AF=E5=BD=B9=E3=81=AB=E7=AB=8B=E3=81=A1=E3=
+=81=BE=E3=81=97=E3=81=9F=E3=81=8B=EF=BC=9F</font>
+                                                                           =
+                                                                           =
+      </th>
+                                                                        </t=
+r>
+
+                                                                        <tr=
+>
+                                                                           =
+                                                                           =
+      <td style=3D"width:100px;height:30px;background-color:#EFF1F3;border-=
+radius:3px;text-align:center;margin:5px">
+                                                                           =
+     <a
+                                                                           =
+             href=3D"https://sellercentral.amazon.co.jp/nms/redirect/ef577e=
+e9-d7af-3ba8-815b-4ba93d3408d0?sk=3D-_EWyRIJqJ3__2mz7o1jNqlpgZjCqubjNJHTP2F=
+9fFV2Xkil5lQauWrQIcQAJ-5yWOp4mcQxF7uxmWX26hyrVw&amp;n=3D1&amp;u=3DaHR0cDovL=
+3d3dy5hbWF6b24uY28uanAvZ3AvaGVscC9zdXJ2ZXk_cD1BNlFXVjZZQldEN1g1Jms9aHkmcmVm=
+Xz1ic21faG1keWVzX2h0"
+                                                                           =
+             style=3D"background:linear-gradient(#f7f8fa, #e7e9ec); border-=
+radius: 3px; box-shadow:0 0 0 1px dimgray; color: #000000; font-family:Embe=
+r, Arial, sans-serif;font-size: 13px; text-align: center; text-decoration: =
+none; display: block;">
+                                                                           =
+         =E3=81=AF=E3=81=84
+                                                                           =
+         </a></td>
+                                                                           =
+                                                                           =
+ =20
+                                                                           =
+ <td></td>
+                                                                           =
+=20
+                                                                           =
+                                                                           =
+      <td style=3D"width:100px;height:30px;background-color:#EFF1F3;border-=
+radius:3px;text-align:center;margin:5px">
+                                                                           =
+     =09<a
+                                                                           =
+     =09=09href=3D"https://sellercentral.amazon.co.jp/nms/redirect/b7ecbf1c=
+-09bf-3207-adcf-e55a927c2d8a?sk=3DNKwH_5RxorBl47IFe83NznYwU1echl80UO1k-x5SK=
+1cBDzWcoDJybrwsYRi7dKPD9lEu2eenQmBLmLPg5tAlbg&amp;n=3D1&amp;u=3DaHR0cDovL3d=
+3dy5hbWF6b24uY28uanAvZ3AvaGVscC9zdXJ2ZXk_cD1BNlFXVjZZQldEN1g1Jms9aG4mcmVmXz=
+1ic21faG1kbm9faHQ"
+                                                                           =
+             style=3D"background:linear-gradient(#f7f8fa, #e7e9ec); border-=
+radius: 3px; box-shadow:0 0 0 1px dimgray; color: #000000; font-family:Embe=
+r, Arial, sans-serif;font-size: 13px; text-align: center; text-decoration: =
+none; display: block;">
+                                                                           =
+         =09=E3=81=84=E3=81=84=E3=81=88
+                                                                           =
+         </a>
+                                                                           =
+     </td>
+                                                                           =
+                                                                           =
+ =20
+                                                                           =
+ <td align=3D"right">
+=09                                                                        =
+    =09                                                                    =
+                <a style=3D"text-decoration:none;color:#004986" href=3D"htt=
+ps://sellercentral.amazon.co.jp/nms/redirect/265cc117-f03d-36ed-bb60-c5d77f=
+1c217b?sk=3De6Ggv3JBsRHJPPDjcSaD1VfbgGuH-LTfYFl-1Z22bIsnPTSCGarfxAloSpqauCP=
+et_i6L4BAawfyGAuoe0npvA&amp;n=3D1&amp;u=3DaHR0cHM6Ly9zZWxsZXJjZW50cmFsLmFtY=
+Xpvbi5jby5qcC9tZXNzYWdpbmcvcmVwb3J0P3Q9QTAwODkzNDIxSTZONUhHMUJPS1c1Jm09QTAz=
+ODczMjkyUVJEVU5FM1RBRTBKJmM9QTNHRDhEUldBVUJZTDEmbXA9QTFWQzM4VDdZWEI1MjgmaD0=
+5ZmYwYTJjYjUzMzI0YjkxZjFkZWQxM2Q1YjJiYTdlNTk1MTBiMDUyJnM9MSZiPTAmQ09ERT1BUT=
+M0NjdERTIwU1NNS0UxOTZUJmNvZGU9QVEzNDY3REUyMFNTTUtFMTk2VCZsYz1qYV9KUA">
+=09                                                                        =
+            =09=E3=81=82=E3=82=84=E3=81=97=E3=81=92=E3=81=AA=E3=82=A2=E3=82=
+=AF=E3=83=86=E3=82=A3=E3=83=93=E3=83=86=E3=82=A3=E3=83=AC=E3=83=9D=E3=83=BC=
+=E3=83=88
+=09                                                                        =
+            </a>
+=09                                                                        =
+                                                                           =
+     </td>
+                                                                        </t=
+r>
+                                                                    </table=
+>
+
+                                                                    <br/>
+
+<table class=3D"one-column" border=3D"0"
+                                                                           =
+cellpadding=3D"4" cellspacing=3D"0"
+                                                                           =
+width=3D"100%"
+                                                                           =
+style=3D"border-spacing:0;border-top: 1px solid;">
+
+                                                                        <tr=
+ valign=3D"top"
+                                                                           =
+ style=3D"border-top-width:0;border-bottom-width:0;font-size:14px;line-heig=
+ht:185%;text-align:left;">
+                                                                           =
+ <td valign=3D"top"
+                                                                           =
+     class=3D"templateLowerBody"
+                                                                           =
+     style=3D"background-color:#fff;">
+                                                                           =
+ <td align=3D"left">
+                                                                           =
+     <div style=3D"width:306px; display:inline-block;"
+                                                                           =
+          class=3D"full">
+                                                                           =
+         <table align=3D"left"
+                                                                           =
+                cellpadding=3D"0"
+                                                                           =
+                cellspacing=3D"0"
+                                                                           =
+                border=3D"0"
+                                                                           =
+                bgcolor=3D"#ffffff">
+                                                                           =
+             <tr>
+                                                                           =
+                 <td align=3D"left"><a
+                                                                           =
+                         href=3D"https://sellercentral.amazon.co.jp/nms/red=
+irect/2f8cc9bd-71cf-3cb8-af90-5075f7a8d36c?sk=3D1TTKMZx0fXgOZuE936cejGJ7Jlv=
+_cAr0knnRNa02kR7xzmlR94vUXaRsGkEuntpxU9lxWxm7g78RoXFGrwbuQg&amp;n=3D1&amp;u=
+=3DaHR0cDovL3d3dy5hbWF6b24uY28uanAvcmVmPXBlXzE3MjU3NjBfMTU3Mjk3NTMwX3BlX2Zv=
+b3Rlcl9hbWF6b25sb2dvLw"
+                                                                           =
+                         target=3D"_blank"><img
+                                                                           =
+                         src=3D"https://m.media-amazon.com/images/G/01/logo=
+/a_com_logo_220x96v2._V516822156_.jpg"
+                                                                           =
+                         width=3D"93"
+                                                                           =
+                         height=3D"auto"
+                                                                           =
+                         alt=3D"Amazon"
+                                                                           =
+                         border=3D"0"
+                                                                           =
+                         style=3D"display:block; width:93px; height:auto;"/=
+></a>
+                                                                           =
+                 </td>
+                                                                           =
+             </tr>
+                                                                           =
+         </table>
+                                                                           =
+     </div>
+                                                                           =
+ </td>
+                                                                           =
+ <td align=3D"right">
+                                                                           =
+     <div style=3D"width:200px; display:inline-block;"
+                                                                           =
+          class=3D"full">
+                                                                           =
+         <table cellpadding=3D"0"
+                                                                           =
+                cellspacing=3D"0"
+                                                                           =
+                border=3D"0" align=3D"right"
+                                                                           =
+                bgcolor=3D"#ffffff">
+                                                                           =
+             <tr>
+
+                                                                           =
+                 <td width=3D"10"><img
+                                                                           =
+                         src=3D"http://g-ecx.images-amazon.com/images/G/01/=
+e-mail/img14/kc/sp.gif"
+                                                                           =
+                         width=3D"1"
+                                                                           =
+                         height=3D"1"
+                                                                           =
+                         style=3D"display:block; border:0;"/>
+                                                                           =
+                 </td>
+                                                                           =
+                 <td>
+                                                                           =
+                     <a href=3D"https://sellercentral.amazon.co.jp/nms/redi=
+rect/1523e186-881f-379e-9560-ca5c3664e686?sk=3DTpKAFbmBf6tz-xWOhcLYA-t6HXiv=
+XlkE1yWyC_pWkhCD_9vIher_ng3xCB_nu3ln_mBCcqnublXz11_B8iLmbA&amp;n=3D1&amp;u=
+=3DaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL0FtYXpvbg"
+                                                                           =
+                        target=3D"_blank"><img
+                                                                           =
+                             src=3D"https://m.media-amazon.com/images/G/01/=
+email/logo/facebook_3x._V506710935_.jpg"
+                                                                           =
+                             alt=3D"facebook"
+                                                                           =
+                             border=3D"0"
+                                                                           =
+                             height=3D"30"
+                                                                           =
+                             width=3D"30"
+                                                                           =
+                             style=3D"display:block; width:30px; height:30p=
+x;"/></a>
+                                                                           =
+                 </td>
+
+
+                                                                           =
+                 <td width=3D"10"><img
+                                                                           =
+                         src=3D"http://g-ecx.images-amazon.com/images/G/01/=
+e-mail/img14/kc/sp.gif"
+                                                                           =
+                         width=3D"1"
+                                                                           =
+                         height=3D"1"
+                                                                           =
+                         style=3D"display:block; border:0;"/>
+                                                                           =
+                 </td>
+                                                                           =
+                 <td>
+                                                                           =
+                     <a href=3D"https://sellercentral.amazon.co.jp/nms/redi=
+rect/124a807e-f9ec-3fdd-96ad-1ca1a8dcc3f1?sk=3D3lOlFWzgx_vHjK9PI4bKNIXOxm7I=
+hJQKQh4aKN0DGBTfn4VQojq7CAZKoAnYjgOghDokZSGhVlqqWtIxuZ0d_g&amp;n=3D1&amp;u=
+=3DaHR0cHM6Ly90d2l0dGVyLmNvbS9hbWF6b24"
+                                                                           =
+                        target=3D"_blank"><img
+                                                                           =
+                             src=3D"https://m.media-amazon.com/images/G/01/=
+email/logo/twitter_3x._V506607860_.jpg"
+                                                                           =
+                             alt=3D"twitter"
+                                                                           =
+                             border=3D"0"
+                                                                           =
+                             height=3D"30"
+                                                                           =
+                             width=3D"30"
+                                                                           =
+                             style=3D"display:block; width:30px; height:30p=
+x;"/></a>
+                                                                           =
+                 </td>
+
+
+                                                                           =
+                 <td width=3D"10"><img
+                                                                           =
+                         src=3D"http://g-ecx.images-amazon.com/images/G/01/=
+e-mail/img14/kc/sp.gif"
+                                                                           =
+                         width=3D"1"
+                                                                           =
+                         height=3D"1"
+                                                                           =
+                         style=3D"display:block; border:0;"/>
+                                                                           =
+                 </td>
+                                                                           =
+                 <td>
+                                                                           =
+                     <a href=3D"https://sellercentral.amazon.co.jp/nms/redi=
+rect/5d338c80-4f78-3fd4-a4d9-acfabafe9d27?sk=3D4dKEBhqpoY-sUBpMh59A3Zg8RVLQ=
+5vujYVlrtgQTHOLjhyB1NHCI8SM_i18x2bSfrFUE6CpO2VnxrroD888lMg&amp;n=3D1&amp;u=
+=3DaHR0cHM6Ly93d3cucGludGVyZXN0LmNvbS9hbWF6b24v"
+                                                                           =
+                        target=3D"_blank"><img
+                                                                           =
+                             src=3D"https://m.media-amazon.com/images/G/01/=
+email/logo/pintrest_3x._V506607644_.jpg"
+                                                                           =
+                             alt=3D"pinterest"
+                                                                           =
+                             border=3D"0"
+                                                                           =
+                             height=3D"30"
+                                                                           =
+                             width=3D"30"
+                                                                           =
+                             style=3D"display:block; width:30px; height:30p=
+x;"/>
+                                                                           =
+                     </a>
+                                                                           =
+                 </td>
+
+
+                                                                           =
+                 <td width=3D"10"><img
+                                                                           =
+                         src=3D"http://g-ecx.images-amazon.com/images/G/01/=
+e-mail/img14/kc/sp.gif"
+                                                                           =
+                         width=3D"1"
+                                                                           =
+                         height=3D"1"
+                                                                           =
+                         style=3D"display:block; border:0;"/>
+                                                                           =
+                 </td>
+                                                                           =
+                 <td>
+                                                                           =
+                     <a href=3D"https://sellercentral.amazon.co.jp/nms/redi=
+rect/2019d74e-375c-3d83-a4f4-d541e51763a7?sk=3D_Csyxii5oU7yxsf_pNq5Qelg33DT=
+q5kqj4Oy8fDxonCvKw-T1PY65bdDJgSnV6Qv5jgjbafSH4mF86x4BjvKiw&amp;n=3D1&amp;u=
+=3DaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9hbWF6b24v"
+                                                                           =
+                        target=3D"_blank"><img
+                                                                           =
+                             src=3D"https://m.media-amazon.com/images/G/01/=
+email/logo/instagram_3x._V506607644_.jpg"
+                                                                           =
+                             alt=3D"instagram"
+                                                                           =
+                             border=3D"0"
+                                                                           =
+                             height=3D"30"
+                                                                           =
+                             width=3D"30"
+                                                                           =
+                             style=3D"display:block; width:30px; height:30p=
+x;"/></a>
+                                                                           =
+                 </td>
+
+                                                                           =
+             </tr>
+                                                                           =
+         </table>
+                                                                           =
+     </div>
+                                                                           =
+ </td>
+                                                                           =
+ </td>
+                                                                        </t=
+r>
+                                                                    </table=
+>
+
+
+                                                                    <div id=
+=3D"amznCommMgrFooter"
+                                                                         al=
+t=3D"amznCommMgrFooter"
+                                                                         st=
+yle=3D"text-align:center;background-color: white; border: 0px solid #a0a0a5=
+; padding: 2px">
+
+
+                                                                        <p =
+style=3D"text-align:center !important;margin-top:10px;margin-bottom:10px;ma=
+rgin-right:10px;margin-left:15px;padding-top:0;padding-bottom:0;padding-rig=
+ht:0;padding-left:0;color:#5a5a5a;font-family:Ember, Arial, sans-serif;font=
+-size:13px;line-height:150%;">
+                                                                           =
+                                                                           =
+                                                                           =
+   =E8=91=97=E4=BD=9C=E6=A8=A9 2020
+                                                                           =
+ Amazon, Inc.=E3=81=BE=E3=81=9F=E3=81=AF=E3=81=9D=E3=81=AE=E9=96=A2=E9=80=
+=A3=E4=BC=9A=E7=A4=BE=E3=80=82 All rights reserved.
+                                                                           =
+ Amazon.com, 410 Terry Avenue North, Seattle, WA 98109-5210<br/>
+                                                                        </p=
+>
+
+                                                                        <p =
+style=3D"text-align:center !important;margin-top:10px;margin-bottom:10px;ma=
+rgin-right:10px;margin-left:15px;padding-top:0;padding-bottom:0;padding-rig=
+ht:0;padding-left:0;color:#5a5a5a;font-family:Ember, Arial, sans-serif;font=
+-size:13px;line-height:150%;">
+                                                                           =
+ =E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=EF=BC=9AAmazon.co.jp=E3=81=A7=E3=81=
+=AF=E3=80=81=E5=95=8F=E9=A1=8C=E3=81=AE=E8=A7=A3=E6=B1=BA=E3=81=8A=E3=82=88=
+=E3=81=B3=E4=BF=A1=E9=A0=BC=E3=81=A7=E3=81=8D=E3=82=8B=E5=AE=89=E5=85=A8=E3=
+=81=AA=E4=BB=95=E7=B5=84=E3=81=BF=E3=82=92=E6=8F=90=E4=BE=9B=E3=81=99=E3=82=
+=8B=E3=81=9F=E3=82=81=E3=81=AB=E3=80=81=E5=87=BA=E5=93=81=E8=80=85=E3=81=A8=
+=E8=B3=BC=E5=85=A5=E8=80=85=E3=81=AE=E9=96=93=E3=81=AE=E9=80=9A=E4=BF=A1=E5=
+=86=85=E5=AE=B9=E3=82=92=E6=9C=80=E5=A4=A72=E5=B9=B4=E3=81=AB=E3=82=8F=E3=
+=81=9F=E3=81=A3=E3=81=A6=E4=BF=9D=E5=AD=98=E3=81=84=E3=81=9F=E3=81=97=E3=81=
+=BE=E3=81=99=E3=80=82=E3=81=93=E3=81=AE=E6=96=B9=E9=87=9D=E3=81=AF=E3=80=81=
+=E6=9C=AC=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=AB=E8=BF=94=E4=
+=BF=A1=E3=81=97=E3=81=9F=E5=A0=B4=E5=90=88=E3=82=82=E5=90=8C=E6=A7=98=E3=81=
+=AB=E9=81=A9=E7=94=A8=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82Amazon.co=
+.jp=E3=81=A7=E3=81=AF=E3=80=81=E8=B3=BC=E5=85=A5=E8=80=85=E3=81=8A=E3=82=88=
+=E3=81=B3=E5=87=BA=E5=93=81=E8=80=85=E3=82=92=E4=B8=8D=E6=AD=A3=E8=A1=8C=E7=
+=82=BA=E3=81=8B=E3=82=89=E4=BF=9D=E8=AD=B7=E3=81=99=E3=82=8B=E7=9B=AE=E7=9A=
+=84=E3=81=A7=E3=83=95=E3=82=A3=E3=83=AB=E3=82=BF=E3=83=BC=E6=A9=9F=E8=83=BD=
+=E3=82=92=E5=B0=8E=E5=85=A5=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=
+=80=82=E3=83=95=E3=82=A3=E3=83=AB=E3=82=BF=E3=83=BC=E3=82=92=E9=80=9A=E9=81=
+=8E=E3=81=97=E3=81=AA=E3=81=8B=E3=81=A3=E3=81=9F=E3=83=A1=E3=83=83=E3=82=BB=
+=E3=83=BC=E3=82=B8=E3=81=AF=E5=AE=9B=E5=85=88=E3=81=AB=E9=85=8D=E4=BF=A1=E3=
+=81=95=E3=82=8C=E3=81=BE=E3=81=9B=E3=82=93=E3=81=AE=E3=81=A7=E3=80=81=E3=81=
+=82=E3=82=89=E3=81=8B=E3=81=98=E3=82=81=E3=81=94=E4=BA=86=E6=89=BF=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=E5=AE=89=E5=85=A8=E6=80=A7=E3=81=AE=E7=
+=90=86=E7=94=B1=E3=81=AB=E3=82=88=E3=82=8A=E3=80=81=E6=9C=AC=E6=96=87=E4=B8=
+=AD=E3=81=AB=E8=A8=98=E8=BC=89=E3=81=95=E3=82=8C=E3=81=A6=E3=81=84=E3=81=9F=
+E=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=AF=
+=E3=80=81[=E5=89=8A=E9=99=A4=E6=B8=88=E3=81=BFE=E3=83=A1=E3=83=BC=E3=83=AB=
+=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9] =E3=81=AB=E7=BD=AE=E3=81=8D=E6=8F=9B=
+=E3=81=88=E3=82=89=E3=82=8C=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E3=
+=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E9=80=81=E4=BF=A1=E8=80=85=E3=81=
+=AB=E8=BF=94=E7=AD=94=E3=81=99=E3=82=8B=E9=9A=9B=E3=81=AB=E3=81=AFFrom=E3=
+=81=AE=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=AB=E8=BF=94=E4=BF=A1=E3=81=
+=97=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84
+                                                                        </p=
+>
+
+                                                                        <p =
+style=3D"text-align:center !important;margin-top:10px;margin-bottom:10px;ma=
+rgin-right:10px;margin-left:15px;padding-top:0;padding-bottom:0;padding-rig=
+ht:0;padding-left:0;color:#5a5a5a;font-family:Ember, Arial, sans-serif;font=
+-size:13px;line-height:150%;">Amazon.co.jp =E3=81=A7=E3=81=8A=E8=B2=B7=E3=
+=81=84=E7=89=A9=E9=A0=82=E3=81=8F=E9=9A=9B=E3=81=AF=E3=80=81=E3=81=84=E3=81=
+=A4=E3=82=82=E5=BD=93=E7=A4=BE=E3=81=AE=E5=95=86=E5=93=81=E3=82=92=E4=BF=A1=
+=E9=A0=BC=E3=81=97=E3=81=A6=E9=A0=82=E3=81=8D=E3=81=9F=E3=81=84=E3=81=A8=E9=
+=A1=98=E3=81=A3=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82 <a href=3D'htt=
+ps://sellercentral.amazon.co.jp/nms/redirect/58f33d1e-e6cb-3487-8b07-6fa9c4=
+9abf0c?sk=3DUEgdnTPpDrCFmNITwqlkO-HkKW2Sm8y3WF1Nw_RuLHscoQvE5cfgvhg2w-0rI9f=
+UXIObqbi0NZpI32wPaDC1Ow&amp;n=3D1&amp;u=3DaHR0cDovL3d3dy5hbWF6b24uY28uanAvZ=
+3AvaGVscC9jdXN0b21lci9kaXNwbGF5Lmh0bWw_bm9kZUlkPTEwODUzMzI'>=E5=AE=89=E5=85=
+=A8=E3=81=AA=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3=E3=82=B7=E3=83=A7=
+=E3=83=83=E3=83=94=E3=83=B3=E3=82=B0</a>=E3=81=8A=E3=82=88=E3=81=B3=E5=BD=
+=93=E7=A4=BE=E3=81=AE<a href=3D'https://sellercentral.amazon.co.jp/nms/redi=
+rect/58f33d1e-e6cb-3487-8b07-6fa9c49abf0c?sk=3DUEgdnTPpDrCFmNITwqlkO-HkKW2S=
+m8y3WF1Nw_RuLHscoQvE5cfgvhg2w-0rI9fUXIObqbi0NZpI32wPaDC1Ow&amp;n=3D1&amp;u=
+=3DaHR0cDovL3d3dy5hbWF6b24uY28uanAvZ3AvaGVscC9jdXN0b21lci9kaXNwbGF5Lmh0bWw_=
+bm9kZUlkPTEwODUzMzI'>=E5=AE=89=E5=85=A8=E8=B3=BC=E5=85=A5=E4=BF=9D=E8=A8=BC=
+=E3=81=AE=E8=A9=B3=E7=B4=B0=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=E3=80=82</a=
+>
+                                                                        </p=
+>
+                                                                    </div>
+                                                                           =
+                                                             =09<font color=
+=3D"white">[commMgrTok:A03873292QRDUNE3TAE0J]</font>
+                                                                   =20
+                                                                           =
+                                                        =20
+
+                                                                    </tr>
+                                                                    </tbody=
+>
+                                                                </table>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <!-- Footer -->
+
+                                            <!-- Footer -->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</center>
+</body>
+</html>
+------=_Part_18598794_1784515545.1609147231762--

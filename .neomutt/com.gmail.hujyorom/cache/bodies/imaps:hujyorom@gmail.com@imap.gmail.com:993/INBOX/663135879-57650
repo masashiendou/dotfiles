@@ -1,0 +1,92 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9bc7:0:0:0:0:0 with SMTP id d190csp39843vke;
+        Wed, 10 Nov 2021 16:44:41 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxD07VdoOmJm5UvsqGC2PpIS4qi8hyNK+PoR84y3cMZdaklNiuDwQDoqyacLIYYPtnPcQ9u
+X-Received: by 2002:a05:6830:1681:: with SMTP id k1mr2798277otr.242.1636591481804;
+        Wed, 10 Nov 2021 16:44:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1636591481; cv=none;
+        d=google.com; s=arc-20160816;
+        b=KYv+79AHjdNEwESfpGVykTzAQqv3/u78aDbFmwbF2UFKbqPmGFjGHLIY10NPHwUqY/
+         q4CT4xIoOpkqJ1b/XjmVxsF+SjLAAF2w97tg1I8RnbynEIBeFw4nUieJinZvDnvA4gL0
+         piRcy4csKRDiBxdFnU9CrbBkCj5JtkrYkm6y82qcdGNWLs/CfLELRmyPwLpD7jthwTN/
+         CpQ9E1foNqapuaCsWKLtuxrbsWQooAaARP99vAC8QwQF/SHKkI3y0NOY/uO12CRlEVHd
+         H2v2k5tmNPoPI+v3U+Q8XsEyxhZUjKb4udrqBMXtnKErL5qP8OM9Y1dtCTLOo7y3olMe
+         BSug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to
+         :reply-to:from:date:dkim-signature;
+        bh=BuKqLmpAOo9jGttW1ZECpcKwjsG89jexRJne/r2N3Fo=;
+        b=VXXwlQAfEllwcyQNBSvf4OIn1F/Rdb7r5BG8sCk87yq8V/qFVgVtNYkUWrXbLlC3rN
+         MjX64hN6lqnc+81YLhAyKc8t9dgLMTfJVjzZeHAZCAu8cI7QMaN/puukUnwMYdtXE8JQ
+         PixzCN9m7OvqLqN5QAHS+E2BJUPxZ4t8rdgoL/b9Qh4TVj1KtTtixE/xOhMwwkJIIbdb
+         5pYPYtR4RfCC33DssLmIwWfmM2V95if4VjqN+xyPEmIKvzb9watfSkpwNszSXMV7Kbz1
+         OcqKv31ylLSV8g1eLZBtJaQMSDC0t6zIWl7pYPaRRiGbmEi8e+d5PCV/SYTKfzlbVs4V
+         ZCYg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@king.mineo.jp header.s=mail header.b=YuFCqFac;
+       spf=pass (google.com: domain of noreply@mail.king.mineo.jp designates 54.64.207.83 as permitted sender) smtp.mailfrom=noreply@mail.king.mineo.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mineo.jp
+Return-Path: <noreply@mail.king.mineo.jp>
+Received: from mail.king.mineo.jp (mail.king.mineo.jp. [54.64.207.83])
+        by mx.google.com with ESMTPS id e12si2260480otj.164.2021.11.10.16.44.41
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Nov 2021 16:44:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@mail.king.mineo.jp designates 54.64.207.83 as permitted sender) client-ip=54.64.207.83;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@king.mineo.jp header.s=mail header.b=YuFCqFac;
+       spf=pass (google.com: domain of noreply@mail.king.mineo.jp designates 54.64.207.83 as permitted sender) smtp.mailfrom=noreply@mail.king.mineo.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mineo.jp
+Received: from king.mineo.jp (localhost [127.0.0.1])
+	by mail.king.mineo.jp (Postfix) with ESMTPS id 464917D186
+	for <hujyorom@gmail.com>; Thu, 11 Nov 2021 09:44:40 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=king.mineo.jp; s=mail;
+	t=1636591480; i=@king.mineo.jp;
+	bh=BuKqLmpAOo9jGttW1ZECpcKwjsG89jexRJne/r2N3Fo=;
+	h=Date:From:Reply-To:To:Subject:From;
+	b=YuFCqFacmEDyAbVqU6ff4Mx3bo3MuPW8cbFpsr9tQ/Zdnhi5/f1p00XbejZOme1iN
+	 ypL71x7Z+tesyecJqGerc4NqPbWHQtnQKU+VQbGqzevKrp+soPx5kKHu3xgPU3CZ9M
+	 pYTqU8pTXBxpVpiBOIfG9Ziqk9BciocoJnSRl19M=
+Date: Thu, 11 Nov 2021 09:44:40 +0900
+From: =?UTF-8?B?44CQbWluZW/jgJHjg57jgqTjg43njos=?= <noreply@mail.king.mineo.jp>
+Reply-To: mineoh-support-ml@optage.co.jp
+To: hujyorom@gmail.com
+Message-ID: <618c6778402d3_40492adecbbd7e804246219@be.king.mineo.jp.mail>
+Subject: =?UTF-8?Q?=E3=80=90=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=E3=80=91=E3=83=9E=E3=82=A4=E3=83=8D=E7=8E=8B=E3=81=AB=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=8C=E5=B1=8A=E3=81=84=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+U3lvdWpp44GV44KT44CB44GT44KT44Gr44Gh44Gv44CCDQrjgIzjg57jgqTj
+g43njovjgI3jgYvjgonjga7jgYrnn6XjgonjgZvjgafjgZnjgIINCg0K44Oe
+44Kk44ON546LIOmBi+WWtuS6i+WLmeWxgOOBleOCk+OBi+OCieODoeODg+OC
+u+ODvOOCuOOBjOWxiuOBhOOBpuOBhOOBvuOBmeOAgg0KDQrku6XkuIvjga7j
+g5rjg7zjgrjjgYvjgonjg63jgrDjgqTjg7PjgZfjgabnorroqo3jgZfjgabj
+gY/jgaDjgZXjgYTjgIINCmh0dHBzOi8va2luZy5taW5lby5qcC9teS80MDM3
+MjgyYzFjZmVjNTAwL21lc3NhZ2VzLzMyOTMyOQ0KDQrjg57jgqTjg43njosg
+6YGL5Za25LqL5YuZ5bGA44GV44KT44GuTXnjg5rjg7zjgrjjgpLopovjgosN
+Cmh0dHBzOi8va2luZy5taW5lby5qcC9teS9rb3B0DQoNCg0KDQrjgZPjga7j
+g6Hjg7zjg6vpgJrnn6Xjga7oqK3lrprjgpLlpInmm7TjgZnjgovjgavjga/j
+gIHjg57jgqTjg43njovjgavjg63jgrDjgqTjg7PlvozjgIENCk1544Oa44O8
+44K4ID4g6Kit5a6aID4g5paw552A5oOF5aCx44Gu6YCa55+l6Kit5a6aIOOB
+i+OCieOBlOWkieabtOOBj+OBoOOBleOBhOOAgg0KaHR0cHM6Ly9raW5nLm1p
+bmVvLmpwL215LzQwMzcyODJjMWNmZWM1MDAvYWNjb3VudC9ub3RpZmljYXRp
+b25zDQoNCuKAu1VSTOOBjOOCr+ODquODg+OCr+OBp+OBjeOBquOBhOWgtOWQ
+iOOBr+OAgeS4gOW6plVSTOOCkuOCs+ODlOODvOOBl+OBpuaUueihjOOBquOB
+qeOBjOOBleOCjOOBpuOBhOOBquOBhOOBi+OBlOeiuuiqjeOBruS4iuOAgQ0K
+44CA44OW44Op44Km44K244Gr6LK844KK5LuY44GR44Gm44Ot44Kw44Kk44Oz
+44GE44Gf44Gg44GN44G+44GZ44KI44GG44GK6aGY44GE44GE44Gf44GX44G+
+44GZ44CCDQoNCuKAu+acrOODoeODvOODq+OBr+mAgeS/oeWwgueUqOOBp+OB
+meOAguODnuOCpOODjeeOi+OBq+mWouOBmeOCi+OBiuWVj+OBhOWQiOOCj+OB
+m+OBr+S4i+iomOOBruWQhOODquODs+OCr+WFiOOCiOOCiuOBiumhmOOBhOOB
+hOOBn+OBl+OBvuOBmeOAgg0KKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKg0K44CQ44Oe44Kk44ON546L44Gr6Zai44GZ44KL44GK
+5ZWP44GE5ZCI44KP44Gb44CRDQrilqDkuIvoqJhVUkzjga7jgYrllY/jgYTl
+kIjjgo/jgZvjg5Xjgqnjg7zjg6DjgojjgorjgYrllY/jgYTlkIjjgo/jgZvj
+gY/jgaDjgZXjgYTjgIINCmh0dHBzOi8va2luZy5taW5lby5qcC9pbnF1aXJp
+ZXMvbmV3DQoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqDQpb6YCB5L+h6ICF5ZCN56ewXQ0K5qCq5byP5Lya56S+44Kq44OX44OG
+44O844K4IA0KW+mAgeS/oeiAheS9j+aJgF0NCuWkp+mYquW4guS4reWkruWM
+uuWfjuimizLkuIHnm64x55WqNeWPtw0KW0NvcHlyaWdodChjKV0NCk9QVEFH
+RSBJbmMu

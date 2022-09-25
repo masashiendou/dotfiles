@@ -1,0 +1,279 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9e8d:0:0:0:0:0 with SMTP id h135csp930521vke;
+        Wed, 23 Sep 2020 18:27:39 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJz+/Wov4liW1uK2nSGcK/vuc0jT9nFQsSwdGp2eCy5wb4NL3C6meqiO0VBCMdxTVSefKEn1
+X-Received: by 2002:a17:90a:e981:: with SMTP id v1mr1781507pjy.177.1600910859656;
+        Wed, 23 Sep 2020 18:27:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1600910859; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FsO9yF0SEXzhyZeY5zkchhNZRdgPgTuYLVF4FqbBGlo/wDNlXsfbEIb15MQ6UmyCgO
+         d2CtMOtOMRaXcQoD3ff3c2Mpd6AExlK9cnkl6AHtg+4H0BqJUQ9BRSEf87dUTrw4YPhf
+         BwxGP0rsiHiUhhDgLjgTec+/UzKACaLmpFn6PmN6dDaGJkuj5RzO1BOLDz77OK5HJcEM
+         FZwc3bWdpAT/r7aRpE1/p8GmN4PgCfKU5drZFsFacrJXfT9ruzkalepONAFahtaoL8aL
+         9NL7zPFwoylxsPa2aLnL2Tfj8itKzR+zJRSNq5EZ2kZnTxTvTZ2I4fdbJIF3yHG6bz4H
+         7RTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:date:message-id:subject:mime-version:from;
+        bh=Wn1Zz3xh55kqd8H51igKfQ8uYWU3pTtEzct7Ggv07pU=;
+        b=XM5xK/G+DY6h1hAiVkLPBoO0ER2iLszSjrlIpYr+g7TUNwMdn40HbhuR+YB2h2j0mN
+         nktTSZ8yEH64YnJcBlA2s9BlnS4N88T1odkLWx6sCPK70FgQrqz1rKHOMTjvCwoLjtGv
+         WyoMR8l+aYCKNRhq+qrhKvckDDxwr1QWBqMxV8I63Vp+P9Ph/uYp/15kO5OwZalI4XwS
+         3UuY5OtaQ51+PM7LOdPPK0BLGf2NnKBw6dR5s7mf/eHfEi1MNGU5TdQ9zSAyW7akfpRu
+         s2/j0Gw5VpplnRqQBYdQehFIq5lT8Pn2UDoK1kgbKsnK9qXjCjxLe5LZ8gUamtB1dRZy
+         uD6Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of info@sapporo-tokumitsu.com designates 210.224.185.186 as permitted sender) smtp.mailfrom=info@sapporo-tokumitsu.com
+Return-Path: <info@sapporo-tokumitsu.com>
+Received: from www2546.sakura.ne.jp (www2546.sakura.ne.jp. [210.224.185.186])
+        by mx.google.com with ESMTPS id h25si1171896pgb.514.2020.09.23.18.27.38
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 23 Sep 2020 18:27:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@sapporo-tokumitsu.com designates 210.224.185.186 as permitted sender) client-ip=210.224.185.186;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of info@sapporo-tokumitsu.com designates 210.224.185.186 as permitted sender) smtp.mailfrom=info@sapporo-tokumitsu.com
+Received: from fsav104.sakura.ne.jp (fsav104.sakura.ne.jp [27.133.134.231])
+	by www2546.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 08O1RbTP097542
+	for <hujyorom@gmail.com>; Thu, 24 Sep 2020 10:27:37 +0900 (JST)
+	(envelope-from info@sapporo-tokumitsu.com)
+Received: from www2546.sakura.ne.jp (210.224.185.186)
+ by fsav104.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav104.sakura.ne.jp);
+ Thu, 24 Sep 2020 10:27:37 +0900 (JST)
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav104.sakura.ne.jp)
+Received: from [192.168.1.3] (FL1-133-203-58-108.hkd.mesh.ad.jp [133.203.58.108])
+	(authenticated bits=128)
+	by www2546.sakura.ne.jp (8.15.2/8.15.2) with ESMTPA id 08O1RaWK097537
+	for <hujyorom@gmail.com>; Thu, 24 Sep 2020 10:27:37 +0900 (JST)
+	(envelope-from info@sapporo-tokumitsu.com)
+From: =?utf-8?B?5pyt5bmM44Go44GP44G/44Gk5rOV5b6L5LqL5YuZ5omA?= <info@sapporo-tokumitsu.com>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_FF44FC3A-F2E6-410B-81D2-864B5ECA896B"
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+Subject: =?utf-8?B?6ZaL5YKs5Lit44GuWm9vbeODn+ODvOODhuOCo+ODs+OCsOOBqw==?=
+ =?utf-8?B?5Y+C5Yqg44GX44Gm44GP44Gg44GV44GE?=
+Message-Id: <AD9146AB-2A4D-4127-891A-78E78EFAF040@sapporo-tokumitsu.com>
+Date: Thu, 24 Sep 2020 10:27:36 +0900
+To: hujyorom@gmail.com
+X-Mailer: Apple Mail (2.3445.104.11)
+
+
+--Apple-Mail=_FF44FC3A-F2E6-410B-81D2-864B5ECA896B
+Content-Transfer-Encoding: base64
+Content-Type: text/plain;
+	charset=utf-8
+
+Wm9vbeODn+ODvOODhuOCo+ODs+OCsOOBq+WPguWKoOOBmeOCiw0KaHR0cHM6Ly91czAyd2ViLnpv
+b20udXMvai84NDQ4ODQ2MDczMz9wd2Q9TkVFNGFqQmpXa3hhVDJaWFNtUkJPRTB5VlRRclVUMDkN
+Cg0K44Of44O844OG44Kj44Oz44KwSUQ6IDg0NCA4ODQ2IDA3MzMNCuODkeOCueOCs+ODvOODiTog
+NFh0YWU4DQoNCg0KDQrjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zj
+g7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7wNCuacreW5jOOBqOOBj+OB
+v+OBpOazleW+i+S6i+WLmeaJgA0K44CS77yQ77yW77yQ4oiS77yQ77yQ77yW77yRDQrmnK3luYzl
+uILkuK3lpK7ljLrljZfvvJHmnaHopb/vvJHvvJHkuIHnm67vvJPvvJLvvJfnlarlnLDvvJjjgIDv
+vLLvvKnvvKPvvKjljZfvvJHmnaHvvKLvvKzvvKTvvKfvvJTpmo4NClRFTCAwMTEtMjEzLTEyOTAg
+IEZBWCAwMTEtMjEzLTEyOTENCkUtbWFpbCAgaW5mb0BzYXBwb3JvLXRva3VtaXRzdS5jb20NCuWW
+tualreaZgumWk+OAgOW5s+aXpe+8meaZguOAnO+8ke+8l+aZgu+8k++8kOWIhg0K77yI5paw6KaP
+44Gu5rOV5b6L55u46KuH44Gr44Gk44GN44G+44GX44Gm44Gv44CB5bmz5pel5aSc6ZaT44KE5Zyf
+5pel56Wd44Gu44GU55u46KuH44KC6ZqP5pmC5om/44KK44G+44GZ77yJDQrjg7zjg7zjg7zjg7zj
+g7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zjg7zj
+g7zjg7zjg7zjg7zjg7wNCuacrOODoeODvOODq+OBq+OBiuW/g+W9k+OBn+OCiuOBruOBquOBhOWg
+tOWQiOOBr+OAgQ0K5aSn5aSJ44GK5omL5pWw44Gn44GZ44GM44CB5pys44Oh44O844Or44KS56C0
+5qOE44GX44Gm6aCC44GN44G+44GZ44KI44GG44GK6aGY44GE6Ie044GX44G+44GZ44CCDQoNCg==
+--Apple-Mail=_FF44FC3A-F2E6-410B-81D2-864B5ECA896B
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" class=3D"">
+Zoom=E3=83=9F=E3=83=BC=E3=83=86=E3=82=A3=E3=83=B3=E3=82=B0=E3=81=AB=E5=8F=82=
+=E5=8A=A0=E3=81=99=E3=82=8B<br class=3D""><a =
+href=3D"https://us02web.zoom.us/j/84488460733?pwd=3DNEE4ajBjWkxaT2ZXSmRBOE=
+0yVTQrUT09" =
+class=3D"">https://us02web.zoom.us/j/84488460733?pwd=3DNEE4ajBjWkxaT2ZXSmR=
+BOE0yVTQrUT09</a><br class=3D""><br class=3D"">=E3=83=9F=E3=83=BC=E3=83=86=
+=E3=82=A3=E3=83=B3=E3=82=B0ID: 844 8846 0733<br =
+class=3D"">=E3=83=91=E3=82=B9=E3=82=B3=E3=83=BC=E3=83=89: 4Xtae8<br =
+class=3D""><br class=3D""><br class=3D""><br class=3D""><div class=3D"">
+<div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: rgb(0, 0, =
+0); letter-spacing: normal; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div dir=3D"auto" style=3D"caret-color: rgb(0, 0, 0); color: =
+rgb(0, 0, 0); letter-spacing: normal; text-align: start; text-indent: =
+0px; text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div style=3D"color: rgb(0, 0, 0); letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div style=3D"color: rgb(0, 0, 0); letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; word-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D""><div style=3D"word-wrap: break-word; -webkit-nbsp-mode: =
+space; line-break: after-white-space;" class=3D""><div style=3D"color: =
+rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: =
+normal; font-variant-caps: normal; font-weight: normal; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;">=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=
+=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=
+=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=
+=83=BC=E3=83=BC=E3=83=BC=E3=83=BC<br =
+class=3D"">=E6=9C=AD=E5=B9=8C=E3=81=A8=E3=81=8F=E3=81=BF=E3=81=A4=E6=B3=95=
+=E5=BE=8B=E4=BA=8B=E5=8B=99=E6=89=80<br =
+class=3D"">=E3=80=92=EF=BC=90=EF=BC=96=EF=BC=90=E2=88=92=EF=BC=90=EF=BC=90=
+=EF=BC=96=EF=BC=91<br =
+class=3D"">=E6=9C=AD=E5=B9=8C=E5=B8=82=E4=B8=AD=E5=A4=AE=E5=8C=BA=E5=8D=97=
+=EF=BC=91=E6=9D=A1=E8=A5=BF=EF=BC=91=EF=BC=91=E4=B8=81=E7=9B=AE=EF=BC=93=EF=
+=BC=92=EF=BC=97=E7=95=AA=E5=9C=B0=EF=BC=98=E3=80=80=EF=BC=B2=EF=BC=A9=EF=BC=
+=A3=EF=BC=A8=E5=8D=97=EF=BC=91=E6=9D=A1=EF=BC=A2=EF=BC=AC=EF=BC=A4=EF=BC=A7=
+=EF=BC=94=E9=9A=8E</div><div style=3D"color: rgb(0, 0, 0); font-family: =
+Helvetica; font-size: 12px; font-style: normal; font-variant-caps: =
+normal; font-weight: normal; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px;">TEL =
+011-213-1290&nbsp;&nbsp;FAX 011-213-1291<br class=3D"">E-mail =
+&nbsp;info@sapporo-tokumitsu.com</div><div style=3D"color: rgb(0, 0, 0); =
+font-family: Helvetica; font-size: 12px; font-style: normal; =
+font-variant-caps: normal; font-weight: normal; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: =
+0px;">=E5=96=B6=E6=A5=AD=E6=99=82=E9=96=93=E3=80=80=E5=B9=B3=E6=97=A5=EF=BC=
+=99=E6=99=82=E3=80=9C=EF=BC=91=EF=BC=97=E6=99=82=EF=BC=93=EF=BC=90=E5=88=86=
+</div><div style=3D"color: rgb(0, 0, 0); font-family: Helvetica; =
+font-size: 12px; font-style: normal; font-variant-caps: normal; =
+font-weight: normal; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: =
+0px;">=EF=BC=88=E6=96=B0=E8=A6=8F=E3=81=AE=E6=B3=95=E5=BE=8B=E7=9B=B8=E8=AB=
+=87=E3=81=AB=E3=81=A4=E3=81=8D=E3=81=BE=E3=81=97=E3=81=A6=E3=81=AF=E3=80=81=
+=E5=B9=B3=E6=97=A5=E5=A4=9C=E9=96=93=E3=82=84=E5=9C=9F=E6=97=A5=E7=A5=9D=E3=
+=81=AE=E3=81=94=E7=9B=B8=E8=AB=87=E3=82=82=E9=9A=8F=E6=99=82=E6=89=BF=E3=82=
+=8A=E3=81=BE=E3=81=99=EF=BC=89<br =
+class=3D"">=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=
+=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=
+=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=
+=BC=E3=83=BC=E3=83=BC=E3=83=BC=E3=83=BC<br =
+class=3D"">=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E3=81=8A=E5=BF=83=
+=E5=BD=93=E3=81=9F=E3=82=8A=E3=81=AE=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=
+=81=AF=E3=80=81<br =
+class=3D"">=E5=A4=A7=E5=A4=89=E3=81=8A=E6=89=8B=E6=95=B0=E3=81=A7=E3=81=99=
+=E3=81=8C=E3=80=81=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=92=E7=A0=B4=E6=
+=A3=84=E3=81=97=E3=81=A6=E9=A0=82=E3=81=8D=E3=81=BE=E3=81=99=E3=82=88=E3=81=
+=86=E3=81=8A=E9=A1=98=E3=81=84=E8=87=B4=E3=81=97=E3=81=BE=E3=81=99=E3=80=82=
+</div></div></div></div></div></div></div></div></div></div></div></div></=
+div></div></div></div></div></div></div></div></div></div></div></div></di=
+v></div></div>
+</div>
+<br class=3D""></body></html>=
+
+--Apple-Mail=_FF44FC3A-F2E6-410B-81D2-864B5ECA896B--

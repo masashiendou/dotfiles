@@ -1,0 +1,198 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2811:0:0:0:0:0 with SMTP id o17csp558567vko;
+        Wed, 1 Sep 2021 14:01:53 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw02eVFKtpzhnm+yOxPvkw3ZOHRJxmNZ4MxJW749xAVP/AlE5nu3tQ8X9fMN30iceph+pnl
+X-Received: by 2002:ab0:2044:: with SMTP id g4mr1625588ual.41.1630530112966;
+        Wed, 01 Sep 2021 14:01:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630530112; cv=none;
+        d=google.com; s=arc-20160816;
+        b=z3gq0Pz/MjHS3tEARZ/i8B7dA40VFq2IU5CERjx6SQdJyMfNIDTccvYn2tQvL57uZ7
+         xlUXDMG1a1r0UbsZA0GqT9PMJaKjjIoM01uG8KcuFiV5OUoTdR12fEkn/S//1c+RLkva
+         QLGccVSXQ7RJXE+uQPR8NfSW1DQRGyR6WHISJ01wx7hIg88M3jr6CnBDysJKH1YRi8Gd
+         iIWpD4irwYBAEQ4Av8wsfxD0hEQB7XHu9ZNQMK/YnF6fjL1EbuUH88UMD/6Ip57xF1eZ
+         eLsr2XvkaOgJgeQodA3xHS08LPEM98p8ELU6W/x1wuvQWAEZdFV9yPwunNP3d3IAKbnd
+         gCUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:from:to:message-id
+         :sender:date:dkim-signature:dkim-signature;
+        bh=c/Wql1oeyQDz4TXjHli0lh2o82Oh7/L6ZBpnTLJ+uX8=;
+        b=vcARKdVbZubz36ud9UaPkwaTnrsazaprk3EkCTRc21GxRhqtxFdzYkWmnDqXSytkVE
+         NoQeQg0EB5cQgDgeF1M3yGr1J/JWPwKYjR36Ef+rTFeA6uTIrp5O0eY6ILRiggEqZQDY
+         hSIzpY4zygsOA5WNpMQolMib7A80VbPMa7mOgeHHW6IAgMMzPauzKpsNj+w7eP9f5sbj
+         3QNpashYSqblCfhPjq2ooFIfkRHEgro64oAk4rrm0mMJQlebsTG+O67+FtJclfu3VuUU
+         02hXOzA89/OoqKFA/fFmhEQkPsNjBRZ3nAAsiQXRJP5cvNCMK8eF/6biKup2oX9waDYO
+         3CYw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@notify.docker.com header.s=krs header.b=gQcOHq9V;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=qh8QCYJg;
+       spf=pass (google.com: domain of bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com designates 23.253.182.80 as permitted sender) smtp.mailfrom="bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=docker.com
+Return-Path: <bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com>
+Received: from mail-182-80.mailgun.info (mail-182-80.mailgun.info. [23.253.182.80])
+        by mx.google.com with UTF8SMTPS id w38si423420uad.199.2021.09.01.14.01.51
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Sep 2021 14:01:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com designates 23.253.182.80 as permitted sender) client-ip=23.253.182.80;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@notify.docker.com header.s=krs header.b=gQcOHq9V;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=qh8QCYJg;
+       spf=pass (google.com: domain of bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com designates 23.253.182.80 as permitted sender) smtp.mailfrom="bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=docker.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=notify.docker.com; q=dns/txt;
+ s=krs; t=1630530112; h=Content-Transfer-Encoding: Mime-Version:
+ Content-Type: Subject: From: To: Message-Id: Sender: Date:
+ X-Feedback-Id; bh=c/Wql1oeyQDz4TXjHli0lh2o82Oh7/L6ZBpnTLJ+uX8=; b=gQcOHq9VkbB1bno6nfNYnXf0OI0KS9Z7pM7rN7KCIM1phwnes72glOKhfnKDejjX+2gP9dZy
+ M+L6V2U+B0Xd6ky/R5xZkTSyateASWlwnpYUuSBVT02dGZUOnKATzXTn/R+yjFlPdDgMuO2d
+ YbjcraRtcoOhlA//t38GvwAbE64=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1630530112; h=Content-Transfer-Encoding: Mime-Version: Content-Type:
+ Subject: From: To: Message-Id: Sender: Date: X-Feedback-Id;
+ bh=c/Wql1oeyQDz4TXjHli0lh2o82Oh7/L6ZBpnTLJ+uX8=; b=qh8QCYJgGN8oY5uYWCZUFwF0AaaajeIbi/o5ppO9sPQcDDrW1M1dDcqsihBDz9xNoKR4u4CW
+ dYYXpG6bwlEMUnGEkyCXdoxmvY7rkcA5CW02fDcWC1b014ZiAQTfnDc2CzBFjrkHAiBCw+MO
+ O7PL3kIwZIXVNDnvdqUsIwUPDqM=
+X-Feedback-Id: 571545cff3b9c42fa782f659:mailgun
+X-Mailgun-Sending-Ip: 23.253.182.80
+X-Mailgun-Sid: WyJmYTJkMCIsICJodWp5b3JvbUBnbWFpbC5jb20iLCAiNWU2ZWYiXQ==
+Received: by luna.mailgun.net with HTTP; Wed, 01 Sep 2021 21:01:46 +0000
+Date: Wed, 01 Sep 2021 21:01:46 +0000
+Sender: no-reply@notify.docker.com
+Message-Id: <20210901210146.1.56D8D8EA24EA54EC@notify.docker.com>
+X-Mailgun-Track: true
+X-Mailgun-Tag: 2021-08-31-business-tier-launch
+To: hujyorom@gmail.com
+From: Docker <no-reply@notify.docker.com>
+Subject: Please read: Important changes to your use of Docker services and
+ subscriptions
+Content-Type: text/html; charset="utf-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"en">
+<head>
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <title>Please read: Important changes to your use of Docker services an=
+d subscriptions</title>
+</head>
+<body style=3D"margin: 0 auto; font-family: Helvetica, sans-serif; color: #=
+333333; text-align: center; max-width: 520px; padding: 0 20px;">
+<div style=3D"padding-top: 75px; text-align: center;">
+    <a style=3D"color: #0073ec;" target=3D"_blank" rel=3D"noopener noreferr=
+er" href=3D"http://email.notify.docker.com/c/eJxNjj0SgyAYRE-jHQwgIBYUTjT34O=
+czkKhkBApvH8cqMztbvGLfei1AwtJGzQijZCD0asolpljISU1qHhmfR8HnR8PJnkpcTuyT-8CBX=
+draoClXlvc982JhVoEXjjsjwQ69hUEZ1646lPLNTTc27HklVPu_cOhQ32c60nYJXpuJ643LfQgR=
+hTqKbM1xh5xRiXCg1dTdhR94STjW">
+        <img alt=3D"Docker" width=3D"600" height=3D"200" src=3D"https://d36=
+jcksde1wxzq.cloudfront.net/saas-mega/email-banner-01.png"/>
+    </a>
+</div>
+<div style=3D"font-size: 16px; text-align: left;">
+    <p>
+        Hi there,
+    </p>
+    <div style=3D"margin: 15px 0;">
+        <p>
+            You=E2=80=99re receiving this email because we=E2=80=99re updat=
+ing the <a href=3D"http://email.notify.docker.com/c/eJwdjkEOgyAURE-jOwiIn-K=
+Cha026TEofCstSgO48Pa1JpPJbN7MOA0ocaq9bljDWcf44byVlFOQgxrU2Dft2EM73qqWrbH4aa=
+cu2g8mauNSz_rplFAATiEDQARnLgLBwmQkE6br6qDnUr65En3V3A_96UTDfkRxxYfnQ530vL33m=
+OJyjLwW48NZXs5ThCkiOHlu2a-YMykeEwlmW-38Awd5OOk">terms</a> applicable to the=
+ Docker products or services you use.
+        </p>
+        <p>
+            <b>What you need to know:</b>
+        </p>
+        <ul>
+            <li> All of Docker=E2=80=99s products and services are now cove=
+red by a new set of terms - the <a href=3D"http://email.notify.docker.com/c=
+/eJwdjkEOgyAURE-jOwiIn-KCha026TEofCstSgO48Pa1JpPJbN7MOA0ocaq9bljDWcf44byVlF=
+OQgxrU2Dft2EM73qqWrbH4aacu2g8mauNSz_rplFAATiEDQARnLgLBwmQkE6br6qDnUr65En3V3=
+A_96UTDfkRxxYfnQ530vL33mOJyjLwW48NZXs5ThCkiOHlu2a-YMykeEwlmW-38Awd5OOk">Doc=
+ker Subscription Service Agreement</a>. </li>
+            <li> <a href=3D"http://email.notify.docker.com/c/eJwdjkEOgyAURE=
+-jO8gHQWHBwlR7gx4A9VtpURrEpNy-1mQymc2bmclIrHEuneHAGWhgpzNRU0Zl3alO9S0XfStFf=
+ysEbCG5OdMpjG-MdAxruZhac6YUSG0bhRYRpsbCCLNCgYPWWHqzpPTZi6ot-P3Un47U5zNWz-8j=
+y1xGsxyvHGJYz5Hnap2_ytN1ioAiFSPDsbsN950kh5F4e2zj8gMfLzl5">Docker subscripti=
+ons</a> now encompass four tiers of service: Personal, Pro, Team, and Busin=
+ess (a new tier of service). Each tier includes <a href=3D"http://email.not=
+ify.docker.com/c/eJwdjr0OgyAAhJ9GNgggEhgYTKWv0Fn5KbQoBnDw7WtNLpdbvruzanDceR=
+AVxZRgicnlhHFE0MAnMQk9UqbHgelHx_CWW_Qnstl8XUEmryAo6xczUy4N9wYbwaSjXLjZYrb0n=
+A0SJBVa22vXjx19XvrTBaXzivS1abZXUFQ4Pmcueb1G3usc013e7lMQC9gTuBw1bq5W2KIrMM3H=
+ZsIPNXI5ZQ">Docker Desktop</a>. </li>
+            <li> The existing Docker Free subscription has been renamed Doc=
+ker Personal. <a href=3D"http://email.notify.docker.com/c/eJwdjr0OgyAAhJ9GN=
+gggEhgYTKWv0Fn5KbQoBnDw7WtNLpdbvruzanDceRAVxZRgicnlhHFE0MAnMQk9UqbHgelHx_CW=
+W_Qnstl8XUEmryAo6xczUy4N9wYbwaSjXLjZYrb0nA0SJBVa22vXjx19XvrTBaXzivS1abZXUFQ=
+4Pmcueb1G3usc013e7lMQC9gTuBw1bq5W2KIrMM3HZsIPNXI5ZQ">Docker Desktop</a> rem=
+ains free for personal use, education, non-commercial open source projects,=
+ and small businesses (fewer than 250 employees AND less than $10M USD in a=
+nnual revenue). </li>
+            <li> Commercial use of Docker Desktop in larger enterprises (mo=
+re than 250 employees OR more than $10 million USD in annual revenue) requi=
+res a <a href=3D"http://email.notify.docker.com/c/eJwdjkEOgyAURE-jO8gHQWHBw=
+lR7gx4A9VtpURrEpNy-1mQymc2bmclIrHEuneHAGWhgpzNRU0Zl3alO9S0XfStFfysEbCG5OdMp=
+jG-MdAxruZhac6YUSG0bhRYRpsbCCLNCgYPWWHqzpPTZi6ot-P3Un47U5zNWz-8jy1xGsxyvHGJ=
+Yz5Hnap2_ytN1ioAiFSPDsbsN950kh5F4e2zj8gMfLzl5">Docker Pro, Team or  Busines=
+s subscription</a> for as little as $5 per user per month. </li>
+            <li> <a href=3D"http://email.notify.docker.com/c/eJwdjr0OgyAAhJ=
+9GNgggIB0YTLVzt878WWlRGsS2vn2tyeVyy3d3TnEv_ACCopgSfMJkd8IEIoiLTnaybynrW876c=
+8XwnEoYNuSSffqMbJrAqAxnrHH6JJ1prBgsF0yIxllivB-o0yCqsZTXUtVtRS-7_nRGcdsjvX0_=
+13cGWY3rY0s5TfvIfdIhHuXlOAWxhDWBZl3C7JcFluAzjHqd7fgDZRQ6JQ">Docker Business=
+</a> is a new offering for organizations using Docker at scale for applicat=
+ion development and requiring additional features like centralized manageme=
+nt and secure software supply chain capabilities. </li>
+        </ul>
+        <p>
+            The new terms take effect on August 31, 2021 with a grace perio=
+d until January 31, 2022 for those that will require a paid subscription to=
+ continue using Docker Desktop. By continuing to use Docker, you are agreei=
+ng to the new <a href=3D"http://email.notify.docker.com/c/eJwdjkEOgyAURE-jO=
+wiIn-KCha026TEofCstSgO48Pa1JpPJbN7MOA0ocaq9bljDWcf44byVlFOQgxrU2Dft2EM73qqW=
+rbH4aacu2g8mauNSz_rplFAATiEDQARnLgLBwmQkE6br6qDnUr65En3V3A_96UTDfkRxxYfnQ53=
+0vL33mOJyjLwW48NZXs5ThCkiOHlu2a-YMykeEwlmW-38Awd5OOk">Docker Subscription S=
+ervice Agreement</a>.
+        </p>
+        <p>
+            Please make sure to read the updates to the <a href=3D"http://e=
+mail.notify.docker.com/c/eJwdjkEOgyAURE-jOwiIn-KCha026TEofCstSgO48Pa1JpPJbN=
+7MOA0ocaq9bljDWcf44byVlFOQgxrU2Dft2EM73qqWrbH4aacu2g8mauNSz_rplFAATiEDQARnL=
+gLBwmQkE6br6qDnUr65En3V3A_96UTDfkRxxYfnQ530vL33mOJyjLwW48NZXs5ThCkiOHlu2a-Y=
+MykeEwlmW-38Awd5OOk">Docker Subscription Service Agreement</a>. For more in=
+formation about these changes please visit our <a href=3D"http://email.noti=
+fy.docker.com/c/eJwdjksOgyAARE8jOwgooC5Y2GrvwbdQPzSAC29fajKZzObNjBHMcutAEC1=
+uCR4xqU4oRwQxPg_zsEwtXSZGl2dD8RFLcBcyUa82IR134IUZnVZW8q5nxFJGFRmlNdLQXjmllA=
+Sb8KV8c9NNTfuq-tMJbVeN3cO5NTiQhD8_V0xxryPvXYbtLi_3KYgH2BGozhwOmzMswSa4yfPQ_=
+geOrDpt">FAQ</a>, attend our upcoming <a href=3D"http://email.notify.docker=
+=2Ecom/c/eJwdjj0PgyAYhH-NbhBeBEoHBlPt3q0=
+rXxZalAZx8N_Xmlwutzx35xT3wk9tVJRQIFcC=
+hwMTGDAXgxzk2FM29pyNt4aRJdc47dhl-_EF2zy3QQlrL2AYF5x60EJ6DcYySyavnXPStEmFWr9=
+r0_UNvR_60wWn_Yjd_IjP4tqiwvbec8nzMfKadUxneT1PISJRB8hsa1z8uqIafUFJb4sNP2JUOh=
+U">webinar</a>, and see our recent <a href=3D"http://email.notify.docker.co=
+m/c/eJwdjr0OgyAAhJ9GNgj_4sBgqh37DohQaVEM4uDbl5pcLrfcdzdr4aTzIGiKKcEdJtUJl4g=
+gIQc1qLGnfOwFHx8Nx1sqwV9oTvbrMrJpBYtmWHrLGG3J5LjHnihiK9Io3HHDlABRL6XsR8P6hj=
+6r_u2M4lUjW4e9nV8g6-X8XCmntY68VxPiDS_3KYgVZARO5xE2dxywBJdhNOdmlx_jZTix">blo=
+g</a> post.
+        </p>
+    </div>
+    <div style=3D"line-height: 150%;">
+        <div style=3D"color:#828282; margin: 15px 0 50px;">
+            Thank you,<br>
+            The Docker Team
+        </div>
+    </div>
+
+    <div style=3D"font-family: Helvetica, sans-serif; vertical-align: top; =
+padding: 10px 11px; font-size: 12px; color: #000000; text-align: center; ba=
+ckground: #fff" valign=3D"top">
+        You're receiving this email because this email address is associate=
+d with an active Docker ID
+    </div>
+</div>
+<img width=3D"1px" height=3D"1px" alt=3D"" src=3D"http://email.notify.docke=
+r.com/o/eJwdjTsSgyAUAE8TOxgen6cWFI56EMFnJFGYQSy8fYzNdrs7W0NISxWsFBJEK-AmaOT=
+ADQ7N0Iyd1GNn9Ni_tIiphOXic_JfytynvVqtnxwu4AwiKfFX29mAQ9BUy9prVWW7np8r5bTfhf=
+c-he0xy3NkomEKmDuPEOk4WAmU2Tad0a8_ChEtpw"></body>
+</html>

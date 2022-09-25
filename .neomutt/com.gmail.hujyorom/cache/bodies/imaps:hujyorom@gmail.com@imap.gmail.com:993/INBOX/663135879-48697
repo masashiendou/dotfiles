@@ -1,0 +1,152 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp1683883vky;
+        Fri, 12 Mar 2021 17:30:37 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzswO73zfz5S54n/NGjSLKphOUy2c/Tmj4dEC5kEvJSTwcYoGrSBXu3AyXimqXBjztKjOTt
+X-Received: by 2002:a63:d057:: with SMTP id s23mr14126137pgi.171.1615599037570;
+        Fri, 12 Mar 2021 17:30:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615599037; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nGEDgcjE0m5NII8kvS2vh6MA22ew/D4SofQ6cqlymrFUIGlz7v7TRMzz0/EWbKwVcV
+         IrTRwlBERgvKFYI8W3Kn8qXkpMfm1hJ/6NwntFAkhedS0CjwXxWyNShIH15z9vG40zqu
+         fflzfoBqOupX19zdHX4QWTtPuxnZOvh4Ji3QkSYLmgHrroW7qlj+Y223rPpwSQJVepG1
+         GJmKCTKAqCgJbfruOR+uR3k/u61N9VH/W+bLwilevY3azcvHgaCdy9fg4Ti/LBvi6ytn
+         0t4Y7nb8Ks//mgTB2yy/EKKY9MEcN1ySppW0YJQ9YV6uBd1xPcmUAbXIoBwpsIgDHZqn
+         Io5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:errors-to:dkim-signature;
+        bh=Z1AkkhEtaqw1y9NAGZtByWqUTML2rzoTSO3yi95BmMM=;
+        b=XMpK9F8ymLEpkkURjvHYVJKVkYfrHKggMB9YtuJOyt+lOr1t5aI5n5fPtVSY9kUOTn
+         6gR6RjwUmJhgfpOEv2nQjfjooiMIbH4oZwj8Su40uLg5O9OjVBI1+0oDKtf8I9ilfP7K
+         uD8tRruKd0gvppsMqWJdjuamiWLdEmzVJ+nuGYJViR5m8InZcT/D7OCNDZScC1gKOJ5+
+         tt7frqdKFhJI1SKcHlEqp+1wXdYeEP+14Ia/MCcjBP4CJpu1qbOhxfRmR6WQmc9E7AXB
+         be/Cv6Oo45lckIlSJZfCSN8xy3nDXChf79mSmfypFytgHDbBFCcjg8XcwkJztTTWn677
+         JBSw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b=GiKX06Up;
+       spf=pass (google.com: domain of z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.97 as permitted sender) smtp.mailfrom=z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+Return-Path: <z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp>
+Received: from bmmpq1303.jpx1.mta.emberpoint.com (bmmpq1303.jpx1.mta.emberpoint.com. [106.185.100.97])
+        by mx.google.com with ESMTPS id p1si7229841pgj.431.2021.03.12.17.30.36
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 12 Mar 2021 17:30:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.97 as permitted sender) client-ip=106.185.100.97;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b=GiKX06Up;
+       spf=pass (google.com: domain of z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.97 as permitted sender) smtp.mailfrom=z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1615599037;
+	s=en-japanmail201805; d=en-japan.com;
+	h=Date:From:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Z1AkkhEtaqw1y9NAGZtByWqUTML2rzoTSO3yi95BmMM=;
+	b=GiKX06UpeMEj41Oaz8GjRZU8xtWwViS256VGmsWSxDA6qAMYFwfqY9RwJkDKjtt8
+	AIaah+918z1+6I+rauGdZJ14WHYWEeZ+PRNeegudGrXgM4q1zCVQtTf5WKITm91X2kz
+	SvZk10JvuhNF2bxwrYt4RQQU6RTOeRZCrxRVf4oM=
+Errors-To: z-enhaken-xfbmw7-0-3mj-008hujyoromgmail.com@bma.mpse.jp
+Date: Sat, 13 Mar 2021 10:30:25 +0900 (JST)
+From: =?ISO-2022-JP?B?IhskQiUoJXNHSTgvO3ZMMzZJGyhCIg==?=
+ <haken-news@en-japan.com>
+To: hujyorom@gmail.com
+Message-Id: <1615599025765.2021120935.enhaken.0.4699.00000000@ad143se.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCIVo4QkRqR1s/LiFbMVE4bCU5GyhC?=
+ =?ISO-2022-JP?B?GyRCJS0layRyJCo7fSRBJE5KfSRYISIbKEI=?=
+ =?ISO-2022-JP?B?GyRCJCokOSQ5JGEkTiQqO0U7diRyJDQbKEI=?=
+ =?ISO-2022-JP?B?GyRCPlIycCEqIUElKCVzR0k4LyF6GyhCPQ==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+正社員登用あり、時給1800円以上、週3〜4日以内、16時までなど！英語スキルが活かせる好条件のお仕事をご紹介
+
+
+こんにちは、エン派遣事務局の鈴木です。
+
+このメールは、英語スキルをお持ちの方限定で配信！
+
+「少しだけ英語を使いたい」「スキルを活かして高時給で働きたい」など、希望に叶うお仕事が満載です。
+
+あなたの英語スキルが派遣会社に求められています！是非チェックしてくださいね。
+
+------------------------------
+
+▼【英語×正社員登用ありのオフィスワーク】
+https://haken.en-japan.com/uex_vl7DK3c/
+
+▼【英語×時給1800円以上】
+https://haken.en-japan.com/uex_FkYrMBf/
+
+▼【英語×週3日以内】
+https://haken.en-japan.com/uex_lTABXEf/
+
+▼【英語×16時まで】
+https://haken.en-japan.com/uex_ana8B32/
+
+▼【英語×未経験OKの一般事務】
+https://haken.en-japan.com/uex_X209L4U/
+
+▼【TOEICが活かせる事務】
+https://haken.en-japan.com/uex_RxcmWF6/
+
+▼【英語×紹介予定派遣】
+https://haken.en-japan.com/uex_9xeFZ1y/
+
+▼【英語×学校関連】
+https://haken.en-japan.com/uex_zucUScK/
+
+▼【英語×外資系】
+https://haken.en-japan.com/uex_MKj6CyD/
+
+
+━━━━━━━━━━━━━━━
+☆ あなたの志向に合わせたオススメ求人♪
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+あなたがサイト上で見たお仕事情報を分析！
+
+条件が似ているお仕事や志向に合わせたお仕事をオススメしています。
+
+自分では見つけられなかったお仕事が見つかる可能性も！ぜひチェックしてくださいね。
+
+▼ あなたにオススメのお仕事はこちら！
+https://haken.en-japan.com/uex_jhYAMpx/
+
+
+━━━━━━━━━━━━━━
+☆ 便利機能♪「気になる！リスト」がオススメ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+保存した求人情報をまとめてチェックできるだけでなく、あなたが興味を持っていることが匿名で企業に通知されます！
+
+応募前に「応募歓迎」「面談確約」など、派遣会社からのアプローチが届く可能性も！自信をもって応募していただけます。
+
+どんどん活用して、よいお仕事を見つけてくださいね。
+
+▼ 「気になる！リスト」はこちら
+https://haken.en-japan.com/uex_JD09kUd/
+
+ぜひエン派遣で、いいお仕事を見つけてくださいね！
+
+▼ エン派遣のトップページはこちら
+https://haken.en-japan.com/?mmid=261996&utm_campaign=enhaken&utm_medium=email&utm_source=mm
+
+━━━━━━━━━━━━━━━
+☆ 大人気！エン派遣のスマホアプリ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+iOS版 ― https://goo.gl/GYA8lu
+
+Android版 ― https://goo.gl/o2C3A0
+
+━━━━━━━━━━━━━━━
+エン・ジャパン株式会社
+エン派遣 事務局
+
+÷-÷-÷-÷-÷-÷-÷-÷-÷-
+【配信停止】https://haken.en-japan.com/uex_BRbKLAO/
+【お問い合わせ】https://haken.en-japan.com/uex_dqLfAm4/
+※当メールのアドレスは送信専用です。このメールへの返信にはお答えできません。
+本メールに掲載された記事を許可なく転載することを禁じます。
+━━━━━━━━━━━━━━━

@@ -1,0 +1,95 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp121648vkx;
+        Wed, 24 Mar 2021 22:31:26 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzFq9NrbSdh2mAIKAnJqvm6PMuq5PGrzhSkAMSUUJgDWm9unG3jCNk9Xe5+vqZiWmRqPg7x
+X-Received: by 2002:a63:2321:: with SMTP id j33mr6038150pgj.120.1616650286558;
+        Wed, 24 Mar 2021 22:31:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616650286; cv=none;
+        d=google.com; s=arc-20160816;
+        b=G58ejIScAm0XvlfES8nVTsGVGJR63G/0i2AlO20UavJ3MiBeWJi/O5aM6ZGcDiC6vf
+         +wLFChXDqTtHE1H0BHCcgxTGnepk1yvnNYVeNjC7SQl3RrlOGdKrjgwDKMgsx8kmi6fH
+         jOFhzUV+FSguDBeDGNohmRQLhp9Xl2SS3R/3GNmmHzvjKEtFvg7pu6Kb7wxjMWpMbZmv
+         iNaUGUf0NAy44H9lg/KZxNr7NgknT7tXfg9KxeToRR7h8czxKTFWb9pgiC29nUqQzpQm
+         nwHrV95IvxojwYR0cOFhOmpwVXwzCuFF5sg66Rpdk9qQ8ey/WwCaT6D4WyhUPmziS5uY
+         ddBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:date:message-id:subject:to
+         :from:dkim-signature;
+        bh=aNY33mJOc/38f4Oy4mD5gTHCwdgv/x+Fs/iwYx1e0xA=;
+        b=S2ybgLXIqnQJIo02qnO9P178lR5bTUatkoGdQGs6gi+Jo2hvLTu2nD20AesHpzs7fu
+         nhaQ58WehCxY+Jmyt/D8/U9cDYMc9XXH72IByNCCdh/xGJQt5r59/RrFmmpw8PttNij4
+         UIylfLEu1u/7jxV2Ui5ck38LX2oJWJTP62cL7PephEZ0Ht9BghK7arGN+PYV8T8XZWfE
+         Pky2BWPNkQqt42Oz4WHZ3dNj43yiNmKbog9l93jWLaETre3Q/Q01SIFr2qHF6IAQQvaj
+         Bv60gXogZx3rGhR4peG+5y7Bz8G2STNExHig27mIIK1faJMNBSt8mchw8TEOp4UtnNxD
+         6c1A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=re202009-sp header.b=t6UntrbO;
+       spf=pass (google.com: domain of 0000i9-005yl@b201.repica.jp designates 182.236.83.133 as permitted sender) smtp.mailfrom=0000i9-005yl@b201.repica.jp
+Return-Path: <0000i9-005yl@b201.repica.jp>
+Received: from b20101.repica.jp (b20101.repica.jp. [182.236.83.133])
+        by mx.google.com with ESMTPS id l1si4535350pgp.195.2021.03.24.22.31.25
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 24 Mar 2021 22:31:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0000i9-005yl@b201.repica.jp designates 182.236.83.133 as permitted sender) client-ip=182.236.83.133;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=re202009-sp header.b=t6UntrbO;
+       spf=pass (google.com: domain of 0000i9-005yl@b201.repica.jp designates 182.236.83.133 as permitted sender) smtp.mailfrom=0000i9-005yl@b201.repica.jp
+Received: from b201 (HELO) (127.0.0.1)
+  by b201.repica.jp with SMTP; Thu, 25 Mar 2021 14:30:33 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=iijmio.jp;
+	s=re202009-sp; t=1616650233;
+	bh=aNY33mJOc/38f4Oy4mD5gTHCwdgv/x+Fs/iwYx1e0xA=;
+	h=From:To:Subject:Message-Id:Date:MIME-Version:
+	 Content-Transfer-Encoding;
+	b=t6UntrbO4QiDDTvF1u4nR6kpNoC4/tk6rzD/YvGihE7W/Dq/6SjOghRvgfXl6KFnM
+	 ygZY8k2yTyNbUJijoodXl7/Es3iHksxcgT/SZB7Iik+Z4gpctJEyUjIUPQ7WFOqlzB
+	 fHKc9sn/G/wIoGt2PyrPj6WOqaTYmQy/zPU1Zap8=
+From: =?ISO-2022-JP?B?SUlKbWlv?= <announce-noreply@iijmio.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIVobKEJJSUptaW8bJEIhWxsoQiAzLzMxIDIxGyRCO34kXiRHGyhCIBskQkBoOVQlKCVzJUglaiE8MX5KZ0R5QFokTiQqQ04kaSQ7GyhC?=
+Message-Id: <0000i9-005yl@b201.repica.jp>
+Date: Thu, 25 Mar 2021 14:30:33 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: quoted-printable
+X-SE-GID: 0000i9@b201.repica.jp
+X-SE-HID: b201.repica.jp.1616650233204116
+
+=1B$B(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,=1B(B
+=1B$BK\%a!<%k$O!"%f!<%6$NITMx1W$K$J$i$J$$$h$&!"%a%k%^%,G[?.$N@_Dj$r=1B(B
+=1B$B!V<u$1<h$i$J$$!W$K@_Dj$7$F$$$k$*5RMM$X$b$*Aw$j$7$F$$$^$9!#=1B(B
+=1B$B(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,(,=1B(B
+
+=1B$B;~2<$^$9$^$9$4@6>M$N$3$H$H$*7D$S?=3D$7>e$2$^$9!#=1B(B
+=1B$BJ?AG$OJ@<R$N%5!<%S%9$r$4MxMQ$$$?$@$-!"@?$K$"$j$,$H$&$4$6$$$^$9!#=1B(B
+
+=1B$BJ@<R$G$O=1B(B 2021=1B$BG/=1B(B 4=1B$B7n=1B(B 1=1B$BF|$h$j?7%W%i%s!V%.%=
+,%W%i%s!W$NDs6!$r3+;O$$$?$7$^$9!#=1B(B
+
+=1B$B$^$?8=3D:_2;@<2s@~$r$4MxMQCf$NJ}$,%.%,%W%i%s$X%W%i%sJQ99$7$?>l9g$K=1B(=
+B
+2,000=1B$B1_J,$N%.%U%H7t$r%W%l%<%s%H$9$k@h9T%(%s%H%j!<%-%c%s%Z!<%s$r<B;\Cf$=
+G$9!#=1B(B
+=1B$B%-%c%s%Z!<%s$N1~JgDy@Z$O!Z=1B(B3=1B$B7n=1B(B31=1B$BF|=1B(B 21:00=1B$B$=
+^$G![$H$J$j$^$9$N$G=1B(B
+=1B$B$44uK>$NJ}$O0J2<%Z!<%8$h$j%(%s%H%j!<$N$*<jB3$-$r$*4j$$$$$?$7$^$9!#=1B(=
+B
+
+=1B$B"'%.%,%W%i%s>R2p%5%$%H!?@h9T%(%s%H%j!<>\:Y"'=1B(B
+https://pr.iijmio.jp/gigaplan/?utm_source=3Dmailmag&utm_medium=3D210325&utm=
+_campaign=3Dgigaplan
+
+=1B$B:#8e$H$b=1B(BIIJmio=1B$B$r$h$m$7$/$*4j$$$$$?$7$^$9!#=1B(B
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+=1B$BK\%a!<%k$O!"Aw?.@lMQ%"%I%l%9$G$9!#=1B(B
+=1B$B$4JV?.$$$?$@$$$F$bBP1~$G$-$+$M$^$9$N$GM=3D$a$4N;>5$/$@$5$$!#=1B(B
+=1B$B$^$?%5!<%S%9$r4{$K2rLs$7$?$*5RMM$XAw?.$5$l$k>l9g$,$4$6$$$^$9!#=1B(B
+
+=1B$B!{=1B(B =1B$B$*Ld$$9g$o$;@h=1B(B
+https://www.iijmio.jp/contact.html
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+

@@ -1,0 +1,849 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp999538vkh;
+        Wed, 29 Sep 2021 19:00:01 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxk+7X6LNMASYXKKhgp6uggX5W4eor4Xy5ibM0BaqMKBOfzGI+phHybR2ShQz5HRxYS6iRl
+X-Received: by 2002:a17:902:db02:b0:13e:683c:7523 with SMTP id m2-20020a170902db0200b0013e683c7523mr1761340plx.43.1632967201554;
+        Wed, 29 Sep 2021 19:00:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632967201; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yH5byWimO5jUzvuoSG/8QARwzZgQyyJkGFRThHcxu/lSkgMveR5xePh/QrXKBU5lrT
+         SalL/pJv4a0SSakdv8PKnlZZMBIX3bv9UZE9u8X7f4mw1liIWzu3tjkt7+fPL7M3XcKK
+         3L9p4xyAqZf4bDYupgijiaNzvXHn41GS47OJ5C14K1HSrsuZKz+fYdNYvBjjG5atmtbk
+         OSW1dQTha5cKisPALum7anQaCV6SM4p4cTXHcQ/UHjKjd91wxm+RAyZ4JEqQRl8jfgSN
+         v//sgfw2wlAsckDRuQiGFLX4XPddi69xrVq5IsY5jp0ia5hb22+6/gCLltqHM3ccF9yl
+         zgQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:reply-to:mime-version:message-id:from:errors-to:date
+         :content-transfer-encoding;
+        bh=M6rsxsmE11cKCPSWIuNqTdGfDRVEQqD1+AzfFHvlNM8=;
+        b=Js5vqr4+9Yw9GMPBQFlz+LOafVdqEcvqtem3kJAUBgcR7QYQJjoPf03zMRaF834yN3
+         GnW0iyTV6OkvqS89/8hgPrB+7WlNNaAbLk7btrbndDf1bswsu95PSTHZGuPJ2bN1bzLu
+         8U2xVOpDaeZLhai9lGk9E6SL//dyGkSZ7nZ0qfzOko3kAlVkRG4IEJx2zSUWv9B5+LQh
+         A/lrz8cQGwUYfUZKrpM1NogAtFX8tNWGK960/scsjdVup0Eim7y6eVRSfe2vrfcxGRfC
+         Ywbnb72A9EAaFpdLd12oEi3ku5gCx42URWQw3w06zDuR5Ijl+8RXNBW8qsCopg3hgu30
+         sXUQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp designates 157.101.228.44 as permitted sender) smtp.mailfrom=bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp
+Return-Path: <bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp>
+Received: from kfc-n-md-a.m.honto.jp (kfc-n-md-e.m.honto.jp. [157.101.228.44])
+        by mx.google.com with ESMTPS id l65si1649900pge.621.2021.09.29.19.00.00
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Sep 2021 19:00:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp designates 157.101.228.44 as permitted sender) client-ip=157.101.228.44;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp designates 157.101.228.44 as permitted sender) smtp.mailfrom=bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp
+Content-Transfer-Encoding: 7bit
+Content-Type: multipart/alternative;
+ boundary=BDF8243738C4B23FE27E1AA4739D01521781BE33
+Date: Thu, 30 Sep 2021 10:54:56 +0900
+Errors-To: bounce-000024440-00192310635fce@kfc-n-md-a.m.honto.jp
+From: =?UTF-8?B?aG9udG/jgYrosrflvpfjg5fjg6zjg5/jgqI=?= <mail@honto.jp>
+Message-ID: <9d1f7760-6b77-45c3-bec4-aa4d6b81bca5@kfc-n-md-a.m.honto.jp>
+MIME-Version: 1.0
+Reply-To: <mail@honto.jp>
+Subject: =?UTF-8?B?44CQ5pys5pel44G+44GnISHjgJHiiarjgrnjg5rjgrfjg6Pjg6s=?=
+ =?UTF-8?B?44Kv44O844Od44Oz77yB4omr6Zu75a2Q5pu457GNIOWvvuixoeWVhuWTgQ==?=
+ =?UTF-8?B?44Gr5L2/44GI44KL77yB77yP44CM5YiD54mZ44K344Oq44O844K65LiA5oyZ?=
+ =?UTF-8?B?MTM35YaK54Sh5paZ6Kmm44GX6Kqt44G/44CN44Gq44Gp44KC6ZaL5YKs5Lit?=
+ =?UTF-8?B?4pmq?=
+To: <hujyorom@gmail.com>
+X-Priority: 3
+
+--BDF8243738C4B23FE27E1AA4739D01521781BE33
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
+
+4pah4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB
+4pahDQrjgIAgaG9udG/jgYrosrflvpfjg5fjg6zjg5/jgqLjg6Hjg7zjg6sNCuKWoeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKWoQ0KDQrpgaDo
+l6Qg5bCH5Y+4IOanmA0KDQrjgYTjgaTjgoJob250b+OCkuOBlOWIqeeUqOOBhOOBn+OBoOOBjeOA
+geiqoOOBq+OBguOCiuOBjOOBqOOBhuOBlOOBluOBhOOBvuOBmeOAgg0K6Zu75a2Q5pu457GN44K5
+44OI44Ki44Gn5L2/44GI44KL44GK5b6X44Gq44Kv44O844Od44Oz44Gu44GU5qGI5YaF44Gn44GZ
+44CCDQoNCuKAu+OBmeOBp+OBq+OCr+ODvOODneODs+OCkuOBlOWIqeeUqOa4iOOBv+OBruOBiuWu
+ouanmOOBq+OCguODoeODvOODq+OBjOWxiuOBj+WgtOWQiOOBjOOBlOOBluOBhOOBvuOBmeOAgg0K
+44GU5LqG5om/44GP44Gg44GV44GE44CCDQoNCuKWoeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKApg0K4piFIOmbu+WtkOabuOexjSDlr77osaHl
+lYblk4Eg4omqMjDvvIVPRkbiiavjgq/jg7zjg53jg7PvvIENCuKWoeKUgeKUgeKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKApg0KDQrml6XjgZTjgo3jga7j
+gZTmhJvpoafjgavmhJ/orJ3jgZfjgabjgIHpm7vlrZDmm7jnsY3jgavkvb/jgYjjgovjgq/jg7zj
+g53jg7PjgpLphY3kv6HkuK3jgafjgZnjgIINCuOBiuW+l+OBquOBk+OBruapn+S8muOCkuOBiuim
+i+mAg+OBl+OBquOBj++8gQ0KDQril4bjgq/jg7zjg53jg7Pjga7lj5blvpfjga/jgZPjgaHjgonj
+gYvjgokNCi09LT0tPS09LT0tPS09LT0tPS09LT0tPS09LT0tPS09LT0tPS09LT0NCmh0dHBzOi8v
+aG9udG8uanAvY3AvZWJvb2svY2FtcGFpZ24vYWxsMjAtY291cG9uP2NpZD1NMzIwXzIwMjEwOTMw
+YV9zX2ViXzENCuacieWKueacn+mZkO+8mjIwMjHlubQ55pyIMzDml6XvvIjmnKjvvIkyMzo1OeOB
+vuOBpw0KLT0tPS09LT0tPS09LT0tPS09LT0tPS09LT0tPS09LT0tPS09LT0tPQ0K4oC744Kv44O8
+44Od44Oz44Gu44GU5Yip55So5p2h5Lu244CB5rOo5oSP5LqL6aCF44Gv44Kv44O844Od44Oz5Yi4
+6Z2i44KS44GU56K66KqN44GP44Gg44GV44GE44CCDQoNCuKWvOOCr+ODvOODneODs+S4gOimp+OB
+uA0KaHR0cHM6Ly9ob250by5qcC9teS9hY2NvdW50L2NvdXBvbi5odG1sP2NpZD1NMzIwXzIwMjEw
+OTMwYV9zX2ViXzINCg0KDQrimIbilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIHilIHimIUNCiAg5ZCE56iu44Kv44O844Od44Oz6YWN5L+h5Lit77yBDQrimIXi
+lIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHimIYNCg0K
+6Zu75a2Q5pu457GNIOWvvuixoeWVhuWTgSDiiarmnIDlpKc1MO+8hU9GRuOCr+ODvOODneODs++8
+geKJqw0KaHR0cHM6Ly9ob250by5qcC9jcC9lYm9vay9jYW1wYWlnbi9tYXg1MC1jb3Vwb24/Y2lk
+PU0zMjBfMjAyMTA5MzBhX3NfZWJfMw0KDQoNCuKYhuKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKYhQ0KICBob250b+OBruOCpOODgeOCquOCt+eJuemb
+hu+8gQ0K4piF4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB
+4pSB4piGDQoNCuKWvOOAjOODgeOAguODvOWcsOeQg+OBrumBi+WLleOBq+OBpOOBhOOBpuOAjeOA
+jOepuuavjeOBhOOBtuOBjUdSRUFUIEdBTUXjgI3jgIzjgrPjgr/jg63jg7zjga8x5Lq65pqu44KJ
+44GX44CN5paw5YiK77yB44OT44OD44Kw44Kz44Of44OD44KvDQpodHRwczovL2hvbnRvLmpwL2Nw
+L2Vib29rLzIwMjEvYmlnY29taWM/Y2lkPU0zMjBfMjAyMTA5MzBhX3NfZWJfNA0K4pSX5pyA5aSn
+NuW3u+eEoeaWme+8huippuOBl+iqreOBv+Wil+mHj++8gQ0KDQrilrw55pyI5LiA6L+F56S+IOaB
+i+aEm+ODleOCoeODs+OCv+OCuOODvCDmlrDliIrjgq3jg6Pjg7Pjg5rjg7zjg7MNCmh0dHBzOi8v
+aG9udG8uanAvY3AvZWJvb2svMjAyMS9pY2hpamluc2hhLW5ld2Jvb2s/Y2lkPU0zMjBfMjAyMTA5
+MzBhX3NfZWJfNQ0K4pSX5pyA5aSnOOW3u+eEoeaWmeippuOBl+iqreOBv++8huacgOWkpzUw77yF
+T0ZGIOippuOBl+iqreOBv+Wil+mHjyEhDQoNCuKWvOOAjOOCsOODqeODg+ODl+ODqeODvOWIg+eJ
+meOAjTMw5ZGo5bm077yG44CM5Zyw5LiK5pyA5by3IOWIg+eJmeWxleOAjeadpeaYpemWi+WCrOax
+uuWumu+8gSDjg4Djg5bjg6voqJjlv7UNCmh0dHBzOi8vaG9udG8uanAvY3AvZWJvb2svMjAyMS9i
+YWtpP2NpZD1NMzIwXzIwMjEwOTMwYV9zX2ViXzYNCuKUlzQ45pmC6ZaT6ZmQ5a6aIOWIg+eJmeOC
+t+ODquODvOOCuuS4gOaMmTEzN+WGiueEoeaWmeippuOBl+iqreOBvyEhDQoNCg0K4omr4omr44Gd
+44Gu44G744GL44Gu54m56ZuG44Gv44GT44Gh44KJ44KS44OB44Kn44OD44Kv77yBDQpodHRwczov
+L2hvbnRvLmpwL2Vib29rL2ZlYXR1cmUuaHRtbD9jaWQ9TTMyMF8yMDIxMDkzMGFfc19lYl85DQoN
+CuKJq+KJq+OCu+ODvOODq+S+oeagvOOBruacrO+8huOCs+ODn+ODg+OCrw0KaHR0cHM6Ly9ob250
+by5qcC9jcC9lYm9vay9yZWNlbnQvc2FsZS5odG1sP2NpZD1NMzIwXzIwMjEwOTMwYV9zX2ViXzEw
+DQoNCg0K4omr4omr6Zu75a2Q5pu457GN44K544OI44Ki44Gv44GT44Gh44KJDQpodHRwczovL2hv
+bnRvLmpwL2Vib29rLmh0bWw/Y2lkPU0zMjBfMjAyMTA5MzBhX3NfZWJfMTENCg0KPT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0K4piF44Os44OT44Ol44O844KS5pu444GE
+44GmNeODneOCpOODs+ODiOOCguOCieOBiOOCiyEhIOODrOODk+ODpeODvOaKleeov+OCreODo+OD
+s+ODmuODvOODsw0KaHR0cHM6Ly9ob250by5qcC9jcC9yZXZpZXdoaXJvYmEvY2FtcGFpZ24vMDQt
+ZW50cnk/Y2lkPU0zMjBfMjAyMTA5MzBhX3NfZWJfMTUNCj09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT0NCg0K4oCV4oCV4oCV4oCV4oCV4oCV4oCV4oCV4oCV4oCV4oCV4oCV
+4oCV4oCV4oCV4oCV4oCV4oCV4oCV4oCVDQrilqDjgZPjga7jg6Hjg7zjg6vjgavjgaTjgYTjgaYN
+CuODu+OBk+OBruODoeODvOODq+OBr+OBlOeZu+mMsuOBhOOBn+OBoOOBhOOBn+ODoeODvOODq+OC
+ouODieODrOOCueWum+OBpuOBq+mFjeS/oeOBl+OBpuOBiuOCiuOBvuOBmeOAgg0K44O744GT44Gu
+44Oh44O844Or44Gv6YCB5L+h5bCC55So44Oh44O844Or44Ki44OJ44Os44K544GL44KJ6YWN5L+h
+44GX44Gm44GK44KK44G+44GZ44CCDQrjgIDjgZTov5Tkv6HjgYTjgZ/jgaDjgYTjgabjgoLlhoXl
+rrnjga7norroqo3jg7vjgZTlm57nrZTjga/jgafjgY3jgb7jgZvjgpPjgILjgZTkuobmib/jgY/j
+gaDjgZXjgYTjgIINCuODu+iruOS6i+aDheOBq+OCiOOCiuOAgeWVhuWTgeOCkuOBlOizvOWFpeOB
+hOOBn+OBoOOBkeOBquOBhOWgtOWQiOOBjOOBlOOBluOBhOOBvuOBmeOAgg0KDQrilqDjgZTkuI3m
+mI7jgarngrnjg7vjgYrllY/jgYTlkIjjgo/jgZvjgavjgaTjgYTjgaYNClBD44GL44KJ56K66KqN
+44GZ44KLDQpodHRwczovL2hlbHAuaG9udG8uanANCuOCueODnuODvOODiOODleOCqeODs+OBi+OC
+ieeiuuiqjeOBmeOCiw0KaHR0cHM6Ly9oZWxwLmhvbnRvLmpwL3NwLw0K5pC65biv6Zu76Kmx44GL
+44KJ56K66KqN44GZ44KLDQpodHRwczovL2hlbHAuaG9udG8uanAvbWIvDQoNCuKWoOmFjeS/oeWB
+nOatog0K6YWN5L+h44KS5YGc5q2i44GZ44KLDQpodHRwczovL2hvbnRvLmpwL3Vuc3Vic2NyaWJl
+L21haWw/Jm1saWQ9czIwJnVpZD1TVWpGbXZSMTN1TERnWGRoYzVYekRTY0hTS29mSW9TOWQ5QTlU
+M0pSNGxzKiZjaWQ9TTMyMF8yMDIxMDkzMGFfc19lYl9zdG9wDQrigLvjgZPjgaHjgonjga7jg6Hj
+g7zjg6vjgpLop6PpmaTjgZnjgovjgajjgIHkuIDpg6jjgq3jg6Pjg7Pjg5rjg7zjg7Pjga7jg53j
+gqTjg7Pjg4jjgoQNCuOCr+ODvOODneODs+OCkuOBiuWPl+OBkeWPluOCiuOBhOOBn+OBoOOBkeOB
+quOBj+OBquOCi+WgtOWQiOOBjOOBlOOBluOBhOOBvuOBmeOAguOBlOazqOaEj+OBj+OBoOOBleOB
+hOOAgg0KDQrilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIENCuODj+OCpOODluODquODg+ODieWei+e3j+WQiOabuOW6lyBob250bw0KaHR0
+cHM6Ly9ob250by5qcC8NCg0K5aSn5pel5pys5Y2w5Yi35qCq5byP5Lya56S+DQpDb3B5cmlnaHTv
+vIhD77yJRGFpIE5pcHBvbiBQcmludGluZyBDby4sIEx0ZC4gQWxsIHJpZ2h0cyByZXNlcnZlZC4N
+CuOBk+OBruODoeODvOODq+OBrueEoeaWrei7oui8ieOCkuemgeOBmOOBvuOBmeOAgg0K
+--BDF8243738C4B23FE27E1AA4739D01521781BE33
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xml:lang=3D"ja">
+<head>
+
+<meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1.0=
+">
+<title>honto=E3=81=8A=E8=B2=B7=E5=BE=97=E3=83=97=E3=83=AC=E3=83=9F=E3=82=A2=
+=E3=83=A1=E3=83=BC=E3=83=AB</title>
+
+<style>
+body { font-family: sans-serif; font-size: 12px; line-height: 1.4; color: #=
+333; padding: 0; margin: 0; -webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; }a { text-decoration: none; color: #0086cd; }img { border: 0 n=
+one; line-height: 1; outline: none; text-decoration: none; }a img { border:=
+ 0 none; text-decoration: none; }h1, h2, h3, h4, h5 { margin: 0; line-heigh=
+t: 1.4; }h1, h2 { font-size: 16px; }h3, h4, h5 { font-size: 14px; }p { marg=
+in: 0.5em 0; font-size: 13px; line-height: 24px; }p.center { text-align: ce=
+nter; }p.right { text-align: right; }pre { white-space: pre-wrap; font-fami=
+ly: sans-serif; }.wrapper { width: 600px; }.content { width: 100%; }.header=
+ { background-color: #f3f1e4; margin-bottom: 10px; }.header-banner { paddin=
+g-bottom: 10px; }.footer-list { margin: 0; padding: 10px 0; list-style: non=
+e; font-size: 13px; }.header-content1 { width: 420px; }.header-content2 { w=
+idth: 180px; }.header-content3 { width: 600px; }.header-logo { padding-righ=
+t: 10px; }.tr-h2, .tr-h2_color1 { color: #fff; background-color: #00529f; }=
+.tr-h2 td, .tr-h2_color1 td { padding: 10px 15px; }.tr-h2_color1 { backgrou=
+nd-color: #3cb371; }.tr-h3 { background-color: #f5f5f5; }.tr-h3 td { paddin=
+g: 10px 15px; }.itemName { font-size: 15px; line-height: 22px; font-weight:=
+ bold; }.text15 { font-size: 15px; line-height: 26px; }.text12 { font-size:=
+ 12px; line-height: 22px; }.FontB { font-weight: bold; }.Layout01 td { padd=
+ing: 0 10px; }.Layout02 td { padding: 10px; }.Layout03 td { padding-left: 1=
+0px; }.Layout02 p, .Layout03 p { line-height: 20px; margin: 0.5em 0; }.Layo=
+ut04 td { padding: 10px; width: 200px; }.tableSide th { color: #777777; tex=
+t-align: center; background: #ebebeb; font-weight: normal; padding: 10px; }=
+.tableSide td { padding: 10px; }.tableSide p { line-height: 20px; margin: 0=
+.5em 0; }.table01 th, .table05 th { color: #777777; text-align: center; bac=
+kground: #ebebeb; font-weight: normal; }.table01 p, .table05 p { line-heigh=
+t: 20px; margin: 0.5em 0; }.table02 { background: #f5f5f5; }.table02 p { ma=
+rgin: 0; }.table03 { background: #f8f7ef; }.table03 p { margin: 0; }.table0=
+3 .td-table03pd01 { padding: 20px 20px 0 20px; }.table03 .td-table03pd02 { =
+padding: 5px 20px 20px 20px; }.table04 { background: #f8f7ef; padding: 15px=
+; }.table04 p { margin: 0; }.td-pd5 { padding: 5px 10px; }.td-pd10 { paddin=
+g: 10px; }.td-pd15 { padding: 15px; }.td-pd20 { padding: 20px; }.border01 {=
+ border: 1px solid #ebebeb; }.borderLR { border-right: 1px solid #ebebeb; b=
+order-left: 1px solid #ebebeb; }.borderB { border-bottom: 1px solid #ebebeb=
+; }.theme { table-layout: fixed; border-spacing: 0px; width: 100%; margin-b=
+ottom: 60px; }.theme__pd0 { padding: 0; }.theme__color-bar { height: 6px; }=
+.theme__color1 { background-color: #f4553f; }.theme__color2 { background-co=
+lor: #2c78b3; }.theme__color3 { background-color: #f5a115; }.theme__color4 =
+{ background-color: #30896b; }.theme__color5 { background-color: #f48db0; }=
+.theme__color6 { background-color: #a1a1a1; }.theme__color7 { background-co=
+lor: #5cbcca; }.theme__color8 { background-color: #ea7324; }.theme__color9 =
+{ background-color: #b8915f; }.theme__color10 { background-color: #90c127; =
+}.theme__color11 { background-color: #786fb1; }.theme__caption { background=
+-color: #f8f7ef; padding: 0 25px; }.theme__caption-table { width: 100%; bor=
+der-spacing: 0px; -webkit-box-sizing: border-box; -moz-box-sizing: border-b=
+ox; box-sizing: border-box; }.theme__caption-row { width: 100%; text-align:=
+ center; font-size: 15px; color: #333; border-bottom: 1px solid #d9d9d9; pa=
+dding: 15px 0; font-weight: bold; }.theme__body { padding: 20px 25px; borde=
+r-spacing: 0px; background-color: #f8f7ef; width: 100%; }.theme__digest { l=
+ine-height: 1.7; }.theme__digest-term { font-weight: bold; font-size: 13px;=
+ }.theme__digest-description { font-size: 13px; }.theme__thumbnails { backg=
+round-color: #f8f7ef; width: 100%; }.theme__continue { text-align: center; =
+}.icon, .iconEb, .iconEc { color: #ffffff !important; font-size: 12px !impo=
+rtant; font-weight: bold !important; }.icon td, .iconEb td, .iconEc td { pa=
+dding: 3px 10px !important; }.iconEb { background-color: #f57f23; }.iconEc =
+{ background-color: #64bb30; }@media only screen and (max-width: 479px) { h=
+1 { font-size: 14px !important; }  table.wrapper { margin: 0 auto !importan=
+t; width: 100% !important; -webkit-box-sizing: border-box !important; -moz-=
+box-sizing: border-box !important; box-sizing: border-box !important; }  ta=
+ble.content, table.header-content1, table.header-content2, table.header-con=
+tent3 { width: 100% !important; -webkit-box-sizing: border-box; -moz-box-si=
+zing: border-box; box-sizing: border-box; }  td.header-responsive { width: =
+100% !important; display: block !important; -webkit-box-sizing: border-box =
+!important; -moz-box-sizing: border-box !important; box-sizing: border-box =
+!important; padding: 0 !important; }  td.header-responsive img { width: 100=
+% !important; max-width: 100% !important; margin: 0 auto !important; }  td.=
+header-td1 { text-align: right !important; padding-right: 15px !important; =
+}  td.header-td2 { text-align: left !important; padding-left: 15px !importa=
+nt; }  td.header-logo { padding-right: 0 !important; width: 50px !important=
+; height: 25px !important; }  td.header-logo img#img-logo { width: 40px !im=
+portant; height: auto !important; }  td.td-responsive_0 { width: 100% !impo=
+rtant; -webkit-box-sizing: border-box !important; -moz-box-sizing: border-b=
+ox !important; box-sizing: border-box !important; margin: 0 !important; pad=
+ding: 0 10px !important; display: block !important; }  td.td-responsive { w=
+idth: 100% !important; -webkit-box-sizing: border-box !important; -moz-box-=
+sizing: border-box !important; box-sizing: border-box !important; margin: 1=
+0px 0 !important; padding: 0 10px !important; overflow: hidden !important; =
+display: table !important; }  td.td-responsive > table:not(.Layout01):not(.=
+Layout02):not(.Layout03):not(.Layout04) { width: 100%; }  td.td-responsive =
+> table:not(.Layout01):not(.Layout02):not(.Layout03):not(.Layout04) td.td-r=
+esponsive:not([width=3D"30"]) { padding: 0 !important; }  .tableSide th, .t=
+ableSide td { width: 100% !important; display: block !important; -webkit-bo=
+x-sizing: border-box !important; -moz-box-sizing: border-box !important; bo=
+x-sizing: border-box !important; margin: 0 !important; padding: 5px 10px !i=
+mportant; }  .header { margin-bottom: 0 !important; }  .Layout01 { float: l=
+eft !important; width: 133px !important; }  .Layout01 td { padding: 0 !impo=
+rtant; }  .Layout02 { float: left !important; width: 54% !important; }  .La=
+yout03 { width: auto !important; }  .Layout02 td, .Layout03 td { padding: 0=
+ 0 0 10px !important; }  .Layout04 td { padding: 5px 0 !important; width: 1=
+33px !important; }  img.img-responsive { width: 100% !important; max-width:=
+ 100% !important; height: auto !important; }  img.img-responsive66 { width:=
+ 66% !important; height: 66% !important; }  img.spacer-header { height: 5px=
+ !important; }  img.spacer-responsive { height: 10px !important; }  img.spa=
+cer-none { display: none !important; }  .footer-list { padding: 10px 0 0 !i=
+mportant; }  .td-pd20 { padding: 10px !important; }  .table03 { margin: 10p=
+x 0 !important; }  .table03 .td-table03pd01 { padding: 10px 10px 0 10px !im=
+portant; }  .table03 .td-table03pd02 { padding: 5px 10px 10px 10px !importa=
+nt; }  .table04 { padding: 5px 10px !important; }  .table05 tr { border-bot=
+tom: 1px solid #ebebeb !important; display: block !important; letter-spacin=
+g: -0.4em !important; }  .table05 th { letter-spacing: normal !important; d=
+isplay: inline-block !important; width: 33.3% !important; }  .table05 th p =
+{ display: inline-block !important; padding: 2px 5px !important; }  .table0=
+5 td { letter-spacing: normal !important; display: inline-block !important;=
+ padding: 0 5px !important; border: 0 !important; }  .table05 td p { displa=
+y: inline-block !important; }  .icon td, .iconEb td, .iconEc td { padding: =
+3px 10px !important; } }
+</style>
+</head>
+<body style=3D"-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; =
+color: #333; font-family: sans-serif; font-size: 12px; line-height: 1.4; ma=
+rgin: 0; padding: 0;">
+<!-- =E3=81=93=E3=81=A1=E3=82=89=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=83=
+=9E=E3=82=AC=E3=82=B8=E3=83=B3=E3=81=AFHTML=E5=BD=A2=E5=BC=8F=E3=81=A7=E3=
+=81=94=E8=A6=A7=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=E3=80=
+=82 -->
+
+<table width=3D"600" cellpadding=3D"0" cellspacing=3D"0" align=3D"center" c=
+lass=3D"wrapper" style=3D"width: 600px;">
+<tr>
+<td>
+
+
+<!-- =E3=83=98=E3=83=83=E3=83=80=E3=83=BC=E3=82=A8=E3=83=AA=E3=82=A2 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content header" style=
+=3D"background-color: #f3f1e4; margin-bottom: 10px; width: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"10" class=3D"spacer-header" style=3D"border:=
+ 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td class=3D"header-responsive"><table width=3D"600" cellpadding=3D"0" cell=
+spacing=3D"0" class=3D"header-content3" style=3D"width: 600px;">
+<tr>
+<td width=3D"13"><img src=3D"https://image.honto.jp/htmlmail/library/img/pc=
+/spacer.png" alt=3D"" width=3D"13" height=3D"1" style=3D"border: 0 none; li=
+ne-height: 1; outline: none; text-decoration: none;"></td>
+<td width=3D"77" height=3D"37" align=3D"left" valign=3D"middle" class=3D"he=
+ader-logo" style=3D"padding-right: 10px;"><a href=3D"https://honto.jp?cid=
+=3DM320_20210930a_pc_eb_logo" style=3D"color: #0086cd; text-decoration: non=
+e;"><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/logo_honto_0=
+2.png" alt=3D"honto" width=3D"77" height=3D"37" id=3D"img-logo" style=3D"bo=
+rder: 0 none; line-height: 1; outline: none; text-decoration: none;"></a></=
+td>
+<td align=3D"left" valign=3D"middle" style=3D"padding-right:10px !important=
+; padding-left:5px !important;">
+<h1 style=3D"font-size: 16px; line-height: 1.4; margin: 0;"></h1>
+</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"10" class=3D"spacer-header" style=3D"border:=
+ 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- end =E3=83=98=E3=83=83=E3=83=80=E3=83=BC=E3=82=A8=E3=83=AA=E3=82=A2 --=
+>
+
+
+<!-- =E5=BA=8F=E6=96=87 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td valign=3D"top" class=3D"td-responsive">
+<div class=3D"FontB" style=3D"font-size: 13px; font-weight: bold; line-heig=
+ht: 24px; margin: 0.5em 0;">=E9=81=A0=E8=97=A4 =E5=B0=87=E5=8F=B8 =E6=A7=98=
+</div>
+<div style=3D"font-size: 13px; line-height: 24px; margin: 0.5em 0;">=E3=81=
+=84=E3=81=A4=E3=82=82honto=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=
+=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E8=AA=A0=E3=81=AB=E3=81=82=E3=82=8A=E3=81=
+=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=
+<br>
+=E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D=E3=82=B9=E3=83=88=E3=82=A2=E3=81=A7=E4=
+=BD=BF=E3=81=88=E3=82=8B=E3=81=8A=E5=BE=97=E3=81=AA=E3=82=AF=E3=83=BC=E3=83=
+=9D=E3=83=B3=E3=81=AE=E3=81=94=E6=A1=88=E5=86=85=E3=81=A7=E3=81=99=E3=80=82=
+<br><br>=E2=80=BB=E3=81=99=E3=81=A7=E3=81=AB=E3=82=AF=E3=83=BC=E3=83=9D=E3=
+=83=B3=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E6=B8=88=E3=81=BF=E3=81=AE=E3=81=
+=8A=E5=AE=A2=E6=A7=98=E3=81=AB=E3=82=82=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=8C=
+=E5=B1=8A=E3=81=8F=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=
+=81=BE=E3=81=99=E3=80=82=E3=81=94=E4=BA=86=E6=89=BF=E3=81=8F=E3=81=A0=E3=81=
+=95=E3=81=84=E3=80=82</div>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- end =E5=BA=8F=E6=96=87 -->
+
+
+
+<!-- =E2=96=BC=E2=96=BC=E2=96=BC mein=E3=82=B3=E3=83=B3=E3=83=86=E3=83=B3=
+=E3=83=84 =E2=96=BC=E2=96=BC=E2=96=BC -->
+
+<!-- =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=83=
+=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"header-banner" style=3D"padding-bottom: 10px;">
+<h1 style=3D"font-size: 16px; line-height: 1.4; margin: 0;"><a href=3D"http=
+s://honto.jp/cp/ebook/campaign/all20-coupon?cid=3DM320_20210930a_pc_eb_1" s=
+tyle=3D"color: #0086cd; text-decoration: none;"><img src=3D"https://honto.j=
+p/library/cp/ebook/campaign/all20-coupon/img/pc/img_signboard_c_gr3.png" wi=
+dth=3D"600" height=3D"176" alt=3D"=E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D =E5=
+=AF=BE=E8=B1=A1=E5=95=86=E5=93=81 =E2=89=AA20=EF=BC=85OFF=E2=89=AB=E3=82=AF=
+=E3=83=BC=E3=83=9D=E3=83=B3" class=3D"img-responsive" style=3D"border: 0 no=
+ne; line-height: 1; outline: none; text-decoration: none;"></a></h1>
+</td>
+</tr>
+</table>
+<!-- end =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=
+=83=AB -->
+
+<!-- H2=E5=BC=B7=E8=AA=BF + =E3=83=86=E3=82=AD=E3=82=B9=E3=83=88 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"td-responsive">
+<div style=3D"font-size: 13px; line-height: 24px; margin: 0.5em 0;">=E6=97=
+=A5=E3=81=94=E3=82=8D=E3=81=AE=E3=81=94=E6=84=9B=E9=A1=A7=E3=81=AB=E6=84=9F=
+=E8=AC=9D=E3=81=97=E3=81=A6=E3=80=81=E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D=E3=
+=81=AB=E4=BD=BF=E3=81=88=E3=82=8B=E3=82=AF=E3=83=BC=E3=83=9D=E3=83=B3=E3=82=
+=92=E9=85=8D=E4=BF=A1=E4=B8=AD=E3=81=A7=E3=81=99=E3=80=82<br>9=E6=9C=8830=
+=E6=97=A5=EF=BC=88=E6=9C=A8=EF=BC=89=E3=81=BE=E3=81=A7=E3=81=A8=E3=81=AA=E3=
+=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=93=E3=81=AE=E6=A9=9F=E4=BC=9A=E3=82=
+=92=E3=81=8A=E8=A6=8B=E9=80=83=E3=81=97=E3=81=AA=E3=81=8F=EF=BC=81
+</div>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- end H2=E5=BC=B7=E8=AA=BF + =E3=83=86=E3=82=AD=E3=82=B9=E3=83=88-->
+
+<!-- =E2=96=BC=E2=96=BC=E2=96=BC =E3=82=AF=E3=83=BC=E3=83=9D=E3=83=B3=E5=8F=
+=96=E5=BE=97=E3=83=9C=E3=82=BF=E3=83=B3 =E2=96=BC=E2=96=BC=E2=96=BC -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td align=3D"center" class=3D"td-responsive"><a href=3D"https://honto.jp/cp=
+/ebook/campaign/all20-coupon?cid=3DM320_20210930a_pc_eb_2" style=3D"color: =
+#0086cd; text-decoration: none;"><img src=3D"https://image.honto.jp/htmlmai=
+l/library/img/pc/btn_l06.png" alt=3D"=E3=82=AF=E3=83=BC=E3=83=9D=E3=83=B3=
+=E3=82=92=E5=8F=96=E5=BE=97=E3=81=99=E3=82=8B" width=3D"268" height=3D"52" =
+style=3D"border: 0 none; line-height: 1; outline: none; text-decoration: no=
+ne;"></a></td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"10" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- =E2=96=B2=E2=96=B2=E2=96=B2 end =E3=82=AF=E3=83=BC=E3=83=9D=E3=83=B3=
+=E5=8F=96=E5=BE=97=E3=83=9C=E3=82=BF=E3=83=B3 =E2=96=B2=E2=96=B2=E2=96=B2 -=
+->
+
+<!-- =E3=83=86=E3=82=AD=E3=82=B9=E3=83=88 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"td-responsive">
+<div class=3D"center" style=3D"font-size: 13px; line-height: 24px; margin: =
+0.5em 0; text-align: center;"><a href=3D"https://honto.jp/my/account/coupon=
+.html?cid=3DM320_20210930a_pc_eb_3" style=3D"color: #0086cd; text-decoratio=
+n: none;">&gt;&gt; =E3=82=AF=E3=83=BC=E3=83=9D=E3=83=B3=E4=B8=80=E8=A6=A7=
+=E3=81=B8</a></div>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- end =E3=83=86=E3=82=AD=E3=82=B9=E3=83=88 -->
+
+
+<!-- =E8=A6=8B=E5=87=BA=E3=81=97-->
+<!-- H2=E5=BC=B7=E8=AA=BF=EF=BC=88=E7=B7=91=E8=89=B2=EF=BC=89 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr class=3D"tr-h2_color1" style=3D"background-color: #3cb371; color: #fff;=
+">
+<td class=3D"td-responsive" style=3D"padding: 10px 15px;">
+<h2 style=3D"font-size: 16px; line-height: 1.4; margin: 0;">=E5=90=84=E7=A8=
+=AE=E3=82=AF=E3=83=BC=E3=83=9D=E3=83=B3=E9=85=8D=E4=BF=A1=E4=B8=AD=EF=BC=81=
+</h2>
+</td>
+</tr>
+</table>
+<!-- end H2=E5=BC=B7=E8=AA=BF=EF=BC=88=E7=B7=91=E8=89=B2=EF=BC=89-->
+<!-- end =E8=A6=8B=E5=87=BA=E3=81=97-->
+
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+
+
+<!-- =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=83=
+=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"header-banner" style=3D"padding-bottom: 10px;">
+<h1 style=3D"font-size: 16px; line-height: 1.4; margin: 0;"><a href=3D"http=
+s://honto.jp/cp/ebook/campaign/max50-coupon?cid=3DM320_20210930a_pc_eb_4" s=
+tyle=3D"color: #0086cd; text-decoration: none;"><img src=3D"https://honto.j=
+p/library/cp/ebook/campaign/max50-coupon/img/pc/banner_max50-coupon_mail_t4=
+c.png" alt=3D"=E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D =E5=AF=BE=E8=B1=A1=E5=95=
+=86=E5=93=81 =E2=89=AA=E6=9C=80=E5=A4=A750=EF=BC=85OFF=E3=82=AF=E3=83=BC=E3=
+=83=9D=E3=83=B3=EF=BC=81=E2=89=AB" width=3D"600" height=3D"200" alt=3D"" cl=
+ass=3D"img-responsive" style=3D"border: 0 none; line-height: 1; outline: no=
+ne; text-decoration: none;"></a></h1>
+</td>
+</tr>
+</table>
+<!-- end =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=
+=83=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+
+
+<!-- =E8=A6=8B=E5=87=BA=E3=81=97-->
+<!-- H2=E5=BC=B7=E8=AA=BF=EF=BC=88=E7=B7=91=E8=89=B2=EF=BC=89 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr class=3D"tr-h2_color1" style=3D"background-color: #3cb371; color: #fff;=
+">
+<td class=3D"td-responsive" style=3D"padding: 10px 15px;">
+<h2 style=3D"font-size: 16px; line-height: 1.4; margin: 0;">honto=E3=81=AE=
+=E3=82=A4=E3=83=81=E3=82=AA=E3=82=B7=E7=89=B9=E9=9B=86=EF=BC=81</h2>
+</td>
+</tr>
+</table>
+<!-- end H2=E5=BC=B7=E8=AA=BF=EF=BC=88=E7=B7=91=E8=89=B2=EF=BC=89-->
+<!-- end =E8=A6=8B=E5=87=BA=E3=81=97-->
+
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+
+
+<!-- =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=83=
+=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"header-banner" style=3D"padding-bottom: 10px;">
+<h1 style=3D"font-size: 16px; line-height: 1.4; margin: 0;"><a href=3D"http=
+s://honto.jp/cp/ebook/2021/bigcomic?cid=3DM320_20210930a_pc_eb_5" style=3D"=
+color: #0086cd; text-decoration: none;"><img src=3D"https://honto.jp/librar=
+y/cp/ebook/2021/bigcomic/img/pc/img_signboard_c_1j5.jpg" alt=3D"=E3=80=8C=
+=E3=83=81=E3=80=82=E3=83=BC=E5=9C=B0=E7=90=83=E3=81=AE=E9=81=8B=E5=8B=95=E3=
+=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=80=8D=E3=80=8C=E7=A9=BA=E6=AF=8D=E3=81=
+=84=E3=81=B6=E3=81=8DGREAT GAME=E3=80=8D=E3=80=8C=E3=82=B3=E3=82=BF=E3=83=
+=AD=E3=83=BC=E3=81=AF1=E4=BA=BA=E6=9A=AE=E3=82=89=E3=81=97=E3=80=8D=E6=96=
+=B0=E5=88=8A=EF=BC=81=E3=83=93=E3=83=83=E3=82=B0=E3=82=B3=E3=83=9F=E3=83=83=
+=E3=82=AF" width=3D"600" height=3D"176" alt=3D"" class=3D"img-responsive" s=
+tyle=3D"border: 0 none; line-height: 1; outline: none; text-decoration: non=
+e;"></a></h1>
+</td>
+</tr>
+</table>
+<!-- end =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=
+=83=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+
+
+<!-- =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=83=
+=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"header-banner" style=3D"padding-bottom: 10px;">
+<h1 style=3D"font-size: 16px; line-height: 1.4; margin: 0;"><a href=3D"http=
+s://honto.jp/cp/ebook/2021/ichijinsha-newbook?cid=3DM320_20210930a_pc_eb_6"=
+ style=3D"color: #0086cd; text-decoration: none;"><img src=3D"https://honto=
+.jp/library/cp/ebook/2021/ichijinsha-newbook/img/pc/img_signboard_c.jpg" al=
+t=3D"9=E6=9C=88=E4=B8=80=E8=BF=85=E7=A4=BE =E6=81=8B=E6=84=9B=E3=83=95=E3=
+=82=A1=E3=83=B3=E3=82=BF=E3=82=B8=E3=83=BC =E6=96=B0=E5=88=8A=E3=82=AD=E3=
+=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3" width=3D"600" height=3D"176" al=
+t=3D"" class=3D"img-responsive" style=3D"border: 0 none; line-height: 1; ou=
+tline: none; text-decoration: none;"></a></h1>
+</td>
+</tr>
+</table>
+<!-- end =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=
+=83=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+
+
+<!-- =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=83=
+=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td class=3D"header-banner" style=3D"padding-bottom: 10px;">
+<h1 style=3D"font-size: 16px; line-height: 1.4; margin: 0;"><a href=3D"http=
+s://honto.jp/cp/ebook/2021/baki?cid=3DM320_20210930a_pc_eb_7" style=3D"colo=
+r: #0086cd; text-decoration: none;"><img src=3D"https://honto.jp/library/cp=
+/ebook/2021/baki/img/pc/img_signboard_c.jpg" alt=3D"=E3=80=8C=E3=82=B0=E3=
+=83=A9=E3=83=83=E3=83=97=E3=83=A9=E3=83=BC=E5=88=83=E7=89=99=E3=80=8D30=E5=
+=91=A8=E5=B9=B4=EF=BC=86=E3=80=8C=E5=9C=B0=E4=B8=8A=E6=9C=80=E5=BC=B7 =E5=
+=88=83=E7=89=99=E5=B1=95=E3=80=8D=E6=9D=A5=E6=98=A5=E9=96=8B=E5=82=AC=E6=B1=
+=BA=E5=AE=9A=EF=BC=81 =E3=83=80=E3=83=96=E3=83=AB=E8=A8=98=E5=BF=B5" width=
+=3D"600" height=3D"176" alt=3D"" class=3D"img-responsive" style=3D"border: =
+0 none; line-height: 1; outline: none; text-decoration: none;"></a></h1>
+</td>
+</tr>
+</table>
+<!-- end =E3=83=A1=E3=82=A4=E3=83=B3=E3=83=93=E3=82=B8=E3=83=A5=E3=82=A2=E3=
+=83=AB -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+
+
+<!-- =E2=96=BC=E2=96=BC=E2=96=BC =E7=89=B9=E9=9B=86=E4=B8=80=E8=A6=A7=E3=83=
+=9C=E3=82=BF=E3=83=B3 =E2=96=BC=E2=96=BC=E2=96=BC -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td align=3D"center" class=3D"td-responsive"><a href=3D"https://honto.jp/eb=
+ook/feature.html?cid=3DM320_20210930a_pc_eb_13" style=3D"color: #0086cd; te=
+xt-decoration: none;"><img src=3D"https://image.honto.jp/library/mail/img/b=
+tn_l20.png" alt=3D"=E3=82=A4=E3=83=81=E3=82=AA=E3=82=B7=E3=81=AE=E7=89=B9=
+=E9=9B=86=E4=B8=80=E8=A6=A7=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89" width=3D"2=
+68" height=3D"52" style=3D"border: 0 none; line-height: 1; outline: none; t=
+ext-decoration: none;"></a></td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- =E2=96=B2=E2=96=B2=E2=96=B2 end =E7=89=B9=E9=9B=86=E4=B8=80=E8=A6=A7=
+=E3=83=9C=E3=82=BF=E3=83=B3 =E2=96=B2=E2=96=B2=E2=96=B2 -->
+
+
+<!-- =E2=96=B2=E2=96=B2=E2=96=B2 end mein=E3=82=B3=E3=83=B3=E3=83=86=E3=83=
+=B3=E3=83=84 =E2=96=B2=E2=96=B2=E2=96=B2 -->
+
+<!-- =E5=8C=BA=E5=88=87=E3=82=8A=E3=83=A9=E3=82=A4=E3=83=B3 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td bgcolor=3D"#e6e6e6"><img src=3D"https://image.honto.jp/htmlmail/library=
+/img/pc/spacer.png" alt=3D"" width=3D"1" height=3D"1" style=3D"border: 0 no=
+ne; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- end =E5=8C=BA=E5=88=87=E3=82=8A=E3=83=A9=E3=82=A4=E3=83=B3 -->
+
+<!-- =E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D=E3=82=B9=E3=83=88=E3=82=A2=E3=81=
+=B8 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td class=3D"td-responsive">
+<div class=3D"center" style=3D"font-size: 13px; line-height: 24px; margin: =
+0.5em 0; text-align: center;">=E8=A9=B1=E9=A1=8C=E3=81=AE=E9=9B=BB=E5=AD=90=
+=E6=9B=B8=E7=B1=8D=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=E3=82=92=E3=83=81=E3=
+=82=A7=E3=83=83=E3=82=AF=EF=BC=81</div>
+<div class=3D"center text15" style=3D"font-size: 15px; line-height: 26px; m=
+argin: 0.5em 0; text-align: center;"><a href=3D"https://honto.jp/ebook.html=
+?cid=3DM320_20210930a_pc_eb_top" style=3D"color: #0086cd; text-decoration: =
+none;">&gt;&gt; =E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D=E3=82=B9=E3=83=88=E3=
+=82=A2</a></div>
+</td>
+</tr>
+</table>
+<!-- end =E9=9B=BB=E5=AD=90=E6=9B=B8=E7=B1=8D=E3=82=B9=E3=83=88=E3=82=A2=E3=
+=81=B8 -->
+
+<!-- sp=E3=83=90=E3=83=8A=E3=83=BC -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td align=3D"center" valign=3D"top" class=3D"td-responsive">
+<a href=3D"https://honto.jp/cp/reviewhiroba/campaign/04-entry?cid=3DM320_20=
+210930a_pc_eb_15" style=3D"color: #0086cd; text-decoration: none;"><img src=
+=3D"https://honto.jp/library/cp/reviewhiroba/campaign/04-entry/img/sp_02/ba=
+nner_review-cp_m_jo3.png" alt=3D"=E3=83=AC=E3=83=93=E3=83=A5=E3=83=BC=E3=82=
+=92=E6=9B=B8=E3=81=84=E3=81=A65=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=
+=82=E3=82=89=E3=81=88=E3=82=8B!! =E3=83=AC=E3=83=93=E3=83=A5=E3=83=BC=E6=8A=
+=95=E7=A8=BF=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3" width=
+=3D"290" height=3D"73" style=3D"border: 0 none; line-height: 1; outline: no=
+ne; text-decoration: none;"></a>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"30" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- end sp=E3=83=90=E3=83=8A=E3=83=BC -->
+
+
+<!-- =E3=83=95=E3=83=83=E3=82=BF=E3=83=BC=E3=82=A8=E3=83=AA=E3=82=A2 -->
+
+<!-- =E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E3=81=A4=E3=81=
+=84=E3=81=A6=E4=BB=96 -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td bgcolor=3D"#e6e6e6"><img src=3D"https://image.honto.jp/htmlmail/library=
+/img/pc/spacer.png" alt=3D"" width=3D"1" height=3D"1" style=3D"border: 0 no=
+ne; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"td-responsive">
+<h4 style=3D"font-size: 14px; line-height: 1.4; margin: 0;">=E3=81=93=E3=81=
+=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6</h4>
+<ul class=3D"footer-list" style=3D"font-size: 13px; list-style: none; margi=
+n: 0; padding: 10px 0;">
+<li>=E3=83=BB=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E3=81=
+=94=E7=99=BB=E9=8C=B2=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E3=83=A1=
+=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E5=AE=9B=E3=81=A6=E3=
+=81=AB=E9=85=8D=E4=BF=A1=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=
+=99=E3=80=82</li>
+<li>=E3=83=BB=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=80=
+=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=
+=E3=83=AC=E3=82=B9=E3=81=8B=E3=82=89=E9=85=8D=E4=BF=A1=E3=81=97=E3=81=A6=E3=
+=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>=E3=81=94=E8=BF=94=E4=BF=A1=
+=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=82=82=E5=86=85=E5=AE=B9=E3=
+=81=AE=E7=A2=BA=E8=AA=8D=E3=83=BB=E3=81=94=E5=9B=9E=E7=AD=94=E3=81=AF=E3=81=
+=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=E3=81=94=E4=BA=86=E6=89=BF=
+=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</li>
+<li>=E3=83=BB=E8=AB=B8=E4=BA=8B=E6=83=85=E3=81=AB=E3=82=88=E3=82=8A=E3=80=
+=81=E5=95=86=E5=93=81=E3=82=92=E3=81=94=E8=B3=BC=E5=85=A5=E3=81=84=E3=81=9F=
+=E3=81=A0=E3=81=91=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=94=E3=
+=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"10" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"td-responsive">
+<h4 style=3D"font-size: 14px; line-height: 1.4; margin: 0;">=E3=81=94=E4=B8=
+=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=83=BB=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=
+=E3=82=8F=E3=81=9B=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6</h4>
+<ul class=3D"footer-list" style=3D"font-size: 13px; list-style: none; margi=
+n: 0; padding: 10px 0;">
+<li><a href=3D"https://help.honto.jp/" style=3D"color: #0086cd; text-decora=
+tion: none;">PC=E3=81=8B=E3=82=89=E7=A2=BA=E8=AA=8D=E3=81=99=E3=82=8B</a></=
+li>
+<li><a href=3D"https://help.honto.jp/sp/" style=3D"color: #0086cd; text-dec=
+oration: none;">=E3=82=B9=E3=83=9E=E3=83=BC=E3=83=88=E3=83=95=E3=82=A9=E3=
+=83=B3=E3=81=8B=E3=82=89=E7=A2=BA=E8=AA=8D=E3=81=99=E3=82=8B</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"10" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td align=3D"left" class=3D"td-responsive">
+<h4 style=3D"font-size: 14px; line-height: 1.4; margin: 0;">=E9=85=8D=E4=BF=
+=A1=E5=81=9C=E6=AD=A2</h4>
+<ul class=3D"footer-list" style=3D"font-size: 13px; list-style: none; margi=
+n: 0; padding: 10px 0;">
+<li><a href=3D"https://honto.jp/unsubscribe/mail?&amp;mlid=3Ds20&amp;uid=3D=
+SUjFmvR13uLDgXdhc5XzDScHSKofIoS9d9A9T3JR4ls*&amp;cid=3DM320_20210930a_pc_eb=
+_stop" style=3D"color: #0086cd; text-decoration: none;">=E9=85=8D=E4=BF=A1=
+=E3=82=92=E5=81=9C=E6=AD=A2=E3=81=99=E3=82=8B</a></li>
+<li>=E3=83=BB=E3=81=93=E3=81=A1=E3=82=89=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=
+=AB=E3=82=92=E8=A7=A3=E9=99=A4=E3=81=99=E3=82=8B=E3=81=A8=E3=80=81=E4=B8=80=
+=E9=83=A8=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=81=AE=E3=
+=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=82=84=E3=82=AF=E3=83=BC=E3=83=9D=E3=83=
+=B3=E3=82=92=E3=81=8A=E5=8F=97=E3=81=91=E5=8F=96=E3=82=8A=E3=81=84=E3=81=9F=
+=E3=81=A0=E3=81=91=E3=81=AA=E3=81=8F=E3=81=AA=E3=82=8B=E5=A0=B4=E5=90=88=E3=
+=81=8C=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E3=81=94=E6=B3=
+=A8=E6=84=8F=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"10" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td bgcolor=3D"#e6e6e6" style=3D"line-height: 0 !important; font-size: 0 !i=
+mportant;"><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/space=
+r.png" alt=3D"" width=3D"1" height=3D"1" style=3D"border: 0 none; line-heig=
+ht: 1; outline: none; text-decoration: none;"></td>
+</tr>
+<tr>
+<td><img src=3D"https://image.honto.jp/htmlmail/library/img/pc/spacer.png" =
+alt=3D"" width=3D"1" height=3D"20" class=3D"spacer-responsive" style=3D"bor=
+der: 0 none; line-height: 1; outline: none; text-decoration: none;"></td>
+</tr>
+</table>
+<!-- =E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E3=81=A4=E3=81=
+=84=E3=81=A6=E4=BB=96 -->
+
+<!-- footer -->
+<table cellpadding=3D"0" cellspacing=3D"0" class=3D"content" style=3D"width=
+: 100%;">
+<tr>
+<td align=3D"left" class=3D"td-responsive">
+<div class=3D"text12" style=3D"font-size: 12px; line-height: 22px; margin: =
+0.5em 0;">=E3=83=8F=E3=82=A4=E3=83=96=E3=83=AA=E3=83=83=E3=83=89=E5=9E=8B=
+=E7=B7=8F=E5=90=88=E6=9B=B8=E5=BA=97 honto<br>
+<a href=3D"https://honto.jp/" style=3D"color: #0086cd; text-decoration: non=
+e !important;">https://honto.jp/</a></div>
+<div class=3D"text12" style=3D"font-size: 12px; line-height: 22px; margin: =
+0.5em 0;">=E5=A4=A7=E6=97=A5=E6=9C=AC=E5=8D=B0=E5=88=B7=E6=A0=AA=E5=BC=8F=
+=E4=BC=9A=E7=A4=BE<br>
+Copyright=EF=BC=88C=EF=BC=89Dai Nippon Printing Co., Ltd. All rights reserv=
+ed.<br>
+=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AE=E7=84=A1=E6=96=AD=E8=
+=BB=A2=E8=BC=89=E3=82=92=E7=A6=81=E3=81=98=E3=81=BE=E3=81=99=E3=80=82</div>
+</td>
+</tr>
+</table>
+<!-- footer -->
+
+<!-- end =E3=83=95=E3=83=83=E3=82=BF=E3=83=BC=E3=82=A8=E3=83=AA=E3=82=A2 --=
+>
+
+</td>
+</tr>
+</table>
+<img src=3D"http://ksrs-n-ck-a.m.honto.jp/c/c4hdaL6VgIxKwLab.gif" width=3D"=
+1" height=3D"1"></body>
+</html>
+
+--BDF8243738C4B23FE27E1AA4739D01521781BE33--

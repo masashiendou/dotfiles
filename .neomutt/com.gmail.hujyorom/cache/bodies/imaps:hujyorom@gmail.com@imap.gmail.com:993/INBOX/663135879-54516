@@ -1,0 +1,288 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:6042:0:0:0:0:0 with SMTP id u63csp248333vkb;
+        Wed, 25 Aug 2021 01:25:19 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyg+E4nibhHWdI4Gbtdne8cfT5sagvSxTHj3/VFhtyA3e+fJSjKT2oVS0tmsu862+2w0ysT
+X-Received: by 2002:a92:a04c:: with SMTP id b12mr29573257ilm.80.1629879919600;
+        Wed, 25 Aug 2021 01:25:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629879919; cv=none;
+        d=google.com; s=arc-20160816;
+        b=NkRW5gMXt1Q2c16ndEFqFGgp3+yEE41tXet0/OJbExxl9iRhKK3hKoWwCkuarJuWEO
+         xWn+pZ+YXbMtmJhyS/bvPDOM0sb3bxPL+ymEc4drEV7i9V/GR6KwUGitLsN4pc+hg2wf
+         +gmc5gd+bBd/H2ESbcVwEua+AEg6/YeLxGv40TGQv/RWH3L6w7XBE87ppCTkHiQYO4x7
+         9xNIabUoW6oGTMwm8in/4jpmZ/tjrITEV3ItbTuel+78Gy6WM9Oryol++0sKVpgUWmbY
+         b1FK9NeTCC3iXNohf8wAHrlPnIBk9CYpp1PvRfNuBhfvKc/5yTiuIh+7PC5tZ8ODGw6T
+         sh0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:sdm-mailfrom:mime-version:subject:message-id:to:reply-to:from;
+        bh=n/gKwGU4DeXO+MA61MMyckBmUBAqqm8e1s0xCg81sj0=;
+        b=kgnlD3ROYoX+COTb0OT7vbXwDZbx+0f8HKKU34eFFek2x998OgkDOyZEcHA7gDC6Dr
+         hCYKYQ/lPInztUtcS1IiRYA7xxrJwXdZkXGRzpr5xnd4gg2laRrogeb0v1ek4rkLHXmb
+         DbUfcaore4xUDY+HB4+gxtNsX9Ec+7G5xOctpZsbmAkKmxUw2bs+FMN/FndGWhKFqMQ9
+         2Te9Bl0JOElE6A/oLJnLy6iZui5h2XtuOLJJ4HBE02PavvWYOEVE+3uA40wnTOZ5OgjI
+         SHJvMlsYsGJkFKlbZSrIDZVVkClM6BHsUPPbrXq2Pw4uz8tlpab78G9srUXCFRZcWrVL
+         dbvw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 210.250.61.65 is neither permitted nor denied by best guess record for domain of lifemail@crmail.lifecard.co.jp) smtp.mailfrom=lifemail@crmail.lifecard.co.jp
+Return-Path: <lifemail@crmail.lifecard.co.jp>
+Received: from smtplfc02.variosecure.net (smtp01.ambisys.net. [210.250.61.65])
+        by mx.google.com with ESMTPS id f7si23264445ila.78.2021.08.25.01.25.19
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 25 Aug 2021 01:25:19 -0700 (PDT)
+Received-SPF: neutral (google.com: 210.250.61.65 is neither permitted nor denied by best guess record for domain of lifemail@crmail.lifecard.co.jp) client-ip=210.250.61.65;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 210.250.61.65 is neither permitted nor denied by best guess record for domain of lifemail@crmail.lifecard.co.jp) smtp.mailfrom=lifemail@crmail.lifecard.co.jp
+Received: from zi by smtplfc02.ambisys.net [sv1] with scan (Variosecure 4.94.2)
+	id 1mImns-0003wu-Fc
+	for hujyorom@gmail.com; Wed, 25 Aug 2021 15:54:28 +0900
+Received: from l3cr01c401.lifecard.co.jp ([202.211.246.20] helo=l3cr01c401.crmail.lifecard.co.jp)
+	by smtplfc02.ambisys.net [sv1] with esmtpsa (TLS1.2:ECDHE-RSA-AES256-SHA384:256)
+	(Variosecure 4.94.2)
+	id 1mImns-0003wn-AN
+	for hujyorom@gmail.com; Wed, 25 Aug 2021 15:54:28 +0900
+Received: from l3cr01c401.crmail.lifecard.co.jp (10.102.192.45) by
+ l3cr01c401.crmail.lifecard.co.jp (10.102.192.45) with Microsoft SMTP Server
+ (TLS) id 15.0.1497.2; Wed, 25 Aug 2021 15:58:52 +0900
+Received: from l3cr01c201 (10.102.192.192) by l3cr01c401.crmail.lifecard.co.jp
+ (10.102.192.45) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
+ Transport; Wed, 25 Aug 2021 15:58:52 +0900
+From: =?UTF-8?B?44Op44Kk44OV44Kr44O844OJ44GL44KJ44Gu44GK55+l44KJ44Gb?=
+	<lifemail@crmail.lifecard.co.jp>
+Reply-To: <lifemail@crmail.lifecard.co.jp>
+To: <hujyorom@gmail.com>
+Message-ID: <950510090.642683.1629860515324.JavaMail.SYSTEM@l3cr01c201>
+Subject: =?UTF-8?B?44OT44K444ON44K544Kr44O844OJ44KS?=
+ =?UTF-8?B?44GU5rS755So44GP44Gg44GV44GE77yB?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_Part_642682_796338942.1629860515324"
+SDM-MailFrom: lifemail@crmail.lifecard.co.jp
+Date: Wed, 25 Aug 2021 15:58:52 +0900
+X-Ambisys-VC: 15180@67a837044bb68a815e03375821a58fef
+
+------=_Part_642682_796338942.1629860515324
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+
+日頃よりライフカードをご利用いただきありがとうございます。
+今回はお持ちいただいております「ビジネスカード」ご利用のメリットを案内いたします。
+ぜひ、あなたのビジネスシーンにビジネスカードをご活用下さい。
+
+
+＜ビジネスカードご利用のメリット＞
+
+◆経費削減
+事務用品や公共料金といった経費の支払いをビジネスカードに一本化すれば、ご指定口座からまとめて自動引き落としされるため振込手数料の削減になります。
+また、ビジネスカードゴールドなどポイントがたまるカードをお持ちの方であれば、還元を受けることができます。
+
+
+◆事務負荷の低減
+請求書、領収書の管理はカード利用明細に集約されるため、経理事務の負担が低減されます。
+
+
+◆キャッシュフローにゆとりが生まれます
+ビジネスカード決済にすることで、毎月決められた日に銀行引落としとなります。
+お支払いは最大2ヵ月後となり、お支払いに猶予が生まれることで銀行口座にご資金が残り、キャッシュフローが安定します。
+
+
+◆計画的なお支払いが可能です
+ビジネスカードは分割払いにも対応しております、例えば高額な事務機器や設備などを購入された場合に分割払いとすることで経費を計画的に使用することができます。
+
+- * - * - * - * - * - * - * - * - * - * -
+▼ライフカードホームページ「お支払方法」詳細のご案内はこちら
+https://www.lifecard.co.jp/card_aanai/shiharaih.html
+※ビジネスカードはあとからリボ・あとから分割に対応しておりません
+- * - * - * - * - * - * - * - * - * - * -
+
+
+◆付帯特典
+クラウド会計ソフトのご利用料金ディスカウントクーポンや、弁護士無料相談サービスなどは年会費無料のビジネスカードでも付帯されており、ご活用いただけます。
+
+
+━━━━━━━━━━━━━━━━━━━━
+ご利用の端末および設定によっては画面遷移しない場合がございます。
+フィーチャーフォンをご利用のお客さまはPC・スマートフォンへ転送のうえ、ご覧ください。
+----------------------------------------
+本メールは自動配信されています。お問い合わせの際は以下URLよりご連絡ください。
+----------------------------------------
+□発 行 ： ライフカード株式会社　東京都港区芝二丁目31番19号バンザイビル
+お問い合わせ： https://www.lifecard.co.jp/contact/index.html
+□掲載記事の無断転載を禁じます。また情報は変更となる場合があります。
+Copyright(C) LIFECARD CO.,LTD. All rights reserved.
+----------------------------------------
+メール配信を希望されない方は、以下URLよりお手続きください。
+LIFE-Web Deskログイン→メールマガジン配信サービス
+https://www3.lifecard.co.jp/WebDesk/
+━━━━━━━━━━━━━━━━━━━━
+COMM25904
+------=_Part_642682_796338942.1629860515324
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head><meta http-equiv="Content-Type" content="text/html"/>
+    <meta http-equiv="Content-Type" content="text/html" />
+    <meta name="generator" content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+    <title>
+      ビジネスカードをご活用ください！
+    </title>
+    <meta charset="iso-2022-jp" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+<style type="text/css">
+<!--
+
+* { padding:0; margin:0; font-size:100%; }
+body {margin: 0 auto; padding: 0; color: #1f1f1f; font-family: Verdana, Osaka, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif; background-color:#FFF; font:1em/1; -webkit-text-size-adjust: 100%;  line-height:1.4; }
+img     {max-width:100%;height:auto;border:0;}
+p { color:#333; }
+em      {font-style:normal;}
+.btn    {
+        }
+        
+.btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/        
+}
+.btn:hover {
+    /* 背景色を明るい青色に指定 */
+    opacity: 0.7;
+}
+
+td {
+        padding: 4px;
+        max-width:300px;
+}
+#wrapper 
+{
+width:100%;
+overflow:hidden;
+}
+
+-->
+        </style>
+  </head>
+  <body style="margin: 0 auto; padding: 0;color:#2f2f2f;text-decoration: none;font-size:100%;line-height: 1.4;">
+<!-- WEBLINK -->画像が正しく表示されない場合は<a target="_blank" href="https://tr.lifecard.co.jp/bess/pub?id=-1:ksjy2t19.CDDGFPUR53HVVZIE:1:1&9B89BF502C0652015686A7A5=&4205E51718999DC049B916331B9A143D1B04B24F=8A664A255C15D7835B469B1B1A0702AD&0CEC813C114A9D230758697B5C4AE2DD38D83FB8342152392D383F63=93F49138214CDCA83E9C9BA836F300C2&84050D424495CE5907FE2CA902AAECF34FFDCA58=841BC34F4792F29F2A26A0A74C36B2B2&18E24A53238B5F1F37F193AF=364C8A5C280E89522D890C90&D958A0245BAF8A0C04DED688=B0E7F7433C21886524774CF9517875E3&D1E98B281781AE5955523EDD0835C28302C5F576=17CB392C353FB8485511BA8D48E932F52502EEDB0775DDAD3EA002C3">こちら</a>をクリックしてください。 
+    <div style=" margin: 0 auto; background: #FFF; max-width: 600px;">
+      <!--==================== ここから本文 ====================-->日頃よりライフカードをご利用いただきありがとうございます。<br />
+
+       今回はお持ちいただいております「ビジネスカード」ご利用のメリットを案内いたします。<br />
+
+       ぜひ、あなたのビジネスシーンにビジネスカードをご活用下さい。<br />
+
+      <br />
+
+      <br />
+
+       ＜ビジネスカードご利用のメリット＞<br />
+
+      <br />
+
+       ◆経費削減<br />
+
+       事務用品や公共料金といった経費の支払いをビジネスカードに一本化すれば、ご指定口座からまとめて自動引き落としされるため振込手数料の削減になります。<br />
+
+       また、ビジネスカードゴールドなどポイントがたまるカードをお持ちの方であれば、還元を受けることができます。<br />
+
+      <br />
+
+      <br />
+
+       ◆事務負荷の低減<br />
+
+       請求書、領収書の管理はカード利用明細に集約されるため、経理事務の負担が低減されます。<br />
+
+      <br />
+
+      <br />
+
+       ◆キャッシュフローにゆとりが生まれます<br />
+
+       ビジネスカード決済にすることで、毎月決められた日に銀行引落としとなります。<br />
+
+       お支払いは最大2ヵ月後となり、お支払いに猶予が生まれることで銀行口座にご資金が残り、キャッシュフローが安定します。<br />
+
+      <br />
+
+      <br />
+
+       ◆計画的なお支払いが可能です<br />
+
+       ビジネスカードは分割払いにも対応しております、例えば高額な事務機器や設備などを購入された場合に分割払いとすることで経費を計画的に使用することができます。<br />
+
+      <br />
+
+       - * - * - * - * - * - * - * - * - * - * -<br />
+
+       ▼ライフカードホームページ「お支払方法」詳細のご案内はこちら<br />
+
+       <a
+      href="https://tr.lifecard.co.jp/bess/get?id=957.-1:-ksjy2t19.CDDGFPUR53HVVZIE:&4205E51718999DC049B916331B9A143D1B04B24F=8A664A255C15D7835B469B1B1A0702AD&0CEC813C114A9D230758697B5C4AE2DD38D83FB8342152392D383F63=93F49138214CDCA83E9C9BA836F300C2&84050D424495CE5907FE2CA902AAECF34FFDCA58=841BC34F4792F29F2A26A0A74C36B2B2&18E24A53238B5F1F37F193AF=364C8A5C280E89522D890C90&D958A0245BAF8A0C04DED688=B0E7F7433C21886524774CF9517875E3&D1E98B281781AE5955523EDD0835C28302C5F576=17CB392C353FB8485511BA8D48E932F52502EEDB0775DDAD3EA002C3"
+       target="_blank">https://www.lifecard.co.jp/card_aanai/shiharaih.html</a><br />
+
+       ※ビジネスカードはあとからリボ・あとから分割に対応しておりません<br />
+
+       - * - * - * - * - * - * - * - * - * - * -<br />
+
+      <br />
+
+      <br />
+
+       ◆付帯特典<br />
+
+       クラウド会計ソフトのご利用料金ディスカウントクーポンや、弁護士無料相談サービスなどは年会費無料のビジネスカードでも付帯されており、ご活用いただけます。<br />
+
+      <br />
+
+      <br />
+
+       ━━━━━━━━━━━━━━━━━━━━<br />
+
+       ご利用の端末および設定によっては画面遷移しない場合がございます。<br />
+
+       フィーチャーフォンをご利用のお客さまはPC・スマートフォンへ転送のうえ、ご覧ください。<br />
+
+       ----------------------------------------<br />
+
+       本メールは自動配信されています。お問い合わせの際は以下URLよりご連絡ください。<br />
+
+       ----------------------------------------<br />
+
+       □発 行 ： ライフカード株式会社　東京都港区芝二丁目31番19号バンザイビル<br />
+
+       お問い合わせ： <a href="https://www.lifecard.co.jp/contact/index.html" target="_blank">https://www.lifecard.co.jp/contact/index.html</a><br />
+
+       □掲載記事の無断転載を禁じます。また情報は変更となる場合があります。<br />
+
+       Copyright(C) LIFECARD CO.,LTD. All rights reserved.<br />
+
+       ----------------------------------------<br />
+
+       メール配信を希望されない方は、以下URLよりお手続きください。<br />
+
+       LIFE-Web Deskログイン→メールマガジン配信サービス<br />
+
+       <a href="https://www3.lifecard.co.jp/WebDesk/" target="_blank">https://www3.lifecard.co.jp/WebDesk/</a><br />
+
+       ━━━━━━━━━━━━━━━━━━━━<br />
+
+       COMM25904<br />
+
+       &nbsp;
+    </div>
+  
+<!--crumblet--><img src="https://tr.lifecard.co.jp/bess/get?id=0.-1:-ksjy2t19.CDDGFPUR53HVVZIE:&4205E51718999DC049B916331B9A143D1B04B24F=8A664A255C15D7835B469B1B1A0702AD&0CEC813C114A9D230758697B5C4AE2DD38D83FB8342152392D383F63=93F49138214CDCA83E9C9BA836F300C2&84050D424495CE5907FE2CA902AAECF34FFDCA58=841BC34F4792F29F2A26A0A74C36B2B2&18E24A53238B5F1F37F193AF=364C8A5C280E89522D890C90&D958A0245BAF8A0C04DED688=B0E7F7433C21886524774CF9517875E3&D1E98B281781AE5955523EDD0835C28302C5F576=17CB392C353FB8485511BA8D48E932F52502EEDB0775DDAD3EA002C3"></img>
+</body>
+</html>
+
+------=_Part_642682_796338942.1629860515324--
+

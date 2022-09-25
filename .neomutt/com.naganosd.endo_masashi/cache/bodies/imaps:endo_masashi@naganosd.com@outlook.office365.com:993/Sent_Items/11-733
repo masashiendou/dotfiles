@@ -1,0 +1,127 @@
+Received: from Kx250 (125.30.78.201) by
+ TYAPR01CA0079.jpnprd01.prod.outlook.com (2603:1096:404:2c::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3174.21 via Frontend Transport; Tue, 21 Jul 2020 03:52:15 +0000
+Date: Tue, 21 Jul 2020 12:52:14 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+To: mino_shukka_ml@system-quest.co.jp
+Subject: Re: =?utf-8?B?W0FJ5Ye66I23XSDoo73kvZzlh7rojbfmg4XloLHnlLvpnaI=?=
+ =?utf-8?B?44Gn44GuRELmm7TmlrDjga7jgr/jgqTjg5/jg7PjgrDjgavjgaTjgYTjgaYo?=
+ =?utf-8?Q?MINO-178=29?=
+Message-ID: <20200721035214.25er54k3stpsud53@Kx250>
+References: <0a9c970c-9ce0-0ce5-a205-5249e8ede857@naganosd.com>
+ <CAMn1dDzahPGO04WQvYv012eyc6JjgSYT29TycOD2LkF5-g=G6g@mail.gmail.com>
+ <20200420072234.tkdsf6stnisikrzv@Kx250>
+ <CAMn1dDzZJzBYkTtY3Xhgb9aqshrtb58+uzGHhhtvUgphArxpmQ@mail.gmail.com>
+ <CACzEcNhg+6PLZpKu4ZVabbN6NDsUJdYnW3DonKD23jUp9NVdJQ@mail.gmail.com>
+ <20200422041729.kpfuis52krib4i5f@Kx250>
+ <CACzEcNi4sQS-YA_Urz5Jvvs-WL2_bnLu5=si5dt_ekeJALxWvw@mail.gmail.com>
+ <20200422062528.3osi4ktpboq2zfky@Kx250>
+ <20200720234544.pduhjslzn3iulohx@Kx250>
+ <20200721031017.xpll42gybtbw6p64@Kx250>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20200721031017.xpll42gybtbw6p64@Kx250>
+X-MS-Exchange-Organization-ExpirationStartTime: 21 Jul 2020 03:52:15.9851
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 784ddffb-4731-4c4b-14c5-08d82d29756c
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.201]
+X-ClientProxiedBy: TYAPR01CA0079.jpnprd01.prod.outlook.com
+ (2603:1096:404:2c::19) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社 三宅様
+
+お世話になっております
+長野システム開発 遠藤です
+
+社内で認識合わせが不十分で、メールを何度も送付してしまい、申し訳ありません。
+
+当件につきましては、11:58に棚橋より送付した"内部で見直す必要がある"、が最新の状態です。
+先程私から送付したメール(12:10送信)は、大変お手数ですが破棄をお願いします。
+
+社内にて検討後、改めてお知らせいたします。
+よろしくお願いします。
+
+以上
+
+On Tue, Jul 21, 2020 at 12:10:17PM +0900, [Masashi Endo] wrote:
+> MINO株式会社 三宅様
+> 
+> お世話になっております
+> 長野システム開発 遠藤です
+> 
+> 社内にて実装済みコードの動作と、DB更新のタイミングを検討しました。
+> 
+> 即時DB更新としている2つ(セルごとの保留フラグと一括解除)について、
+> 現実装は不適切であり、画面右下の更新ボタン押下で、変更のあった指示書No
+> に関連するレコードを更新する、との動作が適切であるとの結論となりました。
+> 
+> 上記動作にて、貴社のご希望の動作を満たしているか、ご確認いただけますでしょうか。
+> 
+> 質問の途中で内容に変更があり、大変お手数おかけします。
+> よろしくお願いします。
+> 
+> 以上
+> 
+> On Tue, Jul 21, 2020 at 08:45:44AM +0900, [Masashi Endo] wrote:
+> > MINO株式会社 三宅様
+> > 
+> > お世話になっております
+> > 長野システム開発 遠藤です
+> > 
+> > 貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+> > 
+> > "MINO-178 製作出荷情報: データベースの更新タイミングについて"の仕様確認で、質問いたします。
+> > "https://naganosd.backlog.com/view/MINO-178"
+> > 
+> > 次のリリース(0.9.7)に含める予定の製作出荷情報画面でのDB更新について、現実装ですと、
+> > 以下の2パターンでDB更新がされます。
+> > 
+> > 現実装が元の仕様のとおりなのか、または画面右下の更新ボタン押下でDB更新されるのが期待値なのか、
+> > お手数ですが、ご確認お願いします。
+> > 
+> > 現実装;
+> > 以下2つは、確認メッセージに応答後、即時DB更新されます
+> > 　セルごとの保留フラグの設定 / 解除 : 確認メッセージの表示 → Cancel / OKの選択 → DB更新
+> > 　保留フラグの解除ボタン : 確認メッセージの表示 → Cancel / OKの選択 → DB更新
+> > 以下3つは、プルダウンで変更および値入力後、画面右下の更新ボタン押下で、変更のあった指示書No( SEISAKU_SHIJI_CDとSEIHIN_MEISAI_CD  )に関連するレコードを更新します
+> > 　製造可プルダウン
+> > 　運送会社プルダウン
+> > 　製作場所の入力
+> > 
+> > よろしくお願いします
+> > 
+> > 以上
+> > -- 
+> > 長野システム開発株式会社
+> > 遠藤 將司 ( Masashi Endo )
+> > e-Mail <endo_masashi@naganosd.com>
+> > 〒399-4301 長野県上伊那郡宮田村5672-2
+> > URL: http://www.naganosd.com/
+> > 
+> 
+> -- 
+> 長野システム開発株式会社
+> 遠藤 將司 ( Masashi Endo )
+> e-Mail <endo_masashi@naganosd.com>
+> 〒399-4301 長野県上伊那郡宮田村5672-2
+> URL: http://www.naganosd.com/
+
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

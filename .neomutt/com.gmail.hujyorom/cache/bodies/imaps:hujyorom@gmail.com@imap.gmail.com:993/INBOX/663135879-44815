@@ -1,0 +1,145 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp2319320vkl;
+        Sat, 7 Nov 2020 18:36:48 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJwqGGPdyoMNdiz6s1big9cAUHpwWXmWdAKyEFH+5gJFqDXxpauON4o86BwLxzBi/E+7vuNI
+X-Received: by 2002:a65:684d:: with SMTP id q13mr7887025pgt.372.1604803008567;
+        Sat, 07 Nov 2020 18:36:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604803008; cv=none;
+        d=google.com; s=arc-20160816;
+        b=AXgzMW51nPivhVSch7K2Nd2SRx/VJrdTKKF52Qgnq6IzVWzZeF+tdgu9hioLUnkQoh
+         06UrGdbKopKFMtvyLvY9XRBKZqwzBv5dz/ek4LVe651C5TfYrmvVYJp1VTPC3VKe/Yx1
+         hH0nurjqSdE6BCS1xA94jQwR43RA+fDVkTonDZ+v0a+pPs+pVPIlRe3WbmCNpKcgwdCl
+         buPKg9fOE8eb7PyU8itZvMiy4jUVacYdE2EkosSl4s/K+z6EWtbIom5XsR6rgPAaGacM
+         /vZAhyCSqIZXwdtZsMxs9yx0IwH2IJsEtOMSKjb88fqF+svbQnwkcdlOQFBPBdCcjm++
+         4zPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:date:to:from:subject:mime-version
+         :dkim-signature:dkim-signature;
+        bh=cMMKFL1RktpwF+/ME5rrwOysInnzlsq4iV9+YcCSA30=;
+        b=l8DklFFJH28lh4cVpP0pllYkYPe4fl0Wlts+4zCbOzNvIXVs0mxnwNkKNIbctmjPhm
+         6OSTqKotZ/LczAsjujNsPe2ThKqgphQMjsy1UfZwDrnbs8vHojQTk2FY9tV9x/ovg+R8
+         r6HB4af5NSt407eRsacznVU1SaQrpctBUQIi2r9s9XTYniMTQ/n88aBb/fIEE2FE32p+
+         RWHKuQnCAokgKhscgwLSuTpsGAiC83QgPwVl6K+N6/UsRPHBndXVTt6q0wvYYWLuoydq
+         M79f70h8NaRfxp1HPfe4oNA+D/0FIOdL8HpM16KdqvwJQ6h0PV53Y6RuXCkRdBtgwzl5
+         q7Bg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.lapras.com header.s=waphetqypki6chpu7turplbitsnvgimi header.b=Hug+pkwf;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=NapWLXtO;
+       spf=pass (google.com: domain of 01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com designates 54.240.27.52 as permitted sender) smtp.mailfrom=01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.lapras.com
+Return-Path: <01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com>
+Received: from a27-52.smtp-out.us-west-2.amazonses.com (a27-52.smtp-out.us-west-2.amazonses.com. [54.240.27.52])
+        by mx.google.com with ESMTPS id b2si5000193pls.413.2020.11.07.18.36.48
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Sat, 07 Nov 2020 18:36:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com designates 54.240.27.52 as permitted sender) client-ip=54.240.27.52;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.lapras.com header.s=waphetqypki6chpu7turplbitsnvgimi header.b=Hug+pkwf;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=NapWLXtO;
+       spf=pass (google.com: domain of 01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com designates 54.240.27.52 as permitted sender) smtp.mailfrom=01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.lapras.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=waphetqypki6chpu7turplbitsnvgimi; d=mail.lapras.com;
+	t=1604803008;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-ID;
+	bh=cMMKFL1RktpwF+/ME5rrwOysInnzlsq4iV9+YcCSA30=;
+	b=Hug+pkwfoRxg3xO7ek3mNGaMTuNAFAwiVNxMmpwaNNAOFpY6YiIzoNvNP6dS2b10
+	K7kWjMF3BDy2YthtvhtkhMW1e6YijXbwIbSbVzGdFLeGgifL75Ex1LpWC44OkgkEQ0g
+	ewh+8DoAsE6VmsvsjFi0rRD5mjpBj7XwZSblYqlk=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1604803008;
+	h=Content-Type:MIME-Version:Subject:From:To:Date:Message-ID:Feedback-ID;
+	bh=cMMKFL1RktpwF+/ME5rrwOysInnzlsq4iV9+YcCSA30=;
+	b=NapWLXtOAZvNg02AEYgv2PG5xL7UIZsQ6MZGdbkzmJoPCH01pKvXHNbX9LB7kJFc
+	cYxRaZ9KnOAgk3++BTWu1g5Vs8MJQgRLDEqKebI4/ljlTKFL2WEr/aKXChz/Bpcwd6t
+	45HXcJEL4LzXZjQ+353OmAS+JADeRLGnW31oWWDQ=
+Content-Type: multipart/alternative;
+ boundary="===============1424738478737896773=="
+MIME-Version: 1.0
+Subject: 
+ =?utf-8?b?W0xBUFJBU10g5oqA6KGT44K544Kz44Ki44GM5LiK5piH44GX44G+44GX44Gf?=
+From: LAPRAS <no-reply@mail.lapras.com>
+To: hujyorom@gmail.com
+Date: Sun, 8 Nov 2020 02:36:48 +0000
+Message-ID: <01010175a5b6963e-04ab5c0d-86f5-4c90-8df9-3b2a41f8b429-000000@us-west-2.amazonses.com>
+X-SES-Outgoing: 2020.11.08-54.240.27.52
+Feedback-ID: 1.us-west-2.fwfJkNVZv5otr1HVA+avgI5Df6gOJdQwdwvtB8IntFI=:AmazonSES
+
+--===============1424738478737896773==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+
+Masashi Endo 様
+
+いつもLAPRASをご利用いただきありがとうございます。
+
+258日前と比較して
+技術力スコアが0.06上昇しました。
+
+2.95 → 3.01
+
+スコアの変遷は<a href="https://lapras.com/person?source=score_up_notification_mail">こちら</a>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+発行者
+〒150-0044
+東京都 渋谷区円山町28-1 渋谷道玄坂スカイビル2F
+LAPRAS株式会社
+info@lapras.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+※このメールは、自動配信システムを利用し、送信専用のメールアドレスから
+配信しております。本メールやLAPRASのサービスについては、<a href="https://talent-help.lapras.com/ja/">LAPRASヘルプ</a>または
+<a href="https://lapras.com/person?source=score_up_notification_mail">LAPRASのプロフィールページ</a>の右下「LAPRAS Bot」よりお問い合わせください。
+※ このメールの配信停止は<a href="https://lapras.com/unsubscribe?user_key=16334c58f8c0446897a2f6c54268d76f&mail_key=score_up">こちら</a>
+
+--===============1424738478737896773==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+<br />Masashi Endo =E6=A7=98<br /><br />=E3=81=84=E3=81=A4=E3=82=82LAPRAS=
+=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=
+=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=
+=BE=E3=81=99=E3=80=82<br /><br />258=E6=97=A5=E5=89=8D=E3=81=A8=E6=AF=94=E8=
+=BC=83=E3=81=97=E3=81=A6<br />=E6=8A=80=E8=A1=93=E5=8A=9B=E3=82=B9=E3=82=B3=
+=E3=82=A2=E3=81=8C0.06=E4=B8=8A=E6=98=87=E3=81=97=E3=81=BE=E3=81=97=E3=81=
+=9F=E3=80=82<br /><br />2.95 =E2=86=92 3.01<br /><br />=E3=82=B9=E3=82=B3=
+=E3=82=A2=E3=81=AE=E5=A4=89=E9=81=B7=E3=81=AF<a href=3D"https://lapras.com/=
+person?source=3Dscore_up_notification_mail">=E3=81=93=E3=81=A1=E3=82=89</a>=
+<br /><br /><br />=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81<br />=E7=99=BA=E8=A1=8C=E8=80=85<br />=E3=80=
+=92150-0044<br />=E6=9D=B1=E4=BA=AC=E9=83=BD =E6=B8=8B=E8=B0=B7=E5=8C=BA=E5=
+=86=86=E5=B1=B1=E7=94=BA28-1 =E6=B8=8B=E8=B0=B7=E9=81=93=E7=8E=84=E5=9D=82=
+=E3=82=B9=E3=82=AB=E3=82=A4=E3=83=93=E3=83=AB2F<br />LAPRAS=E6=A0=AA=E5=BC=
+=8F=E4=BC=9A=E7=A4=BE<br />info@lapras.com<br />=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81<br />=E2=80=BB=
+=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E3=80=81=E8=87=AA=E5=
+=8B=95=E9=85=8D=E4=BF=A1=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=E3=82=92=E5=88=
+=A9=E7=94=A8=E3=81=97=E3=80=81=E9=80=81=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=AE=
+=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=8B=E3=
+=82=89<br />=E9=85=8D=E4=BF=A1=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=
+=E3=81=99=E3=80=82=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=84LAPRAS=E3=81=
+=AE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=
+=E3=81=AF=E3=80=81<a href=3D"https://talent-help.lapras.com/ja/">LAPRAS=E3=
+=83=98=E3=83=AB=E3=83=97</a>=E3=81=BE=E3=81=9F=E3=81=AF<br /><a href=3D"htt=
+ps://lapras.com/person?source=3Dscore_up_notification_mail">LAPRAS=E3=81=AE=
+=E3=83=97=E3=83=AD=E3=83=95=E3=82=A3=E3=83=BC=E3=83=AB=E3=83=9A=E3=83=BC=E3=
+=82=B8</a>=E3=81=AE=E5=8F=B3=E4=B8=8B=E3=80=8CLAPRAS Bot=E3=80=8D=E3=82=88=
+=E3=82=8A=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=
+=81=A0=E3=81=95=E3=81=84=E3=80=82<br />=E2=80=BB =E3=81=93=E3=81=AE=E3=83=
+=A1=E3=83=BC=E3=83=AB=E3=81=AE=E9=85=8D=E4=BF=A1=E5=81=9C=E6=AD=A2=E3=81=AF=
+<a href=3D"https://lapras.com/unsubscribe?user_key=3D16334c58f8c0446897a2f6=
+c54268d76f&mail_key=3Dscore_up">=E3=81=93=E3=81=A1=E3=82=89</a><br />
+--===============1424738478737896773==--

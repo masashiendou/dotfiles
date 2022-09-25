@@ -1,0 +1,777 @@
+Received: from HK0PR06MB2673.apcprd06.prod.outlook.com (2603:1096:202:2::21)
+ by HK0PR06MB2739.apcprd06.prod.outlook.com with HTTPS via
+ HK2PR0401CA0011.APCPRD04.PROD.OUTLOOK.COM; Mon, 6 Apr 2020 07:40:46 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=fail;
+ b=PpqsOU9khYIZA19f3jmforofXL3xH3jFMDzHjD9fSYCaxCV/ArMM5KP7/C4g8KUk/FsakQ/BM7iSCN/FZ/jnX4IT2YljpHf0XbkzHxfSC+tsFjMFp80gzqzjzZRfYpQiV7xz+Ha47UWvWx1la6lL4zM4asFpypnW6v69sBBpujkXmlJSUtiViorRKUP/Z3DZJe+BXxBfjvJhe+xuoRwAN7/wI3OLXgG30azSZxqyWf4vVuFGVtnMRWTs7AnN7FEQHb1lzXRSUY4YCR4THYEgGubZA+lknrvGCxiLl3stdFVxKRVzIqv64UNaHgWY9FYzUS5g4e+UvgDuB2R+ekpA0w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZfjgfgzVqxc3hCfSckfcpSX7cO+OkpUvlFm5u8HDllg=;
+ b=g3ekE0/YfUvk+13W4OOcyWz2y+YNAkEHpV9nLOVtVqLGf9SGrU8H+Anxh2069AQ3Skty0EtWPW3Axkk41Rfv0WFWxu/P2W1U6eTUEPBfVrJD3XKKFKtknYFdAx0UHZerdowl9K38yMRowIINwROWPimd74vc1iZ2XIy3noM3Zz8yWxeQW6VAa6xkJSRl6j2pzBnfN0MwLDj99o5JRS7R+Vl0/TwKEKVHVI5AvOweXp64g6b+22QWfD5V3bwe4uxmYWSaravHZksd5sMwoWV3vBssPW3KKufE+/AcOZ0GBNJjzJ8bNrc0Xbcs5QDY82051e9l1EUF7VAszyueuhPrbA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 219.94.192.34) smtp.rcpttodomain=naganosd.com
+ smtp.mailfrom=system-quest.co.jp; dmarc=none action=none
+ header.from=naganosd.com; dkim=fail (signature did not verify)
+ header.d=naganosdcom.onmicrosoft.com; arc=fail (48)
+Received: from OS2PR01CA0137.jpnprd01.prod.outlook.com (2603:1096:602::31) by
+ HK0PR06MB2673.apcprd06.prod.outlook.com (2603:1096:203:31::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2878.17; Mon, 6 Apr 2020 07:40:45 +0000
+Received: from OS2JPN01FT014.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:602:0:cafe::4b) by OS2PR01CA0137.outlook.office365.com
+ (2603:1096:602::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2878.20 via Frontend
+ Transport; Mon, 6 Apr 2020 07:40:45 +0000
+Authentication-Results: spf=pass (sender IP is 219.94.192.34)
+ smtp.mailfrom=system-quest.co.jp; naganosd.com; dkim=fail (signature did not
+ verify) header.d=naganosdcom.onmicrosoft.com;naganosd.com; dmarc=none
+ action=none header.from=naganosd.com;compauth=pass reason=702
+Received-SPF: Pass (protection.outlook.com: domain of system-quest.co.jp
+ designates 219.94.192.34 as permitted sender)
+ receiver=protection.outlook.com; client-ip=219.94.192.34;
+ helo=www1624.sakura.ne.jp;
+Received: from www1624.sakura.ne.jp (219.94.192.34) by
+ OS2JPN01FT014.mail.protection.outlook.com (10.152.184.151) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2878.15 via Frontend Transport; Mon, 6 Apr 2020 07:40:44 +0000
+Received: from fsav103.sakura.ne.jp (fsav103.sakura.ne.jp [27.133.134.230])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 0367ehRE086358;
+	Mon, 6 Apr 2020 16:40:43 +0900 (JST)
+	(envelope-from mino_shukka_ml-admin@system-quest.co.jp)
+Received: from www1624.sakura.ne.jp (219.94.192.34)
+ by fsav103.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav103.sakura.ne.jp);
+ Mon, 06 Apr 2020 16:40:43 +0900 (JST)
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav103.sakura.ne.jp)
+Received: from system-quest1.sakura.ne.jp (localhost [IPv6:::1])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 0367ehZ8086352;
+	Mon, 6 Apr 2020 16:40:43 +0900 (JST)
+	(envelope-from mino_shukka_ml-admin@system-quest.co.jp)
+Received: from fsav401.sakura.ne.jp (fsav401.sakura.ne.jp [133.242.250.100])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 0367eg42086336
+	for <mino_shukka_ml@system-quest.co.jp>; Mon, 6 Apr 2020 16:40:42 +0900 (JST)
+	(envelope-from endo_masashi@naganosd.com)
+Received: from www1624.sakura.ne.jp (219.94.192.34)
+ by fsav401.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav401.sakura.ne.jp);
+ Mon, 06 Apr 2020 16:40:42 +0900 (JST)
+Received: from APC01-PU1-obe.outbound.protection.outlook.com (mail-eopbgr1320055.outbound.protection.outlook.com [40.107.132.55])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTPS id 0367efos086318
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL)
+	for <mino_shukka_ml@system-quest.co.jp>; Mon, 6 Apr 2020 16:40:41 +0900 (JST)
+	(envelope-from endo_masashi@naganosd.com)
+Received: from HK0PR06MB2739.apcprd06.prod.outlook.com (52.133.213.147) by
+ HK0PR06MB2148.apcprd06.prod.outlook.com (52.133.149.141) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2878.20; Mon, 6 Apr 2020 07:40:39 +0000
+Received: from HK0PR06MB2739.apcprd06.prod.outlook.com
+ ([fe80::75d3:96d3:8995:52a5]) by HK0PR06MB2739.apcprd06.prod.outlook.com
+ ([fe80::75d3:96d3:8995:52a5%5]) with mapi id 15.20.2878.021; Mon, 6 Apr 2020
+ 07:40:39 +0000
+Received: from [192.168.41.9] (125.30.78.83) by TYAPR01CA0025.jpnprd01.prod.outlook.com (2603:1096:404:28::13) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2878.17 via Frontend Transport; Mon, 6 Apr 2020 07:40:38 +0000
+Date: Mon, 6 Apr 2020 16:40:38 +0900
+From: masashiendou <endo_masashi@naganosd.com>
+Reply-To: mino_shukka_ml@system-quest.co.jp
+Subject: [mino_shuk:00111] =?UTF-8?B?UmU6IFttaW5vX3NodWs6MDAxMTBdIFJlOiBbbWlub19zaHVrOjAwMTA5?=
+ =?UTF-8?B?XSBSZTogW21pbm9fc2h1azowMDEwMF0gUmU6IFttaW5vX3NodWs6MDAwOTldIFJl?=
+ =?UTF-8?B?OiBbbWlub19zaHVrOjAwMDk4XSBSRTogW21pbm9fc2h1azowMDA5Nl0gUmU6IFtt?=
+ =?UTF-8?B?aW5vX3NodWs6MDAwOTNdIFJFOiBbbWlub19zaHVrOjAwMDkxXSBSZTogW21pbm9f?=
+ =?UTF-8?B?c2h1azowMDA5MF0g5YuV5L2c54q25rOB44Gr44Gk44GE44Gm?=
+To: mino_shukka_ml@system-quest.co.jp,
+        =?UTF-8?B?5YyX5r6k5a2d5riF?=
+ <t-kitazawa@nuan.jp>
+Cc: =?UTF-8?B?5LiJ5a6F5pit5aSr?= <a-miyake@nuan.jp>,
+        NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>
+Message-Id: <cb2d3ea9-b801-e4fd-d705-e01ab01822c3@naganosd.com>
+In-Reply-To: <CACzEcNiCD8isdTq=0qrM-MJNsW0nf5o6Nr=CYL9FfRscyWg8PQ@mail.gmail.com>
+References: <F0A01DF8-2A33-4C09-BE21-B62199F618B9@naganosd.com>
+ <CAMn1dDypLw8ecmh=FQ8T_LkYCjRKy9OUKLOa309RDrwSAtqtdA@mail.gmail.com>
+ <TY2PR06MB28299F5CB8653BCFEBD40ED7F1F40@TY2PR06MB2829.apcprd06.prod.outlook.com>
+ <CAMn1dDyqxrbcwJtyh0RqRpnHG9XHOy8O6zuQ8PsMsDSDX=H3CQ@mail.gmail.com>
+ <TY2PR06MB28290B9C8591A02F6CC6F18DF1F00@TY2PR06MB2829.apcprd06.prod.outlook.com>
+ <TY2PR06MB28291F0F6EA1BDA26B42C2D7F1F10@TY2PR06MB2829.apcprd06.prod.outlook.com>
+ <c28b213b-16f9-3ae6-e402-3b19fc59e45c@naganosd.com>
+ <CAMn1dDz2MfcQEZw6oj0KdKLQj0TqG4hgaDHB0mbTiDDFvUsJiQ@mail.gmail.com>
+ <c92ed913-70bc-6902-3679-725f1e82c6a2@naganosd.com>
+ <f180b04d-4ebf-2034-fd7f-d00152eba4d3@naganosd.com>
+ <0d8e878b-8c51-6c53-1eab-4dd31f8d84e1@naganosd.com>
+ <CACzEcNiCD8isdTq=0qrM-MJNsW0nf5o6Nr=CYL9FfRscyWg8PQ@mail.gmail.com>
+X-ML-Name: mino_shukka_ml
+X-Mail-Count: 00111
+X-MLServer: fml [fml 4.0 STABLE (20040215/4.0.4_BETA)]; post only (only members can post)
+X-ML-Info: If you have a question, send e-mail with the body
+	"help" (without quotes) to the address mino_shukka_ml-ctl@system-quest.co.jp;
+	help=<mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=help>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav401.sakura.ne.jp)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=N1oC/eRC+EJVg/3QLe7XYUazaliOCOoDENFBaK4eOzhcTbs56CdFOIAzpbYf/Zcn9pcjs2MF1KJcZ5UR9Ho2sW48ge3eVQwUKkc+DUjoE8WBJdLiESYWyGP3j+1F0b9zaMpN9BTUvqs6yHdRG+sK79zVoiCfLLKkP/AGrupcEFp54banIk++aesMFdAWtcHocWuESM/741CONk+TpZHF0AGiXv8bQ0h9kMF2nN0K5Hsj0RZy5dNJUeuQHwe4IFvgLXxAj06Y289aO63baLU+4Owi9U/0tknSgn+guwdG2Ye6FREVIxaqG++lSrx+ltxAmxjHg43b1HQQDzweJpldUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZfjgfgzVqxc3hCfSckfcpSX7cO+OkpUvlFm5u8HDllg=;
+ b=XKqKj6zQyxeUvUXvPUwolWnfdv6d7ISUejafo0wJum11dsgRBirDJgUVHVcDf9vHFkVDV2kjKcJNm+FBBcE0dAHecLGagiJY1QwWMCOzfwMHiQZ+O2glAeOaD3I4kSfPlelLRELzqBQCZqBtIJN4tcjQi2LCupEmufi7NRENjqnWfpMN/aZDoHAfVmZ9IcFnJEcQnlAIBitsP9ln1oFs4S/ZESakYUSa7kV5P8uNOgkrVUWWK+ZvujhwTrs6EhyVGaPYtIeDnjUyuYRFYOzyCdoIrp5FGUwvSYAimycpzngyrnpQ1TJMWJdbWDOkgz8WS0NRT6uKjb0AI4+B8Pnb4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=naganosd.com; dmarc=pass action=none header.from=naganosd.com;
+ dkim=pass header.d=naganosd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=naganosdcom.onmicrosoft.com; s=selector2-naganosdcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZfjgfgzVqxc3hCfSckfcpSX7cO+OkpUvlFm5u8HDllg=;
+ b=Lq69si3hJoKIhBDRhb+wu7/+DkprTVjPdaC7Q3rbcDBv7lxMGb9BktDGOKY1vnNlgPyrWJsymtP1OAMtvYi5MWaLyYmm8J0q/c9TdTJts4It4tLWR1HpqzHsUDgMkoiIZy6f8ZuT7jsM1PWWus8tcQDFHL2KBbtJvYvzU1ey2pE=
+Authentication-Results-Original: spf=none (sender IP is )
+ smtp.mailfrom=endo_masashi@naganosd.com; 
+Content-Language: en-US
+X-ClientProxiedBy: TYAPR01CA0025.jpnprd01.prod.outlook.com
+ (2603:1096:404:28::13) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-Originating-IP: [125.30.78.83]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: f7d46dab-21b8-4143-585c-08d7d9fdd084
+X-MS-TrafficTypeDiagnostic: HK0PR06MB2148:|HK0PR06MB2673:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS:
+ <HK0PR06MB214803012EAB2EB2B0416ED299C20@HK0PR06MB2148.apcprd06.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:16;OLM:16;
+X-Forefront-PRVS: 0365C0E14B
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:HK0PR06MB2739.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(10009020)(376002)(136003)(42606007)(346002)(396003)(366004)(39830400003)(66556008)(52116002)(66476007)(316002)(81166006)(81156014)(66946007)(5660300002)(6486002)(8936002)(6916009)(16576012)(478600001)(567974003)(2906002)(36756003)(30864003)(86362001)(966005)(16526019)(31686004)(31696002)(54906003)(66574012)(186003)(4326008)(26005)(956004)(224303003)(53546011)(2616005)(107886003)(25060200004)(43062003)(493534005)(18886065003);DIR:OUT;SFP:1101;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ 7pL2EPXvylTV/vohJe2RJEWRZuMjDg3vzwVTtPS79bRkCBXbjSI8BaoSntudS/1hku8VOhf21Z/yJXoivYMqxLHfWu2nc1aBmcTgZefjpgQiCe/M/cfNeIy+iFcUEoOVHaafVrsOKPsBEQmWfgJM/TbHNyJJRSomGB5bVqwtFDuVZE3ZwGuf5nlrzpGHi7kVZ8zV+jJYMkzMS5tx/9UeL0CpU9Og4cjRs75TxSEHdySWKQqV6HxMJPhvAh6HXq282AyrHyUWLrLGIU9X+aSsWrYPtd9gTOSAm8VpDLf1cY9tjxs9VriqZuiCzASQ6wN9SQEbhbF23tZ2+K7t1R5ipXma2c0XNShAKgefnaKNkgY6RgpU38ZKTml6oDP0C1numRcZz09pXwSaskLGwpURrNxaNE9mJa2HOUtPVKc/SYl9Nk02hwtyNLS29wrqLstfdiBi/icg6YwlbjRROUmN4uLFmth2tHHInBrcBnt1A9knTpNJBYS+AFrL5M+bhB6E+ggtDE9UzHuuPkfaYfRe1thKz5IGtLRujMtzRO14X3wTl94BF4rtVtJsD+OQf73emKkHi51g+5wszBrUR04fQsaQzjeWa3jYLvbdRFTJp8RoOhn+IXxHESqLXLEKcdCNvryjl/tfMFrryjKmnXRGKPjitFVWnC5J7L1jVvEjcS4=
+X-MS-Exchange-AntiSpam-MessageData:
+ 3igk+UGVY7iZ6XfN+emmkEtjT59+zno3YYxFxTqGaGcmhrBYjkcZXvglm63GGUuP+9yXt8TVnqToZ0qH+OInUATAldsbAJR3nXhF39uiSYT3ABv1Uw4zkOkAYz7DxQTR8ehHokV4LEEZ+iHIlzI18w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB2148
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+Precedence: bulk
+Lines: 563
+List-Id: mino_shukka_ml.system-quest.co.jp
+List-Software: fml [fml 4.0 STABLE (20040215/4.0.4_BETA)]
+List-Post: <mailto:mino_shukka_ml@system-quest.co.jp>
+List-Owner: <mailto:mino_shukka_ml-admin@system-quest.co.jp>
+List-Help: <mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=help>
+List-Unsubscribe: <mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=unsubscribe>
+Return-Path: mino_shukka_ml-admin@system-quest.co.jp
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Apr 2020 07:40:44.4502
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ f7d46dab-21b8-4143-585c-08d7d9fdd084
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3a723edf-b2e9-465d-826a-d5ccf5e64f13:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ OS2JPN01FT014.eop-JPN01.prod.protection.outlook.com
+X-Forefront-Antispam-Report:
+ CIP:219.94.192.34;CTRY:JP;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:www1624.sakura.ne.jp;PTR:www1624.sakura.ne.jp;CAT:NONE;SFTY:;SFS:(336012)(16526019)(4326008)(66574012)(16576012)(7596002)(42882007)(7636002)(956004)(2616005)(31686004)(36756003)(5660300002)(1096003)(53546011)(6862004)(31696002)(224303003)(8636004)(356004)(66346011)(6486002)(30864003)(54906003)(567974003)(966005)(19810500001)(26005)(246002)(25060200004)(43062003)(73996006)(493534005)(18886065003);DIR:INB;SFP:;
+X-MS-Exchange-Organization-AuthSource:
+ OS2JPN01FT014.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 3599e1fd-cda9-4a10-30fe-08d7d9fdcd36
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2020 07:40:44.2323
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7d46dab-21b8-4143-585c-08d7d9fdd084
+X-MS-Exchange-CrossTenant-Id: 3a723edf-b2e9-465d-826a-d5ccf5e64f13
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB2673
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.3893176
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.2878.014
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(20160514016)(750127)(520011016)(944506383)(944626516);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?bGJQMWJ6OXZ6UDdZVm5VcEFnQmdCWDhyVm1OZjdOdTVYTWJjUGxjWi90WVZB?=
+ =?utf-8?B?bXBwVXFuQmp3OW1pRTVSeVE2akt6N1B6eVVDVUNXVUhvZXRsTjZqcmlHdk9Y?=
+ =?utf-8?B?RnIza2RzY0wwZFFtMk5KZEdsVWsyZFB3L09XUlFQenYvS05GRXJpOG1ldW44?=
+ =?utf-8?B?Vnk5ejhhL0VZRkNoa2VOWW5xZ25xS3NtWHpoMlNRZUhQMUU3MDZXWmh0UEtF?=
+ =?utf-8?B?TUdVa0gxMlVhWGpDNlFkREpjMVVEb0RMY0hFZ1UwcHBCcGRYeExDUkxCbGRi?=
+ =?utf-8?B?RkdBem1SaC9CczZwb3hMMGtUK3lXT2NJRGZ0Q0VjRkRuUlBHa3BCNUNNbzVK?=
+ =?utf-8?B?REkxTmw1WnFRSzFDTWUzSDBBcEhkMzBqNDZSYmlWeXFURXpKQ2JSWkpDOVNa?=
+ =?utf-8?B?SDlTWjNodnVDNngxQk1xUitINktFSnluR0RncFViVHgvR1hjV0t4Rk1XdGJ0?=
+ =?utf-8?B?cUs2MDNUWm9BM0JUUnJXQTRMZzVkQnpEMGNuOUZQMm1URGV3QlBrSmQ0RS9t?=
+ =?utf-8?B?eDR0WnNuZDFoM1J6UnlUcnNPOTQ0Wkw4N2cza2prbkVoTmJLVk5OckRzVno3?=
+ =?utf-8?B?dHBXcDNBZnlDMGJxaWZRR2x2aDRRUFA0TjBLMmNaQ09wQk1LMWd3c3M1YXYw?=
+ =?utf-8?B?MW9qUkNlSmVyaStPNW5IK0VQQ0lKWmZVQW9ZRWF4VUw5SzZXMDJMa1J3ek9W?=
+ =?utf-8?B?bDluM2d4U2RiYVFKL0NLMlBaWEFZTUVOWWthcDVtZnpsd0pIL1JxZC85S21B?=
+ =?utf-8?B?Wnh6NU5GUDRqZ2lBYkNYV3o0b0tVUmJNTmIxMXpndWUrK3pqODYwWTdMSXNu?=
+ =?utf-8?B?NUxLMFRWSkRXZXQ5a0pnWkUrd2xDWTdlTzVxMk9nRkMrZTJVQ1I2MjBpTHN5?=
+ =?utf-8?B?U2lSMkl6dGJVWElnR2lUSS9wVmRuTDMrYVZoODZkQkhyNHNPTGw2bXZqVzBh?=
+ =?utf-8?B?MG1udWtuM29adHVaRUhOWDhBSlFwSjdYUDl6ODBuR2w4c3AwTzBTZ1hVV1lw?=
+ =?utf-8?B?U2NwN1NuaEZCNEt1dHFSUHNra1BEdU9qVDhmVC85d3N3U1QyVlY4bTBubFZv?=
+ =?utf-8?B?bjhRa2ZBUkd6d0k0ZHdEdmxaQ21sWUhCK1pWVXYrejhqb2FVV0tQcmlwMjRF?=
+ =?utf-8?B?SFMyOVJLUm56SnBRRU5NWjV2MTJ4a1pSS3lXYU5YQmxnOWtXZjlRTXJHRjNM?=
+ =?utf-8?B?alVDNW9xRFBVb1dKeUM2eFIxWXFrQ3NvbzlXT3V6bjVodk82cEFmYlMwWm9S?=
+ =?utf-8?B?WDIzVU95Vk5aQkIycW5LVXF3SkFVWUd1VFBpdld1UTlFTlV0SThFdXFCajcx?=
+ =?utf-8?Q?GBBOBWswqbU/g=3D?=
+MIME-Version: 1.0
+
+MINO株式会社 北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+AI出荷向けDBの大文字から小文字テーブルへの変更作業について、手順および命名規則について
+お教えいただき、ありがとうございます。
+
+実作業はVer_1.0のマイルストーン内で実施予定ですが、現在の作業の合間を見て、当該手順で動作確認をしてみます。
+
+よろしくお願いします
+
+以上
+
+
+On 2020/04/06 8:51, 北澤孝清 wrote:
+> 
+> ビューテーブルについての命名規則
+> 
+> "create database shipping"で shipping データベースを作成してください。
+> その中にビューテーブルを作成してください。
+> テーブル作成は名前の先頭を"v_sh"を必ずつけてください。
+> (mysqlではシステム全体で同じビューテーブル名を作成することができないため)
+> 
+> テーブル作成例：
+> Alpha1_TranのT_SEISAKU_SHIJIのビューテーブルを作成する場合
+> 
+> create view v_sh_t_seisaku_shiji as select * from Alpha1_Tran.T_SEISAKU_SHIJI;
+> 
+> 以上、よろしくおねがいします。
+> なにかわからないことがあればメールください。
+> 
+> 
+> 2020年4月4日(土) 23:06 masashiendou <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>:
+> 
+>     MINO株式会社 三宅様
+> 
+>     お世話になっております
+>     長野システム開発 遠藤です
+> 
+>     貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+> 
+>     4/4時点での作成分をDropboxにアップロードしましたので、お知らせします。
+>     ダウンロード先: "https://www.dropbox.com/s/mki0h93x99h2tdt/mino-feature-MINO-23.zip?dl=0"
+>     ※ドキュメントルート以下のファイル一式をzipにまとめています
+>     ※作成途中の画面のイメージ画像を添付します
+> 
+>     当該ファイルには以下が含まれます
+>     　◆ ラベル・送り状発行(画面)
+>     　　　- 仕様を元にボタンとフォームを配置
+>     　　　　※DB参照部分は作成途中ですので、色の反映などは未実装です
+>     　◆ 出荷品確認
+>     　　　- タイトルの表示の修正
+> 
+>     現在、以下項目の作業中です
+>     　◆ ラベル・送り状発行(画面)
+>     　　　- DBのテーブル参照部分の実装中
+>     　　　- フォームの大きさなど微調整中
+>     　◆ 臨時出荷登録(機能)
+>     　　　- DBのテーブル参照部分の実装中
+>     　◆ DBのテーブル名の変更対応
+>     　　　- 現DBのTableが大文字のためcakephpの規約に則しておらず、bakeなどのコマンドが使用できない状態
+>     　　　　実装自体は出来るもののcakephpのアンチパターンのため、実装含めた改修などの対応に手間がかかってしまう
+>     　　　　-> 4/3 電話にて北澤様と話し合い、小文字対応用のshipping DBとビューテーブルを作ることになりました
+>     　　　　　　　 当社にて当該作業を実施するか、北澤様にて作業をするか明確には決定していませんが、当社側にて
+>     　　　　　　　 作業する場合は、北澤様よりビューテーブル作成のための参考情報および命名規則の情報をいただける
+>     　　　　　　　 とのこと
+> 
+>     よろしくお願いします
+> 
+>     以上
+> 
+>     On 2020/04/01 13:02, masashiendou wrote:
+>      > MINO株式会社 三宅様
+>      >
+>      > お世話になっております
+>      > 長野システム開発 遠藤です
+>      >
+>      > 貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+>      >
+>      > 4/1時点での作成分をDropboxにアップロードしましたので、お知らせします。
+>      > ダウンロード先: "https://www.dropbox.com/s/0xuc8nsow88g1mv/mino-feature-MINO-5.zip?dl=0"
+>      > ※ドキュメントルート以下のファイル一式をzipにまとめています
+>      >
+>      > 当該ファイルには以下が含まれます
+>      >　 ◆ 出荷予定表
+>      >　　　 - ヘッダーから出荷予定表のリンクを削除
+>      >　 ◆ 製作出荷詳細(画面)
+>      >　　　 - "保存"から"登録"にボタン名称を変更
+>      >　　　 - "戻る"と"登録"ボタン位置を調整
+>      >　 ◆ 臨時出荷登録(画面)
+>      >　　　 - "保存"から"登録"にボタン名称を変更
+>      >　　　 - "戻る"と"登録"ボタン位置を調整
+>      >　　　 - 製作出荷情報画面に臨時出荷登録のボタンを追加
+>      >
+>      > 現在、以下項目の作業中です
+>      >　 ◆ 臨時出荷登録(機能)
+>      >　　　 - DB参照部分の実装を進めています
+>      >　　　　 ※現DBのTableが大文字のためcakephpの規約に則しておらず、bakeなどのコマンドが使用できない状態
+>      >　　　　　 実装自体は出来るもののcakephpのアンチパターンのため、実装含めた改修などの対応に手間がかかって
+>     しまう
+>      >　　　　　 別メールにて、北澤様と調整中です
+>      >　 ◆ ラベル・送り状発行(画面)
+>      >　　　 - 4/3 の時点でおおよその画面が完成する見込みですので、
+>      >　　　　 仕様およびイメージと相違無いか認識合わせをしたいと考えております
+>      >
+>      > よろしくお願いします
+>      >
+>      > 以上
+>      >
+>      > On 2020/03/24 17:33, masashiendou wrote:
+>      >> MINO株式会社 三宅様
+>      >>
+>      >> お世話になっております
+>      >> 長野システム開発 遠藤です
+>      >>
+>      >> ご確認ありがとうございます。
+>      >>
+>      >>> 製作出荷情報の画面に統合するのは
+>      >>>　 出荷処理
+>      >>>　 以前仕様にあった、出荷予定表
+>      >>> の２画面です。
+>      >>> ラベル送り状画面は残ります。
+>      >> 承知しました。
+>      >> 現在表示されている出荷予定表を非表示として、製作出荷情報の画面に統合いたします。
+>      >> ※出荷処理についても同様
+>      >>
+>      >> ラベル送り状画面については、3/23 14:19 いただいたメールのとおり"発行・印刷するためのボタンが配置された
+>     画面"
+>      >> を 当社にて用意いたします。
+>      >>
+>      >> また、各画面についてご説明くださり、ありがとうございます。
+>      >> 既に提供いただいている文書と合わせて、仕様を確認の上、実装を進めております。
+>      >>
+>      >> よろしくお願いします。
+>      >>
+>      >> 以上
+>      >>
+>      >> On 2020/03/24 16:30, 三宅昭夫 wrote:
+>      >>> 長野システム開発 遠藤様
+>      >>>
+>      >>> お世話になります。
+>      >>> ＭＩＮＯ株式会社・技術部の三宅です。
+>      >>>
+>      >>> 最新の基本仕様は、添付ファイルの通りです。
+>      >>> 製作出荷情報の画面に統合するのは
+>      >>>　 出荷処理
+>      >>>　 以前仕様にあった、出荷予定表
+>      >>> の２画面です。
+>      >>> ラベル送り状画面は残ります。
+>      >>>
+>      >>> 製作出荷情報画面　・・・　制作のための情報付加
+>      >>>　　　　　　　　　　　　　 制作の予定表
+>      >>>　　　　　　　　　　　　　 出荷処理
+>      >>>　　　　　　　　　　　　　 送り状印刷
+>      >>> 製作出荷情報詳細　・・・　製作出荷情報画面で足りない情報の付加
+>      >>> 臨時出荷登録　・・・　製作出荷情報に載ってこない、イレギュラーな出荷の情報登録
+>      >>> ラベル・送り状発行　・・・　制作時の補助情報
+>      >>>　　　　　　　　　　　　　　　 どんなラベルを貼るか
+>      >>>　　　　　　　　　　　　　　　 足りないラベルの印刷（ラベルや送り状）
+>      >>> 出荷品確認　・・・　出荷したものの情報（荷の受け取り側が確認するための画面）
+>      >>>
+>      >>> 以上、簡単ですが画面の説明です。
+>      >>>
+>      >>> よろしくお願いします。
+>      >>>
+>      >>> ※電話は、下記の会社携帯にお願いします。
+>      >>> ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>       ＭＩＮＯ株式会社　
+>      >>>　　　 伊那本社・技術部
+>      >>>   　      三宅　昭夫   Miyake Akio
+>      >>>      　   〒399-4501
+>      >>>　　     　 長野県伊那市西箕輪2700
+>      >>>　　     　 伊那インター工業団地内
+>      >>>               　 　   TEL ： 090-6498-0595     FAX ： 0265-73-3250
+>      >>>　　　     　 E-mail :a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>>
+>      >>>　　　     　 URL : https://nuan.jp <http://nuan.jp/>
+>      >>> ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>
+>      >>>
+>      >>>
+>      >>> 2020年3月24日(火) 13:46 遠藤 將司 <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>
+>     <mailto:endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>>:
+>      >>>
+>      >>>     MINO株式会社 三宅様
+>      >>>
+>      >>>     お世話になっております
+>      >>>     長野システム開発 遠藤です
+>      >>>
+>      >>>     貴社向けリリースが大幅に遅れており、ご迷惑をお掛けしています。
+>      >>>
+>      >>>     3/18 11:37 お問い合わせいただいた"梱包の出荷予定表はエラーで起動しない"件ですが、
+>      >>>     下村から引継いだ情報と突合したところ、出荷準備メニュー下の"制作出荷情報修正"を選択すると表示され
+>     る"制作出
+>      >>>     荷情報"画面に統合するとの認識ですが、間違いないでしょうか?
+>      >>>
+>      >>>     相違無ければ、本日(3/24)登内から送付した次期マイルストーン(Ver0.8)内のコードから、出荷予定表のGUI
+>     を削除い
+>      >>>     たします。
+>      >>>     また、当初よりご提供いただいている出荷予定表の仕様を元に、機能を"制作出荷情報"画面に実装していき
+>     ます。
+>      >>>     ※"制作出荷情報"画面/機能は、マイルストーンVer0.85内で作成予定です
+>      >>>
+>      >>>     お手数ですが、ご確認お願いします。
+>      >>>
+>      >>>     以上
+>      >>>
+>      >>>     On 2020/03/24 10:56, NSD Mizuki Tonouchi wrote:
+>      >>>      > 三宅　様
+>      >>>      >
+>      >>>      > お世話になっております。
+>      >>>      >
+>      >>>      > 長野システム開発　登内です。
+>      >>>      >
+>      >>>      > ご指摘いただきましたスケジュールにつきまして、
+>      >>>      >
+>      >>>      > 再度、調整いたしましたのでご確認ください。
+>      >>>      >
+>      >>>      > https://bit.ly/2vJOjr7
+>      >>>      >
+>      >>>      > 登録機能については、切り離しての開発が難しいため、
+>      >>>      >
+>      >>>      > まずは、4/9を目途に現在の未実装画面２つの作成を進め、画面遷移を確認できるよう進めます。
+>      >>>      >
+>      >>>      > その段階でのフィードバックを基に、現在作成中の３～５について作成を進め、
+>      >>>      >
+>      >>>      > 一通りの動作ができるものを4/24にリリースいたします。
+>      >>>      >
+>      >>>      > ※この段階で、三宅様のご希望の完成度まで作成予定です。
+>      >>>      >
+>      >>>      > ６，７については、１～５の画面作成を優先し、優先順位を下げて、
+>      >>>      >
+>      >>>      > 先日のご指摘事項含めて、5/7のリリースとなります。
+>      >>>      >
+>      >>>      > 修正・ドキュメント類作成等を含めて、5/29日にVer_1.0のリリース予定となります。
+>      >>>      >
+>      >>>      > １．臨時出荷登録・・・【3/31】作成分をアップロード
+>      >>>      >
+>      >>>      > ２．ラベル・送り状発行・・・【4/9】Ver_0.8リリース（MS）
+>      >>>      >
+>      >>>      > ３．制作出荷詳細・・・【4/15】作成分アップロード
+>      >>>      >
+>      >>>      > ４．制作出荷情報・・・【4/20】制作分アップロード
+>      >>>      >
+>      >>>      > ５．出荷確認・・・【4/24】Ver_0.85リリース（MS）
+>      >>>      >
+>      >>>      > ６．お知らせ・画面選択・・・【4/28】
+>      >>>      >
+>      >>>      > ７．ログイン・・・【5/7】Ver_0.9リリース（MS）
+>      >>>      >
+>      >>>      > ８．Ver_1.0リリース・・・【5/29】Ver_1.0リリース
+>      >>>      >
+>      >>>      > ※MS・・・マイルストーン
+>      >>>      >
+>      >>>      > ご不明点ございましたらご連絡ください。
+>      >>>      >
+>      >>>      > よろしくお願いいたします。
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > 長野システム開発株式会社
+>      >>>      >
+>      >>>      > 登内　瑞貴（Tonouchi Mizuki)
+>      >>>      >
+>      >>>      > TEL：0265-85-3385
+>      >>>      >
+>      >>>      > FAX：0265-85-3398
+>      >>>      >
+>      >>>      > 携帯：090-7215-7232　
+>      >>>      >
+>      >>>      > 〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>      >
+>      >>>      > E-mail:tonouchi_mizuki@naganosd.com <mailto:E-mail%3Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>>
+>      >>>      >
+>      >>>      > URL: http://www.naganosd.com/
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > *From:*NSD Mizuki Tonouchi
+>      >>>      > *Sent:* Monday, March 23, 2020 3:25 PM
+>      >>>      > *To:* mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>
+>      >>>      > *Subject:* RE: [mino_shuk:00096] Re: [mino_shuk:00093] RE: [mino_shuk:00091] Re:
+>     [mino_shuk:00090] 動作
+>      >>>     状況に
+>      >>>      > ついて
+>      >>>      >
+>      >>>      > 三宅　様
+>      >>>      >
+>      >>>      > お世話になっております。
+>      >>>      >
+>      >>>      > 長野システム開発　登内です。
+>      >>>      >
+>      >>>      > ご指摘ありがとうございます。
+>      >>>      >
+>      >>>      > 下記について承知いたしました。
+>      >>>      >
+>      >>>      > よろしくお願いいたします。
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > 長野システム開発株式会社
+>      >>>      >
+>      >>>      > 登内　瑞貴（Tonouchi Mizuki)
+>      >>>      >
+>      >>>      > TEL：0265-85-3385
+>      >>>      >
+>      >>>      > FAX：0265-85-3398
+>      >>>      >
+>      >>>      > 携帯：090-7215-7232　
+>      >>>      >
+>      >>>      > 〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>      >
+>      >>>      > E-mail:tonouchi_mizuki@naganosd.com <mailto:E-mail%3Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>>
+>      >>>      >
+>      >>>      > URL: http://www.naganosd.com/
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > *From:*三宅昭夫<a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>>
+>      >>>      > *Sent:* Monday, March 23, 2020 2:20 PM
+>      >>>      > *To:* mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>
+>      >>>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>>
+>      >>>      > *Subject:* [mino_shuk:00096] Re: [mino_shuk:00093] RE: [mino_shuk:00091] Re: [mino_shuk:00090]
+>     動作状況
+>      >>>     について
+>      >>>      >
+>      >>>      > 長野システム開発　登内様
+>      >>>      >
+>      >>>      > お世話になります。
+>      >>>      >
+>      >>>      > ＭＩＮＯ株式会社・技術部の三宅です。
+>      >>>      >
+>      >>>      > ＞梱包のラベル送り状発行は、イベントが何も起きません
+>      >>>      >
+>      >>>      > ラベルや送り状の発行・印刷そのものは
+>      >>>      >
+>      >>>      > こちらで組み込みますが
+>      >>>      >
+>      >>>      > 発行・印刷するためのボタンが配置された画面は用意をお願いします。
+>      >>>      >
+>      >>>      > それが、添付ファイルの画面です。
+>      >>>      >
+>      >>>      > この仕様に関しては、最初と変わっていません。
+>      >>>      >
+>      >>>      > ご検討、よろしくお願いします。
+>      >>>      >
+>      >>>      > ※電話は、下記の会社携帯にお願いします。
+>      >>>      >
+>      >>>      > ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      > ＭＩＮＯ株式会社　
+>      >>>      >
+>      >>>      >　　　 伊那本社・技術部
+>      >>>      >　 三宅　昭夫   Miyake Akio
+>      >>>      >　 〒399-4501
+>      >>>      >　　　 長野県伊那市西箕輪2700
+>      >>>      >　　　 伊那インター工業団地内
+>      >>>      >
+>      >>>      >　　   TEL ：090-6498-0595     FAX ：0265-73-3250
+>      >>>      >
+>      >>>      >　　　　 E-mail :a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>
+>      >>>      >　　　　 URL : https://nuan.jp <http://nuan.jp/>
+>      >>>      > ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      > 2020年3月19日(木) 17:30 NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com
+>     <mailto:tonouchi_mizuki@naganosd.com>
+>      >>>     <mailto:tonouchi_mizuki@naganosd.com <mailto:tonouchi_mizuki@naganosd.com>>
+>     <mailto:tonouchi_mizuki@naganosd.com <mailto:tonouchi_mizuki@naganosd.com>
+>      >>>     <mailto:tonouchi_mizuki@naganosd.com <mailto:tonouchi_mizuki@naganosd.com>>>>:
+>      >>>      >
+>      >>>      >     三宅　様
+>      >>>      >
+>      >>>      >     お世話になっております。
+>      >>>      >
+>      >>>      >     長野システム開発　登内です。
+>      >>>      >
+>      >>>      >     下記についていくつかご確認させていただきたくご
+>      >>>      >
+>      >>>      >     連絡させていただきました。
+>      >>>      >
+>      >>>      >     ＞①梱包の出荷予定表はエラーで起動しません
+>      >>>      >
+>      >>>      >     ＞Cake \ Routing \ Exception \ MissingControllerExceptionがありません
+>      >>>      >
+>      >>>      >     現在、お送りしているものについては、実装途中のものが含まれており、
+>      >>>      >
+>      >>>      >     恐らく、未実装部分と思われますので表示される画面のURLをお送りいただくことは可能でしょうか。
+>      >>>      >
+>      >>>      >     未実装部分については、遠藤の方で実装進めております。
+>      >>>      >
+>      >>>      >     情報共有が不足しており申し訳ございません。
+>      >>>      >
+>      >>>      >     ・MINO-6　 臨時出荷登録( 画面)
+>      >>>      >
+>      >>>      >     ・MINO-5 製作出荷詳細( 画面)
+>      >>>      >
+>      >>>      >     ・MINO-16 製作出荷情報( 画面)
+>      >>>      >
+>      >>>      >     については、実装途中となります。
+>      >>>      >
+>      >>>      >     ＞②梱包のラベル送り状発行は、イベントが何も起きません
+>      >>>      >
+>      >>>      >     こちらについてですが、
+>      >>>      >
+>      >>>      >     以前、北澤様より弊社側での実装は必要のない旨ご連絡いただいております。
+>      >>>      >
+>      >>>      >     ご確認いただけますでしょうか。
+>      >>>      >
+>      >>>      >     ボタン等は以前のままとなっておりますので、今後削除いたします。
+>      >>>      >
+>      >>>      >     よろしくお願いいたします。
+>      >>>      >
+>      >>>      >     ─────────────────────────────
+>      >>>      >
+>      >>>      >     長野システム開発株式会社
+>      >>>      >
+>      >>>      >     登内　瑞貴（Tonouchi Mizuki)
+>      >>>      >
+>      >>>      >     TEL：0265-85-3385
+>      >>>      >
+>      >>>      >     FAX：0265-85-3398
+>      >>>      >
+>      >>>      >     携帯：090-7215-7232　
+>      >>>      >
+>      >>>      >     〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>      >
+>      >>>      > E-mail:tonouchi_mizuki@naganosd.com <mailto:E-mail%3Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>>
+>      >>>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%253Atonouchi_mizuki@naganosd.com <mailto:E-mail%25253Atonouchi_mizuki@naganosd.com>>>
+>      >>>      >
+>      >>>      >     URL: http://www.naganosd.com/
+>      >>>      >
+>      >>>      >     ─────────────────────────────
+>      >>>      >
+>      >>>      >     *From:*三宅昭夫<a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>>
+>      >>>      >     *Sent:* Wednesday, March 18, 2020 11:37 AM
+>      >>>      >     *To:* mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>
+>      >>>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>>
+>      >>>      >     *Subject:* [mino_shuk:00091] Re: [mino_shuk:00090] 動作状況について
+>      >>>      >
+>      >>>      >     長野システム開発 下村様
+>      >>>      >
+>      >>>      >     お世話になります。
+>      >>>      >
+>      >>>      >     ＭＩＮＯ株式会社・技術部の三宅です。
+>      >>>      >
+>      >>>      >     確認遅くなりましたが、下記の状況が発生します。
+>      >>>      >
+>      >>>      >     ①梱包の出荷予定表はエラーで起動しません
+>      >>>      >
+>      >>>      >　     Cake \ Routing \ Exception \ MissingControllerExceptionがありません
+>      >>>      >
+>      >>>      >     ②梱包のラベル送り状発行は、イベントが何も起きません
+>      >>>      >
+>      >>>      >     ご確認ください。
+>      >>>      >
+>      >>>      >
+>      >>>      >     ※電話は、下記の会社携帯にお願いします。
+>      >>>      >
+>      >>>      >     ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      >     ＭＩＮＯ株式会社　
+>      >>>      >
+>      >>>      >　　　     伊那本社・技術部
+>      >>>      >　     三宅　昭夫   Miyake Akio
+>      >>>      >　     〒399-4501
+>      >>>      >　　　     長野県伊那市西箕輪2700
+>      >>>      >　　　     伊那インター工業団地内
+>      >>>      >
+>      >>>      >　　       TEL ：090-6498-0595     FAX ：0265-73-3250
+>      >>>      >
+>      >>>      >　　　　     E-mail :a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>
+>      >>>      >　　　　     URL : https://nuan.jp <http://nuan.jp/>
+>      >>>      >     ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      >     2020年3月17日(火) 13:32 Shimomura Ayumu <shimomura_ayumu@naganosd.com
+>     <mailto:shimomura_ayumu@naganosd.com>
+>      >>>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>
+>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>
+>      >>>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>>>:
+>      >>>      >
+>      >>>      >         ＭＩＮＯ株式会社
+>      >>>      >
+>      >>>      >         三宅さま
+>      >>>      >
+>      >>>      >         お世話になっております
+>      >>>      >
+>      >>>      >         長野システム開発 下村です
+>      >>>      >
+>      >>>      >         以前からお送りしていますプログラムはMINO様環境下で動作していますでしょうか
+>      >>>      >
+>      >>>      >         こちらで環境を変更した際動作しないことがあり確認をさせていただく思いご連絡を
+>      >>>      >
+>      >>>      >         させていただきました
+>      >>>      >
+>      >>>      >         以上、よろしくお願いいたします
+>      >>>      >
+>      >>>      >         □■━━━━━━━━━━━━━━━━━━━━━━━
+>      >>>      >
+>      >>>      >　　         長野システム開発株式会社
+>      >>>      >
+>      >>>      >　　         技術開発部
+>      >>>      >
+>      >>>      >　　         下村歩睦 / Shimomura Ayumu
+>      >>>      >
+>      >>>      >　　         〒399-4301 長野県上伊那郡宮田村 5672-2
+>      >>>      >
+>      >>>      >　　         TEL: 0265-85-3385 FAX: 0265-85-3398
+>      >>>      >
+>      >>>      >　　         Email: shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>
+>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>
+>      >>>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>
+>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>>
+>      >>>      >
+>      >>>      >　　         URL: https://naganosd.com
+>      >>>      >
+>      >>>      >　         ━━━━━━━━━━━━━━━━━━━━━━━■□
+>      >>>      >
+>      >>>
+>      >>>     --     長野システム開発株式会社
+>      >>>     遠藤 將司 ( Masashi Endo )
+>      >>>     e-Mail <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>
+>     <mailto:endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>>
+>      >>>     TEL：0265-85-3385
+>      >>>     FAX：0265-85-3398
+>      >>>     〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>     URL: http://www.naganosd.com/
+>      >>>
+>      >>>
+>      >>
+>      >
+> 
+>     -- 
+>     長野システム開発株式会社
+>     遠藤 將司 ( Masashi Endo )
+>     e-Mail <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>
+>     〒399-4301 長野県上伊那郡宮田村5672-2
+>     URL: http://www.naganosd.com/
+> 
+
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/
+

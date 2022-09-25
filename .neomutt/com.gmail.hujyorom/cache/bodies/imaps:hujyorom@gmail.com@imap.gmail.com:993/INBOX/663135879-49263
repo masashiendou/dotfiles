@@ -1,0 +1,90 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp2861796vkx;
+        Sun, 28 Mar 2021 12:59:21 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyDHXLIkDcwOrKcsOdLy5RBdNZImEh48n5RMKQA7nchEDT1SuPzV4S7v6iYbzaXb4GagS+Q
+X-Received: by 2002:a17:903:2284:b029:e7:1490:9c60 with SMTP id b4-20020a1709032284b02900e714909c60mr20559174plh.62.1616961561421;
+        Sun, 28 Mar 2021 12:59:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616961561; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gtwkyXvfrM0938+6TrPcsL+LHt4zlfHGXcLTfYaFubjhMTr5xvzRRCYFdteoUWyVAe
+         G553rhaFfLpCvMnK707wd8KFvOuSu//nBW4lWNiRSQf5F6SqsiB1ZfjmOihiAbxIWezo
+         4gBWNuwag4S5vMOW6JdOk3IxCBk/LAGtUb5dAcmXNNfZs79+MdFByTCURVMsux3+93d5
+         +M3kJ4iKNOgs+7eo5OO0Hd5RswFl5939+GGANgpim6rmihYRzIfHhHugJTnA4xNHnFST
+         8ReYEMGV3O7aN1p83dYWz9sx6S1B1GKrDrsD8sd0jDWJQGbGPCTw8tbMJSP2AClUV+gT
+         ld3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=I2chCX2Dc40Xe9/gKT5L2pn0zvyYzY/Seoa3a5f4Kgo=;
+        b=wSW9K4AJS7gskBq+ee2Gf5z2fJXKkwz0JcCOEouqHpYOS22lrYUcORttmTwnKkEW+d
+         bsYuRUgI6vj94PvlTjH2SPbDv9QETlEfK24ZzLPAs7P5Zs7AGcLsLVHZlJ34qMe+w2lc
+         dV1cGI4ZOFuYmAW9Q5/DH6Zt7XcZfWriTQdbtcaOG0vTAzMR/Wxpeo8b192WznZANH5U
+         1k+XSrq/RYIK4hkw/RX7t8rHmHfNpMkqAo1rnRSJxIEeyfUbh/mbO8CKnGiOUMB3XF3J
+         7mQwA3vLKTj1eZdZuWTNDMHKpyY+45jeL/2QEwb4pJ9ynwhsELMGPhKxzynRUOJyR3DX
+         gWtQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=SNLTS9dL;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.119 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml102.ymt.japannetbank.co.jp (mml102.ymt.japannetbank.co.jp. [202.238.157.119])
+        by mx.google.com with ESMTP id b16si15785649plg.150.2021.03.28.12.59.20
+        for <hujyorom@gmail.com>;
+        Sun, 28 Mar 2021 12:59:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.119 as permitted sender) client-ip=202.238.157.119;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=SNLTS9dL;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.119 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1616961560;
+	bh=I2chCX2Dc40Xe9/gKT5L2pn0zvyYzY/Seoa3a5f4Kgo=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=SNLTS9dLnz7C5Mpym48LQ4xlHQCQEqcCTh7Ptwd9AH9ebf9SEGUq2E+n6mv0y60qV
+	 WGEdKItUnbwD/57Hysh6tlWnxmPKsKc4J68CgQMt8P/0Cdf33YB44+QC9tjvwwEwwC
+	 yOFCCcjzUi9ycKvzjpttYiESVAHVuB0f7v+ktSOk=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCOH06Qj82QlgkLCRHJC0kXiQ7JHMkRyQ3JD8bKEo=?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20210328195920.9396AC60A8@mml102.ymt.japannetbank.co.jp>
+Date: Mon, 29 Mar 2021 04:59:08 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもジャパンネット銀行をご利用いただきありがとうございます。
+下記口座振替ができませんでした。
+引落日の当日21時までに普通預金口座へご入金いただけますと、21時以降、順次、再引落を行います。
+
+収納企業:ワイジェイカード
+取扱日時:2021年03月29日 04:54:18
+請求金額:2,277円
+
+※口座振替の内容について
+当社では請求金額の内訳や詳細についてはお調べできません。
+お手数をおかけいたしますが、各収納企業へお問い合わせください。
+
+▽口座自動振替　引き落としができなかったときは、どうしたらいいの？
+https://www.japannetbank.co.jp/service/payment/automatic/how.html#H2_3
+
+▽覚えのない口座振替契約は、どうしたら確認できる？
+https://www.japannetbank.co.jp/service/payment/automatic/how.html#H2_4
+
+【ご注意】
+・口座振替は、引落日の2時から引き落としを、21時から再引落を順次行っています。
+・収納企業によっては再引落がない場合もございます。再引落がない企業は、以下よりご確認ください。
+https://www.japannetbank.co.jp/mall.html#anc01
+・カードローンのご契約がある方で、自動融資の設定をされている場合は、再引落の際にご融資いたします。
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+ジャパンネット銀行
+https://www.japannetbank.co.jp/
+====================================

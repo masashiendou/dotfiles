@@ -1,0 +1,297 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp983769vky;
+        Sun, 7 Mar 2021 02:00:55 -0800 (PST)
+X-Received: by 2002:a5d:8887:: with SMTP id d7mr14268901ioo.151.1615111255544;
+        Sun, 07 Mar 2021 02:00:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615111255; cv=none;
+        d=google.com; s=arc-20160816;
+        b=BO20DQtwIm7R8absf9VmZiX/08haWjJ/qqfYrv49uNMxDYWDpXoMsvKG88X/z33qDd
+         Dd0EXwRAElU0pe8A0SX++zfTfcBJR4OweoTSrTQgRAIAn2C5L5jDykKa3CD8dj8IwqP1
+         Jdx0cLKksiUpsOEce4R70tjq7N0cJ0/g3pmbCbOBACY4ovUZweiRUwmXRVg5WMi1w6AD
+         0hzAjrq30KN+eAxsoUsRV2at02HzVY6OsxCquJME6M8uWRBA04CgEp9krY7FHhg5pVc3
+         NtNa3ZsPeFd3yOf2jco//GrhAGKiY2jP2JaWGLVOfCiTSywAPjYObwq3pEljt1p8048k
+         xY7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :dkim-signature;
+        bh=2zK5WcpCj0Id4pf+OtMDyxuRdoi02mjH04z+ScIf73E=;
+        b=QVaTJx+1/wG3FTJnLu9qR8TjXn9dVInrNfOSyzZClh7hcBKA1oBf5fq6uM1bxX5mO7
+         IrShMf25wlpWvMSLjohPWP1w6d/IxvBDnRmK1WolNq79LbAtt06M1VuxYt03a6FIErXH
+         Uf6yctKRzQv1N1i0DUfMCgZ5p7xioGlQ7UN+BCHidSb9vQ87uzpw32Nye7Kl384DE2eX
+         y5CqGBjJQ6YfLCKJEfoZKlR/Y3vyq3ZtpKVc07TyLD+EJtXI3KJC9exehIG9F/LBSLuC
+         9B5hJP0KYh6DsnY8CWtzn9on1Ru3sgDiVulbYxa7cfFrHDOGZxl+FSjvnr7ukZtfozp9
+         oDyg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=i+m4ljdG;
+       spf=pass (google.com: domain of 3v6reybikclolttlqjuqf3-stwjuq3lttlqj.htrmzo3twtrlrfnq.htr@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3V6REYBIKCLolttlqjuqf3-stwjuq3lttlqj.htrMzo3tWTRlrfnq.htr@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3V6REYBIKCLolttlqjuqf3-stwjuq3lttlqj.htrMzo3tWTRlrfnq.htr@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id d143sor4485714iof.53.2021.03.07.02.00.55
+        for <HujyoROM@gmail.com>
+        (Google Transport Security);
+        Sun, 07 Mar 2021 02:00:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3v6reybikclolttlqjuqf3-stwjuq3lttlqj.htrmzo3twtrlrfnq.htr@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=i+m4ljdG;
+       spf=pass (google.com: domain of 3v6reybikclolttlqjuqf3-stwjuq3lttlqj.htrmzo3twtrlrfnq.htr@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3V6REYBIKCLolttlqjuqf3-stwjuq3lttlqj.htrMzo3tWTRlrfnq.htr@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:date:reply-to:feedback-id:message-id:subject:from:to;
+        bh=2zK5WcpCj0Id4pf+OtMDyxuRdoi02mjH04z+ScIf73E=;
+        b=i+m4ljdGG5aoQq3m6FZqy6QkeseAFPUwX2r/pRhggy03NfuHhH5SwxO1FCCk+jNWWS
+         BB8W/NbbOdR6t7ZIhpDzG8PRekRGYsymkAQOumcrlcldcamcwEZnhqTHW+4EONlUzU82
+         ZZ9N8WN9BQQtoT7J5hI8bP3IeleCMuEg6kF11i+6FR9AfWxXb5IA2l6C7Sh9GX8wo0v8
+         qxhlfI3R5iJM4u6UWRvsKmCicFDyo/M6OHTe8EFFHftoY8sxQFb2UvK6dXVzBFVgkvFa
+         DTTz4dTgj/0oU/dxvZcEUtf0WKVMZXsuu3q2C1IkfNrZYzprIULh13PC1Y6mfEOsRw1w
+         fZXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:reply-to:feedback-id
+         :message-id:subject:from:to;
+        bh=2zK5WcpCj0Id4pf+OtMDyxuRdoi02mjH04z+ScIf73E=;
+        b=cVvexv2059lb5RZ+f+xJ18BLAMKxQ9+bhbXy2lyoHgjrZxcEBlNQ2OXrhp+4LFRPuB
+         mVCZk3HpzAd9i2O2IyTsBTAo6GLiutHPC3rh9WiclfzxzBjSL/UzFxjVnaLkiOGS/Joe
+         kJSSfKWe3dMHBVBiUBG5ioYxJ/Oeq5v3i/EZ7O3gUVyGGtW/n4zoEvcPAuUTJ9bjEAsF
+         +nvmrQ/HICJUeDu5+eI9X0R0lplFP2WIp91nhahJ4xCNsTJj8WJ/GZmdiNouYNlhSV/j
+         k3aE+rk99jKEywFo38rDynDohUGdmn7BN5PIBCYBKqq2/49jdyqdzI1WzK4lmXdwyZqI
+         cVwg==
+X-Gm-Message-State: AOAM532VZb7fDZMS3XODEXZ4OsyhfamIscFji77WMHySOiwggCxzN6S9
+	sD1/aC+LVCoOQVWx1t/V6jVD
+X-Google-Smtp-Source: ABdhPJwQXqlxxMG6LMXT0Pu6P6FezxCj6UqPlM9P2n992IWBxXEQIDU5i6o/IHMwgNYfAh3/UOi4RIU=
+MIME-Version: 1.0
+X-Received: by 2002:a02:caa9:: with SMTP id e9mr13241823jap.59.1615111255233;
+ Sun, 07 Mar 2021 02:00:55 -0800 (PST)
+Date: Sun, 07 Mar 2021 02:00:55 -0800
+Reply-To: Google Play <googleplay-noreply@google.com>
+X-Google-Id: 186549
+Feedback-ID: P-286712824-0:C10044049:M110110518-en-US:gamma
+X-Notifications: GAMMA:<c8dd59f99c6819977f96876126cbf825cd8b7532-10044049-110294243@google.com>
+Message-ID: <c8dd59f99c6819977f96876126cbf825cd8b7532-10044049-110294243@google.com>
+Subject: Your Google Play Order Receipt from Mar 7, 2021
+From: Google Play <googleplay-noreply@google.com>
+To: HujyoROM@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000a4179c05bcef64e4"
+
+--000000000000a4179c05bcef64e4
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+R29vZ2xlIFBsYXkNCg0KDQpUaGFuayB5b3UuDQoNCg0KWW91ciBzdWJzY3JpcHRpb24gZnJvbSBH
+b29nbGUgSXJlbGFuZCBMaW1pdGVkIG9uIEdvb2dsZSBQbGF5IGNvbnRpbnVlcyBhbmQgIA0KeW91
+J3ZlIGJlZW4gY2hhcmdlZC4gTWFuYWdlIHlvdXIgc3Vic2NyaXB0aW9ucy4NCg0KDQoNCk9yZGVy
+IG51bWJlcjogU09QLjMzMDctNzA0NS0yNzA3LTgyMDE2Li4yNg0KT3JkZXIgZGF0ZTogTWFyIDcs
+IDIwMjEgMjowMDo0OCBBTSBQU1QNCg0KDQpJdGVtIFByaWNlDQoNCg0KMTAwIEdCIChHb29nbGUg
+T25lKSAoYnkgR29vZ2xlIExMQykg77+lMjMwL21vbnRoDQoNCg0KTW9udGhseSBTdWJzY3JpcHRp
+b24g4oCQIE5leHQgcGF5bWVudCBhdXRvbWF0aWNhbGx5IGNoYXJnZWQgb24gQXByIDcsIDIwMjEN
+Cg0KDQoNClRvdGFsOiDvv6UyMzAvbW9udGgNCg0KKEluY2x1ZGVzIFZBVCBvZiDvv6UwKQ0KDQoN
+ClBheW1lbnQgbWV0aG9kOg0KDQpNYXN0ZXJjYXJkLTkwMDcNCg0KDQoNCkJ5IHN1YnNjcmliaW5n
+IHlvdSBhdXRob3JpemUgdXMgdG8gY2hhcmdlIHlvdSB0aGUgc3Vic2NyaXB0aW9uIGNvc3QgKGFz
+ICANCmRlc2NyaWJlZCBhYm92ZSkgYXV0b21hdGljYWxseSwgY2hhcmdlZCBtb250aGx5IHRvIHRo
+ZSBwYXltZW50IG1ldGhvZCAgDQpwcm92aWRlZCB1bnRpbCBjYW5jZWxlZC4gS2VlcCB0aGlzIGZv
+ciB5b3VyIHJlY29yZHMuDQoNCllvdSdyZSBzdWJzY3JpYmVkIHdpdGggeW91ciBhY2NvdW50IEh1
+anlvUk9NQGdtYWlsLmNvbQ0KDQpRdWVzdGlvbnM/IFZpc2l0IEdvb2dsZSBJcmVsYW5kIExpbWl0
+ZWQuDQoNCg0KDQpJbnRyb2R1Y2luZyBHb29nbGUgUGxheSBQb2ludHMhDQoNCkVhcm4gYXQgbGVh
+c3QgMSBwb2ludCBwZXIgwqUxMDAgb24gZXZlcnl0aGluZyB5b3UgYnV5LiBFeGNoYW5nZSBwb2lu
+dHMgZm9yICANCnNwZWNpYWwgaW4tYXBwIGl0ZW1zIG9yIGdldCBHb29nbGUgUGxheSBjcmVkaXQu
+IExlYXJuIG1vcmUuDQoNCg0KDQpTZWUgeW91ciBHb29nbGUgUGxheSBPcmRlciBIaXN0b3J5Lg0K
+VmlldyB0aGUgR29vZ2xlIFBsYXkgUmVmdW5kIFBvbGljeSBhbmQgdGhlIFRlcm1zIG9mIFNlcnZp
+Y2UuDQoNCg0KDQpOZWVkIGhlbHA/IFZpc2l0IHRoZSBHb29nbGUgUGxheSBoZWxwIGNlbnRlci4N
+ClRvIGxlYXJuIG1vcmUgYWJvdXQgR29vZ2xlIFBheW1lbnRzLCB2aXNpdCB0aGUgR29vZ2xlIFBh
+eW1lbnRzIGhlbHAgY2VudGVyLg0KUGxlYXNlIGRvIG5vdCByZXBseSB0byB0aGlzIG1lc3NhZ2Uu
+DQrCqSAyMDIxIEdvb2dsZSB8IEFsbCBSaWdodHMgUmVzZXJ2ZWQuDQpHb29nbGUgQXNpYSBQYWNp
+ZmljIFB0ZS4gTGltaXRlZCwgNzAgUGFzaXIgUGFuamFuZyBSb2FkLCAjMDMtNzEsIE1hcGxldHJl
+ZSAgDQpCdXNpbmVzcyBDaXR5LCBTaW5nYXBvcmUgMTE3MzcxDQoNCg0K
+--000000000000a4179c05bcef64e4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3Dcontent-type content=3D"text/html; charset=3DUTF-8">
+<meta http-equiv=3DX-UA-Compatible content=3DIE=3D8>
+<title></title>
+</head>
+<body dir=3Dltr style=3D"font-family: verdana;font-size: 12px;color: #55555=
+5; line-height: 14pt" id=3Dgamma>
+<div style=3D"width: 590px;">
+<div style=3D"background: url(&#39;http://www.gstatic.com/android/market_im=
+ages/email/email_top.png&#39;) no-repeat;width:100%; height: 75px; display:=
+block">
+<div style=3D"padding-top: 30px; padding-left: 50px; padding-right: 50px;">=
+<a href=3Dhttps://notifications.google.com/g/p/AD-FnEx4b-5H3k7vTV84Q8OWprKo=
+uA3Ec5M1tvYm4kJJxZIm65zWUJ_FgijEBgsYnhnTU2Eqo1rOge5TX31Slcjkpi8m><img alt=
+=3D"Google Play" src=3Dhttp://www.gstatic.com/android/market_images/email/p=
+lay_hydra_logo_email.png style=3Dborder:none;></a></div>
+</div>
+<div style=3D"background: url(&#39;http://www.gstatic.com/android/market_im=
+ages/email/email_mid.png&#39;) repeat-y;width:100%; display:block">
+<div style=3D"padding-left: 50px; padding-right: 50px; padding-bottom: 1px;=
+">
+<div style=3D"border-bottom: 1px solid #EDEDED;"></div>
+<div style=3D"margin: 20px 0px;font-size: 30px;line-height: 30px;text-align=
+:left">
+Thank you. </div>
+<div style=3Dtext-align:left>
+<div>
+Your subscription from Google Ireland Limited on Google Play continues and =
+you&#39;ve been charged. <a href=3Dhttps://notifications.google.com/g/p/AD-=
+FnEyZyrAOQEbJDb31qiiTiCAP1JXrGA4UmVzelSwjcxoAzzisL50Kp-wswISPnVaaGHcNKVlrK1=
+02nSIZdtShPcF2ZXRhKyt6c43n2tAgr-HxedMlrhzNzw>Manage your subscriptions</a>.
+</div>
+</div>
+<br>
+<div style=3D"margin-bottom: 20px;text-align:left">
+<b>
+Order number: </b> SOP.3307-7045-2707-82016..26<br>
+<b>
+Order date: </b> Mar 7, 2021 2:00:48 AM PST
+</div>
+<div>
+<div></div>
+<span></span>
+<table style=3D"width:100%;margin:5px 0">
+<tbody>
+<tr>
+<td style=3Dtext-align:left;font-weight:bold;font-size:12px>
+Item </td>
+<td style=3Dtext-align:right;font-weight:bold;font-size:12px width=3D70>
+Price </td>
+</tr>
+</tbody>
+</table>
+<div style=3D"border-bottom:1px solid #ededed"></div>
+<table style=3D"width: 100%;margin: 5px 0;">
+<tr>
+<tr>
+<td style=3D"text-align:left;font-size: 12px;padding-right: 10px">
+<span>
+<span dir=3Dltr>
+100 GB (Google One)
+</span>
+(by Google LLC)
+</span> </td>
+<td style=3D"text-align:right;font-size: 12px;">
+<span itemprop=3Dprice>
+<span>
+=EF=BF=A5230/month
+</span> </span>
+</td>
+</tr>
+<tr>
+<td style=3Dtext-align:left;font-size:12px;padding-right:10px>
+<br>
+Monthly Subscription =E2=80=90 Next payment automatically charged on Apr 7,=
+ 2021
+</td>
+<td style=3D"text-align: right;font-size: 12px;"></td>
+</tr>
+</tr></table>
+<div style=3D"border-bottom: 1px solid #EDEDED;"></div>
+<table style=3D"width:100%;margin:5px 0">
+<tr>
+<td style=3Dtext-align:right;font-size:12px width=3D150 colspan=3D2>
+<span dir=3Dleft>Total</span>: <span>
+=EF=BF=A5230/month </span>
+</td>
+</tr>
+<tr>
+<td style=3D"text-align:right;font-size: 12px;" width=3D150 colspan=3D2>(In=
+cludes VAT of =EF=BF=A50)</td>
+</tr>
+</table>
+<div style=3D"border-bottom:1px solid #ededed"></div>
+<table style=3D"width:100%;margin:5px 0 15px 0;padding:0;border-spacing:0">
+<tr>
+<td style=3Dtext-align:left;font-weight:bold;font-size:12px;vertical-align:=
+top>
+Payment method: </td>
+<td>
+<table style=3Dmargin-left:auto;font-size:12px>
+<tbody>
+<tr>
+<td style=3D"font-size: 12px; text-align:right">Mastercard-9007
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+<div style=3D"margin:20px 0">
+By subscribing you authorize us to charge you the subscription cost (as des=
+cribed above) automatically, charged monthly to the payment method provided=
+ until canceled. Keep this for your records.
+<br><br>
+You&#39;re subscribed with your account HujyoROM@gmail.com <br><br>
+Questions? Visit <a href=3Dhttp://notifications.google.com/g/p/AD-FnEwFQ2O0=
+On8FPb-tdkz_MmgwCH3tkpF7R5unnPSUbMp5SdJzwIwMibhUQUm_qsmVdZG_Apq7CS1WuM8>Goo=
+gle Ireland Limited</a>.
+</div>
+<!-- Preconditions: upsellItem.imageUrl, upsellItem.title, upsellItem.parag=
+raph, upsellItem.subTitle, upsellItem.subTitleUrl exist -->
+<div style=3D"margin:10px 0px; position:relative; display:inline-block;">
+<table>
+<tbody>
+<tr>
+<td style=3D"vertical-align:top; padding-right:5px; padding-top:10px;">
+<div><img height=3D48 src=3Dhttp://www.gstatic.com/android/market_images/em=
+ail/google_play_prism_to_google_play_points_morph.gif style=3Ddisplay:table=
+-cell; width=3D48></div>
+</td>
+<td style=3D"vertical-align:top; padding-top:10px; font-size:12px; color:#5=
+55555; line-height:16px;">
+<div style=3D"font-size:14px; font-weight:bold; margin-bottom:4px;">Introdu=
+cing Google Play Points!</div>
+<div style=3D"font-size:12px; margin-bottom:8px;">Earn at least 1 point per=
+ =C2=A5100 on everything you buy. Exchange points for special in-app items =
+or get Google Play credit. <a href=3Dhttps://notifications.google.com/g/p/A=
+D-FnEx3MCJ55UN8ifufgl4qgZtWc5vdIKmhydg19F_2O4_7cx5rHkNpShi65Ev29pQBwBrfp4mK=
+6NM62iSjXVL0_jPk32mWgSReYHtAOQXSfGfvlFx2o-8yrAbXeQKZ4TWZKx5HdXc6aTNosou3sni=
+wMdMR6b4ZrkcBRMVMCbfNh9U0W4QQC7tYkvDrG-IJEyBDCeHnXM9YnlvstAvqjOX78GbaNA>Lea=
+rn more.</a></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style=3D"margin:20px 0 40px 0;font-size:10px;color:#707070">
+See your Google Play <a href=3Dhttps://notifications.google.com/g/p/AD-FnEw=
+0QvMOdyDpbhyImjS3zdN3v4bbZ5nuxsvwivJ9CTvqKzSMrkZ9vwO8mpStjem9_dTWCVNT1Xy6nR=
+3jUWAMiHIOFmJiv6XEIxLx2san0niuCozBkK7p>Order History</a>. <br>
+View the Google Play <a href=3Dhttps://notifications.google.com/g/p/AD-FnEy=
+HPK7mcqIhjsmdkaThfhRlxEgv2mx-UCD3Uj02YoYOJehnlOZ6AV2F9CaBhHwmRTOopF_dkSz48A=
+KdWQZtGl9HVA6E12dFKZ41JaDdu5NrVI19a42dcL6G0yqeyA>Refund Policy</a> and the =
+<a href=3Dhttps://notifications.google.com/g/p/AD-FnEzeAvghgFMczsAYssqfOH9h=
+_h0kLljXPWbrHZokLxPf7iGPJESA-x380b4C6cJFJ7MmGz737R0Ytgf-3rsLKib0l5ylqjM9pD_=
+OfdRid3No3DYH6n3ktCQepvxn>Terms of Service</a>.
+</div>
+<div style=3D"font-size: 9px;color: #707070;">
+<br>
+<br>
+Need help? Visit the <a href=3Dhttp://notifications.google.com/g/p/AD-FnEyl=
+466A_SbUN3qecuazGxFmrbH5VxboEZ6Jlego7Tw_B05boRoecF6I9eCvsatZ9dy0IHFdElUNs5k=
+njC0_ULcPk9LaXUvq1L0oHkZsAbKSFPMADgeLYc8O_0-c4w>Google Play help center</a>=
+.<br>
+To learn more about Google Payments, visit the <a href=3Dhttps://notificati=
+ons.google.com/g/p/AD-FnEyTt9o-EFJiqtl2czDu5xLiqdrlYM_kpq-En41Rq59HZRlSBaIg=
+0sTd4ru7x2SX0K2o6NVPDc_NCiN0enBNHM-AEzHc1ZciDFScOUmWnkJniD5ZPgFUwlGIabDP>Go=
+ogle Payments help center</a>. <br>
+Please do not reply to this message. <br>
+=C2=A9 2021 Google | All Rights Reserved.
+<br>
+Google Asia Pacific Pte. Limited, 70 Pasir Panjang Road, #03-71, Mapletree =
+Business City, Singapore 117371
+</div></div></div>
+<div style=3D"background:url(&#39;https://ci5.googleusercontent.com/proxy/u=
+6KYrquoddKACxnOzJ_0lN61heutVpw6mvCoYm12429bUiIixNVcgybrhdlhejL3Wt_3e-Z40wSc=
+Tl6vSA4PJCyVv36WJtiqQKPkLLgp0eptolrfhCwmolk=3Ds0-d-e1-ft#http://www.gstatic=
+.com/android/market_images/email/email_bottom.png&#39;) no-repeat;width:100=
+%;height:50px;display:block" class=3DadL></div>
+<img alt=3D"" height=3D1 width=3D3 src=3Dhttps://notifications.google.com/g=
+/img/AD-FnExn6UjpTJRngcFIw5lkBbC7HNZxtIKSapGCbJ1weEIzroA.gif></body>
+</html>
+--000000000000a4179c05bcef64e4--

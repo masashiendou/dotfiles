@@ -1,0 +1,678 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a05:6122:128a:0:0:0:0 with SMTP id i10csp932823vkp;
+        Thu, 13 May 2021 12:40:43 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzgwGWSUhHUoE+de4+YttnDCpqlgJTVZSuPEAYe8et/ABFyVBZcskwyoFtlhxVJbYnwUo+G
+X-Received: by 2002:ab0:1671:: with SMTP id l46mr39308562uae.98.1620934843159;
+        Thu, 13 May 2021 12:40:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620934843; cv=none;
+        d=google.com; s=arc-20160816;
+        b=XlEhJSX9mKAbeDpfu0Z99d/y/UoyJiwWd4PGb/9MRsRINCL6/nzfsZnI3XwXpT5pGc
+         ExXpYnrVeGmb7FaDnOq0tw5fyQxwKWrfL4jBzFDpUdB50gZgh7MV4/YGYzYGV9SJ9OJF
+         BSeQSR/LBdvlc12BZavr9tr2I1Kzk6E6I+rB9gfZzX3NSpwKQYmjjaiWnq961HDlx12e
+         0OwYGFMAZV5ZVxi8LpAOojOJoNpArrINXHpxCIl8kZcoKw0+CAOoSn4sUoikFL4b3Qez
+         vSRbr2i2R58iRQbzxpNx4pr5uDBo/BEsrU8NhZGASeEvx/cVoHmiG+74ZMt1fEpzqn9e
+         nrGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-unsubscribe-post:mime-version:subject
+         :message-id:to:reply-to:from:date:dkim-signature;
+        bh=zN4/ojcqxuGvo+mgn5tTtzybsS2eUwXUlxVyTLKD8+U=;
+        b=ghoxLHjj1RnYGKrivPcPMWPEe7zeV9Qzo9fME45Na7qAN28AbX55W18YgtDIP/f7xE
+         TFVDp9l3XawZ5cC+2BQMGOXL2V+R5jmb/kP7lJWctpyNp12YbkfGmlX7r5cjXmiy5zB5
+         gsP3U4ogvy3q/xW50DP7IVf3+BUQBeWeBvVqzbXgds3RcKZd5ZFlbc4TjTQy1X13rs/m
+         8+gkHa4t/NPdWoy/Qht48N2KdBDwLWOLsuU4MtApFm9SlXmYPuhX+DoxLMH25EDG/Tvy
+         o92sVT6JVuCAYb93aGe9EjWMl+nGLeQYbmmGGOjaB3YL2+BeQV/fTagHH2IuXN9d3Z2/
+         e7eg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.mozilla.org header.s=spop1024 header.b=mGBcNNbj;
+       spf=pass (google.com: domain of v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org designates 74.112.70.247 as permitted sender) smtp.mailfrom=v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=email.mozilla.org
+Return-Path: <v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org>
+Received: from mail10195.email.mozilla.org (mail10195.email.mozilla.org. [74.112.70.247])
+        by mx.google.com with ESMTPS id y184si2449894vsy.335.2021.05.13.12.40.42
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 May 2021 12:40:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org designates 74.112.70.247 as permitted sender) client-ip=74.112.70.247;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.mozilla.org header.s=spop1024 header.b=mGBcNNbj;
+       spf=pass (google.com: domain of v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org designates 74.112.70.247 as permitted sender) smtp.mailfrom=v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=email.mozilla.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=spop1024; d=email.mozilla.org;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ X-CSA-Complaints:List-Unsubscribe-Post:List-Unsubscribe;
+ i=mozilla@email.mozilla.org;
+ bh=zN4/ojcqxuGvo+mgn5tTtzybsS2eUwXUlxVyTLKD8+U=;
+ b=mGBcNNbjHLg2f09DxaApWslbGUZ22//nD1BoZYIFY7l9H9ltYxuxv/8HhJOK+OyvQ5cvO/tl2E5J
+   pWkEIM5/Qr0trASQwWUYKAql1/I90C52/it+XqFyAXYrE6Q/4rxXcKiFf8C1T7Q3Z81u2hK24GWQ
+   oPf8oGUbHh6u9abSk6w=
+Received: by mail10195.email.mozilla.org id hjm0bk2r7ao7 for <hujyorom@gmail.com>; Thu, 13 May 2021 19:11:55 +0000 (envelope-from <v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org>)
+Date: Thu, 13 May 2021 19:11:55 +0000 (GMT)
+From: "Jen Caltrider, Mozilla" <mozilla@email.mozilla.org>
+Reply-To: mozilla@email.mozilla.org
+To: hujyorom@gmail.com
+Message-ID: <787379254.87894701620933115942.JavaMail.app@rbg91.atlis1>
+Subject: Re: We could use your help.
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_27366_2105735781.1620933106386"
+x-mid: 1884110
+X-CSA-Complaints: csa-complaints@eco.de
+x-rpcampaign: sp1884110
+x-job: 1884110
+x-orgId: 11776
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://links.email.mozilla.org/luoo/v1/SUF1aHJ6Vzc5RW9VTUorNmk1UzNHYTFsN2pZOFVMU09sZGxYWTF2cEJxdkc2NmJITjdUWlZXM2VPKzFTRHdzYTlkV2M0dUJyUlVvaEF4NDFTYVhURUE9PQS2>, <mailto:v-bmlpmo_colldffge_cohphneb_cohphneb_a@bounce.email.mozilla.org?subject=Unsubscribe>
+
+------=_Part_27366_2105735781.1620933106386
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+MOZILLA
+**********
+=09
+Just wanted to make sure you saw our recent fundraising appeal. We=E2=80=99=
+re up against some VERY deep pockets, and we rely on your financial support=
+ to fuel our work. If you're able, can you chip in a donation today to help=
+ us build and grow the movement for a healthier internet? THANKS!
+
+Donate Today :=20
+ https://links.email.mozilla.org/els/v2/4N~9HVjXzB_/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+(Original message below)
+
+-------------------------------
+Dear Mozilla Supporter,
+
+Normal? Have you been asking yourself what that even means these days? I su=
+re have. Spoiler alert: I don=E2=80=99t think anyone quite knows what norma=
+l is going to look like in the coming months.
+
+One thing I do know, the new normal means the growth of technology in our l=
+ives isn=E2=80=99t going away. So much moved online during the pandemic =E2=
+=80=94 work, school, seeing the doctor, interviewing for a job, hanging out=
+ with friends, even dating. All of that is likely here to stay.
+
+Which is why a recent survey[1] showing that people=E2=80=99s trust in the =
+tech industry has recently cratered to an all time low ... has me concerned=
+. People around the world are increasingly worried about the spread of misi=
+nformation online (so are we!), they are scared about their loss of privacy=
+ in the data economy (OMG, us too!), and growing bias in artificial intelli=
+gence has them concerned (yup, that keeps us up at night as well).
+
+There IS a silver lining, though. This survey shows people around the world=
+ are starting to understand the important tech issues we here at Mozilla wo=
+rk on daily. More and more people are learning they need to get involved to=
+ make a difference. This is very good. Because we can=E2=80=99t do this wor=
+k without people =E2=80=94 people like you. We do this work for you, and be=
+cause of you. We=E2=80=99re only able do it because people like you support=
+ us with your donations.
+
+Please help us with a donation today if you can.
+=09=09
+Yes, I'll chip in:
+ https://links.email.mozilla.org/els/v2/4N~9HVjXzB_/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+Mozilla is unique. It=E2=80=99s our job as a non-profit organization to uph=
+old a standard for good tech, and demonstrate what that looks like.
+
+Our *Privacy Not Included buyer=E2=80=99s guides help consumers shop safe f=
+or connected products while holding companies accountable. Our newly launch=
+ed Data Futures Lab will help determine how to build a better alternative t=
+o the current data economy eating away at our privacy. And we=E2=80=99ve de=
+dicated our work here at the Mozilla Foundation to find ways to combat bias=
+ and discrimination in artificial intelligence around the world.
+
+Donate Today   =09
+ https://links.email.mozilla.org/els/v2/4N~9HVjXzB_/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+We do this work because we all believe technology can be something good in =
+the world IF we all work to make that so. If you can, please make a donatio=
+n today to help us keep pushing the tech industry to be better.
+
+Thank you for trusting us when trust for others in the tech industry has fa=
+llen.=20
+Sincerely,
+
+Jen Caltrider
+Mozilla
+
+P.S. If you have questions about making a donation to Mozilla, please check=
+ out our donations FAQ page at https://links.email.mozilla.org/els/v2/37~xH=
+vA2_s6/VEtNYi9wQ0ttNGRlWkFFM0hCWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpv=
+ZG1PTFNVVWx0TllDUm5FYmFyaTFlYUp5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg=
+9S0/ , or just drop us a note back at donate@mozilla.org.
+
+
+1. Axios.com, "Exclusive: Trust in tech craters." (March 31, 2021)=20
+ https://links.email.mozilla.org/els/v2/gdAPQdGYvfL/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+=09
+
+---
+
+Connect with us:
+
+ https://links.email.mozilla.org/els/v2/mWAeBvG70sN/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+ https://links.email.mozilla.org/els/v2/ZdYRQY~6LcP/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+ https://links.email.mozilla.org/els/v2/8P~_JbXYxJy/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+Thanks for reading!
+
+
+
+You're receiving this email because we think you=E2=80=99re neat, AND you s=
+ubscribed to hear from us. If our emails aren=E2=80=99t sparking joy, we=E2=
+=80=99ll understand if you unsubscribe.
+ https://links.email.mozilla.org/els/v2/LaKZCa4Y6s0/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/MWVVWVY3LytZZnVNbkFXeWZWS2=
+FXMk8zSENwOFI1ckRwbHRTL0c3QStXdFFqNHVUTGI4Q0d0M09rcDFpR1dlZE1JTU1iUFRia2E1c=
+i92Y00raGNka1E9PQS2=20
+
+You can also update your email preferences  at any time.
+ https://links.email.mozilla.org/els/v2/LaKZCa4Y6s0/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/MWVVWVY3LytZZnVNbkFXeWZWS2=
+FXMk8zSENwOFI1ckRwbHRTL0c3QStXdFFqNHVUTGI4Q0d0M09rcDFpR1dlZE1JTU1iUFRia2E1c=
+i92Y00raGNka1E9PQS2=20
+
+
+ https://links.email.mozilla.org/els/v2/6j~2Qwx9KMk/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+Donate to Mozilla
+ https://links.email.mozilla.org/els/v2/wdAgQ~vNRtN/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+Download Firefox
+ https://links.email.mozilla.org/els/v2/q7AwHbNWjJ8/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+2 Harrison St. #175, San Francisco, CA 94105
+
+Legal
+ https://links.email.mozilla.org/els/v2/9P~VJgrb2s2/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+Privacy
+ https://links.email.mozilla.org/els/v2/YWg8B04waQ4/VEtNYi9wQ0ttNGRlWkFFM0h=
+CWWxoRWtPVTNXMGpOOEZNaTZqQ2xMdEx2ZVUvQnhXTEpvZG1PTFNVVWx0TllDUm5FYmFyaTFlYU=
+p5di9PSmozamJwNHkyMGJZejVIcm9WZXpXZVViWjkzcDg9S0/=20
+
+
+------=_Part_27366_2105735781.1620933106386
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<html>
+  <body style=3D"background: #F2F2F2;font-family:Arial, Helvetica, sans-ser=
+if; font-size:1em;">
+    <table id=3D"backgroundTable" width=3D"100%" cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0" style=3D"background:#F2F2F2;">
+        <tr>
+            <td class=3D"body" align=3D"center" valign=3D"top" style=3D"bac=
+kground:#F2F2F2;" width=3D"100%">
+
+              <div id=3D"mktcloud-preheader" key=3D"preheader" style=3D"dis=
+play:none!important;visibility:hidden;mso-hide:all;font-size:1px;color:#fff=
+fff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;=
+"><p id=3D"mktcloud-preheader-text">
+
+                To us, YOU are the bottom line. Together, let's keep the in=
+ternet open for good.
+
+
+               </p></div>
+
+                <table cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                        <td width=3D"640">
+                            <table role=3D"presentation" style=3D"min-width=
+: 100%; " class=3D"stylingblock-content-wrapper" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0"><tr><td class=3D"stylingblock-content-wrapper cama=
+rker-inner"><table cellspacing=3D"0" cellpadding=3D"0">
+ <tr>
+  <td width=3D"640" align=3D"left">
+   <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+    <tr>
+     <td style=3D"padding: 10px 10px;" align=3D"left">
+     <img src=3D"https://content-us-9.content-cms.com/a9dd601b-4d21-4dfa-a6=
+27-5d08f0ab9976/dxdyn/wca_image_swap/3719d231-3fe4-439a-aa85-912389c79262.p=
+ng" alt=3D" * * * Mozilla * * * " style=3D"display: block; border: 0;" widt=
+h=3D"158" height=3D"45">
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table></td></tr></table></td>
+                    </tr>
+                    <tr>
+                        <td class=3D"main" width=3D"640" align=3D"center" s=
+tyle=3D"padding: 0 10px;">
+                            <table role=3D"presentation" style=3D"min-width=
+: 100%; " class=3D"stylingblock-content-wrapper" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0"><tr><td class=3D"stylingblock-content-wrapper cama=
+rker-inner">
+
+
+
+
+
+
+
+            <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0">
+<tr>
+  <td>
+    <a name=3D"logo_img"  href=3D"https://links.email.mozilla.org/els/v2/WY=
+4WCg3G2sX/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGb=
+XR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1M=
+dm89S0/"><img src=3D"https://content-us-9.content-cms.com/a9dd601b-4d21-4df=
+a-a627-5d08f0ab9976/dxdyn/wca_image_swap/4c89a569-2c8d-4b25-b764-60e8ed6406=
+e0.jpg" alt=3D"" style=3D"display: block; border: 0px; outline: none; width=
+: 100%; height: auto; max-width: 640px;" width=3D"640" border=3D"0"></a>
+  </td>
+</tr>
+</table>
+
+
+<table style=3D"background-color: #ffffff; font-family: Arial, 'Helvetica N=
+eue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" widt=
+h=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+
+<tr>
+   <td style=3D"background-color: rgb(255, 255, 255); width: 30px;" width=
+=3D"30">
+   </td><td style=3D"background-color: #ffffff; font-family: Arial, 'Helvet=
+ica Neue', Helvetica, sans-serif; color: #4b4b4b; text-align: left; line-he=
+ight: 150%;font-size: 16px;">
+
+<br>
+Hey =E2=80=93 we just wanted to make sure you saw our recent fundraising ap=
+peal.  We're up against some <strong>very</strong> deep pockets, and we rel=
+y on your financial support to fuel our work.  If you're able, can you <a n=
+ame=3D"kickernote"  style=3D"text-decoration: underline; color: #0c99d5; fo=
+nt-weight: bold;" href=3D"https://links.email.mozilla.org/els/v2/G4EXH867zs=
+z/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltU=
+UxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/"=
+>chip in a donation today</a> to help us build and grow the movement for a =
+healthier internet?  <strong>Thanks!</strong>
+  <br>
+ =20
+                              <p style=3D"text-align: center;">
+                              <a href=3D"https://links.email.mozilla.org/el=
+s/v2/KAWzC6N_GFj/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdm=
+FkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZM=
+FUxQm1Mdm89S0/" name=3D"firstdonatebutton"  style=3D"color:#FFFFFF;text-dec=
+oration:none;background-color: #0c99d5; display: inline-block; padding: 10p=
+x 42px; margin-bottom: 10px; line-height: 200%; min-height: 32px; height: a=
+uto; font-size: 16px; font-weight: bold; text-transform: uppercase; text-al=
+ign: center;">&nbsp;&nbsp;Donate Today&nbsp;&nbsp;</a>
+                            </p>
+  <em>(Original message below)</em>
+<br clear=3D"all">
+<hr width=3D"100%">
+<br>
+
+            <table style=3D"max-width: 300px; width: 300px;" cellspacing=3D=
+"0" cellpadding=3D"0" align=3D"right">
+                <tr>
+                  <td>
+                    <table style=3D"box-sizing: content-box; -moz-box-sizin=
+g: content-box; -webkit-box-sizing: content-box; margin-left: 8px; margin-t=
+op: 5px; margin-bottom: 8px; min-width: 300px;" cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"1" bgcolor=3D"#ffffff">
+                        <tr>
+                          <td style=3D"padding: 8px; text-align: left; line=
+-height: 125%; font-family: 'Open Sans', sans-serif; overflow-wrap: break-w=
+ord;">
+
+
+                <br>As a non-profit organization, Mozilla is uniquely able =
+to fight for your online privacy and a healthier internet.  <strong>Today, =
+we ask for your support</strong> to help carry this mission forward.=20
+
+                            <p style=3D"text-align: center;">
+                              <a href=3D"https://links.email.mozilla.org/el=
+s/v2/dpANQ3_2ysq/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdm=
+FkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZM=
+FUxQm1Mdm89S0/" name=3D"seconddonatebutton"  style=3D"color:#FFFFFF;text-de=
+coration:none;background-color: #0c99d5; display: inline-block; padding: 10=
+px 42px; margin-bottom: 10px; line-height: 200%; min-height: 32px; height: =
+auto; font-size: 16px; font-weight: bold; text-transform: uppercase; text-a=
+lign: center;">&nbsp;&nbsp;Yes, I'll chip in&nbsp;&nbsp;</a>
+                            </p>
+                          </td>
+                        </tr>
+                    </table>
+                  </td>
+                </tr>
+  </table>
+
+
+
+
+ =20
+ =20
+    Dear Mozilla Supporter,<br>
+    <br>
+    Normal? Have you been asking yourself what that even means these days? =
+I sure have. <strong>Spoiler alert:</strong> I don=E2=80=99t think anyone q=
+uite knows what normal is going to look like in the coming months.<br /><br=
+ />
+
+  One thing I do know, the new normal means <strong>the growth of technolog=
+y in our lives isn=E2=80=99t going away.</strong> So much moved online duri=
+ng the pandemic =E2=80=94 work, school, seeing the doctor, interviewing for=
+ a job, hanging out with friends, even dating. All of that is likely here t=
+o stay. <br /><br />
+
+<strong>Which is why a recent survey<sup>[1]</sup> showing that people=E2=
+=80=99s trust in the tech industry has recently cratered to an all time low=
+ ... has me concerned.</strong>  People around the world are increasingly w=
+orried about the spread of misinformation online (so are we!), they are sca=
+red about their loss of privacy in the data economy (OMG, us too!), and gro=
+wing bias in artificial intelligence has them concerned (yup, that keeps us=
+ up at night as well).<br /><br />
+
+<strong>There IS a silver lining, though.</strong> This survey shows people=
+ around the world are starting to understand the important tech issues we h=
+ere at Mozilla work on daily. More and more people are learning they need t=
+o get involved to make a difference. This is very good. Because we can=E2=
+=80=99t do this work without people =E2=80=94 <strong>people like you.</str=
+ong> We do this work for you, and because of you. We=E2=80=99re only able d=
+o it because people like you support us with your donations. <br /><br />
+
+Please help us with a donation today if you can.
+<br /><br />
+<table style=3D"background-color: #ffffff; font-family: Arial, 'Helvetica N=
+eue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" widt=
+h=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+      <tr>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+        <td style=3D"background-color: #ffffff;"></td>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+      </tr>
+      <tr>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+        <td style=3D"background-color: #ffffff; font-family: Arial, 'Helvet=
+ica Neue', Helvetica, sans-serif; color: #000000; text-align: center;">
+
+            <a href=3D"https://links.email.mozilla.org/els/v2/2d~8Q08qbQ0/Y=
+3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltUUxG=
+TEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/" na=
+me=3D"Donate button 3"  style=3D"color:#FFFFFF;text-decoration:none;backgro=
+und-color: #0c99d5; display: inline-block; padding: 10px 42px; margin-botto=
+m: 10px; line-height: 200%; min-height: 32px; height: auto; font-size: 16px=
+; font-weight: bold; text-transform: uppercase; text-align: center;">&nbsp;=
+&nbsp;Yes, I'll donate&nbsp;&nbsp;</a>
+
+        </td>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+      </tr>
+      <tr>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+      </tr>
+    </table>
+
+<br />
+ =20
+<strong>Mozilla is unique.</strong> It=E2=80=99s our job as a non-profit or=
+ganization to uphold a standard for good tech, and demonstrate what that lo=
+oks like. <br /><br />
+
+  Our <em>*Privacy Not Included</em> buyer=E2=80=99s guides help consumers =
+shop safe for connected products while holding companies accountable. Our n=
+ewly launched Data Futures Lab will help determine how to build a better al=
+ternative to the current data economy eating away at our privacy. And we=E2=
+=80=99ve dedicated our work here at the Mozilla Foundation to find ways to =
+combat bias and discrimination in artificial intelligence around the world.=
+ <br /><br />
+ =20
+<table style=3D"background-color: #ffffff; font-family: Arial, 'Helvetica N=
+eue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" widt=
+h=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+      <tr>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+        <td style=3D"background-color: #ffffff;"></td>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+      </tr>
+      <tr>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+        <td style=3D"background-color: #ffffff; font-family: Arial, 'Helvet=
+ica Neue', Helvetica, sans-serif; color: #000000; text-align: center;">
+
+            <a href=3D"https://links.email.mozilla.org/els/v2/pKA6QjPyeMd/Y=
+3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltUUxG=
+TEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/" na=
+me=3D"Donate button 4"  style=3D"color:#FFFFFF;text-decoration:none;backgro=
+und-color: #0c99d5; display: inline-block; padding: 10px 42px; margin-botto=
+m: 10px; line-height: 200%; min-height: 32px; height: auto; font-size: 16px=
+; font-weight: bold; text-transform: uppercase; text-align: center;">&nbsp;=
+&nbsp;Donate Today&nbsp;&nbsp;</a>
+
+        </td>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+      </tr>
+      <tr>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+        <td style=3D"background-color: #ffffff; width: 30px;" width=3D"30">=
+</td>
+      </tr>
+    </table>
+
+
+
+
+<br /><strong>We do this work because we all believe technology can be some=
+thing good in the world IF we all work to make that so.</strong> If you can=
+, please <a name=3D"make a donation today"  style=3D"text-decoration: under=
+line; color: #0c99d5; font-weight: bold;" href=3D"https://links.email.mozil=
+la.org/els/v2/vpALQPY6pcW/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpES=
+TRHS2ZRdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lO=
+c2gxbzZZMFUxQm1Mdm89S0/">make a donation today</a> to help us keep pushing =
+the tech industry to be better.=20
+<br /><br />
+Thank you for trusting us when trust for others in the tech industry has fa=
+llen.=20
+<br /><br />
+
+Sincerely, <br /><br />
+
+Jen Caltrider<br />
+Mozilla
+<br /><br />
+P.S. If you have questions about making a donation to Mozilla, please check=
+ out our <a href=3D"https://links.email.mozilla.org/els/v2/37~xHvA2_s6/Y3V3=
+bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltUUxGTEQ=
+vQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/" name=
+=3D"Donate FAQ"  style=3D"text-decoration: underline; color: #0c99d5; font-=
+weight: bold;">donations FAQ page</a>, or just drop us a note back at <a hr=
+ef=3D"https://links.email.mozilla.org/els/v2/zdjEQe9g4M-/Y3V3bVdXc0N0clptS1=
+dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV=
+0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/" name=3D"Donate Emai=
+l"  style=3D"text-decoration: underline; color: #0c99d5; font-weight: bold;=
+">donate@mozilla.org</a>.<br /><br /><br />
+
+1. Axios.com, "<a href=3D"https://links.email.mozilla.org/els/v2/gdAPQdGYvf=
+L/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltU=
+UxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/"=
+ name=3D"axiospoll"  style=3D"text-decoration: underline; color: #0c99d5;">=
+Exclusive: Trust in tech craters." (March 31, 2021)
+
+  <br /><br /><br />
+
+    </td><td style=3D"background-color: #ffffff; width: 30px;" width=3D"30"=
+>
+   </td></tr></table><p>&nbsp;</p>
+
+
+
+
+
+
+
+
+<table role=3D"presentation" style=3D"min-width: 100%; " class=3D"stylingbl=
+ock-content-wrapper" width=3D"100%" cellspacing=3D"0" cellpadding=3D"0"><tr=
+><td class=3D"stylingblock-content-wrapper camarker-inner"><br>
+ =20
+<table cellspacing=3D"0" cellpadding=3D"0" align=3D"center">
+     <tr>
+<td colspan=3D"3" style=3D"font-family: 'Gill Sans MT', Calibri, sans-serif=
+; font-size: 22px; color: #586E84; padding-bottom: 15px;" align=3D"center">
+      Connect with us
+      </td>
+     </tr>
+     <tr>
+      <td style=3D"padding: 0 10px;" align=3D"right">
+      <a name=3D"footer_youtube_img"  href=3D"https://www.youtube.com/user/=
+Mozilla" target=3D"_blank"><img src=3D"https://content-us-9.content-cms.com=
+/a9dd601b-4d21-4dfa-a627-5d08f0ab9976/dxdyn/wca_image_swap/dc7f445e-9294-4c=
+83-8c63-4de22fdc5701.png" alt=3D"YouTube" style=3D"display: block; border: =
+0;" width=3D"45"></a>
+      </td>
+      <td style=3D"padding: 0 12px;" align=3D"center">
+      <a name=3D"footer_twitter_img"  href=3D"https://links.email.mozilla.o=
+rg/els/v2/ZdYRQY~6LcP/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS=
+2ZRdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gx=
+bzZZMFUxQm1Mdm89S0/" target=3D"_blank"><img src=3D"https://content-us-9.con=
+tent-cms.com/a9dd601b-4d21-4dfa-a627-5d08f0ab9976/dxdyn/wca_image_swap/bd5c=
+0cee-da74-435d-af58-32d6e6af24e1.png" alt=3D"Twitter" style=3D"display: blo=
+ck; border: 0;" width=3D"45"></a>
+      </td>
+             <td style=3D"padding: 0 12px;" align=3D"left">
+      <a name=3D"footer_insta_img"  href=3D"https://links.email.mozilla.org=
+/els/v2/8P~_JbXYxJy/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2Z=
+RdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbz=
+ZZMFUxQm1Mdm89S0/" target=3D"_blank"><img src=3D"https://content-us-9.conte=
+nt-cms.com/a9dd601b-4d21-4dfa-a627-5d08f0ab9976/dxdyn/wca_image_swap/f69846=
+fa-b7c8-40cb-a903-0a86ae072a6e.png" alt=3D"Instagram" style=3D"display: blo=
+ck; border: 0;" width=3D"45"></a>
+      </td>
+
+     </tr>
+    </table>
+</td></tr></table></td>
+                    </tr>
+
+
+                    <tr>
+                     <td class=3D"footer" width=3D"640" align=3D"center" st=
+yle=3D"padding-top: 10px;">
+                      <table cellspacing=3D"0" cellpadding=3D"0">
+                       <tr>
+                        <td align=3D"center" style=3D"font-family: Geneva, =
+Tahoma, Verdana, sans-serif; font-size: 14px; line-height: 18px; color: #58=
+6E84; padding: 0 20px 40px;">
+                                      <br>      <br>
+<strong>Thanks for reading!</strong>
+
+<br>
+
+You're receiving this email because we think you=E2=80=99re neat, AND you s=
+ubscribed to hear from us. If our emails aren=E2=80=99t sparking joy, we=E2=
+=80=99ll understand if you <a style=3D"text-decoration: underline; color: #=
+0c99d5; font-weight: bold;" target=3D"_blank" href=3D"https://links.email.m=
+ozilla.org/ctt?ms=3DMTg4NDExMAS2&kn=3D13&r=3DMTI1NDQzMzMxNTYS1&b=3D0&j=3DNz=
+gwMTA3MDczS0&mt=3D1&rt=3D0" name=3D"footer_unsub" >unsubscribe</a>.
+
+<br>
+<br>
+                          You can also update your <a style=3D"text-decorat=
+ion: underline; color: #0c99d5; font-weight: bold;" target=3D"_blank" href=
+=3D"https://links.email.mozilla.org/els/v2/LaKZCa4Y6s0/Y3V3bVdXc0N0clptS1dN=
+Yk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0R=
+oditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/azI4YkRoOXlGUWxaUlZ1dVN=
+iY3hsazlJcHVzTXIvQUpPWFNWUWkzc0ZDWE9jQU45b1dVQkJwWFZhQlp2NVorQUsvcXg0ek50Yz=
+FLdEhnUEw3bCt1RlE9PQS2" name=3D"footer_prefs" >email preferences</a> at any=
+ time.
+<br>
+<br>
+
+
+
+                         <br>
+<a name=3D"footer_newwater"  href=3D"https://links.email.mozilla.org/els/v2=
+/XDLKhpm62hL/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkem=
+ZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQ=
+m1Mdm89S0/"  target=3D"_blank"><img src=3D"https://content-us-9.content-cms=
+.com/a9dd601b-4d21-4dfa-a627-5d08f0ab9976/dxdyn/wca_image_swap/63a0cb46-c56=
+c-4125-aedb-69299d734712.png" alt=3D"Mozilla" style=3D"display: block; bord=
+er: 0;" width=3D"100"></a>
+      <br>
+<strong><a name=3D"footer_donate"  href=3D"https://links.email.mozilla.org/=
+els/v2/0d~WQ3kGes_/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZR=
+dmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZ=
+ZMFUxQm1Mdm89S0/" style=3D"color: #0c99d5;" target=3D"_blank">Donate&nbsp;t=
+o&nbsp;Mozilla</a></strong>
+ &nbsp;|&nbsp;
+<strong><a name=3D"footer_download"  href=3D"https://links.email.mozilla.or=
+g/els/v2/xdAYQmerPFK/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2=
+ZRdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxb=
+zZZMFUxQm1Mdm89S0/" style=3D"color: #0c99d5;" target=3D"_blank">Download&nb=
+sp;Firefox</a></strong>
+<br><br>
+
+
+                         2 Harrison St. #175, San Francisco, CA 94105
+                         <br>
+                         <a name=3D"legal"  href=3D"https://links.email.moz=
+illa.org/els/v2/9P~VJgrb2s2/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXp=
+ESTRHS2ZRdmFkemZGbXR3emltUUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2=
+lOc2gxbzZZMFUxQm1Mdm89S0/" style=3D"color: #0c99d5;">Legal</a> =E2=80=A2 <a=
+ name=3D"privacy"  href=3D"https://links.email.mozilla.org/els/v2/YWg8B04wa=
+Q4/Y3V3bVdXc0N0clptS1dNYk45ZXlUTGpIQjRhVWsyVG1KSXpESTRHS2ZRdmFkemZGbXR3emlt=
+UUxGTEQvQzByRGZ4K0llV0RoditqL3BlS3BuNjFNRW8vakxlM2lOc2gxbzZZMFUxQm1Mdm89S0/=
+" style=3D"color: #0c99d5;">Privacy</a>
+
+                        </td>
+                       </tr>
+                      </table>
+                     </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+   <IMG src=3D"https://links.email.mozilla.org/open/log/1884110/MTI1NDQzMzM=
+xNTYS1/0/NzgwMTA3MDczS0/1/0"></body>
+</html>
+
+
+
+
+------=_Part_27366_2105735781.1620933106386--
+

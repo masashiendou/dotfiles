@@ -1,0 +1,30 @@
+# Basic setting
+set realname = "[Masashi Endo]"
+set from = "girl.search01@gmail.com"
+set use_from = yes
+set envelope_from = yes
+set sleep_time = 0
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+set imap_user = "girl.search01@gmail.com"
+set folder = "imaps://girl.search01@gmail.com@imap.gmail.com:993"
+set smtp_url = "smtp://girl.search01@gmail.com@smtp.gmail.com:587/"
+set spoolfile = "+INBOX"
+# set record = "+INBOX/inbox-senthistory"
+set postponed = "+[Gmail]/Drafts"
+set signature = "~/.neomutt/signatureForGirlS"
+
+source "gpg -d ~/.neomutt/girlsearch01.gpg |"
+
+mailboxes +INBOX +[Gmail]/Important +[Gmail]/"Sent Mail" +[Gmail]/"All Mail" +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred
+# mailboxes +INBOX +[Gmail]/Important +[Gmail]/Sent "+[Gmail]/All Mail" +[Gmail]/Trash +[Gmail]/Drafts +[Gmail]/Starred
+# set imap_check_subscribed
+
+set header_cache = "~/.neomutt/com.gmail.girl.search01/cache/headers"
+set message_cachedir = "~/.neomutt/com.gmail.girl.search01/cache/bodies"
+
+set sort = reverse-date
+set move = no

@@ -1,0 +1,93 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:3816:0:0:0:0:0 with SMTP id f22csp248668vka;
+        Tue, 27 Apr 2021 23:46:34 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyANEybyxEY9r0qosOJ86mzJu213D3g+n6LYjgRYb8ekqNEIoqXQjuRwyCEI8ofmjUg41QD
+X-Received: by 2002:a05:620a:13d7:: with SMTP id g23mr27458061qkl.477.1619592394634;
+        Tue, 27 Apr 2021 23:46:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1619592394; cv=none;
+        d=google.com; s=arc-20160816;
+        b=iUsI+HcaKHbycEMJ6kayeDDLIxd1Lgc0HTsAIKMWZo5DPvrg4T/MY+MVahOv/lY83D
+         8fBuohChdvjlBi39ZSLW6pjo5wztlpQVWZLrXnzigdQn0eoWqdXVv+j9cxEKk/slmoZe
+         ZL6gg089+w3zGWKtGdlna3ba3cUHZA4vYrzEuMjqTukeR5llBGWIAw9J/oTzxhKoTMC4
+         878IukSkV5Xc46gO8+/apS6ZzUruKH3AGGGlbY0Ai0oAkL/J5aUXuH3Ur+pQAtBVgW+C
+         gtdmIyUWQ2Gi8AFXfi88zCdSbTqUVgQE4+As23W3Iigx3JlG5a1+NTU5lWY66EwM6AdP
+         /6HA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=lKEDFQ5NMLgmli8k1xoQPNGQSmqVmG4tyhDOXjfFJ2Y=;
+        b=zg3P6nO1+Za28sr+xHeZ4Zf0oNUIxlVjYCOMDsQfJ+K6qjBRJbokN3VRKxRH4FseIi
+         yypAoV/gRQFuIZorvIkXz7wGYZeMmGoClYR8ukADO3YHBfmZArBx767o//3WN6aarmP6
+         JSyRKrg8m700OF7N26T25R0FoZ7QQp2lqXeSNSWvw+zyHrRP2LTpDxdrbOV0vTiJC4Um
+         l4mFVwHBo7lt5efoOHfvhYjEiCV4uV+B8iCTlGQ9z8GRrpaDCayl/84EBW0NmN/5qCRG
+         z/PWlN871AsN8SpOOmtggrEcLXnZ+z2tIzHJozxxqADDp5BfRTVfuGAtYcpQj3o4acUr
+         0/Ig==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@doocy.jp header.s=cfvfwl2z3hspanxqg4v6egaodaq7v4bt header.b=Fw3zMBGg;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=NcGvfgx1;
+       spf=pass (google.com: domain of 01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@amazonses.com designates 54.240.8.42 as permitted sender) smtp.mailfrom=01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@amazonses.com
+Return-Path: <01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@amazonses.com>
+Received: from a8-42.smtp-out.amazonses.com (a8-42.smtp-out.amazonses.com. [54.240.8.42])
+        by mx.google.com with ESMTPS id z16si1693255qtj.252.2021.04.27.23.46.34
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 27 Apr 2021 23:46:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@amazonses.com designates 54.240.8.42 as permitted sender) client-ip=54.240.8.42;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@doocy.jp header.s=cfvfwl2z3hspanxqg4v6egaodaq7v4bt header.b=Fw3zMBGg;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=NcGvfgx1;
+       spf=pass (google.com: domain of 01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@amazonses.com designates 54.240.8.42 as permitted sender) smtp.mailfrom=01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=cfvfwl2z3hspanxqg4v6egaodaq7v4bt; d=doocy.jp; t=1619592394;
+	h=Date:From:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=lKEDFQ5NMLgmli8k1xoQPNGQSmqVmG4tyhDOXjfFJ2Y=;
+	b=Fw3zMBGgm2/gQUSgVuV34HDbxPhe8Ww1dUAto6uOM5N4wTJY7MzkNamkLTHc0BeO
+	clsOajfBgnrsaivpWNFOhDwj4ERBqKXbPlTjZEtTJ4im9pS1taLU01Q/IQ+8m+oGWgw
+	LPihBL8eGAa/aRXvS+fzdngstL49aeVoY+H6nHlg=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1619592394;
+	h=Date:From:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=lKEDFQ5NMLgmli8k1xoQPNGQSmqVmG4tyhDOXjfFJ2Y=;
+	b=NcGvfgx1q4nDQ4GxpK2+Yc88utx8PtEmZ4U5O4f9Ky43aoIDc3ccw/ohEYbr+Gxk
+	ZIbdpsHnZU2cSmOQSbB4mjuAaKpj+fGN8gkCWD4Uvn1TwvPhNWZeF4qyW6myAvPRnlA
+	Jl6fyugLAzwKi6TjebOLNDriGURc7voCU2fA+1rA=
+Date: Wed, 28 Apr 2021 06:46:34 +0000
+From: noreply@doocy.jp
+To: hujyorom@gmail.com
+Message-ID: <01000179173ab55a-cb0d36f9-8876-45ec-a5a1-fcf4d16a77b6-000000@email.amazonses.com>
+Subject: =?UTF-8?Q?=E3=80=90doocyJob=E3=80=91=E3=83=93=E3=83=83=E3=83=88=E3=82=B9=E3=82=BF=E3=83=BC=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE=E3=81=8B=E3=82=89=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=8C=E5=B1=8A=E3=81=8D=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+Feedback-ID: 1.us-east-1.m1ttqJ50wurQ2XaR0Ap2LumlwD7dug+FAIF233ik8Fg=:AmazonSES
+X-SES-Outgoing: 2021.04.28-54.240.8.42
+
+44GT44KT44Gr44Gh44Gv44CB6YGg6Jek5bCH5Y+444GV44KTDQoNCuODk+OD
+g+ODiOOCueOCv+ODvOagquW8j+S8muekvuOCiOOCiuahiOS7tuOBruWVhuir
+h+OBq+mWouOBmeOCi+aWsOOBl+OBhOODoeODg+OCu+ODvOOCuOOBjA0K5bGK
+44GE44Gm44GK44KK44G+44GZ44Gu44Gn44GU56K66KqN5LiL44GV44GE44CC
+DQrjg6Hjg4Pjgrvjg7zjgrjjga7jgZTnorroqo3lj4rjgbPjgZTov5Tkv6Hj
+ga/jgIHkuIvoqJhVUkzjgojjgopkb29jeSBKb2LlhoXjg6Hjg4Pjgrvjg7zj
+grjmqZ/og73jgpINCuOBlOWIqeeUqOOBj+OBoOOBleOBhOOAgg0K77yI5pys
+44Oh44O844Or44Gr55u05o6l44GU6L+U5L+h6aCC44GE44Gm44KC44CB5LyB
+5qWt44Gr44Gv5bGK44GN44G+44Gb44KT77yJDQpodHRwczovL2Rvb2N5Lmpw
+L21lc3NhZ2VzIA0KDQrlt67lh7rkurrvvJrjg5Pjg4Pjg4jjgrnjgr/jg7zm
+oKrlvI/kvJrnpL4NCumBoOiXpOanmA0KDQrjgYrkuJboqbHjgavjgarjgaPj
+gabjgYrjgorjgb7jgZnjgIINCuODk+ODg+ODiOOCueOCv+ODvOOBrueUsOW3
+nS4uLg0KDQrigLvjgZTov5Tkv6HjgYzlv4XopoHjgarloLTlkIjjga/jgIHp
+gYXjgY/jgajjgoIy5pel5Lul5YaF44Gr44GV44KM44KL44GT44Go44KS44GK
+5Yun44KB44GX44G+44GZ44CCDQrigLvmoYjku7bjga7llYboq4fjgpLovp7p
+gIDjgZXjgozjgovpmpvjgoLjgZ3jga7ml6jjgpLjgYrkvJ3jgYjjgZfjgb7j
+gZfjgofjgYbjgIINCuOBlOS4jeaYjueCueetieOBlOOBluOBhOOBvuOBl+OB
+n+OCieOAgeOCteOCpOODiOS4iuOBruOBiuWVj+OBhOWQiOOCj+OBm+OCiOOC
+iuOBhOOBpOOBp+OCguOBlOmAo+e1oeOBj+OBoOOBleOBhOOAgg0K5byV44GN
+57aa44GN44CB44CMZG9vY3kgSm9i44CN44KS5a6c44GX44GP44GK6aGY44GE
+44GE44Gf44GX44G+44GZ44CCDQrilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIHilIHilIHilIHilIHilIHilIENCuODleODquODvOODqeOD
+s+OCueOCqOODs+OCuOODi+OCouODu+WJr+alreOCqOODs+OCuOODi+OCouOB
+ruaxguS6uuODu+ahiOS7tuOCteOCpOODiA0KZG9vY3kgam9iKOODieODvOOC
+t+ODvOOCuOODp+ODlikNCmh0dHBzOi8vZG9vY3kuanANCuKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgQ0K

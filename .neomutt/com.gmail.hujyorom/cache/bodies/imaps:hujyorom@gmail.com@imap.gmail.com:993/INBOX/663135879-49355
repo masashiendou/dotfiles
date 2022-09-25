@@ -1,0 +1,244 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp4094551vkx;
+        Tue, 30 Mar 2021 05:14:58 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyi439E+4iRzlrCq3lDUbmSj+w4v9mxlj8PzX+K3XkLC7n2ZpotB0d3eE590l9C5nvNOZFs
+X-Received: by 2002:a63:e713:: with SMTP id b19mr28427562pgi.425.1617106497856;
+        Tue, 30 Mar 2021 05:14:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617106497; cv=none;
+        d=google.com; s=arc-20160816;
+        b=u4FlbpqQoHIntZbHQlJ2H04UPfplPSugROeiowB+rl4Heap1eOYSHnrrcSUptNpN6g
+         J1WSIdb+Uf52QgkOvceRuGxsaKWpjCGC7yhbgpK3M0OaXhH+JDNGaU/HSWo2ecPRGkUi
+         3883nDr6+/NaqaZdUI4isJG4WyKoggQviKUeMK6ks8ET6ESpTfxxQI3VFMmfsovSO3RX
+         7103DuXNB/7S79N2Kq9dE01CfZq4bNi7G+GIBXAVFH7/HYCsGJDRsWxZPgK47E/GM5xL
+         eGqdbony96pEsPZ7BIEUK7KBclaFvBoifrUTdqlBnyGauhOMFWvgHtjYjtWxUQyfs9lX
+         +4KA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from
+         :dkim-signature:dkim-signature;
+        bh=+dmdeUheYdXfJE2vz3EpItBXIs1AqdgYJVkLI03Qqds=;
+        b=l0owYHj8VAwyqwph8DiL9o9FpHYOxw1Tflyictc4Ae1zT4EV9eZGoZla6zkn6z2zQX
+         adMEr6MWv1Mi21c/y3RDXxisVFHi4nXzcZar00e9hVbklRPcaV/tUXxIEqm/mOh+Yr2l
+         APGnaJnx22TsXbkFNj1eMhkA+AXJsZ7i/OfbfaFmc6WvjeowlEdVCQfffx58ObtLB9WO
+         I8J6XlldaXoj/QWMPjzXVq7hfKCF24eSBQbkTV19QseiuO2HptPNz8Jg2+D5pD7/DMkw
+         KbogWs65/RIZ2fVrhxtRMuulRWApKJgp4jbB2cYCP6q7xW2jPyNhUNTcuMMOwv7L/6Rj
+         K7Hw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4 header.b=SeF2PqPC;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b=EwpG7Y4W;
+       spf=pass (google.com: domain of 202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp designates 54.240.25.59 as permitted sender) smtp.mailfrom=202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp>
+Received: from a25-59.smtp-out.us-west-2.amazonses.com (a25-59.smtp-out.us-west-2.amazonses.com. [54.240.25.59])
+        by mx.google.com with ESMTPS id e10si21478927pgt.542.2021.03.30.05.14.57
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 30 Mar 2021 05:14:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp designates 54.240.25.59 as permitted sender) client-ip=54.240.25.59;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4 header.b=SeF2PqPC;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b=EwpG7Y4W;
+       spf=pass (google.com: domain of 202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp designates 54.240.25.59 as permitted sender) smtp.mailfrom=202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4; d=amazon.co.jp; t=1617106497;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=VRXQXSW/wK99aN/Hz1rhc7iOWFsvv1OFr353JHRMPuQ=;
+	b=SeF2PqPCwW7bE2eqpB5lX2TjreFCheHub94RsVKyg9fXmtyWsPHLp8w8Fe02FJrA
+	/3VIlMpGpnHzDEUypwVsZCBgZx9+/mERzCfJCri7yQxeKChHUMDmtYOY/Om4u6zp+sH
+	mNiU3AvK+CKeqOar2y2Y3TL+zV9Vi1NdTijh4ucY=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=7v7vs6w47njt4pimodk5mmttbegzsi6n; d=amazonses.com; t=1617106497;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=VRXQXSW/wK99aN/Hz1rhc7iOWFsvv1OFr353JHRMPuQ=;
+	b=EwpG7Y4WuyHb+Epxn1lL7HIZqhMRu5Sq/K/H3s/gKxcjjc1pNYWRznY5ByS8m6rk
+	+Rjd67fPY7ScroMZOJrMtwPMptl+556EzuioIY7DcH/zpNM9UH8GWRMxkBU1KykEKVM
+	S9E2a35QEI4MEp2zO1W0EQHt6pFy/d1jMTlcNnt0=
+From: "Amazon.co.jp" <account-update@amazon.co.jp>
+To: hujyorom@gmail.com
+Message-ID: <01010178830eefa5-027d8371-0622-40a1-adc1-9f79f0364e3c-000000@us-west-2.amazonses.com>
+Subject: Amazon password assistance
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_4150678_137402523.1617106497445"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 202103301214577140a5c1143a4839902567090130p0fe@bounces.amazon.co.jp
+X-AMAZON-METADATA: CA=C1TKOHEIZJ6LS3
+X-Original-MessageID: <urn.rtn.msg.202103301214577140a5c1143a4839902567090130p0fe@1617106497445.rtn-svc-fe-back-c52xlc-4290e9de.us-west-2.amazon.com>
+Date: Tue, 30 Mar 2021 12:14:57 +0000
+X-SES-Outgoing: 2021.03.30-54.240.25.59
+Feedback-ID: 1.us-west-2.rdzROVNU4Ie6UEvJOunP6JDKqJ3if06FJy9qthmk+BU=:AmazonSES
+
+------=_Part_4150678_137402523.1617106497445
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style type="text/css">
+    @media only screen and (min-width:620px) {
+      table.body p{
+        font-size:14px !important;
+      }
+      table.body .otp{
+        font-size:18px !important;
+        font-weight:bold;
+      }
+      table.body #title p{
+        font-size:20px !important;
+      }
+    }
+  </style>
+  <style>
+    body {
+      margin:0;
+      color:#333;
+    }
+
+    a {
+      text-decoration:none;
+      color:#006699;
+    }
+
+    p {
+      margin:0px;
+    }
+
+    img {
+      border:0;
+      margin:0;
+    }
+
+    /* container */
+    #container {
+      width:540px;
+      margin:0 auto;
+    }
+
+    #content {
+      width:500px;
+      margin:0 20px;
+    }
+
+    /* header */
+    #header {
+      border-bottom:1px solid #eaeaea;
+      padding-top:10px;
+      padding-left:0px;
+      padding-right:0px;
+      padding-bottom:10px;
+    }
+
+    #title p{
+      font-size:26px;
+      font-family: "arial", "sans-serif";
+    }
+
+    #amazonLogo{
+      width:107px;
+      height:31px;
+    }
+
+    #customLogo{
+      width:107px;
+      height:auto;
+    }
+
+    /* verification msg */
+    #verificationMsg {
+      padding-left:0;
+      padding-top:9px;
+      padding-bottom:9px;
+    }
+
+    #verificationMsg p {
+      font-size:20px;
+      font-family: "arial", "sans-serif";
+    }
+
+    #verificationMsg .otp {
+      font-size:24px;
+      font-weight:bold;
+      padding-top:18px;
+    }
+
+    /* account security */
+    #accountSecurity {
+      padding-left:0;
+      padding-top:9px;
+      padding-bottom:9px;
+    }
+
+    #accountSecurity p {
+      font-size:20px;
+      font-family: "arial", "sans-serif";
+    }
+
+    /* closing */
+    #closing {
+      padding-left:0;
+      padding-top:9px;
+      padding-bottom:9px;
+    }
+
+    #closing p {
+      font-size:20px;
+      font-family: "arial", "sans-serif";
+    }
+  </style>
+  <title></title>
+</head>
+<body><img width="1" height="1" src="https://www.amazon.co.jp/gp/r.html?C=3HU8CU68EVXXI&M=urn:rtn:msg:202103301214577140a5c1143a4839902567090130p0fe&R=1752YD5L8FF40&T=O&U=https%3A%2F%2Fimages-fe.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=QX5QZWMVLGZA30YYLCQQU40YBV4A&ref_=pe_1182862_177174382_opens" />
+<table align="center" cellspacing="0" id="container" cellpadding="0" class="body">
+  <tbody>
+  <tr>
+    <td>
+      <table cellspacing="0" id="content" cellpadding="0">
+        <tbody>
+        <tr>
+          <td id="header">
+            <table cellspacing="0" cellpadding="0">
+              <tbody>
+              <tr>
+                <td width="250" id="logo">
+<img src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/cs/te/logo._CB485949097_.png" id="amazonLogo"/>                </td>
+                <td width="250" valign="top" align="right" id="title"><p>Password assistance</p></td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td id="verificationMsg">
+            <p>To authenticate, please use the following One Time Password (OTP):</p>
+            <p class="otp">031522</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td id="accountSecurity">
+            <p>Don't share this OTP with anyone. Our customer service team will never ask you for your password, OTP, credit card, or banking info.
+</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td id="closing">
+            <p>We hope to see you again soon.</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<img width="1" height="1" src="https://www.amazon.co.jp/gp/r.html?C=3HU8CU68EVXXI&M=urn:rtn:msg:202103301214577140a5c1143a4839902567090130p0fe&R=37H43NJ78NHNQ&T=E&U=https%3A%2F%2Fimages-fe.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=6CSOZAK3ENBVU2PSSNMPXOL5H0OA&ref_=pe_1182862_177174382_open" /></body>
+</html>
+
+
+
+------=_Part_4150678_137402523.1617106497445--

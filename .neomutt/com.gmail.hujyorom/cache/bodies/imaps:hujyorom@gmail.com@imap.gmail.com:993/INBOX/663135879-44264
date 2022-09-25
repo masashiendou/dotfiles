@@ -1,0 +1,193 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp798896vkl;
+        Thu, 15 Oct 2020 13:20:39 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwP1eXHV5wvyjWA2PQgj2Qt+cGXNwASF5L2b0/UA3lX+LAjRtxGu8jUVYPcVW5Smh47e/Mp
+X-Received: by 2002:a17:906:8349:: with SMTP id b9mr96566ejy.88.1602793239423;
+        Thu, 15 Oct 2020 13:20:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602793239; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hpy6cQDz2Hw8bZ+fusRZpw+JWrEFPQ3Tf+TGM0lm/e4ePvnV5fuQC4ktMz1+5Snqov
+         x9Z7wz/ysg1VOt3u0hd7bor4/VCLFS1q/cvI5/6M/3lvOnThOuc6m7INObalDZc25585
+         wa5vtJmVEGxBqKejCIq96naDZoHs7EpkYcfVGFXbgbJCb/7NJhU5ZNKb4W1VSLk9etey
+         ndKvrOr8uZ0dccInSsVo2+LvZ5YvYet/7jr+MwH/mM7Kqx2wbFKYhspsCTloEGvs8NDn
+         rTaeW4I7VR15wHZNK3D9zKAutXvn5IMmTZeRho+y6F6ixYcXeb8rYxh9alCReV2WCWTS
+         MLNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=XQeBvbLrXC4uCk9YF1ptkM9ONODmGxaNnTPFjHvhKX0=;
+        b=U546aVavmJfLjIMzkxyGHWy8He7GwdFXmmNBIBJUQ0zMYyLWZ/RWx+7zlXe0j05Yzm
+         s5/Xvegy6px+L4bpF67jN7dawHV58/Q9rQocPpn7tS5lZI14NLBwgugviAPcdHk07O2r
+         sLmV9DxPo2zsy6KpwX4NmQxPQ5IRB4D3hUTgiiT9v/XOodVhwjopqfjzKZA+f6jd7vyU
+         B13J6tXhCd3/v1vQYU96pp93Rt4I9cmVEn1xUqVIe2U7LUDLglKmW+1j1oMbm1J6YOQD
+         cqH1IDSyJjTH/KBYqi+nOWrBe6v1n3oI669I/X+NV7Ss4+qpnIR+C2gbkTKPvhZI46j6
+         m+Gw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@zaiko.io header.s=s1 header.b="OWRA3/8E";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=yRLbreAE;
+       spf=pass (google.com: domain of bounces+16053376-4386-hujyorom=gmail.com@em6186.zaiko.io designates 149.72.178.24 as permitted sender) smtp.mailfrom="bounces+16053376-4386-hujyorom=gmail.com@em6186.zaiko.io";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=zaiko.io
+Return-Path: <bounces+16053376-4386-hujyorom=gmail.com@em6186.zaiko.io>
+Received: from o1.ptr8436.zaiko.io (o1.ptr8436.zaiko.io. [149.72.178.24])
+        by mx.google.com with ESMTPS id u6si19323edv.92.2020.10.15.13.20.38
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Oct 2020 13:20:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+16053376-4386-hujyorom=gmail.com@em6186.zaiko.io designates 149.72.178.24 as permitted sender) client-ip=149.72.178.24;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@zaiko.io header.s=s1 header.b="OWRA3/8E";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=yRLbreAE;
+       spf=pass (google.com: domain of bounces+16053376-4386-hujyorom=gmail.com@em6186.zaiko.io designates 149.72.178.24 as permitted sender) smtp.mailfrom="bounces+16053376-4386-hujyorom=gmail.com@em6186.zaiko.io";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=zaiko.io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zaiko.io;
+	h=content-type:from:mime-version:subject:x-feedback-id:to;
+	s=s1; bh=XQeBvbLrXC4uCk9YF1ptkM9ONODmGxaNnTPFjHvhKX0=;
+	b=OWRA3/8ENyYbjs6cipxqtTFbBWPVOGXUY095+xw9VsqUW4CSSiPMrt6sjfm2ooMKUq97
+	Jbey3S1SYfjMb+K0BmYv/0UVQUtUpcw80VBRVsrq9iZPbuMOdv+nMlgIODEMg5VlhvlVHr
+	6lb7XD2AdC36Q2eCRE8tmpZiVRkDiMIzI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:x-feedback-id:to;
+	s=smtpapi; bh=XQeBvbLrXC4uCk9YF1ptkM9ONODmGxaNnTPFjHvhKX0=;
+	b=yRLbreAE+mZN0/lei332TXf+Bw46W4PZ/MlGvMFYlGI9/Tkpej0K1RU+svzPKWv8SC2W
+	VFu3GfCvrp83XhVnSYQ2633PbObke1h+iLaOZY9540IxPAtURYF72Mo7QHXpZcx6qgUYFk
+	47M7gfI6bLCSZPO/IYd2qVrA9OZILP9VE=
+Received: by filterdrecv-p3mdw1-76f79d8b59-d4v8p with SMTP id filterdrecv-p3mdw1-76f79d8b59-d4v8p-19-5F88AF15-5A
+        2020-10-15 20:20:38.112985588 +0000 UTC m=+247082.576281356
+Received: from MTYwNTMzNzY (unknown)
+	by ismtpd0006p1maa1.sendgrid.net (SG)
+	with HTTP
+	id _o7NolyDSUqvp7NYG4gooA
+	Thu, 15 Oct 2020 20:20:37.782 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=c5f5c189c474f6d4e25193267acf3c438b6fb27ea9ca3269dd363bf2e371
+Date: Thu, 15 Oct 2020 20:20:38 +0000 (UTC)
+From: Zaiko Tickets <tickets@zaiko.io>
+Mime-Version: 1.0
+Message-ID: <_o7NolyDSUqvp7NYG4gooA@ismtpd0006p1maa1.sendgrid.net>
+Subject: =?UTF-8?B?44CQWkFJS0/jgJFTdHJlYW1pbmc=?= Ticket Confirmation
+X-Feedback-ID: 16053376:SG
+X-SG-EID: 
+ =?us-ascii?Q?btqGZ8Qhi4zkzVeTaayuIIJ6S3vUwHnblq8QhTd8X+CpjoSNL3tXa2201z5ino?=
+ =?us-ascii?Q?pBQAAr+9bG93I87fStZH4KUZJLKmEGT4a7Jn1yB?=
+ =?us-ascii?Q?rwJpVmddEQTB40EfwGKSPa8f1vPld3phnSyI7ys?=
+ =?us-ascii?Q?mgzfWQaISgijYElJsapKElQNTCcGe+=2Fwodz1zwM?=
+ =?us-ascii?Q?rYUXj11RTwpK7+sMGHHxsvLtBXyiFWQZYrH93A8?=
+ =?us-ascii?Q?ki84XSxcMKR3Q4Jvei279ACYGB6sJZO9Qz0Iq2?=
+To: Masashi Endo <hujyorom@gmail.com>
+X-Entity-ID: rcH3LlPbUE18wbyZbyauSQ==
+
+--c5f5c189c474f6d4e25193267acf3c438b6fb27ea9ca3269dd363bf2e371
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hi=C2=A0Masashi Endo,
+
+Thank you for using ZAIKO.=C2=A0
+
+To access the ticket you must open the ticket link provided below, or
+by logging into your ZAIKO account.
+
+Event Name:
+=E3=80=90=E3=83=80=E3=83=BC=E3=82=B9=E3=83=AC=E3=82=A4=E3=83=80=E3=83=BC=EF=
+=BC=B8=E5=AE=AE=E5=8F=B0=E7=9C=9F=E5=8F=B8
+#100=E5=88=86DE=E5=AE=AE=E5=8F=B0=E3=80=91=E3=82=B9=E3=83=9A=E3=82=B7=E3=83=
+=A3=E3=83=AB
+=E3=83=86=E3=83=8D=E3=83=83=E3=83=88=E3=81=8B=E3=82=89=E8=80=83=E3=81=88=E3=
+=82=8B=E8=A8=98=E6=86=B6=E3=81=A8=E8=A8=98=E9=8C=B2=E3=81=AE=E6=A7=8B=E9=80=
+=A0
+
+Stream Link:
+https://zaiko.io/my/eticket/TYTIxZDEzNTVmOXwyMDIwMTAxNjA1MjAzNnw4NTE2YTk4YQ=
+=3D=3D
+
+Date/Time:
+10.17 (SAT)
+
+Streaming time:
+2020-10-17 13:00 JST~2020-10-17 23:59 JST=C2=A0
+=C2=A0=20
+Terms & Conditions=20
+*The video is only viewable from inside the ZAIKO account which
+purchased the ticket=20
+*Video is unable to be viewed from a direct URL=20
+
+*The video will start from whichever point you join the stream and you
+are unable to return to earlier content during the stream=20
+=C2=A0 *Your tickets here [https://zaiko.io/my/]
+*If you would like to=C2=A0test your streaming, please feel free to
+purchase a free ticket from this link
+[https://streaming.zaiko.io/_buy/1mvO:5lN:73deb].
+*If you would like to test your internet speed, please test from here
+[https://zaiko.io/support/?cid=3D40#faq-532]
+If you have any questions please visit=C2=A0our support
+[https://zaiko.io/support].
+
+Thank you,
+ZAIKO
+https://www.zaiko.io [http://www.zaiko.io]
+--c5f5c189c474f6d4e25193267acf3c438b6fb27ea9ca3269dd363bf2e371
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+Hi&nbsp;Masashi Endo,<br>
+<br>
+Thank you for using ZAIKO.&nbsp;<br>
+<br>
+To access the ticket you must open the ticket link provided below, or by lo=
+gging into your ZAIKO account.<br>
+<br>
+Event Name:<br>
+<strong>=E3=80=90=E3=83=80=E3=83=BC=E3=82=B9=E3=83=AC=E3=82=A4=E3=83=80=E3=
+=83=BC=EF=BD=98=E5=AE=AE=E5=8F=B0=E7=9C=9F=E5=8F=B8 #100=E5=88=86de=E5=AE=
+=AE=E5=8F=B0=E3=80=91=E3=82=B9=E3=83=9A=E3=82=B7=E3=83=A3=E3=83=AB =E3=83=
+=86=E3=83=8D=E3=83=83=E3=83=88=E3=81=8B=E3=82=89=E8=80=83=E3=81=88=E3=82=8B=
+=E8=A8=98=E6=86=B6=E3=81=A8=E8=A8=98=E9=8C=B2=E3=81=AE=E6=A7=8B=E9=80=A0</s=
+trong><br>
+<br>
+Stream Link:<br>
+<a href=3D"https://zaiko.io/my/eticket/TYTIxZDEzNTVmOXwyMDIwMTAxNjA1MjAzNnw=
+4NTE2YTk4YQ=3D=3D">https://zaiko.io/my/eticket/TYTIxZDEzNTVmOXwyMDIwMTAxNjA=
+1MjAzNnw4NTE2YTk4YQ=3D=3D</a><br>
+<br>
+Date/Time:<br>
+<strong>10.17 (Sat)</strong><br>
+<br>
+Streaming time:<br>
+2020-10-17 13:00 JST~2020-10-17 23:59 JST&nbsp;<br>
+&nbsp;
+<div>Terms &amp; Conditions</div>
+
+<div>*The video is only viewable from inside the ZAIKO account which purcha=
+sed the ticket</div>
+
+<div>*Video is unable to be viewed from a direct URL</div>
+
+<div>
+<div>*The video will start from whichever point you join the stream and you=
+ are unable to return to earlier content during the stream</div>
+
+<div>&nbsp;</div>
+</div>
+*Your tickets <a href=3D"https://zaiko.io/my/">here</a><br>
+*If you would like to&nbsp;test your streaming, please feel free to purchas=
+e a free ticket from <a href=3D"https://streaming.zaiko.io/_buy/1mvO:5lN:73=
+deb">this link</a>.<br>
+*If you would like to test your internet speed, please test from <a href=3D=
+"https://zaiko.io/support/?cid=3D40#faq-532">here</a><br>
+If you have any questions please visit&nbsp;<a href=3D"https://zaiko.io/sup=
+port">our support</a>.<br>
+<br>
+Thank you,<br>
+ZAIKO<br>
+<a href=3D"http://www.zaiko.io">https://www.zaiko.io</a><img src=3D"http://=
+url9654.zaiko.io/wf/open?upn=3DdMT6-2BoPwzsZrqrjnXlyDZMkYDsHwxmBRETf-2BJf2l=
+uZ2rIPK3-2F9bQiDvDtb4LJfL0xeJAAGb49Z-2BTYFF6vxXx1Xyme-2FWf5ybEY7ophhEzJhaDK=
+-2FJqNbCH0eU0wXuR3X95ufq6bJWLvmvMj1ziOL0YZPMbFKvVyEZlNKTK7IWEtqPjmpyWQVV-2B=
+bcsjDkpMkdIGMhGgQ0m14nFHwQN6uziwwpT4q2dZIfKsxoe1Yn5W6-2Bc-3D" alt=3D"" widt=
+h=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px =
+!important;border-width:0 !important;margin-top:0 !important;margin-bottom:=
+0 !important;margin-right:0 !important;margin-left:0 !important;padding-top=
+:0 !important;padding-bottom:0 !important;padding-right:0 !important;paddin=
+g-left:0 !important;"/>
+--c5f5c189c474f6d4e25193267acf3c438b6fb27ea9ca3269dd363bf2e371--

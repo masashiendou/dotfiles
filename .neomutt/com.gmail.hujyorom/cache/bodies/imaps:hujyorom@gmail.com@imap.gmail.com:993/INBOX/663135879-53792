@@ -1,0 +1,83 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:5c50:0:0:0:0:0 with SMTP id q77csp2636817vkb;
+        Wed, 4 Aug 2021 00:01:30 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwNwXeZYZ72v2L4c+/E4HzDqmMoKWYiSlJhMBWRO0Xv9gq+gPOM3wejQ/Q+byHTD2Yr8OEx
+X-Received: by 2002:a17:90a:f991:: with SMTP id cq17mr8039055pjb.150.1628060490077;
+        Wed, 04 Aug 2021 00:01:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628060490; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QMDiS9gzpSsVR8q8gb08D8/lNAERXquvKdITbLgThAXxsYnm1Wpdgkd6JW+ort2VJ8
+         B4JuRdYc3nhslvmRgV0turtPWsVR1/zemJIvnT9hcFoQHaS36VR7Y8Fv3clZLqvp3Bog
+         NsJyJEHFUvhtqtI2xJ0SL9y5jro61ShjQ8WIMX4wVpj9Ua/GItKAMzLpGwbX3l0qHtMq
+         dluUZdwGAggT1a5hfqYdbjYZQVE7/ePlSQsx8FmJetMoyW7gtFBDwKguUjf8CTrS9/7h
+         Kx+y5E/s/e/D/PDE5P2v7x5lZLJka3lPrBMwxnlps++FSRYA+3dJetQHQZWiX3SZUa4j
+         OQWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:errors-to:dkim-signature;
+        bh=izLqsO/igrfOLJYQC/qRImOiUWcjrm1LRWA0nNmsVyk=;
+        b=AVAgq4ocCB+09y2IlNVvR0gO11b/0+rdBUb7M7nG1mcF+0GxRhmtUouaB6RC8YKX6p
+         MvP6Q9tGslDfXwkyGI9zMPlb9QmsqF+3h4gQ1gU1nEnhkEqGIxwLKQJ1tcsY9E61LS7B
+         exA2TyqgSyx/2bZtCOIbnEYzlTxFvicdA7BzpWp7XmVmVVKO9V8T5PP482g+Tc8mUeCA
+         8L9BuuvH6T8TaRc/HcDLTDZt2+YoyW72D7ygEijLHGpbNKqVjEm6NUI7Cim7qwwiO5v/
+         Pee9MAsyJ8TmnN4IVykLibFOj3SwGwCtqXA5F+IER9pOpl8l87KlqG2TR6TJSyiX14kC
+         nKgw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@staffservice.ne.jp header.s=staffservice.201704 header.b=uTOD2m+9;
+       spf=pass (google.com: domain of z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.97.62 as permitted sender) smtp.mailfrom=z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp>
+Received: from bmmpk1304.jpx1.mta.emberpoint.com (bmmpk1304.jpx1.mta.emberpoint.com. [106.185.97.62])
+        by mx.google.com with ESMTPS id t4si1566066pgv.143.2021.08.04.00.01.29
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 04 Aug 2021 00:01:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.97.62 as permitted sender) client-ip=106.185.97.62;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@staffservice.ne.jp header.s=staffservice.201704 header.b=uTOD2m+9;
+       spf=pass (google.com: domain of z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.97.62 as permitted sender) smtp.mailfrom=z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1628060489;
+	s=staffservice.201704; d=staffservice.ne.jp;
+	h=Date:From:Reply-To:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=izLqsO/igrfOLJYQC/qRImOiUWcjrm1LRWA0nNmsVyk=;
+	b=uTOD2m+9ScVdJD5rA5MhpK0lh9m8/ud6P6iqTxqNwKPYU4lgXted5mz34SMTC9AG
+	z13ekPmU7wC/GA5nNOfZkZDGqMACgdPrSxQD3s8n/rrlLlEM6d3Y4W9Dy+Q8CoSSatA
+	Mbuni56wPlUjm2hhvQjKTKC4uG4CqKRZ0V3k/Ti8=
+Errors-To: z-jdssg-xfb6tc-0-cvt-008hujyoromgmail.com@bma.rec.mpse.jp
+Date: Wed, 4 Aug 2021 16:01:08 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCJTklPyVDJVUlNSE8JVMlOT0+Nkgwd0JlST03OBsoQg==?=
+ <jugyoindaihyo_ssg@staffservice.ne.jp>
+Reply-To: =?ISO-2022-JP?B?GyRCJTklPyVDJVUlNSE8JVMlOT0+Nkgwd0JlST03OBsoQg==?=
+ <jugyoindaihyo_ssg@staffservice.ne.jp>
+To: hujyorom@gmail.com
+Message-Id: <1628060468059.2021100096.jdssg.0.16697.00000000@ad261recse.rec.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCPT42SDB3QmVJPSROPy5HJEVqSTwkSyREJCQkRhsoQg==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+スタッフサービスでご就業中のみなさま
+※このメールは７月１日時点の情報をもとに連絡しております。この期間に退職等により当社社員でない方はお手数をお掛けしますが、本メールは削除してください。　
+
+いつもお世話になっております。スタッフサービスでございます。
+先日よりご案内しております信任投票について、投票がまだの方へあらためてのご案内となります。労働者代表を専任するためには、過半数以上の方の信任が必要となります。たびたびのお願いで誠に恐縮ではございますが、ご協力よろしくお願いします。
+尚、今回の投票は選任投票(7月19日〜26日実施)とは別となります。選任投票で投票した方につきましても、お手数ですが再度投票いただくようお願いいたします。
+この信任投票に投票済みの方については再度の投票は不要です。
+
+記
+
+・期間：８月２日９時〜８月15日17時まで
+・方法：下記URLにアクセスし信任する候補者を選択してください。
+
+　https://rec.fofa.jp/jdssg/a.p/107/
+
+※投票の際、ご自身のスタッフコードの入力が必要です。
+※選任投票とは別に、すでに信任投票として投票いただいている方の投票は不要となります。
+※投票数が一定数を満たさない場合は期間を延長することがあります。
+
+以上
+
+【本件に関するお問い合わせ】
+従業員代表選出係　メールアドレス：　jugyoindaihyo_ssg＠staffservice.ne.jp

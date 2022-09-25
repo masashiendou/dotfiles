@@ -1,0 +1,91 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2811:0:0:0:0:0 with SMTP id o17csp2136772vko;
+        Fri, 3 Sep 2021 22:57:13 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJynP9TV/R4QvKep1xpKMQ92qy4Em3pC+iR41VRsRD/Txc2O78fDEFGdO3zmkTMZ3j1yLvPm
+X-Received: by 2002:a17:902:c40e:b0:138:e2f9:6c97 with SMTP id k14-20020a170902c40e00b00138e2f96c97mr1916539plk.26.1630735032833;
+        Fri, 03 Sep 2021 22:57:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630735032; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yOp71S6uP3I5uxDqcM3FTCm3054cROfQYsPmUgkjH/yswLsE/Fn1SywfWg3KS+nvG2
+         4QvCvHjaexOjOSwdU5LgZ24z089AqUlCtgDeR8tK1RpLmLCkkKr0mBJqakuSeU1TfHrV
+         sY5lGDFndL2yo6BFUA0YNAd3Ux2pTQScpaQAHOMVwBfF9IA+KRAF4pgls9L01NVPUncc
+         X3IKv3uy11E7mg3hXfZPKfn/GcGeP4AYpfxXEITvvH42qZ25LMRVYfJvaoq1E+VGdt0F
+         1+gdl5bPJ2VG6O2MQfOXcx4iqxq6ZTZI+cpA0dDIPGhWNbXdNnRNexLfzMdL7Tm4wglZ
+         Qulw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=O44tnh9zhMeiGZYbesMNnhlvCQBN9EZGFDlJup8tc98=;
+        b=0TjLmsuWvMzZZG8xM1G0Ra0FhnzH/8CQIS+SrOZ9SEW3HN/3Vq8bULbTN9J7ip+7E9
+         bD6b/D0LP2HlA0gW+YN8tpI6VG8AdOTyg7/FK/9y2wtCMybc4W3GnEsSH6zLq6eszdAk
+         laeKKZg60udwN7jEIqkuL3dg2EdrSurWAOdFBsHhqaHNIMCgsGVTR9aZBxuX+WDzeY8v
+         FZxR8iKpMXKrR/7RDPW8Xwt9t/c0Jr8TgXN4p5aUxl9kz0fv3zYav6b8m+Xhsvc6LrvT
+         5e6FuqrqFB8BHwpT6rdY/YVDOf3QOA+4L1+3Lp57pt799tu+nBYUmp5rRtJucp5fykY7
+         Bi2Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=c4IsSTzX;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.122 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml103.ymt.japannetbank.co.jp (mml103.ymt.japannetbank.co.jp. [202.238.157.122])
+        by mx.google.com with ESMTP id c19si1573146pgb.392.2021.09.03.22.57.12
+        for <hujyorom@gmail.com>;
+        Fri, 03 Sep 2021 22:57:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.122 as permitted sender) client-ip=202.238.157.122;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=c4IsSTzX;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.122 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1630735032;
+	bh=O44tnh9zhMeiGZYbesMNnhlvCQBN9EZGFDlJup8tc98=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=c4IsSTzX/XR6sYLuuxJGsNH9y5qgx2uUlGJyqt4LSjy9YGJaEray+WgfP7hKB53qk
+	 9cULbBTDXqMEHt2bvsDNZquu5Fv0yX6387N3qAbu+Jax3zyGSIVD8+Hnw5XeZ1XzbU
+	 +BZ7mhr+0Bk00eRKMDgn8NhLQpToLzRagNP8BAi8=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCPzY5fk09THMkTiQ0M05HJxsoSg==?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20210904055712.134B217E12C@mml103.ymt.japannetbank.co.jp>
+Date: Sat,  4 Sep 2021 14:57:07 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもPayPay銀行をご利用いただきありがとうございます。
+下記の振込予約を受け付けいたしました。
+
+振込指定日の【前日】までに予約分の資金を普通預金口座へご入金ください。
+※振込指定日当日の早朝に普通預金残高が不足していた場合、振り込みは実行されませんのでご注意ください。
+
+振込指定日:2021/09/06
+受付番号:202109040081948
+受取人名:ワイジエイカ−ド（．．
+※受取人名は一部のみ表示しております。
+振込金額:1,269円
+
+▽振込明細の確認はこちら（ログイン）
+https://login.japannetbank.co.jp/wctx/LoginAction.do?screen=Transfrinq&aatc=vi2004jb04l
+ログイン後、該当の画面が表示できない場合は、Welcome Pageから、「明細・振込・振替」＞「振込明細照会」よりご確認いただけます。
+
+■振込指定日を土曜日、日曜日、祝日に指定されたお客さまへ
+振込先金融機関の24時間即時決済の対応状況によって、振込不能となる場合がございます。
+対応状況につきましては、振込先金融機関のホームページにてご確認ください。
+
+■ご注意
+・口座情報の不一致などで入金できなかった場合、資金をご返却のうえ、メールでお知らせいたします。（振込手数料はお返しできません。）
+・予約の取り消しはログイン後、「明細・振込・振替」＞「振込予約取消」振込予約取消よりお手続きください。（振込指定日の前日23時59分まで）
+・この振込予約にお心当たりがない場合、該当の予約を取り消したうえで、至急事故受付センター（フリーダイヤル 0120-444-964）へご連絡ください。
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+PayPay銀行
+https://www.paypay-bank.co.jp/
+====================================

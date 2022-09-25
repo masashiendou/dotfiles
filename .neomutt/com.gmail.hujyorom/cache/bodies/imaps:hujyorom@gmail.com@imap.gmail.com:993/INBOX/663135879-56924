@@ -1,0 +1,462 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9bc7:0:0:0:0:0 with SMTP id d190csp548164vke;
+        Mon, 25 Oct 2021 23:06:00 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzuFiPmGfCXTmT79JK1/CWfG09nntgdLHluQhDrY3daQw9PiefELfrma6aLqFtqN1EGeF/A
+X-Received: by 2002:a63:6dc5:: with SMTP id i188mr15643921pgc.58.1635228360404;
+        Mon, 25 Oct 2021 23:06:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1635228360; cv=none;
+        d=google.com; s=arc-20160816;
+        b=B/GvqhABlZ94AGuNOhDvr/przXqP/Mae90ZJwBxdbixhXjIZByKOx3uU8ndXqLnv7K
+         PtsGqHCUNj34M8G0zFyxAUkAZ1SzneoeW3vJxRUrQ3pqZc/zgD4LNh0fgNyAZsIzPwqs
+         oONKH+weTZsWJqoc3J9wqU/5oh/x1eb1hZHxzGyZffpD+DlJ4nXuU7NNepniJmemztCs
+         2QQs6njOnbFhCIBE2HvB0+lfASHsb/xHvAxvitmRJSCehEPdAJXT6W+ju/OH6KKmrsWZ
+         mm242miXQUdPjL05cQa2Njme1n58WI8ZW0ZsvPb8E9n3WbNLIKzlYk6EzOxwdhuMoA/F
+         CbEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:errors-to:dkim-signature;
+        bh=rgs5MoNfdNEbsQZ3dT1IyOpepEP5VqD3zYsaLc4uo2M=;
+        b=iqzjjQYCwbpVgOAVQsel4GHeGK1KOIZrRGJqkBuyDXm82MnDoakNcUDzmDSs6LspFT
+         R5Pc3UbGOSpvT2sTYjelUXKE/uE5lfEcmIOulLBZFnEhgtxl4W+J1TF6E2MBAmuZql22
+         Tj96geN9xkGaIKf1NYirgehUe3TgCnu+oapBymCEYNjABNd6cLH0N8TA7yndWyLXORwR
+         XiakjrlDyF/Icy1iHz7DVB8+YcjvIAN35hYXWomhKLGpAZkKTuqnM+Z1qoZKsfwCjm2Y
+         0IB/8FHnxl7cpQlAEsoqa+3+aqz22UfN6n4atkcxEE0RYZD051Vn82iJUIwgC1IOyEav
+         kHzg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@point.recruit.co.jp header.s=point.recruit.201605 header.b=QZL8EKHv;
+       spf=pass (google.com: domain of z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.82.207 as permitted sender) smtp.mailfrom=z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=point.recruit.co.jp
+Return-Path: <z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp>
+Received: from bmmpf5001.jpx1.mta.emberpoint.com (bmmpf5001.jpx1.mta.emberpoint.com. [106.185.82.207])
+        by mx.google.com with ESMTPS id b9si1695272plh.441.2021.10.25.23.05.59
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 25 Oct 2021 23:06:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.82.207 as permitted sender) client-ip=106.185.82.207;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@point.recruit.co.jp header.s=point.recruit.201605 header.b=QZL8EKHv;
+       spf=pass (google.com: domain of z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.82.207 as permitted sender) smtp.mailfrom=z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=point.recruit.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1635228359;
+	s=point.recruit.201605; d=point.recruit.co.jp;
+	h=Date:From:Reply-To:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=rgs5MoNfdNEbsQZ3dT1IyOpepEP5VqD3zYsaLc4uo2M=;
+	b=QZL8EKHvJQWEceZN+Z2xLBfjNQmfV/5nXKKYEPyIifJu32FM6R6bPAo1qTg8CgGE
+	wMEIfPm7/j0YqkUAuD4tdC0aSYqiUJi0+uNiEBD+4TuR1/TiXAF+sMSnnuY00DYFhYI
+	ixcw3qYvZxVIxwD9wC+ermCTCRyrjbGOtlbY6bbc=
+Errors-To: z-cap9-xfb72n-0-30b7-008hujyoromgmail.com@bma.rec.mpse.jp
+Date: Tue, 26 Oct 2021 15:05:51 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCIVolaiUvJWshPCVIGyhCSUQbJEIhWxsoQg==?=
+ <addp@point.recruit.co.jp>
+Reply-To: addp@point.recruit.co.jp
+To: hujyorom@gmail.com
+Message-Id: <1635228351709.2021100431.cap9.0.140371.01100000@ad300recse.rec.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCIVolaiUvJWshPCVIGyhCSUQbJEIhWxsoQg==?=
+ =?ISO-2022-JP?B?GyRCJVslQyVIJVolQyVRITwlUyVlGyhC?=
+ =?ISO-2022-JP?B?GyRCITwlRiUjITw4QkRqJV0lJCVzGyhC?=
+ =?ISO-2022-JP?B?GyRCJUhNLTh6NHw4QiROJCpDTiRpJDsbKEI=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="-09ef4e71615bd75ef26e8fd0effc2226-1"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+---09ef4e71615bd75ef26e8fd0effc2226-1
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+
+ホットペッパービューティー限定ポイント有効期限のお知らせ
+
+こんにちは、syoujiさん。
+いつも、ご利用いただきありがとうございます。
+2021年10月31日までにHOT PEPPER Beautyでぜひご利用ください。
+
+2021年10月31日に失効するポイント数
+■ホットペッパービューティー限定ポイント
+1,000ポイント
+
+▼ご予約はこちら（HOT PEPPER Beauty TOPへ）
+https://beauty.hotpepper.jp/?vos=pshpbscnhpblose000021
+
+・2021年10月26日時点でのホットペッパービューティー限定ポイントになります。
+それ以降に獲得・利用されたポイント数については反映されておりませんのでご注意ください。
+・保有ポイントについての詳細はこちらからご確認ください。
+https://point.recruit.co.jp/point/balanceRef/?vos=marcdcapxxxsiko20210501171
+・ホットペッパービューティー限定ポイントは、HOT PEPPER Beautyでのみご利用いただける期間限定のポイントです。
+・ホットペッパービューティー限定ポイントを他のリクルートのサービスで利用することは出来ません。
+・また、ホットペッパービューティー限定ポイントを他のポイントに交換することは出来ません。
+・期間限定ポイントについて、さらに詳しく知りたい場合は、こちらを参照してください。
+https://point.recruit.co.jp/recruitid/doc/about_point/?vos=marcdcapxxxsiko20210501172#about-limited-point
+
+◆ポイントについてのよくあるご質問◆
+・ホットペッパービューティー限定ポイントについて確認したい 
+https://help.point.recruit.co.jp/s/article/000005239
+・ポイントを保有しているとメールが届いたが、ログインするとポイントが確認出来ない
+https://help.point.recruit.co.jp/s/article/000005251
+
+---
+
+・HOT PEPPER Beautyは、（株）リクルートが運営するインターネットサービスです。
+
+・本メールは送信専用です。ご返信いただきましても、対応いたしかねます。
+　お問い合わせは下記URLよりお願いいたします。
+
+※土日祝日については、一部お休みをいただきます関係でお問合せの内容により、
+お返事が遅くなる場合がございます。
+申し訳ございませんが、あらかじめご了承ください。
+
+・HOT PEPPER Beautyに関するお問い合わせはこちら
+https://beauty.help.hotpepper.jp/
+
+・ポイント数、ポイント利用等に関するお問い合わせはこちら
+https://help.point.recruit.co.jp
+
+・メールアドレスなどのご登録の変更・削除はこちら
+https://point.recruit.co.jp/member/memInfoChg/?redirectUri=https%3a%2f%2fpoint%2erecruit%2eco%2ejp%2fpoint%2fbalanceRef%2f&siteCd=CAP&vos=pshpbpcnhpblose000025
+
+・リクルートポイントは以下のサービスにてご利用いただけます。
+https://point.recruit.co.jp/?vos=cppzscpdppk2110260015
+
+・HOT PEPPER Beauty
+https://beauty.hotpepper.jp/?vos=pshpbpcnhpblose000026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+編集・著作・発行：株式会社リクルート
+https://www.recruit.co.jp/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RECRUIT
+
+---09ef4e71615bd75ef26e8fd0effc2226-1
+Content-Type: text/html; charset="ISO-2022-JP"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"ja">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2=
+022-jp">
+<meta http-equiv=3D"Content-Language" content=3D"ja">
+<meta http-equiv=3D"Content-Style-Type" content=3D"text/css">
+<title></title>
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1,minimum-scale=3D1, maximum-scale=3D1, user-scalable=3Dyes">
+<style type=3D"text/css">
+a:link { text-decoration: underline; color: #0065BD; }
+a:visited { text-decoration: underline; color: #0065BD; }
+a:active { text-decoration: underline; }
+a:hover { text-decoration: underline; }
+@media only screen and (min-device-width:540px) {
+  	.bland_message{width:200px;}
+    .bland_logo{width: 116px;}
+  }
+</style>
+</head>
+<body bgcolor=3D"#F7F7F7" style=3D"margin: 0 auto;padding: 0;font-size:=
+ 12px;font-family:'=1B$B%a%$%j%*=1B(B', Meiryo, 'Hiragino Kaku Gothic Pr=
+o', '=1B$B%R%i%.%N3Q%4=1B(B Pro W3', '=1B$B#M#S=1B(B =1B$B#P%4%7%C%/=1B(=
+B', 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;c=
+olor: #4f656e;">
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"540" b=
+gcolor=3D"#ffffff"  align=3D"center" style=3D"width: 100% !important; wi=
+dth: 540px; max-width: 540px;">
+ <tr>
+  <td align=3D"center" style=3D"padding: 0 15px;">
+   <table width=3D"100%" border=3D"0" align=3D"center" cellpadding=3D"0=
+" cellspacing=3D"0">
+    <tr>
+     <td align=3D"left" style=3D"text-align: left; line-height: 0px; pa=
+dding: 0 0 10px; border-bottom: 2px solid #0065BD;">
+     <!--=1B$B7WB,%3!<%I3+;O=1B(B-->
+     <img title=3D"=1B$B3+Iu%?%0=1B(B" src=3D"https://recruit.112.2o7.n=
+et/b/ss/rcrtcapmailprd/?ns=3Drecruit&pageName=3DCM=
+211026=
+00&ch=3DCM&c10=3DCM=
+211026=
+00&c12=3D=
+2f37aefab4ab2a21=
+&c13=3DCM01&v0=3Dcppzscpdppk=
+211026=
+0015" alt=3D"">
+     <!--=1B$B7WB,%3!<%I=3D*N;=1B(B-->
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <table width=3D"100%" border=3D"0" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0">
+<!--=1B$B0FFb=1B(B-->
+       <tr>
+        <td style=3D"padding:10px 10px;">
+         <table width=3D"100%" border=3D"0" align=3D"center" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+           <tr>
+            <td style=3D"padding:0 0 10px; font-size:12px; color:#3E4E5=
+5; line-height:22px; text-align: center;">
+             =1B$B%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%HM-8z4|8B$N$*CN$=
+i$;=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"font-size:12px; color:#3E4E55; line-height:18p=
+x;">
+             =
+syouji=
+=1B$B$5$s!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding:0 0 10px; font-size:12px; color:#3E4E5=
+5; line-height:18px;">
+             =1B$B$$$D$b!"$4MxMQ$$$?$@$-$"$j$,$H$&$4$6$$$^$9!#=1B(B=
+2021=1B$BG/=1B(B10=1B$B7n=1B(B31=1B$BF|=1B(B=
+=1B$B$^$G$K=1B(BHOT PEPPER Beauty=1B$B$G$<$R$4MxMQ$/$@$5$$!#=1B(B
+            </td>
+           </tr>
+         </table>
+        </td>
+       </tr>
+<!--/=1B$B0FFb=1B(B-->
+         =20
+<!--=1B$B%3%s%F%s%D=1B(B-->
+       <tr>
+        <td style=3D"border-top:1px solid #E1E6EE; border-bottom:1px so=
+lid #E1E6EE; border-left:1px solid #E1E6EE; border-right:1px solid #E1E6=
+EE; padding:10px 0 0;">
+         <table width=3D"100%" border=3D"0" align=3D"center" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+<!--=1B$B<:8z$9$k%]%$%s%H?t=1B(B-->
+          <tr>
+           <td style=3D"padding:0 15px; font-size:12px; color:#3E4E55; =
+line-height:30px; text-align:center;">
+            <table width=3D"100%" border=3D"0" align=3D"center" cellpad=
+ding=3D"0" cellspacing=3D"0">
+             <tr>
+              <td style=3D"padding:10px 10px 0 5px; font-size:12px; col=
+or:#3E4E55; line-height:30px; text-align:left;">
+               =
+2021=1B$BG/=1B(B10=1B$B7n=1B(B31=1B$BF|=1B(B=
+=1B$B$K<:8z$9$k%]%$%s%H?t=1B(B
+              </td>
+             </tr>
+            </table>
+           </td>
+          </tr>
+<!--/=1B$B<:8z$9$k%]%$%s%H?t=1B(B-->
+            =20
+<!--=1B$B4|4V8BDj%]%$%s%H=1B(B-->
+          <tr>
+           <td style=3D"padding:0 15px 0; font-size:12px; color:#3E4E55=
+; text-align:center; line-height: 20px;">
+            <table width=3D"100%" border=3D"0" align=3D"center" cellpad=
+ding=3D"0" cellspacing=3D"0">
+             <tr>
+              <td style=3D"border-bottom: 1px solid #E1E6EE; padding:15=
+px 0 10px 5px; color:#3E4E55; text-align:left; width: 40px;">
+               <img width=3D"32" src=3D"https://point.recruit.co.jp/doc=
+/parts/img/icon-limited.png">
+              </td>
+              <td style=3D"border-bottom: 1px solid #E1E6EE; padding:15=
+px 0 10px; font-size:14px; color:#3E4E55; font-weight:bold; text-align:l=
+eft;">
+               =1B$B%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%H=1B(B
+              </td>
+              <td style=3D"border-bottom: 1px solid #E1E6EE; padding:15=
+px 5px 10px 0; font-size:18px; color:#3E4E55; font-weight:bold; text-ali=
+gn:right;">
+               =
+1,000=
+<span style=3D"padding:0 0 0 5px; font-size:12px;">=1B$B%]%$%s%H=1B(B<=
+/span>
+              </td>
+             </tr>
+            </table>
+           </td>
+          </tr>
+<!--/=1B$B4|4V8BDj%]%$%s%H=1B(B-->
+<!-- =1B$B%\%?%s=1B(B -->
+       <tr>
+        <td style=3D"text-align:center;">
+         <table width=3D"100%" border=3D"0" align=3D"center" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+          <tr>
+           <td style=3D"padding:20px 15px 0; text-align:center;"><a hre=
+f=3D"https://beauty.hotpepper.jp/?vos=3Dfshpbpcnhpblose000001" target=3D=
+"_blank"><img src=3D"https://point.recruit.co.jp/doc/parts/img/btn-HPB.p=
+ng" alt=3D"" border=3D"0" width=3D"315" style=3D"max-width: 100%;"></a>
+           </td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+<!--/=1B$B%\%?%s=1B(B-->
+<!--=1B$BCm0U;v9`=1B(B-->
+        <tr>
+         <td style=3D"padding:20px 15px; font-size:12px; color:#516570;=
+">
+          <table width=3D"100%" border=3D"0" align=3D"center" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+           <tr>
+            <td style=3D"padding: 15px 15px 0; font-size:12px; color:#5=
+16570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B!&=1B(B=
+2021=1B$BG/=1B(B10=1B$B7n=1B(B26=1B$BF|=1B(B=
+=1B$B;~E@$G$N%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%H$K$J$j$^$9!#$=3D$l0=
+J9_$K3MF@!&MxMQ$5$l$?%]%$%s%H?t$K$D$$$F$OH?1G$5$l$F$*$j$^$;$s$N$G$4Cm0U$=
+/$@$5$$!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding: 10px 15px 0; font-size:12px; color:#5=
+16570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B!&J]M-%]%$%s%H$K$D$$$F$N>\:Y$O=1B(B<a href=3D"https:/=
+/point.recruit.co.jp/point/balanceRef/?vos=3Dmarcdcapxxxsiko20210501161"=
+ target=3D"_blank">=1B$B$3$A$i=1B(B</a>=1B$B$+$i$43NG'$/$@$5$$!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding: 10px 15px 0; font-size:12px; color:#5=
+16570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B!&%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%H$O!"=1B(BHOT =
+PEPPER Beauty=1B$B$G$N$_$4MxMQ$$$?$@$1$k4|4V8BDj$N%]%$%s%H$G$9!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding: 10px 15px 0; font-size:12px; color:#5=
+16570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B!&%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%H$rB>$N%j%/%k!=
+<%H$N%5!<%S%9$GMxMQ$9$k$3$H$O=3DPMh$^$;$s!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding: 10px 15px 0; font-size:12px; color:#5=
+16570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B!&$^$?!"%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%H$rB>$N%=
+]%$%s%H$K8r49$9$k$3$H$O=3DPMh$^$;$s!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding: 10px 15px 0; font-size:12px; color:#5=
+16570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B!&4|4V8BDj%]%$%s%H$K$D$$$F!"$5$i$K>\$7$/CN$j$?$$>l9g$=
+O!"=1B(B<a href=3D"https://point.recruit.co.jp/recruitid/doc/about_point=
+/?vos=3Dmarcdcapxxxsiko20210501162#about-limited-point" target=3D"_blank=
+">=1B$B$3$A$i=1B(B</a>=1B$B$r;2>H$7$F$/$@$5$$!#=1B(B
+            </td>
+           </tr>
+           <tr>
+            <td style=3D"padding: 10px 15px 15px; font-size:12px; color=
+:#516570; line-height:20px;background-color:#f8f9fc;">
+             =1B$B"!%]%$%s%H$K$D$$$F$N$h$/$"$k$4<ALd"!=1B(B<br>
+             =1B$B!&=1B(B<a href=3D"https://help.point.recruit.co.jp/s/=
+article/000005239" target=3D"_blank">=1B$B%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj=
+%]%$%s%H$K$D$$$F3NG'$7$?$$=1B(B </a><br>
+             =1B$B!&=1B(B<a href=3D"https://help.point.recruit.co.jp/s/=
+article/000005251" target=3D"_blank">=1B$B%]%$%s%H$rJ]M-$7$F$$$k$H%a!<%k=
+$,FO$$$?$,!"%m%0%$%s$9$k$H%]%$%s%H$,3NG'=3DPMh$J$$=1B(B</a>
+            </td>
+           </tr>
+          </table>
+         </td>
+        </tr>
+<!--/=1B$BCm0U;v9`=1B(B-->
+       </table>
+      </td>
+     </tr>
+<!--/=1B$B%3%s%F%s%D=1B(B-->
+<!-- =1B$B%U%C%?!<0FFb=1B(B -->
+       <tr>
+        <td style=3D"border-bottom: 1px solid #E1E6EE; padding: 10px 0 =
+25px;">
+         <table width=3D"100%" border=3D"0" align=3D"center" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+          <tr>
+           <td style=3D"padding: 15px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B"!=1B(BHOT PEPPER Beauty=1B$B$O!"!J3t!K%j%=
+/%k!<%H$,1?1D$9$k%$%s%?!<%M%C%H%5!<%S%9$G$9!#=1B(B</td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B"!$3$N%a!<%k$O!"=1B(B=
+2021=1B$BG/=1B(B10=1B$B7n=1B(B26=1B$BF|=1B(B=
+=1B$B;~E@$G$4MxMQ$5$l$F$$$J$$%[%C%H%Z%C%Q!<%S%e!<%F%#!<8BDj%]%$%s%H$r$=
+*;}$A$NJ}$XG[?.$5$;$F$$$?$@$$$F$*$j$^$9!#=1B(B</td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B"!$3$N%a!<%k$OAw?.@lMQ$G$9!#$4JV?.$$$?$@$-=
+$^$7$F$b!"BP1~$$$?$7$+$M$^$9!#$*Ld$$9g$o$;$O2<5-%j%s%/$h$j$*4j$$$$$?$7$^=
+$9!#"(=1B(B =1B$BEZF|=3DKF|$K$D$$$F$O!"0lIt$*5Y$_$r$$$?$@$-$^$94X78$G$*L=
+d$$9g$o$;$NFbMF$K$h$j!"$*JV;v$,CY$/$J$k>l9g$,$4$6$$$^$9!#?=3D$7Lu$4$6$$$=
+^$;$s$,!"$"$i$+$8$a$4N;>5$/$@$5$$!#=1B(B</td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B"!=1B(BHOT PEPPER Beauty=1B$B$K4X$9$k$*Ld$=
+$9g$o$;$O=1B(B<a href=3D"https://beauty.help.hotpepper.jp/" target=3D"_b=
+lank">=1B$B$3$A$i=1B(B</a></td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B"!J]M-%]%$%s%H$K4X$9$k$*Ld$$9g$o$;$O=1B(B<=
+a href=3D"https://help.point.recruit.co.jp" target=3D"_blank">=1B$B$3$A$=
+i=1B(B</a></td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B"!%a!<%k%"%I%l%9$J$I$N$4EPO?$NJQ99!&:o=3D|=
+$O=1B(B<a href=3D"https://point.recruit.co.jp/member/memInfoChg/?redirec=
+tUri=3Dhttps%3a%2f%2fpoint%2erecruit%2eco%2ejp%2fpoint%2fbalanceRef%2f&s=
+iteCd=3DCAP&vos=3Dfshpbpcnhpblose000010" target=3D"_blank">=1B$B$3$A$i=
+=1B(B</a></td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$B%5%$%HL>!'=1B(BHOT PEPPER Beauty<br>
+           <a style=3D"word-break:break-all; display:block;" href=3D"ht=
+tps://beauty.hotpepper.jp/?vos=3Dfshpbpcnhpblose000001" target=3D"_blank=
+">https://beauty.hotpepper.jp/</a></td>
+          </tr>
+          <tr>
+           <td style=3D"padding: 10px 10px 0; font-size:12px; color:#3E=
+4E55; line-height:20px;">=1B$BJT=3D8!&Cx:n!&H/9T!'3t<02q<R%j%/%k!<%H=1B(=
+B<br>
+           <a style=3D"word-break:break-all; display:block;" href=3D"ht=
+tps://www.recruit.co.jp/" target=3D"_blank">https://www.recruit.co.jp/</=
+a></td>
+          </tr>
+         </table>
+        </td>
+       </tr>
+<!--/ =1B$B%U%C%?!<0FFb=1B(B -->
+      </table>
+     </td>
+    </tr>
+    <tr>
+     <td style=3D"padding: 10px 0;">
+      <!-- =1B$B"'%U%C%?=1B(B -->
+      <table width=3D"100%" border=3D"0" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0">
+       <tr>
+        <td width=3D"50%" align=3D"left" style=3D"vertical-align:bottom=
+;"><img src=3D"https://point.recruit.co.jp/doc/parts/img/Bland_Messege.p=
+ng" alt=3D"=1B$B$^$@!"$3$3$K$J$$!"=3DP2q$$=1B(B" width=3D"84%" class=3D"=
+bland_message"></td>
+        <td width=3D"50%" align=3D"right" style=3D"vertical-align:botto=
+m;"><img src=3D"https://point.recruit.co.jp/doc/parts/img/Brandlogo.png"=
+ alt=3D"=1B$B%j%/%k!<%H=1B(B" width=3D"50%" class=3D"bland_logo"></td>
+       </tr>
+      </table>
+      <!-- =1B$B"%%U%C%?=1B(B -->
+     </td>
+    </tr>
+   </table>
+  </td>
+</tr>
+</table>
+
+<img src=3D"http://rec.mpse.jp/cap9/rw/beacon_2cMky3=
+Aw39=
+.gif"></body>
+</html>
+
+---09ef4e71615bd75ef26e8fd0effc2226-1--

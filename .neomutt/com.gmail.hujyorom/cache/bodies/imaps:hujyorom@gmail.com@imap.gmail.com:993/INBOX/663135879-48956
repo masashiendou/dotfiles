@@ -1,0 +1,960 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp1461320vky;
+        Fri, 19 Mar 2021 07:36:01 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxi06FzLnwUzuZm+Qa3qtMy13+FkdGMz7WObkUxZtfaJONb8Vfy46yfRIAbp1xeUub9jkLk
+X-Received: by 2002:a05:6830:1304:: with SMTP id p4mr1384740otq.185.1616164560845;
+        Fri, 19 Mar 2021 07:36:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616164560; cv=none;
+        d=google.com; s=arc-20160816;
+        b=EevZBU8NFvX/YAWu1bZDAgbUp5CHTmVe9WXisI3IQbIRrujdWynBfNPKvqTqpZYKpu
+         0TKyJa/nRguMgbECEqRK3D1Kv9m35PX3XwMq8ku3C3/gD+38ctsd15BvBY2dveCxie7B
+         T+5tHEVl7GTv3O2X3CLfy7TTKPjfDng0tRMKnluHFSiR7SlVhq6RijikiKPaC+jKDzCo
+         3TM747QfLpnFKpWu1wrUj6MEubisOt54Vha/FexHf3p63gKtFRtjX1FMBOmWjzP1fhxQ
+         karip0Cy0yPpdvwFYMJAqWVIVo9mr0Uum5rRmXwMLL3zk23Njw16ipmmm0DNew5tHkZ6
+         1rcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:list-id:reply-to:mime-version:list-help:date
+         :subject:to:from:dkim-signature;
+        bh=t2Vimo9OEmYnrqOtwW9y0l3f3W0Okva/eQDoZIZBdyA=;
+        b=VV5Kg6RyQNk/HQEIY9xqhyB7Pz9ZBErhI2jqwTUovu7Etln0dMXToosfOKXpgUscG/
+         B/EH7eNjtUUEciKyvQlSPKK1pnH0jdqph/0hSKiZJXRklblgF7T80XswLux7DUO3V+v+
+         ytZ98pU3E+ksfYKEQvEzm6KCyOh+u1HKNSRsmxU2BiEcxnQx+sC6XWgMzjz0B0412dhT
+         Fc7AiJOb0zW7fnSYqQhVllY1PeI9OHmKIkX8Ttnk3fAJXW+WNJ/cKA/T1zDuLzpEKETM
+         hfcHjEh/m/jQqg9adA5Anfi8VdhOAw6Tex9fkKc2nJscr/UDAU8auT2/nTMNnVQk/ktv
+         lIDw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@bbc.co.uk header.s=50dkim1 header.b=UOFPfI3p;
+       spf=pass (google.com: domain of bounce-20_html-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk designates 161.71.36.24 as permitted sender) smtp.mailfrom=bounce-20_HTML-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=bbc.co.uk
+Return-Path: <bounce-20_HTML-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk>
+Received: from mta5.ma.mailenvelope.bbc.co.uk (mta5.ma.mailenvelope.bbc.co.uk. [161.71.36.24])
+        by mx.google.com with ESMTPS id i21si4348887oik.216.2021.03.19.07.36.00
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 19 Mar 2021 07:36:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-20_html-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk designates 161.71.36.24 as permitted sender) client-ip=161.71.36.24;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@bbc.co.uk header.s=50dkim1 header.b=UOFPfI3p;
+       spf=pass (google.com: domain of bounce-20_html-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk designates 161.71.36.24 as permitted sender) smtp.mailfrom=bounce-20_HTML-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=bbc.co.uk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=50dkim1; d=bbc.co.uk;
+ h=From:To:Subject:Date:List-Help:MIME-Version:Reply-To:List-ID:
+ X-CSA-Complaints:Message-ID:Content-Type; i=bbcaccount@bbc.co.uk;
+ bh=t2Vimo9OEmYnrqOtwW9y0l3f3W0Okva/eQDoZIZBdyA=;
+ b=UOFPfI3pjjmpC1rQ2PNWHdmfJDjMusw7Situa2FmWvdTYSJG1MgZMhmUyCtd4L0ayE8GPjW4+VCc
+   +eApFO92FhVmAq2oT0zAdDSv+DpgUt2SrsGB+36KEr5yw4y2WGBpWa3D54qMv57srrmojz1c/wq0
+   kaBcA68iUGVa81YMEVz7lJS/LK7wCnCQ4QQKmJPgelBCdEFB2opsvDAmDaQBYvgG4t+lYjar/j+W
+   F162Ug5ci/24BJOd2jznedqqnIxdQavZgiBq69r3oeawy5XpXctGMGJxmyy3V1CCs92PZX6k3xw/
+   t/4J4JL0EJcNbMpJd2ziYb25b28r73UxuZTK2A==
+Received: by mta5.ma.mailenvelope.bbc.co.uk id haird02fmd4d for <hujyorom@gmail.com>; Fri, 19 Mar 2021 14:31:11 +0000 (envelope-from <bounce-20_HTML-43456272-42925-7225356-7011@bounce.ma.mailenvelope.bbc.co.uk>)
+From: "BBC Account" <bbcaccount@bbc.co.uk>
+To: <hujyorom@gmail.com>
+Subject: Your BBC account will be deleted soon
+Date: Fri, 19 Mar 2021 08:31:10 -0600
+List-Help: <https://click.e.bbcmail.co.uk/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI3MjI1MzU2IiwicyI6IjQzNDU2MjcyIiwibGlkIjoiMjAiLCJqIjoiNDI5MjUiLCJqYiI6IjcwMTEiLCJkIjoiNTAwMDA2In0.AW5f9mtgtulYqicntdhs_f4X5kexwh3cVdATAojNENE>
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+Reply-To: "BBC Account" <reply-fef910727c6601-20_HTML-43456272-7225356-7011@ma.mailenvelope.bbc.co.uk>
+List-ID: <7219534.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 50
+x-job: 7225356_42925
+Message-ID: <acf6d184-98c2-4eec-9578-8279f9c92d59@fra3s50mta21.xt.local>
+Feedback-ID: 7225356:42925:161.71.36.24:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="WxSSceBla3QO=_?:"
+
+This is a multi-part message in MIME format.
+
+--WxSSceBla3QO=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+   &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;
+ &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; Having difficulty reading this email? 
+https://view.e.bbcmail.co.uk/?qs=ba3f56f3534fe629fc867d8946836160e017bbda2d650b325e8f5a7a25ddd3056cbee9a254c19d98d79f3fb4188094d642b4bc13bf0733d200ad0cbde495406787a8543d99d4f852 
+View it online 
+
+
+ 
+
+https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a38beffd436cc2099997b225c13565c65c367e64c991fd1ec5f0df08a81a9055ff0be19e0f583296f41bfeea991a792753 
+
+ Your BBC account 
+
+
+
+
+
+Hello,
+
+
+We&rsquo;ve noticed that it&rsquo;s been over a year since you used the BBC account connected with this email address.
+
+
+We don't want to keep your data for longer than we need to. So assuming you&rsquo;re no longer using this account, we're planning to delete it after 5th April 2021.
+
+
+If you want to keep the account open, please sign in before then.
+
+
+
+https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a381a568add5a68d5ec2313e73d253131c60d05104c8a4a1f3cd2fe7ef3aefc9f249ab5c523670a91c17104e617e8cb03b 
+Sign in 
+
+
+
+
+
+ You can also sign in by visiting bbc.com/stay
+
+
+ Other BBC accounts you&rsquo;ve used recently will not be affected by this.
+
+
+ Should I keep my account?
+
+
+ You'll need a BBC account to follow your favourite sports and teams, and listen to music and podcasts on BBC Sounds. It also means you can have your say on the news stories of the day.
+
+
+ Find out more about 
+https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a3d2776b644b6d49f29bb3fccee73cd8012690a5d6561c18d5ebd855f927e56bfa03caf604a34290648b34f7845b6745fc 
+what you can do with your BBC account. 
+
+
+ All the best,
+
+The BBC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+
+https://click.e.bbcmail.co.uk/?qs=e4f3ab21b712345141cf8a846174d0d07a56a7a3b5edc3b13e1b8b4f5d60b450faf4b23149eacb7593ab355974fde6f22b248719d43fa3ff 
+About BBC accounts       
+https://click.e.bbcmail.co.uk/?qs=e4f3ab21b712345161e35ce95c99fc89ee6e73a1080cd97ae8914cf469a3acd0a5ab67a5d892ff716268bbe7b142b7a18fc713f7448f3c0b 
+About Cookies       
+https://click.e.bbcmail.co.uk/?qs=e4f3ab21b7123451ea729be9a1e191f19b5acad89706aa55597c6466b29a5f6ad785cbc6c79e3cd96318ae8dd5a197320a000bcf9d60e8a0 
+Your Privacy        
+https://click.e.bbcmail.co.uk/?qs=e4f3ab21b712345176504bb92770b61eb2e0d0f730fec41e4015580223313b2caf28a783459a05f90459f53323b802e5ab37d411c5e7b3a2 
+Terms of Use 
+
+
+  
+
+
+
+
+
+ You're receiving this service email because you signed up for a BBC account.
+
+
+ Unless you&rsquo;ve signed up for any BBC newsletters, we&rsquo;ll only email you to tell you more about a BBC service you&rsquo;ve started using for the first time, or if we need to contact you about your BBC account.
+
+
+ This email is sent from an automated account which is not monitored and so we&rsquo;re unable to respond to replies to this email. If you have any questions about your account, you'll find lots of useful info on our 
+https://click.e.bbcmail.co.uk/?qs=e4f3ab21b7123451fa275de3e9887c16306c73ba58c5c7bd197417896f007241b779c895f0c2a4fb6ef491df0dd85d31354a82212792583a 
+FAQs page .
+
+
+ BBC Broadcasting House, Portland Place, London W1A 1AA, UK
+
+ Copyright (c) 2&zwnj;021 BBC
+
+
+ 
+
+ 
+
+
+--WxSSceBla3QO=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+<!-- DO NOT DELETE THIS CODE! Unsubscribe Token Logic
+
+END CODE -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  
+  
+  <style>
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) { 
+ .mobile-margin {
+ padding: 0px 20px 0px 20px
+}
+.wrapto100pc, .w100pc {
+ width: 100%!important;
+ height: auto!important;
+ min-width: 100%!important;
+} 
+.menu-border {
+ border-bottom: 1px solid #424242!important;
+ border-right: none!important;
+ padding: 15px 0 15px 0!important
+}
+.textcenter {
+ display: block!important;
+ text-align: center!important;
+ padding: 5px 0!important;
+} 
+ }
+ </style>
+  
+  
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if !mso]><!-- -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--<![endif]-->
+<meta name="format-detection" content="telephone=no" />
+<meta name="x-apple-disable-message-reformating" />
+<title></title>
+<style type="text/css">
+div, p, a, li, td {
+ -webkit-text-size-adjust: none;
+ -ms-text-size-adjust: none;
+}
+body {
+ margin: 0;
+ padding: 0;
+ background-color: #eeeeee;
+}
+table td {
+ border-collapse: collapse;
+}
+table th {
+ margin: 0!important;
+ padding: 0!important;
+ vertical-align: top;
+ font-weight: normal;
+}
+div[style*="margin: 16px 0"] {
+ margin: 0!important;
+}
+.ExternalClass {
+ width: 100%;
+}
+.ExternalClass * {
+ line-height: 110%
+}
+img {
+ -ms-interpolation-mode: bicubic;
+}
+.appleLinksgrey a {
+ color: #9ca299!important;
+ text-decoration: none;
+}
+
+/* control text changed to links by phones */
+
+@media only screen {
+body {
+ width: 100%!important;
+ min-width: 100%!important;
+}
+a[x-apple-data-detectors] {
+ color: inherit!important;
+ text-decoration: none!important;
+ font-size: inherit!important;
+ font-family: inherit!important;
+ font-weight: inherit!important;
+ line-height: inherit!important;
+}
+}
+
+/* Yahoo and apple mail reset on desktop */
+
+@media screen and (min-width: 600px) {
+.wrapto680px {
+ width: 670px!important;
+ height: auto!important;
+}
+}
+</style>
+<style>
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+/* responsive rules */
+ 
+
+.wrapto100pc, .w100pc {
+ width: 100%!important;
+ height: auto!important;
+    min-width: 100%!important;
+}
+.nomob {
+ display: none!important;
+ width: 0px!important;
+ height: 0px!important;
+}
+.mobile-margin {
+ padding: 0px 20px 0px 20px
+}
+.show {
+ display: block!important;
+ width: 100%!important;
+ max-height: inherit!important;
+ overflow: visible!important;
+}
+    }
+</style>
+<style>
+/* more for you to enjoy css */
+ 
+  
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+.padding-top {
+ padding: 10px!important;
+}
+    .display{ display: block!important; padding-top: 30px;}  
+    .headerwidth {width: 320px!important;}
+.colsplit {
+ width: 100%!important;
+ float: left!important;
+ display: block!important;
+}
+    .nopad {padding: 0!important;}    
+.colsplit-top {
+    width: 100%!important;
+    display: table-row-group!important;
+}
+.colsplit-bottom {
+    width: 100%!important;
+    display: table-footer-group!important;
+}
+.header-padding {
+ padding: 25px 5px 5px 5px!important
+}
+.colsplit-padding {
+ width: 100%!important;
+ float: left!important;
+ display: block!important;
+ padding-top: 10px!important;
+}
+.break {
+ display: block!important
+}
+.mobile-banner {
+ padding: 5px 0px 10px 0px!important;
+}
+.w100pcmax {
+    width: auto!important;
+    height: auto!important;
+    max-width: 100%!important;
+    display: block!important;
+}    
+}
+</style>
+<style>
+/*footer style */
+ 
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+.textleft {
+ display: block!important;
+ text-align: left!important;
+ padding: 5px 0!important;
+}
+.textcenter {
+ display: block!important;
+ text-align: center!important;
+ padding: 5px 0!important;
+}    
+    .txtleft {text-align: left!important; padding: 10px 0!important;}
+.bg-1e1e1e {
+ background-color: #1e1e1e!important;
+ background: #1e1e1e!important;
+}
+.menu-border {
+ border-bottom: 1px solid #424242!important;
+ border-right: none!important;
+ padding: 15px 0 15px 0!important
+}
+.mobile-margin {
+ padding: 0 20px 0 20px!important;
+}
+.button-length {
+ width: 280px!important;
+}
+.mobile-align {
+ align: center;
+}
+    .pr0 {padding-right: 0px!important;}
+    .pl0 {padding-left: 0px!important;}
+}
+</style>
+<style>
+@media {
+ @font-face {
+ font-family: 'bbcreithsansabd';
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.eot');
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.eot') format('embedded-opentype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.woff2') format('woff2'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.woff') format('woff'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.ttf') format('truetype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.svg#bbcreithsansabd') format('svg');
+}
+ @font-face {
+ font-family: 'bbcreithsansalt';
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt1.eot');
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt1.eot') format('embedded-opentype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.woff2') format('woff2'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.woff') format('woff'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.ttf') format('truetype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.svg#bbcreithsansalt') format('svg');
+}
+ @font-face {
+ font-family: 'bbcreithserifarg';
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.eot');
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.eot') format('embedded-opentype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.woff2') format('woff2'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.woff') format('woff'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.ttf') format('truetype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.svg#bbcreithserifarg') format('svg');
+}
+}
+</style>
+<!--[if gte mso 9]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![endif]-->      
+</head>
+
+<body leftmargin="0" topmargin="0" rightmargin="0" bgcolor="#ffffff" style="background-color: #ffffff; margin:0;padding:0;width:100%">
+    
+       <table border="0" cellpadding="0" cellspacing="0" class="nomob" role="presentation" style="min-width:100%;" width="100%">
+            <tr>
+              <td align="center">
+                  <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table border="0" cellpadding="0" cellspacing="0" class="nomob" role="presentation" style="min-width:100%;" width="100%">
+	
+		<tr>
+			<td align="center">
+				<table border="0" cellpadding="0" cellspacing="0" class="nomob" role="presentation" style="width: 700px;" width="700">
+					
+						<tr>
+							<td align="center" style="padding:8px 20px 8px 20px; font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:18px;color:#343434;">
+								<div style="visibility:hidden; color:transparent; display: none; font-size: 0px; line-height: 0px; max-height: 0px; max-width: 0px; width: 0px; opacity: 0; overflow: hidden;">
+									<!-- TRACKING TOKEN START --><img src="https://click.e.bbcmail.co.uk/open.aspx?ffcb10-fef910727c6601-fe4d17797d6c0d7e7613-fe9113727761077873-ff9d1670-fe5e10737161027f7216-ff3613707465&d=500006&bmt=0" width="1" height="1" alt=""> <!-- TRACKING TOKEN END --> <!-- CHECK FOR PLATFORM COMPLIANCE START --> <!-- If any of the fields below are not populated in MC, this will error --> <!--This email was sent by: British Broadcasting Corporation, BBC Broadcasting House, Portland Place, LONDON, W1A 1AA, GB https://click.e.bbcmail.co.uk/profile_center.aspx?qs=5b7f05e226b5ad18488d07c371e4d36b2f00958c694bb7573503d27f1cea0ecd4f883e61f919f5d3ed8d3922fefea16f--> 
+<!-- CHECK FOR PLATFORM COMPLIANCE END -->
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&zwnj;&nbsp;&zwnj;&nbsp;</custom></div>Having difficulty reading this email? <a  href="https://view.e.bbcmail.co.uk/?qs=ba3f56f3534fe629fc867d8946836160e017bbda2d650b325e8f5a7a25ddd3056cbee9a254c19d98d79f3fb4188094d642b4bc13bf0733d2cb2ff529e65c5f4d16b8c30c803dea4d" style="text-decoration: underline; color: #343434;" target="_blank">View it online</a></td></tr></table></td></tr></table></td></tr></table>
+                  </td>
+        </tr>
+</table>
+    
+<!-- Main content --->
+      <table role="presentation"  cellspacing="0" cellpadding="0" border="0" width="700" style="width: 700px;" class="wrapto100pc" align="center">
+         <tr>
+    <td align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- BBC Header --><table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapto100pc" role="presentation" style="width:700px" width="700">
+	
+		<tr>
+			<td align="center" bgcolor="#006def">
+				<table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapto100pc" role="presentation" style="width:580px;" width="580">
+					
+						<tr>
+							<td align="center" valign="top">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+									
+										<tr>
+											<td class="mobile-banner">
+												<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="padding:20px 0 25px 0;" width="100%">
+													
+														<tr>
+															<th align="center" class="colsplit" style="vertical-align: middle;">
+																<a  href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a36cb63807202c889d83c9628164d9fd6e57089d700ed98bfeb1f43d28a1243b69df8c9120864a84c9a85ae843e5c7fd13" target="_blank" title="BBC Homepage"><img alt="BBC logo" border="0" height="30" src="https://image.e.bbcmail.co.uk/lib/fe9113727761077873/m/1/421dec8e-1f05-4fe4-90a0-854a03d57353.png" style="display:block" width="107"></a></th><th class="colsplit-padding" style="vertical-align: middle;">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+																	
+																		<tr>
+																			<td>
+																				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+																					
+																						<tr>
+																							<th class="colsplit" style="font-weight: normal;">
+																								<h1 align="center" class="fontsize20" style="font-family: 'bbcreithsansalt', Helvetica, Arial, sans-serif; font-size:30px; line-height:32px; color:#ffffff;font-weight: normal;margin:0;">
+																									&nbsp;Your BBC account&nbsp;</h1></th><th align="center" class="colsplit-padding" style="vertical-align: middle;">
+																								<img alt="" height="26" src="https://arcdn.net/bbc/2020/iplayer-welcome/servicing/html/images/account.png" style="display: block;" width="26"></th></tr></table></td></tr></table></th></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>
+  </tr>
+  <tr>
+    <td align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- Did you know --><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+	
+		<tr>
+			<td>
+				<img alt="" height="1" src="https://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/18/sounds-welcome-sp.gif" width="30"></td><td align="center" style="padding-bottom: 20px;">
+				<table border="0" cellpadding="0" cellspacing="0" class="wrapto100pc" style="width:600px;" width="600">
+					
+						<tr>
+							<td style="padding: 10px 0px 20px;">
+								<h2 style="font-family: 'bbcreithsansabd', arial; font-size: 28px; color: #000001; line-height: 41px;padding: 0; margin: 0;">
+								</h2></td></tr><tr>
+							<td>
+								<p style="font-family: bbcreithsansalt, arial; font-size: 16px; color: #000001; line-height: 23px;padding: 0; margin:0;">
+									Hello,<br>
+									<br>
+									We&rsquo;ve noticed that it&rsquo;s been over a year since you used the BBC account connected with this email address.<br>
+									<br>
+									We don't want to keep your data for longer than we need to. So assuming you&rsquo;re no longer using this account, we're planning to delete it after <strong>5th April 2021</strong>.<br>
+									<br>
+									If you want to keep the account open, please sign in before then.</p></td></tr></table></td><td>
+				<img alt="" height="1" src="https://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/18/sounds-welcome-sp.gif" width="30"></td></tr></table></td></tr></table></td>
+  </tr>
+  <tr>
+    <td align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><meta name="ROBOTS" content="NOINDEX, NOFOLLOW"><meta name="referrer" content="no-referrer"><style type="text/css">
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+.mobile-margin {
+ padding: 0px 20px 0px 20px
+}
+.wrapto100pc, .w100pc {
+ width: 100%!important;
+ height: auto!important;
+ min-width: 100%!important;
+}
+.menu-border {
+  border-bottom: 1px solid #424242!important;
+ border-right: none!important;
+ padding: 15px 0 15px 0!important
+}
+.textcenter {
+ display: block!important;
+ text-align: center!important;
+ padding: 5px 0!important;
+}
+}</style><meta content="text/html; charset=utf-8" http-equiv="Content-Type"><meta name="viewport" content="width=device-width, initial-scale=1.0"><!--[if !mso]><!-- --><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]--><meta name="format-detection" content="telephone=no"><meta name="x-apple-disable-message-reformating"><title>
+</title><style type="text/css">
+div, p, a, li, td {
+ -webkit-text-size-adjust: none;
+ -ms-text-size-adjust: none;
+}
+body {
+ margin: 0;
+ padding: 0;
+ background-color: #eeeeee;
+}
+table td {
+ border-collapse: collapse;
+}
+table th {
+ margin: 0!important;
+ padding: 0!important;
+ vertical-align: top;
+ font-weight: normal;
+}
+div[style*="margin: 16px 0"] {
+ margin: 0!important;
+}
+.ExternalClass {
+ width: 100%;
+}
+.ExternalClass * {
+ line-height: 110%
+}
+img {
+ -ms-interpolation-mode: bicubic;
+}
+.appleLinksgrey a {
+ color: #9ca299!important;
+ text-decoration: none;
+}
+
+/* control text changed to links by phones */
+
+
+
+@media only screen {
+body {
+ width: 100%!important;
+ min-width: 100%!important;
+}
+a[x-apple-data-detectors] {
+ color: inherit!important;
+ text-decoration: none!important;
+ font-size: inherit!important;
+ font-family: inherit!important;
+ font-weight: inherit!important;
+ line-height: inherit!important;
+}
+}
+
+/* Yahoo and apple mail reset on desktop */
+
+
+
+@media screen and (min-width: 600px) {
+.wrapto680px {
+ width: 670px!important;
+ height: auto!important;
+}
+}</style><style type="text/css">
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+/* responsive rules */
+
+ 
+
+
+
+.wrapto100pc, .w100pc {
+ width: 100%!important;
+ height: auto!important;
+ min-width: 100%!important;
+}
+.nomob {
+ display: none!important;
+ width: 0px!important;
+ height: 0px!important;
+}
+.mobile-margin {
+ padding: 0px 20px 0px 20px
+}
+.show {
+ display: block!important;
+ width: 100%!important;
+ max-height: inherit!important;
+ overflow: visible!important;
+}
+}</style><style type="text/css">
+/* more for you to enjoy css */
+
+ 
+
+  
+
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+.padding-top {
+ padding: 10px!important;
+}
+.display {
+ display: block!important;
+ padding-top: 30px;
+}
+.headerwidth {
+ width: 320px!important;
+}
+.colsplit {
+ width: 100%!important;
+ float: left!important;
+ display: block!important;
+}
+.nopad {
+ padding: 0!important;
+}
+.colsplit-top {
+ width: 100%!important;
+ display: table-row-group!important;
+}
+.colsplit-bottom {
+ width: 100%!important;
+ display: table-footer-group!important;
+}
+.header-padding {
+ padding: 25px 5px 5px 5px!important
+}
+.colsplit-padding {
+ width: 100%!important;
+ float: left!important;
+ display: block!important;
+ padding-top: 10px!important;
+}
+.break {
+ display: block!important
+}
+.mobile-banner {
+ padding: 5px 0px 10px 0px!important;
+}
+.w100pcmax {
+ width: auto!important;
+ height: auto!important;
+ max-width: 100%!important;
+ display: block!important;
+}
+}</style><style type="text/css">
+/*footer style */
+
+ 
+
+@media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+.textleft {
+ display: block!important;
+ text-align: left!important;
+ padding: 5px 0!important;
+}
+.textcenter {
+ display: block!important;
+ text-align: center!important;
+ padding: 5px 0!important;
+}
+.txtleft {
+ text-align: left!important;
+ padding: 10px 0!important;
+}
+.bg-1e1e1e {
+ background-color: #1e1e1e!important;
+ background: #1e1e1e!important;
+}
+.menu-border {
+ border-bottom: 1px solid #424242!important;
+ border-right: none!important;
+ padding: 15px 0 15px 0!important
+}
+.mobile-margin {
+ padding: 0 20px 0 20px!important;
+}
+.button-length {
+ width: 280px!important;
+}
+.mobile-align {
+ align: center;
+}
+.pr0 {
+ padding-right: 0px!important;
+}
+.pl0 {
+ padding-left: 0px!important;
+}
+}</style><style type="text/css">
+@media {
+ @font-face {
+ font-family: 'bbcreithsansabd';
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.eot');
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.eot') format('embedded-opentype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.woff2') format('woff2'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.woff') format('woff'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.ttf') format('truetype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansabd.svg#bbcreithsansabd') format('svg');
+}
+ @font-face {
+ font-family: 'bbcreithsansalt';
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt1.eot');
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt1.eot') format('embedded-opentype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.woff2') format('woff2'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.woff') format('woff'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.ttf') format('truetype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithsansalt.svg#bbcreithsansalt') format('svg');
+}
+ @font-face {
+ font-family: 'bbcreithserifarg';
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.eot');
+ src: url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.eot') format('embedded-opentype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.woff2') format('woff2'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.woff') format('woff'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.ttf') format('truetype'), url('http://images.emlcdn.net/cdn/86/QHf1d86b2/bbcreithserifarg.svg#bbcreithserifarg') format('svg');
+}
+}</style><!--[if gte mso 9]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![endif]--><!-- Stand alone CTA --><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+		<tr>
+			<td align="center" style="padding: 0 30px;">
+				<table border="0" cellpadding="0" cellspacing="0" class="w100pc" style="width: 600px;" width="600">
+					
+						<tr>
+							<td align="center">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									
+										<tr>
+											<td align="center" style="padding: 0px 0;">
+												<table align="left" bgcolor="#006def" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color: #006def; border-radius: 25px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 13px; font-weight: bold; line-height: 22px; text-align: center; text-decoration: none; text-size-adjust: none;">
+													
+														<tr>
+															<td align="center" height="50" style="padding: 0px 30px;" valign="middle">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+																	
+																		<tr>
+																			<td align="center" style="color: #000000; font-size: 18px; line-height: 24px; display: block; font-family: bbcreithsansabd, Arial, sans-serif;" valign="top">
+																				<a  data-linkto="https://" href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a38dd520f735df276bd26dff48220053081247f1695f8983b6de0aad8667ef964740dcb3f0554797d6e35549e8bb9541e6" style="color:#ffffff;text-decoration:none;display: block;" target="_blank" title="Take part">Sign in</a></td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></tr></table><!-- /Stand alone CTA --></td></tr></table></td>
+  </tr>
+  <tr>
+    <td align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- Did you know --><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+ 
+  <tr>
+   <td>
+    <img alt="" height="1" src="https://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/18/sounds-welcome-sp.gif" width="30"></td><td align="center" style="padding-bottom: 20px;">
+    <table border="0" cellpadding="0" cellspacing="0" class="wrapto100pc" style="width:600px;" width="600">
+     
+      <tr>
+       <td style="padding: 0px 0px 20px;">
+       </td></tr><tr>
+       <td>
+        <p style="font-family: bbcreithsansalt, arial; font-size: 16px; color: #000001; line-height: 23px;padding: 0; margin:0;">
+         You can also sign in by visiting bbc.com/stay<br>
+         <br>
+         Other BBC accounts you&rsquo;ve used recently will not be affected by this.</p></td></tr></table></td><td>
+    <img alt="" height="1" src="https://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/18/sounds-welcome-sp.gif" width="30"></td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- Did you know --><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+ 
+  <tr>
+   <td>
+    <img alt="" height="1" src="https://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/18/sounds-welcome-sp.gif" width="30"></td><td align="center" style="padding-bottom: 20px;">
+    <table border="0" cellpadding="0" cellspacing="0" class="wrapto100pc" style="width:600px;" width="600">
+     
+      <tr>
+       <td style="padding: 10px 0px 20px;">
+        <h2 style="font-family: 'bbcreithsansabd', arial; font-size: 28px; color: #000001; line-height: 41px;padding: 0; margin: 0;">
+         Should I keep my account?</h2></td></tr><tr>
+       <td>
+        <p style="font-family: bbcreithsansalt, arial; font-size: 16px; color: #000001; line-height: 23px;padding: 0; margin:0;">
+         You'll need a BBC account to follow your favourite sports and teams, and listen to music and podcasts on BBC Sounds. It also means you can have your say on the news stories of the day.<br>
+         <br>
+         Find out more about <a  href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a3b7458042d0d5c73a1aa97cd45385b5e200033070ecbe295b473e010df5dd53938710919c9acda8ac54badfae7a92643d" style="color:#006def; text-decoration: underline;" target="_blank" title="Privacy Notice">what you can do with your BBC account.</a><br>
+         <br>
+         All the best,<br>
+         <br>
+         <strong>The BBC</strong></p></td></tr></table></td><td>
+    <img alt="" height="1" src="https://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/18/sounds-welcome-sp.gif" width="30"></td></tr></table></td></tr></table></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+  <tr>
+    <td align="center"></td>
+  </tr>
+    </table>
+
+    <!-- Footer -->
+                     <table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-top:1px solid #e6e6e6; min-width: 100%;" width="100%">
+              <tr>
+                <td align="center" bgcolor="#ffffff" width="100%"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" class="w100pc" role="presentation" width="650" style="width: 650px;min-width: 650px;">
+                    <tr>
+                      <td width="25">&nbsp;</td>
+                      <td valign="top">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="min-width:100%;">
+                              <tr>
+    <td align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- footer links --><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="min-width:100%;" width="100%">
+ 
+  <tr>
+   <td height="15" width="100%">
+    &nbsp;</td></tr><tr>
+   <td valign="middle" width="100%">
+    <table align="left" border="0" cellpadding="0" cellspacing="0" class="w100pc" role="presentation" style="width: 83px;" width="83">
+     
+      <tr>
+       <td class="textcenter" height="35" valign="middle">
+        <img alt="" border="0" height="24" src="http://image.e.bbcmail.co.uk/lib/fe9013727761077872/m/4/wel-bbc-footer-logo-v1.png" style="display:inline-block;" width="84"></td></tr></table><!--[if (gte mso 9)|(IE)]></td><td><![endif]--><table align="right" border="0" cellpadding="0" cellspacing="0" class="w100pc" role="presentation" style="width: 500px; min-width: 500px;" width="500">
+     
+      <tr>
+       <td align="right" style="padding-top:7px; padding-bottom:7px; font-family: Helvetica, Arial, sans-serif; font-size:14px; line-height:20px; color:#000001; font-weight:bold;">
+        <a  class="textcenter" href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a34fd3e4fae3cc1cbad6beef18ff884642825adec53c4534c9bf93a1f4d94dcf46f078796951561536a25f8e01ff26eae1" style="text-decoration: underline; color: #000001;" target="_blank" title="About BBC accounts">About BBC accounts</a>&nbsp; &nbsp; &nbsp; <a  class="textcenter" href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a3158fd0c781a1dd89fe4f743daf50d2a1aae6a946ef8ae90148ffe57c1e849e6cff5786a1ec7a22194e0348c3485681a3" style="text-decoration: underline; color: #000001;" target="_blank" title="About Cookies">About Cookies</a>&nbsp; &nbsp; &nbsp; <a  class="textcenter" href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a34ce3ae31bd296f0703f6e83e3198df74c6a2483fb43d0b2b16b1777ac75be7c0f8be3f9815da64ebbccc7ace096f11d0" style="text-decoration: underline; color: #000001;" target="_blank" title="Your privacy">Your&nbsp;Privacy </a>&nbsp; &nbsp; &nbsp; 
+<a  class="textcenter" href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a32351af48ab0bd44dc721813880d6a1bd1e870c42e5f295d68f76451e3e380c5249e1b06d838eb6fa41126ca904c09269" style="text-decoration: underline; color: #000001;" target="_blank" title="Your privacy">Terms&nbsp;of&nbsp;Use</a></td></tr></table></td></tr><tr>
+   <td height="15" width="100%">
+    &nbsp;</td></tr></table></td></tr></table></td>
+  </tr>              
+  <tr>
+    <td align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- footer ts and cs --><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-top:1px solid #e6e6e6; min-width: 100%;" width="100%">
+ 
+  <tr>
+   <td align="center" bgcolor="#ffffff" class="nopad" style="padding: 0 30px;">
+    <p style="color:#000001; font-size:13px; font-family: Helvetica, Arial, sans-serif; line-height:22px;padding: 0; margin:0;">
+     <br>
+     You're receiving this service email because you signed up for a BBC account.<br>
+     <br>
+     Unless you&rsquo;ve signed up for any BBC newsletters, we&rsquo;ll only email you to tell you more about a BBC service you&rsquo;ve started using for the first time, or if we need to contact you about your BBC account.<br>
+     <br>
+     This email is sent from an automated account which is not monitored and so we&rsquo;re unable to respond to replies to this email. If you have any questions about your account, you'll find lots of useful info on our <a   data-linkto="https://" href="https://click.e.bbcmail.co.uk/?qs=7697f50edd3688a3fd9130b8f47248bd9783f1c4b71895c663dd771545d181c8477292b74f264fbea4e4d57010ec7d4ab6131c719597564e" style="color:#000001;text-decoration:underline;" target="_blank" title="FAQs page">FAQs page</a>.<br>
+     <br>
+     BBC Broadcasting House, Portland Place, London W1A 1AA, UK<br>
+     Copyright &copy; 2&zwnj;021 BBC</p></td></tr><tr>
+   <td height="20" style="font-size:1px; line-height:1px;" width="100%">
+   </td></tr></table></td></tr></table></td>
+  </tr>      
+                              </table>
+                           </td>
+                      <td width="25">&nbsp;</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td align="center" bgcolor="#ffffff" height="20" width="100%">&nbsp;</td>
+              </tr>
+            </table>   
+    
+              
+    
+    
+<img src="https://click.e.bbcmail.co.uk/open.aspx?ffcb10-fef910727c6601-fe4d17797d6c0d7e7613-fe9113727761077873-ff9d1670-fe5e10737161027f7216-ff3613707465&d=500006&bmt=0" width="1" height="1" alt="">
+</body>
+</html>
+
+--WxSSceBla3QO=_?:--
+

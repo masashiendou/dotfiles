@@ -1,0 +1,511 @@
+Received: from HK0PR06MB2290.apcprd06.prod.outlook.com (2603:1096:202::16) by
+ HK0PR06MB2739.apcprd06.prod.outlook.com with HTTPS via
+ HK2PR0302CA0006.APCPRD03.PROD.OUTLOOK.COM; Mon, 18 May 2020 03:00:16 +0000
+Received: from OS2PR01CA0097.jpnprd01.prod.outlook.com (2603:1096:602:1::15)
+ by HK0PR06MB2290.apcprd06.prod.outlook.com (2603:1096:203:4f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3000.25; Mon, 18 May
+ 2020 03:00:15 +0000
+Received: from OS2JPN01FT017.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:602:1:cafe::7f) by OS2PR01CA0097.outlook.office365.com
+ (2603:1096:602:1::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3000.24 via Frontend
+ Transport; Mon, 18 May 2020 03:00:15 +0000
+Authentication-Results: spf=pass (sender IP is 13.112.0.180)
+ smtp.mailfrom=backlog.com; naganosd.com; dkim=none (message not signed)
+ header.d=none;naganosd.com; dmarc=bestguesspass action=none
+ header.from=backlog.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of backlog.com designates
+ 13.112.0.180 as permitted sender) receiver=protection.outlook.com;
+ client-ip=13.112.0.180; helo=mta-mail51.tokyo.backlog.com;
+Received: from mta-mail51.tokyo.backlog.com (13.112.0.180) by
+ OS2JPN01FT017.mail.protection.outlook.com (10.152.184.174) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3000.19 via Frontend Transport; Mon, 18 May 2020 03:00:14 +0000
+Received: (qmail 2650 invoked from network); 18 May 2020 12:00:13 +0900
+Received: from unknown (HELO app52-b.backlog.internal) (10.5.0.112)
+  by mta.backlog.internal with SMTP; 18 May 2020 12:00:13 +0900
+Received: (qmail 26612 invoked from network); 18 May 2020 12:00:13 +0900
+Received: from unknown (HELO app52-b) (127.0.0.1)
+  by localhost.backlog.internal with SMTP; 18 May 2020 12:00:13 +0900
+Date: Mon, 18 May 2020 12:00:13 +0900 (JST)
+From: Backlog <support@backlog.com>
+Reply-To: support@backlog.com
+To: endo_masashi@naganosd.com
+Message-ID: <1589770813611.3240925482620280@backlog.com>
+Subject: =?UTF-8?B?QmFja2xvZ+OBp+OCueOCv+ODvOOBjOWxiuOBjeOBvuOBl+OBn++8gQ==?=
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_4720158_2058562352.1589770813611"
+Return-Path: return@backlog.com
+X-MS-Exchange-Organization-ExpirationStartTime: 18 May 2020 03:00:14.2130
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 106ff25a-e417-4a7b-771c-08d7fad79643
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3a723edf-b2e9-465d-826a-d5ccf5e64f13:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-Forefront-Antispam-Report:
+ CIP:13.112.0.180;CTRY:JP;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mta-mail51.tokyo.backlog.com;PTR:mta-mail51.tokyo.backlog.com;CAT:NONE;SFTY:;SFS:(7596003)(356005)(7636003)(224303003)(22186003)(6916009)(26005)(3450700001)(166002)(58800400005)(1096003)(966005)(33964004)(336012)(36756003)(5660300002)(7126003)(2616005)(42242002);DIR:INB;SFP:;
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ OS2JPN01FT017.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 106ff25a-e417-4a7b-771c-08d7fad79643
+X-MS-TrafficTypeDiagnostic: HK0PR06MB2290:
+X-MS-Oob-TLC-OOBClassifiers: OLM:1923;
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2020 03:00:14.0781
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 106ff25a-e417-4a7b-771c-08d7fad79643
+X-MS-Exchange-CrossTenant-Id: 3a723edf-b2e9-465d-826a-d5ccf5e64f13
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB2290
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.4222018
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.3000.034
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(20160514016)(750128)(520011016)(944506383)(944626516);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?ZVFxTHBQaWRtL3U5NDE5bTVUOEx2U3p3UzdOcU1ieGk3SXRyTDFlTmRXVkRz?=
+ =?utf-8?B?N1NXWStSWVgwN2R4cUhvdTRkNUMrNHJJeW81bjlIMlc3NXc1V2FhRlBPUC9a?=
+ =?utf-8?B?amtzSlpqcGhiUFJ4K09KbkpSVnNHak82SElmRFFlVE5KbWtmZFVkNnN3TUls?=
+ =?utf-8?B?Uy9VZlpyY0xwblM3ZzJNTmk1ZzBoV3BxWHN3K3hTV3RUQS9XZjhUcVIzUFpQ?=
+ =?utf-8?B?QjFDU0RSQnBJTFFLSlMvYStpUmM5S2ZtN1dQSWJYaHlJb0dETi9KY0JFamww?=
+ =?utf-8?B?Mk9aZ05qZWFIL3VTdXIwVWFWYmluY1o3VjczbWdTZktaT2hIUjdzQ0JxT0xm?=
+ =?utf-8?B?ZE94ZlZQbXNaZWxERDY5QThWVDhlZWtUWDJOVS9Td0szcWhxdnErZkhJUmc0?=
+ =?utf-8?B?U0RqTExUMjZJY3dWSEZQU0M3MnF0R2tWeEpuSFBoZno1cCt5V3BvVjBGMmMx?=
+ =?utf-8?B?blRKQkZ6WDF5YWxDMjhFc0xYdU1VYWVoamxLU01vYXRtWnU3NVl3blk5L041?=
+ =?utf-8?B?YVhYZnJ1RjZydFRHcW5GVVFnRVNWaUFUVlFBVElXWWtDcUh0eUo5OHNzVXJX?=
+ =?utf-8?B?UFdHYjYvcjBHbXkxY3VEN2JsdXY2SVN6TUFCS216TzJJd2pmWEN1aGFzVXpo?=
+ =?utf-8?B?dk1MRGtJZGZ6MG1PbzdRMVRtT1QxMVo5V1ErdDFWaDdHSEh5T2RRRGJiOElr?=
+ =?utf-8?B?T2JxMGJxZ2IrMzZ5MUNlTVZnVUIyekdIMlc5dWFWZnFXbEh2cmtwS1hHUnFK?=
+ =?utf-8?B?Z0ZsN0dKZTRBQWVFbnJqVFJNSjVmOU14MGxOL0hkTzR4cnp3THNTdDVmRFR4?=
+ =?utf-8?B?SUpFSDlBaHRwQ2t6TFM4T1V0ZXB3M1N6TkFxMmNpSmZhQjFxb2gxNEZKY3ov?=
+ =?utf-8?B?a1JpZW1tQjBreWtvK0tkUUpKbWNvV2gyKzZWSTRLeTQyZE1ZS2VGM1QyRWNy?=
+ =?utf-8?B?QlI5OHVrVG1iM0FHcEFoQ1drVWZLNFpWVEJvREh2bTRjcHlyTzh3dk8wdno2?=
+ =?utf-8?B?aWUvTHV2aE5OUTUxYXU1YXJEZ3ZIaXgwYVdiWXdoNS9Ed1NpblBmVHpiVkwx?=
+ =?utf-8?B?TVhwWW5uQVVaYW54NlRQNU9KR0lYQWtxcVlreVkyU1BWYzNMYVFFdUN1VUJV?=
+ =?utf-8?B?Mmd1RktnTFVMRTFmU24vcXZZR2l3Ni83aE1xeGMxMzJhc2d3TzZTcU1Ca0E3?=
+ =?utf-8?B?blhxZU4zMlVFd3ZxZTU2UytwS2lKRWkyQmVDK2FNTmtZL0hEeFM3WUVLenIy?=
+ =?utf-8?B?bmNCbGdGWW5LbEFORlVlNzdDbmhzZFJSNjNPdkt1bmNWak1hNjFoLzVzeExj?=
+ =?utf-8?B?b3JjeUozWEdzSnBZc2dKbEZCdGJFVFFHa3JEMXk1SzBIcGowRlhwV2NEQkhZ?=
+ =?utf-8?B?ays2SDZnOG82Y24xcG5mVHNqRGJidTY2OHB0OUhRMHpNc2FnU1l1Y1gwOFRK?=
+ =?utf-8?B?dVR2Zno0QkFaK0RyZ0F4dm1ibEdjSzgrMnJENDdYQmRIUGF6a2lSaWI2dUQ2?=
+ =?utf-8?B?Y3Nrd280MnhXS0pCeTVtRTM2eXJBN05sS2QvTXhKZEhKSldpRGx1dnRtQkRM?=
+ =?utf-8?B?c3k5SDZJRzg5SVlxRUw1QThuTy8raVRUMjljNVl1Yi9ySkVSeVkrcURldzJp?=
+ =?utf-8?B?dVJuZEgycGl3KzFhcExvMVoyOVFVWjJlY1BJbFcvaWJ3R2M4ME1WUXlHMS9T?=
+ =?utf-8?B?Q3plZkIydHhkK2o0dXlwM3NjYTJlcEVaMHdGcjlFSzZkOXh0QXVGTy8xcUFr?=
+ =?utf-8?B?eEl2dHNrM0tRUU1WRWRsMWpHbWdodXBGL0RwQnZJZ1RyMW1vVTRBOUFpY0dC?=
+ =?utf-8?B?Z3FWV3lVK3BMR09uVG5OUk1Lc1gxUlFFdEE5a3dVQkQ2NXQ0elAyYlhJMEpG?=
+ =?utf-8?B?NjJrL1FwNUtSbDBUSHpPTks1L2pUSmhOcmIxc2pwY2hrZSttSWhKdit1dEli?=
+ =?utf-8?Q?QKm2iYI5Q+g=3D?=
+MIME-Version: 1.0
+
+------=_Part_4720158_2058562352.1589770813611
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+スターが 2個届きました！
+
+■プロジェクト名：AI出荷システム
+[MINO-91] 製作出荷情報：一覧　指定なし検索結果が異なる。
+https://naganosd.backlog.com/view/MINO-91#comment-39801805
+
+○MasashiEndoさんから頂きました。 ☆
+
+[MINO-97] 製作出荷情報：TOPボタンの表示がない。
+https://naganosd.backlog.com/view/MINO-97#comment-39814952
+
+○MasashiEndoさんから頂きました。 ☆
+
+------------------------------------------
+※スターについてはこちら
+https://naganosd.backlog.com/help/star
+
+ ※このメールが不要な方は以下から設定できます
+https://naganosd.backlog.com/settings/mail/
+
+------=_Part_4720158_2058562352.1589770813611
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!doctype html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>スターが 2個届きました！</title>
+  <!--[if !mso]><!-- -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--<![endif]-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+  #outlook a { padding: 0; }
+  .ReadMsgBody { width: 100%; }
+  .ExternalClass { width: 100%; }
+  .ExternalClass * { line-height:100%; }
+  body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { border-collapse:collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  p { display: block; margin: 13px 0; }
+</style>
+<!--[if !mso]><!-->
+<style type="text/css">
+  @media only screen and (max-width:480px) {
+    @-ms-viewport { width:320px; }
+    @viewport { width:320px; }
+  }
+</style>
+<!--<![endif]-->
+<!--[if mso]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<!--[if lte mso 11]>
+<style type="text/css">
+  .outlook-group-fix {
+    width:100% !important;
+  }
+</style>
+<![endif]-->
+
+<!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600,700" rel="stylesheet" type="text/css">
+    <style type="text/css">
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+    </style>
+  <!--<![endif]--><style type="text/css">
+            a {
+                color: #4cbd9b;
+                text-decoration: none;
+            }
+
+            /* Remove tel-num style for iPhone/iOS */
+            .footer-timestamp a[x-apple-data-detectors] {
+                color:#f2f2f2 !important;
+            }
+
+            @media all and (max-width: 480px) {
+
+                .contents-section-block {
+                    padding-right: 5px !important;
+                    padding-left:  5px !important;
+                }
+
+                .footer-nav {
+                    float: none !important;
+                    width: 100% !important;
+                    text-align: center !important;
+                }
+                .footer-social {
+                    float: none !important;
+                    width: 100% !important;
+                    text-align: center !important;
+                }
+
+                .divider {
+                    padding-right: 5px !important;
+                    padding-left:  5px !important;
+                }
+
+                .comment-detail {
+                    margin-left:  0 !important;
+                    padding-left: 12px !important;
+                }
+
+                .cta-button {
+                    font-size: 18px !important;
+                    padding-left:  25px !important;
+                    padding-right: 25px !important;
+                }
+
+                .myreport-star-award-comment {
+                    padding-left:  5px !important;
+                    padding-right: 5px !important;
+                }
+                .myreport-star-award-icon {
+                    padding-left:  5px !important;
+                    padding-right: 5px !important;
+                }
+
+                /*==== .table-diff =====================*/
+
+                .table-diff {
+                    font-size: 12px !important;
+                    line-height: 18px !important;
+                }
+                .table-diff__th {
+                    padding-left:  15px !important;
+                    padding-right: 5px !important;
+                }
+                .table-diff__td {
+                    padding-left:  5px !important;
+                    padding-right: 15px !important;
+                }
+
+                /*==== .table-data-list =====================*/
+
+                .table-data-list__th {
+                    padding-left:  15px !important;
+                    padding-right: 5px !important;
+                }
+                .table-data-list__td {
+                    padding-left:  5px !important;
+                    padding-right: 15px !important;
+                }
+
+                /*==== .table-striped-list =====================*/
+
+                .table-striped-list {
+                    font-size: 12px !important;
+                    line-height: 18px !important;
+                }
+                .table-striped-list__th {
+                    padding-left:  15px !important;
+                    padding-right: 10px !important;
+                }
+                .table-striped-list__td {
+                    padding-left:  10px !important;
+                    padding-right: 15px !important;
+                }
+
+                /*=== content-header =====================*/
+
+                .contents-header-top-spacer {
+                    height: 12px !important;
+                }
+                .content-header {
+                    display: block !important;
+                    margin-top: 25px !important;
+                }
+                .content-header__icon {
+                    display: block !important;
+                    width: 100% !important;
+                    text-align: center !important;
+                    padding-right: 0 !important;
+                }
+                .content-header__title {
+                    display: block !important;
+                    text-align: center !important;
+                    padding-top: 13px !important;
+                }
+
+            }
+            @media screen and (-webkit-min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+                body {
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+            }
+        </style><style type="text/css">
+  @media only screen and (min-width:480px) {
+    .mj-column-per-100 { width:100%!important; }
+.mj-column-per-50 { width:50%!important; }
+  }
+</style>
+</head>
+<body style="background: #f2f2f2;">
+  
+  <div class="mj-container" style="padding: 0 10px; background-color: #f2f2f2;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;" border="0"><tbody><tr><td><div style="margin:0px auto;max-width:600px;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px 30px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:middle;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:middle;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" style="vertical-align:middle;" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:inherit;line-height:inherit;text-align:center;"><a href="http://www.backlog.jp" target="_blank" style="color: #4cbd9b; text-decoration: none;"><img width="158" src="https://assets.backlog.com/backlog-mail/images/mail/common/logo_backlog_color@2x.png"></a></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div></td></tr></tbody></table><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:40px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;padding-bottom:0px;padding-top:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#252525;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:24px;font-weight:600;line-height:36px;text-align:left;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                            スターが 2個届きました！
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;" data-class=""><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:left;"><div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                        プロジェクト名：<b style="font-weight: 600;">AI出荷システム</b>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;" data-class=""><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;padding-top:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:left;"><!-- for protect style on the mailer -->
+                        <div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                            <a href="https://naganosd.backlog.com/view/MINO-91#comment-39801805" target="_blank" style="color: #4cbd9b; text-decoration: none;">[MINO-91] 製作出荷情報：一覧　指定なし検索結果が異なる。</a>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table-star-list" style="border-collapse: collapse; width: 100%; margin-top: 5px;">
+                                                            <tr>
+                                    <td class="table-star-list__image" style="width: 42px; padding-top: 12px; padding-right: 11px; vertical-align: top;" width="42" valign="top">
+                                        <img src="https://apps.nulab.com/account/2UUW7rpWYg7De7qIMzIDHYkz49Y4VMOdUo95geILBxP1Cvurrg/photo/large" alt="" title="MasashiEndo" style="border-radius: 100%; width: 42px; height: 42px; vertical-align: middle;" width="42" height="42">
+                                    </td>
+                                    <td class="table-star-list__star" style="padding-top: 17px; vertical-align: top;" valign="top">
+                                    <div class="star-wraper" style="margin-bottom: 8px;">
+                                                                            <img src="https://assets.backlog.com/backlog-mail/images/mail/app/icon_star@2x.png" alt="star" style="height: 23px; width: 23px; vertical-align: middle;" width="23" height="23">
+                                                                        </div>
+                                    <ul class="star-comment" style="margin: 0; padding: 0; color: #74758b;">
+                                                                                                                                                            </ul>
+                                    </td>
+                                </tr>
+                                                        </table>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;" data-class=""><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;padding-top:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:left;"><!-- for protect style on the mailer -->
+                        <div class="contents-section-block" style="padding-right: 25px; padding-left: 25px;">
+                            <a href="https://naganosd.backlog.com/view/MINO-97#comment-39814952" target="_blank" style="color: #4cbd9b; text-decoration: none;">[MINO-97] 製作出荷情報：TOPボタンの表示がない。</a>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="table-star-list" style="border-collapse: collapse; width: 100%; margin-top: 5px;">
+                                                            <tr>
+                                    <td class="table-star-list__image" style="width: 42px; padding-top: 12px; padding-right: 11px; vertical-align: top;" width="42" valign="top">
+                                        <img src="https://apps.nulab.com/account/2UUW7rpWYg7De7qIMzIDHYkz49Y4VMOdUo95geILBxP1Cvurrg/photo/large" alt="" title="MasashiEndo" style="border-radius: 100%; width: 42px; height: 42px; vertical-align: middle;" width="42" height="42">
+                                    </td>
+                                    <td class="table-star-list__star" style="padding-top: 17px; vertical-align: top;" valign="top">
+                                    <div class="star-wraper" style="margin-bottom: 8px;">
+                                                                            <img src="https://assets.backlog.com/backlog-mail/images/mail/app/icon_star@2x.png" alt="star" style="height: 23px; width: 23px; vertical-align: middle;" width="23" height="23">
+                                                                        </div>
+                                    <ul class="star-comment" style="margin: 0; padding: 0; color: #74758b;">
+                                                                                                                                                            </ul>
+                                    </td>
+                                </tr>
+                                                        </table>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;" data-class=""><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:40px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#f2f2f2;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#f2f2f2;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:22px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:5px 20px;padding-top:20px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center"><div style="cursor:auto;color:#74758b;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:12px;font-weight:400;line-height:20px;text-align:center;">スターをもらったため、このメールが送信されました。<br>
+                    メールの設定を変更する場合は <a href="https://naganosd.backlog.com/settings/mail/" style="color: #74758b; text-decoration: underline;" target="_blank">こちら</a> から設定してください。</div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#fff;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:10px 15px;padding-bottom:20px;padding-top:5px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;padding:10px 0px;padding-top:0px;padding-bottom:0px;" align="left"><div style="cursor:auto;color:#4a4a4a;font-family:'Open Sans', Helvetica, 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;font-size:16px;line-height:30px;text-align:left;"><div class="contents-section-block footer-links" style="padding-right: 25px; padding-left: 25px;">
+                            <div class="footer-nav" style="float: left; width: 68%; vertical-align: middle; white-space: nowrap;">
+                                <a class="footer-nav-link" href="https://backlog.com/ja/contact/" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline;">お問い合わせ</a>
+                                <a class="footer-nav-link" href="https://nulab.com/ja/blog/backlog/" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline; margin-left: 20px;">ブログ</a>
+                                <a class="footer-nav-link" href="https://itunes.apple.com/jp/app/backlog/id863872037" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline; margin-left: 20px;">iOS</a>
+                                <a class="footer-nav-link" href="https://play.google.com/store/apps/details?id=backlog.android&amp;hl=ja" target="_blank" style="color: #74758b; font-size: 12px; text-decoration: underline; margin-left: 20px;">Android</a>
+                            </div>
+                            <div class="footer-social" style="float: right; width: 30%; text-align: right; vertical-align: middle; padding-top: 3px; white-space: nowrap;">
+                                <a class="footer-social-link" href="https://www.facebook.com/Backlogapp" target="_blank" style="color: #4cbd9b; text-decoration: none; margin-left: 7px;"><img src="https://assets.backlog.com/backlog-mail/images/mail/common/facebook-icon_blue@2x.png" alt="" width="16" height="16"></a>
+                                <a class="footer-social-link" href="https://twitter.com/backlogapp" target="_blank" style="color: #4cbd9b; text-decoration: none; margin-left: 7px;"><img src="https://assets.backlog.com/backlog-mail/images/mail/common/twitter-icon_blue@2x.png" alt="" width="16" height="16"></a>
+                                <a class="footer-social-link" href="https://www.linkedin.com/company/nulab" target="_blank" style="color: #4cbd9b; text-decoration: none; margin-left: 7px;"><img src="https://assets.backlog.com/backlog-mail/images/mail/common/linkedin-icon_blue@2x.png" alt="" width="16" height="16" align="bottom"></a>
+                            </div>
+                        </div></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]-->
+      <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]--><div style="margin:0px auto;max-width:600px;background:#f2f2f2;"><table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#f2f2f2;" align="center" border="0"><tbody><tr><td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;"><!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="vertical-align:top;width:600px;">
+      <![endif]--><div class="mj-column-per-100 outlook-group-fix" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody><tr><td style="word-wrap:break-word;font-size:0px;"><div style="font-size:1px;line-height:40px;white-space:nowrap;">&nbsp;</div></td></tr><tr><td style="word-wrap:break-word;font-size:0px;"><div class="mj-column-per-50 outlook-group-fix" data-vertical-align="top" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0"><tbody></tbody></table></div></td></tr></tbody></table></div><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></td></tr></tbody></table></div><p class="footer-timestamp" style="color:#f2f2f2; font-size: 10px; margin: 0; height: 10px; line-height: 10px; text-align: center;">End of Mail : 1589770813606</p><p></p><!--[if mso | IE]>
+      </td></tr></table>
+      <![endif]--></div>
+</body>
+</html>
+------=_Part_4720158_2058562352.1589770813611--

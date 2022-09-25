@@ -1,0 +1,2593 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp1802775vkl;
+        Fri, 16 Oct 2020 16:48:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxUnM/LEFCRCwAv1R6J5deZGTA5TrxNCRcLXOEChttCdRmQ9snLHsB511qaV/Yq/saMRJOj
+X-Received: by 2002:a65:4144:: with SMTP id x4mr3720560pgp.432.1602892094873;
+        Fri, 16 Oct 2020 16:48:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1602892094; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=rxoni5XL0jsQVMlZTyKPpdxYBe+5lp5R42yWBVecl1Yev7hsLghp+IX9eUXbR1Cv7t
+         J1XO33NiPuibHW8U/X4UktC2HeX8X+Z/9RJ78L2BO5zsczZ7Ad5yu1h8RBOEZz1bmnK6
+         fj8ZrUkdxeyqADjOqpODFr2/6ifPm6Z4N8aFrcsHdBAG/DTx6qeU188vwKQrTDoQTfRk
+         JhX5DJxg77eIkEeQOmnc4Z/O1NkcjFMFIpI53cPMRyqYg+9LpdedJyTxoyt2kmNCimwh
+         WitIrI/8UWN+rV9mzGpyP+KGEKm77YUboY1l9+VXbBPPzRbfcDnaowlDYtHYvvNUOWUp
+         aadQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:to
+         :from:dkim-signature;
+        bh=YyDxnxyzxdav32zUQWBgLq1PSWqNVPX8aVkk2CkukGc=;
+        b=HVQ3JgV6Ag0MbgD2in3hLIZ7cTirdSY3+eeyK4cPEe0s09ATHpBYTuteOkWkRzC0+x
+         coKH5bT4Wa+TEwL5SMsNCyIB9kvlO30wQ+D5L8zXW2EGIw+IUUk2UYYMjTGJ66O/ynL1
+         krqzMDvmQtmTbDQccSVjnrdexOOHq7xclWw8QrhXqCBlphhzBjh7kxvdje972+kRhA07
+         LoTmMYMkH5Wwgp1+7ZG6nW61XwPVBgQidpbPECLpRErNl/BMhtK1F0s3o7yWODIMTSqd
+         s7Pnnifbzm57J3g8N/9nh+8H0uAbUCAistbfmGRY94iMfQgv31CKSukk3nngwTlVZ0sf
+         glYg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@kioa.onmicrosoft.com header.s=selector2-kioa-onmicrosoft-com header.b=ucFnGQyE;
+       arc=pass (i=1 spf=pass spfdomain=kioa.co.jp dkim=pass dkdomain=kioa.co.jp dmarc=pass fromdomain=kioa.co.jp);
+       spf=pass (google.com: domain of hayashi@kioa.co.jp designates 40.107.140.108 as permitted sender) smtp.mailfrom=hayashi@kioa.co.jp
+Return-Path: <hayashi@kioa.co.jp>
+Received: from JPN01-TY1-obe.outbound.protection.outlook.com (mail-eopbgr1400108.outbound.protection.outlook.com. [40.107.140.108])
+        by mx.google.com with ESMTPS id l4si3740945pld.265.2020.10.16.16.48.13
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Oct 2020 16:48:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of hayashi@kioa.co.jp designates 40.107.140.108 as permitted sender) client-ip=40.107.140.108;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@kioa.onmicrosoft.com header.s=selector2-kioa-onmicrosoft-com header.b=ucFnGQyE;
+       arc=pass (i=1 spf=pass spfdomain=kioa.co.jp dkim=pass dkdomain=kioa.co.jp dmarc=pass fromdomain=kioa.co.jp);
+       spf=pass (google.com: domain of hayashi@kioa.co.jp designates 40.107.140.108 as permitted sender) smtp.mailfrom=hayashi@kioa.co.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=AjqcuAxWvw6shOttgx7IWwCUBc50b6D2mxZQGyCTUODhPPjBzV9Q5EAIKs8Ow2WvGdcZgizaG82bBqLJ+uxOJUCNUjhxvla3I7jWu2clVXvR1MOtuMrLTUhBHFrMfAPIY7J6b80UZuze7SfZjk4PAC9J3mS8OsiBHeJ4iiYtOBmjXLepv7GTFIbo9UFpvbnmfhulIrvg/scn4MaQO26FVQgPXW/4iOcFGrK4GBaW/Co07AHyl1f4u3k+h8o87/nCuNsjMOeV4NHe0pqokXuBwDo+0ogIJVPdDJkk1eZzQFWQpBR5RBfi/w00wr4UJGAokse9xV++/yaXcxBfxUC8Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YyDxnxyzxdav32zUQWBgLq1PSWqNVPX8aVkk2CkukGc=;
+ b=byY6oaPSZgPeuUiK8m5PFuxhaBccUjA8xmlSEPjeDe5WIhYGol+CLnWophKUbAtfTEltt2LANxS7mJNy5RLoRopBdS1aM5pfqzvvHNguT4X7cVkdO3ITkPK5JJGtnHUtzX4iwQ7NW230k3Kaw1QpMdOIT4GiPS3PsWFHj171smdAJsYelnKZ62owM3e3XbyiS0Rr8lq6YB1CZWNmY7FaMPITtLrM2o5hG47M8uCPsTj5vEDLAy1ku6+zNrjy+c22uetQyNCmbrLhI7ha1PJiDOT0OOOk9J14LujoVTGLZJdvCbeACacEKXbYaHnPXgzp2AyQRRSO24SDie14uI0+Gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kioa.co.jp; dmarc=pass action=none header.from=kioa.co.jp;
+ dkim=pass header.d=kioa.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kioa.onmicrosoft.com;
+ s=selector2-kioa-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YyDxnxyzxdav32zUQWBgLq1PSWqNVPX8aVkk2CkukGc=;
+ b=ucFnGQyE2FJDHqpmv4iseLzW35xGY5BgdMC0BQhAYq1j8dKXoA7INN5b1LCDm3mBL1NbExpoU4OeIipwPNzihVDInPXuIAahBVx49bZeKZ0Nr3SOo7LsD35Zr74LiqYAFRcb3P8pE+dFtdEB9YMB4UwRIZ4s857TpzNAe1Oq6K8=
+Received: from OSAPR01MB1475.jpnprd01.prod.outlook.com (2603:1096:603:2c::22)
+ by OSBPR01MB2949.jpnprd01.prod.outlook.com (2603:1096:604:1a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3477.22; Fri, 16 Oct
+ 2020 23:48:11 +0000
+Received: from OSAPR01MB1475.jpnprd01.prod.outlook.com
+ ([fe80::397e:aae9:f4d3:caa0]) by OSAPR01MB1475.jpnprd01.prod.outlook.com
+ ([fe80::397e:aae9:f4d3:caa0%7]) with mapi id 15.20.3477.022; Fri, 16 Oct 2020
+ 23:48:11 +0000
+From: =?iso-2022-jp?B?GyRCTlMbKEIgGyRCSH5CZRsoQg==?= <hayashi@kioa.co.jp>
+To: "[Masashi Endo]" <hujyorom@gmail.com>
+Subject: =?iso-2022-jp?B?UmU6IBskQjojOGUkSyREJCQkRiFKMXNGIz8/RmBNTSFLGyhC?=
+Thread-Topic: =?iso-2022-jp?B?GyRCOiM4ZSRLJEQkJCRGIUoxc0YjPz9GYE1NIUsbKEI=?=
+Thread-Index:
+ AdaI0RfAirOnGcF+RNaB6WIZ5qNB1gC+oR+AADD1weACj+r9AAA2QAEQAAaEzwAC4yYZAAAxh3L2
+Date: Fri, 16 Oct 2020 23:48:11 +0000
+Message-ID:
+ <OSAPR01MB147549559801FDBD46399FCA83030@OSAPR01MB1475.jpnprd01.prod.outlook.com>
+References:
+ <OSAPR01MB1475E40F110789D096E5761283230@OSAPR01MB1475.jpnprd01.prod.outlook.com>
+ <20200916014927.r2uwupahvd7qnecv@Kx250>
+ <OSAPR01MB1475F1163510B5869BC287FC833E0@OSAPR01MB1475.jpnprd01.prod.outlook.com>
+ <20200930021218.5zdqjwkfo26r6wed@Kx250>
+ <OSAPR01MB14759E447CAEBCFDF265F53883300@OSAPR01MB1475.jpnprd01.prod.outlook.com>
+ <20201001071218.uctrgq4reselsyz2@Kx250>,<20201015235626.siktynunjexv6gps@Kx250>
+In-Reply-To: <20201015235626.siktynunjexv6gps@Kx250>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=kioa.co.jp;
+x-originating-ip: [118.241.250.80]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 4e07ae24-4c31-4d5a-cfb9-08d8722df130
+x-ms-traffictypediagnostic: OSBPR01MB2949:
+x-microsoft-antispam-prvs:
+ <OSBPR01MB29495886AF5FD87FC72D4B3283030@OSBPR01MB2949.jpnprd01.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:873;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ fL6BKJfWETk8QEdK4sCKwL7aO84WVENdXLxr81gdKJL3VMPoznb7yIgo2kWQccHdYgp8vhMYZ8AJV2C9pFMgoLrT7C3AhBtfAjqAVc8Yk2RNB0Hu3ExdWAeazW0XwcodzprSJOdzoAL7yVrwU8bOQcuD+4x/mh8w3rPBwtbEEikOBAPKPK7JS5P++x0Mo92TgKJVYPNvhyizXuSYrCTGFFqvTGDFgpEt+trAT+bsr8b2ZUrHO7Avq82XEI6KZQUxVyJzuxWEgdQAGh/t+3W15a/HGm0/pLbcHDsXKO3TcDmdCmVjtQ19Ih4BopJ5pjkicBYFEkBirNBvJ1RKccYQ3WvvCQNuawf6zK48LuD5GZEbOJg2EOR7STE1TmIeWTU99XCu85qPYxnIVBQW8Wsf5w==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSAPR01MB1475.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(366004)(376002)(346002)(396003)(39830400003)(136003)(64756008)(66476007)(83380400001)(66946007)(7696005)(166002)(19627405001)(91956017)(71200400001)(86362001)(2906002)(9686003)(224303003)(6506007)(8936002)(30864003)(567974003)(478600001)(966005)(33656002)(55016002)(66446008)(66556008)(76116006)(6916009)(316002)(85182001)(53546011)(5660300002)(186003)(26005)(52536014);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata:
+ QiaHn9UUD/qjvrFxQThjr0fTGehfprDjyqBktx+ygYTeUe2TLfxxj+KOQxvRDaos+Tftpy0QwVRb5f03FtiinAQUPfYlQyal/BCWx09qPnO1EK4CF4JYdTwW/DKCO7vs/Rr7NmjKcygZ5TcSFdSj4gh3DQtFZZI/TQ/bHf6jKt+QFrfQo14+54wJDro/ugI2cjx/8yGZ2wUaHG2NABTv6gHpEYF8Q5oahj0qpyKoixgwh/7IaJN03pU8cON2kYyqZbWtg0g0oVCDDoV2zDwNPlimMN3pdVNhsfwmz6ax0TEkMkDQecLJwqrFyU+tictgC4KQsWVEnPNzhhYIW07gunLQlZ7oPXFmTEfUXf+89gzGjSY/2sjyi44YFYpIdq02LEZDyn4CJkxzcj7lFCGBhwuYG/wsxFcFGl5ANqBaq9zJoH1xRN2h0AHu2Ydb9Ex4DhZjIreXLiEMCekcjy0uSD7FORPhBVwyoCCK5HzUQVUy+y3pw/v32XGP8ZB5alNvCyH2naac4epFqtzK/1E5rYS76JjCZFr3qOj3JhFYcr4+KGMEjNUNLAjqSylCxrnfXWX6MKBMLixLTY2beuCzqN1MUJbHiHNQBKTh3/JrndCxKNrhswMi9hIhoS6+dFXd4YquyhaT1Few95UsNo2JVg==
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_OSAPR01MB147549559801FDBD46399FCA83030OSAPR01MB1475jpnp_"
+MIME-Version: 1.0
+X-OriginatorOrg: kioa.co.jp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSAPR01MB1475.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e07ae24-4c31-4d5a-cfb9-08d8722df130
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Oct 2020 23:48:11.7398
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: fac0992f-b772-4bfe-9181-e8bb906a7ba3
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: j6BKXVYyvvTLjk7jHKv4l5qHqeppN0SgOXKk7hpZyZ22zSGeKKXo6igtZKCVcjvDV4D4whf69F1Lxf+IRjoPfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSBPR01MB2949
+
+--_000_OSAPR01MB147549559801FDBD46399FCA83030OSAPR01MB1475jpnp_
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+=1B$B1sF#MM=1B(B
+
+=1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B
+=1B$B1sF#??F`MM$NBND4$O$$$+$,$G$7$g$&$+!#=1B(B
+
+=1B$B0J2<!"$*Ld$$9g$o$;$$$?$@$-$^$7$?7o$K$D$-$^$7$F2sEz$5$;$F$$$?$@$-$^$9!#=
+=1B(B
+
+
+- =1B$B<R2qJ]81=1B(B
+=1B$B!!=1B(B10/18(=1B$BF|=1B(B)=1B$BDL1!$rM=3DDj$7$F$$$k$N$G$9$,!":#$^$G;H$=
+C$F$$$?J]81>Z$r;HMQ$7$F$b:9$7;Y$($J$$$N$G$7$g$&$+!#=1B(B
+=1B$B"*=1B(B10=1B$B7n=1B(B16=1B$BF|$KJ]81;q3J$,AS<:$7$F$*$j$^$9$N$G$*;H$$$$=
+$?$@$1$^$;$s!#=1B(B
+=1B$BDL1!$5$l$k:]$O<+Hq$G$*;YJ'$$$$$?$@$-!"9qL17r9/J]81Ey$K$42CF~<jB3$-$r$*=
+4j$$$7$^$9!#=1B(B
+=1B$BB`?&>ZL@=3Dq$OM9Aw$$$?$7$^$9!#=1B(B
+
+- =1B$B:#8e$N<jB3$-=1B(B
+=1B$B"*1sF#MM$K$OJ]81>Z$NJV5Q$r$*4j$$$7$^$9!#J@<R$+$i$ON)BX6bEy$,$"$k>l9g!"=
+@:;;6b3[$O$*CN$i$;$$$?$7$^$9!#$^$?!"N%?&I<$K$D$-$^$7$F$O=1B(B2=1B$B=3D54VDx=
+EY!J%3%m%J12$N1F6A$GN%?&I<H/9T$KF|?t$,MW$7$F$*$j$^$9!K$G$*Aw$j$$$?$7$^$9!#=
+=1B(B
+=1B$BB`?&F|$r$^$?$0!"=3D}IB<jEv6b?=3D@A$OJ@<R7PM3$G?=3D@A$$$?$7$^$9$N$G!"0e=
+;U$N>ZL@$,5-$5$l$??=3D@A=3Dq$r$*Aw$j$/$@$5$$!#=1B(B
+
+=1B$BBND4$,I|D4$5$l$k$3$H$r$*5'$j?=3D$7>e$2$^$9!#=1B(B
+
+=1B$B3t<02q<R7<0&5A;h:`NAHNGd=3Dj=1B(B
+=1B$B?M;vC4Ev!'NS=1B(B
+
+________________________________
+=1B$B:9=3DP?M=1B(B: [Masashi Endo] <hujyorom@gmail.com>
+=1B$BAw?.F|;~=1B(B: 2020=1B$BG/=1B(B10=1B$B7n=1B(B16=1B$BF|=1B(B 8:56
+=1B$B08@h=1B(B: =1B$BNS=1B(B =1B$BH~Be=1B(B <hayashi@kioa.co.jp>
+=1B$B7oL>=1B(B: Re: =1B$B:#8e$K$D$$$F!J1sF#??F`MM!K=1B(B
+
+=1B$BNSMM=1B(B
+
+=1B$B1sF#$G$9=1B(B
+
+=1B$B<R2qJ]81$N@ZBX$J$i$S$K:#8e$N<jB3$-$K$D$$$F!"$*Ld$$9g$o$;$$$?$7$^$9!#=
+=1B(B
+
+- =1B$B<R2qJ]81=1B(B
+=1B$B!!=1B(B10/18(=1B$BF|=1B(B)=1B$BDL1!$rM=3DDj$7$F$$$k$N$G$9$,!":#$^$G;H$=
+C$F$$$?J]81>Z$r;HMQ$7$F$b:9$7;Y$($J$$$N$G$7$g$&$+!#=1B(B
+=1B$B!!4{B8$NJ]81>Z$,MxMQ$G$-$J$$>l9g!"<R2qJ]81$r$d$a$?>ZL@=3Dq$,L5$$$H:G4s=
+$j$NLr>l$G$O9qL17r9/J]81$X$N@ZBX$,=3DPMh$^$;$s$N$G!"=1B(B
+=1B$B!!Ev3:>ZL@=3Dq$rAwIU$$$?$@$1$^$9$G$7$g$&$+!#=1B(B
+
+- =1B$B:#8e$N<jB3$-=1B(B
+=1B$B!!=1B(B> =1B$B7@LsK~N;F|$,6a$E$-$^$7$?$i<jB3$-$J$I$r$40FFb$$$?$7$^$9!#=
+=1B(B
+=1B$B!!I,MW$J<jB3$-$N$4O"Mm$r$$$?$@$1$F$$$^$;$s$,!"$=3D$N8e$$$+$,$G$7$g$&$+=
+!#=1B(B
+
+=1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B
+
+=1B$B0J>e=1B(B
+
+On Thu, Oct 01, 2020 at 04:12:18PM +0900, [Masashi Endo] wrote:
+> =1B$BNSMM=1B(B
+>
+> =1B$B1sF#$G$9=1B(B
+>
+> > =1B$BBND4=1B(B
+> =1B$BDL1!$HI~Lt$N7QB3$,I,MW$G$O$"$j$^$9$,!"=1B(B9=1B$B7n2<=3D\$KF~$C$F$+$=
+i>/$7$:$DF|Cf$K3hF0$G$-$k;~4V$,A}2C798~$G!"=1B(B
+> =1B$B>/$7$:$D2sI|$K8~$+$C$F$$$k$h$&$G$9!#=1B(B
+>
+> =1B$B<ALd$K$42sEz$$$?$@$-!"$"$j$,$H$&$4$6$$$^$9!#=1B(B
+> =1B$B=3D}IB<jEv6b$J$i$S$K=3D"6H5,B'$K$D$$$F!">5CN$7$^$7$?!#=1B(B
+>
+> =1B$B0J>e=1B(B
+>
+> On Thu, Oct 01, 2020 at 04:28:43AM +0000, =1B$BNS=1B(B =1B$BH~Be=1B(B wro=
+te:
+> > =1B$B1sF#??F`MM=1B(B
+> >
+> > =1B$BBeM}?M!!1sF#Ur;JMM=1B(B
+> >
+> >
+> >
+> >
+> >
+> > =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B
+> >
+> > =1B$B1sF#??F`MM$NBND4$O$$$+$,$G$7$g$+!#=1B(B
+> >
+> >
+> >
+> > =1B$B$4<ALd$$$?$@$-$^$7$?7o!"@V;z$G2sEz$5$;$F$$$?$@$-$^$9!#=1B(B
+> >
+> >
+> >
+> >
+> >
+> > =1B$BNS=1B(B
+> >
+> >
+> >
+> > -----Original Message-----
+> > From: [Masashi Endo] [mailto:hujyorom@gmail.com]
+> > Sent: Wednesday, September 30, 2020 11:12 AM
+> > To: =1B$BNS=1B(B =1B$BH~Be=1B(B
+> > Subject: Re: =1B$B:#8e$K$D$$$F!J1sF#??F`MM!K=1B(B
+> >
+> >
+> >
+> > =1B$BNSMM=1B(B
+> >
+> >
+> >
+> > =1B$B1sF#$G$9=1B(B
+> >
+> >
+> >
+> > =1B$BJV?.$,CY$/$J$j$9$_$^$;$s!#=1B(B
+> >
+> > =1B$BN%?&I<$N5-:\$K$D$$$F!">5CN$7$^$7$?!#=1B(B
+> >
+> >
+> >
+> > 2=1B$B$D<ALd$,$"$j!"$*?R$M$$$?$7$^$9!#=1B(B
+> >
+> >
+> >
+> > > 1=1B$B$DL\=1B(B
+> >
+> > - =1B$B=3D}IB<jEv6b=1B(B
+> >
+> > =1B$B!!!!7r9/J]81=1B(B(=1B$B<R2qJ]81=1B(B)=1B$B$K=1B(B1=1B$BG/0J>e$N2CF=
+~<B@S$,$"$k$N$G!"B`?&8e$bIB5$$N$?$a$K=3D"6HITG=3D$G$"$l$P!"=1B(B
+> >
+> > =1B$B!!!!Ev<jEv6b$r<u5k=3DPMh$k$H$NG'<1$G$9$,!"Aj0cL5$$$G$7$g$&$+!)=1B(=
+B
+> >
+> > =1B$B!!!!$^$?!"B`?&8e$O7r9/J]81AH9g$H$N$d$j<h$j$,I,MW$K$J$k$H;W$o$l$^$9=
+$N$G!"=1B(B
+> >
+> > =1B$B!!!!$4C4Ev<T$NO"Mm@h$r$*65$($/$@$5$$!#=1B(B
+> >
+> >
+> >
+> > =1B$B!!!!:_@R4|4V$,4^$^$l$k4|4V$N=3D}IB<jEv6b$K$D$-$^$7$F$ODB6bBfD"$NE:=
+IU$,I,MW$J$3$H$+$i2q<R7PM3$G?=3D@A$5$;$F$$$?$@$-$^$9!#=1B(B
+> >
+> > =1B$B!!!!B`?&8e$N=3D}IB<jEv6b$N?=3D@A$K$D$$$F$O2<5-%5%$%H$r$4;2>H$/$@$5=
+$$!#=1B(B
+> >
+> > =1B$B;Y5k7hDj$K$D$$$F$OA49qJ]816(2q$NH=3DCG$K$h$j$^$9!#=1B(B
+> >
+> > =1B$B!!!!=1B(Bhttps://www.kyoukaikenpo.or.jp/g2/cat230/r124/
+> >
+> >
+> >
+> > > 2=1B$B$DL\=1B(B
+> >
+> > - =1B$BB`?&6b!";DM-5k5Y2K=1B(B
+> >
+> > =1B$B!!!!K\?M$N<-Na$d=3DqN`<jB3$-Ey$r3NG'$7$?$H$3$m!"=1B(B
+> >
+> > =1B$B!!!!=1B(B2015/5/1 ~ 2019/5/15=1B$B$^$G$N=1B(B4=1B$BG/4V$r@5<R0w$H$=
+7$F6PL3$7$F!"=1B(B
+> >
+> > =1B$B!!!!=1B(B2019/5/16 ~ 2020/6/16=1B$B$^$G$N=1B(B1=1B$BG/4V=1B(B1=1B$=
+B%v7n$r%Q!<%H<R0w$H$7$F6PL3$7$F$$$^$9!#=1B(B
+> >
+> > =1B$B!!!!$^$?!"M-5k5Y2K$N;DF|?t$,=1B(B12=1B$BF|4V$"$j$^$9!#=1B(B
+> >
+> >
+> >
+> > =1B$B!!!!M-5k5Y2K$N;DF|?t$O=1B(B12=1B$BF|$4$6$$$^$9!#=1B(B
+> >
+> > =1B$B$?$@$7!"5Y?&4|4VCf$OO+F/F|$G$O$"$j$^$;$s$N$GM-5k5Y2K<hF@$O$G$-$^$;=
+$s$3$H$rM=3D$a$*EA$($7$^$9!#=1B(B
+> >
+> >
+> >
+> > =1B$B!!!!B`?&6b$HM-5k$N07$$$K$D$$$F3NG'$7$?$/!"=3D"6H5,B'$rGR8+$7$?$$$G=
+$9!#=1B(B
+> >
+> > =1B$B!!!!=1B(BPDF=1B$B$J$I$NEE;R%U%!%$%k$,$"$l$P%a!<%k$K$FAwIU$$$?$@$-!=
+"=1B(B
+> >
+> > =1B$B!!!!L5$1$l$PM9Aw$$$?$@$1$^$9$G$7$g$&$+!#=1B(B
+> >
+> > =1B$B!!!!3NG'8e!"EE;R%U%!%$%k$G$"$l$PGK4~$7$F!"0u:~J*$G$"$l$PJVAw$$$?$7=
+$^$9!#=1B(B
+> >
+> >
+> >
+> > =1B$B!!%/%$!<%s!&%i%s%A$O=3D>6H0w$,=1B(B10=1B$BL>0J2<$G=3D"6H5,B'$O$4$6=
+$$$^$;$s!#=1B(B
+> >
+> > =1B$B!!!!M-5kF|?t$dIUM?$K$D$-$^$7$F$O%0%k!<%W4k6H$G$"$k7<0&5A;h:`NAHNGd=
+=3Dj$,?M;v6HL3$r<uBw$7$F$*$j$^$9$N$G=1B(B
+> >
+> > =1B$B!!!!<B1?MQ$O7<0&$K=3D`$8$F$*$j$^$9!#=1B(B
+> >
+> > =1B$B!!!!B`?&6b$K$D$-$^$7$F$b5,Dj$O$4$6$$$^$;$s!#=1B(B
+> >
+> > =1B$B!!!!3+<($G$-$^$;$s$3$H$r$4M}2r$/$@$5$$!#=1B(B
+> >
+> >
+> >
+> > =1B$B!!!!=1B(B
+> >
+> > =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B
+> >
+> >
+> >
+> > =1B$B0J>e=1B(B
+> >
+> >
+> >
+> > On Thu, Sep 17, 2020 at 01:15:55AM +0000, =1B$BNS=1B(B =1B$BH~Be=1B(B w=
+rote:
+> >
+> > > =1B$B1sF#??F`MM=1B(B
+> >
+> > >
+> >
+> > > =1B$BBeM}?M!!1sF#Ur;JMM=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$B$*Ld$$9g$o$;$$$?$@$$$?N%?&I<$K5-:\$K$D$$$F$OEv<R$H$7$F$O!V7@Ls4|=
+4V=3D*N;!W$G=1B(B
+> >
+> > >
+> >
+> > > =1B$B<R2qJ]81O+L3;N$KO"Mm$7<jB3$-$r0MMj$9$kM=3DDj$G$9!#=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$B7@LsK~N;F|$,6a$E$-$^$7$?$i<jB3$-$J$I$r$40FFb$$$?$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$BNS=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > -----Original Message-----
+> >
+> > > From: [Masashi Endo] [mailto:hujyorom@gmail.com]
+> >
+> > > Sent: Wednesday, September 16, 2020 10:49 AM
+> >
+> > > To: =1B$BNS=1B(B =1B$BH~Be=1B(B
+> >
+> > > Subject: Re: =1B$B:#8e$K$D$$$F!J1sF#??F`MM!K=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$BNSMM=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$B1sF#$G$9=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > > =1B$B1sF#??F`MM$H<g<#0e$,5-F~$5$l$?=3D}IB<jEv6b$N?=3D@A=3Dq$,FO$-<!=
+Bh!"6(2q$1$s$]$X?=3D@A<jB3$-$r$$$?$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > =1B$B>5CN$7$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > > =1B$BBgJQ;DG0$J$,$i1sF#MM$+$i$NO+L3Ds6!$N7QB3$,Fq$7$$$HH=3DCG$7!"$d=
+$`$rF@$:!"7@Ls=3D*N;F|$r$b$C$F7@Ls$r=3D*N;$5$;$F$$$?$@$/$3$H$K$J$j$^$7$?!#=
+=1B(B
+> >
+> > >
+> >
+> > > 10=1B$B7n=1B(B15=1B$BF|$G8[MQ7@Ls=3D*N;$H$N$3$H!">5CN$7$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > > =1B$B7@Ls=3D*N;$NDLCN$K$D$$$F$O!"@hF|<uNN:Q$_$G$9!#=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > > =1B$B:#8e$N<jB3$-4X$7$F$O!"8eF|!"$40FFb?=3D$7>e$2$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$B2?$+$4ITL@$JE@$J$I$"$j$^$7$?$i$4O"Mm$/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > 1=1B$BE@3NG'$J$N$G$9$,!"N%?&I<$K5-:\$5$l$kN%?&M}M3$H$7$F$O!"=1B(B
+> >
+> > >
+> >
+> > > "=1B$B5Y?&4|4VK~N;=1B(B(=1B$B$^$?$O7@Ls=3D*N;$KH<$&=1B(B)=1B$B<+A3B`?=
+&!I$NMM$K!"=1B(B
+> >
+> > >
+> >
+> > > =1B$B<+A3B`?&$NJ88@$,4^$^$l$k$N$+!"$*65$($$$?$@$1$^$9$G$7$g$&$+!#=1B(=
+B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > =1B$B0J>e=1B(B
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > On Mon, Sep 14, 2020 at 12:02:26AM +0000, =1B$BNS=1B(B =1B$BH~Be=1B(B=
+ wrote:
+> >
+> > >
+> >
+> > > > =1B$B1sF#??F`MM=1B(B
+> >
+> > >
+> >
+> > > > =1B$BBeM}?M!!1sF#Ur;JMM=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B1sF#??F`MM$H<g<#0e$,5-F~$5$l$?=3D}IB<jEv6b$N?=3D@A=3Dq$,FO$-<!=
+Bh!"6(2q$1$s$]$X?=3D@A<jB3$-$r$$$?$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B$5$F!"=1B(B2020=1B$BG/=1B(B10=1B$B7n=1B(B15=1B$BF|$G8[MQ7@Ls$,=
+=3D*N;$$$?$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$B%/%$!<%s%:!&%i%s%A$O$4B8$8$NDL$j>/?M?t$G@8BN$K8~$-9g$&;v6H$r1D=
+$s$G$*$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > 6=1B$B7n0J9_!"8=3DM-%a%s%P!<$G1sF#MM$,C4Ev$5$l$F$$$kO+L3$NJd40$7$F$=
+*$j$^$7$?$,!"8B3&$H$J$j?7$7$$MW0w$r:NMQ$9$k$3$H$$$?$7$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$BBgJQ;DG0$J$,$i1sF#MM$+$i$NO+L3Ds6!$N7QB3$,Fq$7$$$HH=3DCG$7!"$d=
+$`$rF@$:!"7@Ls=3D*N;F|$r$b$C$F7@Ls$r=3D*N;$5$;$F$$$?$@$/$3$H$K$J$j$^$7$?!#=
+=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B:rF|!"7@Ls=3D*N;$NDLCN$rM9Aw$K$F$*Aw$j$$$?$7$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$B:#8e$N<jB3$-4X$7$F$O!"8eF|!"$40FFb?=3D$7>e$2$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$B2?$+$4ITL@$JE@$J$I$"$j$^$7$?$i$4O"Mm$/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B3t<02q<R7<0&5A;h:`NAHNGd=3Dj=1B(B
+> >
+> > >
+> >
+> > > > =1B$B?M;v!!NSH~Be=1B(B
+> >
+> > >
+> >
+> > > > =1B$B!J3t<02q<R%/%$!<%s%:!&%i%s%A!K=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > -----Original Message-----
+> >
+> > >
+> >
+> > > > From: [Masashi Endo] [mailto:hujyorom@gmail.com]
+> >
+> > >
+> >
+> > > > Sent: Friday, September 11, 2020 4:49 PM
+> >
+> > >
+> >
+> > > > To: =1B$BNS=1B(B =1B$BH~Be=1B(B
+> >
+> > >
+> >
+> > > > Subject: Re: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D$$$F=1B(B( =1B$B1=
+sF#??F`=1B(B )=1B$B"(DI5-=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$BNSMM=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B1sF#$G$9=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B0QG$>u$H?GCG=3Dq$N2><uIU!"$J$i$S$K5Y?&?=3D@A=3Dq$H=3D}IB<jEv6b=
+$N?=3D@A=3Dq$N<jG[!"$"$j$,$H$&$4$6$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$BK\F|=1B(B(9/11)=1B$B3F?=3D@A=3Dq$r<uNN$7$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > > > =1B$B??F`$N=3DpL>Fh0u$r$7$?5Y?&?=3D@A=3Dq$r!"K\F|M9Aw$K$FAwIU$$$?$7=
+$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B<!$NDL1!$OMh7n$N=1B(B10=1B$B7nCf=3D\=1B(B~=1B$B2<=3D\$rM=3DDj$=
+7$F$$$k$?$a!"=3D}IB<jEv6b$N?=3D@A=3Dq$K$D$$$F$O!"=1B(B
+> >
+> > >
+> >
+> > > > =1B$BEv3:F|Dx$K$F0e;U$N=3DpL>Fh0u$*$h$S??F`$N=3DpL>Fh0u$r$7$F!"5.<R=
+$KAwIU$9$kM=3DDj$G$9!#=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > =1B$B0J>e=1B(B
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > On Wed, Sep 09, 2020 at 07:34:31AM +0000, =1B$BNS=1B(B =1B$BH~Be=1B=
+(B wrote:
+> >
+> > >
+> >
+> > > > > =1B$B1sF#??F`MM=1B(B
+> >
+> > >
+> >
+> > > > > Cc:=1B$B1sF#Ur;JMM=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$B$*@$OC$K$J$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > =1B$B0QG$>u$H?GCG=3Dq$r2><uIU$5$;$F$$$?$@$-!"<jB3$-$r3+;O$$$?$7$^=
+$7$?!#=1B(B
+> >
+> > >
+> >
+> > > > > =1B$B1sF#MM$K5Y?&?=3D@A=3Dq$H=3D}IB<jEv6b$N?=3D@A=3Dq$r$*Aw$j$7$^=
+$9$N$G=3DpL>Fh0u$7$4JVAw$/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$B?M;v!!NS=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > -----Original Message-----
+> >
+> > >
+> >
+> > > > > From: [Masashi Endo] [mailto:hujyorom@gmail.com]
+> >
+> > >
+> >
+> > > > > Sent: Wednesday, September 9, 2020 3:24 PM
+> >
+> > >
+> >
+> > > > > To: =1B$BNS=1B(B =1B$BH~Be=1B(B
+> >
+> > >
+> >
+> > > > > Subject: Re: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D$$$F=1B(B( =1B$=
+B1sF#??F`=1B(B )=1B$B"(DI5-=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$BNSMM=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$B1sF#$G$9=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$B$4JV?.$"$j$,$H$&$4$6$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > > 9=1B$B7n=1B(B15=1B$BF|$N5Y?&4|4V=3D*N;$^$GF|?t$,$4$6$$$^$;$s$N$=
+G!"=1B(B
+> >
+> > >
+> >
+> > > > > > 9=1B$B7n=1B(B16=1B$BF|0J9_$N=3D"6H$K4X$9$k0e;U$N?GCG=3Dq5Z$S1sF=
+#??F`MM$4K\?M$+$i5Y?&1dD9$K4X$9$k$44uK>FbMF$r$*CN$i$;$/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B!J5Y?&?=3D@A=3Dq$O?GCG=3Dq$NFbMF$r3NG'$5$;$F$$$?$@$-!"AwIU=
+$$$?$7$^$9!K=1B(B
+> >
+> > >
+> >
+> > > > > =1B$BDL1!Cf$N$+$+$j$D$10e$N?GCGFbMF$+$i!"??F`K\?M$O5Y?&$N7QB3$r4u=
+K>$7$F$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > =1B$B$D$-$^$7$F$O!"5Y?&?=3D@AEy$N=3DqN`<jB3$-$K$D$$$F<jG[$r$*4j$$=
+$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > > 9=1B$B7n=1B(B14=1B$BF|$^$G$KI,Ce$GM9Aw4j$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B6[5^=3DhCV$H$7$F!"??F`MM$N0QG$>u$rE:IU$$$?$@$-$^$7$?$i$4<g=
+?MMM!JUr;JMM!K$h$j%a!<%k$K$F??F`MM$N?GCG=3Dq5Z$SI|?&!"5Y?&1dD9$N;]$r$4O"Mm$=
+/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B2><uIU$5$;$F$$$?$@$-$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > =1B$B??F`K\?M$H;d$,5-F~$7$?0QG$>u$r:n@.$7$^$7$?!#=1B(B
+> >
+> > >
+> >
+> > > > > =1B$BEv3:0QG$>u$H?GCG=3Dq$N2hA|$r!"Ev%a!<%k$KE:IU$7$FAwIU$7$^$9!#=
+=1B(B
+> >
+> > >
+> >
+> > > > > =1B$B$J$*!"86K\$OK\F|=1B(B(9/9)=1B$BM9Aw$GAwIU$$$?$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > =1B$B0J>e=1B(B
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > On Wed, Sep 09, 2020 at 04:26:09AM +0000, =1B$BNS=1B(B =1B$BH~Be=
+=1B(B wrote:
+> >
+> > >
+> >
+> > > > > > =1B$B1sF#??F`MM=1B(B
+> >
+> > >
+> >
+> > > > > > Cc:=1B$B1sF#Ur;JMM=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$BK\F|!J=1B(B2020=1B$BG/=1B(B9=1B$B7n=1B(B9=1B$BF|!KAwIU$5$;=
+$F$$$?$@$-$^$7$?FbMF$K$D$$$FDI2C$5$;$F$$$?$@$-$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > 9=1B$B7n=1B(B15=1B$BF|$N5Y?&4|4V=3D*N;$^$GF|?t$,$4$6$$$^$;$s$N$=
+G!"=1B(B
+> >
+> > >
+> >
+> > > > > > 9=1B$B7n=1B(B16=1B$BF|0J9_$N=3D"6H$K4X$9$k0e;U$N?GCG=3Dq5Z$S1sF=
+#??F`MM$4K\?M$+$i5Y?&1dD9$K4X$9$k$44uK>FbMF$r$*CN$i$;$/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B!J5Y?&?=3D@A=3Dq$O?GCG=3Dq$NFbMF$r3NG'$5$;$F$$$?$@$-!"AwIU=
+$$$?$7$^$9!K=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > 9=1B$B7n=1B(B14=1B$BF|$^$G$KI,Ce$GM9Aw4j$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B6[5^=3DhCV$H$7$F!"??F`MM$N0QG$>u$rE:IU$$$?$@$-$^$7$?$i$4<g=
+?MMM!JUr;JMM!K$h$j%a!<%k$K$F??F`MM$N?GCG=3Dq5Z$SI|?&!"5Y?&1dD9$N;]$r$4O"Mm$=
+/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B2><uIU$5$;$F$$$?$@$-$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B?M;v!!NS=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > From: =1B$BNS=1B(B =1B$BH~Be=1B(B
+> >
+> > >
+> >
+> > > > > > Sent: Wednesday, September 9, 2020 9:34 AM
+> >
+> > >
+> >
+> > > > > > To: hujyorom@gmail.com
+> >
+> > >
+> >
+> > > > > > Subject: FW: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D$$$F=1B(B( =
+=1B$B1sF#??F`=1B(B )
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B1sF#??F`MM=1B(B
+> >
+> > >
+> >
+> > > > > > Cc:=1B$B1sF#Ur;JMM=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B$4O"Mm$"$j$,$H$&$4$6$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$BBND4$O$$$+$,$G$7$g$&$+!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B<jB3$->e!"O+F/7@Ls<T$4K\?M$N1sF#??F`$5$s$HD>@\!"$*OC$7$r$5=
+$;$F$$$?$@$-$?$$$G$9!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$BBND4LL$G$4K\?M!J??F`MM!K$HD>@\$*OC$7$,Fq$7$$>l9g!"0QG$BeM}=
+?M$NG$L?$J$I$,I,MW$K$J$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B=3DqLL$G$N0QG$BeM}?MG$L?<jB3$-$OHQ;($J0Y!"1sF#??F`MM$,2q<R=
+$XDs=3DP$5$l$F$$$kO"Mm@h!J7HBSEEOC!K7PM3$G=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$BUr;JMM$N$4K\?M3NG'$5$;$F$$$@$$$?>e$GUr;JMM$H$*OC$7$r$5$;$F=
+$$$?$@$-$?$$$H9M$($F$*$j$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B0lEY!"??F`MM$+$i$4O"Mm$$$?$@$/$+!"??F`MM$N$47HBS$GUr;JMM$H=
+$*OC$7$r$5$;$F$$$?$@$$$?>e$G:#8e$N<jB3$-4X78$r$4AjCL$5$;$F$$$?$@$-$?$/=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B$4O"Mm$r$*4j$$$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$BK\F|=1B(B9=1B$B7n=1B(B9=1B$BF|$O8a8e=1B(B13:00=1B$B0J9_!"=
+=1B(B9=1B$B7n=1B(B10=1B$BF|$O8a8e=1B(B16:00=1B$B0J9_!"=1B(B9=1B$B7n=1B(B11=
+=1B$BF|$O8a8e=1B(B13:00=1B$B0J9_EEOC$,7R$,$j$d$9$$6HL3$K=3D"$$$F$*$j$^$9$N$=
+G!"=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B?M;v$+$^$?$O7HBSEEOC$G$4O"Mm$/$@$5$$!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B5Y?&Cf$GIB5$$H8~$-9g$C$F$*$i$l$kCf!"<jB3$-LL$GHQ$o$7$$$+$H=
+;W$o$l$^$9$,!"=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$BO+F/7@Ls$K$+$+$o$k7o$G$9$N$G!"$4M}2r$$$?$@$1$^$9$h$&$*4j$$=
+?=3D$7>e$2$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B?M;v!!NSH~Be=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > From: =1B$B!Z6&M-![%$%s%U%)%a!<%7%g%s=1B(B
+> >
+> > >
+> >
+> > > > > > Sent: Wednesday, September 9, 2020 8:45 AM
+> >
+> > >
+> >
+> > > > > > To: =1B$BNS=1B(B =1B$BH~Be=1B(B
+> >
+> > >
+> >
+> > > > > > Subject: FW: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D$$$F=1B(B( =
+=1B$B1sF#??F`=1B(B )
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$BE>Aw$7$^$9=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > From: masashi endou [mailto:hujyorom@gmail.com]
+> >
+> > >
+> >
+> > > > > > Sent: Wednesday, September 9, 2020 6:14 AM
+> >
+> > >
+> >
+> > > > > > To: =1B$B!Z6&M-![%$%s%U%)%a!<%7%g%s=1B(B <info@kioa.co.jp>
+> >
+> > >
+> >
+> > > > > > Subject: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D$$$F=1B(B( =1B$B1=
+sF#??F`=1B(B )
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B3t<02q<R=1B(B =1B$B7<0&5A;h:`NAHNGd=3Dj=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B?M;vIt=1B(B =1B$BNSMM=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B%/%$!<%s%:%i%s%A=3D>6H0w$N:J$N??F`$KBe$o$j!"IW$N;d=1B(B(=
+=1B$BUr;J=1B(B)=1B$B$,BeI.$7$F$$$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > 9/7( =1B$B7n=1B(B ) 18:09=1B$B$K%7%g!<%H%a%C%;!<%8$K$FNSMM$N7HB=
+SEEOC=1B(B( 07038452875 )=1B$B08$K!"=1B(B
+> >
+> > >
+> >
+> > > > > > =1B$B5Y?&$*$h$S=3D}IB<jEv6b$K$D$$$F$*CN$i$;$$$?$7$^$7$?$,!"$=3D=
+$N8e$$$+$,$G$7$g$&$+!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B$*<j?t$*$+$1$7$^$9$,!"$43NG'$*4j$$$7$^$9!#=1B(B
+> >
+> > >
+> >
+> > > > > >
+> >
+> > >
+> >
+> > > > > > =1B$B0J>e=1B(B
+> >
+> > >
+> >
+> > > > > > --
+> >
+> > >
+> >
+> > > > > > Name =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+> >
+> > >
+> >
+> > > > > > Office 080-8164-5426
+> >
+> > >
+> >
+> > > > > > e-Mail <hujyorom@gmail.com<mailto:hujyorom@gmail.com>>
+> >
+> > >
+> >
+> > > > >
+> >
+> > >
+> >
+> > > > > --
+> >
+> > >
+> >
+> > > > > =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+> >
+> > >
+> >
+> > > > > e-Mail <hujyorom@gmail.com>
+> >
+> > >
+> >
+> > > >
+> >
+> > >
+> >
+> > > > --
+> >
+> > >
+> >
+> > > > =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+> >
+> > >
+> >
+> > > > e-Mail <hujyorom@gmail.com>
+> >
+> > >
+> >
+> > > > github <https://github.com/masashiendou>
+> >
+> > >
+> >
+> > >
+> >
+> > >
+> >
+> > > --
+> >
+> > >
+> >
+> > > =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+> >
+> > >
+> >
+> > > e-Mail <hujyorom@gmail.com>
+> >
+> > >
+> >
+> > > github <https://github.com/masashiendou>
+> >
+> >
+> >
+> > --
+> >
+> > =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+> >
+> > e-Mail <hujyorom@gmail.com>
+> >
+> > github <https://github.com/masashiendou>
+>
+> --
+> =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+> e-Mail <hujyorom@gmail.com>
+> github <https://github.com/masashiendou>
+
+--
+=1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )
+e-Mail <hujyorom@gmail.com>
+github <https://github.com/masashiendou>
+
+--_000_OSAPR01MB147549559801FDBD46399FCA83030OSAPR01MB1475jpnp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div>=1B$B1sF#MM=1B(B</div>
+<div><br>
+</div>
+<div>=1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B</div>
+<div>=1B$B1sF#??F`MM$NBND4$O$$$+$,$G$7$g$&$+!#=1B(B</div>
+<div><br>
+</div>
+<div>=1B$B0J2<!"$*Ld$$9g$o$;$$$?$@$-$^$7$?7o$K$D$-$^$7$F2sEz$5$;$F$$$?$@$-$=
+^$9!#=1B(B</div>
+<div><br>
+</div>
+<div><br style=3D"color: rgb(32, 31, 30); font-family: &quot;Yu Gothic UI&q=
+uot;, &quot;Meiryo UI&quot;, Meiryo, &quot;MS Pgothic&quot;, Osaka, &quot;S=
+egoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica N=
+eue&quot;, sans-serif; font-size: 14.6667px; background-color: rgb(255, 255=
+, 255)">
+<span style=3D"color: rgb(32, 31, 30); font-family: &quot;Yu Gothic UI&quot=
+;, &quot;Meiryo UI&quot;, Meiryo, &quot;MS Pgothic&quot;, Osaka, &quot;Sego=
+e UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue=
+&quot;, sans-serif; font-size: 14.6667px; background-color: rgb(255, 255, 2=
+55); display: inline !important">-
+ =1B$B<R2qJ]81=1B(B</span><br style=3D"color: rgb(32, 31, 30); font-family:=
+ &quot;Yu Gothic UI&quot;, &quot;Meiryo UI&quot;, Meiryo, &quot;MS Pgothic&=
+quot;, Osaka, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Robo=
+to, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14.6667px; backgroun=
+d-color: rgb(255, 255, 255)">
+<span style=3D"color: rgb(32, 31, 30); font-family: &quot;Yu Gothic UI&quot=
+;, &quot;Meiryo UI&quot;, Meiryo, &quot;MS Pgothic&quot;, Osaka, &quot;Sego=
+e UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue=
+&quot;, sans-serif; font-size: 14.6667px; background-color: rgb(255, 255, 2=
+55); display: inline !important">=1B$B!!=1B(B10/18(=1B$BF|=1B(B)=1B$BDL1!$r=
+M=3DDj$7$F$$$k$N$G$9$,!":#$^$G;H$C$F$$$?J]81>Z$r;HMQ$7$F$b:9$7;Y$($J$$$N$G$=
+7$g$&$+!#=1B(B</span></div>
+<div>=1B$B"*=1B(B10=1B$B7n=1B(B16=1B$BF|$KJ]81;q3J$,AS<:$7$F$*$j$^$9$N$G$*;=
+H$$$$$?$@$1$^$;$s!#=1B(B</div>
+<div>=1B$BDL1!$5$l$k:]$O<+Hq$G$*;YJ'$$$$$?$@$-!"9qL17r9/J]81Ey$K$42CF~<jB3$=
+-$r$*4j$$$7$^$9!#=1B(B</div>
+<div>=1B$BB`?&>ZL@=3Dq$OM9Aw$$$?$7$^$9!#=1B(B</div>
+<div><br>
+</div>
+<div><span style=3D"color: rgb(32, 31, 30); font-family: &quot;Yu Gothic UI=
+&quot;, &quot;Meiryo UI&quot;, Meiryo, &quot;MS Pgothic&quot;, Osaka, &quot=
+;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica=
+ Neue&quot;, sans-serif; font-size: 14.6667px; background-color: rgb(255, 2=
+55, 255); display: inline !important">-
+ =1B$B:#8e$N<jB3$-=1B(B</span><br>
+</div>
+<div>=1B$B"*1sF#MM$K$OJ]81>Z$NJV5Q$r$*4j$$$7$^$9!#J@<R$+$i$ON)BX6bEy$,$"$k>=
+l9g!"@:;;6b3[$O$*CN$i$;$$$?$7$^$9!#$^$?!"N%?&I<$K$D$-$^$7$F$O=1B(B2=1B$B=3D=
+54VDxEY!J%3%m%J12$N1F6A$GN%?&I<H/9T$KF|?t$,MW$7$F$*$j$^$9!K$G$*Aw$j$$$?$7$^=
+$9!#=1B(B</div>
+<div>=1B$BB`?&F|$r$^$?$0!"=3D}IB<jEv6b?=3D@A$OJ@<R7PM3$G?=3D@A$$$?$7$^$9$N$=
+G!"0e;U$N>ZL@$,5-$5$l$??=3D@A=3Dq$r$*Aw$j$/$@$5$$!#=1B(B</div>
+<div><br>
+</div>
+<div>=1B$BBND4$,I|D4$5$l$k$3$H$r$*5'$j?=3D$7>e$2$^$9!#=1B(B</div>
+<div><br>
+</div>
+<div>=1B$B3t<02q<R7<0&5A;h:`NAHNGd=3Dj=1B(B</div>
+<div>=1B$B?M;vC4Ev!'NS=1B(B</div>
+<div><br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>=1B$B:9=3DP?M=1B(B:</b> [Masash=
+i Endo] &lt;hujyorom@gmail.com&gt;<br>
+<b>=1B$BAw?.F|;~=1B(B:</b> 2020=1B$BG/=1B(B10=1B$B7n=1B(B16=1B$BF|=1B(B 8:5=
+6<br>
+<b>=1B$B08@h=1B(B:</b> =1B$BNS=1B(B =1B$BH~Be=1B(B &lt;hayashi@kioa.co.jp&g=
+t;<br>
+<b>=1B$B7oL>=1B(B:</b> Re: =1B$B:#8e$K$D$$$F!J1sF#??F`MM!K=1B(B</font>
+<div>&nbsp;</div>
+</div>
+<div class=3D"BodyFragment"><font size=3D"2"><span style=3D"font-size:11pt;=
+">
+<div class=3D"PlainText">=1B$BNSMM=1B(B<br>
+<br>
+=1B$B1sF#$G$9=1B(B<br>
+<br>
+=1B$B<R2qJ]81$N@ZBX$J$i$S$K:#8e$N<jB3$-$K$D$$$F!"$*Ld$$9g$o$;$$$?$7$^$9!#=
+=1B(B<br>
+<br>
+- =1B$B<R2qJ]81=1B(B<br>
+=1B$B!!=1B(B10/18(=1B$BF|=1B(B)=1B$BDL1!$rM=3DDj$7$F$$$k$N$G$9$,!":#$^$G;H$=
+C$F$$$?J]81>Z$r;HMQ$7$F$b:9$7;Y$($J$$$N$G$7$g$&$+!#=1B(B<br>
+=1B$B!!4{B8$NJ]81>Z$,MxMQ$G$-$J$$>l9g!"<R2qJ]81$r$d$a$?>ZL@=3Dq$,L5$$$H:G4s=
+$j$NLr>l$G$O9qL17r9/J]81$X$N@ZBX$,=3DPMh$^$;$s$N$G!"=1B(B<br>
+=1B$B!!Ev3:>ZL@=3Dq$rAwIU$$$?$@$1$^$9$G$7$g$&$+!#=1B(B<br>
+<br>
+- =1B$B:#8e$N<jB3$-=1B(B<br>
+=1B$B!!=1B(B&gt; =1B$B7@LsK~N;F|$,6a$E$-$^$7$?$i<jB3$-$J$I$r$40FFb$$$?$7$^$=
+9!#=1B(B<br>
+=1B$B!!I,MW$J<jB3$-$N$4O"Mm$r$$$?$@$1$F$$$^$;$s$,!"$=3D$N8e$$$+$,$G$7$g$&$+=
+!#=1B(B<br>
+<br>
+=1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B<br>
+<br>
+=1B$B0J>e=1B(B<br>
+<br>
+On Thu, Oct 01, 2020 at 04:12:18PM +0900, [Masashi Endo] wrote:<br>
+&gt; =1B$BNSMM=1B(B<br>
+&gt; <br>
+&gt; =1B$B1sF#$G$9=1B(B<br>
+&gt; <br>
+&gt; &gt; =1B$BBND4=1B(B<br>
+&gt; =1B$BDL1!$HI~Lt$N7QB3$,I,MW$G$O$"$j$^$9$,!"=1B(B9=1B$B7n2<=3D\$KF~$C$F=
+$+$i>/$7$:$DF|Cf$K3hF0$G$-$k;~4V$,A}2C798~$G!"=1B(B<br>
+&gt; =1B$B>/$7$:$D2sI|$K8~$+$C$F$$$k$h$&$G$9!#=1B(B<br>
+&gt; <br>
+&gt; =1B$B<ALd$K$42sEz$$$?$@$-!"$"$j$,$H$&$4$6$$$^$9!#=1B(B<br>
+&gt; =1B$B=3D}IB<jEv6b$J$i$S$K=3D"6H5,B'$K$D$$$F!">5CN$7$^$7$?!#=1B(B<br>
+&gt; <br>
+&gt; =1B$B0J>e=1B(B<br>
+&gt; <br>
+&gt; On Thu, Oct 01, 2020 at 04:28:43AM +0000, =1B$BNS=1B(B =1B$BH~Be=1B(B =
+wrote:<br>
+&gt; &gt; =1B$B1sF#??F`MM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$BBeM}?M!!1sF#Ur;JMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B1sF#??F`MM$NBND4$O$$$+$,$G$7$g$+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B$4<ALd$$$?$@$-$^$7$?7o!"@V;z$G2sEz$5$;$F$$$?$@$-$^$9!#=1B(B<=
+br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$BNS=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; -----Original Message-----<br>
+&gt; &gt; From: [Masashi Endo] [<a href=3D"mailto:hujyorom@gmail.com">mailt=
+o:hujyorom@gmail.com</a>]<br>
+&gt; &gt; Sent: Wednesday, September 30, 2020 11:12 AM<br>
+&gt; &gt; To: =1B$BNS=1B(B =1B$BH~Be=1B(B<br>
+&gt; &gt; Subject: Re: =1B$B:#8e$K$D$$$F!J1sF#??F`MM!K=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$BNSMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B1sF#$G$9=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$BJV?.$,CY$/$J$j$9$_$^$;$s!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$BN%?&I<$N5-:\$K$D$$$F!">5CN$7$^$7$?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; 2=1B$B$D<ALd$,$"$j!"$*?R$M$$$?$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; &gt; 1=1B$B$DL\=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; - =1B$B=3D}IB<jEv6b=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!7r9/J]81=1B(B(=1B$B<R2qJ]81=1B(B)=1B$B$K=1B(B1=1B$BG/0J>=
+e$N2CF~<B@S$,$"$k$N$G!"B`?&8e$bIB5$$N$?$a$K=3D"6HITG=3D$G$"$l$P!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!Ev<jEv6b$r<u5k=3DPMh$k$H$NG'<1$G$9$,!"Aj0cL5$$$G$7$g$&$+=
+!)=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!$^$?!"B`?&8e$O7r9/J]81AH9g$H$N$d$j<h$j$,I,MW$K$J$k$H;W$o=
+$l$^$9$N$G!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!$4C4Ev<T$NO"Mm@h$r$*65$($/$@$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!:_@R4|4V$,4^$^$l$k4|4V$N=3D}IB<jEv6b$K$D$-$^$7$F$ODB6bBf=
+D"$NE:IU$,I,MW$J$3$H$+$i2q<R7PM3$G?=3D@A$5$;$F$$$?$@$-$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!B`?&8e$N=3D}IB<jEv6b$N?=3D@A$K$D$$$F$O2<5-%5%$%H$r$4;2>H=
+$/$@$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B;Y5k7hDj$K$D$$$F$OA49qJ]816(2q$NH=3DCG$K$h$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!=1B(Bhttps://www.kyoukaikenpo.or.jp/g2/cat230/r124/<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; &gt; 2=1B$B$DL\=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; - =1B$BB`?&6b!";DM-5k5Y2K=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!K\?M$N<-Na$d=3DqN`<jB3$-Ey$r3NG'$7$?$H$3$m!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!=1B(B2015/5/1 ~ 2019/5/15=1B$B$^$G$N=1B(B4=1B$BG/4V$r@5<=
+R0w$H$7$F6PL3$7$F!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!=1B(B2019/5/16 ~ 2020/6/16=1B$B$^$G$N=1B(B1=1B$BG/4V=1B(=
+B1=1B$B%v7n$r%Q!<%H<R0w$H$7$F6PL3$7$F$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!$^$?!"M-5k5Y2K$N;DF|?t$,=1B(B12=1B$BF|4V$"$j$^$9!#=1B(B<=
+br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!M-5k5Y2K$N;DF|?t$O=1B(B12=1B$BF|$4$6$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B$?$@$7!"5Y?&4|4VCf$OO+F/F|$G$O$"$j$^$;$s$N$GM-5k5Y2K<hF@$O$G=
+$-$^$;$s$3$H$rM=3D$a$*EA$($7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!B`?&6b$HM-5k$N07$$$K$D$$$F3NG'$7$?$/!"=3D"6H5,B'$rGR8+$7=
+$?$$$G$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!=1B(BPDF=1B$B$J$I$NEE;R%U%!%$%k$,$"$l$P%a!<%k$K$FAwIU$$$=
+?$@$-!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!L5$1$l$PM9Aw$$$?$@$1$^$9$G$7$g$&$+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!3NG'8e!"EE;R%U%!%$%k$G$"$l$PGK4~$7$F!"0u:~J*$G$"$l$PJVAw=
+$$$?$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!%/%$!<%s!&%i%s%A$O=3D>6H0w$,=1B(B10=1B$BL>0J2<$G=3D"6H5,B'=
+$O$4$6$$$^$;$s!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!M-5kF|?t$dIUM?$K$D$-$^$7$F$O%0%k!<%W4k6H$G$"$k7<0&5A;h:`=
+NAHNGd=3Dj$,?M;v6HL3$r<uBw$7$F$*$j$^$9$N$G=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!<B1?MQ$O7<0&$K=3D`$8$F$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!B`?&6b$K$D$-$^$7$F$b5,Dj$O$4$6$$$^$;$s!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!3+<($G$-$^$;$s$3$H$r$4M}2r$/$@$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B!!!!=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B0J>e=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; On Thu, Sep 17, 2020 at 01:15:55AM +0000, =1B$BNS=1B(B =1B$BH~Be=
+=1B(B wrote:<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B1sF#??F`MM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$BBeM}?M!!1sF#Ur;JMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B$*Ld$$9g$o$;$$$?$@$$$?N%?&I<$K5-:\$K$D$$$F$OEv<R$H$7$F$=
+O!V7@Ls4|4V=3D*N;!W$G=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B<R2qJ]81O+L3;N$KO"Mm$7<jB3$-$r0MMj$9$kM=3DDj$G$9!#=1B(B=
+<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B7@LsK~N;F|$,6a$E$-$^$7$?$i<jB3$-$J$I$r$40FFb$$$?$7$^$9!=
+#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$BNS=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; -----Original Message-----<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; From: [Masashi Endo] [<a href=3D"mailto:hujyorom@gmail.com">=
+mailto:hujyorom@gmail.com</a>]<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; Sent: Wednesday, September 16, 2020 10:49 AM<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; To: =1B$BNS=1B(B =1B$BH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; Subject: Re: =1B$B:#8e$K$D$$$F!J1sF#??F`MM!K=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$BNSMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B1sF#$G$9=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B1sF#??F`MM$H<g<#0e$,5-F~$5$l$?=3D}IB<jEv6b$N?=3D@A=
+=3Dq$,FO$-<!Bh!"6(2q$1$s$]$X?=3D@A<jB3$-$r$$$?$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B>5CN$7$^$7$?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$BBgJQ;DG0$J$,$i1sF#MM$+$i$NO+L3Ds6!$N7QB3$,Fq$7$$$H=
+H=3DCG$7!"$d$`$rF@$:!"7@Ls=3D*N;F|$r$b$C$F7@Ls$r=3D*N;$5$;$F$$$?$@$/$3$H$K$=
+J$j$^$7$?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; 10=1B$B7n=1B(B15=1B$BF|$G8[MQ7@Ls=3D*N;$H$N$3$H!">5CN$7$^$7$=
+?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B7@Ls=3D*N;$NDLCN$K$D$$$F$O!"@hF|<uNN:Q$_$G$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B:#8e$N<jB3$-4X$7$F$O!"8eF|!"$40FFb?=3D$7>e$2$^$9!#=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B2?$+$4ITL@$JE@$J$I$"$j$^$7$?$i$4O"Mm$/$@$5$$!#=1B(=
+B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; 1=1B$BE@3NG'$J$N$G$9$,!"N%?&I<$K5-:\$5$l$kN%?&M}M3$H$7$F$O!"=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &quot;=1B$B5Y?&4|4VK~N;=1B(B(=1B$B$^$?$O7@Ls=3D*N;$KH<$&=1B(=
+B)=1B$B<+A3B`?&!I$NMM$K!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B<+A3B`?&$NJ88@$,4^$^$l$k$N$+!"$*65$($$$?$@$1$^$9$G$7$g$=
+&$+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B0J>e=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; On Mon, Sep 14, 2020 at 12:02:26AM +0000, =1B$BNS=1B(B =1B$B=
+H~Be=1B(B wrote:<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B1sF#??F`MM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$BBeM}?M!!1sF#Ur;JMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B1sF#??F`MM$H<g<#0e$,5-F~$5$l$?=3D}IB<jEv6b$N?=3D@A=
+=3Dq$,FO$-<!Bh!"6(2q$1$s$]$X?=3D@A<jB3$-$r$$$?$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B$5$F!"=1B(B2020=1B$BG/=1B(B10=1B$B7n=1B(B15=1B$BF|=
+$G8[MQ7@Ls$,=3D*N;$$$?$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B%/%$!<%s%:!&%i%s%A$O$4B8$8$NDL$j>/?M?t$G@8BN$K8~$-=
+9g$&;v6H$r1D$s$G$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; 6=1B$B7n0J9_!"8=3DM-%a%s%P!<$G1sF#MM$,C4Ev$5$l$F$$$kO+L=
+3$NJd40$7$F$*$j$^$7$?$,!"8B3&$H$J$j?7$7$$MW0w$r:NMQ$9$k$3$H$$$?$7$^$7$?!#=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$BBgJQ;DG0$J$,$i1sF#MM$+$i$NO+L3Ds6!$N7QB3$,Fq$7$$$H=
+H=3DCG$7!"$d$`$rF@$:!"7@Ls=3D*N;F|$r$b$C$F7@Ls$r=3D*N;$5$;$F$$$?$@$/$3$H$K$=
+J$j$^$7$?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B:rF|!"7@Ls=3D*N;$NDLCN$rM9Aw$K$F$*Aw$j$$$?$7$^$7$?=
+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B:#8e$N<jB3$-4X$7$F$O!"8eF|!"$40FFb?=3D$7>e$2$^$9!#=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B2?$+$4ITL@$JE@$J$I$"$j$^$7$?$i$4O"Mm$/$@$5$$!#=1B(=
+B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B3t<02q<R7<0&5A;h:`NAHNGd=3Dj=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B?M;v!!NSH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B!J3t<02q<R%/%$!<%s%:!&%i%s%A!K=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; -----Original Message-----<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; From: [Masashi Endo] [<a href=3D"mailto:hujyorom@gmail.=
+com">mailto:hujyorom@gmail.com</a>]<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; Sent: Friday, September 11, 2020 4:49 PM<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; To: =1B$BNS=1B(B =1B$BH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; Subject: Re: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D$$$F=
+=1B(B( =1B$B1sF#??F`=1B(B )=1B$B"(DI5-=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$BNSMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B1sF#$G$9=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B0QG$>u$H?GCG=3Dq$N2><uIU!"$J$i$S$K5Y?&?=3D@A=3Dq$H=
+=3D}IB<jEv6b$N?=3D@A=3Dq$N<jG[!"$"$j$,$H$&$4$6$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$BK\F|=1B(B(9/11)=1B$B3F?=3D@A=3Dq$r<uNN$7$^$7$?!#=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B??F`$N=3DpL>Fh0u$r$7$?5Y?&?=3D@A=3Dq$r!"K\F|M9Aw$K=
+$FAwIU$$$?$7$^$7$?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B<!$NDL1!$OMh7n$N=1B(B10=1B$B7nCf=3D\=1B(B~=1B$B2<=
+=3D\$rM=3DDj$7$F$$$k$?$a!"=3D}IB<jEv6b$N?=3D@A=3Dq$K$D$$$F$O!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$BEv3:F|Dx$K$F0e;U$N=3DpL>Fh0u$*$h$S??F`$N=3DpL>Fh0u=
+$r$7$F!"5.<R$KAwIU$9$kM=3DDj$G$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B0J>e=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; On Wed, Sep 09, 2020 at 07:34:31AM +0000, =1B$BNS=1B(B =
+=1B$BH~Be=1B(B wrote:<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B1sF#??F`MM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; Cc:=1B$B1sF#Ur;JMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B$*@$OC$K$J$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B0QG$>u$H?GCG=3Dq$r2><uIU$5$;$F$$$?$@$-!"<jB3$=
+-$r3+;O$$$?$7$^$7$?!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B1sF#MM$K5Y?&?=3D@A=3Dq$H=3D}IB<jEv6b$N?=3D@A=
+=3Dq$r$*Aw$j$7$^$9$N$G=3DpL>Fh0u$7$4JVAw$/$@$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B?M;v!!NS=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; -----Original Message-----<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; From: [Masashi Endo] [<a href=3D"mailto:hujyorom@g=
+mail.com">mailto:hujyorom@gmail.com</a>]<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; Sent: Wednesday, September 9, 2020 3:24 PM<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; To: =1B$BNS=1B(B =1B$BH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; Subject: Re: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$D=
+$$$F=1B(B( =1B$B1sF#??F`=1B(B )=1B$B"(DI5-=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$BNSMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B1sF#$G$9=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B$4JV?.$"$j$,$H$&$4$6$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9=1B$B7n=1B(B15=1B$BF|$N5Y?&4|4V=3D*N;$^$GF|?=
+t$,$4$6$$$^$;$s$N$G!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9=1B$B7n=1B(B16=1B$BF|0J9_$N=3D"6H$K4X$9$k0e;=
+U$N?GCG=3Dq5Z$S1sF#??F`MM$4K\?M$+$i5Y?&1dD9$K4X$9$k$44uK>FbMF$r$*CN$i$;$/$@=
+$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B!J5Y?&?=3D@A=3Dq$O?GCG=3Dq$NFbMF$r3NG'$5=
+$;$F$$$?$@$-!"AwIU$$$?$7$^$9!K=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$BDL1!Cf$N$+$+$j$D$10e$N?GCGFbMF$+$i!"??F`K\?M$=
+O5Y?&$N7QB3$r4uK>$7$F$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B$D$-$^$7$F$O!"5Y?&?=3D@AEy$N=3DqN`<jB3$-$K$D$=
+$$F<jG[$r$*4j$$$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9=1B$B7n=1B(B14=1B$BF|$^$G$KI,Ce$GM9Aw4j$$$^$=
+9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B6[5^=3DhCV$H$7$F!"??F`MM$N0QG$>u$rE:IU$$=
+$?$@$-$^$7$?$i$4<g?MMM!JUr;JMM!K$h$j%a!<%k$K$F??F`MM$N?GCG=3Dq5Z$SI|?&!"5Y?=
+&1dD9$N;]$r$4O"Mm$/$@$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B2><uIU$5$;$F$$$?$@$-$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B??F`K\?M$H;d$,5-F~$7$?0QG$>u$r:n@.$7$^$7$?!#=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$BEv3:0QG$>u$H?GCG=3Dq$N2hA|$r!"Ev%a!<%k$KE:IU$=
+7$FAwIU$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B$J$*!"86K\$OK\F|=1B(B(9/9)=1B$BM9Aw$GAwIU$$$?=
+$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B$h$m$7$/$*4j$$$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B0J>e=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; On Wed, Sep 09, 2020 at 04:26:09AM +0000, =1B$BNS=
+=1B(B =1B$BH~Be=1B(B wrote:<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B1sF#??F`MM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Cc:=1B$B1sF#Ur;JMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BK\F|!J=1B(B2020=1B$BG/=1B(B9=1B$B7n=1B(B=
+9=1B$BF|!KAwIU$5$;$F$$$?$@$-$^$7$?FbMF$K$D$$$FDI2C$5$;$F$$$?$@$-$^$9!#=1B(B=
+<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9=1B$B7n=1B(B15=1B$BF|$N5Y?&4|4V=3D*N;$^$GF|?=
+t$,$4$6$$$^$;$s$N$G!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9=1B$B7n=1B(B16=1B$BF|0J9_$N=3D"6H$K4X$9$k0e;=
+U$N?GCG=3Dq5Z$S1sF#??F`MM$4K\?M$+$i5Y?&1dD9$K4X$9$k$44uK>FbMF$r$*CN$i$;$/$@=
+$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B!J5Y?&?=3D@A=3Dq$O?GCG=3Dq$NFbMF$r3NG'$5=
+$;$F$$$?$@$-!"AwIU$$$?$7$^$9!K=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9=1B$B7n=1B(B14=1B$BF|$^$G$KI,Ce$GM9Aw4j$$$^$=
+9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B6[5^=3DhCV$H$7$F!"??F`MM$N0QG$>u$rE:IU$$=
+$?$@$-$^$7$?$i$4<g?MMM!JUr;JMM!K$h$j%a!<%k$K$F??F`MM$N?GCG=3Dq5Z$SI|?&!"5Y?=
+&1dD9$N;]$r$4O"Mm$/$@$5$$!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B2><uIU$5$;$F$$$?$@$-$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B?M;v!!NS=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; From: =1B$BNS=1B(B =1B$BH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Sent: Wednesday, September 9, 2020 9:34 AM<br=
+>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; To: hujyorom@gmail.com<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Subject: FW: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG=
+[$K$D$$$F=1B(B( =1B$B1sF#??F`=1B(B )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B1sF#??F`MM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Cc:=1B$B1sF#Ur;JMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B$4O"Mm$"$j$,$H$&$4$6$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BBND4$O$$$+$,$G$7$g$&$+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B<jB3$->e!"O+F/7@Ls<T$4K\?M$N1sF#??F`$5$s=
+$HD>@\!"$*OC$7$r$5$;$F$$$?$@$-$?$$$G$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BBND4LL$G$4K\?M!J??F`MM!K$HD>@\$*OC$7$,Fq=
+$7$$>l9g!"0QG$BeM}?M$NG$L?$J$I$,I,MW$K$J$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B=3DqLL$G$N0QG$BeM}?MG$L?<jB3$-$OHQ;($J0Y=
+!"1sF#??F`MM$,2q<R$XDs=3DP$5$l$F$$$kO"Mm@h!J7HBSEEOC!K7PM3$G=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BUr;JMM$N$4K\?M3NG'$5$;$F$$$@$$$?>e$GUr;J=
+MM$H$*OC$7$r$5$;$F$$$?$@$-$?$$$H9M$($F$*$j$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B0lEY!"??F`MM$+$i$4O"Mm$$$?$@$/$+!"??F`MM=
+$N$47HBS$GUr;JMM$H$*OC$7$r$5$;$F$$$?$@$$$?>e$G:#8e$N<jB3$-4X78$r$4AjCL$5$;$=
+F$$$?$@$-$?$/=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B$4O"Mm$r$*4j$$$7$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BK\F|=1B(B9=1B$B7n=1B(B9=1B$BF|$O8a8e=1B(=
+B13:00=1B$B0J9_!"=1B(B9=1B$B7n=1B(B10=1B$BF|$O8a8e=1B(B16:00=1B$B0J9_!"=1B(=
+B9=1B$B7n=1B(B11=1B$BF|$O8a8e=1B(B13:00=1B$B0J9_EEOC$,7R$,$j$d$9$$6HL3$K=3D=
+"$$$F$*$j$^$9$N$G!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B?M;v$+$^$?$O7HBSEEOC$G$4O"Mm$/$@$5$$!#=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B5Y?&Cf$GIB5$$H8~$-9g$C$F$*$i$l$kCf!"<jB3=
+$-LL$GHQ$o$7$$$+$H;W$o$l$^$9$,!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BO+F/7@Ls$K$+$+$o$k7o$G$9$N$G!"$4M}2r$$$?=
+$@$1$^$9$h$&$*4j$$?=3D$7>e$2$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B?M;v!!NSH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; From: =1B$B!Z6&M-![%$%s%U%)%a!<%7%g%s=1B(B<br=
+>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Sent: Wednesday, September 9, 2020 8:45 AM<br=
+>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; To: =1B$BNS=1B(B =1B$BH~Be=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Subject: FW: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG=
+[$K$D$$$F=1B(B( =1B$B1sF#??F`=1B(B )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$BE>Aw$7$^$9=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; From: masashi endou [<a href=3D"mailto:hujyor=
+om@gmail.com">mailto:hujyorom@gmail.com</a>]<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Sent: Wednesday, September 9, 2020 6:14 AM<br=
+>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; To: =1B$B!Z6&M-![%$%s%U%)%a!<%7%g%s=1B(B &lt;=
+info@kioa.co.jp&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Subject: =1B$B5Y?&$*$h$S=3D}IB<jEv6b$N<jG[$K$=
+D$$$F=1B(B( =1B$B1sF#??F`=1B(B )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B3t<02q<R=1B(B =1B$B7<0&5A;h:`NAHNGd=3Dj=
+=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B?M;vIt=1B(B =1B$BNSMM=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B%/%$!<%s%:%i%s%A=3D>6H0w$N:J$N??F`$KBe$o=
+$j!"IW$N;d=1B(B(=1B$BUr;J=1B(B)=1B$B$,BeI.$7$F$$$^$9!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; 9/7( =1B$B7n=1B(B ) 18:09=1B$B$K%7%g!<%H%a%C%=
+;!<%8$K$FNSMM$N7HBSEEOC=1B(B( 07038452875 )=1B$B08$K!"=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B5Y?&$*$h$S=3D}IB<jEv6b$K$D$$$F$*CN$i$;$$=
+$?$7$^$7$?$,!"$=3D$N8e$$$+$,$G$7$g$&$+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B$*<j?t$*$+$1$7$^$9$,!"$43NG'$*4j$$$7$^$9=
+!#=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; =1B$B0J>e=1B(B<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; --<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Name =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi =
+Endo )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; Office 080-8164-5426<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; &gt; e-Mail &lt;hujyorom@gmail.com&lt;mailto:hujyo=
+rom@gmail.com&gt;&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; --<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; &gt; e-Mail &lt;hujyorom@gmail.com&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; --<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; e-Mail &lt;hujyorom@gmail.com&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; &gt; github &lt;<a href=3D"https://github.com/masashiendou">=
+https://github.com/masashiendou</a>&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; --<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; e-Mail &lt;hujyorom@gmail.com&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt;<br>
+&gt; &gt; <br>
+&gt; &gt; &gt; github &lt;<a href=3D"https://github.com/masashiendou">https=
+://github.com/masashiendou</a>&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; <br>
+&gt; &gt; --<br>
+&gt; &gt; <br>
+&gt; &gt; =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )<br>
+&gt; &gt; <br>
+&gt; &gt; e-Mail &lt;hujyorom@gmail.com&gt;<br>
+&gt; &gt; <br>
+&gt; &gt; github &lt;<a href=3D"https://github.com/masashiendou">https://gi=
+thub.com/masashiendou</a>&gt;<br>
+&gt; <br>
+&gt; -- <br>
+&gt; =1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )<br>
+&gt; e-Mail &lt;hujyorom@gmail.com&gt;<br>
+&gt; github &lt;<a href=3D"https://github.com/masashiendou">https://github.=
+com/masashiendou</a>&gt;<br>
+<br>
+-- <br>
+=1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )<br>
+e-Mail &lt;hujyorom@gmail.com&gt;<br>
+github &lt;<a href=3D"https://github.com/masashiendou">https://github.com/m=
+asashiendou</a>&gt;<br>
+</div>
+</span></font></div>
+</body>
+</html>
+
+--_000_OSAPR01MB147549559801FDBD46399FCA83030OSAPR01MB1475jpnp_--

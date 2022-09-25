@@ -1,0 +1,118 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp1672590vky;
+        Fri, 26 Feb 2021 20:11:24 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxLW/FYGSk4Vghh8BXnfCnpbxIDFPTBfxaqZjiaxjKFX5aH+L7KUWtHJkvpqaIruQ8YttXN
+X-Received: by 2002:a63:515b:: with SMTP id r27mr5638562pgl.38.1614399084203;
+        Fri, 26 Feb 2021 20:11:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614399084; cv=none;
+        d=google.com; s=arc-20160816;
+        b=L07tUAfc4Cfl0BQ+yu+myyCqQRgXn495NLaSEBxktTynDSnsAC0unCVpQNMBdKf28t
+         z6YpFKsBMh6XCLtftYB5Abj59CsqOvkDLe2gg4Wb+/X0Tceul3/MPBX4ltoTP77JJTH5
+         TRm4V8PgwQ5RM8z4IUDVkNFYq0x7yUPF9lu7pNVO5KSaWMxGtoCLZrRmOumeij9CDViT
+         pk8SkJKDa08OYtmjNnxnDkjCLnzRKuF+tHiXOKeRQkiNjgeyc9plMyj+Q/czPx1r3sXK
+         R+cOmVPQ3tEt9wuujFR46UjUTcKAOTujIwWZIoRwypgfBzK77W3uLFk7mkmC1s35T53G
+         uIKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:cc:to
+         :from:date:dkim-signature;
+        bh=ngFbm8gJEiAv15NjPTd5cfaAaje/EoZrj7NYORuFxd4=;
+        b=TKmzuv0lgegTqmyV+AnzAaxDoGqqhkY5XjFWQi8H1BDFomxiFEZJYu1i+h83O+Jd/f
+         kSgk0nsfRyMqPdTANOKJbWSFbleDNCWNjR9+DQqbhLyIC6VxSWeSxwYq8CxtUfnO4EXi
+         7aI0k0/wZaN4MS5PwpACcMqcmv6S0CXOFsBEivemtXvfghlg8iWySQ9NMMUK59XDt/wu
+         WEOI2xwPuY3y+aK4ygMnCP/vzbHki7mMDQXNsGxweU8+1sqkcVlkcOOeA04fZR4bMqWF
+         FmJ5I3+7jtVGNJ6nsL2NWWbzJIEwd/giwvh7LoOpfLzjqPWjmRjZlwwK4PLdCPyTE5Vj
+         4lxQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@rakuten.co.jp header.s=mfw0012014080 header.b=rzDqmyAG;
+       spf=pass (google.com: domain of order-confirm@order-rp.rms.rakuten.co.jp designates 202.72.58.209 as permitted sender) smtp.mailfrom=order-confirm@order-rp.rms.rakuten.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=order-rp.rms.rakuten.co.jp
+Return-Path: <order-confirm@order-rp.rms.rakuten.co.jp>
+Received: from rakuten.co.jp (mat58-209.smtp.rakuten.co.jp. [202.72.58.209])
+        by mx.google.com with ESMTPS id e14si10727136plh.144.2021.02.26.20.11.23
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 26 Feb 2021 20:11:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of order-confirm@order-rp.rms.rakuten.co.jp designates 202.72.58.209 as permitted sender) client-ip=202.72.58.209;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@rakuten.co.jp header.s=mfw0012014080 header.b=rzDqmyAG;
+       spf=pass (google.com: domain of order-confirm@order-rp.rms.rakuten.co.jp designates 202.72.58.209 as permitted sender) smtp.mailfrom=order-confirm@order-rp.rms.rakuten.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=order-rp.rms.rakuten.co.jp
+Received: from mat.rakuten.co.jp (mat102.prod.jp.local [100.66.16.43])
+	by mxmatthanks104z.prod.jp.local (Rakuten MGw 1.3.7) with ESMTP id 4DnY4C03gHz3wfM
+	for <hujyorom@gmail.com>; Sat, 27 Feb 2021 13:11:23 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rakuten.co.jp;
+	s=mfw0012014080; t=1614399083;
+	bh=ngFbm8gJEiAv15NjPTd5cfaAaje/EoZrj7NYORuFxd4=;
+	h=Date:From:To:Cc:Message-ID:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	b=rzDqmyAGJXZO+3nLkl9hf2Z9Nd0kS1ewfDwDkvAhQ+keLKoedZRAca9IHah9RhgTs
+	 /W9A2pzmWQ2PXsR11Ls334VDJ8VoqUBup/06qSI3QeikggLiAvg0fnW1ZWRSsT4V26
+	 3w92pVKWNBx6p4bODiqJd/4Py5ulsEi2wWoPIxKY=
+Received: from mat.rakuten.co.jp (localhost.localdomain [127.0.0.1])
+	by mat102.prod.jp.local (Switch-3.3.4/Switch-3.3.4) with ESMTP id 11R4ASnm012872
+	for <hujyorom@gmail.com>; Sat, 27 Feb 2021 13:11:22 +0900
+Received: from rakuten.co.jp ([matqtx105z.prod.jp.local [100.72.104.27]]) by mat102.prod.jp.local with RELAY id 11R4BMDi014624 ;
+          Sat, 27 Feb 2021 13:11:22 +0900
+Date: Sat, 27 Feb 2021 13:11:22 +0900 (JST)
+From: order-confirm@order-rp.rms.rakuten.co.jp
+To: hujyorom@gmail.com
+Cc: cat-land_2@shop.rakuten.co.jp
+Message-ID: <202102271311.11R4BMDi014624@mat102.db.rakuten.co.jp>
+Subject: =?iso-2022-jp?B?GyRCIVozWkU3O1Q+bCFbGyhCIBskQjNkSWobKEI=?=
+ =?iso-2022-jp?B?GyRCSE5HZEshQmgbKEIzMBskQj5yGyhCMhskQiROGyhC?=
+ =?iso-2022-jp?B?MxskQkJoGyhCNBskQjlgJEs0cCRFJC89cRsoQg==?=
+ =?iso-2022-jp?B?GyRCTEwhSjwrRjBHWz8uJWEhPCVrIUsbKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+X-Rams-Source: 100.72.104.27
+X-Rams-Id: 2E6512851C4572C5C675A8B81636AB959CEC8557
+
+---------------------------------------------------------------------
+本メールはクレジットカード分割払い、リボルビング払い、ボーナス一括払いでの決済をご選択されたお客様に送信される、自動配信メールです。
+---------------------------------------------------------------------
+
+この度は楽天市場内のショップ「キャットランド」をご利用いただきまして、誠にありがとうございます。
+割賦販売法第30条2の3第4項、同法施行規則第54条1項各号に定められた事項は本メールの内容をご確認いただきますようお願いいたします。
+
+【注文情報】
+---------------------------------------------------------------------
+[注文番号] 248288-20210227-03234812
+[注文確認日時] 2021-02-27 13:11:22
+[お支払い方法] クレジットカード (リボ払い)
+=====================================================================
+[商品] 猫 キャリー ペットキャリー 飛行機 ドライブペットキャリー Mサイズ (12kg未満) PDPC-600 猫 小型犬 キャリー ハウス プラスチック製 ハードキャリー キャリーバッグ
+価格  5,680（円）× 1（個）＝ 5,680（円）送料 0（円）税込 税率10％
+[お届けの目安] 3営業日以内に発送予定
+********************************************************************
+送料計（税込） 0（円）
+お支払い金額 5,680（円）
+---------------------------------------------------------------------
+※分割支払額、リボ払いの場合の弁済金の明細については、ご利用のカード会社にお問い合わせください。
+※楽天カードをご利用の場合は、楽天e-NAVIの明細画面にてご確認いただくことが可能です。
+[楽天e-NAVIの明細画面はこちら]
+https://www.rakuten-card.co.jp/e-navi/members/statement/index.xhtml?l-id=corp_de_service_bill_enavi_login_001
+
+[返品、初期不良、商品トラブルおよびその他の特約についてはこちら]
+https://www.rakuten.co.jp/cat-land/info.html
+
+
+【店舗へのお問い合わせ先】
+お客様のお取引先は以下ショップとなります。
+本書を書面にて交付されることをご希望の場合は、直接ショップまでお問い合わせください
+=====================================================================
+[ショップ名] キャットランド
+[ショップURL] https://www.rakuten.co.jp/cat-land/
+[電話] 03-6706-4521
+[メールアドレス] cat-land_2@shop.rakuten.co.jp,cat-land_3@shop.rakuten.co.jp
+=====================================================================
+
+お支払いに関するご質問は、楽天市場までお問い合わせ下さい。
+※本ご注文に心あたりが無い場合には、大変お手数をおかけしますが、上記ショップならびに楽天市場までお問い合わせください。
+
+
+────────楽天市場　・　お支払いに関するご質問はこちら──────────
+■楽天市場 お客様サポートセンター
+https://chat.ichiba.faq.rakuten.co.jp/rnt_chat_ref/100/Payment
+※表示された画面にお困りごとをご入力頂くか、「オペレーターとチャットしたい」など、ご希望のご連絡方法をご入力ください。
+────────────────────────────────────────

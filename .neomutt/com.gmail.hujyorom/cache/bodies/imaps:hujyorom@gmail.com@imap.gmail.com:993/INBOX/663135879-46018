@@ -1,0 +1,109 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:8d47:0:0:0:0:0 with SMTP id p68csp1073999vkd;
+        Thu, 17 Dec 2020 14:43:13 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzR7hymn+9znm7wO0qwOyMlQp0ohRGHV7yAGT7mXQACcU2HIR3eCv3G1GrFR44eozAf3Rrc
+X-Received: by 2002:a17:90a:9304:: with SMTP id p4mr1312880pjo.220.1608244993694;
+        Thu, 17 Dec 2020 14:43:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1608244993; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vQ8ToJqSoqgawFNzR+S9XJO9ZJb2D4bhGdcUI2t9HLc5ef8dCraV3nijhBLXG4NwJJ
+         LhQ5izSjTEWmTIKPN5cHZLKjY2nj/Ot4Ph3YWjLGUg8Pnpezf+IJZY/XcMbaRBC/oGXM
+         EKGhPLPZdtZUU3Eu2GO/QCyDmb76JMCKg9yKNY75Tm0HY3CNihgkgPQ5zMLyq32z1FkR
+         pogAEXjUg5PxXnyfrj37mrP3wwykaE78wuN7omB2OhU3fpXu0VQqJX5LyouZoze0pA4U
+         kNXWdGFerIxuy6GvJGKDaFlrtkkghpZeV39xD4Xh0gS28rK8p6g00mWMIwP0/Zh7hwAA
+         fdAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=yNnoNddKQdMPr3f50hxpbWgh/M0T+VjCZjvSp5dtUsg=;
+        b=qxBowEsVngrSsIP/PVZv0y5tlKuxda+hY/K5tqRaXEM7nw9wMtuJwBHZMIrC1PZ7tD
+         9qMqTq0s/CeuU5uUrwn5OdHj1hNtnMOYyD8Pv0CiJh5g+6s1b1MOVV7dCVBikNFaiusA
+         Ts7ENHP/BkkXgbs42H6ENREUETJKOSNGFRR682BnFnwJ0UCg8SFT2SVRWeByIcymq7KI
+         Dg1FX35lUHuyGMuv0cmIYZbFeKgAvwJWM/IC1iiG1GXV2qQrzG0d/K6PJMX/k8aAwLSc
+         0DZ6YfoHafonRJzEx3hwDaHHZZ4RUtRz2ucnOVxW0/4KNYZEdB2B/GYoskbIdNvSn4EF
+         HXxg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=SQ+dURWq;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.122 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml103.ymt.japannetbank.co.jp (mml103.ymt.japannetbank.co.jp. [202.238.157.122])
+        by mx.google.com with ESMTP id t6si5763023pgi.511.2020.12.17.14.43.13
+        for <hujyorom@gmail.com>;
+        Thu, 17 Dec 2020 14:43:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.122 as permitted sender) client-ip=202.238.157.122;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=SQ+dURWq;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.122 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1608244992;
+	bh=yNnoNddKQdMPr3f50hxpbWgh/M0T+VjCZjvSp5dtUsg=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=SQ+dURWqEuzuNdUUeHwtmgbigubMDta+9s9u4S5dWLYVqAnEr5tJkyKwrx1FsYY58
+	 in4TGuiJ/w6MXJiO3bTyZFTSakEnrSeKQrOdYdYGDWPYlsos3Gkf9BT9pTziN/P08p
+	 XYu6p55nPJy7KtIFkK9jYqIwWHwFk4dEBdsEjxNE=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIVojViNpI3MjYSVHJVMlQyVIIVskNE14TVFCZRsoQg==?=
+ =?ISO-2022-JP?B?GyRCNmIkKjB6JC1NbiRIJDckTiQqQ04kaSQ7GyhK?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20201217224312.EED6117E0FB@mml103.ymt.japannetbank.co.jp>
+Date: Fri, 18 Dec 2020 07:43:05 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもジャパンネット銀行をご利用いただきありがとうございます。
+JNB Visaデビットのご利用代金を普通預金口座よりお引き落としいたしました。
+
+お引落日時：2020/12/18 07:37:57
+お引落金額：300円
+加盟店名：ＶＩＭＥＯ．ＣＯＭ
+取引明細番号：1A353001
+
+
+▽（個人のお客さま限定）JNB Visaデビットは還元率25％のマイナポイント事業の対象です！
+https://www.japannetbank.co.jp/service/payment/cardless/mynumberpoint/index.html?aatc=vi2006jb04k
+
+▽現在実施中のお得なキャンペーン情報はこちら
+https://www.japannetbank.co.jp/service/payment/cardless/index.html?aatc=vi2006jb04n#newsStyle
+
+「残高確認アプリ」でご利用明細が簡単に確認できます。
+▽アプリのダウンロード・詳細はこちら
+https://www.japannetbank.co.jp/smtapp/balance.html?aatc=vi2002jb04r
+
+▽Visaデビットで困ったら　引き落としについて
+https://www.japannetbank.co.jp/service/payment/cardless/answer.html?aatc=vi2001jb04d#withdrawal
+
+▽JNB Visaデビットの利用特典（ポイント）について
+https://help.japannetbank.co.jp/hc/ja/articles/900002663566?aatc=vi2002jb04s
+
+■ご注意■
+・月額料金や一部加盟店でのお引き落としは、お客さまの実際のご利用日と異なる場合があります。
+・お取引内容に変更やキャンセルが生じた場合、利用特典（ポイント）は変更または取り消しされます。
+・本メール記載のURLは、パソコンまたはスマートフォンからご覧ください。
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+本メールに関するお問い合わせは、こちらまでお願いいたします。
+▽パソコン・スマートフォンの場合
+https://www.japannetbank.co.jp/help/customer.html#visa
+▽携帯電話の場合
+http://m.japannetbank.co.jp/contactus.html
+
+ジャパンネット銀行　JNB Visaデビットカスタマーセンター
+0120-089-623（通話料無料）
+フリーダイヤルをご利用いただけない場合 03-6739-5015（通話料有料）
+営業時間：9時〜17時
+休業日：12月31日〜1月3日、5月3日〜5月5日
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+ジャパンネット銀行
+東京都新宿区西新宿2-1-1　新宿三井ビル
+https://www.japannetbank.co.jp/
+====================================

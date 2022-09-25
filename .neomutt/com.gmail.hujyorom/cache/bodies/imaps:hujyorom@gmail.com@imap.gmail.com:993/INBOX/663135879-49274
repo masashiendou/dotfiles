@@ -1,0 +1,1152 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp2971763vkx;
+        Sun, 28 Mar 2021 17:44:13 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw5HTZh2VAZStxjgCueILwRoBO2EpT8sF+27PmoUbEBSFIDD/ijMA+4xiknCqaYXk3hQgZD
+X-Received: by 2002:a17:902:edc7:b029:e6:f01d:75a9 with SMTP id q7-20020a170902edc7b02900e6f01d75a9mr26932199plk.63.1616978653348;
+        Sun, 28 Mar 2021 17:44:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616978653; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=cMhjRFopcloLefWMDpZ87uPbuIK6Z8HXviTZXIVYtI1wD43EU4lWcI1g8gjFmNBS5i
+         jm05O5eBvMkMXYZmuSVaGZrJasE/3mPLeCPi2YUCDJInVmV7D3L9rZv6crY+Z5jiEKkd
+         8mE32+3muQ1dA3nAVW6SPvn/KG0IeaESCrvDs+lufNaEpTkFiLXlFAChNqbwkwATxGS+
+         Kk91rxNE+Y6ddYep3inQX+rv3ueuSFQfYw74bkobfs32Y97JlgcePGETco/O/sV/NeDc
+         M1vgBe/XMMAfSUbbbxUOKMhSV83/VOYGW9ibbbihPx9IO9ewO+LYxszn40/uIgo574sX
+         ooyw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:cc:to:from:dkim-signature;
+        bh=l4mQDiwkrOEVtfTSDttCGHu6+2TMuHSkFRtQeYlFKDs=;
+        b=epXTL0KcpCq0hanYxHIa6xFHQncbUfK4QcNPGD6UAHM44qGle7I+8y7icZYgXByXtm
+         qBkNc8uAtY9jCAm+lTRMc2npM19X6RkSHdLNasy4BwRtdh+i8EbMgYfyPu6qpnkShBsR
+         hscAQWi5QO9xna/KX76nxNTtbO0vLS89t9eKQr1U8l2sTzlmnXNjUq8tIvfVheAlnhLk
+         7df5Y9QCaBONPy0Byo4pK1Iu3rv/+sdGRdGQhJkNh13WThGiLqYt39wYCi4qZ9wc8gmc
+         A9SIvMGWDVdu0I9YGkExlGhEVBQVX09gXyb+OcEibQXRPKiBPX+LuDBpk5ie9Gll55kX
+         Urvw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@groupallnet.onmicrosoft.com header.s=selector1-groupallnet-onmicrosoft-com header.b=lO0YXW98;
+       arc=pass (i=1 spf=pass spfdomain=persol.co.jp dkim=pass dkdomain=persol.co.jp dmarc=pass fromdomain=persol.co.jp);
+       spf=pass (google.com: domain of engineer_haken-techstaff@persol.co.jp designates 40.107.140.135 as permitted sender) smtp.mailfrom=engineer_haken-techstaff@persol.co.jp
+Return-Path: <engineer_haken-techstaff@persol.co.jp>
+Received: from JPN01-TY1-obe.outbound.protection.outlook.com (mail-eopbgr1400135.outbound.protection.outlook.com. [40.107.140.135])
+        by mx.google.com with ESMTPS id t22si16847103plr.237.2021.03.28.17.44.12
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 28 Mar 2021 17:44:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of engineer_haken-techstaff@persol.co.jp designates 40.107.140.135 as permitted sender) client-ip=40.107.140.135;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@groupallnet.onmicrosoft.com header.s=selector1-groupallnet-onmicrosoft-com header.b=lO0YXW98;
+       arc=pass (i=1 spf=pass spfdomain=persol.co.jp dkim=pass dkdomain=persol.co.jp dmarc=pass fromdomain=persol.co.jp);
+       spf=pass (google.com: domain of engineer_haken-techstaff@persol.co.jp designates 40.107.140.135 as permitted sender) smtp.mailfrom=engineer_haken-techstaff@persol.co.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Wpb8VSO0RnMn4oEevzZ8tuLVv13mjwZgGFMspNM2qrdcwZYeob2xdZzApeEFxDT9Bg6VIRh8Pl/eX6uHOqXWK84y2Sb5tWyFHfaMDTIuwtBixW6gPXU+NUG41iloNoD5lsik65PiL16hZurzipsjv691dtlPqj0VNeMJYx5YGY4yXV0bx3pUyAJsb9JhuBEIfH7B4//xy18Nyv75p2KKiYVwF/Kmy/Nh6K/5H9Rm8XSV0szY4+m8yA+p+GENscJmnh6lmW37DM1BsSiUQkbWlQMnqzdws/mHQ/UdDC8NAXhQtv9JJELfjOtC2hR9XPvhk1YxDhdDb796qxHsOmKnlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l4mQDiwkrOEVtfTSDttCGHu6+2TMuHSkFRtQeYlFKDs=;
+ b=Xhsv29xNY6xezIqL/mPK/rHcaZ6rmuUiO0cZ+gteaNaGdHCOwQEvCPl7VYM9tgHVq5fMptpF+n9Ru7n6mDfZf/NipNa3ugmftMNrk3o54mHOOoJNNE7WCa8gakMjx//sgIF9snWKXhy/NJIltGenHKyeOLa60GzXl04iUJLFlT0xKeVSJsoPwLmNTdZat74RfW6cre1Q8WS0fGSuxDVnFHbalU2E6vwbODY29o5YE4MZA/cSSJWKBL51ynD4bAY00UqSvPMyY5hT3LqsfGEudGXQIndGs4N0yemxB445l49yFAnCfYWDPDWzpsC9ByIMX1sP/Nr+ZI2CMN0HMdmujg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=persol.co.jp; dmarc=pass action=none header.from=persol.co.jp;
+ dkim=pass header.d=persol.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=groupallnet.onmicrosoft.com; s=selector1-groupallnet-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l4mQDiwkrOEVtfTSDttCGHu6+2TMuHSkFRtQeYlFKDs=;
+ b=lO0YXW98Pom0AiYPQiuD3hVX6koeydGtowNfS0xf8U9ToS+8KHjLqvrens0TuPNCnD7nC8atf0rSMLuiY46hew7qIjNHFt4Y/3O0cgk3/K8EczoZ+ABPgrhRfoFvQUwOG0WN2rGWb+b6Ji0AeAMwYIMAIRDXYzBYqY534AjpDj0=
+Received: from TY2PR01MB3977.jpnprd01.prod.outlook.com (2603:1096:404:df::23)
+ by TYAPR01MB6476.jpnprd01.prod.outlook.com (2603:1096:400:95::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3977.25; Mon, 29 Mar
+ 2021 00:44:10 +0000
+Received: from TY2PR01MB3977.jpnprd01.prod.outlook.com
+ ([fe80::e1a2:6544:b742:5e53]) by TY2PR01MB3977.jpnprd01.prod.outlook.com
+ ([fe80::e1a2:6544:b742:5e53%7]) with mapi id 15.20.3977.033; Mon, 29 Mar 2021
+ 00:44:10 +0000
+From: =?iso-2022-jp?B?GyRCJVEhPCU9JWslRiUvJU4lbSU4ITwlOSU/JUMlVRsoQiBJVA==?=
+ =?iso-2022-jp?B?GyRCR0k4LxsoQg==?= <engineer_haken-techstaff@persol.co.jp>
+To: "hujyorom@gmail.com" <hujyorom@gmail.com>
+CC: =?iso-2022-jp?B?GyRCTmtMWhsoQiAbJEJNfTFHO1IbKEIoUFRDU19JVBskQj9NMysbKEJf?=
+ =?iso-2022-jp?B?Q08p?= <suzukir@persol.co.jp>
+Subject:
+ =?iso-2022-jp?B?GyRCIVolUSE8JT0layVGJS8lTiVtJTghPCU5JT8lQyVVIVs+UjJwGyhC?=
+ =?iso-2022-jp?B?GyRCMEY3b0BiTEA7djlgJE4kNDBGRmIbKEI=?=
+Thread-Topic:
+ =?iso-2022-jp?B?GyRCIVolUSE8JT0layVGJS8lTiVtJTghPCU5JT8lQyVVIVs+UjJwGyhC?=
+ =?iso-2022-jp?B?GyRCMEY3b0BiTEA7djlgJE4kNDBGRmIbKEI=?=
+Thread-Index: AdckMc2j1TiZ3zv/QVKAvpHswwQlvw==
+Date: Mon, 29 Mar 2021 00:44:10 +0000
+Message-ID:
+ <TY2PR01MB3977BDFF595B0304A1DB6DB9AF7E9@TY2PR01MB3977.jpnprd01.prod.outlook.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=persol.co.jp;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [202.238.206.229]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 260b9347-d787-4022-2d31-08d8f24bc47f
+x-ms-traffictypediagnostic: TYAPR01MB6476:
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs:
+ <TYAPR01MB64761D31710FCFE311067416857E9@TYAPR01MB6476.jpnprd01.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:201;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ GfBWO3+PJGTcmL5oiuaYuSAsBnY45N7qN5w1UazuD90FxzqLtu/0oLQKID150PaykfEFV9zxdG29S+gQHzPQqkFJuc7Kunf8OjN+PFkyZ8m+NK9ngTNfK6KIes78NSZDBKcAWGidJvSrBwmSaIpsdV2G+3vfel+ZmoABt3OewuHXFZQloQAM2lNm1AJy7rIPSCV80+FU+hq1v7T3DxW588sEBHU+k8uoHs+VqLgE5phe4ceCLjrHTu5WtO31u7Klh1n0OQqbLAKl1FS3pw0mJ76BatQqmWNHB4W0oB7vLF73ipMiRSJ7Yr1a1s5HNThfUjSGwSGZs8uo/Abt0n1NIdMfK0yXRRF56ULzz2vss6GKBw9SZvmURvvxmRUwkWt7BN5Fl1G722u5k2s95Vt1Y2oh1EEYpOHd+XByghfWaDByvqRanZAZsxk2th31GXtUloFHZpyFIr4BF8orA7KxmWcgDzsi0MeoXHlAeLVdJ4mpeImxEyz4DHMm2cyy6q4oFjhzfknHoZboh0giwFzHSVNOs8QNICqkm2e+MxyViQarn3AQ2QrpWdqj5kwFmM/6wiZr2VYMp2W7bWegXM0cWcC7AxBJ2Cu6g+kQuxR2QCY4RP6qSrtWYvPZ9GsafNgzjfPSxC5iI2QMzakAFa2GJWIE5t1j2+0e3DOuSk2tsr6St59hGsReNcp94xbLN7KRf7k1IQQWIkvhG+o0Vj0aDMC3AtN0E5axcziCGzGr7+M=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PR01MB3977.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(39860400002)(396003)(366004)(136003)(376002)(346002)(478600001)(52536014)(8936002)(6506007)(966005)(7696005)(38100700001)(9686003)(4326008)(55016002)(5660300002)(6916009)(66476007)(71200400001)(107886003)(186003)(224303003)(26005)(21615005)(66556008)(76116006)(66446008)(166002)(64756008)(86362001)(66946007)(33656002)(316002)(2906002)(579004);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata:
+ =?iso-2022-jp?B?YjZFMEFZd2MyK0laOThPb1lQZ2U3NXkvWTBmWXFGdWNIQkRWRmlZZjB0?=
+ =?iso-2022-jp?B?QjJMVDRwRmkwWHlTZ3Jqby9XUUJGL1N0VGV2MTQ2N2Q3RU5YU2o5NVRq?=
+ =?iso-2022-jp?B?OVQ4Qiswc2M3S0xkZjh2T1NwL0VLSEpPVGErMTU5b2ZNQWpGT3ZNTk9Z?=
+ =?iso-2022-jp?B?WjNHbit0RSs1L1l2eXBSeFgxVXNJU1d1aHFKZUVNdytqdTF6RTIzMWpt?=
+ =?iso-2022-jp?B?dWd0N2hQbSttYmcrWEdHRS9pRm1SZFBjZEhHNEwyS0JTNENNZHIvUnhL?=
+ =?iso-2022-jp?B?RG9TalZBTDQxQmduQyt0RVlVSDFQVS85SHM2S0I2UFJrMFJHMWdBZUtu?=
+ =?iso-2022-jp?B?eWtvc2lmcldIcER3TmlGZ0VZVEo5UnBhVnVRVURKVlY4QWtiRzBpbU1l?=
+ =?iso-2022-jp?B?MkhFSkpXNHc2UkFWeVp1TGt2ZW1VU2VFeUpRT0dwT0sraEFzSFRIcU5Z?=
+ =?iso-2022-jp?B?Y3gxZnh4em95ZEhhYlcyTDk0d3hFZExZU1M1OVk3aXNpNkdKVXZZRFhn?=
+ =?iso-2022-jp?B?alY5YTY4YUdQQzJpUmpFNm1BQjZ5ZStBNEJIaUJLL1Iwb1BJcU5ScGkx?=
+ =?iso-2022-jp?B?WGJQMWVUZndyWDZCNE1LQUxOL2duOGxqdFk0cFVjVXZoTlJEZ21OeURj?=
+ =?iso-2022-jp?B?OGpFc3krY2ZBRVp6ZGpJd2ZXU3VuMWRvL01rcWVHazlPUnY3ZnVmMTJ6?=
+ =?iso-2022-jp?B?dUJVNWkzUVh6WTlqSEoyczlwRTRlQklFWDJJYVRaeHYzL0kyN01Bb1JS?=
+ =?iso-2022-jp?B?VTd3cHJnbmdYRnBIaXVLU05PNEhPSC8zaWlmTVhMRkxTT21MQ3VicmJ6?=
+ =?iso-2022-jp?B?N05qTDJrSStTL3N6bEtteEtEUDlFaXFRTS9zKzFwUlRsbGdFWWFpSnpX?=
+ =?iso-2022-jp?B?dFZ6eHl5S29Fc1J1bzJyNnI3S2FLUjc5T0pCaGNJWno0aUN0TmZndlZI?=
+ =?iso-2022-jp?B?eTNQOUluZVUreTJhWU1QVjlrcWFOU0RxazJselVid0N5SE5abTAxQmRk?=
+ =?iso-2022-jp?B?aHlJYlRpcElFYjJZeDk0bWdEc1RpOG1YWXBNR0tHRjh4SkQraUt4S2tE?=
+ =?iso-2022-jp?B?ZzIwSW9ucFA0VVl0TXJrNjV6VWNLNlhaOFBYTWJkVFhJNzhibHJuK1B3?=
+ =?iso-2022-jp?B?NnhnK2E4WXA3L08yc3MvR3ZOVURVM3kwUmduN0FpRG5uVjQ3OXBqZFgw?=
+ =?iso-2022-jp?B?SldJeEFlV0hqWDJGeGNjdnBGeHVjWFUzbDl4RnNaSE9tQU5xWFMxMUdz?=
+ =?iso-2022-jp?B?bXdBRkZ2TGZMUk5TNkQwS2J1RHNqaG9CMHR3QWMrcTUxVUlTZWxvbTVJ?=
+ =?iso-2022-jp?B?ZzFjNUMzNE5qeVVHdldpMXAzSzRCSFk2S2Q2bW9uMGV3eHd1NkJWK3Ru?=
+ =?iso-2022-jp?B?YmdYdy9jWElad3Q5ZHFYN3lRVTJETkdrdzg3UFdUVStjS1NOcGlBbG5X?=
+ =?iso-2022-jp?B?S25YTms1VVNFRFgxcUtPblloRmxVTmlyMUpudGtnekZRc21hQWkxM0h4?=
+ =?iso-2022-jp?B?K1hJYzUyY2xNakpoZkFMM1BIb2gyMEI2dWc5bStINzJXb2h5RiswRG5v?=
+ =?iso-2022-jp?B?SGFFNDl4N0x0dUtOTEZ3bStBckp0Yk9ZRTJyWGV6aHB5blhITTdXcG9p?=
+ =?iso-2022-jp?B?YkZneWswQzZwTlhzQnJFZVdHS0dhVmh4MmI3M1llQ21ZVFdDWmRLN0pk?=
+ =?iso-2022-jp?B?MVp5VUxjbGs1RjlrdFN0TEYrcEt6RHdyeDRBTElySXhnUElTdHZ1Qktp?=
+ =?iso-2022-jp?B?Y3ZKS2hFdlFsUnEvaERHd3dRZXNvdDRPWDlOUWFJbVVQSmE5cVZIOTdp?=
+ =?iso-2022-jp?B?UUozdFNmNU5EcUVEZk9yNndTb2MxV01Db3NnWTdQcjROa2E5NHUxTEY2?=
+ =?iso-2022-jp?B?RzFPQ2FYVE9vZnJyeTh4czJ3Qk5HQmZTZVYyUkk4Qkp5b1VjVmF4czlu?=
+Content-Type: multipart/alternative;
+	boundary="_000_TY2PR01MB3977BDFF595B0304A1DB6DB9AF7E9TY2PR01MB3977jpnp_"
+MIME-Version: 1.0
+X-OriginatorOrg: persol.co.jp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PR01MB3977.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 260b9347-d787-4022-2d31-08d8f24bc47f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Mar 2021 00:44:10.4004
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f3d7b79e-b8c5-4b09-a13c-9ce0dc5d8916
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: VrbIfNgIRGnxTX/BO4qaTXG1giQGrRJ7a6Jfm7SNWJvXS7L4P1VfmOmHHTi0Mhnfr2Xh2xzjOfHH4MC8nBiZ/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYAPR01MB6476
+
+--_000_TY2PR01MB3977BDFF595B0304A1DB6DB9AF7E9TY2PR01MB3977jpnp_
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+=1B$B1sF#MM=1B(B
+
+=1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B
+=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U!!%3%s%?%/%H%G%9%/%0%k!<%W!!=1B(BCA=1B$B=
+%"%7%9%?%s%H$G$4$6$$$^$9!#=1B(B
+=1B$B%-%c%j%"%"%I%P%$%6!<NkLZ$KBe$o$j$4O"MmCW$7$^$9!#=1B(B
+
+
+=1B$BEv<R$+$i$NGI8/=3D"6H$r$48!F$$$$?$@$-$"$j$,$H$&$4$6$$$^$9!#=1B(B
+
+=1B$B$3$NEY$N>R2p0F7o$K$D$$$F!"DB6b$N8+9~$_3[Ey$K$D$-!"GI8/K!Bh=1B(B31=1B$B=
+>r$N=1B(B2=1B$B$N5,Dj!"?&6H0BDjK!!!Bh=1B(B5=1B$B>r$N=1B(B3=1B$B$K$h$jDLCN?=
+=3D$7>e$2$^$9!#=1B(B
+
+=1B$B0F7o=1B(BNO
+E210316387
+=1B$B!!=1B(B
+=1B$B!!=1B(B
+<=1B$B=3D"6H@h>pJs=1B(B>
+=1B$B!!=1B(B
+=1B$B=3D"6H@h4k6HL>=1B(B
+=1B$B%/%j%(!<%7%g%s%i%$%s3t<02q<R=1B(B
+=1B$B=3D"6H@h=3D;=3Dj=1B(B
+=1B$BEl5~ET@iBeED6h?@ED:45W4VD.#3CzL\=1B(B-6
+M=1B$B!G=1B(Bs WORKS BLDG 2F
+=1B$B!!=1B(B
+=1B$B!!=1B(B
+<=1B$B5a?MMW9`!&1~JgMW9K=1B(B>
+=1B$B!!=1B(B
+=1B$B1~Jg?&<o=1B(B
+=1B$B%M%C%H%o!<%/!&%5!<%P!<%(%s%8%K%"=1B(B
+=1B$B8[MQ7ABV=1B(B
+=1B$BM-4|8[MQ=1B(B(=1B$BGI8/=3D"6H=1B(B)
+=1B$B;nMQ4|4V=1B(B
+=1B$B=3D"6H3+;O$+$i=1B(B14=1B$BF|4V=1B(B
+=1B$B!!=1B(B
+=1B$B!!=1B(B
+<=1B$B=3D"6H>r7o!&J!Mx8|@8$J$I=1B(B>
+=1B$B!!=1B(B
+=1B$B;~5k=1B(B(=1B$BM=3DDj=1B(B)
+2,200=1B$B1_=1B(B
+=1B$B4|4V=1B(B(=1B$BM=3DDj=1B(B)
+=1B$BB(F|!AD94|!J=1B(B3=1B$B%v7n0J>e!K=1B(B
+=1B$B6PL37ABV=1B(B
+=1B$B%U%l%C%/%9=1B(B
+=1B$B6PL3;~4V=1B(B
+1. 10:00 - 19:00
+2.
+3.
+=1B$B5Y7F;~4V=1B(B
+1. 12:00 - 13:00
+2.
+3.
+4.
+=1B$B%3%"%?%$%`=1B(B(=1B$B%U%l%C%/%9$N>l9g=1B(B)
+=1B$BM-!!=1B(B11:00 - 19:00
+=1B$B;D6H;~4V=1B(B
+5 - 15 =1B$B;~4V=1B(B
+=1B$B5YF|=1B(B
+=1B$BEZF|=3DK=1B(B
+=1B$BJ]81=1B(B
+=1B$B2CF~>r7o$O!"2<5-=1B(B<=1B$B2CF~;q3J=1B(B>=1B$B$G$43NG'$/$@$5$$!#=1B(B
+
+
+=1B$B"(Cm0U"(=1B(B
+=1B$B>e5-$O!"8=3D:_$40FFb$7$F$$$k0F7o$G=3D"6H$$$?$@$/>l9g$KA[Dj$5$l$k4|4V=
+=1B(B(=1B$B3+;OF|=1B(B)=1B$B!&DB6b3[$N8+9~$_$G$"$j!"=1B(B
+=1B$B<B:]$NDB6b3[$O!"7@Ls;~E@$G7hDj$$$?$7$^$9$N$G!">e5-$H0[$J$k>l9g$b$4$6$$=
+$^$9!#=1B(B
+
+=1B$B"#<R2qJ]81=1B(B
+=1B$B<B:]$NDB6b3[$O!"7@Ls;~E@$G7hDj$$$?$7$^$9$N$G!">e5-$H0[$J$k>l9g$b$4$6$$=
+$^$9!#=1B(B
+=1B$B!c2CF~;q3J!d=1B(B
+https://persol-tech-s.co.jp/bene/insurance/
+
+=1B$B"#?M:`GI8/@)EY$N$7$/$_=1B(B
+https://persol-tech-s.co.jp/guide/workstyle/
+
+=1B$B"#%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U!J3t!K2q<R35MW=1B(B
+https://persol-tech-s.co.jp/corporate/outline/
+
+=1B$B"#GI8/=3D"6H$N4|4V@)8B$K$D$$$F=1B(B
+=1B$BJ?@.=1B(B27=1B$BG/=1B(B9=1B$B7n=1B(B30=1B$BF|!AO+F/<TGI8/K!$N2~@5$K$h$=
+j!"?7$?$J4|4V@)8B$,@_$1$i$l$^$7$?!#=1B(B
+https://persol-tech-s.co.jp/guide/law/2017/0101.html
+
+=1B$B"#MxMQ5,Ls!?8D?M>pJs$N<h$j07$$$K$D$$$F=1B(B
+=1B$B!cMxMQ5,Ls!d=1B(B
+https://persol-tech-s.co.jp/corporate/siteinfo/personal/privacy.html
+
+=1B$B"!$=3D$NB>$4ITL@$JE@$O!"$*5$7Z$K$*?R$M$/$@$5$$!#$I$&$>$h$m$7$/$*4j$$$$=
+$?$7$^$9!#=1B(B
+
+=1B$B8=3D:_9q$+$i$N!V?7$7$$@83hMM<0!W$KJo$$!":_Bp6PL3Cf$N$?$a!"HV9fDLCNH/?.=
+$,$G$-$J$$>u67$G$4$6$$$^$9!#BgJQ62$lF~$j$^$9$,!"HsDLCNHV9f$K$F$N$4O"Mm$K$D$=
+-$^$7$F!"$4M}2r$$$?$@$1$^$9$H9,$$$G$9!#=1B(B
+------------------------------------------------------------------------
+=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U3t<02q<R=1B(B
+IT=1B$B;v6HK\It!!?M:`3+H/It!!%3%s%?%/%H%G%9%/=1B(BG=1B$B!!=1B(B
+CA=1B$B%"%7%9%?%s%HC4Ev=1B(B
+tel:0120-907-581
+=1B$B!ZHkL)J];}$N$*4j$$![=1B(B
+=1B$B$3$A$i$N%a!<%k$K$*?4Ev$?$j$,$J$$>l9g$O!"%a!<%k$N;HMQ!"8x3+Ey$r$J$5$i$:=
+!"=1B(B
+=1B$BAw?.85$K$4O"Mm$$$?$@$-$^$7$?>e$G:o=3D|$r$*4j$$CW$7$^$9!#=1B(B
+
+=1B$B!Z<R2qJ]81$N$40FFb![=1B(B
+https://persol-tech-s.co.jp/bene/insurance/contents/001.html
+=1B$B"(8=3D:_$N$4=3D"6HCf$G=3D"6H3+;OF|$KJL4k6HMMEy$G$4=3D"6HCf$G$"$kJ}!"%@=
+%V%k%o!<%/=1B(B
+=1B$B4uK><T$NJ}$O;vA0$K$4O"Mm$rD:$-$^$9MM!"$h$m$7$/$*4j$$$7$^$9!#=1B(B
+
+
+
+--_000_TY2PR01MB3977BDFF595B0304A1DB6DB9AF7E9TY2PR01MB3977jpnp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:m=3D"http://schema=
+s.microsoft.com/office/2004/12/omml" xmlns=3D"http://www.w3.org/TR/REC-html=
+40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"=1B$B#M#S=1B(B =1B$B#P%4%7%C%/=1B(B";
+	panose-1:2 11 6 0 7 2 5 8 2 4;}
+@font-face
+	{font-family:"Meiryo UI";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Meiryo UI";}
+@font-face
+	{font-family:"\@=1B$B#M#S=1B(B =1B$B#P%4%7%C%/=1B(B";}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0mm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-priority:99;
+	mso-style-link:"=1B$B=3Dq<0$J$7=1B(B \(=1B$BJ8;z=1B(B\)";
+	margin:0mm;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Meiryo UI";
+	color:#323E4F;}
+span.17
+	{mso-style-type:personal-compose;
+	font-family:=1B$B^b%4%7%C%/=1B(B;
+	color:windowtext;}
+span.a
+	{mso-style-name:"=1B$B=3Dq<0$J$7=1B(B \(=1B$BJ8;z=1B(B\)";
+	mso-style-priority:99;
+	mso-style-link:=1B$B=3Dq<0$J$7=1B(B;
+	font-family:"Meiryo UI";
+	color:#323E4F;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+/* Page Definitions */
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:99.25pt 30.0mm 30.0mm 30.0mm;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026">
+<v:textbox inset=3D"5.85pt,.7pt,5.85pt,.7pt" />
+</o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"JA" link=3D"#0563C1" vlink=3D"#954F72" style=3D"text-justify-=
+trim:punctuation">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><a name=3D"_Hlk22716208"></a><a name=3D"_Hlk53289427=
+7"><span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0p=
+t;font-family:&quot;Meiryo UI&quot;">=1B$B1sF#MM=1B(B<span lang=3D"EN-US"><=
+o:p></o:p></span></span></span></a></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B<span lang=3D"EN=
+-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U!!%3%s%?%/%H%G%=
+9%/%0%k!<%W!!=1B(B<span lang=3D"EN-US">CA</span>=1B$B%"%7%9%?%s%H$G$4$6$$$^=
+$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B%-%c%j%"%"%I%P%$%6!<NkLZ$KBe$o$j$4O"MmCW$7$^$=
+9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$BEv<R$+$i$NGI8/=3D"6H$r$48!F$$$$?$@$-$"$j$,$H$=
+&$4$6$$$^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></sp=
+an></p>
+<p class=3D"MsoPlainText"><span style=3D"mso-bookmark:_Hlk532894277"><span =
+style=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;color:w=
+indowtext">=1B$B$3$NEY$N>R2p0F7o$K$D$$$F!"DB6b$N8+9~$_3[Ey$K$D$-!"GI8/K!Bh=
+=1B(B<span lang=3D"EN-US">31</span>=1B$B>r$N=1B(B<span lang=3D"EN-US">2</sp=
+an>=1B$B$N5,Dj!"?&6H0BDjK!!!Bh=1B(B<span lang=3D"EN-US">5</span>=1B$B>r$N=
+=1B(B<span lang=3D"EN-US">3</span>=1B$B$K$h$jDLCN?=3D$7>e$2$^$9!#=1B(B<span=
+ lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"533" style=3D"width:400.0pt;margin-left:-.15pt;border-colla=
+pse:collapse">
+<tbody>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid white 1.0=
+pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B0F7o=1B(B<span lang=3D"EN-US">NO<o:p></o:p></span></span></span></s=
+pan></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;padding:0mm 4.95pt 0mm=
+ 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;;color:black">E210316387<o:p></o:p></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid white 1.0=
+pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:solid white 1.0=
+pt;border-left:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border-top:none;border=
+-left:solid white 1.0pt;border-bottom:none;border-right:solid white 1.0pt;p=
+adding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;">&lt;</span></span></span><span style=3D"mso-bookmark:_Hlk532894277"><=
+span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;fo=
+nt-family:&quot;Meiryo UI&quot;">=1B$B=3D"6H@h>pJs=1B(B<span lang=3D"EN-US"=
+>&gt;<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:none;border-rig=
+ht:solid white 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B=3D"6H@h4k6HL>=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></=
+span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:solid windowtex=
+t 1.0pt;border-left:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B%/%j%(!<%7%g%s%i%$%s3t<02q<R=1B(B<span lang=3D"EN-US"><o:p></o:p></=
+span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B=3D"6H@h=3D;=3Dj=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span>=
+</span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$BEl5~ET@iBeED6h?@ED:45W4VD.#3CzL\=1B(B<span lang=3D"EN-US">-6<br>
+M</span>=1B$B!G=1B(B<span lang=3D"EN-US">s WORKS BLDG 2F<o:p></o:p></span><=
+/span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid white 1.0=
+pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;p=
+adding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border-top:none;border=
+-left:solid white 1.0pt;border-bottom:none;border-right:solid white 1.0pt;p=
+adding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;">&lt;</span></span></span><span style=3D"mso-bookmark:_Hlk532894277"><=
+span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;fo=
+nt-family:&quot;Meiryo UI&quot;">=1B$B5a?MMW9`!&1~JgMW9K=1B(B<span lang=3D"=
+EN-US">&gt;<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:none;border-rig=
+ht:solid white 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B1~Jg?&<o=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:solid windowtex=
+t 1.0pt;border-left:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B%M%C%H%o!<%/!&%5!<%P!<%(%s%8%K%"=1B(B<span lang=3D"EN-US"><o:p></o:=
+p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B8[MQ7ABV=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$BM-4|8[MQ=1B(B<span lang=3D"EN-US">(</span>=1B$BGI8/=3D"6H=1B(B<span=
+ lang=3D"EN-US">)<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B;nMQ4|4V=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B=3D"6H3+;O$+$i=1B(B<span lang=3D"EN-US">14</span>=1B$BF|4V=1B(B<spa=
+n lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid white 1.0=
+pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid white 1.0pt;border-right:solid white 1.0pt;p=
+adding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border-top:none;border=
+-left:solid white 1.0pt;border-bottom:none;border-right:solid white 1.0pt;p=
+adding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;">&lt;</span></span></span><span style=3D"mso-bookmark:_Hlk532894277"><=
+span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;fo=
+nt-family:&quot;Meiryo UI&quot;">=1B$B=3D"6H>r7o!&J!Mx8|@8$J$I=1B(B<span la=
+ng=3D"EN-US">&gt;<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:none;border-rig=
+ht:solid white 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span>=
+</p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B;~5k=1B(B<span lang=3D"EN-US">(</span>=1B$BM=3DDj=1B(B<span lang=3D=
+"EN-US">)<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border:solid windowtex=
+t 1.0pt;border-left:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;;color:black">2,200</span></span></span><span style=3D"mso-bookmark:_Hl=
+k532894277"><span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-s=
+ize:10.0pt;font-family:&quot;Meiryo UI&quot;;color:black">=1B$B1_=1B(B<span=
+ lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B4|4V=1B(B<span lang=3D"EN-US">(</span>=1B$BM=3DDj=1B(B<span lang=3D=
+"EN-US">)<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$BB(F|!AD94|!J=1B(B<span lang=3D"EN-US">3</span>=1B$B%v7n0J>e!K=1B(B<=
+span lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B6PL37ABV=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B%U%l%C%/%9=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span=
+></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B6PL3;~4V=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;;color:black">1. 10:00 - 19:00<br>
+2. <br>
+3. <o:p></o:p></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B5Y7F;~4V=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;;color:black">1. 12:00 - 13:00<br>
+2. <br>
+3. <br>
+4. <o:p></o:p></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B%3%"%?%$%`=1B(B<span lang=3D"EN-US">(</span>=1B$B%U%l%C%/%9$N>l9g=
+=1B(B<span lang=3D"EN-US">)<o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$BM-!!=1B(B<span lang=3D"EN-US">11:00 - 19:00<o:p></o:p></span></span=
+></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B;D6H;~4V=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;;color:black">5 - 15
+</span></span></span><span style=3D"mso-bookmark:_Hlk532894277"><span style=
+=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-family:=
+&quot;Meiryo UI&quot;;color:black">=1B$B;~4V=1B(B<span lang=3D"EN-US"><o:p>=
+</o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B5YF|=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></spa=
+n></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$BEZF|=3DK=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span><=
+/span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+<tr style=3D"height:15.75pt">
+<td width=3D"204" nowrap=3D"" style=3D"width:153.0pt;border:solid windowtex=
+t 1.0pt;border-top:none;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$BJ]81=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></spa=
+n></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+<td width=3D"329" nowrap=3D"" style=3D"width:247.0pt;border-top:none;border=
+-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowte=
+xt 1.0pt;padding:0mm 4.95pt 0mm 4.95pt;height:15.75pt">
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;;color:blac=
+k">=1B$B2CF~>r7o$O!"2<5-=1B(B<span lang=3D"EN-US">&lt;</span>=1B$B2CF~;q3J=
+=1B(B<span lang=3D"EN-US">&gt;</span>=1B$B$G$43NG'$/$@$5$$!#=1B(B<span lang=
+=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+</td>
+<span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk=
+22716208"></span></span>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;;color:red"><o:p>&nbsp;</o:p></span><=
+/span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"(Cm0U"(=1B(B<span lang=3D"EN-US">&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;
+<o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B>e5-$O!"8=3D:_$40FFb$7$F$$$k0F7o$G=3D"6H$$$?$=
+@$/>l9g$KA[Dj$5$l$k4|4V=1B(B<span lang=3D"EN-US">(</span>=1B$B3+;OF|=1B(B<s=
+pan lang=3D"EN-US">)</span>=1B$B!&DB6b3[$N8+9~$_$G$"$j!"=1B(B<span lang=3D"=
+EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B<B:]$NDB6b3[$O!"7@Ls;~E@$G7hDj$$$?$7$^$9$N$G!=
+">e5-$H0[$J$k>l9g$b$4$6$$$^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span>=
+</span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"#<R2qJ]81=1B(B<span lang=3D"EN-US"><o:p></o:=
+p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B<B:]$NDB6b3[$O!"7@Ls;~E@$G7hDj$$$?$7$^$9$N$G!=
+">e5-$H0[$J$k>l9g$b$4$6$$$^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span>=
+</span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B!c2CF~;q3J!d=1B(B<span lang=3D"EN-US"><o:p></=
+o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;">https://persol-tech-s.co.jp/bene/in=
+surance/<o:p></o:p></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"#?M:`GI8/@)EY$N$7$/$_=1B(B<span lang=3D"EN-U=
+S"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"></span></span><a href=3D"https://persol-te=
+ch-s.co.jp/guide/workstyle/"><span style=3D"mso-bookmark:_Hlk532894277"><sp=
+an style=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-s=
+ize:10.0pt;font-family:&quot;Meiryo UI&quot;">https://persol-tech-s.co.jp/g=
+uide/workstyle/</span></span></span><span style=3D"mso-bookmark:_Hlk5328942=
+77"><span style=3D"mso-bookmark:_Hlk22716208"></span></span></a><span style=
+=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><=
+span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;"><o:p></o:p></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"#%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U!J3t!K2q<R35M=
+W=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"></span></span><a href=3D"https://persol-te=
+ch-s.co.jp/corporate/outline/"><span style=3D"mso-bookmark:_Hlk532894277"><=
+span style=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font=
+-size:10.0pt;font-family:&quot;Meiryo UI&quot;">https://persol-tech-s.co.jp=
+/corporate/outline/</span></span></span><span style=3D"mso-bookmark:_Hlk532=
+894277"><span style=3D"mso-bookmark:_Hlk22716208"></span></span></a><span s=
+tyle=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk2271620=
+8"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo =
+UI&quot;">
+<o:p></o:p></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"#GI8/=3D"6H$N4|4V@)8B$K$D$$$F=1B(B<span lang=
+=3D"EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$BJ?@.=1B(B<span lang=3D"EN-US">27</span>=1B$BG=
+/=1B(B<span lang=3D"EN-US">9</span>=1B$B7n=1B(B<span lang=3D"EN-US">30</spa=
+n>=1B$BF|!AO+F/<TGI8/K!$N2~@5$K$h$j!"?7$?$J4|4V@)8B$,@_$1$i$l$^$7$?!#=1B(B<=
+span lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"></span></span><a href=3D"https://persol-te=
+ch-s.co.jp/guide/law/2017/0101.html"><span style=3D"mso-bookmark:_Hlk532894=
+277"><span style=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">https://persol-tech=
+-s.co.jp/guide/law/2017/0101.html</span></span></span><span style=3D"mso-bo=
+okmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"></span></sp=
+an></a><span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookma=
+rk:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family=
+:&quot;Meiryo UI&quot;"><o:p></o:p></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"#MxMQ5,Ls!?8D?M>pJs$N<h$j07$$$K$D$$$F=1B(B<s=
+pan lang=3D"EN-US"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B!cMxMQ5,Ls!d=1B(B<span lang=3D"EN-US"><o:p></=
+o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"></span></span><a href=3D"https://persol-te=
+ch-s.co.jp/corporate/siteinfo/personal/privacy.html"><span style=3D"mso-boo=
+kmark:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><span lang=
+=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">htt=
+ps://persol-tech-s.co.jp/corporate/siteinfo/personal/privacy.html</span></s=
+pan></span><span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bo=
+okmark:_Hlk22716208"></span></span></a><span style=3D"mso-bookmark:_Hlk5328=
+94277"><span style=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;"><o:p></o:p></span><=
+/span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B"!$=3D$NB>$4ITL@$JE@$O!"$*5$7Z$K$*?R$M$/$@$5$=
+$!#$I$&$>$h$m$7$/$*4j$$$$$?$7$^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></s=
+pan></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10=
+.0pt;font-family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></span></sp=
+an></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"font-size:10.0pt;font-famil=
+y:&quot;Meiryo UI&quot;">=1B$B8=3D:_9q$+$i$N!V?7$7$$@83hMM<0!W$KJo$$!":_Bp6=
+PL3Cf$N$?$a!"HV9fDLCNH/?.$,$G$-$J$$>u67$G$4$6$$$^$9!#BgJQ62$lF~$j$^$9$,!"Hs=
+DLCNHV9f$K$F$N$4O"Mm$K$D$-$^$7$F!"$4M}2r$$$?$@$1$^$9$H9,$$$G$9!#=1B(B</span=
+></span></span><span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"ms=
+o-bookmark:_Hlk22716208"><span lang=3D"EN-US" style=3D"font-size:10.0pt;fon=
+t-family:&quot;Meiryo UI&quot;"><o:p></o:p></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><a name=3D"_Hlk45891158"><span lang=3D"EN-=
+US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">----------=
+--------------------------------------------------------------<o:p></o:p></=
+span></a></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B%Q!=
+<%=3D%k%F%/%N%m%8!<%9%?%C%U3t<02q<R=1B(B<span lang=3D"EN-US"><o:p></o:p></s=
+pan></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&=
+quot;">IT</span></span></span></span><span style=3D"mso-bookmark:_Hlk532894=
+277"><span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:=
+_Hlk45891158"><span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;">=1B$B;v6HK\It!!?M:`3+H/It!!%3%s%?%/%H%G%9%/=1B(B<span lang=3D"EN-US">=
+G</span>=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></=
+span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&=
+quot;">CA</span></span></span></span><span style=3D"mso-bookmark:_Hlk532894=
+277"><span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:=
+_Hlk45891158"><span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&q=
+uot;">=1B$B%"%7%9%?%s%HC4Ev=1B(B
+<span lang=3D"EN-US"><o:p></o:p></span></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+</span></span></span><a href=3D"tel:0120-907-581"><span style=3D"mso-bookma=
+rk:_Hlk532894277"><span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"=
+mso-bookmark:_Hlk45891158"><span lang=3D"EN-US" style=3D"font-size:10.0pt;f=
+ont-family:&quot;Meiryo UI&quot;">tel:0120-907-581</span></span></span></sp=
+an><span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark:_=
+Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158"></span></span></span=
+></a><span style=3D"mso-bookmark:_Hlk532894277"><span style=3D"mso-bookmark=
+:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158"><span lang=3D"EN-U=
+S" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;"><o:p></o:p>=
+</span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B!ZH=
+kL)J];}$N$*4j$$![=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span>=
+</span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B$3$=
+A$i$N%a!<%k$K$*?4Ev$?$j$,$J$$>l9g$O!"%a!<%k$N;HMQ!"8x3+Ey$r$J$5$i$:!"=1B(B<=
+span lang=3D"EN-US"><o:p></o:p></span></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$BAw?=
+.85$K$4O"Mm$$$?$@$-$^$7$?>e$G:o=3D|$r$*4j$$CW$7$^$9!#=1B(B<span lang=3D"EN-=
+US"><o:p></o:p></span></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&=
+quot;"><o:p>&nbsp;</o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B!Z<=
+R2qJ]81$N$40FFb![=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span>=
+</span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+</span></span></span><a href=3D"https://persol-tech-s.co.jp/bene/insurance/=
+contents/001.html"><span style=3D"mso-bookmark:_Hlk532894277"><span style=
+=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158"><s=
+pan lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&qu=
+ot;;color:blue">https://persol-tech-s.co.jp/bene/insurance/contents/001.htm=
+l</span></span></span></span><span style=3D"mso-bookmark:_Hlk532894277"><sp=
+an style=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk4589=
+1158"></span></span></span></a><span style=3D"mso-bookmark:_Hlk532894277"><=
+span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45=
+891158"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;;color:#1F497D"><o:p></o:p></span></span></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B"(8=
+=3D:_$N$4=3D"6HCf$G=3D"6H3+;OF|$KJL4k6HMMEy$G$4=3D"6HCf$G$"$kJ}!"%@%V%k%o!<=
+%/=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></span></span></span><=
+/p>
+<p class=3D"MsoNormal"><span style=3D"mso-bookmark:_Hlk532894277"><span sty=
+le=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso-bookmark:_Hlk45891158">=
+<span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B4uK=
+><T$NJ}$O;vA0$K$4O"Mm$rD:$-$^$9MM!"$h$m$7$/$*4j$$$7$^$9!#=1B(B</span></span=
+></span></span><span style=3D"mso-bookmark:_Hlk22716208"><span style=3D"mso=
+-bookmark:_Hlk45891158"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font=
+-family:&quot;Meiryo UI&quot;"><o:p></o:p></span></span></span></p>
+<span style=3D"mso-bookmark:_Hlk45891158"></span><span style=3D"mso-bookmar=
+k:_Hlk22716208"></span>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_TY2PR01MB3977BDFF595B0304A1DB6DB9AF7E9TY2PR01MB3977jpnp_--

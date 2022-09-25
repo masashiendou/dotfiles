@@ -1,0 +1,1205 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp128486vkl;
+        Wed, 7 Oct 2020 23:50:40 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxkCKhW9j6LF4+W9RuxHyWucq6lB/p2IL+ZzPKRz4OuTgKozZILEikFuH74o0rS2RCDfBts
+X-Received: by 2002:a25:320b:: with SMTP id y11mr7686251yby.394.1602139840455;
+        Wed, 07 Oct 2020 23:50:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602139840; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gtFWnJp3Cl85kWEAYZE+9uBQXqtIHu0D23GAAmFslYhgbHetJFj81YtZapfXrJDZwS
+         g14akvC+1GdaQSOdZ1apB0mdW8+HyYLL6kDHhH5fhw1D6P0wvnj8KA+J/P09z8H42Ouu
+         wWfH8JWx80Gqpxg0hdOTeACmOKj/F5+yN2qJqhQn1WTltaDaSM3n+QBFWuFziD9U6xTM
+         FUkdcpmFdunHEdVdt5Q2UHsNVxUg6FoB1LM6tUg+ozDzWpLzveBewmZ8D1MhlSrdxwjQ
+         872rKGsVxl+CL95bqVR7MMUVLluPThRDgFyN28iYv+J3RT4PwrP4XPaeBTgf6/WKlmIf
+         Pnug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:message-id:to:subject:from:dkim-signature
+         :dkim-signature;
+        bh=3vY9cIP/UgbbUzLGLND9aLBBWbI5nD2mOvrz8JHafLw=;
+        b=jndPu/UXeEE9KSKAxq/TX7hf6Ww6CRxKUwgu/3anqo/ayAU3Dnt3a7WQEvuTuTbTpG
+         /ayh7XL9mQQTPRCv1a6OOdbUP0Lh/1/h74VOGwwIWmsPajMA9nGn0IdlBLlCvw3nxttB
+         +G7yS5EJU2MBmnEb6K7kq+GIWk3gSbvH0hSwTvQ2ru+c36ioxzjsBJ2XovCYQbrV/6b3
+         y8a5QiBuQSNJvJvLJHsuVMAYI44zC63a08OgRQN42aHVhXOs5yGx8k84cvtwwyO2sj9x
+         b85LeaKtvZH8yXvvvxA706PjCCyt4CdFcOWCUPbM4z5f1iC9DWU1Q/KHEbwFhw6xIq/d
+         kckg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hajimari.inc header.s=mandrill header.b="U7/mt6+C";
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=qOHX702n;
+       spf=pass (google.com: domain of bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com designates 198.2.179.3 as permitted sender) smtp.mailfrom=bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com
+Return-Path: <bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com>
+Received: from mail179-3.suw41.mandrillapp.com (mail179-3.suw41.mandrillapp.com. [198.2.179.3])
+        by mx.google.com with ESMTPS id w15si4149104ybt.405.2020.10.07.23.50.40
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 07 Oct 2020 23:50:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com designates 198.2.179.3 as permitted sender) client-ip=198.2.179.3;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hajimari.inc header.s=mandrill header.b="U7/mt6+C";
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=qOHX702n;
+       spf=pass (google.com: domain of bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com designates 198.2.179.3 as permitted sender) smtp.mailfrom=bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mandrill; d=hajimari.inc;
+ h=From:Subject:To:Message-Id:Date:MIME-Version:Content-Type; i=s.tabata@hajimari.inc;
+ bh=3vY9cIP/UgbbUzLGLND9aLBBWbI5nD2mOvrz8JHafLw=;
+ b=U7/mt6+Cvemjg+zXe+wT++fE/emapjed5UFwnlbOVL+A9nD3EP2kfOON/Lc9z3G+DPvqR4npea1W
+   vqBeQW0Y3YwLteQkVulcQbO74QmKRVA8mYPf1i7AfnCpHtEvcH7/w24K6b75rlUE8PvdoygzAGtY
+   q0hgyj6TZz7kKYg3DsE=
+Received: from pmta04.mandrill.prod.suw01.rsglab.com (127.0.0.1) by mail179-3.suw41.mandrillapp.com id hfqrc022s285 for <hujyorom@gmail.com>; Thu, 8 Oct 2020 06:50:36 +0000 (envelope-from <bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com>)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1602139836; h=From : 
+ Subject : To : Message-Id : Date : MIME-Version : Content-Type : From : 
+ Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=3vY9cIP/UgbbUzLGLND9aLBBWbI5nD2mOvrz8JHafLw=; 
+ b=qOHX702nNdWSNmJIa06dGV41SMuPcbwCIfZcAFKdCurUI2IRR99IJJL/z6unZ0McXMrGh6
+ /TIcbOl/NcjT1HHEkUkJ3IkgeQwlcQoLS0427Uhy+jYlsXxTuQ770l5CpQRETKwrEs05jqEK
+ D8cxx8k1n25ZCVDbMmunov0Aj5QmE=
+From: =?utf-8?Q?=E7=94=B0=E7=AB=AF=E7=A5=A5=E5=90=BE?= <s.tabata@hajimari.inc>
+Subject: =?utf-8?Q?=E3=80=90=E3=83=AA=E3=83=A2=E3=83=BC=E3=83=88=E6=A4=9C=E8=A8=8E=E5=8F=AF/=E9=80=B14=E6=97=A5=E3=80=9C/Kotlin=E3=80=91=E7=8C=AB=E7=94=A8=E3=81=AE=E3=83=90=E3=82=A4=E3=82=AA=E3=83=AD=E3=82=AE=E3=83=B3=E3=82=B0=E3=82=A2=E3=83=97=E3=83=AA=E3=81=AE=E9=96=8B=E7=99=BA=E3=82=92=E5=8A=A9=E3=81=91=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=82=8B=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=82=A2=E5=8B=9F=E9=9B=86=EF=BC=81?=
+Return-Path: <bounce-md_31017883.5f7eb6bc.v1-0540b1346a334e82886e24829703d58a@mandrillapp.com>
+Received: from [52.198.247.1] by mandrillapp.com id 0540b1346a334e82886e24829703d58a; Thu, 08 Oct 2020 06:50:36 +0000
+To: =?utf-8?Q?=E9=81=A0=E8=97=A4=E6=A7=98?= <hujyorom@gmail.com>
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=31017883.0540b1346a334e82886e24829703d58a
+X-Mandrill-User: md_31017883
+Message-Id: <31017883.20201008065036.5f7eb6bcb04628.89332647@mail179-3.suw41.mandrillapp.com>
+Date: Thu, 08 Oct 2020 06:50:36 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-OhfyOUmTpGVospEQLhWsLg"
+
+--_av-OhfyOUmTpGVospEQLhWsLg
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+       
+=E3=80=90=E3=83=AA=E3=83=A2=E3=83=BC=E3=83=88=E6=A4=9C=E8=A8=8E=E5=8F=AF/=
+=E9=80=B14=E6=97=A5=E3=80=9C/Kotlin=E3=80=91=E7=8C=AB=E7=94=A8=E3=81=AE=E3=
+=83=90=E3=82=A4=E3=82=AA=E3=83=AD=E3=82=AE=E3=83=B3=E3=82=B0=E3=82=A2=E3=83=
+=97=E3=83=AA=E3=81=AE=E9=96=8B=E7=99=BA=E3=82=92=E5=8A=A9=E3=81=91=E3=81=A6=
+=E3=81=8F=E3=81=A0=E3=81=95=E3=82=8B=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=
+=82=A2=E5=8B=9F=E9=9B=86=EF=BC=81
+                                                =E9=81=A0=E8=97=A4=E6=A7=98
+ =E3=81=8A=E4=B8=96=E8=A9=B1=E3=81=AB=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=
+=E3=80=82
+ =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BEHajimari=E3=81=AE=E7=94=B0=E7=AB=AF=E3=
+=81=A7=E3=81=99=E3=80=82
+ 
+ =E4=BB=8A=E5=9B=9E=E3=81=AF=E8=A1=A8=E9=A1=8C=E3=81=AE=E4=BB=B6=E3=81=A7=
+=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=95=E3=81=9B=E3=81=A6=E3=81=84=E3=81=9F=E3=
+=81=A0=E3=81=8D=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82
+ 
+ =E7=8F=BE=E5=9C=A8=E3=80=81=E3=83=8D=E3=82=B3=E3=81=AE=E8=A1=8C=E5=8B=95=
+=E5=88=86=E6=9E=90=E3=82=B9=E3=83=9E=E3=83=9B=E3=82=A2=E3=83=97=E3=83=AA=E3=
+=81=AE=E9=96=8B=E7=99=BA=E3=83=BB=E9=81=8B=E5=96=B6=E3=82=92=E3=81=95=E3=82=
+=8C=E3=81=A6=E3=81=84=E3=82=8B
+ =E5=BC=8A=E7=A4=BE=E3=82=AF=E3=83=A9=E3=82=A4=E3=82=A2=E3=83=B3=E3=83=88=
+=E6=A7=98=E3=81=8C=E5=AE=9F=E5=8B=99=E7=B5=8C=E9=A8=93=E8=B1=8A=E5=AF=8C=E3=
+=81=AAKotlin=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=82=A2=E3=81=AE=E6=96=B9=
+=E3=82=92=E5=8B=9F=E9=9B=86=E3=81=95=E3=82=8C=E3=81=A6=E3=81=8A=E3=82=8A=E3=
+=81=BE=E3=81=99=E3=80=82
+ 
+ =E4=BB=A5=E4=B8=8B=E3=80=81=E7=B0=A1=E6=98=93=E3=81=A8=E3=81=AA=E3=82=8A=
+=E3=81=BE=E3=81=99=E3=81=8C=E3=80=81=E6=9C=AC=E6=A1=88=E4=BB=B6=E3=81=AE=E6=
+=A6=82=E8=A6=81=E3=82=92=E3=81=8A=E9=80=81=E3=82=8A=E3=81=95=E3=81=9B=E3=81=
+=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=
+=E3=80=81
+ =E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=81=BE=
+=E3=81=9B=E3=80=82
+ 
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ =E2=96=A0=E6=A5=AD=E5=8B=99=E5=86=85=E5=AE=B9=EF=BC=9A
+ =E3=83=AA=E3=83=AA=E3=83=BC=E3=82=B9=E5=BE=8C=E3=80=81=E5=A4=9A=E3=81=8F=
+=E3=81=AE=E3=83=A1=E3=83=87=E3=82=A3=E3=82=A2=E3=81=A7=E3=82=82=E5=8F=96=E3=
+=82=8A=E4=B8=8A=E3=81=92=E3=82=89=E3=82=8C=E3=82=8B=E3=81=AA=E3=81=A9=E6=B3=
+=A8=E7=9B=AE=E3=82=92=E9=9B=86=E3=82=81=E3=81=A6=E3=81=84=E3=82=8B=E7=8C=AB=
+=E5=B0=82=E7=94=A8=E3=82=A6=E3=82=A7=E3=82=A2=E3=83=A9=E3=83=96=E3=83=AB=E3=
+=83=87=E3=83=90=E3=82=A4=E3=82=B9=EF=BC=86=E3=82=A2=E3=83=97=E3=83=AA=E3=81=
+=AE=E9=96=8B=E7=99=BA=E3=81=AB=E6=90=BA=E3=82=8F=E3=81=A3=E3=81=A6=E3=81=84=
+=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82
+ =E9=A3=BC=E3=81=84=E4=B8=BB=E3=81=AE=E4=BB=A3=E3=82=8F=E3=82=8A=E3=81=AB=
+=E7=95=99=E5=AE=88=E4=B8=AD=E3=81=AE=E7=8C=AB=E6=A7=98=E3=82=92=E8=A6=8B=E5=
+=AE=88=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+ =E3=83=90=E3=82=A4=E3=82=AA=E3=83=AD=E3=82=AE=E3=83=B3=E3=82=B0=E8=A7=A3=
+=E6=9E=90=E6=8A=80=E8=A1=93=E3=82=92=E5=BF=9C=E7=94=A8=E3=81=97=E3=80=81=E6=
+=A9=9F=E6=A2=B0=E5=AD=A6=E7=BF=92=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E8=A7=
+=A3=E6=9E=90=E3=83=BB=E5=88=86=E9=A1=9E=E3=82=92=E3=81=8A=E3=81=93=E3=81=AA=
+=E3=81=A3=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82
+ =E4=BB=8A=E5=9B=9E=E3=81=AF=E3=80=81Android=E3=82=A2=E3=83=97=E3=83=AA=E3=
+=81=AE=E9=96=8B=E7=99=BA=E3=82=92=E6=8B=85=E5=BD=93=E3=81=97=E3=81=A6=E3=81=
+=8F=E3=81=A0=E3=81=95=E3=82=8B=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=82=A2=
+=E3=82=92=E5=8B=9F=E9=9B=86=E3=81=97=E3=81=BE=E3=81=99=EF=BC=81
+ 
+ =EF=BC=9C=E9=96=8B=E7=99=BA=E7=92=B0=E5=A2=83=EF=BC=9E
+ GitHub / GitHub Actions / CircleCI / Kotlin / Kotlin Coroutines / LiveData
+/ ViewModel /
+ Navigation / CameraX / Dagger2 / OkHttp3 / Retrofit / Glide / Groupie /
+Arrow / Firebase /
+ Junit4 / Robolectric / Mockk / Ktlint
+ 
+ =E2=96=A0=E5=BF=85=E9=A0=88=E3=82=B9=E3=82=AD=E3=83=AB=EF=BC=9A
+ -
+Kotlin=E3=81=AB=E3=82=88=E3=82=8BAndroid=E5=90=91=E3=81=91=E3=83=8D=E3=82=
+=A4=E3=83=86=E3=82=A3=E3=83=96=E3=82=A2=E3=83=97=E3=83=AA=E3=82=B1=E3=83=BC=
+=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AE=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93
+ -
+Android=E6=A8=99=E6=BA=96=E3=83=A9=E3=82=A4=E3=83=96=E3=83=A9=E3=83=AA=E3=
+=82=84=E3=83=95=E3=83=AC=E3=83=BC=E3=83=A0=E3=83=AF=E3=83=BC=E3=82=AF=E3=81=
+=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AE=E7=9F=A5=E8=AD=98
+ - GitHub=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E8=A4=87=E6=95=B0=E4=BA=BA=E9=
+=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93
+ 
+ =E2=96=A0=E5=B0=9A=E5=8F=AF=E3=82=B9=E3=82=AD=E3=83=AB=EF=BC=9A
+ - Material Design=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AE=E7=9F=A5=E8=
+=AD=98
+ - Jetpack=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E9=96=8B=E7=99=BA=E7=B5=8C=
+=E9=A8=93
+ - =E3=83=9E=E3=83=AB=E3=83=81=E3=83=A2=E3=82=B8=E3=83=A5=E3=83=BC=E3=83=AB=
+=E6=A7=8B=E6=88=90=E3=81=AEGradle=E3=83=97=E3=83=AD=E3=82=B8=E3=82=A7=E3=82=
+=AF=E3=83=88=E3=81=AE=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93
+ - Google recommended app architecture=E3=81=A7=E3=81=AE=E9=96=8B=E7=99=BA=
+=E7=B5=8C=E9=A8=93
+ - BLE=E3=82=92=E4=BD=BF=E3=81=A3=E3=81=9F=E3=82=A2=E3=83=97=E3=83=AA=E3=82=
+=B1=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93
+ - AppWidget=E3=81=AE=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93
+ - JUnit=E3=82=84Mockk=E3=82=92=E4=BD=BF=E3=81=A3=E3=81=9FUnit=E3=83=86=E3=
+=82=B9=E3=83=88=E3=81=AE=E5=AE=9F=E8=A3=85=E7=B5=8C=E9=A8=93
+ 
+ =E2=96=A0=E7=A8=BC=E5=83=8D=E6=99=82=E6=9C=9F=EF=BC=9A=E5=8D=B3=E6=97=A5
+ =E2=96=A0=E5=8B=A4=E5=8B=99=E6=99=82=E9=96=93=EF=BC=9A10:00=EF=BD=9E19:00
+ =E2=96=A0=E6=9C=80=E5=AF=84=E3=82=8A=E9=A7=85=EF=BC=88=E5=8C=BA=EF=BC=89=
+=EF=BC=9A=E4=BB=A3=E5=AE=98=E5=B1=B1=EF=BC=88=E6=B8=8B=E8=B0=B7=E5=8C=BA=EF=
+=BC=89
+=E2=80=BB=E3=82=B9=E3=82=AD=E3=83=AB=E6=AC=A1=E7=AC=AC=E3=81=A7=E3=83=AA=E3=
+=83=A2=E3=83=BC=E3=83=88=E3=82=82=E6=A4=9C=E8=A8=8E=E5=8F=AF=E8=83=BD
+ =E2=96=A0=E7=A8=BC=E5=83=8D=E6=97=A5=E6=95=B0=EF=BC=9A=E9=80=B14=E6=97=A5=
+=E3=80=9C
+ =E2=96=A0=E6=9C=8D=E8=A3=85=EF=BC=9A=E8=87=AA=E7=94=B1
+ =E2=96=A0=E5=8D=98=E4=BE=A1=EF=BC=9A=E3=82=B9=E3=82=AD=E3=83=AB=E8=A6=8B=
+=E5=90=88=E3=81=84=EF=BC=88 40,000=E5=86=86/=E6=97=A5 =E7=9B=AE=E5=AE=89=EF=
+=BC=89
+ =E2=96=A0=E9=9D=A2=E8=AB=87=E5=9B=9E=E6=95=B0:1=E5=9B=9E
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+ 
+ =E3=81=94=E8=88=88=E5=91=B3=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=97=
+=E3=81=9F=E3=82=89=E3=80=81=E3=81=94=E8=BF=94=E4=BF=A1=E3=81=84=E3=81=9F=E3=
+=81=A0=E3=81=91=E3=81=BE=E3=81=99=E3=81=A8=E5=B9=B8=E3=81=84=E3=81=A7=E3=81=
+=99=E3=80=82
+ =E3=81=9D=E3=81=AE=E4=BB=96=E3=81=AB=E3=82=82=E6=A1=88=E4=BB=B6=E3=81=8C=
+=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=80=81=E6=
+=A1=88=E4=BB=B6=E3=82=92=E3=81=8A=E6=8E=A2=E3=81=97=E3=81=A7=E3=81=82=E3=82=
+=8C=E3=81=B0=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=
+=E3=82=8C=E3=81=B0=E3=81=A8=E6=80=9D=E3=81=84=E3=81=BE=E3=81=99=E3=80=82
+ 
+ =E4=BB=A5=E4=B8=8A=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+ =E5=BC=95=E3=81=8D=E7=B6=9A=E3=81=8D=E3=81=A9=E3=81=86=E3=81=9E=E3=82=88=
+=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=
+=81=97=E3=81=BE=E3=81=99=E3=80=82
+ =E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81
+ =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BEHajimari
+ https://www.hajimari.inc/
+ 
+ =E5=A4=A7=E9=98=AA=E6=94=AF=E7=A4=BE
+ =E5=96=B6=E6=A5=AD =E5=85=BC =E6=8E=A1=E7=94=A8=E6=8B=85=E5=BD=93
+ =E7=94=B0=E7=AB=AF=E7=A5=A5=E5=90=BE
+ Email : s.tabata@hajimari.inc
+ Mobile=EF=BC=9A080-9091-4865
+ =EF=BC=88=E6=9D=B1=E4=BA=AC=E6=9C=AC=E7=A4=BEtel : 03-6450-6076=EF=BC=89
+<https://www.facebook.com/itpropartners/>                                  
+       =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BEIT=E3=83=97=E3=83=AD=E3=83=91=E3=
+=83=BC=E3=83=88=E3=83=8A=E3=83=BC=E3=82=BA
+ =E6=9D=B1=E4=BA=AC=E9=83=BD=E6=B8=8B=E8=B0=B7=E5=8C=BA=E9=81=93=E7=8E=84=
+=E5=9D=821-16-10=E3=80=80=E6=B8=8B=E8=B0=B7DT=E3=83=93=E3=83=AB6=E9=9A=8E(=
+=E5=8F=97=E4=BB=98)=E3=83=BB8=E9=9A=8E
+
+--_av-OhfyOUmTpGVospEQLhWsLg
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: SELL PRODUCTS -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-sc=
+ale=3D1">
+        <title>=E3=80=90=E3=83=AA=E3=83=A2=E3=83=BC=E3=83=88=E6=A4=9C=E8=A8=
+=8E=E5=8F=AF/=E9=80=B14=E6=97=A5=E3=80=9C/Kotlin=E3=80=91=E7=8C=AB=E7=94=A8=
+=E3=81=AE=E3=83=90=E3=82=A4=E3=82=AA=E3=83=AD=E3=82=AE=E3=83=B3=E3=82=B0=E3=
+=82=A2=E3=83=97=E3=83=AA=E3=81=AE=E9=96=8B=E7=99=BA=E3=82=92=E5=8A=A9=E3=81=
+=91=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=82=8B=E3=82=A8=E3=83=B3=E3=82=B8=
+=E3=83=8B=E3=82=A2=E5=8B=9F=E9=9B=86=EF=BC=81</title>
+        
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1,h2,h3,h4,h5,h6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img,a img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body,#bodyTable,#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p,a,li,td,blockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel],a[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p,a,li,td,body,table,blockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,=
+.ExternalClass span,.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage,.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 1
+=09@style heading 1
+=09*/
+=09=09h1{
+=09=09=09/*@editable*/color:#67a3d1;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:40px;
+=09=09=09/*@editable*/font-style:normal;
+=09=09=09/*@editable*/font-weight:bold;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:center;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 2
+=09@style heading 2
+=09*/
+=09=09h2{
+=09=09=09/*@editable*/color:#222222;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:34px;
+=09=09=09/*@editable*/font-style:normal;
+=09=09=09/*@editable*/font-weight:bold;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 3
+=09@style heading 3
+=09*/
+=09=09h3{
+=09=09=09/*@editable*/color:#444444;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:22px;
+=09=09=09/*@editable*/font-style:normal;
+=09=09=09/*@editable*/font-weight:bold;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Page
+=09@section Heading 4
+=09@style heading 4
+=09*/
+=09=09h4{
+=09=09=09/*@editable*/color:#949494;
+=09=09=09/*@editable*/font-family:Georgia;
+=09=09=09/*@editable*/font-size:20px;
+=09=09=09/*@editable*/font-style:italic;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/line-height:125%;
+=09=09=09/*@editable*/letter-spacing:normal;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Container Style
+=09*/
+=09=09#templateHeader{
+=09=09=09/*@editable*/background-color:#3e84c1;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:contain;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:3px;
+=09=09=09/*@editable*/padding-bottom:3px;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Interior Style
+=09*/
+=09=09.headerContainer{
+=09=09=09/*@editable*/background-color:#transparent;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0px;
+=09=09=09/*@editable*/padding-bottom:0px;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Text
+=09*/
+=09=09.headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+=09=09=09/*@editable*/color:#757575;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:16px;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Header
+=09@section Header Link
+=09*/
+=09=09.headerContainer .mcnTextContent a,.headerContainer .mcnTextContent p=
+ a{
+=09=09=09/*@editable*/color:#007C89;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/text-decoration:underline;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Container Style
+=09*/
+=09=09#templateBody{
+=09=09=09/*@editable*/background-color:#ffffff;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:89px;
+=09=09=09/*@editable*/padding-bottom:89px;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Interior Style
+=09*/
+=09=09.bodyContainer{
+=09=09=09/*@editable*/background-color:#transparent;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0;
+=09=09=09/*@editable*/padding-bottom:0;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Text
+=09*/
+=09=09.bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+=09=09=09/*@editable*/color:#757575;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:16px;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/text-align:left;
+=09=09}
+=09/*
+=09@tab Body
+=09@section Body Link
+=09*/
+=09=09.bodyContainer .mcnTextContent a,.bodyContainer .mcnTextContent p a{
+=09=09=09/*@editable*/color:#007C89;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/text-decoration:underline;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Style
+=09*/
+=09=09#templateFooter{
+=09=09=09/*@editable*/background-color:#3e84c1;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0px;
+=09=09=09/*@editable*/padding-bottom:0px;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Interior Style
+=09*/
+=09=09.footerContainer{
+=09=09=09/*@editable*/background-color:transparent;
+=09=09=09/*@editable*/background-image:none;
+=09=09=09/*@editable*/background-repeat:no-repeat;
+=09=09=09/*@editable*/background-position:center;
+=09=09=09/*@editable*/background-size:cover;
+=09=09=09/*@editable*/border-top:0;
+=09=09=09/*@editable*/border-bottom:0;
+=09=09=09/*@editable*/padding-top:0;
+=09=09=09/*@editable*/padding-bottom:0;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Text
+=09*/
+=09=09.footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+=09=09=09/*@editable*/color:#FFFFFF;
+=09=09=09/*@editable*/font-family:Helvetica;
+=09=09=09/*@editable*/font-size:12px;
+=09=09=09/*@editable*/line-height:150%;
+=09=09=09/*@editable*/text-align:center;
+=09=09}
+=09/*
+=09@tab Footer
+=09@section Footer Link
+=09*/
+=09=09.footerContainer .mcnTextContent a,.footerContainer .mcnTextContent p=
+ a{
+=09=09=09/*@editable*/color:#FFFFFF;
+=09=09=09/*@editable*/font-weight:normal;
+=09=09=09/*@editable*/text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body,table,td,p,a,li,blockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnC=
+aptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,=
+.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCapt=
+ionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCapti=
+onRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImag=
+eCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnI=
+mageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOu=
+ter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcn=
+CaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-=
+child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent,.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 1
+=09@tip Make the first-level headings larger in size for better readability=
+ on small screens.
+=09*/
+=09=09h1{
+=09=09=09/*@editable*/font-size:30px !important;
+=09=09=09/*@editable*/line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 2
+=09@tip Make the second-level headings larger in size for better readabilit=
+y on small screens.
+=09*/
+=09=09h2{
+=09=09=09/*@editable*/font-size:26px !important;
+=09=09=09/*@editable*/line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 3
+=09@tip Make the third-level headings larger in size for better readability=
+ on small screens.
+=09*/
+=09=09h3{
+=09=09=09/*@editable*/font-size:20px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Heading 4
+=09@tip Make the fourth-level headings larger in size for better readabilit=
+y on small screens.
+=09*/
+=09=09h4{
+=09=09=09/*@editable*/font-size:18px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Boxed Text
+=09@tip Make the boxed text larger in size for better readability on small =
+screens. We recommend a font size of at least 16px.
+=09*/
+=09=09.mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentCon=
+tainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:14px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Header Text
+=09@tip Make the header text larger in size for better readability on small=
+ screens.
+=09*/
+=09=09.headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:16px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Body Text
+=09@tip Make the body text larger in size for better readability on small s=
+creens. We recommend a font size of at least 16px.
+=09*/
+=09=09.bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:16px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09/*
+=09@tab Mobile Styles
+=09@section Footer Text
+=09@tip Make the footer content text larger in size for better readability =
+on small screens.
+=09*/
+=09=09.footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+=09=09=09/*@editable*/font-size:14px !important;
+=09=09=09/*@editable*/line-height:150% !important;
+=09=09}
+
+}</style></head>
+    <body>
+        <!---->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"t=
+emplateHeader" data-template-container=3D"">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wid=
+th=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContainer=
+">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"hea=
+derContainer"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"mcnImageBlock" style=3D"min-width:100%;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding:9px" class=3D"mcnImageB=
+lockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=3D"=
+min-width:100%;">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" st=
+yle=3D"padding-right: 9px; padding-left: 9px; padding-top: 0; padding-botto=
+m: 0; text-align:center;">
+                                
+                                    
+                                        <img align=3D"center" alt=3D"" src=
+=3D"https://gallery.mailchimp.com/aa10bbd327d6b2d5ee3847e22/images/5636baaf=
+-c5af-4734-b970-cdf4b683596e.png" width=3D"564" style=3D"max-width:1749px; =
+padding-bottom: 0; display: inline !important; vertical-align: bottom;" cla=
+ss=3D"mcnImage">
+                                    
+                                
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"t=
+emplateBody" data-template-container=3D"">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wid=
+th=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContainer=
+">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bod=
+yContainer"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"mcnTextBlock" style=3D"min-width:100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding=
+-top:9px;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09    
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%; min-width:100%;" width=3D"100%" class=
+=3D"mcnTextContentContainer">
+                    <tbody><tr>
+                        
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18p=
+x;">
+                        
+                            <div style=3D"text-align: left;"><span style=3D=
+"color:#000000"><span style=3D"font-size:14px">=E9=81=A0=E8=97=A4=E6=A7=98<=
+br />
+=E3=81=8A=E4=B8=96=E8=A9=B1=E3=81=AB=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=
+=80=82<br />
+=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BEHajimari=E3=81=AE=E7=94=B0=E7=AB=AF=E3=
+=81=A7=E3=81=99=E3=80=82<br />
+<br />
+=E4=BB=8A=E5=9B=9E=E3=81=AF=E8=A1=A8=E9=A1=8C=E3=81=AE=E4=BB=B6=E3=81=A7=E3=
+=81=94=E9=80=A3=E7=B5=A1=E3=81=95=E3=81=9B=E3=81=A6=E3=81=84=E3=81=9F=E3=81=
+=A0=E3=81=8D=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82<br />
+<br />
+=E7=8F=BE=E5=9C=A8=E3=80=81=E3=83=8D=E3=82=B3=E3=81=AE=E8=A1=8C=E5=8B=95=E5=
+=88=86=E6=9E=90=E3=82=B9=E3=83=9E=E3=83=9B=E3=82=A2=E3=83=97=E3=83=AA=E3=81=
+=AE=E9=96=8B=E7=99=BA=E3=83=BB=E9=81=8B=E5=96=B6=E3=82=92=E3=81=95=E3=82=8C=
+=E3=81=A6=E3=81=84=E3=82=8B<br />
+=E5=BC=8A=E7=A4=BE=E3=82=AF=E3=83=A9=E3=82=A4=E3=82=A2=E3=83=B3=E3=83=88=E6=
+=A7=98=E3=81=8C=E5=AE=9F=E5=8B=99=E7=B5=8C=E9=A8=93=E8=B1=8A=E5=AF=8C=E3=81=
+=AAKotlin=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=82=A2=E3=81=AE=E6=96=B9=E3=
+=82=92=E5=8B=9F=E9=9B=86=E3=81=95=E3=82=8C=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=
+=BE=E3=81=99=E3=80=82<br />
+<br />
+=E4=BB=A5=E4=B8=8B=E3=80=81=E7=B0=A1=E6=98=93=E3=81=A8=E3=81=AA=E3=82=8A=E3=
+=81=BE=E3=81=99=E3=81=8C=E3=80=81=E6=9C=AC=E6=A1=88=E4=BB=B6=E3=81=AE=E6=A6=
+=82=E8=A6=81=E3=82=92=E3=81=8A=E9=80=81=E3=82=8A=E3=81=95=E3=81=9B=E3=81=A6=
+=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=
+=80=81<br />
+=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=81=BE=E3=
+=81=9B=E3=80=82<br />
+<br />
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br />
+=E2=96=A0=E6=A5=AD=E5=8B=99=E5=86=85=E5=AE=B9=EF=BC=9A<br />
+=E3=83=AA=E3=83=AA=E3=83=BC=E3=82=B9=E5=BE=8C=E3=80=81=E5=A4=9A=E3=81=8F=E3=
+=81=AE=E3=83=A1=E3=83=87=E3=82=A3=E3=82=A2=E3=81=A7=E3=82=82=E5=8F=96=E3=82=
+=8A=E4=B8=8A=E3=81=92=E3=82=89=E3=82=8C=E3=82=8B=E3=81=AA=E3=81=A9=E6=B3=A8=
+=E7=9B=AE=E3=82=92=E9=9B=86=E3=82=81=E3=81=A6=E3=81=84=E3=82=8B=E7=8C=AB=E5=
+=B0=82=E7=94=A8=E3=82=A6=E3=82=A7=E3=82=A2=E3=83=A9=E3=83=96=E3=83=AB=E3=83=
+=87=E3=83=90=E3=82=A4=E3=82=B9=EF=BC=86=E3=82=A2=E3=83=97=E3=83=AA=E3=81=AE=
+=E9=96=8B=E7=99=BA=E3=81=AB=E6=90=BA=E3=82=8F=E3=81=A3=E3=81=A6=E3=81=84=E3=
+=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82<br />
+=E9=A3=BC=E3=81=84=E4=B8=BB=E3=81=AE=E4=BB=A3=E3=82=8F=E3=82=8A=E3=81=AB=E7=
+=95=99=E5=AE=88=E4=B8=AD=E3=81=AE=E7=8C=AB=E6=A7=98=E3=82=92=E8=A6=8B=E5=AE=
+=88=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br />
+=E3=83=90=E3=82=A4=E3=82=AA=E3=83=AD=E3=82=AE=E3=83=B3=E3=82=B0=E8=A7=A3=E6=
+=9E=90=E6=8A=80=E8=A1=93=E3=82=92=E5=BF=9C=E7=94=A8=E3=81=97=E3=80=81=E6=A9=
+=9F=E6=A2=B0=E5=AD=A6=E7=BF=92=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E8=A7=A3=
+=E6=9E=90=E3=83=BB=E5=88=86=E9=A1=9E=E3=82=92=E3=81=8A=E3=81=93=E3=81=AA=E3=
+=81=A3=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br />
+=E4=BB=8A=E5=9B=9E=E3=81=AF=E3=80=81Android=E3=82=A2=E3=83=97=E3=83=AA=E3=
+=81=AE=E9=96=8B=E7=99=BA=E3=82=92=E6=8B=85=E5=BD=93=E3=81=97=E3=81=A6=E3=81=
+=8F=E3=81=A0=E3=81=95=E3=82=8B=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=82=A2=
+=E3=82=92=E5=8B=9F=E9=9B=86=E3=81=97=E3=81=BE=E3=81=99=EF=BC=81<br />
+<br />
+=EF=BC=9C=E9=96=8B=E7=99=BA=E7=92=B0=E5=A2=83=EF=BC=9E<br />
+GitHub / GitHub Actions / CircleCI / Kotlin / Kotlin Coroutines / LiveData =
+/ ViewModel /<br />
+Navigation / CameraX / Dagger2 / OkHttp3 / Retrofit / Glide / Groupie / Arr=
+ow / Firebase /<br />
+Junit4 / Robolectric / Mockk / Ktlint<br />
+<br />
+=E2=96=A0=E5=BF=85=E9=A0=88=E3=82=B9=E3=82=AD=E3=83=AB=EF=BC=9A<br />
+- Kotlin=E3=81=AB=E3=82=88=E3=82=8BAndroid=E5=90=91=E3=81=91=E3=83=8D=E3=82=
+=A4=E3=83=86=E3=82=A3=E3=83=96=E3=82=A2=E3=83=97=E3=83=AA=E3=82=B1=E3=83=BC=
+=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AE=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93<br=
+ />
+- Android=E6=A8=99=E6=BA=96=E3=83=A9=E3=82=A4=E3=83=96=E3=83=A9=E3=83=AA=E3=
+=82=84=E3=83=95=E3=83=AC=E3=83=BC=E3=83=A0=E3=83=AF=E3=83=BC=E3=82=AF=E3=81=
+=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AE=E7=9F=A5=E8=AD=98<br />
+- GitHub=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E8=A4=87=E6=95=B0=E4=BA=BA=E9=
+=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93<br />
+<br />
+=E2=96=A0=E5=B0=9A=E5=8F=AF=E3=82=B9=E3=82=AD=E3=83=AB=EF=BC=9A<br />
+- Material Design=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AE=E7=9F=A5=E8=
+=AD=98<br />
+- Jetpack=E3=82=92=E7=94=A8=E3=81=84=E3=81=9F=E9=96=8B=E7=99=BA=E7=B5=8C=E9=
+=A8=93<br />
+- =E3=83=9E=E3=83=AB=E3=83=81=E3=83=A2=E3=82=B8=E3=83=A5=E3=83=BC=E3=83=AB=
+=E6=A7=8B=E6=88=90=E3=81=AEGradle=E3=83=97=E3=83=AD=E3=82=B8=E3=82=A7=E3=82=
+=AF=E3=83=88=E3=81=AE=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93<br />
+- Google recommended app architecture=E3=81=A7=E3=81=AE=E9=96=8B=E7=99=BA=
+=E7=B5=8C=E9=A8=93<br />
+- BLE=E3=82=92=E4=BD=BF=E3=81=A3=E3=81=9F=E3=82=A2=E3=83=97=E3=83=AA=E3=82=
+=B1=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93=
+<br />
+- AppWidget=E3=81=AE=E9=96=8B=E7=99=BA=E7=B5=8C=E9=A8=93<br />
+- JUnit=E3=82=84Mockk=E3=82=92=E4=BD=BF=E3=81=A3=E3=81=9FUnit=E3=83=86=E3=
+=82=B9=E3=83=88=E3=81=AE=E5=AE=9F=E8=A3=85=E7=B5=8C=E9=A8=93<br />
+<br />
+=E2=96=A0=E7=A8=BC=E5=83=8D=E6=99=82=E6=9C=9F=EF=BC=9A=E5=8D=B3=E6=97=A5<br=
+ />
+=E2=96=A0=E5=8B=A4=E5=8B=99=E6=99=82=E9=96=93=EF=BC=9A10:00=EF=BD=9E19:00<b=
+r />
+=E2=96=A0=E6=9C=80=E5=AF=84=E3=82=8A=E9=A7=85=EF=BC=88=E5=8C=BA=EF=BC=89=EF=
+=BC=9A=E4=BB=A3=E5=AE=98=E5=B1=B1=EF=BC=88=E6=B8=8B=E8=B0=B7=E5=8C=BA=EF=BC=
+=89 =E2=80=BB=E3=82=B9=E3=82=AD=E3=83=AB=E6=AC=A1=E7=AC=AC=E3=81=A7=E3=83=
+=AA=E3=83=A2=E3=83=BC=E3=83=88=E3=82=82=E6=A4=9C=E8=A8=8E=E5=8F=AF=E8=83=BD=
+<br />
+=E2=96=A0=E7=A8=BC=E5=83=8D=E6=97=A5=E6=95=B0=EF=BC=9A=E9=80=B14=E6=97=A5=
+=E3=80=9C<br />
+=E2=96=A0=E6=9C=8D=E8=A3=85=EF=BC=9A=E8=87=AA=E7=94=B1<br />
+=E2=96=A0=E5=8D=98=E4=BE=A1=EF=BC=9A=E3=82=B9=E3=82=AD=E3=83=AB=E8=A6=8B=E5=
+=90=88=E3=81=84=EF=BC=88 40,000=E5=86=86/=E6=97=A5 =E7=9B=AE=E5=AE=89=EF=BC=
+=89<br />
+=E2=96=A0=E9=9D=A2=E8=AB=87=E5=9B=9E=E6=95=B0:1=E5=9B=9E<br />
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D<br />
+<br />
+=E3=81=94=E8=88=88=E5=91=B3=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=97=E3=
+=81=9F=E3=82=89=E3=80=81=E3=81=94=E8=BF=94=E4=BF=A1=E3=81=84=E3=81=9F=E3=81=
+=A0=E3=81=91=E3=81=BE=E3=81=99=E3=81=A8=E5=B9=B8=E3=81=84=E3=81=A7=E3=81=99=
+=E3=80=82<br />
+=E3=81=9D=E3=81=AE=E4=BB=96=E3=81=AB=E3=82=82=E6=A1=88=E4=BB=B6=E3=81=8C=E3=
+=81=94=E3=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=80=81=E6=A1=
+=88=E4=BB=B6=E3=82=92=E3=81=8A=E6=8E=A2=E3=81=97=E3=81=A7=E3=81=82=E3=82=8C=
+=E3=81=B0=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=
+=82=8C=E3=81=B0=E3=81=A8=E6=80=9D=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br />
+<br />
+=E4=BB=A5=E4=B8=8A=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br=
+ />
+=E5=BC=95=E3=81=8D=E7=B6=9A=E3=81=8D=E3=81=A9=E3=81=86=E3=81=9E=E3=82=88=E3=
+=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=
+=97=E3=81=BE=E3=81=99=E3=80=82<br />
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81<br />
+=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BEHajimari<br />
+https://www.hajimari.inc/<br />
+<br />
+=E5=A4=A7=E9=98=AA=E6=94=AF=E7=A4=BE<br />
+=E5=96=B6=E6=A5=AD =E5=85=BC =E6=8E=A1=E7=94=A8=E6=8B=85=E5=BD=93<br />
+=E7=94=B0=E7=AB=AF=E7=A5=A5=E5=90=BE<br />
+Email : s.tabata@hajimari.inc<br />
+Mobile=EF=BC=9A080-9091-4865<br />
+=EF=BC=88=E6=9D=B1=E4=BA=AC=E6=9C=AC=E7=A4=BEtel : 03-6450-6076=EF=BC=89</s=
+pan></span></div>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+                
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"t=
+emplateFooter" data-template-container=3D"">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wid=
+th=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContainer=
+">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"foo=
+terContainer"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" class=3D"mcnFollowBlock" style=3D"min-width:100%;">
+    <tbody class=3D"mcnFollowBlockOuter">
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"padding:9px" class=
+=3D"mcnFollowBlockInner">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%" class=3D"mcnFollowContentContainer" style=3D"min-width:100%;">
+    <tbody><tr>
+        <td align=3D"center" style=3D"padding-left:9px;padding-right:9px;">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"min-width:100%;" class=3D"mcnFollowContent">
+                <tbody><tr>
+                    <td align=3D"center" valign=3D"top" style=3D"padding-to=
+p:9px; padding-right:9px; padding-left:9px;">
+                        <table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0">
+                            <tbody><tr>
+                                <td align=3D"center" valign=3D"top">
+                                    <!--[if mso]>
+                                    <table align=3D"center" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+                                    
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top"=
+>
+                                        <![endif]-->
+                                        
+                                            <table align=3D"left" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mcnFollowStacked" style=3D=
+"display:inline;">
+                                                 
+                                                <tbody><tr>
+                                                    <td align=3D"center" va=
+lign=3D"top" class=3D"mcnFollowIconContent" style=3D"padding-right:0; paddi=
+ng-bottom:9px;">
+                                                        <a href=3D"https://=
+mandrillapp.com/track/click/31017883/www.facebook.com?p=3DeyJzIjoiQ3JCUWxMU=
+0xHV3lYa1NMWHFjQVZpMTlSQkc4IiwidiI6MSwicCI6IntcInVcIjozMTAxNzg4MyxcInZcIjox=
+LFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5mYWNlYm9vay5jb21cXFwvaXRwcm9wYXJ0bmV=
+yc1xcXC9cIixcImlkXCI6XCIwNTQwYjEzNDZhMzM0ZTgyODg2ZTI0ODI5NzAzZDU4YVwiLFwidX=
+JsX2lkc1wiOltcIjBjNjc3OTg3YmZiMjE5NWMwZjlhMjU4MGY5MmUzMWVkYmZiNWE5ODVcIl19I=
+n0" target=3D"_blank"><img src=3D"https://cdn-images.mailchimp.com/icons/so=
+cial-block-v2/outline-light-facebook-96.png" alt=3D"Facebook" class=3D"mcnF=
+ollowBlockIcon" width=3D"48" style=3D"width:48px; max-width:48px; display:b=
+lock;"></a>
+                                                    </td>
+                                                </tr>
+                                                
+                                                
+                                            </tbody></table>
+                                        
+                                        
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+                                    
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"mcnDividerBlock" style=3D"min-width:100%;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width:100%; pad=
+ding:18px;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-top=
+: 2px solid #505050;">
+                    <tbody><tr>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--            
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;"=
+>
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-colo=
+r:none; border-left-color:none; border-right-color:none; border-bottom-widt=
+h:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:=
+0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"mcnTextBlock" style=3D"min-width:100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding=
+-top:9px;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09    
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%; min-width:100%;" width=3D"100%" class=
+=3D"mcnTextContentContainer">
+                    <tbody><tr>
+                        
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18p=
+x;">
+                        
+                            =E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BEIT=E3=83=97=
+=E3=83=AD=E3=83=91=E3=83=BC=E3=83=88=E3=83=8A=E3=83=BC=E3=82=BA<br>
+=E6=9D=B1=E4=BA=AC=E9=83=BD=E6=B8=8B=E8=B0=B7=E5=8C=BA=E9=81=93=E7=8E=84=E5=
+=9D=821-16-10=E3=80=80=E6=B8=8B=E8=B0=B7DT=E3=83=93=E3=83=AB6=E9=9A=8E(=E5=
+=8F=97=E4=BB=98)=E3=83=BB8=E9=9A=8E
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+                
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"mcnDividerBlock" style=3D"min-width:100%;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width:100%; pad=
+ding:18px;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-top=
+: 2px solid #505050;">
+                    <tbody><tr>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--            
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;"=
+>
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-colo=
+r:none; border-left-color:none; border-right-color:none; border-bottom-widt=
+h:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:=
+0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://mandrillapp.com/track/open.php?u=3D31017883&id=3D05=
+40b1346a334e82886e24829703d58a" height=3D"1" width=3D"1"></body>
+</html>
+
+--_av-OhfyOUmTpGVospEQLhWsLg--
+

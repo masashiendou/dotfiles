@@ -1,0 +1,134 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp3012740vkl;
+        Sun, 11 Oct 2020 22:30:53 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwKKbk4BO+rRGmUz1Wl1BgxpXpDSXZS+xrs8ghYQF4qbAsZ3N+NYQ0syfTkNjAOCc6V2ICm
+X-Received: by 2002:a62:8348:0:b029:152:9d3c:c67e with SMTP id h69-20020a6283480000b02901529d3cc67emr22434372pfe.65.1602480653481;
+        Sun, 11 Oct 2020 22:30:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602480653; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PtYhJhyxKaW00aAc5+KbTB7gc+NFdtbmEyxVl9Z8SG2wXJoB6SEbg/7cT3xc7uYhNp
+         kp7z0sYqkkjkOs7Rg/gBZtTkiUgdDxEvthHFYBLEZVXAs+qLOtrFRi63O4Uj1w8BpmFD
+         Fxhr6ZNQIouraX8CDfa9AWRewkW8aNCsp7Kh068ayLyDGUh8nkew1ih8gOn92SqNXNmm
+         KVolNOmZj2EsDe5Nxy9VvucAsnt4j5wYH9Dx1Tj6AOdkIE26oosKFcgAfyTzwimQ7psM
+         Ameq5FKgYo6FXo8ynSrCM7de2zdBc/ny/6juCErp2hN2KpH8MNFgPBwOpCi/tl2O+RW0
+         atYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:date:message-id:subject:to
+         :from:dkim-signature;
+        bh=s54efSKnHDxXFFW8gwxarHI+CcOygjjL3OBCBNlc3y8=;
+        b=yO8NLLM5nLiGkEI2KII0H/Krjh7PjiEO3qVCiamMqAhyS+ztidQeBynEkeXMgX26bt
+         es6Jo0bGA8Cmk79+fY0By2QJ7CIoO9h1ij7ZB58bMggkQwdlMOQ/QcZsO2KJ3iBy4etM
+         9Wokn9evLq7bWh4+CJNh682cu5yY4We0ecMv7xhDJZ3UAO9IUYQRtaC6pnb/S+JDtOD7
+         lf0t6epzOiCl+VUsI3LcYJuBiaA428tIyGUHmDXunl6j/584irVyP0c2kWsmiFh1cxjV
+         HIyQaNtGsBd3a8vpKa/sCUhVf9ph1Vcjh6AWyWdtKpu1jiRZ2E6+KCjke8u3re/W8T++
+         51Ig==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=re202009 header.b=AQYz6nwj;
+       spf=pass (google.com: domain of 00002f-002xa@b201.repica.jp designates 182.236.83.138 as permitted sender) smtp.mailfrom=00002f-002xa@b201.repica.jp
+Return-Path: <00002f-002xa@b201.repica.jp>
+Received: from b20106.repica.jp (b20106.repica.jp. [182.236.83.138])
+        by mx.google.com with ESMTPS id t125si14261961pgc.412.2020.10.11.22.30.52
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 11 Oct 2020 22:30:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 00002f-002xa@b201.repica.jp designates 182.236.83.138 as permitted sender) client-ip=182.236.83.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=re202009 header.b=AQYz6nwj;
+       spf=pass (google.com: domain of 00002f-002xa@b201.repica.jp designates 182.236.83.138 as permitted sender) smtp.mailfrom=00002f-002xa@b201.repica.jp
+Received: from b201 (HELO) (127.0.0.1)
+  by b201.repica.jp with SMTP; Mon, 12 Oct 2020 14:30:17 +0900
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=iijmio.jp;
+	s=re202009; t=1602480617;
+	bh=LMBQoTCmDkys9gYMd5sBYJXgErWZFYlLBIrLgGs1Oic=;
+	h=From:To:Subject:Message-Id:Date:MIME-Version:
+	 Content-Transfer-Encoding;
+	b=AQYz6nwjM40VwOAXZNCxQlb3Vm13r3jwS+EV6+UBxnYD+AcTBeEBEykvWc29j3B/p
+	 IfwGAG3dizZrS4kq5/AL1bxKab4KoehDsI2NTXJpQ/+MgDb2G2R1h7hSgMgVUCi1WX
+	 J8JHm7KdtnfPR5PXOvOn77zPtEBUTFSwIdv51kmk=
+From: =?ISO-2022-JP?B?SUlKbWlv?= <support@iijmio.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?SUlKbWlvGyRCJTUhPCVTJTkwbDt+RGQ7XyROJCpDTiRpJDshShsoQjEwLzIzIBskQkQ7PGghSxsoQg==?=
+Message-Id: <00002f-002xa@b201.repica.jp>
+Date: Mon, 12 Oct 2020 14:30:17 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: quoted-printable
+X-SE-GID: 00002f@b201.repica.jp
+X-SE-HID: b201.repica.jp.1602480617668402
+
+                                                     2020 =1B$BG/=1B(B 10 =
+=1B$B7n=1B(B 12 =1B$BF|=1B(B
+=1B$B$*5RMM3F0L=1B(B
+
+                                    =1B$B3t<02q<R%$%s%?!<%M%C%H%$%K%7%"%F%#=
+%V=1B(B
+
+
+             IIJmio=1B$B%5!<%S%90l;~Dd;_$N$*CN$i$;!J=1B(B10/23 =1B$BD;<h!K=
+=1B(B
+
+
+=1B$BGR7<=1B(B =1B$B;~2<$^$9$^$9$4@6>M$N$3$H$H$*7D$S?=3D$7>e$2$^$9!#=1B(B
+=1B$BJ?AG$OJ@<R%5!<%S%9$r$4MxMQ$$$?$@$-!"@?$K$"$j$,$H$&$4$6$$$^$9!#=1B(B
+
+=1B$B$5$F!"$3$NEY%7%9%F%`%a%s%F%J%s%9$N$?$a!"2<5-$NF|Dx$G0lIt$N%5!<%S%9$r0l=
+;~=1B(B
+=1B$BDd;_$5$;$F$$$?$@$-$^$9!#$4ITJX$r$*$+$1$$$?$7$^$9$,!"$4M}2r!"$4G[N8$NDx=
+$*=1B(B
+=1B$B4j$$?=3D$7>e$2$^$9!#=1B(B
+
+=1B$B$J$*!"$4ITL@$JE@Ey$4$6$$$^$7$?$i!"J@<R$*Ld$$9g$o$;Ak8}$^$G$*Ld$$9g$o$;=
+$/=1B(B
+=1B$B$@$5$$$^$9$h$&$*4j$$?=3D$7>e$2$^$9!#=1B(B
+
+                                                                    =1B$B7I=
+6q=1B(B
+
+                               =1B$B!c=1B(B  =1B$B5-=1B(B  =1B$B!d=1B(B
+
+  =1B$BDd;_F|;~!'=1B(B2020=1B$BG/=1B(B 10=1B$B7n=1B(B 23=1B$BF|!J6b!K=1B(B0=
+0:00 - 07:00 =1B$BKx$N4V=1B(B
+
+  =1B$BDd;_%(%j%"!'D;<h%(%j%"=1B(B
+
+  =1B$BDd;_%5!<%S%9!'!&=1B(Bmio=1B$B$R$+$j=1B(B
+
+                =1B$B!&=1B(Bmio FiberAccess/DF
+                   - =1B$B%U%l%C%D8w!?%U%!%_%j!<!&%^%s%7%g%s%?%$%W=1B(B
+                       =1B$B2s@~%?%$%W!'%U%l%C%D=1B(B =1B$B8w%M%/%9%H=1B(B
+                                     =1B$B!J%U%!%_%j!<!&%^%s%7%g%s%?%$%W!K=
+=1B(B
+                                     =1B$B!J%O%$%9%T!<%I%?%$%W!K=1B(B
+                                     =1B$B!J%9!<%Q!<%O%$%9%T!<%I%?%$%WH;!K=
+=1B(B
+                                   =1B$B%U%l%C%D=1B(B =1B$B8w%i%$%H=1B(B
+
+  =1B$B;vM3!'%7%9%F%`%a%s%F%J%s%9$N$?$a=1B(B
+
+  =1B$BHw9M!'=1B(B- =1B$B>e5-;~4VCf$K3:Ev%(%j%"!&3:Ev%5!<%S%9$G@\B3Cf$N0lIt=
+$N$*5RMM$O@Z=1B(B
+          =1B$BCG$5$l$^$9=1B(B
+
+        - =1B$B:n6H$,40N;$7$?;~E@$G!"=3Dg<!%5!<%S%9$r:F3+$5$;$F$$$?$@$-$^$9=
+=1B(B
+
+                                                                    =1B$B0J=
+>e=1B(B
+------------------------------------------------------------------------
+=1B$B$4ITL@$JE@$,$4$6$$$^$7$?$i=1B(BIIJ=1B$B%5%]!<%H%;%s%?!<$^$G$*Ld$$9g$o$=
+;$/$@$5$$!#=1B(B
+=1B$BK\%a!<%k$XD>@\$4JV?.$$$?$@$$$F$b!"2sEz$G$-$J$$>l9g$,$4$6$$$^$9!#=1B(B
+
+=1B$B!{=1B(B =1B$B$*Ld$$9g$o$;@h=1B(B
+  IIJ=1B$B%5%]!<%H%;%s%?!<=1B(B (=1B$BF|K\;~4V=1B(B 9:00=1B$B!A=1B(B19:00 =
+=1B$BG/CfL55Y=1B(B)
+    =1B$BEEOC=1B(B               0570-09-4400
+    =1B$B%a!<%k=1B(B / =1B$B%A%c%C%H=1B(B  https://www.iijmio.jp/contact.js=
+p
+  * =1B$B9q:]EEOC=1B(B / IP=1B$BEEOC=1B(B / =1B$B$_$*$U$)$s%@%$%"%k$r$*;H$$=
+$N>l9g$O!"=1B(B
+    03-5205-4400 =1B$B$r$4MxMQ2<$5$$!#=1B(B
+  * =1B$B$*Ld$$9g$o$;;~$K!"$*5RMM$N$*L>A0$d=1B(BmioID=1B$B$r$*;G$$$9$k>l9g$=
+,$"$j$^$9!#=1B(B
+------------------------------------------------------------------------
+

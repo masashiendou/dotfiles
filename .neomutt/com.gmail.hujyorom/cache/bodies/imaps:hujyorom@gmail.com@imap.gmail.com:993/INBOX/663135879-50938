@@ -1,0 +1,222 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:3a92:0:0:0:0:0 with SMTP id h140csp2019141vka;
+        Sun, 16 May 2021 19:50:30 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyQ8WsQHdsYVo7YAlku6O8yO2MO3eRJcQIZyG1gR9Kt6Bbgfo2nzK9GejNFYFvG02pIIYTr
+X-Received: by 2002:a17:902:b7c3:b029:ef:8d29:a7d1 with SMTP id v3-20020a170902b7c3b02900ef8d29a7d1mr24104002plz.55.1621219830269;
+        Sun, 16 May 2021 19:50:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621219830; cv=none;
+        d=google.com; s=arc-20160816;
+        b=i0Ys/UNuanEuKqe9qdFywOhDE9t79ecid220X08h2P1fkXaTJq6tRtt4sgaeI4h0hN
+         xqUHVwUY+7aqVDP7vwFpPwn+GWBWqRWsxFhowT1szr7atukocHPwc0UgCNFM8G0Ngpww
+         /7IJ/rryVa8EVrYqwPPM0bMNYymBHyHME+7lvn07bUZrcGegfnc4H8PS5Pcbr8iPYY6Y
+         IKtut+jaUbmqkQPHhDG6DWPQ8/MuQR7qabMBt1dfZqiHe+BW2UsSe+hNyyK3dpSSRB/A
+         x/awHwEN85ySw8bqZ9zlqvaWB5ExW+rY19f0vYqSv45kaHJV8wEpnDjjWwuT/wkTxzB2
+         uypg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:precedence:mime-version:date
+         :subject:to:reply-to:from:dkim-signature;
+        bh=iAwb4eH/ty314yvYreJSD3SfCxwh0OVf05pXTCPnXuQ=;
+        b=Fbgz2fQW9xBO0YkeiKNFMZMH9DdlhuOhlQrNgaaSQgwY+/WEiFWuMwOLetuGSF37Ba
+         DiDdXX/SrRThsaZjisxQeJp+LQjbE+9E6+g1vSDreWZCFwOaF30w9U4B1tC8fwL/wL5Y
+         rFcwx/qg5dPK/r9Pk33dtiYW4MCVikV4SrPeJEaThwOuxZmvRj4z/NOzWyOn223EsBBa
+         WxBRdt6FtcAzMkv2o6z+G31bfzGFMZMqSDe3q+CHLLCRUcFNBeTfpmUEmaQfkVfzmWA2
+         1tqdVNGHnfC/ozC43o485yF8x+1pXhPzXfSVS1sUU6704RlkMI9EO7zNsSkg878qPdzo
+         0dRg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tricorn.net header.s=tricorn201108 header.b=ZfrfhQaZ;
+       spf=pass (google.com: domain of kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz designates 203.183.236.50 as permitted sender) smtp.mailfrom=kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=nic.ad.jp
+Return-Path: <kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz>
+Received: from mtaa06.tricorn.net (mtaa06.tricorn.net. [203.183.236.50])
+        by mx.google.com with ESMTPS id i9si16605594pfr.109.2021.05.16.19.50.29
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 16 May 2021 19:50:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz designates 203.183.236.50 as permitted sender) client-ip=203.183.236.50;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tricorn.net header.s=tricorn201108 header.b=ZfrfhQaZ;
+       spf=pass (google.com: domain of kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz designates 203.183.236.50 as permitted sender) smtp.mailfrom=kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=nic.ad.jp
+Received: from krbtc1.tricorn.net ([202.230.13.135])
+    by mtac02.tricorn.net ([203.183.50.142]) with ESMTP id 755757465754929736;
+    Mon, 17 May 2021 11:50:25 +0900
+DKIM-Signature: v=1;
+ a=rsa-sha256;
+ c=relaxed/simple;
+ s=tricorn201108;
+ t=1621219817;
+ h=From:To:Subject:Message-Id;
+ d=tricorn.net;
+ bh=Bc8c6+lCZhTvuBT2DJ8C60V1btpy1pgyalW3pzYKpuI=;
+ b=ZfrfhQaZxzujcXadOahyUbR3q91UTgJpgney573aXhyLrjWMTKvlW5vqT84pl3QG
+    hh/pUe031VTd1Fa4KKPDUrl3BhGuzJI4pQP///6mLElVO+AUzZJMaWjkm+HuWWWU
+    BjmBzcc/Bq1roatUuhFMKw5NJiB5HkwW+go5Zoco6So=
+From: =?us-ascii?B?SlBOSUM=?= <jpnic-news@nic.ad.jp>
+Reply-To: jpnic-news@nic.ad.jp
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIiEbKEIgSlBOSUMgTmV3cyAmIFZpZXdzIHZvbC4xODQ1?=
+	=?ISO-2022-JP?B?GyRCIVolSCVUJUMlLyU5OWYhW0NtTFw1LTt2IVYbKEJJR0YgMjAyMQ==?=
+	=?ISO-2022-JP?B?GyRCJE49YEh3PnU2NyFXGyhCMjAyMS41LjE3IBskQiIhGyhC?=
+Date: Mon, 17 May 2021 11:50:00 +0900
+X-AB-Envelope-From: kreisel-bounce+d.jpnic.619.5134.62c2534f@err.krs.bz
+X-Amnote: kreisel.d.jpnic_619.5134
+X-KR-Autobahn-MTA-Key: bulk/jpnic.619
+X-Mailer: TRICORN KREISEL 1.39
+X-SystemBase: KR_ProductionSystemBase
+MIME-Version: 1.0
+Precedence: bulk
+Message-Id: <kreisel.d.jpnic.619.5134@krs.bz>
+Content-Type: text/plain;
+ charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+X-MTA-Tenant: KREISEL
+X-MTA-Sender-Key: jpnic.619
+X-MTA-Identifier: 755757485103254338
+X-MTA-Transaction-Id: 755757485103254338
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    __
+    /Ｐ▲  ◆ JPNIC News & Views vol.1845【トピックス号】2021.5.17 ◆
+  _/ＮＩＣ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+□■━━━━━━━━━━━━━━━━━━━━━
+□  5/10〜5/16に発信したJPNICからのお知らせ
+■━━━━━━━━━━━━━━━━━━━━━━
+
+このトピックス号は、先週公開したJPNICブログ記事、お知らせ、Webの更新
+情報などをまとめて、毎週原則月曜日にご紹介するものです。
+
+注目記事は、2021年12月上旬に開催が予定されているIGF (Internet 
+Governance Forum) 2021に向けて、IGF関係者が取り組んでいる準備の様子を
+ご紹介したブログ記事です。
+
+先週はこの他に、JPNICからのお知らせ、ICANN情報、イベントのお知らせが
+それぞれ1件ずつと、Web更新情報が6件ありました。
+
+┏◆ 先週公開のJPNICブログ記事 計1件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・IGF 2021の準備状況(2021/5/14)
+     |
+     | IGF関係者の間ではすでに、本年(2021年)12月6日から10日にかけて開
+     | 催されるIGF 2021に向けて着々と準備が進められています。さまざま
+     | な領域にわたり行われる議論のうち、主要と思われるものについてご
+     | 紹介します...
+     |
+     | 続きを読む →
+     | https://blog.nic.ad.jp/2021/6343/
+
+
+┏◆ 先週のトピックスとお知らせ 計1件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・IGF 2023に向けた国内IGF活動活発化チームキックオフ会合開催のご案内
+  (2021/5/14)
+  https://www.nic.ad.jp/ja/topics/2021/20210514-01.html
+
+
+┏◆ 先週のWeb更新情報 計6件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・第60回ICANN報告会の資料を公開(2021/5/14)
+  https://www.nic.ad.jp/ja/materials/icann-report/20210513-ICANN/
+
+・gTLDの登録数を更新(2021/5/14)
+  2021年1月分を追加
+  https://www.nic.ad.jp/ja/stat/dom/gtld.html
+
+・IPアドレスに関する統計・各種リスト以下のグラフを更新(2021/5/12)
+  2021年4月のデータを追加
+  https://www.nic.ad.jp/ja/stat/ip/
+
+・第141回理事会資料を公開(2021/5/12)
+  https://www.nic.ad.jp/ja/materials/board/20210319/
+
+・JPNICが管理するIPアドレス・AS番号・IRRサービスに関する統計を更新
+  (2021/5/11)
+  2021年4月のデータを追加
+  https://www.nic.ad.jp/ja/stat/ip/20210511.html
+
+・IPv4アドレス移転履歴を更新(2021/5/10)
+  2021年5月10日現在のデータを追加
+  https://www.nic.ad.jp/ja/ip/transfer/ipv4-log.html
+
+
+┏◆ ICANN情報 計1件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・ICANNアナウンスメント一覧5月3週分の更新
+   |               https://www.nic.ad.jp/ja/icann/announcements.html
+   |
+   | 2021年5月11日 ・ICANNと完全子会社(Public Technical Identifiers 
+   |                 (PTI))が2020年6月30日で終わる年度に関して米国内
+   |                 国歳入庁に提出した税務申告書(Form 990)を公開
+   |               ・インドのレジストラNet 4 India Limitedを通じて登
+   |                 録されていたドメイン名について、ドメイン名の新た
+   |                 な引受先をPDR LTD. D/B/A PUBLICDOMAINREGISTRY.COM
+   |                 とすることを決定
+   | 2021年5月10日 ・ICANNの説明責任に関するコミュニティ横断作業部会
+   |                 (CCWG-Accountability)による検討作業 Work Stream 
+   |                 2 (WS2)の勧告内容実施について、オンラインセミナー
+   |                 を開催【参加にあたっては要事前登録、開催日時
+   |                 (日本時間):2021年5月26日(水) 00:00〜】
+   |               ・ICANNがドメイン名マーケットプレイスにおける各種
+   |                 指標に関する情報を更新
+
+
+┏◆ イベント等のお知らせ 計1件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+  ◇ IGF 2023に向けた国内IGF活動活発化チーム キックオフ会合 ◇
+
+     2021年5月20日(木)16:30〜18:30に、IGF 2023に向けた国内IGF活動活発
+     化チームのキックオフ会合を開催します。これは、今後日本で開催さ
+     れる予定の「IGF 2023」に向けて、開催国のNational IGFとして活動し
+     ていく準備のために有志が集まって開催するものです。
+
+     参加ご希望の場合は、2021年5月19日(木)12:00までにお申し込みくださ
+     い。
+
+     https://www.nic.ad.jp/ja/topics/2021/20210514-01.html
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+■■■■■   News & Views以外の情報発信もご利用ください！   ■■■■■
+ブログ https://blog.nic.ad.jp/  Twitter https://twitter.com/JPNIC_info
+YouTube https://www.youtube.com/channel/UC7BboGLuldn77sxQmI5VoPw
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+■■■■■  JPNICの活動はJPNIC会員によって支えられています  ■■■■■
+  :::::  会員リスト  ::::: https://www.nic.ad.jp/ja/member/list/
+  :::: 会員専用サイト :::: https://www.nic.ad.jp/member/ (PASSWORD有)
+□┓ ━━━  N e w s & V i e w s への会員広告無料掲載実施中 ━━━┏□
+┗┛          お問い合わせは  jpnic-news@nic.ad.jp  まで          ┗┛
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ━━ JPNICへのご連絡/お問い合わせは極力電子メールでお願いします ━━
+┏━◇【COVID-19を受けたJPNICの取り組み】 ◇━━━━━━━━━━━━┓
+  https://www.nic.ad.jp/ja/mailmagazine/backnumber/2020/vol1790.html
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+ ■ 各種お問い合わせ先：https://www.nic.ad.jp/ja/profile/info.html ■
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ JPNIC News & Views vol.1845 【トピックス号】
+
+ ＠ 発行  一般社団法人 日本ネットワークインフォメーションセンター
+          101-0047 東京都千代田区内神田3-6-2 アーバンネット神田ビル4F
+ ＠ 問い合わせ先 jpnic-news@nic.ad.jp
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+            本メールを転載・複製・再配布・引用される際には
+        https://www.nic.ad.jp/ja/copyright.html をご確認ください
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+   ◇ JPNIC Webにも掲載していますので、情報共有にご活用ください ◇
+登録・削除・変更   https://www.nic.ad.jp/ja/mailmagazine/
+バックナンバー     https://www.nic.ad.jp/ja/mailmagazine/backnumber/
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+■■■■■     News & ViewsはRSS経由でも配信しています！    ■■■■■
+::::: https://www.nic.ad.jp/ja/mailmagazine/backnumber/index.xml :::::
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+
+■■◆                          ＠ Japan Network Information Center
+■■◆                                     ＠  https://www.nic.ad.jp/
+■■
+
+Copyright(C), 2021 Japan Network Information Center

@@ -1,0 +1,150 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2811:0:0:0:0:0 with SMTP id o17csp254757vko;
+        Thu, 9 Sep 2021 02:00:08 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxUsmtxTeWyzghP1qZYDq9HYSG2pN9UkIcEfOlhPqvDAV8Njz1AfRUTQa2KcPTCLI8dKV1o
+X-Received: by 2002:a05:620a:e12:: with SMTP id y18mr1686751qkm.464.1631178008363;
+        Thu, 09 Sep 2021 02:00:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631178008; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FKYblJwpLnQhYk5o/6fTtLoJyIy6gD43OtBgaECY3iGOqYEz7a0dt1Gxqeqwp0V2CP
+         eNoy/fUny2CH0ZjomotTtGzpNpp5Xj3EIZlWAIJsWC7WMWtLFONat9+vDt7PhyhSsh2I
+         gpv0nTP0QGC8IARofIo9MHKiWNcMMejyt0XJbtAgZdQ903rNZTN1PxDje9465KZvSyU8
+         x4AsAxAjVIPG9KCChzXsc9QDWlECCLSpoDCK7NoCuBMi3zQ8HqCzH/C+tdeRK7ezoG1I
+         SvlYgaK+r+/SdCE1ZV9h9Pw4BhCVTJhD1Gptxo0tWiSHn3Codx6PoZN4MALPraU+VjVN
+         8r/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-post:list-archive:list-id:precedence
+         :content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:cc:to:reply-to:from:date:dkim-signature;
+        bh=iBS+GhXBbDEwtJNNNgunqG2iG/16Vp1EQsg2WyLma6E=;
+        b=dz04ivu5Jh/+vVOCHjC2idHDYXkK0N80tmdhWjvU5WPVNmfOaLJt33ZBrkyLOG/TzV
+         ki0G31UmD2KJu+ZqbiKFiE3HetWSKjVyHc3HF2819taJV1vQ6N4M4FR1lV+RB7HOCv1d
+         zeuEQ7EmoiNYVrVErS5dlyCXDk6iIOJIQoXo1eOI/yRtH2sQHS9gEqbFmV8EwRSWriiW
+         MC22LEuqJDIXrWxgUAR9K/uffNLBDJYW49939XFe1fwbFoenp1j2Rqj4o8Bq8u/MTb6R
+         g7selewB5YZsUxclUMzaczOpoG2VqS0grsa+Wl0wgaryt+/2lv6iOhAB5HsAVlhzon4x
+         JBXg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2014 header.b=QEnxf4Qc;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.201 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from smtp.github.com (out-18.smtp.github.com. [192.30.252.201])
+        by mx.google.com with ESMTPS id o18si713368qtp.147.2021.09.09.02.00.08
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 09 Sep 2021 02:00:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.201 as permitted sender) client-ip=192.30.252.201;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=pf2014 header.b=QEnxf4Qc;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.201 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=github.com
+Received: from github-lowworker-2ef7ba1.ac4-iad.github.net (github-lowworker-2ef7ba1.ac4-iad.github.net [10.52.16.66])
+	by smtp.github.com (Postfix) with ESMTP id 21BA8340213
+	for <hujyorom@gmail.com>; Thu,  9 Sep 2021 02:00:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2014; t=1631178008;
+	bh=iBS+GhXBbDEwtJNNNgunqG2iG/16Vp1EQsg2WyLma6E=;
+	h=Date:From:Reply-To:To:Cc:In-Reply-To:References:Subject:List-ID:
+	 List-Archive:List-Post:List-Unsubscribe:From;
+	b=QEnxf4QcqEnCudms2DTnymJRuwh7zLuSezHwpI96Jge65RR3U+4oaIX3FONrkzJ/m
+	 JP7h0MylqTqMsGTKJno5QIe6ZheqVF9phLl8wm2Bu27//bowGOknQqT6blCoLdNRg9
+	 byM2WAS3682PoEPtNJcz8tTSQjjxGJGYHBlCjvLA=
+Date: Thu, 09 Sep 2021 02:00:08 -0700
+From: =?UTF-8?B?Um9iZXJ0IHZvbiBLw7ZuZW1hbm4=?= <notifications@github.com>
+Reply-To: seanf <reply+AF6DF3PQX6H24RSB4EBIIDN7IWXBREVBM7HAB2BP5Q@reply.github.com>
+To: seanf <seanf@noreply.github.com>
+Cc: Masashi Endo <hujyorom@gmail.com>, 
+ Manual <manual@noreply.github.com>
+Message-ID: <seanf/81-thinkpad-dock.rules/comments/3887403@github.com>
+In-Reply-To: <seanf/81-thinkpad-dock.rules@github.com>
+References: <seanf/81-thinkpad-dock.rules@github.com>
+Subject: Re: seanf/81-thinkpad-dock.rules
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6139cd18128ba_2345c78871611";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: vKnmnn
+X-GitHub-Recipient: masashiendou
+X-GitHub-Reason: manual
+List-ID: seanf <seanf.seanf.github.com>
+List-Archive: https://github.com/seanf
+List-Post: <mailto:reply+AF6DF3PQX6H24RSB4EBIIDN7IWXBREVBM7HAB2BP5Q@reply.github.com>
+List-Unsubscribe: <mailto:unsub+AF6DF3PQX6H24RSB4EBIIDN7IWXBREVBM7HAB2BP5Q@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/AF6DF3KPA65TPY4Z4O6J7T3UBBZRRANCNFSM4S7THO4Q>
+X-Auto-Response-Suppress: All
+X-GitHub-Recipient-Address: hujyorom@gmail.com
+
+
+----==_mimepart_6139cd18128ba_2345c78871611
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi, you have given sh in the shebang, but you=E2=80=99re using bash synta=
+x in the script.=0D
+Thus, the following edits have to be made so we can run the script with p=
+osix shell:=0D
+=0D
+line 15 and 18: use single [ and ]. Also only use a single =3D=0D
+line 36 and 52, keyword function is not defined in posix shell. just dele=
+te the word function, but add () behind the function name.=0D
+line 41 and 49 use double quotes=0D
+=0D
+-- =0D
+You are receiving this because you are subscribed to this thread.=0D
+Reply to this email directly or view it on GitHub:=0D
+https://gist.github.com/e3be5bf745395d50e975#gistcomment-3887403=
+
+----==_mimepart_6139cd18128ba_2345c78871611
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<strong>@vKnmnn</strong> commented on this gist.<hr />=0D
+<p>Hi, you have given sh in the shebang, but you=E2=80=99re using bash sy=
+ntax in the script.<br>=0D
+Thus, the following edits have to be made so we can run the script with p=
+osix shell:</p>=0D
+<p>line 15 and 18: use single [ and ]. Also only use a single =3D<br>=0D
+line 36 and 52, keyword function is not defined in posix shell. just dele=
+te the word function, but add () behind the function name.<br>=0D
+line 41 and 49 use double quotes</p>=0D
+=0D
+<p style=3D"font-size:small;-webkit-text-size-adjust:none;color:#666;">&m=
+dash;<br />You are receiving this because you are subscribed to this thre=
+ad.<br />Reply to this email directly, <a href=3D"https://gist.github.com=
+/e3be5bf745395d50e975#gistcomment-3887403">view it on GitHub</a>, or <a h=
+ref=3D"https://github.com/notifications/unsubscribe-auth/AF6DF3OMYCKRCGG5=
+N6TQMU3UBBZRRANCNFSM4S7THO4Q">unsubscribe</a>.<br />Triage notifications =
+on the go with GitHub Mobile for <a href=3D"https://apps.apple.com/app/ap=
+ple-store/id1477376905?ct=3Dnotification-email&amp;mt=3D8&amp;pt=3D524675=
+">iOS</a> or <a href=3D"https://play.google.com/store/apps/details?id=3Dc=
+om.github.android&amp;referrer=3Dutm_campaign%3Dnotification-email%26utm_=
+medium%3Demail%26utm_source%3Dgithub">Android</a>.=0D
+<img src=3D"https://github.com/notifications/beacon/AF6DF3LMMPPW37AKXCUN5=
+YTUBBZRRA5CNFSM4S7THO42YY3PNVWWK3TUL52HS4DFVNDWS43UINXW23LFNZ2KUY3PNVWWK3=
+TUL5UWJTQAHNISW.gif" height=3D"1" width=3D"1" alt=3D"" /></p>=0D
+<script type=3D"application/ld+json">[=0D
+{=0D
+"@context": "http://schema.org",=0D
+"@type": "EmailMessage",=0D
+"potentialAction": {=0D
+"@type": "ViewAction",=0D
+"target": "https://gist.github.com/e3be5bf745395d50e975#gistcomment-38874=
+03",=0D
+"url": "https://gist.github.com/e3be5bf745395d50e975#gistcomment-3887403"=
+,=0D
+"name": "View Gist"=0D
+},=0D
+"description": "View this Gist on GitHub",=0D
+"publisher": {=0D
+"@type": "Organization",=0D
+"name": "GitHub",=0D
+"url": "https://github.com"=0D
+}=0D
+}=0D
+]</script>=
+
+----==_mimepart_6139cd18128ba_2345c78871611--

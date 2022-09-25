@@ -1,0 +1,91 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp4661331vky;
+        Wed, 3 Mar 2021 01:12:00 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyg6mPmYBd7CEJ/4VmcvAtjUuxOA/+ujgyS9etNzP1TQFG5u4G6d4BYrmAiH36PmfTdMaxb
+X-Received: by 2002:a0c:9e15:: with SMTP id p21mr12956841qve.53.1614762720487;
+        Wed, 03 Mar 2021 01:12:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614762720; cv=none;
+        d=google.com; s=arc-20160816;
+        b=UjEsT3Pib4cH0RNmNOeolubhCBp+k4bWLudxqfulmfiNlI1xlmsk7iyDR+tqNXqolq
+         zbK/yaDpzAVnGs4VXJ5sdgeR8MDG2e4zeS9ucIVPB3vNbW6LgGwgOkHKRKcSNw35bB3T
+         9AW0XOsFnMdNafqCMZ6fEASqxM99D9tPkkJeZ53rwUCoRZRVjwSPa/zNZ0hPE6jICT/C
+         IdSApZozNDr1QuLu9n01BRno8sJmlCB6byQJMLyVaUllpG+xAp7jh2RXLBLS95/LBzUj
+         3Hgvk1tH1GTz7Mn9Q6MUfBQ/aRWqDFwvujzQ3PphqSqy45DtCGu2Hxc+SqSFnO8fGE0p
+         KGlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=jeP/2ewAQr3sx3hD4IC/Y8Sthmkfe/MmGUYi+PBDfZc=;
+        b=QQpBSELHTmwD+/0Apsyw1ZNelCbWbeDoSG0jrfWlp7/+0v0tmtjEdp3RqsDZlNwbxU
+         wB4hiEaTq9AeIjXRjcTYCAEVt1+YLtvIEBwcw4WvPkmrMNRqqTQUlTZP24ZOWc48Vbgc
+         2EAFHgWsGm/3+VuOqN51GDWGRguMK3S0PpzLZN3ZGG4y2WWAIorQzdeQmCrsL3WUiDM0
+         YDc9/ZL+vpRHqZ0VQz5gOhMVrSp1XRZ+FDtqyKhQJb5Renz3eYO742doI4B5R8SKWLPV
+         yKvC2o/MP56WgwgOmXMkToWbW6IFMUxt/EIG2M/3otlAAn9XTXZL9vp3d/Yiqkb6ZTI7
+         4XLw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@doocy.jp header.s=cfvfwl2z3hspanxqg4v6egaodaq7v4bt header.b=C49dScKL;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=ebFHgg7O;
+       spf=pass (google.com: domain of 01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@amazonses.com designates 54.240.48.113 as permitted sender) smtp.mailfrom=01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@amazonses.com
+Return-Path: <01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@amazonses.com>
+Received: from a48-113.smtp-out.amazonses.com (a48-113.smtp-out.amazonses.com. [54.240.48.113])
+        by mx.google.com with ESMTPS id d9si12209333qkn.66.2021.03.03.01.12.00
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Wed, 03 Mar 2021 01:12:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@amazonses.com designates 54.240.48.113 as permitted sender) client-ip=54.240.48.113;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@doocy.jp header.s=cfvfwl2z3hspanxqg4v6egaodaq7v4bt header.b=C49dScKL;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=ebFHgg7O;
+       spf=pass (google.com: domain of 01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@amazonses.com designates 54.240.48.113 as permitted sender) smtp.mailfrom=01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=cfvfwl2z3hspanxqg4v6egaodaq7v4bt; d=doocy.jp; t=1614762720;
+	h=Date:From:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=jeP/2ewAQr3sx3hD4IC/Y8Sthmkfe/MmGUYi+PBDfZc=;
+	b=C49dScKLNoJeT0mAsygdt9QRXxU2zRnIw/HgPsBIJRr3h6y/p0rAsWAV27ryT3fB
+	0HeoOTTCCJZQv1bewEA4SiRuTveYDrBTzSnfiKFEDncfS1WDUYF6pZMTmB/g7QATKhE
+	OPO2stKhHxYdPxHeKaeDzbK/2dKvyTvg5guM3AkI=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1614762720;
+	h=Date:From:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=jeP/2ewAQr3sx3hD4IC/Y8Sthmkfe/MmGUYi+PBDfZc=;
+	b=ebFHgg7OArW/qKQSRfS34eav/Vxh8KKRSZPJuQKgEeAUVG4lFHQqsqtNgaA7b4CR
+	UD0iqOez9fIUlMzVxGlY4SaVJUXBijAb3+h8RfTz9BC6sKduhpJaa8PTmMlfS7Rt8n4
+	zKvROyESSj+BzD5NvWw29cf+B9sT3onTeY57uI9U=
+Date: Wed, 3 Mar 2021 09:12:00 +0000
+From: noreply@doocy.jp
+To: hujyorom@gmail.com
+Message-ID: <01000177f75bbb9c-0667c5ab-c0b8-4453-9388-3f8a95ae73fb-000000@email.amazonses.com>
+Subject: =?UTF-8?Q?=E3=80=90doocyJob=E3=80=91=E3=81=94=E5=BF=9C=E5=8B=9F=E3=81=AE=E5=8F=97=E4=BB=98=E3=81=8C=E5=AE=8C=E4=BA=86=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F?=
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+X-SES-Outgoing: 2021.03.03-54.240.48.113
+Feedback-ID: 1.us-east-1.m1ttqJ50wurQ2XaR0Ap2LumlwD7dug+FAIF233ik8Fg=:AmazonSES
+
+6YGg6JekIOWwh+WPuCDjgZXjgpPjgIHjgZPjgpPjgavjgaHjga8NCuS4i+io
+mOOAgeaxguS6uuOBuOOBruOBlOW/nOWLn+OBruWPl+S7mOOBjOWujOS6huOB
+l+OBvuOBl+OBn+OAgg0KDQrmoYjku7blkI06IOOAkEFXUy9TUkUv6YCxM++9
+nuOAkeOAkOODleODq+ODquODouODvOODiE9L44O744OV44Or44OV44Os44OD
+44Kv44K544CR5oCl5oiQ6ZW344Gu54mp5rWB44OG44OD44Kv44Kr44Oz44OR
+44OL44O877yB44CMVE9ET0NV44CN5LqL5qWt44Gq44Gp44Gr6Zai44KP44KL
+U1JFDQrmoYjku7ZVUkw6IGh0dHBzOi8vZG9vY3kuanAvam9icy9kZXRhaWwv
+NDQ1Nw0K5LyB5qWt5ZCNOiAyMDfmoKrlvI/kvJrnpL4NCg0K4oC744GU6YCj
+57Wh44GrMe+9njLpgLHplpPjgYvjgYvjgovloLTlkIjjgYzjgYLjgorjgb7j
+gZnjgILku4rjgZfjgbDjgonjgY/jgIHli5/pm4bkvIHmpa3jgYvjgonjga7j
+gZTpgKPntaHjgpLjgYrlvoXjgaHjgY/jgaDjgZXjgYTjgIINCuKAu+OBk+OB
+oeOCieOBruODoeODvOODq+OBq+OBlOi/lOS/oemgguOBhOOBpuOCguOAgeWL
+n+mbhuS8gealreOBuOOBr+mAgeS/oeOBleOCjOOBvuOBm+OCk+OBruOBp+OB
+lOS6huaJv+OBj+OBoOOBleOBhOOAgg0K5byV44GN57aa44GN44CMZG9vY3kg
+Sm9iKOODieODvOOCt+ODvOOCuOODp+ODlinjgI3jgpLlrpzjgZfjgY/jgYrp
+oZjjgYTjgYTjgZ/jgZfjgb7jgZnjgIINCg0KDQrjgZTkuI3mmI7jgarngrnj
+gYzjgZTjgZbjgYTjgb7jgZfjgZ/jgonjgIHkuIvoqJjjgb7jgafjgYrllY/j
+gYTlkIjjgo/jgZvkuIvjgZXjgYTjgIINCiAgIGluZm9AZG9vY3kuanANCg0K
+4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB
+4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB
+4pSB4pSB4pSBDQrjg5Xjg6rjg7zjg6njg7Pjgrnjgqjjg7Pjgrjjg4vjgqLj
+g7vlia/mpa3jgqjjg7Pjgrjjg4vjgqLjga7msYLkurrjg7vmoYjku7bjgrXj
+gqTjg4gNCmRvb2N5IGpvYijjg4njg7zjgrfjg7zjgrjjg6fjg5YpDQpodHRw
+czovL2Rvb2N5LmpwDQrilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIHilIHilIHilIHilIEgDQoNCg==

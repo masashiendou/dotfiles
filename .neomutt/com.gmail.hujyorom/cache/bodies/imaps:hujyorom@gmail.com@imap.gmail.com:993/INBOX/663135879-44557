@@ -1,0 +1,116 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp4274852vkl;
+        Tue, 27 Oct 2020 06:01:12 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwBFm97QfjK3fQ9wVZ9w0zZGCAAYnMkmuWcgc100H2B/0Q2S0BVGs4+ng4941ik2LqOjr+t
+X-Received: by 2002:a63:af1c:: with SMTP id w28mr1741206pge.403.1603803671721;
+        Tue, 27 Oct 2020 06:01:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603803671; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0kNXoENHpC6NgM6l21ANp5NOBT7h1JmFgDzsnLuZWcoHOogs5HVuRSSuLE3y9JXreA
+         S+1buFbknTugyf9ib70DTNP1yPkBkBXEe2L7hZr1hZis0s/9bql3LtsC+zcOkJ3ya1NO
+         YgTHF5VXkfuU+VCl1DHJZgUlMvGJtNgZNWdKj5sV9J65a3rjZv7JTxVpQRTNiqCtcpHI
+         X61w6RMMZJ5vOB31aFb1N28x1VHt//TyT8wGV657V1q30DLstvDGKGCuErd8wxSriJJ+
+         RsOwl+Gve7WEl1LcHRf1QL62nwSsm5lwAJ/0/4E254uLvGM7xHwkWut7VnhNQdDHpJRp
+         9M/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:errors-to:from:to
+         :message-id:date:domainkey-signature:dkim-signature:comments;
+        bh=zdc9LPYByIulQFHJftg8SzpHpZGI50SKlT9w0jtfCfI=;
+        b=QqShmoqLfRDrEXtK5lfv2U1qoliKf99I93lffNTdarAadMRvzyESRmoyrYSgKV4C+0
+         Fd46qJP+hlv5gyGOuNmzrelaSI8wCl+JfOjgGGbDnWQ6cQMbP0TlSmt32A9KwyxoEvgt
+         1eIVXM8uC7k8n2FUmjsRqvlSD6xtafJBQ6xOcB5+GB1wgEAfLWB+omI8jnTWg6eZpcbk
+         cLVZCYn3AD6MHKuwGmMdEhTEOqPuIYEgnfwhkkFozv33gq7vGVow3+SBSArBESgrZ5Q8
+         2NStnjq5bH9PPSunmnokBz5KQ35p67d7+YCs8Xn62NAClHaSTNMnHo4vz4oipZtqUHuw
+         gx4g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.yahoo.co.jp header.s=bulk201106 header.b=nS7wRDTJ;
+       spf=pass (google.com: domain of auction-master-error@err.yahoo.co.jp designates 124.83.146.241 as permitted sender) smtp.mailfrom=auction-master-error@err.yahoo.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.yahoo.co.jp
+Return-Path: <auction-master-error@err.yahoo.co.jp>
+Received: from n15.bulk.ogk.yahoo.co.jp (n15.bulk.ogk.yahoo.co.jp. [124.83.146.241])
+        by mx.google.com with SMTP id y28si1431453pga.416.2020.10.27.06.01.10
+        for <hujyorom@gmail.com>;
+        Tue, 27 Oct 2020 06:01:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of auction-master-error@err.yahoo.co.jp designates 124.83.146.241 as permitted sender) client-ip=124.83.146.241;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.yahoo.co.jp header.s=bulk201106 header.b=nS7wRDTJ;
+       spf=pass (google.com: domain of auction-master-error@err.yahoo.co.jp designates 124.83.146.241 as permitted sender) smtp.mailfrom=auction-master-error@err.yahoo.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.yahoo.co.jp
+Comments: DKIM? See https://mail.yahoo.co.jp/antispam/efforts_dk.html
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.yahoo.co.jp; s=bulk201106; t=1603803665; bh=zdc9LPYByIulQFHJftg8SzpHpZGI50SKlT9w0jtfCfI=; h=Received:Received:Date:Message-Id:Received:X-yahoo-newman-expires:To:From:Errors-To:X-yahoo-newman-expires:X-yahoo-newman-property:X-yahoo-newman-id:X-Yahoo-ID:Subject:Mime-Version:Content-Transfer-Encoding:Content-Type; b=nS7wRDTJYeu+G7JDxaK2XHyTEXnhUW1heMRqisVYWTWSfiBr5u85ZWSdRqPJSFSc16FDUQqf+LkajBmsYRsFDGQvTV21rsqVbDhv5Je+P7GgZGwqZ15i/1Q4KUNaIO9X4tUgrs2e9iVM3AKHZP3YtStYfVbSjnrLDZSTzdRVMZ4=
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=bulk201106; d=mail.yahoo.co.jp; 
+	b=B2vyEVxs+qQvtVE/j/Amp5EvoaNnLiL/N/nqXOQWRjmLSHg23M2ECnwrI5RoxMa9c9tpcvrZyd9GKe9wt0h059sPA8TRegAGLTt0TkDyRkqB8U/z4Kn/JYnhDvZOfOAzMPC4lneP6Wx9s12GpUGJ4+ONwwuozCtEBOWqIJ1T7i4=;
+Received: from [100.98.117.221] by n15.bulk.ogk.yahoo.co.jp with NNFMP; 27 Oct 2020 13:01:05 -0000
+Received: from [100.102.147.204] by m02.bulk.kks.ynwp.yahoo.co.jp with NNFMP; 27 Oct 2020 13:01:05 -0000
+Date: 27 Oct 2020 22:01:05 +0900
+Message-Id: <5f981a11-00098f61-0b6c2a2fc48f92b9639f68189005a2e1-6772@f17mnav205.auc.kks.ynwp.yahoo.co.jp>
+Received: from [127.0.0.1] by f17mnav205.auc.kks.ynwp.yahoo.co.jp with NNFMP; 27 Oct 2020 13:01:05 -0000
+X-yahoo-newman-expires: 1603976465
+To: hujyorom@gmail.com
+From: auction-master@mail.yahoo.co.jp
+Errors-To: auction-master-error@err.yahoo.co.jp
+X-yahoo-newman-expires: 1603846865
+X-yahoo-newman-property: auction
+X-yahoo-newman-id: 1603803665-626407
+X-Yahoo-ID: hujyorom
+Subject: =?ISO-2022-JP?B?GyRCJWQlVSUqJS8bKEIhIC0gGyRCIVobKEIxLDQwMCA=?=
+ =?ISO-2022-JP?B?GyRCMV9DTTI8JDIhWxsoQk1JVFNVQklTSEk=?=
+ =?ISO-2022-JP?B?IERpYW1vbmRjcnlzdGEg?=
+ =?ISO-2022-JP?B?UkRUIDI3MiBXWCBXSURF?=
+ =?ISO-2022-JP?B?IDI3GyRCJSQlcyVBGyhCIBskQiViJUslPyE8GyhCIBskQiVHJSMlORsoQg==?=
+ =?ISO-2022-JP?B?GyRCJVclbCUkGyhCIBskQjswSSkbKEIgGyRCQ2Y4RRsoQiBZNTIzOA==?=
+ =?ISO-2022-JP?B?MDM3?=
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=ISO-2022-JP
+
+■ヤフオク!:2020年10月27日（火）　22時1分5秒送信
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+hujyorom様
+
+商品「MITSUBISHI Diamondcrysta RDT 272 WX WIDE 27インチ モニター ディスプレイ 三菱 中古 Y5238037」が、開始価格を値下げして再出品されました。
+前回の出品時より1,400 円値下げされています！
+
+◆◆◆ 値下げされた商品　◆◆◆
+
+商品：MITSUBISHI Diamondcrysta RDT 272 WX WIDE 27インチ モニター ディスプレイ 三菱 中古 Y5238037
+https://page.auctions.yahoo.co.jp/jp/auction/v757521552?md=1
+
+
+開始価格：7,000 円
+
+
+----------------------------------------------------------------
+
+このメールは、ウォッチリストに登録したオークションの情報を、
+システムにより自動的にお知らせしております。
+
+
+今後、このメールの配信を希望されない場合は「メッセージの通知」
+より通知のチェックを外してください。
+
+▼メッセージの通知
+　 https://auctions.yahoo.co.jp/jp/show/prefs_notify
+
+
+================================================================
+この自動通知メールはYahoo! JAPANより自動的に送信されています。
+このメールに返信しないようお願いいたします。
+なお、このメールに心当たりのない場合やご不明な点がある場合は、
+お手数ですがお問い合わせフォームよりお問い合わせください。
+ 
+▼メールアドレスの変更、配信停止
+　https://auctions.yahoo.co.jp/jp/show/prefs_notify
+▼一般的なよくある質問
+　https://www.yahoo-help.jp/app/home/p/353/
+▼ヤフオク! - お問い合わせフォーム
+　https://www.yahoo-help.jp/app/ask/p/2443/form/auction-feedback2-inquiry
+================================================================
+
+
+
+
+
+ヤフオク!をご利用いただき、ありがとうございました。
+https://auctions.yahoo.co.jp/jp/

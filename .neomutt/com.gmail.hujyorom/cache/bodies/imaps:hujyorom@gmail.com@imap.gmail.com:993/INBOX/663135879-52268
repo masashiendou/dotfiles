@@ -1,0 +1,86 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:6304:0:0:0:0:0 with SMTP id x4csp1950167vkb;
+        Mon, 21 Jun 2021 23:11:38 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJytiTVzdVtG2HPgSO5qh1X5z7DDJ3ocpg2fahazBcTv7LE+f1TaWRkNyeedM9Zr/Lh3gJbI
+X-Received: by 2002:a17:90a:5b0f:: with SMTP id o15mr2353760pji.34.1624342298538;
+        Mon, 21 Jun 2021 23:11:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624342298; cv=none;
+        d=google.com; s=arc-20160816;
+        b=p8OZujLphnzXqKoJfol5s4WmHFCGG2+Ej8e2HsOb51VcL225YT/ijkdYjgyLG4D8SD
+         TQg4ZP9G16bIkkZQ5u1dFrAI2gV7cobwmihz2gCTV59NbPqqd97gnq6hs66O3wXUARQf
+         knWr4r21gax1TWybjiULsafV5IIbOMwxInoMugPNPocBXwSqDN6GkdbbWuMDAlu5GDVI
+         /K6eDn/+r0FyzUslIeycE5eCd++YjcHvDtySOEKC8RD78EL4jJGLUbthEUoHerEQx5yY
+         u0eP2ml2PcMGwiMClsfY0RbU2BchRncO9sDV1gaU7MiCz9c8YunU0r6pZtzuCKNJ1FVP
+         W9iA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=/3lUa1nyev7TyUOUfcv9Vy87hI4ruJG/7+0toGK0LMg=;
+        b=myhyPpAK2tjdrSHu53wZY7ODZ08qSCAkHGdiELDivP3qWvbvDGFpRO1yePBougScVd
+         bccichp7Ne3chBL5TFBxB2fiyGeVUrHKTgdsuN9wm7seHVVogeFkaAh33mDuHweFKxyD
+         B6dhd4DGAh+84IzwXS98qoGVL5WkSZRvNg8gg+iDHm06SKtLAWaeMSKmMDMB+JBmhmHI
+         ib7ex0ORnyj0ACEhT2ee9v+PzdUt5/jbyR9Lh+eI2l7NXEpbwzhfcvsVMveQNTS54rRU
+         rGuzk3hsa0iA0cx5++b+8Ym74Ur5EY7EhVcqeewSiVjQ2XelSDJQeC/fTKdJSca44TP8
+         BivA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=bHye5+rg;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.120 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml102.ymt.japannetbank.co.jp (mml102.ymt.japannetbank.co.jp. [202.238.157.120])
+        by mx.google.com with ESMTP id x2si23597851pfm.36.2021.06.21.23.11.38
+        for <hujyorom@gmail.com>;
+        Mon, 21 Jun 2021 23:11:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.120 as permitted sender) client-ip=202.238.157.120;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=bHye5+rg;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.120 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1624342297;
+	bh=/3lUa1nyev7TyUOUfcv9Vy87hI4ruJG/7+0toGK0LMg=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=bHye5+rgPAZMj+OMD71qQDwy3b9rzTbebOCiYpZyWDtjCd3qa8SeapsweSsMpDNNj
+	 dYPy/JMa/tvmn61WtX0j9IL/sGXA34Bnd4r83vdaqlF7oxTKXc7e3jkRNwAklIUtlX
+	 9FkMVbWSU1F2IFltZ2h76Cu342JCqD/b3QnDhCL8=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer2@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCPzYkajl+JF8kTiQ0M05HJxsoSg==?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20210622061137.DAC7FC60AD@mml102.ymt.japannetbank.co.jp>
+Date: Tue, 22 Jun 2021 15:11:08 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもPayPay銀行をご利用いただきありがとうございます。
+下記のお振り込みを受け付けいたしました。
+
+振込受付日時:2021/06/22 15:05:46
+受付番号:202106220143832
+受取人名:エンドウ　マサ．．
+※受取人名は一部のみ表示しております。
+振込金額:8,000円
+
+▽振込明細の確認はこちら（ログイン）
+https://login.japannetbank.co.jp/wctx/LoginAction.do?screen=Transfrinq&aatc=vi2004jb04o
+ログイン後、該当の画面が表示できない場合は、Welcome Pageから、「明細・振込・振替」＞「振込明細照会」よりご確認いただけます。
+
+この振り込みにお心当たりがない場合は、至急、事故受付センター（フリーダイヤル 0120-444-964）へご連絡ください。
+
+■ご注意
+・より安全にご利用いただくため、振り込みをご使用にならない時は、振込限度額を0円または最小限に引き下げておかれることをおすすめいたします。
+・即時入金となるか否かは、各金融機関によって異なります。
+・口座情報の不一致などで入金できなかった場合、資金をご返却のうえ、メールでお知らせいたします。（振込手数料はお返しできません。）
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+PayPay銀行
+https://www.paypay-bank.co.jp/
+====================================

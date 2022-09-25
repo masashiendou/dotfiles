@@ -1,0 +1,428 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp3749640vkx;
+        Tue, 13 Apr 2021 00:31:50 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzl7dkDRPjGkWTTKlFs4UCBARCXPBIdD68sKMpkJsFkvZ1qqzfIqdll3eWEChZnoRZD4/db
+X-Received: by 2002:a17:90b:1b42:: with SMTP id nv2mr3432671pjb.190.1618299110786;
+        Tue, 13 Apr 2021 00:31:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618299110; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jLnpNDZZ11RHRKfH2KMIYUjWiLLPv6slJU+KJ91hY+a7MoBLzv2glxGICZrPrw9qFO
+         BqJuYh2zVodbSdXgeZqpyxqeUa8RsOzBhXzQAmlJidLEUCiijW/jy+WID35U1Xg52y6M
+         6xTxapJBM2JZINf8eQahbiJp7vBYNCZxseHDQ6JZ9KdfgffXYIUDLzAMZyJ1yfxePjOO
+         79kZvll+x+V+kbwVIJ/NqliQmq9TIdWG7NWd87185b9O8MSJoaW6yyLwGxJRrN02Lt6M
+         Q/9j+hjeqVXq6Mwis4pHC3o+7Ij2eOdC7aI3tNFeQtu9FEaiOyGD1y73VDHi4jegyo7e
+         qK+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:from:subject
+         :to;
+        bh=IcbEv1ioxwl5n/uBk5aPbrpdqEzEPMKysRkL3TPqSNg=;
+        b=SbNFOFI6m7Yj1OgUl9+HemgwCV1XcqdogdERz4zQNwPIcmQI0PRxJ1JYfyfstUxIPi
+         FfPeTIqabZM/oD4ma7vNb11qV7S/h2eJvbXfd5skxMuQavovw2o/CTD1ec2yyMn3Yf85
+         QYcp97VDqCSXW6m8YIk+TW+MLZ5drqNDmZa702fsMuhrZoPEc7eTb/QSgxo+gDjwoFcA
+         XaO7sZhSYQ3066ODPanvohmaWs9Vy0laIYDPwfxqsWr94jWDjQAm6n7gGwy6VHxQ3x6P
+         RibkUo0M02afO7cH4UygosQtIiBRh9ti7aDm2fXGG+of5uHRd8NcYISjbFOQOecpuwyN
+         KDPg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of bounce-2021041316-00004060317f@srs7915.cuenote.jp designates 210.152.203.47 as permitted sender) smtp.mailfrom=bounce-2021041316-00004060317f@srs7915.cuenote.jp
+Return-Path: <bounce-2021041316-00004060317f@srs7915.cuenote.jp>
+Received: from srs7915.cuenote.jp (srs7915-b.cuenote.jp. [210.152.203.47])
+        by mx.google.com with ESMTPS id x12si17484393pgj.61.2021.04.13.00.31.50
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 13 Apr 2021 00:31:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-2021041316-00004060317f@srs7915.cuenote.jp designates 210.152.203.47 as permitted sender) client-ip=210.152.203.47;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of bounce-2021041316-00004060317f@srs7915.cuenote.jp designates 210.152.203.47 as permitted sender) smtp.mailfrom=bounce-2021041316-00004060317f@srs7915.cuenote.jp
+Received: from web01 (unknown [27.133.141.71]) by srs7915.cuenote.jp (Cuenote SR-S); Tue, 13 Apr 2021 16:30:26 +0900
+Received: by web01 (Postfix, from userid 0)
+	id 27455A26E1; Tue, 13 Apr 2021 16:30:26 +0900 (JST)
+To: hujyorom@gmail.com
+Subject: =?UTF-8?B?44CQTG9vb3DjgafjgpPjgY3jgJFMb29vcCBEUuODl+ODreOCsOODqeODoCA=?= =?UTF-8?B?5Zyo5a6F5b+c5o+044Kt44Oj44Oz44Oa44O844Oz5Y+X5LuY6ZaL5aeL77yB?=
+X-PHP-Originating-Script: 501:MailTransport.php
+From: looop@looop-denki.com
+X-Mailer: CakePHP Email
+Date: Tue, 13 Apr 2021 16:30:26 +0900
+Message-ID: <60754892b43040b6ba30143bd56b0410@web01>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://ww=
+w.w3.org/TR/html4/loose.dtd"><html xmlns=3D"http://www.w3.org/1999/xhtml"=
+ xmlns=3D"http://www.w3.org/1999/xhtml"><head><meta http-equiv=3D"Content=
+-Language" content=3D"ja" /><meta http-equiv=3D"content-type" content=3D"=
+text/html; charset=3DUTF-8"><meta name=3D"viewport" width=3D"device-width=
+" /><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><meta name=
+=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1, minimum=
+-scale=3D1, maximum-scale=3D2, shrink-to-fit=3Dno"><meta name=3D"format-d=
+etection" content=3D"telephone=3Dno"><title>=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=
+=8F=B4=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3(Looop DR)</t=
+itle></head><body style=3D"text-align:center; font-size:16px;"><div style=
+=3D"max-width: 650px; margin: 0 auto; text-align:left; background:#ffffff=
+">    <div style=3D"padding:0;margin:0;"><img src=3D"https://looop-denki.=
+com/email/202104_recruit_spring_dr/mail_mv01.jpg" style=3D"width:100%;dis=
+play:block">
+<img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/mail_m=
+v02.jpg" style=3D"width:100%;display:block"></div>    <div style=3D"paddi=
+ng:0;margin:0;">        <p style=3D"text-align:center; font-size:15px; ma=
+rgin:7% 0 4% 0"><a href=3D"https://looop-denki.com/low-v/contract/images/=
+pdf/looopdr_terms.pdf" target=3D"_blank">Looop DR=E3=83=97=E3=83=AD=E3=82=
+=B0=E3=83=A9=E3=83=A0=E5=88=A9=E7=94=A8=E8=A6=8F=E7=B4=84</a>=E3=82=92=E3=
+=81=94=E7=A2=BA=E8=AA=8D=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8DLooop DR=E3=83=
+=97=E3=83=AD=E3=82=B0=E3=83=A9=E3=83=A0=E3=81=B8=E5=8F=82=E5=8A=A0=E3=82=92=
+=E3=81=8A=E9=A1=98=E3=81=84=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</p>      =
+  <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" =
+style=3D"margin: 0 0 7% 0;">            <tr>                <td><a href=3D=
+"https://looop-denki.com/low-v/dr-spring/?utm_medium=3Demail&utm_source=3D=
+cpmailnonmember&utm_campaign=3Ddrspring" target=3D"_blank" style=3D"displ=
+ay:block;width:94%; margin:0 auto"><img src=3D"https://looop-denki.com/em=
+ail/202104_recruit_spring_dr/mail_btn01.jpg" style=3D"width:100%;display:=
+block"></a></td>                <td>
+<a href=3D"https://looop-denki.com/own/?utm_medium=3Demail&utm_source=3Dc=
+pmailnonmember&utm_campaign=3Ddrspring&utm_content=3Dno1" target=3D"_blan=
+k" style=3D"display:block;width:94%; margin:0 auto"><img src=3D"https://l=
+ooop-denki.com/email/202104_recruit_spring_dr/mail_btn02.jpg" style=3D"wi=
+dth:100%;display:block"></a></td>            </tr>        </table>    </d=
+iv>    <div style=3D"padding:0;margin:0;"><img src=3D"https://looop-denki=
+.com/email/202104_recruit_spring_dr/mail_features01.jpg" style=3D"width:1=
+00%;display:block"><img src=3D"https://looop-denki.com/email/202104_recru=
+it_spring_dr/mail_features02.jpg" style=3D"width:100%;display:block"><img=
+ src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/mail_featu=
+res03.jpg" style=3D"width:100%;display:block"></div>    <div class=3D"flo=
+w"><img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/mai=
+l_flow01.jpg" style=3D"width:100%;display:block">
+<img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/mail_f=
+low02.jpg" style=3D"width:100%;display:block">        <div style=3D"backg=
+round: #54ccff;padding: 0 30px 5.3%;font-size:16px;"> =E2=80=BB1=E3=80=80=
+=E3=80=8C=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=EF=
+=BC=88=E3=82=B9=E3=83=BC=E3=83=91=E3=83=BC=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=
+=B4=E3=82=BF=E3=82=A4=E3=83=A0=EF=BC=89=E3=80=8D=E3=81=8C=E5=AE=9F=E6=96=BD=
+=E3=81=95=E3=82=8C=E3=82=8B=E5=A0=B4=E5=90=88=E3=80=81=E5=AE=9F=E6=96=BD=E6=
+=97=A5=E3=81=AE=E5=89=8D=E6=97=A5=E3=81=AE=E5=A4=95=E6=96=B9=E3=81=AB=E3=80=
+=8C=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=E3=81=AE=
+=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=E3=80=8D=E3=83=A1=E3=83=BC=E3=83=AB=E3=
+=81=8C=E9=80=81=E3=82=89=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82<br>         =
+   =E2=80=BB2 =E3=80=8C=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=
+=A4=E3=83=A0(=E3=82=B9=E3=83=BC=E3=83=91=E3=83=BC=E5=9C=A8=E5=AE=85=E5=BF=
+=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=EF=BC=89=E3=80=8D=E4=B8=AD=E3=81=AB=
+=E3=80=81=E6=A8=99=E6=BA=96=E7=9A=84=E3=81=AA=E9=9B=BB=E6=B0=97=E4=BD=BF=E7=
+=94=A8=E9=87=8F=E3=82=88=E3=82=8A=E3=82=82=E5=A4=9A=E3=81=8F=E3=81=AA=E3=82=
+=8B=E3=82=88=E3=81=86=E3=80=81=E9=9B=BB=E6=B0=97=E3=82=92=E4=BD=BF=E7=94=A8=
+=E3=81=97=E3=81=BE=E3=81=99=E3=80=82=E6=A8=99=E6=BA=96=E7=9A=84=E3=81=AA=E9=
+=9B=BB=E6=B0=97=E4=BD=BF=E7=94=A8=E9=87=8F=E3=81=AB=E3=81=A4=E3=81=84=E3=81=
+=A6=E3=81=AF=E3=80=81<a href=3D"https://looop-denki.com/low-v/dr-spring/#=
+calc" style=3D"color:#000000">=E5=A2=97=E5=8A=A0=E4=BD=BF=E7=94=A8=E9=87=8F=
+=E3=81=AE=E8=A8=88=E7=AE=97</a>=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=
+=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82            </p>        </div>    =
+</div>    <div style=3D"padding:0;margin:0;">        <p style=3D"text-ali=
+gn:center; font-size:15px; margin:7% 0 4% 0"><a href=3D"https://looop-den=
+ki.com/low-v/contract/images/pdf/looopdr_terms.pdf"
+target=3D"_blank">Looop DR=E3=83=97=E3=83=AD=E3=82=B0=E3=83=A9=E3=83=A0=E5=
+=88=A9=E7=94=A8=E8=A6=8F=E7=B4=84</a>=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=
+=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8DLooop DR=E3=83=97=E3=83=AD=E3=82=B0=E3=
+=83=A9=E3=83=A0=E3=81=B8=E5=8F=82=E5=8A=A0=E3=82=92=E3=81=8A=E9=A1=98=E3=81=
+=84=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</p>        <table cellpadding=3D"=
+0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"margin: 0 0 7% =
+0;">            <tr>                <td><a href=3D"https://looop-denki.co=
+m/low-v/dr-spring/?utm_medium=3Demail&utm_source=3Dcpmailnonmember&utm_ca=
+mpaign=3Ddrspring" target=3D"_blank" style=3D"display:block;width:94%; ma=
+rgin:0 auto"><img src=3D"https://looop-denki.com/email/202104_recruit_spr=
+ing_dr/mail_btn01.jpg" style=3D"width:100%;display:block"></a></td>      =
+          <td><a href=3D"https://looop-denki.com/own/?utm_medium=3Demail&=
+utm_source=3Dcpmailnonmember&utm_campaign=3Ddrspring&utm_content=3Dno2" t=
+arget=3D"_blank" style=3D"display:block;width:94%; margin:0 auto"><img sr=
+c=3D"https://looop-denki.com/email/202104_recruit_spring_dr/mail_btn02.jp=
+g" style=3D"width:100%;display:block"></a></td>            </tr>        <=
+/table>    </div>
+<div style=3D"padding:6.3% 5.3% 5.3% 5.3%;margin:0;background: #F5F5F5;">=
+        <h2 style=3D"text-align: center; margin-bottom:30px;padding:0 10%=
+;width: 80%;"><img src=3D"https://looop-denki.com/email/202104_recruit_sp=
+ring_dr/detail_h2.png" style=3D"width: 100%;display:block"></h2>        <=
+dl style=3D"background:#ffffff; border-radius:10px;">            <dt styl=
+e=3D"background:#FFA200;padding:2% 3.5%;height: 18px;border-radius:10px 1=
+0px 0 0;"><img src=3D"https://looop-denki.com/email/202104_recruit_spring=
+_dr/ca_01.png" style=3D"height:18px; width:auto;display:block"></dt>     =
+       <dd style=3D"padding:15px 20px;margin-left:0;font-size:16px;">    =
+            4=E6=9C=886=E6=97=A5=EF=BC=88=E7=81=AB=EF=BC=89=EF=BD=9E4=E6=9C=
+=8820=E6=97=A5=EF=BC=88=E7=81=AB=EF=BC=89</dd>            <dt style=3D"ba=
+ckground:#FFA200;padding:2% 3.5%;height: 18px;"><img src=3D"https://looop=
+-denki.com/email/202104_recruit_spring_dr/ca_02.png" style=3D"height:18px=
+; width:auto;display:block"></dt>            <dd style=3D"padding:15px
+20px;margin-left:0;font-size:16px;">4=E6=9C=8827=E6=97=A5=EF=BC=88=E7=81=AB=
+=EF=BC=89=E3=80=9C6=E6=9C=8814=E6=97=A5=EF=BC=88=E6=9C=88=EF=BC=89</dd>  =
+          <dt style=3D"background:#FFA200;padding:2% 3.5%;height: 18px;">=
+<img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/ca_03.=
+png" style=3D"height:18px; width:auto;display:block"></dt>            <dd=
+ style=3D"padding:15px 20px;margin-left:0;font-size:16px;">              =
+  =E5=85=A8=E5=9B=BD=EF=BC=88=E6=B2=96=E7=B8=84=E3=80=81=E9=9B=A2=E5=B3=B6=
+=E3=82=92=E9=99=A4=E3=81=8F=EF=BC=89=E3=81=AE=E4=B8=8B=E8=A8=98=E3=83=97=E3=
+=83=A9=E3=83=B3=E3=81=AE=E3=81=94=E5=A5=91=E7=B4=84=E8=80=85=E3=81=95=E3=81=
+=BE=E3=81=8C=E5=AF=BE=E8=B1=A1=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=
+=E3=80=82<br>                =E3=80=8C=E3=81=8A=E3=81=86=E3=81=A1=E3=83=97=
+=E3=83=A9=E3=83=B3=E3=80=8D=E3=80=8C=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=
+=83=97=E3=83=A9=E3=83=B3=E3=80=8D=E3=80=8C=E5=86=8D=E3=82=A8=E3=83=8D=E3=81=
+=A9=E3=82=93=E3=81=A9=E3=82=93=E5=89=B2S=E3=80=8D=E3=80=8C=E5=86=8D=E3=82=
+=A8=E3=83=8D=E3=81=A9=E3=82=93=E3=81=A9=E3=82=93=E5=89=B2L=E3=80=8D=E3=80=
+=8C=E3=82=B9=E3=83=9E=E3=83=BC=E3=83=88=E3=82=BF=E3=82=A4=E3=83=A0=E3=83=97=
+=E3=83=A9=E3=83=B3=E3=80=8D                <span style=3D"font-size:12px;=
+padding-top:10px;margin:0;display:block;"> =E2=80=BB=E5=8B=95=E5=8A=9B=E3=
+=83=97=E3=83=A9=E3=83=B3=E3=81=AF=E9=99=A4=E3=81=8D=E3=81=BE=E3=81=99=E3=80=
+=82<br>                =E2=80=BB=E4=B8=8A=E8=A8=98=E3=82=A8=E3=83=AA=E3=82=
+=A2/=E3=83=97=E3=83=A9=E3=83=B3=E4=BB=A5=E5=A4=96=E3=81=AF=E6=9C=AC=E3=83=
+=97=E3=83=AD=E3=82=B0=E3=83=A9=E3=83=A0=E3=81=AE=E5=AF=BE=E8=B1=A1=E5=A4=96=
+=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>
+=E2=80=BB=E5=8F=82=E5=8A=A0=E7=94=B3=E8=BE=BC=E5=BE=8C=E3=81=AE=E3=83=97=E3=
+=83=A9=E3=83=B3=E5=A4=89=E6=9B=B4=E3=80=81=E5=BC=95=E8=B6=8A=E3=81=97=E3=81=
+=AF=E6=9C=AC=E3=83=97=E3=83=AD=E3=82=B0=E3=83=A9=E3=83=A0=E3=81=AE=E5=AF=BE=
+=E8=B1=A1=E5=A4=96=E3=81=AB=E3=81=AA=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=
+=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>                =E2=80=BB=E3=
+=82=B9=E3=83=9E=E3=83=BC=E3=83=88=E3=83=A1=E3=83=BC=E3=82=BF=E3=83=BC=E6=9C=
+=AA=E8=A8=AD=E7=BD=AE=E3=82=84=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=E9=9A=9C=
+=E5=AE=B3=E3=80=81=E9=80=9A=E4=BF=A1=E9=9A=9C=E5=AE=B3=E3=81=AA=E3=81=A9=E3=
+=81=AB=E3=82=88=E3=82=8A=E3=80=81=E9=9B=BB=E6=B0=97=E4=BD=BF=E7=94=A8=E9=87=
+=8F=E3=83=87=E3=83=BC=E3=82=BF=E3=81=8C=E4=B8=80=E8=88=AC=E9=80=81=E9=85=8D=
+=E9=9B=BB=E4=BA=8B=E6=A5=AD=E8=80=85=E3=81=8B=E3=82=89Looop=E3=81=B8=E9=80=
+=A3=E6=90=BA=E3=81=95=E3=82=8C=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=80=81=
+=E3=81=BE=E3=81=9F=E3=81=AF=E9=9B=BB=E6=B0=97=E4=BD=BF=E7=94=A8=E9=87=8F=E3=
+=83=87=E3=83=BC=E3=82=BF=E3=81=8C=E6=AC=A0=E6=90=8D=E3=81=97=E3=81=A6=E3=81=
+=84=E3=81=9F=E5=A0=B4=E5=90=88=E3=81=AA=E3=81=A9=E3=81=AF=E3=80=81=E6=9C=AC=
+=E3=83=97=E3=83=AD=E3=82=B0=E3=83=A9=E3=83=A0=E3=81=AE=E5=AF=BE=E8=B1=A1=E5=
+=A4=96=E3=81=AB=E3=81=AA=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=
+=8A=E3=81=BE=E3=81=99=E3=80=82<br>                =E8=A9=B3=E3=81=97=E3=81=
+=8F=E3=81=AF<a href=3D"https://looop-denki.com/low-v/contract/images/pdf/=
+looopdr_terms.pdf" target=3D"_blank">Looop DR=E3=83=97=E3=83=AD=E3=82=B0=E3=
+=83=A9=E3=83=A0=E5=88=A9=E7=94=A8=E8=A6=8F=E7=B4=84</a>=E3=82=92=E3=81=94=
+=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</span> </=
+dd>            <dt style=3D"background:#FFA200;padding:2% 3.5%;height: 18=
+px;"><img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/c=
+a_05.png" style=3D"height:18px; width:auto;display:block"></dt>          =
+  <dd style=3D"padding:5%;margin-left:0;font-size:16px;">
+=E3=83=8E=E3=83=BC=E3=83=9E=E3=83=AB=E7=B4=9A=E3=82=B3=E3=83=BC=E3=82=B9=E3=
+=81=A8=E9=87=8D=E9=87=8F=E7=B4=9A=E3=82=B3=E3=83=BC=E3=82=B9=E3=81=AE2=E3=
+=82=B3=E3=83=BC=E3=82=B9=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=
+=82                <table cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" style=3D"margin: 30px 0 0;text-align: center; border: solid 1px #FFCC=
+74;border-radius:15px;">                    <tr>                        <=
+th style=3D"background:#FEE2B3;padding:3% 2.5%;border-radius:15px 15px 0 =
+0; font-size:18px">=E3=83=8E=E3=83=BC=E3=83=9E=E3=83=AB=E7=B4=9A=E3=82=B3=
+=E3=83=BC=E3=82=B9</th>                    </tr>                    <tr> =
+                       <td style=3D"padding:5% 2.5%;font-size:16px;">=E3=81=
+=8A=E3=81=86=E3=81=A1=E3=83=97=E3=83=A9=E3=83=B3<br>                     =
+       =E5=86=8D=E3=82=A8=E3=83=8D=E3=81=A9=E3=82=93=E3=81=A9=E3=82=93=E5=
+=89=B2S</td>                    </tr>                    <tr>            =
+            <th style=3D"background:#FFC663;padding:3% 2.5%; font-size:18=
+px">=E9=87=8D=E9=87=8F=E7=B4=9A=E3=82=B3=E3=83=BC=E3=82=B9</th>          =
+          </tr>                    <tr>                        <td style=3D=
+"padding:5% 2.5%;font-size:16px;">=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=
+=83=97=E3=83=A9=E3=83=B3<br>                            =E3=82=B9=E3=83=9E=
+=E3=83=BC=E3=83=88=E3=82=BF=E3=82=A4=E3=83=A0=E3=83=97=E3=83=A9=E3=83=B3<=
+br>
+=E5=86=8D=E3=82=A8=E3=83=8D=E3=81=A9=E3=82=93=E3=81=A9=E3=82=93=E5=89=B2L=
+</td>                    </tr>                </table>            </dd>  =
+          <dt style=3D"background:#FFA200;padding:2% 3.5%;height: 18px;">=
+<img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/ca_06.=
+png" style=3D"height:18px; width:auto;display:block"></dt>            <dd=
+ style=3D"padding:5%;margin-left:0;font-size:16px;">                =E7=8D=
+=B2=E5=BE=97=E3=81=97=E3=81=9F=E5=BE=97=E7=82=B9=E5=88=86=E3=81=AEAmazon=E3=
+=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=81=AB=E5=8A=A0=E3=81=88=E3=80=81=E7=8D=
+=B2=E5=BE=97=E7=82=B9=E6=95=B0=E3=81=AE=E4=B8=8A=E4=BD=8D=E8=80=85=E3=81=AB=
+=E3=81=AF=E3=80=81=E3=83=A9=E3=83=B3=E3=82=AD=E3=83=B3=E3=82=B0=E5=A0=B1=E9=
+=85=AC=E3=82=82=E3=81=94=E7=94=A8=E6=84=8F=E3=81=97=E3=81=A6=E3=81=84=E3=81=
+=BE=E3=81=99=E3=80=82                <br>                <h2 style=3D"fon=
+t-size:20px"><span style=3D"color:#FEE2B3;font-size:20px">&#9679;</span>=E3=
+=83=8E=E3=83=BC=E3=83=9E=E3=83=AB=E7=B4=9A=E3=82=B3=E3=83=BC=E3=82=B9<br>=
+                    =E3=80=80=EF=BC=88=E3=81=8A=E3=81=86=E3=81=A1=E3=83=97=
+=E3=83=A9=E3=83=B3=E3=80=81=E5=86=8D=E3=82=A8=E3=83=8D=E3=81=A9=E3=82=93=E3=
+=81=A9=E3=82=93=E5=89=B2S=EF=BC=89</h2>                <table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"margin:10px 0 0;text-ali=
+gn: center; border: solid 1px #FEE2B3;border-radius:15px;">              =
+      <tr>
+<th style=3D"background:#FEE2B3;padding:3% 2.5%;border-radius:15px 15px 0=
+ 0; font-size:18px">=E8=B6=85=E7=B4=9A=EF=BC=881=E4=BD=8D-3=E4=BD=8D=EF=BC=
+=89</th>                    </tr>                    <tr>                =
+        <td style=3D"padding:5% 2.5%;font-size:16px;">Amazon=E3=82=AE=E3=83=
+=95=E3=83=88=E5=88=B810,000=E5=86=86=E5=88=86=EF=BC=883=E5=90=8D=EF=BC=89=
+</td>                    </tr>                    <tr>                   =
+     <th style=3D"background:#FEE2B3;padding:3% 2.5%; font-size:18px">=E4=
+=B8=8A=E7=B4=9A=EF=BC=884=E4=BD=8D-10=E4=BD=8D=EF=BC=89</th>             =
+       </tr>                    <tr>                        <td style=3D"=
+padding:5% 2.5%;font-size:16px;">Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=
+5,000=E5=86=86=E5=88=86=EF=BC=887=E5=90=8D=EF=BC=89</td>                 =
+   </tr>                    <tr>                        <th style=3D"back=
+ground:#FEE2B3;padding:3% 2.5%; font-size:18px">=E4=B8=AD=E7=B4=9A=EF=BC=88=
+11=E4=BD=8D-100=E4=BD=8D=EF=BC=89</th>                    </tr>          =
+          <tr>                        <td style=3D"padding:5% 2.5%;font-s=
+ize:16px;">Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B81,000=E5=86=86=E5=88=
+=86=EF=BC=8890=E5=90=8D=EF=BC=89</td>                    </tr>           =
+         <tr>
+<th style=3D"background:#FEE2B3;padding:3% 2.5%; font-size:18px">=E5=88=9D=
+=E7=B4=9A=EF=BC=88101=E4=BD=8D-1000=E4=BD=8D=EF=BC=89</th>               =
+     </tr>                    <tr>                        <td style=3D"pa=
+dding:5% 2.5%;font-size:16px;">Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=
+500=E5=86=86=E5=88=86=EF=BC=88900=E5=90=8D=EF=BC=89</td>                 =
+   </tr>                    <tr>                        <th style=3D"back=
+ground:#FEE2B3;padding:3% 2.5%; font-size:18px">=E5=85=A5=E9=96=80=E7=B4=9A=
+=EF=BC=881001=E4=BD=8D-=EF=BC=89</th>                    </tr>           =
+         <tr>                        <td style=3D"padding:5% 2.5%;font-si=
+ze:16px;">=E3=83=A9=E3=83=B3=E3=82=AD=E3=83=B3=E3=82=B0=E5=A0=B1=E9=85=AC=
+=E3=81=AA=E3=81=97=E2=80=BB=E2=80=BB=E5=88=9D=E7=B4=9A=E7=9B=AE=E6=8C=87=E3=
+=81=97=E3=81=A6=E9=A0=91=E5=BC=B5=E3=82=8D=E3=81=86=EF=BC=81=E2=80=BB=E2=80=
+=BB</td>                    </tr>                </table>                =
+<br>                <h2 style=3D"font-size:20px"><span style=3D"color:#FF=
+C663;font-size:20px">&#9679;</span>=E9=87=8D=E9=87=8F=E7=B4=9A=E3=82=B3=E3=
+=83=BC=E3=82=B9<br>                    =E3=80=80=EF=BC=88=E3=83=93=E3=82=B8=
+=E3=83=8D=E3=82=B9=E3=83=97=E3=83=A9=E3=83=B3=E3=80=81=E3=82=B9=E3=83=9E=E3=
+=83=BC=E3=83=88=E3=82=BF=E3=82=A4=E3=83=A0=E3=83=97=E3=83=A9=E3=83=B3=E3=80=
+=81=E5=86=8D=E3=82=A8=E3=83=8D=E3=81=A9=E3=82=93=E3=81=A9=E3=82=93=E5=89=B2=
+L=EF=BC=89</h2>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"margin=
+:10px 0 0;text-align: center; border: solid 1px #FFC663;border-radius:15p=
+x;">
+<tr>                        <th style=3D"background:#FFC663;padding:3% 2.=
+5%;border-radius:15px 15px 0 0; font-size:18px">=E8=B6=85=E7=B4=9A=EF=BC=88=
+1=E4=BD=8D-3=E4=BD=8D=EF=BC=89</th>                    </tr>             =
+       <tr>                        <td style=3D"padding:5% 2.5%;font-size=
+:16px;">Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B810,000=E5=86=86=E5=88=86=
+=EF=BC=883=E5=90=8D=EF=BC=89</td>                    </tr>               =
+     <tr>                        <th style=3D"background:#FFC663;padding:=
+3% 2.5%; font-size:18px">=E4=B8=AD=E7=B4=9A=EF=BC=884=E4=BD=8D-10=E4=BD=8D=
+=EF=BC=89</th>                    </tr>                    <tr>          =
+              <td style=3D"padding:5% 2.5%;font-size:16px;">Amazon=E3=82=AE=
+=E3=83=95=E3=83=88=E5=88=B85,000=E5=86=86=E5=88=86=EF=BC=887=E5=90=8D=EF=BC=
+=89</td>                    </tr>                    <tr>                =
+        <th style=3D"background:#FFC663;padding:3% 2.5%; font-size:18px">=
+=E5=88=9D=E7=B4=9A=EF=BC=8811=E4=BD=8D-100=E4=BD=8D=EF=BC=89</th>        =
+            </tr>                    <tr>                        <td styl=
+e=3D"padding:5% 2.5%;font-size:16px;">Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=
+=88=B81,000=E5=86=86=E5=88=86=EF=BC=8890=E5=90=8D=EF=BC=89</td>
+</tr>                    <tr>                        <th style=3D"backgro=
+und:#FFC663;padding:3% 2.5%; font-size:18px">=E5=85=A5=E9=96=80=E7=B4=9A=EF=
+=BC=88101=E4=BD=8D-=EF=BC=89</th>                    </tr>               =
+     <tr>                        <td style=3D"padding:5% 2.5%;font-size:1=
+6px;">=E3=83=A9=E3=83=B3=E3=82=AD=E3=83=B3=E3=82=B0=E5=A0=B1=E9=85=AC=E3=81=
+=AA=E3=81=97=E2=80=BB=E2=80=BB=E5=88=9D=E7=B4=9A=E7=9B=AE=E6=8C=87=E3=81=97=
+=E3=81=A6=E9=A0=91=E5=BC=B5=E3=82=8D=E3=81=86=EF=BC=81=E2=80=BB=E2=80=BB<=
+/td>                    </tr>                </table>            </dd>   =
+         <dt style=3D"background:#FFA200; padding:2% 3.5%;height: 18px;">=
+<img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/ca_07.=
+png" style=3D"height:18px; width:auto;display:block"></dt>            <dd=
+ style=3D"padding:5%;margin-left:0;font-size:16px;">                =E5=A2=
+=97=E5=8A=A0=E4=BD=BF=E7=94=A8=E9=87=8F1kWh=E3=81=82=E3=81=9F=E3=82=8A=E3=
+=80=8C=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=E3=80=
+=8D=E3=81=AF5=E7=82=B9=EF=BC=88Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=
+=E6=8F=9B=E7=AE=97=E3=81=A75=E5=86=86=E5=88=86=EF=BC=89=E3=80=81=E3=80=8C=
+=E3=82=B9=E3=83=BC=E3=83=91=E3=83=BC=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=
+=82=BF=E3=82=A4=E3=83=A0=E3=80=8D=E3=81=AF10=E7=82=B9=EF=BC=88Amazon=E3=82=
+=AE=E3=83=95=E3=83=88=E5=88=B8=E6=8F=9B=E7=AE=97=E3=81=A710=E5=86=86=E5=88=
+=86=EF=BC=89=E3=82=92=E9=82=84=E5=85=83=E3=81=97=E3=81=BE=E3=81=99=E3=80=82=
+<br>                    =E8=A9=B3=E3=81=97=E3=81=8F=E3=81=AF<a
+href=3D"https://looop-denki.com/low-v/dr-spring/#calc">=E3=81=93=E3=81=A1=
+=E3=82=89</a>=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=
+=95=E3=81=84=E3=80=82                <span style=3D"font-size:12px;paddin=
+g-top:10px;display:block;">=E2=80=BB1=E7=82=B9=EF=BC=9D1=E5=86=86=E6=8F=9B=
+=E7=AE=97=E3=81=A7Amazon=E3=82=AE=E3=83=95=E3=83=88=E4=BB=B6=E3=81=8C=E4=BB=
+=98=E4=B8=8E=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>   =
+             =E2=80=BB=E3=80=8C=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=
+=BF=E3=82=A4=E3=83=A0=EF=BC=88=E3=82=B9=E3=83=BC=E3=83=91=E3=83=BC=E5=9C=A8=
+=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=EF=BC=89=E3=80=8D=E3=
+=81=AE=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E5=BE=97=E7=82=B9=E4=BB=98=E4=B8=
+=8E=E3=81=AB=E9=96=A2=E3=81=97=E3=81=A6=E3=81=AF<a href=3D"https://looop-=
+denki.com/low-v/dr-spring/#calc">=E3=81=93=E3=81=A1=E3=82=89</a>=E3=82=92=
+=E3=81=94=E5=8F=82=E7=85=A7=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<=
+br>                =E2=80=BB=E5=BD=93=E6=97=A5=E3=81=AE=E3=80=8C=E5=9C=A8=
+=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=EF=BC=88=E3=82=B9=E3=
+=83=BC=E3=83=91=E3=83=BC=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=
+=A4=E3=83=A0=EF=BC=89=E3=80=8D=E3=81=AF=E3=80=81=E5=AE=9F=E6=96=BD=E6=97=A5=
+=E3=81=AE=E5=89=8D=E6=97=A5=E3=81=AE=E5=A4=95=E6=96=B9=E3=81=AB=E3=80=8C=E5=
+=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0=E3=81=AE=E3=81=
+=8A=E7=9F=A5=E3=82=89=E3=81=9B=E3=80=8D=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=A7=
+=E9=80=9A=E7=9F=A5=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br>               =
+ =E2=80=BB=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E5=AF=BE=
+=E8=B1=A1=E3=83=97=E3=83=A9=E3=83=B3=E3=81=AE=E5=BE=93=E9=87=8F=E6=96=99=E9=
+=87=91=E5=8D=98=E4=BE=A1=E3=81=AB=E5=AF=BE=E3=81=97=E3=80=8C=E3=82=B9=E3=83=
+=BC=E3=83=91=E3=83=BC=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=
+=E3=83=A0=E3=80=8D=E3=81=AE10=E5=86=86=E3=81=8C=E6=9C=80=E5=A4=A7=E3=81=A7=
+=E7=B4=8440=EF=BC=85=E3=81=AB=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=
+</span></dd>            <dt style=3D"background:#FFA200;padding:2% 3.5%;h=
+eight: 18px;">
+<img src=3D"https://looop-denki.com/email/202104_recruit_spring_dr/ca_08.=
+png" style=3D"height:18px; width:auto;display:block"></dt>            <dd=
+ style=3D"padding:15px 20px;margin-left:0;font-size:16px;">Looop=E3=81=A7=
+=E3=82=93=E3=81=8D=E3=81=AB=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=95=E3=82=8C=E3=
+=81=A6=E3=81=84=E3=82=8B=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=
+=AC=E3=82=B9=E3=81=B8=E3=81=AE=E7=99=BA=E9=80=81=E3=82=92=E3=82=82=E3=81=A3=
+=E3=81=A6=E3=81=8B=E3=81=88=E3=81=95=E3=81=9B=E3=81=A6=E3=81=84=E3=81=9F=E3=
+=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82</dd>            <dt style=3D"b=
+ackground:#FFA200;padding:2% 3.5%;height: 18px;"><img src=3D"https://looo=
+p-denki.com/email/202104_recruit_spring_dr/ca_09.png" style=3D"height:18p=
+x; width:auto;display:block"></dt>            <dd style=3D"padding:15px 2=
+0px;margin-left:0;font-size:16px;">                2021=E5=B9=B48=E6=9C=88=
+=E4=B8=8B=E6=97=AC=E4=BB=A5=E9=99=8D                <span
+style=3D"font-size:12px;padding-top:10px;margin:0;display:block;">=E2=80=BB=
+Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=81=AF=E3=83=A1=E3=83=BC=E3=83=
+=AB=E3=82=BF=E3=82=A4=E3=83=97=E3=81=AE=E3=82=AE=E3=83=95=E3=83=88=E3=81=A7=
+=E3=81=99=E3=80=82=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=E4=B8=8A=E3=80=81=E9=
+=80=81=E4=BF=A1=E5=AE=8C=E4=BA=86=E5=BE=8C=E3=81=AE=E5=86=8D=E9=85=8D=E4=BF=
+=A1=E3=81=AF=E3=81=A7=E3=81=8D=E3=81=8B=E3=81=AD=E3=81=BE=E3=81=99=E3=81=AE=
+=E3=81=A7=E3=80=81=E3=81=94=E5=8F=82=E5=8A=A0=E3=81=84=E3=81=9F=E3=81=A0=E3=
+=81=8F=E5=89=8D=E3=81=AB=EF=BC=A0gc.email.amazon.co.jp=E3=81=AE=E3=83=89=E3=
+=83=A1=E3=82=A4=E3=83=B3=E3=81=AE=E5=8F=97=E4=BF=A1=E3=81=8C=E3=81=A7=E3=81=
+=8D=E3=82=8B=E3=82=88=E3=81=86=E8=A8=AD=E5=AE=9A=E3=82=92=E3=81=8A=E9=A1=98=
+=E3=81=84=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br>=E2=80=BB=E3=83=A1=E3=83=
+=BC=E3=83=AB=E3=82=BF=E3=82=A4=E3=83=97=E3=81=AEAmazon=E3=82=AE=E3=83=95=E3=
+=83=88=E5=88=B8=E3=81=AE=E6=9C=80=E4=BD=8E=E7=99=BA=E8=A1=8C=E9=87=91=E9=A1=
+=8D=E3=81=AF50=E5=86=86=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=
+=82=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E5=BE=97=E7=82=B9=E3=81=AE=E5=90=88=
+=E8=A8=88=E3=81=8C50=E5=86=86=E4=BB=A5=E4=B8=8A=E3=81=AE=E5=8F=82=E5=8A=A0=
+=E8=80=85=E3=81=8C=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E4=BB=98=E4=B8=8E=E3=
+=81=AE=E5=AF=BE=E8=B1=A1=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=
+=82<br>=E2=80=BBAmazon=E3=82=AE=E3=83=95=E3=83=88=E3=81=AE=E6=9C=89=E5=8A=
+=B9=E6=9C=9F=E9=99=90=E3=81=AF=E7=99=BA=E8=A1=8C=E3=81=8B=E3=82=8910=E5=B9=
+=B4=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br>=E2=80=BB=E8=
+=A9=B3=E3=81=97=E3=81=8F=E3=81=AF<a href=3D"https://www.amazon.co.jp/gp/h=
+elp/customer/display.html?nodeId=3DGNG9PXYZUMQT72QK"
+target=3D"_blank">Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E7=B4=B0=E5=89=
+=87</a>=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=
+=81=84=E3=80=82<br>=E2=80=BB=E6=9C=AC=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=
+=E3=83=BC=E3=83=B3=E3=81=AF=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BELooop=E3=81=
+=AB=E3=82=88=E3=82=8B=E6=8F=90=E4=BE=9B=E3=81=A7=E3=81=99=E3=80=82=E6=9C=AC=
+=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E3=81=AE=E3=81=8A=E5=
+=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=81=AFAmazon=E3=81=A7=E3=81=AF=
+=E3=81=8A=E5=8F=97=E3=81=91=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=9B=E3=82=93=E3=
+=80=82<br>=E3=80=80Looop=E3=81=A7=E3=82=93=E3=81=8D=E3=82=B3=E3=83=B3=E3=82=
+=BF=E3=82=AF=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=EF=BC=880120-70=
+7-454=EF=BC=89=E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=
+=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<br>=E2=80=BBAma=
+zon=E3=80=81Amazon.co.jp=E3=81=8A=E3=82=88=E3=81=B3Amazon.co,Inc=E3=81=BE=
+=E3=81=9F=E3=81=AF=E3=81=9D=E3=81=AE=E9=96=A2=E9=80=A3=E4=BC=9A=E7=A4=BE=E3=
+=81=AE=E5=95=86=E6=A8=99=E3=81=A7=E3=81=99=E3=80=82                </span=
+></dd>        </dl>    </div>    <div style=3D"padding:7% 0 4% 0;margin:0=
+;"><a href=3D"https://looop-denki.com/low-v/dr-spring/?utm_medium=3Demail=
+&utm_source=3Dcpmaildrmember&utm_campaign=3Ddrspring" target=3D"_blank" s=
+tyle=3D"width: 92%;display:block;margin:0 auto;"><img src=3D"https://looo=
+p-denki.com/email/202104_recruit_spring_dr/mail_btn03.jpg" style=3D"width=
+: 100%;display:block"></a></div>    <div style=3D"padding:0 0 7% 0;margin=
+:0;font-size:14px; color:#676767;text-align:center;">        =E3=83=A1=E3=
+=83=BC=E3=83=AB=E3=82=92=E5=B1=8A=E3=81=8B=E3=81=AA=E3=81=84=E3=82=88=E3=81=
+=86=E3=81=AB=E3=81=99=E3=82=8B=E3=81=AB=E3=81=AF
+<a href=3D"https://looop-denki.com/low-v/" target=3D"_blank">=E3=81=93=E3=
+=81=A1=E3=82=89</a><br/>        =E2=91=A0=E4=B8=8A=E8=A8=98URL=E3=81=8B=E3=
+=82=89=E3=83=9E=E3=82=A4=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=AB=E3=83=AD=E3=82=
+=B0=E3=82=A4=E3=83=B3=E2=80=90=E2=91=A1=E3=81=94=E7=99=BB=E9=8C=B2=E5=86=85=
+=E5=AE=B9=E7=A2=BA=E8=AA=8D=E2=80=90=E2=91=A2=E3=81=8A=E7=9F=A5=E3=82=89=E3=
+=81=9B=E3=83=A1=E3=83=BC=E3=83=AB=E3=80=8C=E5=8F=97=E4=BF=A1=E3=81=97=E3=81=
+=AA=E3=81=84=E3=80=8D=E3=81=AB=E5=A4=89=E6=9B=B4<br/>        =E2=80=BB=E3=
+=81=94=E5=88=A9=E7=94=A8=E6=98=8E=E7=B4=B0=E3=81=AE=E3=81=8A=E7=9F=A5=E3=82=
+=89=E3=81=9B=E3=81=AF=E8=A8=AD=E5=AE=9A=E5=86=85=E5=AE=B9=E3=81=AB=E9=96=A2=
+=E3=82=8F=E3=82=89=E3=81=9A=E9=80=9A=E7=9F=A5=E3=81=95=E3=81=9B=E3=81=A6=E3=
+=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99<br/>        =E2=80=95=
+=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=
+=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95<br/=
+>         Looop=E3=81=A7=E3=82=93=E3=81=8D<br/>         =E3=82=B3=E3=83=B3=
+=E3=82=BF=E3=82=AF=E3=83=88=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC=E3=80=800=
+120-707-454<br/>         =E5=96=B6=E6=A5=AD=E6=99=82=E9=96=93=E3=80=809:0=
+0=EF=BD=9E20:00<br/>        =E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=
+=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=
+=80=95=E2=80=95=E2=80=95=E2=80=95    </div></div></body></html>
+
+

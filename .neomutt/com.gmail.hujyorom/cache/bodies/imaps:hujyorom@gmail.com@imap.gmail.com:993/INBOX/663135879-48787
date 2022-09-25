@@ -1,0 +1,172 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp3718437vky;
+        Mon, 15 Mar 2021 16:06:46 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxSG64uTrorwF7FrGKE3EahZAX7RwvBOmsaIbh+seGj7WN/TBHXGi1HIcpkJW5zllgAORHB
+X-Received: by 2002:a05:622a:205:: with SMTP id b5mr5305975qtx.186.1615849606815;
+        Mon, 15 Mar 2021 16:06:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1615849606; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=aeah4VMn0cqmApxV7Z+fTTYa/SI5PzIDhTp02HrbaPkYP3jgrOzNNuuUGOpmZivXIM
+         yj4HYIuLUr0YspkCriSiv2hWPIYr/gWSoOONStNjkg5PVzuUmrd/HfjvWES6w4m7+bQ4
+         SCi/jrJNiexvTV1OStH/CUevnYaX1wQL6520o08gIAEHG6JVUAzxYzh5jIvs2x20caUn
+         WksjeNUNmr/vAsXQNH+b+CttQfm71fk54H1gCsy9Jkd2oZq1twZcnvmUlj/wI3yaUZZS
+         xo0mvd+gj+iqEk4bhkk9HH0kvx0cnpnMdX+KW29WoNFKCMcyP4vAbkLFgs7ym1voz3m3
+         eW8Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:message-id:to:subject:date:from:dkim-signature;
+        bh=EJ7sxcytmt1bkpY0DD2A70EPcZSfo5Qz3OLeB+jMdWk=;
+        b=esMO39ntDF5x3NfBpetPMnA1oHcCRewlPFZovntSv3AsGNNYH4C5hF7VPQxBK+zVI3
+         4fjMAEJVeu7lGiAOz3+L7KbbUZ4FEiA2+4X7MG5co4Li78ojlPKt1p5G68Z9obC42Vf0
+         WDqbjummDIdmA8EIdowuQC4owwIgUjV900fHBBCJ8xCbsF+X8ojdFqYPI3d2inL5Tf7q
+         D2hDlg18VZvEkfrdjkFYqWV3bJGdw0pqmXUjsGflIkW24yw3EiMTXbSIZbWahQposoi2
+         +BVPQ7g9384iKiwbwgKlrsCcq+zcb+YalqK/B821WDYzI+rqEWJJbObmKV3kgMKusH89
+         Wcow==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@accountprotection.microsoft.com header.s=selector1 header.b=cy6Z2nIm;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of account-security-noreply@accountprotection.microsoft.com designates 40.107.236.46 as permitted sender) smtp.mailfrom=account-security-noreply@accountprotection.microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accountprotection.microsoft.com
+Return-Path: <account-security-noreply@accountprotection.microsoft.com>
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (mail-bn8nam11on2046.outbound.protection.outlook.com. [40.107.236.46])
+        by mx.google.com with ESMTPS id j67si8938056qkf.378.2021.03.15.16.06.46
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 15 Mar 2021 16:06:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of account-security-noreply@accountprotection.microsoft.com designates 40.107.236.46 as permitted sender) client-ip=40.107.236.46;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@accountprotection.microsoft.com header.s=selector1 header.b=cy6Z2nIm;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of account-security-noreply@accountprotection.microsoft.com designates 40.107.236.46 as permitted sender) smtp.mailfrom=account-security-noreply@accountprotection.microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=accountprotection.microsoft.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=JUQfL3XQcZRtVb0GI9roaHkpko8PqJGV0DvAYVplYR0H5Y/yIMqB01Ez4ACpQJOHVLsWun+b+y5Tr5KlmpHlD3IWHQv+9BvfQiKQJsEj7/fGKlWEzO+dpPzPTysA1bgRk221Ebpxv0amp3H10m7+yBSAvWviaI471Aax21BO+9zgWISJrIW8FmRqkK4GzdGnmyM1YSrG3qH54jG1zDBgXd3UzHng7zeoEb+USFVwWRn490zGVUZFpbWYMoVC6AA/9FBW0s8d+HpSSG3z2nam8gJ63rn2W/H8qZfknq9kNXqVxSOXSSwTzkd2zFFCRCglb/Dg4+M1uCHM6z6te/GTMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EJ7sxcytmt1bkpY0DD2A70EPcZSfo5Qz3OLeB+jMdWk=;
+ b=F4ODgkb8Jq6HvQXI39g2nAE9KqtLVwCPGcLYmgbeuALWcReY/XWths1fZgpag0eptfEOn1N1Cq+4v4wcmuwXWIJgo0fHXHGsNwyKFrVGVPpMTzXYXRmwzQDlgL9BxFvBDmIaEJy50vPN38qCijsNbUV6d+P6nSC7yaay4MnGa8LMmAuRfuUMtHtKL8dVVIr9QJmVem8pVqWFatBxThHHXYOwGoEZ0xvaqXsC7Yb1qZCGJ2LncRr+73K3FiAVQMIE92Soxjlnry2mxlU8hBACFNDvuYlLi403pNLuqLiOTDP1BXXr5ks7+TOlQN6KigTumCpNnnDMWVwRqIpBfjGiwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none
+ action=none header.from=accountprotection.microsoft.com; dkim=none (message
+ not signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=accountprotection.microsoft.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EJ7sxcytmt1bkpY0DD2A70EPcZSfo5Qz3OLeB+jMdWk=;
+ b=cy6Z2nImrY6T2ZXBbueG+Z7S4p+cBG52sTYJHbrKcSeyT/pcaYh7aEJkFjVIVxWf0/OUBH+c7BR1dXEAUh4x5mdfWGPRa6QSgqIKRGe7OuVJjL/+I8txkFpr4cyQunKI+Ofw88F0FqvsG43wuCfQFrvyEgxwz4CRZ6VRQPcJYgY=
+Received: from MW4PR04CA0228.namprd04.prod.outlook.com (2603:10b6:303:87::23)
+ by BY5PR16MB3572.namprd16.prod.outlook.com (2603:10b6:a03:1a1::26) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3933.32; Mon, 15 Mar
+ 2021 23:06:46 +0000
+Received: from CO1NAM11FT019.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:303:87:cafe::a6) by MW4PR04CA0228.outlook.office365.com
+ (2603:10b6:303:87::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3933.32 via Frontend
+ Transport; Mon, 15 Mar 2021 23:06:46 +0000
+X-MS-Exchange-Authentication-Results: spf=none (sender IP is 52.188.222.33)
+ smtp.mailfrom=accountprotection.microsoft.com; gmail.com; dkim=none (message
+ not signed) header.d=none;gmail.com; dmarc=none action=none
+ header.from=accountprotection.microsoft.com;
+Received: from accountprotection.microsoft.com (52.188.222.33) by
+ CO1NAM11FT019.mail.protection.outlook.com (10.13.175.57) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3933.31 via Frontend Transport; Mon, 15 Mar 2021 23:06:45 +0000
+From: Microsoft =?iso-2022-jp?b?GyRCJSIlKyUmJXMlSBsoQg==?=
+ =?iso-2022-jp?b?IBskQiVBITwlYBsoQg==?=
+	<account-security-noreply@accountprotection.microsoft.com>
+Date: Mon, 15 Mar 2021 16:06:45 -0700
+Subject: Microsoft =?iso-2022-jp?b?GyRCJSIlKyUmJXMlSBsoQg==?=
+ =?iso-2022-jp?b?GyRCJE4lOyUtJWUlahsoQg==?=
+ =?iso-2022-jp?b?GyRCJUYlIxsoQiAbJEIlMyE8JUkbKEI=?=
+To: hujyorom@gmail.com
+X-Priority: 3
+X-MSAPipeline: MessageDispatcherEOP
+Message-ID: <TQYUDWDX7DU4.O7CMOLITWZJ62@BL02EPF000016E3>
+X-MSAMetaData:
+ =?us-ascii?q?DXs37Ksr0w!r*QfRxUE!BXR0mxvVA8Qxnw4fsS4NrTotLVeh!fIXf8s!rp34u?=
+ =?us-ascii?q?paJLTB4qPxUoBT4j0LN!s1iixu9szrc39Rrv!V6S*yAM0ho!sZqhdSrSOxQkT?=
+ =?us-ascii?q?8E47pWdw$$?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-xLXNKDqVMZ3fTMigH2f2lA=="
+Return-Path: account-security-noreply@accountprotection.microsoft.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 57013811-8e73-4d76-7c61-08d8e8070176
+X-MS-TrafficTypeDiagnostic: BY5PR16MB3572:FirstParty-MicrosoftAccount-System
+X-Microsoft-Antispam-PRVS:
+	<BY5PR16MB357273A25308601EA6FB3F8A896C9@BY5PR16MB3572.namprd16.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:1728;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	T2V/udTMvR9vLz82unYh1+Vx1gj+HkNnenX5B3AVo6Akz11KI+bJKnjlLsv/LKROB/nep7+L7FvpdUX8LQuAScO0fVQGR5gKNSQxuSlvcSqkfsxMRi+hv8+6y1murA2YdCLcLiZL44bJlwfTCbjnGHtKq+Di2YZ7NOwrCD9UwQRYsRU3/ABIsEd276ajl3EKfYgAaLS9R3BUfA+JsHrcYsTV5STh8t2rPClCT3XNr/BYcTBVyoM/2zeNos665FvUq3zIn8aiExh6YKmHPhiu1ipCcCpjMHbzX525DlU3F9g3bxkAs32rOAqfzyTSBVgEaIeb9ezwK5gkahH2RlxO7CKMj2TbGSuXc7T7GLCNMVzTapTPTIh+Z+QNUGhq8pLQVzpawEkETx1ULyIQQmza0ffRBLAQSg5P27Dz2AMWiZipenA6M319hW0032AVc5s5vVQkjoqbO6am2xcgJ22pgMDQ65mac5DtPR2pxY7L5mjUFA+/UONjEQsErKkN1jLtgFwtSKt6LF6G1QodgutCDzcQ9ymwGC+zq3C6KnszoGnDsUT6FJ5EYc105re8AIvA7jXr+n+BwLciz0lukOU+57hkArtU5zNE0gnpJEalNyLCNbZ7zP8lMYzdX3XTCJOpvhohjVOI9sG9b9eTTHSt73SjWG+7zbaoLalc9VPma9c=
+X-Forefront-Antispam-Report:
+	CIP:52.188.222.33;CTRY:US;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:accountprotection.microsoft.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:;DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData:
+	ycJuKAvpNOyTpOoltci+whACmd7Vc8TeRkYY/6iE3w67Y4u/0d4V+80KwweBplkz4ByYfkatxDHTSXT3jfIqX4qt1YdB/Y7/LZXPVWtWRR1DhX19k8ToPI/Z3lnfi0uosg4sW9gogTSx3wrFLCdaHlKGsHS2MxSoRArFAmyA1/+fQG2mmP9UFE1RUpwfhO1OV4Uh6noOvVGfIXZ/DRJ74N81aAXHCzoAPQSlDnBQ1AjdO5J+mPw+FQOTN81w5e4U
+X-OriginatorOrg: accountprotection.microsoft.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Mar 2021 23:06:45.7244
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57013811-8e73-4d76-7c61-08d8e8070176
+X-MS-Exchange-CrossTenant-Id: 5ba90553-c2cd-460e-b5fd-ab93ad9155c7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5ba90553-c2cd-460e-b5fd-ab93ad9155c7;Ip=[52.188.222.33];Helo=[accountprotection.microsoft.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CO1NAM11FT019.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR16MB3572
+
+--=-xLXNKDqVMZ3fTMigH2f2lA==
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+
+Microsoft アカウント hu*****@gmail.com には、次のセキュリティ コードをお使いください。
+
+セキュリティ コード: 7142367
+
+
+                Microsoft アカウント hu*****@gmail.com に心当たりがない場合、https://account.live.com/dp?ft=DWieWkZnbOVVQ5xA5retongkXkOuVNvn6tkpwoI03n0mLMe*hG!EbBkunVdWdFNfjgbKib06NbfuDH5QYgCCEsF5BYjhlRMtPCDbtpiad!xYk13XK6zz8!VAsw80ohedDT2MGjNX04SXvtNEKV7xZcUEar1pzdRPsykIwaweiIsIaSs8E4Bh3gZVqRmzKwWOgbzC0Zh6zLtx4F6Mcp27C8LHEWibwvG*6ncyKsMPpwLh6MYfTbOv2ED2AljBchP1p2PdZbm8y9z9l*rqwp4k3by8*t0vN3spHjkvMJDDFnBS5nTDONvJTSBQi*rwuMcsRA%24%24 をクリックしてメール アドレスをそのアカウントから削除できます。
+            
+
+サービスのご利用ありがとうございます。
+Microsoft アカウント チーム 
+--=-xLXNKDqVMZ3fTMigH2f2lA==
+Content-Type: text/html; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr"> 
+<head>
+<style type="text/css">
+ .link:link, .link:active, .link:visited {
+       color:#2672ec !important;
+       text-decoration:none !important;
+ }
+
+ .link:hover {
+       color:#4284ee !important;
+       text-decoration:none !important;
+ }
+</style>
+<title></title>
+</head>
+<body>
+<table dir="ltr">
+      <tr><td id="i1" style="padding:0; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:17px; color:#707070;">Microsoft アカウント</td></tr>
+      <tr><td id="i2" style="padding:0; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:41px; color:#2672ec;">セキュリティ コード</td></tr>
+      <tr><td id="i3" style="padding:0; padding-top:25px; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:14px; color:#2a2a2a;">
+                
+                Microsoft アカウント <a dir="ltr" id="iAccount" class="link" style="color:#2672ec; text-decoration:none" href="mailto:hu*****@gmail.com">hu*****@gmail.com</a> 用に以下のセキュリティ コードを使用してください。
+            </td></tr>
+      <tr><td id="i4" style="padding:0; padding-top:25px; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:14px; color:#2a2a2a;">
+                
+                セキュリティ コード: <span style="font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:14px; font-weight:bold; color:#2a2a2a;">7142367</span>
+            </td></tr>
+      <tr><td id="i5" style="padding:0; padding-top:25px; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:14px; color:#2a2a2a;">
+                
+                Microsoft アカウント <a dir="ltr" id="iAccount" class="link" style="color:#2672ec; text-decoration:none" href="mailto:hu*****@gmail.com">hu*****@gmail.com</a> に心当たりがない場合、<a id="iLink2" class="link" style="color:#2672ec; text-decoration:none" href="https://account.live.com/dp?ft=DWieWkZnbOVVQ5xA5retongkXkOuVNvn6tkpwoI03n0mLMe*hG!EbBkunVdWdFNfjgbKib06NbfuDH5QYgCCEsF5BYjhlRMtPCDbtpiad!xYk13XK6zz8!VAsw80ohedDT2MGjNX04SXvtNEKV7xZcUEar1pzdRPsykIwaweiIsIaSs8E4Bh3gZVqRmzKwWOgbzC0Zh6zLtx4F6Mcp27C8LHEWibwvG*6ncyKsMPpwLh6MYfTbOv2ED2AljBchP1p2PdZbm8y9z9l*rqwp4k3by8*t0vN3spHjkvMJDDFnBS5nTDONvJTSBQi*rwuMcsRA%24%24">ここをクリック</a>してメール アドレスをそのアカウントから削除できます。
+            </td></tr>
+      <tr><td id="i6" style="padding:0; padding-top:25px; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:14px; color:#2a2a2a;">サービスのご利用ありがとうございます。</td></tr>
+      <tr><td id="i7" style="padding:0; font-family:'Meiryo UI', Meiryo, 'MS PGothic', Osaka, Verdana, Tahoma, sans-serif; font-size:14px; color:#2a2a2a;">Microsoft アカウント チーム</td></tr>
+</table>
+</body>
+</html>
+--=-xLXNKDqVMZ3fTMigH2f2lA==--

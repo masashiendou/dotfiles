@@ -1,0 +1,244 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:3816:0:0:0:0:0 with SMTP id f22csp2712475vka;
+        Mon, 10 May 2021 03:50:14 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxeTfCmesLzYucp8HWIMbCOK8BjqlGlUv84WPExok1S35/NhcecreiwtjzSBmjaecfLD/Ed
+X-Received: by 2002:aa7:90d5:0:b029:28e:df57:47ff with SMTP id k21-20020aa790d50000b029028edf5747ffmr25126310pfk.74.1620643814329;
+        Mon, 10 May 2021 03:50:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620643814; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jluBWZ9mbGCP6ygTyWupYzp7hevBchfcmUKd23VkijMCDYYoKID0aiuTc8kpbHPYwO
+         ciGN5WhogeYBHa3Iw1BGXEYTSyOgF55x9FCmjpzuhgc/mpfYdsv0Jluq2E4KivPoCt0E
+         gujVQ3KWM07M9RqG98eyqr0lXxrD5YEJkN3/CjCREQLGT6NWTux25gDb0OWUnSDGcdRS
+         wWXtPTt2d/kUmEyvUdA0vFf3khJaf+MKa1SNygPhYo3SWF/vvcUhsYj8zUk0VN8/BAzU
+         6vijHrG8gQVXBI4gP8iYqLXgwIgxymM0gxCNUIRJwcfHUyDbJMod2o3HeQwuAwHzEeuO
+         6zfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=Uyd3yv1O5HrYHtRUsCu3u2MPv/mwAYj8d+gKNgRsrtU=;
+        b=Vl2sUq9YjgRBMdSOY4i703944q6XQkrjEcSW+Wj+ISUSftCcAfEioPY4XqMtuk6uE1
+         WhpaNHmevSBJmYuArajuZa6CTBSk/kSV2SjKwopMDPJel90FgyCUWKl67m/JPIcGTZt7
+         QnXthX9W+ImXMHdwGT49Mts+vW14e/xYRAy6hfxtJ1RR9+gINPtvjc65rzbyTIPZuHh2
+         W77Za47oAVqQbirPCOLbqwMY9zyvw/4QoL7CbVIbBtnDMjsjPAGywJan8eKVCDC7Zqmf
+         /nbNlh5k+fE0kunZRe8ElfzBZ05zI0VGpc8I4ycakJB/L3U8zhqlUNNIIH5S79H21lKy
+         /q9Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4 header.b=B3mETJFp;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b="NpK//uUi";
+       spf=pass (google.com: domain of 2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp designates 54.240.25.38 as permitted sender) smtp.mailfrom=2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp>
+Received: from a25-38.smtp-out.us-west-2.amazonses.com (a25-38.smtp-out.us-west-2.amazonses.com. [54.240.25.38])
+        by mx.google.com with ESMTPS id l25si18104858pgn.63.2021.05.10.03.50.14
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Mon, 10 May 2021 03:50:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp designates 54.240.25.38 as permitted sender) client-ip=54.240.25.38;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4 header.b=B3mETJFp;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b="NpK//uUi";
+       spf=pass (google.com: domain of 2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp designates 54.240.25.38 as permitted sender) smtp.mailfrom=2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=efcs4kiwgez5q6d7nhj6jx2dyn2hqgz4; d=amazon.co.jp; t=1620643814;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=kSvOlLkWIZ44WmnIDyKBvLLIPR4uMr4espLsYIVsdnU=;
+	b=B3mETJFpam1RG6iSQH58jENnEwEGh2l3E8AFElNSd26Q5GU+h5ftNXgOEDNNo8Iv
+	e4kuDtXClmfg3giFpRgTOq0BxvzRTpNYMQhjklLkLFiI2jq7ElqtXHEWJg3dS6Gn7Yp
+	AW/4bwgZloxeaURHB965aPFiFoEuPUjZXCIGn1fw=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=7v7vs6w47njt4pimodk5mmttbegzsi6n; d=amazonses.com; t=1620643814;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=kSvOlLkWIZ44WmnIDyKBvLLIPR4uMr4espLsYIVsdnU=;
+	b=NpK//uUiGa6BQ5aW/KV6W12AMEIUmgSjJIt6KchjQrO6EaWT/IGN9/frbFZi5wEf
+	O4OWOEkjdsHGFIB8WDcvctI3Ml2sm8E5R2UYBqdD++P+sbKGkpUraiQVQuw2hkCS7xG
+	x+tJlM+UEKbrkdC50DLhHHPzRRZ57dL8PLLshqE8=
+From: "Amazon.co.jp" <auto-confirm@amazon.co.jp>
+Reply-To: auto-confirm@amazon.co.jp
+To: hujyorom@gmail.com
+Message-ID: <0101017955e61a33-99a5eead-f82f-4dbd-9998-3feb7f710e9d-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?B?6KiA6Kqe6Kit5a6a44Gu5aSJ5pu0?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1248948_2052529892.1620643813937"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 2021051010501336d6121581874b258d389f287650p0fe@bounces.amazon.co.jp
+X-AMAZON-METADATA: CA=C2BQ2FXT8YE4KY-CU=A10PIR4I6DYV8A
+X-Original-MessageID: <urn.rtn.msg.2021051010501336d6121581874b258d389f287650p0fe@1620643813937.rtn-fe-1bx-c42xla-97ebcc28.us-west-2.amazon.com>
+Date: Mon, 10 May 2021 10:50:13 +0000
+Feedback-ID: 1.us-west-2.rdzROVNU4Ie6UEvJOunP6JDKqJ3if06FJy9qthmk+BU=:AmazonSES
+X-SES-Outgoing: 2021.05.10-54.240.25.38
+
+------=_Part_1248948_2052529892.1620643813937
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+___________________________________________________________________________=
+____________
+   =20
+=E9=81=A0=E8=97=A4=E3=80=80=E5=B0=87=E5=8F=B8 =E6=A7=98=20
+     =20
+=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=8CAmazon.co.jp=E3=81=A7=E9=96=B2=E8=A6=A7=
+=E3=82=84=E3=81=8A=E8=B2=B7=E3=81=84=E7=89=A9=E3=82=92=E3=81=97=E3=81=9F=E3=
+=82=8A=E3=80=81=E3=82=B5=E3=82=A4=E3=83=88=E3=81=8B=E3=82=89=E3=81=AE=E3=81=
+=94=E9=80=A3=E7=B5=A1=E3=82=92=E5=8F=97=E4=BF=A1=E3=81=97=E3=81=9F=E3=82=8A=
+=E3=81=99=E3=82=8B=E9=9A=9B=E3=81=AE=E8=A8=80=E8=AA=9E=E8=A8=AD=E5=AE=9A=E3=
+=81=8C=E3=80=81=E3=80=8C=E6=97=A5=E6=9C=AC=E8=AA=9E=E3=80=8D=E3=81=AB=E5=A4=
+=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=81=9F=E3=81=93=E3=81=A8=E3=82=92=E3=81=8A=
+=E7=9F=A5=E3=82=89=E3=81=9B=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=
+=80=82
+=E5=86=8D=E5=BA=A6=E8=A8=80=E8=AA=9E=E3=82=92=E5=88=87=E3=82=8A=E6=9B=BF=E3=
+=81=88=E3=81=9F=E3=81=84=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=E3=80=8C=E8=A8=
+=80=E8=AA=9E=E8=A8=AD=E5=AE=9A=E3=82=92=E5=A4=89=E6=9B=B4=E3=80=8D=EF=BC=88=
+ https://www.amazon.co.jp/gp/manage-lop =EF=BC=89=E3=81=8B=E3=82=89=E8=A1=
+=8C=E3=81=A3=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+             =20
+=E3=81=BE=E3=81=9F=E3=81=AE=E3=81=94=E5=88=A9=E7=94=A8=E3=82=92=E3=81=8A=E5=
+=BE=85=E3=81=A1=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=
+=82
+www.amazon.co.jp
+
+If you did not mean to change your language to Japanese, please visit "Chan=
+ge Language Settings" ( https://www.amazon.co.jp/gp/manage-lop ) at Amazon.=
+co.jp to update your default language.
+___________________________________________________________________________=
+_____________
+                         =20
+=E3=81=93=E3=81=AEE=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=
+=E3=82=B9=E3=81=AF=E9=85=8D=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=81=99=E3=
+=80=82=E3=81=93=E3=81=AE=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=
+=AB=E8=BF=94=E4=BF=A1=E3=81=97=E3=81=AA=E3=81=84=E3=82=88=E3=81=86=E3=81=8A=
+=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+------=_Part_1248948_2052529892.1620643813937
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+ <head>=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" =
+/>=20
+  <title></title>=20
+  <style type=3D"text/css">
+.navigation {
+  text-align: right;
+  padding: 5px 0px;
+  white-space: nowrap;
+}
+
+.navigation .big {
+=09font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #069;
+    font-family: Arial,sans-serif;
+}
+
+a.bigFont {
+    font: 13px/18px Arial,sans-serif;
+}
+
+.navigation a.last {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+</style>
+ </head>=20
+ <body style=3D"margin: 0;"><img width=3D"1" height=3D"1" src=3D"https://ww=
+w.amazon.co.jp/gp/r.html?C=3D1W71JIGBNDCY6&K=3D34D7J92BSKGNA&M=3Durn:rtn:ms=
+g:2021051010501336d6121581874b258d389f287650p0fe&R=3D15TOI088LT4FG&T=3DO&U=
+=3Dhttps%3A%2F%2Fimages-fe.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2F=
+transp.gif&H=3DVASWFYJKVHLAKSPF08SGAEHAAD0A&ref_=3Dpe_1069252_203128542_ope=
+ns" />=20
+  <table width=3D"640" cellspacing=3D"0" style=3D"font: 12px/ 16px Arial, s=
+ans-serif; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); ma=
+rgin:0 auto;" id=3D"container" cellpadding=3D"0">=20
+   <tbody>=20
+    <tr>=20
+     <td valign=3D"top" style=3D"padding: 20px 0px 10px 20px; width: 100px;=
+ border-collapse: collapse;" id=3D"topNav"> <a href=3D"https://www.amazon.c=
+o.jp/gp/r.html?C=3D1W71JIGBNDCY6&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20210510=
+10501336d6121581874b258d389f287650p0fe&R=3D34ZFND1IEXBLN&T=3DC&U=3Dhttps%3A=
+%2F%2Fwww.amazon.co.jp%2Fref%3Dpe_1069252_203128542_TE_g_i&H=3DHYA7JMBPBCYA=
+2WK8KFBE3EZTTWIA&ref_=3Dpe_1069252_203128542_TE_g_i" title=3D"Visit Amazon.=
+co.jp" style=3D"text-decoration: none; color: rgb(0, 102, 153); font-family=
+: Arial, sans-serif"><img alt=3D"Amazon" border=3D"0" height=3D"31" id=3D"a=
+mazonLogo" src=3D"http://g-ecx.images-amazon.com/images/G/01/x-locale/cs/te=
+/logo.png" style=3D"font-size:11px;" width=3D"107" /></a> </td>=20
+     <td class=3D"navigation" style=3D"text-align: right; padding: 5px 0px;=
+ white-space: nowrap"><a href=3D"https://www.amazon.co.jp/gp/r.html?C=3D1W7=
+1JIGBNDCY6&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:2021051010501336d6121581874b25=
+8d389f287650p0fe&R=3DUPJ0WRM02JF0&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%=
+2Fgp%2Fcss%2Fhomepage.html%3Fref_%3Dpe_1069252_203128542&H=3DWQIXR1CQEIN0F2=
+2L7ASBZB991UUA&ref_=3Dpe_1069252_203128542" class=3D"bigFont" style=3D"font=
+: 13px/ 18px Arial, sans-serif; text-decoration: none; color: rgb(0, 102, 1=
+53); font-family: Arial, sans-serif">=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=
+=E3=83=88=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</a>&nbsp;&nbsp;<span class=3D=
+"big" style=3D"font-size: 15px">|</span>&nbsp;&nbsp;<a class=3D"last bigFon=
+t" href=3D"https://www.amazon.co.jp/gp/r.html?C=3D1W71JIGBNDCY6&K=3D34D7J92=
+BSKGNA&M=3Durn:rtn:msg:2021051010501336d6121581874b258d389f287650p0fe&R=3DP=
+QV872WU1MO9&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2F%3Fref_%3Dpe_1069252=
+_203128542&H=3DFLT0CVAIAUCDPND9KIMCAQQ6KLGA&ref_=3Dpe_1069252_203128542" st=
+yle=3D"margin: 0px !important; padding: 0px !important; font: 13px/ 18px Ar=
+ial, sans-serif; text-decoration: none; color: rgb(0, 102, 153); font-famil=
+y: Arial, sans-serif">Amazon.co.jp</a></td>=20
+    </tr>=20
+    <tr>=20
+     <td colspan=3D"2" style=3D"width:640px;"> <p style=3D"font:18px Arial,=
+ sans-serif; color:#cc6600; margin:15px 20px 18px 20px;">=E9=81=A0=E8=97=A4=
+=E3=80=80=E5=B0=87=E5=8F=B8 =E6=A7=98</p> <p style=3D"margin:4px 20px 18px =
+20px; width:640px;"> =E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=8CAmazon.co.jp=E3=81=
+=A7=E9=96=B2=E8=A6=A7=E3=82=84=E3=81=8A=E8=B2=B7=E3=81=84=E7=89=A9=E3=82=92=
+=E3=81=97=E3=81=9F=E3=82=8A=E3=80=81=E3=82=B5=E3=82=A4=E3=83=88=E3=81=8B=E3=
+=82=89=E3=81=AE=E3=81=94=E9=80=A3=E7=B5=A1=E3=82=92=E5=8F=97=E4=BF=A1=E3=81=
+=97=E3=81=9F=E3=82=8A=E3=81=99=E3=82=8B=E9=9A=9B=E3=81=AE=E8=A8=80=E8=AA=9E=
+=E8=A8=AD=E5=AE=9A=E3=81=8C=E3=80=81=E3=80=8C<strong>=E6=97=A5=E6=9C=AC=E8=
+=AA=9E</strong>=E3=80=8D=E3=81=AB=E5=A4=89=E6=9B=B4=E3=81=95=E3=82=8C=E3=81=
+=9F=E3=81=93=E3=81=A8=E3=82=92=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=E3=81=84=
+=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82 </p> <p style=3D"margin:4px 2=
+0px 18px 20px; width:640px;"> =E5=86=8D=E5=BA=A6=E8=A8=80=E8=AA=9E=E3=82=92=
+=E5=88=87=E3=82=8A=E6=9B=BF=E3=81=88=E3=81=9F=E3=81=84=E5=A0=B4=E5=90=88=E3=
+=81=AF=E3=80=81<a href=3D"https://www.amazon.co.jp/gp/f.html?C=3D1W71JIGBND=
+CY6&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:2021051010501336d6121581874b258d389f2=
+87650p0fe&R=3D1Y1UM8S0DUATD&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2=
+Fmanage-lop%3Fref_%3Dpe_1069252_203128542&H=3DWCVJYXVC67C65MYN5VTL2FVGBS0A&=
+ref_=3Dpe_1069252_203128542" style=3D"color: rgb(0, 102, 153); text-decorat=
+ion: none; font-family: Arial, sans-serif">=E8=A8=80=E8=AA=9E=E8=A8=AD=E5=
+=AE=9A=E3=82=92=E5=A4=89=E6=9B=B4</a>=E3=81=8B=E3=82=89=E8=A1=8C=E3=81=A3=
+=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82 </p> </td>=20
+    </tr>=20
+    <tr>=20
+     <td colspan=3D"2" style=3D"padding:0 20px 0 20px;width:640px;"> <p sty=
+le=3D"margin:10px 0; padding:0 0 20px 0;">=E3=81=BE=E3=81=9F=E3=81=AE=E3=81=
+=94=E5=88=A9=E7=94=A8=E3=82=92=E3=81=8A=E5=BE=85=E3=81=A1=E3=81=97=E3=81=A6=
+=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br /> <span style=3D"font:14p=
+x Arial, san-serif;"> <strong>Amazon.co.jp</strong> </span> </p> <p style=
+=3D"margin:4px 0 10px 0; padding: 0 0 10px 0; width:640px; border-bottom:1p=
+x solid #eaeaea;"> If you did not mean to change your language to Japanese,=
+ please visit <a href=3D"https://www.amazon.co.jp/gp/f.html?C=3D1W71JIGBNDC=
+Y6&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:2021051010501336d6121581874b258d389f28=
+7650p0fe&R=3D1NIUSHYZ67VTY&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2F=
+manage-lop%3Fref_%3Dpe_1069252_203128542&H=3D4AXXKVKJ2K2DI6KO834A4MFHOHGA&r=
+ef_=3Dpe_1069252_203128542" style=3D"color: rgb(0, 102, 153); text-decorati=
+on: none; font-family: Arial, sans-serif">Change Language Settings</a> at A=
+mazon.co.jp to update your default language. </p> </td>=20
+    </tr>=20
+    <tr>=20
+     <td colspan=3D"2" style=3D"font-size:10px; color:#666; padding:0 20px =
+20px 20px; line-height:16px;width:640px;"> <p>=E3=81=93=E3=81=AEE=E3=83=A1=
+=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=AF=E9=85=8D=E4=
+=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=81=99=E3=80=82=E3=81=93=E3=81=AE=E3=83=
+=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=AB=E8=BF=94=E4=BF=A1=E3=81=97=
+=E3=81=AA=E3=81=84=E3=82=88=E3=81=86=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=
+=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82</p> </td>=20
+    </tr>=20
+   </tbody>=20
+  </table> =20
+ <img width=3D"1" height=3D"1" src=3D"https://www.amazon.co.jp/gp/r.html?C=
+=3D1W71JIGBNDCY6&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:2021051010501336d6121581=
+874b258d389f287650p0fe&R=3D3F00L3PGOQEG5&T=3DE&U=3Dhttps%3A%2F%2Fimages-fe.=
+ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DUX8RLKYFHEIX=
+OEANY4CGAYPCPR4A&ref_=3Dpe_1069252_203128542_open" /></body>
+</html>
+------=_Part_1248948_2052529892.1620643813937--

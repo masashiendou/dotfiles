@@ -1,0 +1,206 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a05:6122:128a:0:0:0:0 with SMTP id i10csp464329vkp;
+        Tue, 11 May 2021 04:00:09 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwmrE94AlK3TG93Z8Pgyeza40DDySYQlV8CNWBQizahbYcCeSr4/FkQh3K8O3CpwMBEsF5G
+X-Received: by 2002:a05:6830:1df0:: with SMTP id b16mr24860312otj.40.1620730809618;
+        Tue, 11 May 2021 04:00:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1620730809; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=hj+qQqgtEvkz/7x1VdZGwoT1S5x5g96TdBrFwzpUM/uOkc1Qa92eCJzhofMNZ8m8BS
+         NHezfWuFkFuvCyVLoIr+T3jdEZVi9CEaRk//rDlrbS4y2SwMYTNRJXstablgzZVx28eZ
+         my1LWkFemz3GXLDGz9ZJedQkB9PeWleCO5n8NeVRuqywx5XXMOYXs0iNd2E9AjjCGEip
+         0vdLCQtvOjYwU3V7uIH0UWN3xx5dp1WtJKMf3ITWQ662blj+X1ysNUfkIuiflG40lFwG
+         AlUk72iLdUebvKquDh1xNEP9N/iwBIxla47jPVnl+gz/JupWEijWXfKJdQnHJH30l3bs
+         NBXw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=qkrZH/6y6VjZpEoFMqI1pp8Z2/bgFkocn46yXzu1NGw=;
+        b=Io7ZH4saMs2Q3tyH+haG2J6tyqCambIzTTlLKBbFmQtWKyZrZjk4dw13hlcFYeTmtc
+         7mcbZbpmw7c9DIE9JdjIR3DvrDSVo86y/g+su6DYSncT5+PRY5f8FF5BHhTSCCSBElBS
+         WgR7s8GRShOtX8lS0GGNYN+gNyqXKMeuixGLU15mhHSoZ6puN27fYqd2e4uR2yxE7WRi
+         /wWs4Cjek7uFq8XYmNrlLmkdAAGKqN+HuBCgHRuBW+KiAtAYD39KFe8xhVP/YtgXmvPO
+         vQZ3DN11oGLX5G8SVbdqRhtNMkKny1Ooun3LIsvZs+DhTDSTxbPSQE2FsOvJIhTznm2Y
+         zHKQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@Bitstarinc.onmicrosoft.com header.s=selector2-Bitstarinc-onmicrosoft-com header.b=UO7kV7M0;
+       arc=pass (i=1 spf=pass spfdomain=bitstar.jp dkim=pass dkdomain=bitstar.jp dmarc=pass fromdomain=bitstar.jp);
+       spf=pass (google.com: domain of yu-tagawa@bitstar.jp designates 40.107.140.71 as permitted sender) smtp.mailfrom=yu-tagawa@bitstar.jp
+Return-Path: <yu-tagawa@bitstar.jp>
+Received: from JPN01-TY1-obe.outbound.protection.outlook.com (mail-eopbgr1400071.outbound.protection.outlook.com. [40.107.140.71])
+        by mx.google.com with ESMTPS id u80si18967165oia.265.2021.05.11.04.00.08
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 11 May 2021 04:00:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of yu-tagawa@bitstar.jp designates 40.107.140.71 as permitted sender) client-ip=40.107.140.71;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@Bitstarinc.onmicrosoft.com header.s=selector2-Bitstarinc-onmicrosoft-com header.b=UO7kV7M0;
+       arc=pass (i=1 spf=pass spfdomain=bitstar.jp dkim=pass dkdomain=bitstar.jp dmarc=pass fromdomain=bitstar.jp);
+       spf=pass (google.com: domain of yu-tagawa@bitstar.jp designates 40.107.140.71 as permitted sender) smtp.mailfrom=yu-tagawa@bitstar.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TqHg8/MuFUkqMoM5xFOymYGczZ17iiA6dg2wu+cVRaf5tMCDwMnsB5fB8wGEFLCqX/XEFrA7cTX9Ggqht7NrDT86GDu5VuiblNLHlYLC+x1cxO1XgSqDmyTWD0gUa+AsaqRkLyJp/tzx1GYzbeF97zQDL6Zoux8GsgbiveBf1ZmMln+bTxMYiV8KA0qqOBSu3qpGsgqgWfUqltl4PxCF+gjwoSyBwp4iaaFX8euKvzVUMgCKNLvb3Iqdfc8HScVwY2rjthz4FXUl9bd/01su80bgPi6cYJkHLovOkWN3j8CUlqBIaEmKO4byz7g1RWDl1XfDhNOfOVKuefhpVlJc4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qkrZH/6y6VjZpEoFMqI1pp8Z2/bgFkocn46yXzu1NGw=;
+ b=BAcNj2ODKXMz1/5tBfvQlV38k3eyImA7l7F8TIqXQnKdf9c/tlDAGTDmslDm4HGs9Qv8ilBx1y+zEhrlOorIFSH/rdW0xeJKYVtHkFNed1hUuQJ898ezj0HTzG1/WrTHPuhokx8CbSVti7yMiQdZkfO0vpoBTMIYPu9DC1DPsTtMhbMQAg68uC7yObW8glfjMy9vD42EPXcZZYL/ATzNzyrq9dFtV4FJmI/uJnzaid0m28O9ZtmGWyIo9wiDHG0nf4aTlNU40mbkFqRzOHGZnJ+BMUzevf3DE6zmtE4kQHyrflSdIQoQ/Fd8bN01yvhHx5eEPU5cUyHXqdINzb9xAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bitstar.jp; dmarc=pass action=none header.from=bitstar.jp;
+ dkim=pass header.d=bitstar.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=Bitstarinc.onmicrosoft.com; s=selector2-Bitstarinc-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qkrZH/6y6VjZpEoFMqI1pp8Z2/bgFkocn46yXzu1NGw=;
+ b=UO7kV7M0fAPqBAijL5SE3XfAqNe2yzCSGKd1vpOuSZVCsyxVIsFICnIQ8xxQsbBM+YSnS/JwRU7NgzSMAuv+SdguanKnxgZKBBT+SSHCcFcoiepdBzwAiNArzgX4HMXTgvgb6mR6ZYDLI8Zx1ds+GYObu/z9kJf4LTSbqgSi+9s=
+Received: from TYCPR01MB5598.jpnprd01.prod.outlook.com (2603:1096:400:45::7)
+ by TYCPR01MB6559.jpnprd01.prod.outlook.com (2603:1096:400:ad::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4108.25; Tue, 11 May
+ 2021 11:00:06 +0000
+Received: from TYCPR01MB5598.jpnprd01.prod.outlook.com
+ ([fe80::64f2:c17e:d112:c421]) by TYCPR01MB5598.jpnprd01.prod.outlook.com
+ ([fe80::64f2:c17e:d112:c421%5]) with mapi id 15.20.4108.031; Tue, 11 May 2021
+ 11:00:06 +0000
+From: =?iso-2022-jp?B?GyRCRURAbhsoQiAbJEJNPDUuGyhC?= <yu-tagawa@bitstar.jp>
+To: "[Masashi Endo]" <hujyorom@gmail.com>
+CC: =?iso-2022-jp?B?GyRCOk5NUTRYNzgbKEI=?= <recruit@bitstar.jp>
+Subject: =?iso-2022-jp?B?GyRCQSo5TTdrMkwkTiQ0TyJNbRsoQg==?=
+Thread-Topic: =?iso-2022-jp?B?GyRCQSo5TTdrMkwkTiQ0TyJNbRsoQg==?=
+Thread-Index: AQHXRlTNQsDy19jI/USaYmP8a3BUmg==
+Date: Tue, 11 May 2021 11:00:06 +0000
+Message-ID:
+ <TYCPR01MB559806E94C458C198CE0705581539@TYCPR01MB5598.jpnprd01.prod.outlook.com>
+References:
+ <20210428075754.hhenomllotgoiznu@Kx250>,<TYCPR01MB559834AD5995E3C7B567DD2E815E9@TYCPR01MB5598.jpnprd01.prod.outlook.com>
+In-Reply-To:
+ <TYCPR01MB559834AD5995E3C7B567DD2E815E9@TYCPR01MB5598.jpnprd01.prod.outlook.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=bitstar.jp;
+x-originating-ip: [163.44.47.136]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 91f240ef-9113-41f8-5f03-08d9146befea
+x-ms-traffictypediagnostic: TYCPR01MB6559:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs:
+ <TYCPR01MB6559CB7F8C8BB2FBCF1DB04781539@TYCPR01MB6559.jpnprd01.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:1728;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ PTMogNY4uFppR2CA1CsvVEyMORpcgzJuGShS/OlTBrwR+ZRFDsph7Y2BablULxizj4o7HJgIga52YCJVzr94ui8MG0AOUAJ7EQEoYIUCZFD55cwh84ALqGKLoseKeYyctec65+GEI4ZBS8NiXtd4pU0tUhHiFJgDzd4uTy3ArkjtLZkKblVGxH2R6B3TUPV2tHV2MDjeTm2yY7us7Kzyi7gu0HV5Br6f6gI82NGuVJK7E4SPHxjVGR2mizwIKisADjW8j4ZNebJWIPe5UD5BBOkbX4DsG6LNhW0xIOQZc7JL2xQLMUOLvhtySwK35nqXCy8XxheEEOJokEGNjd0GaannpSOck+7cgg/uVXFCp0oTSCK3NXce/AdGH4FgKQV2zUQCYevbtPn8nH8qUiVRlHOxzHdp9ZcLZFZ2C4E9ylbdnO2BjlG461xH7CDD2Dd9Q8daCSnSZ/ut2qFTDC/9oQN/sGoyV7RGvci0ZHem7vzBdwqssEunRitVOCQkY0NI70HZ1S/2p8ikfzQmplmsqS2AwLRftekMd8zhbtJPfdgIJH+FAvZlpiDRPVp7qbKgYDyXNFHwDYfEIyTfKtI4L/hSzPtSny45bVjQE4j4lsI=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB5598.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(396003)(346002)(376002)(39840400004)(136003)(366004)(64756008)(66446008)(26005)(8936002)(66476007)(66556008)(4744005)(186003)(71200400001)(122000001)(6506007)(66946007)(2906002)(107886003)(86362001)(38100700002)(224303003)(55016002)(316002)(9686003)(5660300002)(85182001)(478600001)(6916009)(76116006)(4326008)(7696005)(33656002)(52536014);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata:
+ =?iso-2022-jp?B?c1NZK2FOZmtFL0QxODFVQkJjYlpsRG92U0tCT1BiOXp5R29qY1pGWmtJ?=
+ =?iso-2022-jp?B?YVUxYlVoWEozSEtNZVF4UldWVzBua0NqUjF4TzBKYUorbHBCc1RuZjNW?=
+ =?iso-2022-jp?B?bDdKRmoyc3dIUVRET1dEb1I4MGdRYlRpK2swR2VURXFQZjM5OWx0ay9u?=
+ =?iso-2022-jp?B?WWNGM0h2RE9hR0Jrc2lZN3lDTmpWUmJJeW1KOHovRzd1RWJ4RFEySExZ?=
+ =?iso-2022-jp?B?bGoxZGdBSWp3TDlFRThxR3c5YXVOa2hFS0drZGZhYUhWcFk4VU1mS2xC?=
+ =?iso-2022-jp?B?VTZVZmxwTFg4VDdkN2wyS0FIUzh6YzErZjI4YWg2RTlMeDZqYmM0YmY0?=
+ =?iso-2022-jp?B?bjF4NTU4MXhNSjV2TmlMcnd0aUdSVFlzRlZ0aWtYZ2hDb2VGN29RdXVT?=
+ =?iso-2022-jp?B?NTN1NllwSHpOaHc2RDRZWU9URm0wTEtQQU5wRGZJajVlc2tTcEdkYUE2?=
+ =?iso-2022-jp?B?cDlzelQyVS96eTlvZXkzMVp6V2N2V3dhcmovSFJ4MUp2UzNvbjRXMUYv?=
+ =?iso-2022-jp?B?WWpMMENrL3Qvb1k4RzdVMWdnSDF4dnYvbkFyTDQ4dEp2dGllT29xa3dG?=
+ =?iso-2022-jp?B?S0twdFlCUytNVHhVSU9KM2xKa2ltMnNPVjJhUEF5d3ZTVWlhaVllVlgr?=
+ =?iso-2022-jp?B?K25nWXJ0bkhJVzJqcUl2dXUzbHB2d0QxZHdnbUNSWVlSWnBvait6R1Aw?=
+ =?iso-2022-jp?B?c29Nb3ZGRXNkT2RpbVEvUU8rRVFlelQzWnZSVnRLWjZjSGpxTTk5WUgv?=
+ =?iso-2022-jp?B?NUl3eXFMb05XdzRHcktONTMzc05jS2J5VG1lNzVmWmJPc0pFeVQ0eGdL?=
+ =?iso-2022-jp?B?NEFVeVRCaGxXbmNidUtYelhPWnk4RVVIQVRwdEJYMkVKWjhpdWlGOFZo?=
+ =?iso-2022-jp?B?dTIzZ1NLSW44bk9HdGY1cDhVaUd2RGNUOHlEcGtpUXJCUi9mQUpOK2xi?=
+ =?iso-2022-jp?B?TkNReW1hSUJFakY3bzRqcTBwa1BoUEJTTWh1Q3FyaXZ0eU9pT3dTSVlU?=
+ =?iso-2022-jp?B?WGhxWFJrMDZXSWZsQjlsOEhQTm16dk92em9wa2pVZEVZc2NJcEJCTVA1?=
+ =?iso-2022-jp?B?Vlhjc1YrbVJmYUhKNncvZ0lqenZ2Qk05UUVOU280aDFyT00yZVFuTjli?=
+ =?iso-2022-jp?B?MVlJeUFWSVUvZzlDck5DQUZTei9zVnFKekxIQk81YjlRcWEyNFVSRG1u?=
+ =?iso-2022-jp?B?dWlobTI3SllZQjZVbDNUdTRVQlBIeWNJYlFqc2p5QlhJUVJTMEkvdEhy?=
+ =?iso-2022-jp?B?V3ZnK2p6RkFRRTVTV2oxSFUvYUMvZyt5d1IwV3NwMFhrSnk4YTM4cCt4?=
+ =?iso-2022-jp?B?cGlKQ3lSa00zczBSYzZRTTNVaGlHUDcrU2pQdDJ0NWVxaXdsSGN2Z1Fu?=
+ =?iso-2022-jp?B?Q0V4Y1lPV3UvK0ZDZmJ6ajNLZWE1N3BWT0VJOHBKSkFhNFNuSDY4dEJu?=
+ =?iso-2022-jp?B?ekY1S1g2Z3k3YlpNb3pURVdKTGtoZ1M5L0NUQVNERkxHUWdVRE8rMnJY?=
+ =?iso-2022-jp?B?Z0hmSkRPMk5wMzlqc3l5VUxleGRnU3ZwZHZ6RVRrU2pVQUJPYWgvb2Rt?=
+ =?iso-2022-jp?B?TDNZZlVQTUdTMmNLOVJ0ZzIxNDJwOVRQNzk0TFNNVlovRDFJTndFbG5L?=
+ =?iso-2022-jp?B?MklYeldiWmdEcVd6UUZEZk1oc1dVKzB0S3lPTEJYM00waVprQ25RSmFo?=
+ =?iso-2022-jp?B?Y2p2YXVxMHlqUDFrN0hDaGRXSG9EUS90eVBtcS9EUFRTd3ZDWXl3VC9h?=
+ =?iso-2022-jp?B?dWp3QmR0a0xxVkJDbU50U3M5aVUwb3c5TTVkcDJuNFRQOVhZaTVZeEtj?=
+ =?iso-2022-jp?B?WmtrQXVIcmp6K2RuTitBbDV4TmQzRmJHNGN3TnhjdXgzeVdpRkFxU3dB?=
+ =?iso-2022-jp?B?RlNJWXRPNjN0VXpyd3UrR0xjai9VPQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: bitstar.jp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB5598.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 91f240ef-9113-41f8-5f03-08d9146befea
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 May 2021 11:00:06.8218
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4a3a668f-6b29-4ae5-9c03-6e00b618a427
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: cC02oxvir/nCM2lstNYPImBhPJ0u5urmgyKzYUdKi/jSrMIuW9SEfoJ9sbkTFFI/Uw6VcEY0g80JeANcp3crdA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB6559
+
+=1B$B1sF#MM=1B(B=0A=
+=0A=
+=1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B=0A=
+=1B$B%S%C%H%9%?!<$NED@n$G$9!#=1B(B=0A=
+=0A=
+=1B$BA*9M7k2L$K$D$$$F$4O"MmCW$7$^$9!#=1B(B=0A=
+=0A=
+=1B$B?5=3DE$K8!F$CW$7$^$7$?7k2L!"=1B(B=0A=
+=1B$B@?$K;DG0$J$,$i:#2s$O:NMQ$r8+9g$o$;$FD:$/$3$H$H$J$j$^$7$?!#=1B(B=0A=
+=1B$B$44|BT$K1h$($:?=3D$7Lu$4$6$$$^$;$s$,!"$"$7$+$i$:$4N;>5D:$-$?$/B8$8$^$9=
+!#=1B(B=0A=
+=0A=
+=1B$B1sF#MM$N$h$j0lAX$N$47r>!$H$43hLv$r?4$h$j$*5'$j?=3D$7>e$2$^$9!#=1B(B=0A=
+=0A=
+=1B$BN,57$G$O$4$6$$$^$9$,!"%a!<%k$K$F$4DLCN?=3D$7>e$2$^$9!#=1B(B=0A=
+=0A=
+=0A=
+=1B$B%S%C%H%9%?!<!!ED@n=1B(B=0A=
+=0A=
+________________________________________=0A=
+=1B$B:9=3DP?M=1B(B: =1B$BED@n=1B(B =1B$BM<5.=1B(B <yu-tagawa@bitstar.jp>=0A=
+=1B$BAw?.F|;~=1B(B: 2021=1B$BG/=1B(B4=1B$B7n=1B(B30=1B$BF|=1B(B 13:38=0A=
+=1B$B08@h=1B(B: [Masashi Endo]=0A=
+CC: =1B$B:NMQ4X78=1B(B=0A=
+=1B$B7oL>=1B(B: Re: =1B$BA*9M=3DqN`$NDs=3DP$K$D$$$F=1B(B=0A=
+=0A=
+=1B$B1sF#MM=1B(B=0A=
+=0A=
+=1B$B$*@$OC$K$J$C$F$*$j$^$9!#=1B(B=0A=
+=1B$B%S%C%H%9%?!<$NED@n$G$9!#=1B(B=0A=
+=0A=
+=1B$B$47PNr=3Dq$r3NG'CW$7$^$7$?!#$"$j$,$H$&$4$6$$$^$9!#=1B(B=0A=
+=1B$BA*9M7k2L$K$D$$$F$O!"2~$a$F$4O"Mm$5$;$FD:$-$^$9$N$G=1B(B=0A=
+=1B$B:#$7$P$i$/$*BT$A$/$@$5$$!#=1B(B=0A=
+=0A=
+=1B$B2?B4$h$m$7$/$*4j$$CW$7$^$9!#=1B(B=0A=
+=0A=
+=0A=
+=1B$B%S%C%H%9%?!<!!ED@n=1B(B=0A=
+=0A=
+________________________________________=0A=
+=1B$B:9=3DP?M=1B(B: [Masashi Endo] <hujyorom@gmail.com>=0A=
+=1B$BAw?.F|;~=1B(B: 2021=1B$BG/=1B(B4=1B$B7n=1B(B28=1B$BF|=1B(B 16:57=0A=
+=1B$B08@h=1B(B: =1B$B:NMQ4X78=1B(B=0A=
+=1B$B7oL>=1B(B: =1B$BA*9M=3DqN`$NDs=3DP$K$D$$$F=1B(B=0A=
+=0A=
+=1B$B%S%C%H%9%?!<=1B(B=0A=
+=1B$BED@nMM=1B(B=0A=
+=0A=
+=1B$B$*@$OC$K$J$j$^$9=1B(B=0A=
+=1B$B1sF#$H?=3D$7$^$9=1B(B=0A=
+=0A=
+doocyJob=1B$B$G$*OC$N$"$j$^$7$?$H$*$j!"MzNr=3Dq$H?&L37PNr=3Dq$r=1B(B=0A=
+=1B$BE:IU$7$FAwIU$$$?$7$^$9!#=1B(B=0A=
+=0A=
+=1B$B$43NG'$h$m$7$/$*4j$$$7$^$9!#=1B(B=0A=
+=0A=
+=1B$B0J>e=1B(B=0A=
+--=0A=
+=1B$B1sF#=1B(B =1B$BUr;J=1B(B ( Masashi Endo )=0A=
+e-Mail <hujyorom@gmail.com>=0A=

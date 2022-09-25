@@ -1,0 +1,111 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp798446vkl;
+        Thu, 15 Oct 2020 13:19:52 -0700 (PDT)
+X-Received: by 2002:a02:a10f:: with SMTP id f15mr117522jag.62.1602793192196;
+        Thu, 15 Oct 2020 13:19:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1602793192; cv=none;
+        d=google.com; s=arc-20160816;
+        b=p99Mwk+r6a/bAr3TYmdL5t02Vz03kESstShHUYUJ2kEnJuOLab3/4vYg4psPj68HvP
+         j6kCrbl52yU/1uXEICYJva9Ek3IpYreQUfr0tV7rPGKyWWQVWz3NI9iOc3oX8yOWyZ53
+         IbcHdG3nLriCV0/xa3ZbzuO0oPSzsX+UM96G6WnlGAD+CzOA3sTviaGXB7pPjd/h9fpF
+         jgSxsPg7mbrkpX+d/xxyn7SKUaBuf990tqB4sULk8OW4g879iOr16NClBSzJ/pRqMOk9
+         /apRGKM4R4gBv6yaUDxEL8t32u+YS4FmodeT1ivNTchqrtYAo9M3nly1WOVFIz+DNqhg
+         k5qA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:date:message-id:auto-submitted:reply-to
+         :mime-version:dkim-signature;
+        bh=eYbh51A7oOulhx1SHF/UiaT15roW+Bwx29woom18upI=;
+        b=K2t1D3pFslSoa44YRUIL7oPYfWVBHPF6twi+24rZ5LkrLwEs0kRslvD/FQNBFaMm+4
+         6a573262tZ2XLkf5IO5iML4qBXDORLvLdeuDTIYy4NiVdPdz37Hnso5dInf7dMNOm2Nz
+         r3xY0CCkIuuBSUa69CbJ98iYhtsQrwiqjCcbKMcAT5FMgQLm7P0p5rfYQ8quv3fC5rsd
+         Vk+QYX4eMoH3dIxuQL12NTz+/2si64UUEwEpQYctFoYBdRxRMVafWS9y9YHF9oTfYJ8J
+         f3qslbFErMYAnLf8KeTw2iMHPQQx4jALI63Tsl/w3qLFGTLpxh7SPAH7jZGF2+jsgB4q
+         Vo+A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PxNv8DFZ;
+       spf=pass (google.com: domain of 3566ixwgjcgopcrgwzwuouiqt.kwupcrgwzwuouiqt.kwu@calendar-server.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3566IXwgJCGoPcRgWZWUOUIQT.KWUPcRgWZWUOUIQT.KWU@calendar-server.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3566IXwgJCGoPcRgWZWUOUIQT.KWUPcRgWZWUOUIQT.KWU@calendar-server.bounces.google.com>
+Received: from mail-sor-f73.google.com (mail-sor-f73.google.com. [209.85.220.73])
+        by mx.google.com with SMTPS id t23sor52003ili.148.2020.10.15.13.19.52
+        for <hujyorom@gmail.com>
+        (Google Transport Security);
+        Thu, 15 Oct 2020 13:19:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3566ixwgjcgopcrgwzwuouiqt.kwupcrgwzwuouiqt.kwu@calendar-server.bounces.google.com designates 209.85.220.73 as permitted sender) client-ip=209.85.220.73;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PxNv8DFZ;
+       spf=pass (google.com: domain of 3566ixwgjcgopcrgwzwuouiqt.kwupcrgwzwuouiqt.kwu@calendar-server.bounces.google.com designates 209.85.220.73 as permitted sender) smtp.mailfrom=3566IXwgJCGoPcRgWZWUOUIQT.KWUPcRgWZWUOUIQT.KWU@calendar-server.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:reply-to:auto-submitted:message-id:date:subject:from
+         :to;
+        bh=eYbh51A7oOulhx1SHF/UiaT15roW+Bwx29woom18upI=;
+        b=PxNv8DFZEjkFLvFaFZcxbFDHG4W1fAz6dpu63cBP8rGmTBszBi/7hInriaA8fw/d9F
+         enSfE4TucmJOCktGBQh8PctqwNxI8p8BaV2QgG3bD/6t6ZXSqOrGMA8w/zup9nuO2TYo
+         4F/3fKCkmlfqcngg8AUAEg4ROLU9wi3fbvZHRawdcLD7RDbRWvlVLJA8A2CtTPdSPNed
+         +v1/nOBR/Fw3Nz+c6sTqra+JkxkLwxM4tcod0Ex1sS47m4hrx/Ay/67UB/G6WOYnCXG4
+         nv5Cfrv5VwJMd8Pg3WNFTx7G7LBDIRey2cLlqCFo29ATAYdVNzNlTjNh/c0XpXd2GLe8
+         4fHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:auto-submitted:message-id
+         :date:subject:from:to;
+        bh=eYbh51A7oOulhx1SHF/UiaT15roW+Bwx29woom18upI=;
+        b=f73NKNPOxxbb+5Si2wl/dem5eJrQ/X/PEih5YQVJNfVOy1ATpHBV6PGe22XHVXqMdR
+         csOUUlAqEP4j2CerqfI88emaVAZYGF+yaMQTKNFMqwTm676GpA+d+B5F3nFEjWUOYR7w
+         oYTz0OsZYtcsPpgMLpVte1bclgyDWOuM6vhPNQ6Ms3flqeu02rh2hQ8amt7skR80s5x4
+         IYaZjEpQd36+6g/N190X6+jdM1fmJ+Ac5N50HWLj0JEe8DE/Iv0uKeG7obdvkRbCBtJQ
+         94T0MYOTpuf/XqLcTPtkb+Hr4NgpUy8KYg2bWqefsBde9Hr4qtOnCT0dMfqpwfNdLIfX
+         6BZw==
+X-Gm-Message-State: AOAM531xEFge/qA9yWb+k8AC2G/Dc+vEdxMVm5ffv4mNOJk4HSiSmlBf
+	PvIJDMlBi8nQF9RgEMPh0xi1blv2oaebEn8SpKbz
+X-Google-Smtp-Source: ABdhPJwpY4OhlB4dO7jpaBIVY2rx88904bk+VQAlrxCltNPAdVAHR8ZUgrSOqxWl4mNlmxpfVtARMqszQP0jALK3OrAK
+MIME-Version: 1.0
+X-Received: by 2002:a05:6e02:507:: with SMTP id d7mr234796ils.67.1602793191847;
+ Thu, 15 Oct 2020 13:19:51 -0700 (PDT)
+Reply-To: masashi endou <hujyorom@gmail.com>
+Auto-Submitted: auto-generated
+Message-ID: <000000000000d9418d05b1bb5ede@google.com>
+Date: Thu, 15 Oct 2020 20:19:51 +0000
+Subject: You have no events scheduled today.
+From: Google Calendar <calendar-notification@google.com>
+To: masashi endou <hujyorom@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000d9417505b1bb5edb"
+
+--000000000000d9417505b1bb5edb
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+hujyorom@gmail.com, you have no events scheduled today Fri 2020-10-16.
+
+View your calendar at https://www.google.com/calendar/
+
+You are receiving this email at the account hujyorom@gmail.com because you  
+are subscribed to receive daily agendas for the following calendars:  
+hujyorom@gmail.com.
+
+To change which calendars you receive daily agendas for, please log in to  
+https://www.google.com/calendar/ and change your notification settings for  
+each calendar.
+
+--000000000000d9417505b1bb5edb
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div style=3D"padding:10px 7px;font-size:14px;line-height:1.4;font-family:A=
+rial,Sans-serif;text-align:left;bgcolor=3D#ffffff"><a href=3D"https://www.g=
+oogle.com/calendar"><img alt=3D"Google Calendar" src=3D"https://calendar.go=
+ogle.com/googlecalendar/images/calendarlogo/calendar_logo_en_41px_1x_r1.png=
+"></a>
+<p style=3D"margin:0;color:#0">hujyorom@gmail.com,&nbsp;you have no events =
+scheduled today <b>Fri 2020-10-16</b></p>
+<p style=3D"font-family:Arial,Sans-serif;color:#666;font-size:11px">You are=
+ receiving this email at the account hujyorom@gmail.com because you are sub=
+scribed to receive daily agendas for the following calendars: <a href=3D"ht=
+tps://www.google.com/calendar/render?cid=3Dhujyorom%40gmail.com">hujyorom@g=
+mail.com</a>.</p>
+<p style=3D"font-family:Arial,Sans-serif;color:#666;font-size:11px">To chan=
+ge which calendars you receive daily agendas for, please log in to https://=
+www.google.com/calendar/ and change your notification settings for each cal=
+endar.</p></div>
+--000000000000d9417505b1bb5edb--

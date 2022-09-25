@@ -1,0 +1,193 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:a8ce:0:0:0:0:0 with SMTP id r197csp3048172vke;
+        Mon, 17 Aug 2020 23:25:24 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwCWrLBgx/CUgFJI2LZ/pkteUXFt5IQE0ioWlEqwOfYS/G0Nj5/DrR9m8edqeGQBHfWBmTg
+X-Received: by 2002:a05:6a00:c9:: with SMTP id e9mr14116847pfj.224.1597731924152;
+        Mon, 17 Aug 2020 23:25:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597731924; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nZ9lYmLdxub3qfPvvRjzjU+n6l/OOmzSYE4oh6DjD5duiNeEQPql+yEqu75/hKhp4E
+         y6oe58zOEh2/tm6GjCVuaWOj9COn/rCj3yHxFYMS9ZsWut3MoNRZ70LQYUJ7/LU2bHMA
+         jDNyjNRQnhbfLjvxbAkSTlvO8YJAgSTyUf5IkLjZohHmy3VlQqliZUSa+WUc6o0CkRTm
+         OK4REI8Vc/B+i4gnsflx+MmoxQYgeVh5DTGc+SClwYDy4st9Rh/xsnpu7ihCq1rAlZJI
+         09/fwk5eoZUs1ligcykU4TG7/lH8cIK4r0af5OvsT4F10EyutgtM9mpPEauUmcOJHXus
+         rR+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:errors-to:dkim-signature;
+        bh=k24bwXLIm+RnfutTfdm5yhPG3efZd+vBLfC0pE8rQ7s=;
+        b=udlFSsfIzXQEx/hU8n0QNBs5wUG5bmd/xbFNI3dZXWtJ0I7CoholgWrQRDzb08qGDT
+         vx8GnXXGU1JxuX16M3hWmypzY2Wf/0qD82XL+vQ2EV1XOTdP49fcE+To+hahMHkW1eR6
+         wY4BMY8HjKhk7+xpusrPnONG91NZ1bv1awIF1FJFkN3nvKTQRicGoNA1Qa+wJyg3yQg+
+         udkBkTVf8hjhG5hRhxQ9jxlu47ymE/GivjbDU+N3yp/8lLP6ZV1F6ZP6wFtpBFMAfIju
+         aAwJIOogJxKA4YUTRMHzXAf1xE5h40XdS2R6lsy2kcSkGC1gBluJJaVT5kknK/3jYuRt
+         8/fA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@jalan.net header.s=massmail201312 header.b=ljAs6UIx;
+       spf=pass (google.com: domain of z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.84.58 as permitted sender) smtp.mailfrom=z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=jalan.net
+Return-Path: <z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp>
+Received: from bmmph1204.jpx1.mta.emberpoint.com (bmmph1204.jpx1.mta.emberpoint.com. [106.185.84.58])
+        by mx.google.com with ESMTPS id z18si14818423plb.34.2020.08.17.23.25.23
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 17 Aug 2020 23:25:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.84.58 as permitted sender) client-ip=106.185.84.58;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@jalan.net header.s=massmail201312 header.b=ljAs6UIx;
+       spf=pass (google.com: domain of z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.84.58 as permitted sender) smtp.mailfrom=z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=jalan.net
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1597731924;
+	s=massmail201312; d=jalan.net;
+	h=Date:From:Reply-To:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=k24bwXLIm+RnfutTfdm5yhPG3efZd+vBLfC0pE8rQ7s=;
+	b=ljAs6UIx/pbMYdQ79H3iiu+uKQuMav1ppFuklIjjoS72SSFR5dkHaemIYvMqutRA
+	HfWRJqJX+xB/n5to1u6Ttz0YnBB3oAYOO2j8dREJZhxlZlr4K7XCa4LU4Jn6jSNDDX2
+	qd+y4RkNCAmPNxDHNLTQnx5vVtdPhGiNVHoRK5X0=
+Errors-To: z-jalan02-xepvj3-0-3w6-008hujyoromgmail.com@bma.rec.mpse.jp
+Date: Tue, 18 Aug 2020 15:25:11 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCJDgkYyRpJHMbKEJuZXQbJEIhIU09THMlNSE8JVMlORsoQg==?=
+ <thanks-j@jalan.net>
+Reply-To: "info4-j@jalan.net" <info4-j@jalan.net>
+To: hujyorom@gmail.com
+Message-Id: <1597731911465.2020105695.jalan02.0.5046.01000000@ad268recse.rec.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCIVokOCRjJGkkcxsoQm5ldBskQiFbJDRNeE1RGyhC?=
+ =?ISO-2022-JP?B?GyRCJCIkaiQsJEgkJiQ0JDYkJCReJDckPyEjGyhC?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+syouji様
+
+新型コロナウィルス（COVID-19）感染拡大防止の観点から、各自治体により自粛要請等が
+行われている可能性があります。
+ご利用の際には、あらかじめ最新の情報をご確認ください。
+また、感染拡大の防止に充分ご配慮いただくようお願いいたします。
+じゃらんnetからの新型コロナウィルス（COVID-19）に関するお願いはこちら
+https://help.jalan.net/jln/s/article/000014086
+じゃらんnetのメール配信に関するご案内はこちら
+https://www.jalan.net/jalan/doc/howto/kokuchi200601_1.html
+
+この度はじゃらんnetをご利用いただき、ありがとうございました。
+
+▼今回加算予定のポイント
+合計：120ポイント
+
+内訳：
+■Pontaポイント：60ポイント
+・基本加算分：60ポイント
+・キャンペーン加算分：0ポイント
+■じゃらん限定ポイント：60ポイント
+・基本加算分：60ポイント
+・キャンペーン加算分：0ポイント
+・会員ステージ特典加算分：0ポイント
+
+※ポイントについてはこちら
+  https://help.jalan.net/jln/s/topic/0TO6F000000kSxZWAU/
+
+▼今回加算予定のスコア
+合計：6000スコア
+
+※スコアについてはこちら
+  https://www.jalan.net/theme/jalan_stage_program/score_list.html
+
+▼今回利用した宿・ホテル
+宿名：hotel MONday 浅草橋
+宿泊期間：2020年08月15日〜　2泊
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+★★クチコミ投稿のお願い★★
+◎じゃらんnetではお泊りの宿・ホテルに関するクチコミを募集しています！
+https://rls-link.jp/link/adptg_mid=11821&adptg_lid=18
+
+※クチコミ投稿が可能な期間はチェックイン日から60日以内となります。
+マイページにログインのうえ「過去の予約」メニューの「宿・ホテル予約」をクリックしてください。
+クチコミ投稿が可能な宿泊予約には「口コミ投稿」のボタンが表示されます。
+※日帰り・デイユースプランご利用のお客様は、宿泊施設に対するクチコミ投稿はできません。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　　　　今回利用した宿・ホテルを、クリップして保存しませんか？
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+今回利用した宿泊施設を、クリップした宿として登録しておくことができます。
+登録した宿は、簡単にsyouji様専用のクリップした宿ページから見ることが
+できる上、その宿から会員限定のお得な宿泊プランが届くかも？
+
+▼クリップした宿とは？
+https://www.jalan.net/jalan/doc/howto/cliplist.html?vos=fsjlnxsyjlnrsys001
+
+▼今回利用した宿・ホテルをクリップする（後で簡単に削除もできます）
+https://www.jalan.net/uw/uwp9000/uww9101init.do?yadNo=335525&fnc=addClip&vos=fsjlnxsyjlnrsys001
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　　　　加算されたポイントを使って、お得に旅行をしませんか？
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+▼今回加算予定のポイント（※）
+120ポイント
+
+▼たまるポイントについて
+https://point.recruit.co.jp/point/?vos=cppzscpdjzk110401008
+
+▼現在のポイント加算状況は、こちらから確認できます。
+https://point.recruit.co.jp/member/pwbCardStp/?transit_moto=1
+
+□■ポイントの加算について■□
+ポイントはチェックアウト日の翌月の7日以降に加算されます。
+（※）上記「今回加算予定のポイント」は、現時点での予定ポイントとなります。
+加算ポイントの確定は、別途お送りするお知らせメールでご確認ください。
+
+
+
+※ご予約時にポイントアップのアイコンが付いたプランをご予約の場合、
+　上記ポイントの中には基本加算ポイント2％の他にじゃらん期間限定ポイントが
+　含まれております。
+　基本加算ポイントとじゃらん限定ポイントのポイント加算のタイミングは
+　異なりますので予めご了承ください。
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+次回の予約は便利なスマホアプリから♪
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+移動中や旅先でも、お気軽に宿泊施設や宿泊プランをらくらく検索！
+地図からの検索や現在地から宿泊施設へのルートも確認できます！
+便利なスマホアプリをダウンロードしてみませんか？
+https://www.jalan.net/jalan/doc/howto/info_app.html?vos=fsjlnxsyjlnrsys001
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+◎レビュアーページで、あなたの旅を記録しましょう！
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+あなたが訪れた観光スポットや口コミ投稿をしたスポットが、簡単に記録・管理できるサービスです。
+旅の記録をじゃらんで残して、日本全国を旅してみませんか？
+また、口コミや旅行記を投稿すると、じゃらん肉球メダルがGETできます。
+どんどん投稿してレベルアップを目指しましょう！
+https://www.jalan.net/ou/oup2600/ouw2602.do?TEMP4=LEVEL_K&screenId=OUW2602&STATUS=0&afCd=&rootCd=
+
+※日帰り・デイユースプランご利用のお客様は、宿泊施設に対するクチコミ投稿はできません。
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+・じゃらんnetは（株）リクルートライフスタイルが運営するインターネットサービスです。
+・じゃらんnetへのお問合せはこちらから
+  https://help.jalan.net/s/
+・リクルートID・ログイン等に関するお問合せはこちらから
+  https://help.point.recruit.co.jp/s/
+・お届け内容の、住所・Eメールアドレスなどの登録の変更・削除はこちらから
+  https://www.jalan.net/ji/pc/jit1001.do?FNC=JIPFN003&vos=fsjlnxsyjlnrsys001
+
+-----------------------------------------------------------------------
+※このメールは、じゃらんnetにて宿・ホテルをご予約された方全員へ
+お送りしております。
+宿・ホテルへ直接キャンセルのご連絡をいただいた方にも、
+このメールが届く可能性がございます。その際にはご了承ください。
+-----------------------------------------------------------------------
+
+■□■  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　じゃらんnet  https://www.jalan.net/
+　編集：株式会社リクルートライフスタイル https://www.recruit-lifestyle.co.jp/
+　発行：株式会社リクルート https://www.recruit.co.jp/company/recruitcoltd/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RECRUIT■□■

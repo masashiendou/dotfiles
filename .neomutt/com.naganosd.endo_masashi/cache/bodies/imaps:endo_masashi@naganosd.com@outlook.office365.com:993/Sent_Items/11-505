@@ -1,0 +1,103 @@
+Received: from Kx250 (125.30.78.83) by
+ TY2PR0101CA0023.apcprd01.prod.exchangelabs.com (2603:1096:404:92::35) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3045.18 via Frontend
+ Transport; Tue, 2 Jun 2020 09:38:48 +0000
+Date: Tue, 2 Jun 2020 18:38:47 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+To: mino_shukka_ml@system-quest.co.jp
+Cc: =?utf-8?B?5LiJ5a6F5pit5aSr?= <a-miyake@nuan.jp>,
+	NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>,
+	=?utf-8?B?5qOa5qmLIOWFi+W8mA==?= <tanahashi_katsuhiro@naganosd.com>
+Subject: =?utf-8?B?W0FJ5Ye66I23XSBWZXJfMC45LjXjga7jg6rjg6rjg7zjgrnjgas=?=
+ =?utf-8?B?44Gk44GE44Gm?=
+Message-ID: <20200602093847.kokuz7otrxc2436v@Kx250>
+References: <0a9c970c-9ce0-0ce5-a205-5249e8ede857@naganosd.com>
+ <CAMn1dDzahPGO04WQvYv012eyc6JjgSYT29TycOD2LkF5-g=G6g@mail.gmail.com>
+ <20200420072234.tkdsf6stnisikrzv@Kx250>
+ <CAMn1dDzZJzBYkTtY3Xhgb9aqshrtb58+uzGHhhtvUgphArxpmQ@mail.gmail.com>
+ <CACzEcNhg+6PLZpKu4ZVabbN6NDsUJdYnW3DonKD23jUp9NVdJQ@mail.gmail.com>
+ <20200422041729.kpfuis52krib4i5f@Kx250>
+ <CACzEcNi4sQS-YA_Urz5Jvvs-WL2_bnLu5=si5dt_ekeJALxWvw@mail.gmail.com>
+ <20200422062528.3osi4ktpboq2zfky@Kx250>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20200422062528.3osi4ktpboq2zfky@Kx250>
+X-MS-Exchange-Organization-ExpirationStartTime: 02 Jun 2020 09:38:48.7030
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 105396ef-e997-4f14-4963-08d806d8c09b
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.83]
+X-ClientProxiedBy: TY2PR0101CA0023.apcprd01.prod.exchangelabs.com
+ (2603:1096:404:92::35) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社 三宅様
+
+お世話になっております
+長野システム開発 遠藤です
+
+貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+
+製作出荷情報の一覧表示を実装したVer_0.9.5をリリースします。
+===
+Ver0.9.5 リリースノート
+【●製作出荷情報】
+１．検索
+　　検索ボタンの機能を一時停止しております。(MINO-106対処中の為）
+　　そのため、各検索項目を変更しても反映されません。
+　
+２．一覧表示項目未対応箇所
+　備考-色・・・仮で#FF0000で表示しています。
+　テーブル受領したので実装を進める。（ラベル発行の送付先担当と並行して実装する。）
+３．製作出荷情報での変更項目は全て未実施となります。
+　製造可　・・・　実装遅延
+　製作場所：梱包数変更　・・・　実装遅延
+　製作場所：保留設定　・・・　実装遅延
+　保留一括解除(MINO-89)　・・・　実装遅延
+　送り先区分　・・・　MINO-66　⇒　対応しない方向
+　運送会社　・・・　MINO-66　⇒　自社便にのみ変更予定
+　※一旦：送り先区分、運送会社のプルダウンは無効化しています。
+【●出荷品確認】
+・上限：1,000件まで表示しています。
+・初期値：MINOでの検索未実装
+・確認事項
+　検索全般　入力文字の取り扱い
+　英数字・カナは半角・全角どちらも含めるか　(MINOとＭＩＮＯ、1234と１２３４)
+　濁点、半濁点の処理　（ﾌ　と　ﾌﾟ　と　ﾌﾞ）
+【●その他】
+・TOPボタンは廃止し、AI出荷をクリックするとTOP画面に戻るようにしています。
+・メニューは以下の通りとなります。
+　出荷準備
+　　|------製作出荷情報修正
+　　|------臨時出荷登録
+　梱包
+　　|------<項目無し>　※ラベル・送り状発行となっていましたが、一旦、遷移しないようにしています。
+　出荷
+　　|------出荷品確認
+==========================
+【●】製作出荷詳細情報、臨時出荷登録、ラベル・送り状発行、ＴＯＰページ、ログイン処理は進展無し)
+
+ダウンロード先:
+"https://www.dropbox.com/s/73e4vb0h1gkc8ft/mino-feature-MINO-5.zip?dl=0"
+※ドキュメントルート以下のファイル一式をzipにまとめています
+
+よろしくお願いします
+
+以上
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

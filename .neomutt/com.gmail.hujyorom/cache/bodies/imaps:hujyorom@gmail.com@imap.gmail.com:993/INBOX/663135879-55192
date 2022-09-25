@@ -1,0 +1,303 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2811:0:0:0:0:0 with SMTP id o17csp3348992vko;
+        Sun, 12 Sep 2021 20:40:13 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyWyYk01YADGuj6fiiS1/TQNW3sjiYBXyvdZJotrkQ34oc3VNOZzab/I+0RbbzVkZKY2m5I
+X-Received: by 2002:aa7:88c9:0:b0:3fc:38d8:fc32 with SMTP id k9-20020aa788c9000000b003fc38d8fc32mr9038395pff.81.1631504413209;
+        Sun, 12 Sep 2021 20:40:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631504413; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=UDv0W2L3kSxmZ00JcDUg0izKkOeEJbX0h+aqJtbXYRvQN82qgWaXNWeCarzcgtf8f8
+         0rp6GLEskPdtKyrlMZ/iyOtY7/hCI7isNTfETV1+SM0FRvMXjjo49tuzbR4ooCQ1Onhi
+         2kQnlCQYgOTlaIh33pq3Un5hkh3ai0s332B76MMOKZnUSMzg3cF2BwbkHCSGchfn/xEE
+         nPrnEanT4EXcjW6GpoyEpPuq+MWfRteVAz49eEQ/PJ16ivW21s4Ubt1qF16VkzimcOm0
+         +SNWSsgj1wMkaQb2msKW8kNTTwRig+qdMdK1zPaj48OUHLn2kZblTIK0sZ/YKfTrMG36
+         cyww==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:cc:to:from:dkim-signature;
+        bh=KwIwhVaw9S7xln20MvixOM3c6SgaBUflYRJRn3tTsRk=;
+        b=pG0KcJKzITl8oCjzWcpbPdG0llyfUo2DLs29uiRp8pQCxasefvTtGmbYcnGIVHvjnm
+         Y3uKFGBQXqQxqV9AhVRM35RJWD64zn+P/kaztqPY3W1jdRLIp3UEnX7JfkY0LeOTImkD
+         GI4iNpmEFTy2KRH5DelDHv8De71Cw8aD65xuXlOqkh1sWrwTikSEJN1Wub9KUnUem+h2
+         en+lVmiOPSHEJsSODZ68mypYuyl8m4oqC74YTc9tT+VOGjVMr1vI2oQPD4iqWSCnpW4Q
+         Y3DVzIHi9ouiR47RwBy2+5ntVHlBx7zq9MDOXiAhLHIAHReVGIv79BLi5hKma3+wVteU
+         hRyw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@ccs1981edu.onmicrosoft.com header.s=selector2-ccs1981edu-onmicrosoft-com header.b=fnhnl8Mx;
+       arc=pass (i=1 spf=pass spfdomain=ccs1981.jp dkim=pass dkdomain=ccs1981.jp dmarc=pass fromdomain=ccs1981.jp);
+       spf=softfail (google.com: domain of transitioning example_endo_03@ccs1981.jp does not designate 40.107.141.104 as permitted sender) smtp.mailfrom=example_endo_03@ccs1981.jp
+Return-Path: <example_endo_03@ccs1981.jp>
+Received: from JPN01-OS2-obe.outbound.protection.outlook.com (mail-eopbgr1410104.outbound.protection.outlook.com. [40.107.141.104])
+        by mx.google.com with ESMTPS id u137si7625753pgc.237.2021.09.12.20.40.12
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 12 Sep 2021 20:40:12 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning example_endo_03@ccs1981.jp does not designate 40.107.141.104 as permitted sender) client-ip=40.107.141.104;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ccs1981edu.onmicrosoft.com header.s=selector2-ccs1981edu-onmicrosoft-com header.b=fnhnl8Mx;
+       arc=pass (i=1 spf=pass spfdomain=ccs1981.jp dkim=pass dkdomain=ccs1981.jp dmarc=pass fromdomain=ccs1981.jp);
+       spf=softfail (google.com: domain of transitioning example_endo_03@ccs1981.jp does not designate 40.107.141.104 as permitted sender) smtp.mailfrom=example_endo_03@ccs1981.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=NUoicyuzrif/xVOEmcVajaRpDLe0ewr7MTpSLsmT+gOX29FR4WKZtll5Xdi4N8wCf1DyBAqtaGRBmycqPFbhVSL99pLlGWMOue4KoHvEa3moUHrhiMzfYLID+dl+SCgYj7fHzpfqAWKoIWDGONwm7eHpMHK+55JlrqbwD2ucTIK2HDQgYntTPbTalewv6lS6anxC54mliQTmJvwnkizk+RoHVET5Vhd2+qhA36nLpgY6ViicRxg81hKcJOXDXcuP9oblfQtgf6hv8sR5V1YdNnfL5sm4npxX1rzcJzaw0FcumQXnDkQedDCx6F01DXERWlTSIaBllbvxa3EpEPvnaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=KwIwhVaw9S7xln20MvixOM3c6SgaBUflYRJRn3tTsRk=;
+ b=n5bEKxDUa7FjozdSZg1YAk+ZeWVjx4ly5lkaLKEeg/zjEqQUhu/xfmx6mgDA0CdVOrwiXIuNINE15vmqAzN2KC7PrIFCtK9Rnqx742e+0pDsS/oMh96dRfFg308ow6qQDNrDjevIEisio8yuUVUeXVAoA2nVJTVKk5trNd/KOF7VWPdOym8ctutcDUiee79cfvc+CR+SWrJ0V7COfsWHC96jds+R0+lp3DlWhC2qL1qCSjB6pBoIKHcE2YqsPbAFBP7ylDCeDlSQMWej/bcqbC9Jblr0f7WZLdIB1olgUeq8Bi9SgnTGO1NwZYDbSDVNMrNsymEG+/TaEHf1y83O9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=ccs1981.jp; dmarc=pass action=none header.from=ccs1981.jp;
+ dkim=pass header.d=ccs1981.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ccs1981edu.onmicrosoft.com; s=selector2-ccs1981edu-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KwIwhVaw9S7xln20MvixOM3c6SgaBUflYRJRn3tTsRk=;
+ b=fnhnl8MxjI7DEHRrI4Hb2lCuCp3DMofIZdrtelYG2cZmviQLEVOLh26j2Pvr5MpP9REYjbd1CKTI6RLrZoa/G1oq0I2pVZZLFJoUQQ4EcPp5s6m5tvtV6uW2cDVC8xt7yq7cm6sAzi+i5ZthntYWBndFU+UK07JqGNarwdc8/L4=
+Received: from OSZPR01MB7748.jpnprd01.prod.outlook.com (2603:1096:604:1b4::5)
+ by OS3PR01MB7849.jpnprd01.prod.outlook.com (2603:1096:604:178::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4500.16; Mon, 13 Sep
+ 2021 03:40:10 +0000
+Received: from OSZPR01MB7748.jpnprd01.prod.outlook.com
+ ([fe80::28b5:6731:9c3b:d540]) by OSZPR01MB7748.jpnprd01.prod.outlook.com
+ ([fe80::28b5:6731:9c3b:d540%3]) with mapi id 15.20.4500.018; Mon, 13 Sep 2021
+ 03:40:04 +0000
+From: example_endo_03 <example_endo_03@ccs1981.jp>
+To: example_endo_04 <example_endo_04@ccs1981.jp>
+CC: "hujyorom@gmail.com" <hujyorom@gmail.com>
+Subject: johshisut20210913test-01
+Thread-Topic: johshisut20210913test-01
+Thread-Index: AdeoUQnRnSVeJiBAqUG8Enby0NYxfw==
+Date: Mon, 13 Sep 2021 03:40:04 +0000
+Message-ID:
+ <OSZPR01MB77482E88AADDB3804299D8CDD7D99@OSZPR01MB7748.jpnprd01.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-publictraffictype: Email
+authentication-results: ccs1981.jp; dkim=none (message not signed)
+ header.d=none;ccs1981.jp; dmarc=none action=none header.from=ccs1981.jp;
+x-ms-exchange-calendar-series-instance-id:
+ BAAAAIIA4AB0xbcQGoLgCAAAAAA6l8UJUajXAQAAAAAAAAAAEAAAAGVjn0kwpv1BgxEFzL+L/no=
+x-ms-office365-filtering-correlation-id: 5a1e8b11-4dd1-4bf3-11d1-08d976682c8a
+x-ms-traffictypediagnostic: OS3PR01MB7849:MeetingMessage
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs:
+ <OS3PR01MB7849E499916169956FA0C5AFD7D99@OS3PR01MB7849.jpnprd01.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:1728;
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ 3dOctQ1VmJg4L1A95zAYSlP1ZcBfXOo30Vb4l3QhG5IQPz+KlinV8KPyG4QocI74hJhZ2gXJ2n4YyHvXou4M1Borvje33M3u4OruYgtbhT/FmQiQf5NIYRcFfbE6QOC8Tv4EDKl42PcHoWiYZuIV3iIulBtpKmvnx1dySVtuxCAKy7TrUwbQVLE+WAUik7ME/vuDlc0k/01fvKKOuubxuNmNJJw7Zmh4BNPQkj511FgBpg3/dDxGC9Mti2k0LblNB3vQwhG4lq+eNfWSjWoINKm6I8BDCwM7lwXQqEjVsCpLgt6hTE/bfiGrx5ssvZW3kunSuQLS6xxqXHQLVl+3r60cwb0qVgb9ZqUslCwbYi9KajyyOtOtA0WcHgEgU0QNNaKohac3CLrockko87M4RwqVGGNch2wZvu4vqe+Ka4L6N6zUIeeB7yjGnLnb8a7OhW0e13XaaMbPg3KCCRTnyVBvcKo2tnD8uqpkazeVFABttbZJvxH/xWHzb8ARE5DkZLb6yNk7APZxX9rRJgkzlhh1y5lJzzta5/+/Mw1stGst9JbpAPAp2GZvlDfy0Qy2v4IaYf9H16kmmNvbPsRIrNIcgs8MP4mymARQVtJfSWm8cD3Bf5mC45LSfZcMSnCfutH9W+W+bMvtqZK0qzWSm6E0bHZyHtgOrfRe7X01OwlmJNVkXAjK+o6AoRE5tRe2L7kcQXDTj05CclSMq1ZZvtbgxjmV6qcHGhS6MPk+pHkAQhm65vJ6VZEIAhkt5FVwWLoaxEYrvpUUg/eIYZCKrfWiSMDeg93K09OlhbDjgGI=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSZPR01MB7748.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(366004)(6862004)(122000001)(4326008)(66946007)(166002)(8936002)(55016002)(6506007)(9686003)(7696005)(558084003)(508600001)(6636002)(45080400002)(186003)(91956017)(8676002)(26005)(76116006)(86362001)(38100700002)(64756008)(2906002)(52536014)(38070700005)(33656002)(316002)(71200400001)(66446008)(66556008)(66476007)(5660300002);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-2022-jp?B?d3YvUmRNcGZJY3dCT1FyTDVDNFU1aXcxN3grWnVDa2trVDlpZ25JUGZJ?=
+ =?iso-2022-jp?B?OUtiL1hqN2RqNTljK0h0Vm5hUnJIQnNsQ3hKNThWNkFSb09pUnJrQkxN?=
+ =?iso-2022-jp?B?VzdaNC84TjFVbEdOV3RWdi9KbnNnbGhTeHlTZVgya2ltaFlVcloxVTVk?=
+ =?iso-2022-jp?B?M0RYQVlianF3Z1ZFVG5kZGtyWXpMVmtaUEQwenp4UWs3Z3hHeGFiTTRm?=
+ =?iso-2022-jp?B?WTdoeFZaUXU5aUxOa1JaaWZ3dWFxQUdqcEVwR3Jya2gxL0syb2s2NHR2?=
+ =?iso-2022-jp?B?U1llTHNybm1EYmJNT09wa0wrcWJ0SU5zUnc3V1N5U0FJVENma2lPK1Ry?=
+ =?iso-2022-jp?B?SUVRN2NtemVUQzFsUWNPeEtPVS9naW5RWC82TXRhTWVYMWltVHRyQWlD?=
+ =?iso-2022-jp?B?b3c5a1NjT2hJQ3hGRkRIVHVsVXp1cFhiaWorTUpuYlRUc3hlRVROTUpx?=
+ =?iso-2022-jp?B?VTZLSjZTeU1la3FTVzgyQmdZM3pzazdKTzllNXdlRC85ek1CUDcraW5x?=
+ =?iso-2022-jp?B?SDB5Wng3WUd4MUxkZVV5MkZqM0c5TXRQR0VKOWdjSGZ5VlRraWRheWNZ?=
+ =?iso-2022-jp?B?ZFJTSzFuaGtpMm1rajNRNFZDWEJ6Sk9aUWoxemo4RUVqQWpzTXVBUExk?=
+ =?iso-2022-jp?B?MW9zQ1MrTkNhUFJaenRJb0taWmhUMWp2T2Z0Nnc2OFhwNlp0MDY5NlVQ?=
+ =?iso-2022-jp?B?SzlKOUk2TzBkRVVZSGNNZVprWUNQQU55K0pSZGk1OWROWmxmWUwzK1BB?=
+ =?iso-2022-jp?B?MU5MQ1NHSHVrNHh6d2VjZ1NTbFpkVnB5NmdsbTc1dlFCK0E2eHhOUnhP?=
+ =?iso-2022-jp?B?S2M1RkNaZk9wKy9yTS9iMEVCcGVueVZmYjZWbG5HRXdVeU5jUkpNZytH?=
+ =?iso-2022-jp?B?Nk0xc3hiZzdaazNBZ0FLeklXVk9yWG9FVGoxZU9GdnRjRWpvK2ZRbUIr?=
+ =?iso-2022-jp?B?cDdSK0x5bnBBb1pIM2V4ZlFDRERGdE5WM01TQy9DUEx6WXcyZjd5b2Jm?=
+ =?iso-2022-jp?B?SkEzNzNUNWtaeVRva0IvYlJocFNzQVhBYlRseEc1all3dVBlZkdxWUpn?=
+ =?iso-2022-jp?B?bWxSOHE1U0RrbWY3WEVON1RJWHU1M0UrdUlSbG9BL3NTNU1VMHFsMldV?=
+ =?iso-2022-jp?B?OSttcnczWVlPTklOSDg4SUpONFJKZHl2MVlvQk5XUllvRUMrcHNtWHl0?=
+ =?iso-2022-jp?B?TFpQWXluQWtoQ0ZUdUtmUnB3MkZsYTk1Rmh2SWN2TTFOQ0NRQ01pVEIz?=
+ =?iso-2022-jp?B?Z2dabXZnMklHWHNMc1hRdkRVVS9VMkw0MGFIdnZwbHE4VngwNkF1aVZh?=
+ =?iso-2022-jp?B?YVUzdG11RXpMdWJuZEs1WW9UWXFxUThtQ3ZyeFZtQzRPWTE4QnJPaVUx?=
+ =?iso-2022-jp?B?R3Z6bC9PUzZXY3lhejJjNXZxelVWVkkvVVNteXVEbEJYZFVRWityT1Jl?=
+ =?iso-2022-jp?B?R2RsM0lteHFHMjdqYjNKSjVNallnWnl0cjhXREFzdVRsUHZWeTB4T3g5?=
+ =?iso-2022-jp?B?QWllSXlnZnc3dEQzOE0yOW44QzYzSGhWZG9KNGVQd01SSlZwUVdZWEp1?=
+ =?iso-2022-jp?B?WnRiVGVKZ20xUHV1cUk2TWdQU1VnU0g2OHUwZnl0SWUvcEpDWW1EZW5r?=
+ =?iso-2022-jp?B?ejRmVXVMemxPdEdsZDg2Nzl0ZkZIQldSSVRVUjl4ZURIUm9XODVDbEhL?=
+ =?iso-2022-jp?B?cFoxYTlmeDZCcHdJV0tyKzVqKzlCR0UwQWhySmxHVWgxOUo0Y0hyRkdq?=
+ =?iso-2022-jp?B?cGxiKyswa3QvZHVNTTJwalI3V0huRUNSSzdOWVozR3V0Z1hzbERzLzU0?=
+ =?iso-2022-jp?B?K0dNd3pzUU4wbytYdFpDbzFpdS8=?=
+Content-Type: multipart/alternative;
+	boundary="_000_OSZPR01MB77482E88AADDB3804299D8CDD7D99OSZPR01MB7748jpnp_"
+MIME-Version: 1.0
+X-OriginatorOrg: ccs1981.jp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB7748.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a1e8b11-4dd1-4bf3-11d1-08d976682c8a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Sep 2021 03:40:04.3795
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 6829a07c-5784-4af5-bad0-fea6b7fea772
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LEyEE1ZrEgNN4fJ/uSTOxzKMmxRQ2fx3Ov1vRZMtBPR/GCXey8nNii9Kz1kilzDhrSm5w5PL54792GebHv9xSKsM9BQvwLNKm1Dr4N3CUpU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB7849
+
+--_000_OSZPR01MB77482E88AADDB3804299D8CDD7D99OSZPR01MB7748jpnp_
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+___________________________________________________________________________=
+_____
+Microsoft Teams meeting
+=1B$B%3%s%T%e!<%?!<$^$?$O%b%P%$%k=1B(B =1B$B%"%W%j$G;22C$G$-$^$9=1B(B
+=1B$B2q5D$K;22C$9$k$K$O$3$3$r%/%j%C%/$7$F$/$@$5$$=1B(B<https://teams.micros=
+oft.com/l/meetup-join/19%3ameeting_NDlmZDk5YWYtNTI2My00NGE4LWEzZGEtMmM2MGYx=
+ZmU4YmY5%40thread.v2/0?context=3D%7b%22Tid%22%3a%226829a07c-5784-4af5-bad0-=
+fea6b7fea772%22%2c%22Oid%22%3a%22c8081fb7-d0ce-4ffa-81e8-4d3c51f0868f%22%7d=
+>
+[https://www.ccs1981.jp/wp-content/themes/aplan/img/logo.gif]
+=1B$B>\:Y>pJs%X%k%W=1B(B<https://aka.ms/JoinTeamsMeeting> | =1B$B2q5D$N%*%W=
+%7%g%s=1B(B<https://teams.microsoft.com/meetingOptions/?organizerId=3Dc8081=
+fb7-d0ce-4ffa-81e8-4d3c51f0868f&tenantId=3D6829a07c-5784-4af5-bad0-fea6b7fe=
+a772&threadId=3D19_meeting_NDlmZDk5YWYtNTI2My00NGE4LWEzZGEtMmM2MGYxZmU4YmY5=
+@thread.v2&messageId=3D0&language=3Dja-JP>
+___________________________________________________________________________=
+_____
+
+--_000_OSZPR01MB77482E88AADDB3804299D8CDD7D99OSZPR01MB7748jpnp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+</head>
+<body>
+<div><br>
+<br>
+<br>
+<div style=3D"width:100%;height: 20px;"><span style=3D"white-space:nowrap;c=
+olor:#5F5F5F;opacity:.36;">________________________________________________=
+________________________________</span>
+</div>
+<div class=3D"me-email-text" style=3D"color:#252424;font-family:'Segoe UI',=
+'Helvetica Neue',Helvetica,Arial,sans-serif;" lang=3D"ja-JP">
+<div style=3D"margin-top: 24px; margin-bottom: 20px;"><span style=3D"font-s=
+ize: 24px; color:#252424">Microsoft Teams meeting</span>
+</div>
+<div style=3D"margin-bottom: 20px;">
+<div style=3D"margin-top: 0px; margin-bottom: 0px; font-weight: bold"><span=
+ style=3D"font-size: 14px; color:#252424">=1B$B%3%s%T%e!<%?!<$^$?$O%b%P%$%k=
+=1B(B =1B$B%"%W%j$G;22C$G$-$^$9=1B(B</span>
+</div>
+<a class=3D"me-email-headline" style=3D"font-size: 14px;font-family:'Segoe =
+UI Semibold','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;text-de=
+coration: underline;color: #6264a7;" href=3D"https://teams.microsoft.com/l/=
+meetup-join/19%3ameeting_NDlmZDk5YWYtNTI2My00NGE4LWEzZGEtMmM2MGYxZmU4YmY5%4=
+0thread.v2/0?context=3D%7b%22Tid%22%3a%226829a07c-5784-4af5-bad0-fea6b7fea7=
+72%22%2c%22Oid%22%3a%22c8081fb7-d0ce-4ffa-81e8-4d3c51f0868f%22%7d" target=
+=3D"_blank" rel=3D"noreferrer noopener">=1B$B2q5D$K;22C$9$k$K$O$3$3$r%/%j%C=
+%/$7$F$/$@$5$$=1B(B</a>
+</div>
+<div style=3D"font-size: 14px; margin-bottom: 4px;">
+<div><img src=3D"https://www.ccs1981.jp/wp-content/themes/aplan/img/logo.gi=
+f"> </div>
+</div>
+<div style=3D"margin-bottom: 24px;margin-top: 20px;"><a class=3D"me-email-l=
+ink" style=3D"font-size: 14px;text-decoration: underline;color: #6264a7;fon=
+t-family:'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;" target=3D=
+"_blank" href=3D"https://aka.ms/JoinTeamsMeeting" rel=3D"noreferrer noopene=
+r">=1B$B>\:Y>pJs%X%k%W=1B(B</a>
+ | <a class=3D"me-email-link" style=3D"font-size: 14px;text-decoration: und=
+erline;color: #6264a7;font-family:'Segoe UI','Helvetica Neue',Helvetica,Ari=
+al,sans-serif;" target=3D"_blank" href=3D"https://teams.microsoft.com/meeti=
+ngOptions/?organizerId=3Dc8081fb7-d0ce-4ffa-81e8-4d3c51f0868f&amp;tenantId=
+=3D6829a07c-5784-4af5-bad0-fea6b7fea772&amp;threadId=3D19_meeting_NDlmZDk5Y=
+WYtNTI2My00NGE4LWEzZGEtMmM2MGYxZmU4YmY5@thread.v2&amp;messageId=3D0&amp;lan=
+guage=3Dja-JP" rel=3D"noreferrer noopener">
+=1B$B2q5D$N%*%W%7%g%s=1B(B</a> </div>
+</div>
+<div style=3D"font-size: 14px; margin-bottom: 4px;font-family:'Segoe UI','H=
+elvetica Neue',Helvetica,Arial,sans-serif;">
+</div>
+<div style=3D"font-size: 12px;"></div>
+</div>
+<div style=3D"width:100%;height: 20px;"><span style=3D"white-space:nowrap;c=
+olor:#5F5F5F;opacity:.36;">________________________________________________=
+________________________________</span>
+</div>
+<div></div>
+</body>
+</html>
+
+--_000_OSZPR01MB77482E88AADDB3804299D8CDD7D99OSZPR01MB7748jpnp_
+Content-Type: text/calendar; charset="utf-8"; method=REQUEST
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpNRVRIT0Q6UkVRVUVTVA0KUFJPRElEOk1pY3Jvc29mdCBFeGNoYW5n
+ZSBTZXJ2ZXIgMjAxMA0KVkVSU0lPTjoyLjANCkJFR0lOOlZUSU1FWk9ORQ0KVFpJRDpUb2t5byBT
+dGFuZGFyZCBUaW1lDQpCRUdJTjpTVEFOREFSRA0KRFRTVEFSVDoxNjAxMDEwMVQwMDAwMDANClRa
+T0ZGU0VURlJPTTorMDkwMA0KVFpPRkZTRVRUTzorMDkwMA0KRU5EOlNUQU5EQVJEDQpCRUdJTjpE
+QVlMSUdIVA0KRFRTVEFSVDoxNjAxMDEwMVQwMDAwMDANClRaT0ZGU0VURlJPTTorMDkwMA0KVFpP
+RkZTRVRUTzorMDkwMA0KRU5EOkRBWUxJR0hUDQpFTkQ6VlRJTUVaT05FDQpCRUdJTjpWRVZFTlQN
+Ck9SR0FOSVpFUjtDTj1leGFtcGxlX2VuZG9fMDM6bWFpbHRvOmV4YW1wbGVfZW5kb18wM0BjY3Mx
+OTgxLmpwDQpBVFRFTkRFRTtST0xFPVJFUS1QQVJUSUNJUEFOVDtQQVJUU1RBVD1ORUVEUy1BQ1RJ
+T047UlNWUD1UUlVFO0NOPWV4YW1wbGVfZW4NCiBkb18wNDptYWlsdG86ZXhhbXBsZV9lbmRvXzA0
+QGNjczE5ODEuanANCkFUVEVOREVFO1JPTEU9T1BULVBBUlRJQ0lQQU5UO1BBUlRTVEFUPU5FRURT
+LUFDVElPTjtSU1ZQPVRSVUU7Q049aHVqeW9yb21AZw0KIG1haWwuY29tOm1haWx0bzpodWp5b3Jv
+bUBnbWFpbC5jb20NCkRFU0NSSVBUSU9OO0xBTkdVQUdFPWVuLVVTOlxuXG5cbl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXw0KIF9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXG5NaWNyb3NvZnQgVGVhbXMgbWVldGluZ1xu44Kz44Oz44OUDQog44Ol
+44O844K/44O844G+44Gf44Gv44Oi44OQ44Kk44OrIOOCouODl+ODquOBp+WPguWKoOOBp+OBjeOB
+vuOBmVxu5Lya6K2wDQog44Gr5Y+C5Yqg44GZ44KL44Gr44Gv44GT44GT44KS44Kv44Oq44OD44Kv
+44GX44Gm44GP44Gg44GV44GEPGh0dHBzOi8vdGVhbXMNCiAubWljcm9zb2Z0LmNvbS9sL21lZXR1
+cC1qb2luLzE5JTNhbWVldGluZ19ORGxtWkRrNVlXWXROVEkyTXkwME5HRTRMV0V6WkdFdA0KIE1t
+TTJNR1l4Wm1VNFltWTUlNDB0aHJlYWQudjIvMD9jb250ZXh0PSU3YiUyMlRpZCUyMiUzYSUyMjY4
+MjlhMDdjLTU3ODQtNGFmDQogNS1iYWQwLWZlYTZiN2ZlYTc3MiUyMiUyYyUyMk9pZCUyMiUzYSUy
+MmM4MDgxZmI3LWQwY2UtNGZmYS04MWU4LTRkM2M1MWYwODYNCiA4ZiUyMiU3ZD5cbltodHRwczov
+L3d3dy5jY3MxOTgxLmpwL3dwLWNvbnRlbnQvdGhlbWVzL2FwbGFuL2ltZy9sb2dvLmdpZl1cbg0K
+IOips+e0sOaDheWgseODmOODq+ODlzxodHRwczovL2FrYS5tcy9Kb2luVGVhbXNNZWV0aW5nPiB8
+IOS8muitsOOBruOCquODlw0KIOOCt+ODp+ODszxodHRwczovL3RlYW1zLm1pY3Jvc29mdC5jb20v
+bWVldGluZ09wdGlvbnMvP29yZ2FuaXplcklkPWM4MDgxZmI3DQogLWQwY2UtNGZmYS04MWU4LTRk
+M2M1MWYwODY4ZiZ0ZW5hbnRJZD02ODI5YTA3Yy01Nzg0LTRhZjUtYmFkMC1mZWE2YjdmZWE3NzIN
+CiAmdGhyZWFkSWQ9MTlfbWVldGluZ19ORGxtWkRrNVlXWXROVEkyTXkwME5HRTRMV0V6WkdFdE1t
+TTJNR1l4Wm1VNFltWTVAdGhyZQ0KIGFkLnYyJm1lc3NhZ2VJZD0wJmxhbmd1YWdlPWphLUpQPlxu
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fDQogX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19cbg0KVUlEOjA0MDAwMDAwODIwMEUwMDA3NEM1Qjcx
+MDFBODJFMDA4MDAwMDAwMDAzQTk3QzUwOTUxQThENzAxMDAwMDAwMDAwMDAwMDAwDQogMDEwMDAw
+MDAwNjU2MzlGNDkzMEE2RkQ0MTgzMTEwNUNDQkY4QkZFN0ENClNVTU1BUlk7TEFOR1VBR0U9ZW4t
+VVM6am9oc2hpc3V0MjAyMTA5MTN0ZXN0LTAxDQpEVFNUQVJUO1RaSUQ9VG9reW8gU3RhbmRhcmQg
+VGltZToyMDIxMDkxM1QxMzAwMDANCkRURU5EO1RaSUQ9VG9reW8gU3RhbmRhcmQgVGltZToyMDIx
+MDkxM1QxMzMwMDANCkNMQVNTOlBVQkxJQw0KUFJJT1JJVFk6NQ0KRFRTVEFNUDoyMDIxMDkxM1Qw
+MzQwMDRaDQpUUkFOU1A6T1BBUVVFDQpTVEFUVVM6Q09ORklSTUVEDQpTRVFVRU5DRTowDQpMT0NB
+VElPTjtMQU5HVUFHRT1lbi1VUzoNClgtTUlDUk9TT0ZULUNETy1BUFBULVNFUVVFTkNFOjANClgt
+TUlDUk9TT0ZULUNETy1PV05FUkFQUFRJRDoyMTE5Nzg5NjI2DQpYLU1JQ1JPU09GVC1DRE8tQlVT
+WVNUQVRVUzpURU5UQVRJVkUNClgtTUlDUk9TT0ZULUNETy1JTlRFTkRFRFNUQVRVUzpCVVNZDQpY
+LU1JQ1JPU09GVC1DRE8tQUxMREFZRVZFTlQ6RkFMU0UNClgtTUlDUk9TT0ZULUNETy1JTVBPUlRB
+TkNFOjENClgtTUlDUk9TT0ZULUNETy1JTlNUVFlQRTowDQpYLU1JQ1JPU09GVC1PTkxJTkVNRUVU
+SU5HSU5GT1JNQVRJT046eyJPbmxpbmVNZWV0aW5nQ2hhbm5lbElkIjpudWxsXCwiT25saW4NCiBl
+TWVldGluZ1Byb3ZpZGVyIjozfQ0KWC1NSUNST1NPRlQtU0tZUEVURUFNU01FRVRJTkdVUkw6aHR0
+cHM6Ly90ZWFtcy5taWNyb3NvZnQuY29tL2wvbWVldHVwLWpvaW4vDQogMTklM2FtZWV0aW5nX05E
+bG1aRGs1WVdZdE5USTJNeTAwTkdFNExXRXpaR0V0TW1NMk1HWXhabVU0WW1ZNSU0MHRocmVhZC52
+Mi8NCiAwP2NvbnRleHQ9JTdiJTIyVGlkJTIyJTNhJTIyNjgyOWEwN2MtNTc4NC00YWY1LWJhZDAt
+ZmVhNmI3ZmVhNzcyJTIyJTJjJTIyTw0KIGlkJTIyJTNhJTIyYzgwODFmYjctZDBjZS00ZmZhLTgx
+ZTgtNGQzYzUxZjA4NjhmJTIyJTdkDQpYLU1JQ1JPU09GVC1TQ0hFRFVMSU5HU0VSVklDRVVQREFU
+RVVSTDpodHRwczovL2FwaS5zY2hlZHVsZXIudGVhbXMubWljcm9zb2YNCiB0LmNvbS90ZWFtcy82
+ODI5YTA3Yy01Nzg0LTRhZjUtYmFkMC1mZWE2YjdmZWE3NzIvYzgwODFmYjctZDBjZS00ZmZhLTgx
+ZTgtNA0KIGQzYzUxZjA4NjhmLzE5X21lZXRpbmdfTkRsbVpEazVZV1l0TlRJMk15MDBOR0U0TFdF
+elpHRXRNbU0yTUdZeFptVTRZbVk1QHRoDQogcmVhZC52Mi8wDQpYLU1JQ1JPU09GVC1TS1lQRVRF
+QU1TUFJPUEVSVElFUzp7ImNpZCI6IjE5Om1lZXRpbmdfTkRsbVpEazVZV1l0TlRJMk15MDBOR0UN
+CiA0TFdFelpHRXRNbU0yTUdZeFptVTRZbVk1QHRocmVhZC52MiJcLCJyaWQiOjBcLCJtaWQiOjBc
+LCJ1aWQiOm51bGxcLCJwcml2YQ0KIHRlIjp0cnVlXCwidHlwZSI6MH0NClgtTUlDUk9TT0ZULU9O
+TElORU1FRVRJTkdDT05GTElOSzpjb25mOnNpcDpleGFtcGxlX2VuZG9fMDNAY2NzMTk4MS5qcFw7
+Z3J1dQ0KIFw7b3BhcXVlPWFwcDpjb25mOmZvY3VzOmlkOnRlYW1zOjI6MCExOTptZWV0aW5nX05E
+bG1aRGs1WVdZdE5USTJNeTAwTkdFNExXDQogRXpaR0V0TW1NMk1HWXhabVU0WW1ZNS10aHJlYWQu
+djIhYzgwODFmYjdkMGNlNGZmYTgxZTg0ZDNjNTFmMDg2OGYhNjgyOWEwN2MNCiA1Nzg0NGFmNWJh
+ZDBmZWE2YjdmZWE3NzINClgtTUlDUk9TT0ZULURPTk9URk9SV0FSRE1FRVRJTkc6RkFMU0UNClgt
+TUlDUk9TT0ZULURJU0FMTE9XLUNPVU5URVI6RkFMU0UNClgtTUlDUk9TT0ZULUxPQ0FUSU9OUzpb
+XQ0KQkVHSU46VkFMQVJNDQpERVNDUklQVElPTjpSRU1JTkRFUg0KVFJJR0dFUjtSRUxBVEVEPVNU
+QVJUOi1QVDE1TQ0KQUNUSU9OOkRJU1BMQVkNCkVORDpWQUxBUk0NCkVORDpWRVZFTlQNCkVORDpW
+Q0FMRU5EQVINCg==
+
+--_000_OSZPR01MB77482E88AADDB3804299D8CDD7D99OSZPR01MB7748jpnp_--

@@ -1,0 +1,133 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp803657vky;
+        Sat, 6 Mar 2021 18:44:34 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyNa+v7YdQ9Ij+Y8O+DgVXO733ykK8cjaCvqD2uwXoSMRz98L/NIOxg5nZxKu0qZGQkHS3h
+X-Received: by 2002:a5e:9612:: with SMTP id a18mr13822787ioq.13.1615085074627;
+        Sat, 06 Mar 2021 18:44:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615085074; cv=none;
+        d=google.com; s=arc-20160816;
+        b=cIrvbQpeIo88t0HGHcCLZ6yFNog8wk72ezwViXSwxj05p+JGtgEvdvSiO5ltmQW+ep
+         9oXaeyK2+mtqwRa9uRFiHE+CbwBnHKT+Z2noplruvSWtsdwNGWB4Elaf0g4kb8sjczpa
+         /mm7Dbztv9nNbyMOH3qAwSWQop40xUUkY6DevKim/adPbsK2vwC60jakWEWNsJ1l7NCY
+         wRwSasNOS3ZfaJx0VNUhLSTeCa8+NdHRbNpxUA0SDwfOjiOirnGwXiguGZAg5h2Rqxt/
+         jeECYeYkhNxolueyF6pMzMBRLPuY+lm5LBAUgetwnYw5AxDr+WmcLHonTvpYGIm+x5hn
+         mcmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature:dkim-signature;
+        bh=ZylxRZN8H0W57uAayG4Pp3VnX54NKRpMs3DqjzyO+UI=;
+        b=vN3MS0FOZLQyQU4UlQ30v7VEfyMiMg2fq+EUaX+Yi0jrc/0/OTNGIAKRFRLn7qbt0x
+         SJkzJt/oqxhCLcVQjnezFZ159A956mwWDuQENVfTPBNpKyWp+fJDmYCRJ7iQPpWiDCL9
+         bu3scKUemvrLGNrjSBtU6FTjuyu6dTbf/+7R3UesKLlyZpNHQblQBpJmz2EdwuBzZW2C
+         OndCaqAGPAhQccFdGr3ba9OJ7jlwwayOakS3MxjOGkzXxQuu2tTryOcUSPKNPzTeu1fy
+         a2kuMxjspk8kVBnYkFQx4jOfXnKlInRwfR5+mO/BplV1SXe+lX1YDEOII6vxh90dlGlr
+         CgkQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.freee.co.jp header.s=smtpapi header.b="ilmpPh+/";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="jwv/OiiT";
+       spf=pass (google.com: domain of bounces+486331-8a23-hujyorom=gmail.com@email.freee.co.jp designates 208.117.51.245 as permitted sender) smtp.mailfrom="bounces+486331-8a23-hujyorom=gmail.com@email.freee.co.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=freee.co.jp
+Return-Path: <bounces+486331-8a23-hujyorom=gmail.com@email.freee.co.jp>
+Received: from o1.email.freee.co.jp (o1.email.freee.co.jp. [208.117.51.245])
+        by mx.google.com with ESMTPS id o24si6978982jah.41.2021.03.06.18.44.34
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 06 Mar 2021 18:44:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+486331-8a23-hujyorom=gmail.com@email.freee.co.jp designates 208.117.51.245 as permitted sender) client-ip=208.117.51.245;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.freee.co.jp header.s=smtpapi header.b="ilmpPh+/";
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="jwv/OiiT";
+       spf=pass (google.com: domain of bounces+486331-8a23-hujyorom=gmail.com@email.freee.co.jp designates 208.117.51.245 as permitted sender) smtp.mailfrom="bounces+486331-8a23-hujyorom=gmail.com@email.freee.co.jp";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=freee.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=email.freee.co.jp; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding; 
+	s=smtpapi; bh=ZylxRZN8H0W57uAayG4Pp3VnX54NKRpMs3DqjzyO+UI=; b=il
+	mpPh+/n4W0GEigFtllKXgT95wuXsjonbJ52kTNqFodCfE4a53qXlvU2uIDOxXsSM
+	Fj/woNoaryv9ji9usMIxxLaofbPUSd4QJm82jQeODuJ13BQJrXKEYrZxioSSSSRH
+	tfh1pwm7qIjY79xSjfKGhnACFq74dFH3npYNhQVDk=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding:x-feedback-id; 
+	s=smtpapi; bh=ZylxRZN8H0W57uAayG4Pp3VnX54NKRpMs3DqjzyO+UI=; b=jw
+	v/OiiT9L3S1Js8vLMm6TnFychph2B6iIZqkq5Fx4ytw8Vh6LV2IlXVJkJoICUdb1
+	OCd8ZFwrUZHvzRh2J9euRVkSHdrYbb9BYxy+FqjsIB+m7KGrtZQfe9QXGB5YUVRc
+	tN8vrvE0IwqA0eopZiAwi2WXBKUAucCIR34e7PL78=
+Received: by filter2711p1mdw1.sendgrid.net with SMTP id filter2711p1mdw1-14836-60443E11-13
+        2021-03-07 02:44:33.832456323 +0000 UTC m=+315025.868602098
+Received: from ip-10-0-114-51.freee.co.jp (unknown)
+	by geopod-ismtpd-4-0 (SG) with ESMTP id fDRYrBHVS3uPgtfN9n0ouw
+	for <hujyorom@gmail.com>; Sun, 07 Mar 2021 02:44:32.855 +0000 (UTC)
+Received: from localhost.localdomain (localhost [127.0.0.1])
+	by ip-10-0-114-51.freee.co.jp (Postfix) with ESMTP id 33D52FAABE
+	for <hujyorom@gmail.com>; Sun,  7 Mar 2021 11:44:32 +0900 (JST)
+Date: Sun, 07 Mar 2021 02:44:33 +0000 (UTC)
+From: freee@freee.co.jp
+To: hujyorom@gmail.com
+Message-ID: <60443e1032f7c_9a12b2483fa5960812ba@ip-10-0-114-51.mail>
+Subject: =?UTF-8?Q?[freee]?=
+ =?UTF-8?Q?_=E3=83=91=E3=82=B9=E3=83=AF=E3=83=BC=E3=83=89=E3=81=AE=E5=86=8D=E8=A8=AD=E5=AE=9A?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+X-SG-EID: Fp6lE/7LJK1wPu9bx/HoQrxIWk8IcJQz0apvhLRDJVoueoxUhJFFoq2nn7cYNuBGKyUi/rx4ZRCFGI
+ +h8LogiYcP6eQjnpGQ032uqNLVExF6Ah9/dRjQQj1jUJaRG8AxCmyaENTdSoYDdsN3XsmpDNJ7xaRr
+ 7yyVCMasBlHHXtQbTWcOHH1cCyrnpm8MsdMZ
+X-SG-ID: a7KuB539X92NYnSHE6+kuAkGnAYzBYaVpWAVa2XEu/k=
+X-Entity-ID: QU7Mov4+NQBMvjYPo844Dw==
+X-Feedback-ID: 486331:cTP5QoCFQJyKiwl/2ffzP43WN9hXxvFOC/dhdZlfpUw=:EoS/rW1Ldt8hzgkwLY5577nx02SwwPHzR4HUnHwuVQg=:SG
+
+DQo8ZGl2IHN0eWxlPSJiYWNrZ3JvdW5kOiNlY2Y2ZmI7cGFkZGluZzoyMHB4O3dpZHRoOjcwMHB4
+OyI+DQoNCiAgPHA+44OR44K544Ov44O844OJ5aSJ5pu05omL57aa44GN44Gu44GK55Sz6L6844G/
+44GM44GC44KK44G+44GX44Gf44CC5LiL6KiY44Gu44Oq44Oz44Kv44G444Ki44Kv44K744K544GX
+44Gm44CB5omL57aa44GN44KS57aa6KGM44GX44Gm44GP44Gg44GV44GE44CCPC9wPg0KPHA+PGEg
+aHJlZj0iaHR0cDovL2VtYWlsLmZyZWVlLmNvLmpwL2xzL2NsaWNrP3Vwbj1WajktMkZqWmlkdzlo
+VzlEcWpWanh2UkJFbVptVWw3ck93Vy0yRkQ2WDdrNmtvV1lRYUxxVDU0ODZQLTJCV0ozdXdyMENv
+U0RYSTR5YjdPLTJCV0ctMkZ1bFVScFA5SEp6VE1CZGpmRzhVdXFWY0hnSzRlc21iTE1RLTJCaWhP
+N1NpZmRBZlhqcUdqeU5VLTJGbHFhMUxTSEZMUlUwaUloa2ZFZTcweFdDaGZ3Yy0yQml0YVpWVTVh
+S3JlVHBvWFY0Ynhxckgxbnk1eEhqMHp1RnF0al9yaFNOTUZOSVQxcnhkamdPenpObXVVeFRreFhG
+YkV5enBWRTdnWHZVTTFUMTBQaXpRM0p4NWc4eHItMkZ0VnVOUVAtMkZwOENkOWpHcE9HZ3VWQWNx
+SUc4NlBmVzVxdDRBeElMclhCdi0yRkMtMkZGbjJ6UXUydHhaLTJGa2NJNGprTGFvaWxxWXNxLTJC
+Uzd6WHlZZTZsYWtKSEE2aWlMSDlPRDJOTm5ZMHpEdlVrNVduRDdUa084QnVMRTFjWmxsN1VSZGV0
+VWNlYXlVNUtoam50Ujk0eFhzYXU2MHotMkZYcWZzQU1YUXk5ZTNwTWw5U0VJaUt0anpFTm1WWWQt
+MkZLUlBrdWhzcVpZUDhEdCI+44OR44K544Ov44O844OJ44KS5aSJ5pu044GZ44KLPC9hPjwvcD4N
+CjxwPuODquODs+OCr+OBjOihqOekuuOBleOCjOOBquOBhOOAgeOBguOCi+OBhOOBr+OCr+ODquOD
+g+OCr+OBp+OBjeOBquOBhOWgtOWQiOOAgeS4i+iomOOBrlVSTOOCkuODluODqeOCpuOCtuOBruOC
+ouODieODrOOCueashOOBq+OCs+ODlOODvOOBl+OBpuaJi+e2muOBjeOCkue2muihjOOBl+OBpuOB
+j+OBoOOBleOBhOOAgjwvcD4NCjxwPlVSTDogaHR0cHM6Ly9hY2NvdW50cy5zZWN1cmUuZnJlZWUu
+Y28uanAvdXNlcnMvcGFzc3dvcmQvZWRpdD90b2tlbj1Ma3l0cWhKb3h5YWhHZ1FSWm9ERUFqenVM
+UnB2TVlLQTV6c2Fjc1RWcGNLdG15emIzVGJYa3N6RUVfMUo8L3A+DQo8cD7kuIroqJjjga7jg6rj
+g7Pjgq/jga8gMjAyMS0wMy0wNyAxNzo0NDoyOSDjgb7jgafmnInlirnjgafjgZnjgII8L3A+DQo8
+cD7jg5Hjgrnjg6/jg7zjg4nlpInmm7TmiYvntprjgY3jgavouqvjgavopprjgYjjga7jgarjgYTl
+oLTlkIjjga/jgIHjgZPjga7jg6Hjg7zjg6vjga/nhKHoppbjgZfjgabjgY/jgaDjgZXjgYTjgII8
+L3A+DQo8cD7jg6rjg7Pjgq/jgavjgqLjgq/jgrvjgrnjgZfjgabmiYvntprjgY3jgpLlrozkuobj
+gZXjgZvjgarjgYTpmZDjgorjgIHjg5Hjgrnjg6/jg7zjg4njgYzlpInmm7TjgZXjgozjgovjgZPj
+gajjga/jgYLjgorjgb7jgZvjgpPjgII8L3A+DQoNCg0KICA8ZGl2Pg0KICAgIDxwPg0KICAgICAg
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tPGJyPg0KICAg
+ICAg44Kv44Op44Km44OJ5Lya6KiI44K944OV44OIZnJlZWU8YnI+DQogICAgICBodHRwczovL3Nl
+Y3VyZS5mcmVlZS5jby5qcDxicj4NCiAgICAgIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLQ0KICAgIDwvcD4NCiAgPC9kaXY+DQogIDx0YWJsZSBzdHlsZT0i
+d2lkdGg6NzAwcHg7bWFyZ2luOjAgYXV0bztmb250LXdlaWRodDpib2xkZXI7Ij4NCiAgICA8dHI+
+PHRkIHN0eWxlPSJwYWRkaW5nOjNweDttYXJnaW46MTBweCAwIDAiPg0KICAgICAgPGEgaHJlZj0i
+aHR0cDovL2VtYWlsLmZyZWVlLmNvLmpwL2xzL2NsaWNrP3Vwbj0zYWxZNU5jYTk2YVYtMkZKLTJG
+SUU5N1dXVVhrVFlFNWZZZkptVG8yRVZ5MzNESUFMUzgtMkZIZkpIb3FIV1RIT0dYQ29Fem1meV9y
+aFNOTUZOSVQxcnhkamdPenpObXVVeFRreFhGYkV5enBWRTdnWHZVTTFUMTBQaXpRM0p4NWc4eHIt
+MkZ0VnVOUVBLaWpWTy0yRnhRWi0yRnBkNUI5WVF0V0xobFAtMkZTaFlTZTNMam53clNjOGlRcjdE
+Zll0UklRcnpNREVsclRKVkJxbGxha01ZM1BTeEpsa2wxdmtXUzdWdzMxQjZhTkExNEYzdDNhaGZG
+TWtEdWZXM0RqTGVEbTBzSUpMdG5SbGRGN2YyNEdGbW41NkRXY01jakNFV293UDdERU8tMkJnc0RR
+dzJHV1FweWZFa3BxLTJGZXBjNkpyNkxsOHE2cVdtbWJ0ZlN2a05RIiBzdHlsZT0iY29sb3I6IzRh
+N2FiZTsiPmZyZWVlIOOCteODneODvOODiOODh+OCueOCrzwvYT4NCiAgICA8L3RkPjwvdHI+DQog
+IDwvdGFibGU+DQo8L2Rpdj4NCjxpbWcgc3JjPSJodHRwOi8vZW1haWwuZnJlZWUuY28uanAvd2Yv
+b3Blbj91cG49ZE1UNi0yQm9Qd3pzWnJxcmpuWGx5RFpNa1lEc0h3eG1CUkVUZi0yQkpmMmx1WjFw
+ZnYybmpFTUFnRDI5Z0hNVmFieVBTU0J1NjhYWlVORnlCUzlxbkROb3Y5ZkZkeXU4MGV6TDQ1WmZO
+RWc0RTBBRGdtcUZUVWZQSFBlR25ubDJZdUJ6cmdxdmxXM2d0SUNXTEJrbm53QUNuS1pNLTJCSEFu
+MlJrRTB1Mi0yQmhQNDFCdjF3OGQ1TEFkZS0yRmNlRzFhN0NvWktFSkVwUFVYdXRuQndTM0FKaE1N
+WUtQaU9ia1BWMEdlUmhscjFEdWIyWXZYUWl3cmlXa0VodWJDS3dZU0V6UHdYZS0yRnhRWEJHRGVD
+UEFqT3B1aXR3Y3ZTZFEtM0QtM0QiIGFsdD0iIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBib3JkZXI9
+IjAiIHN0eWxlPSJoZWlnaHQ6MXB4ICFpbXBvcnRhbnQ7d2lkdGg6MXB4ICFpbXBvcnRhbnQ7Ym9y
+ZGVyLXdpZHRoOjAgIWltcG9ydGFudDttYXJnaW4tdG9wOjAgIWltcG9ydGFudDttYXJnaW4tYm90
+dG9tOjAgIWltcG9ydGFudDttYXJnaW4tcmlnaHQ6MCAhaW1wb3J0YW50O21hcmdpbi1sZWZ0OjAg
+IWltcG9ydGFudDtwYWRkaW5nLXRvcDowICFpbXBvcnRhbnQ7cGFkZGluZy1ib3R0b206MCAhaW1w
+b3J0YW50O3BhZGRpbmctcmlnaHQ6MCAhaW1wb3J0YW50O3BhZGRpbmctbGVmdDowICFpbXBvcnRh
+bnQ7Ii8+Cg==

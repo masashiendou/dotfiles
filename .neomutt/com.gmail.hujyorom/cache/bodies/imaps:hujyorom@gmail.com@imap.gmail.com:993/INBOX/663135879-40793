@@ -1,0 +1,229 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:23cd:0:0:0:0:0 with SMTP id j196csp2463616vkj;
+        Sun, 17 May 2020 21:22:18 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzuP2pMg1uzd8GZvBn9DyghBuzWssVUxv2RJ+f3QeXVb+b/UqshAgcdPqxVPcVBlSVOZFD4
+X-Received: by 2002:a62:7f03:: with SMTP id a3mr8740794pfd.113.1589775737868;
+        Sun, 17 May 2020 21:22:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1589775737; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Vawyc4rQYXcOmdZdXNUrl3DS94XB5tiMjuxhp2Ba/k1K0QVY7QsDWMhpqlb69Li12i
+         I5Xg4a2nVKnJxfbZY+sfLfyBsILogGaMLh6EMD09CTF34DrWbu/HG5zT4bxgR5U5mpgu
+         EQ4yOh9uVOCekSN42MPosVzXlJL7VayCSruJj+BOSbjV+bLrFGtIFEwm/+bVIkJF//P4
+         F2P68orkfnV4eXZ2eOUJEdf0DaVgQ0iEUQ+UEGRXkksD6snQs2v1vS8QRHnnGh/gRXxs
+         99HJWRQsXNEOos6d+MPHKl3Rk2ykunFjybqNbPfDhxyIbAVP2UHb7ebpcRKb5NuxOQG0
+         jaYA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:mime-version:content-transfer-encoding:subject:in-reply-to
+         :references:message-id:from:date:dkim-signature;
+        bh=zuuiAQSlpLgJBQaVOugoeDZ1POBKTHiNRMCIC3Iq5vM=;
+        b=pRf3aPjFRQKclYIIdLJenTA/WIfduP5KhRzW29/TOeCaP1/u64LUxpWlTpLgLtBOQb
+         2LDu2BsXLfGxZlrBHdmQrHD3OFHV3LRpzTRUYv6yt3MPlvZoDVLj+fztD4JZztBtgJFp
+         yVGJRlwnIzU3pO/0WZYE/TImvSJxGUYOaQPM7CM41dnaWCM8Pov3ZRsrdRYKLH58EZHZ
+         ZBjjGRgotkGmP9TG0WHxMhMpfIlGe0gPiRQYBCCGLXIcWdAktAA54uo2hwQCofmDUaO/
+         dbUWSUwwE2J0bp//wBSsia5xU3CVk1tZTFt2SbnFHzEg4Rt4Ced2lVkTwCcHMyS4ROUz
+         NKxw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@netforest.onmicrosoft.com header.s=selector1-netforest-onmicrosoft-com header.b=qhpZCpjS;
+       arc=pass (i=1 spf=pass spfdomain=isp-support.jp dkim=pass dkdomain=isp-support.jp dmarc=pass fromdomain=isp-support.jp);
+       spf=pass (google.com: domain of staff@isp-support.jp designates 54.65.163.216 as permitted sender) smtp.mailfrom=staff@isp-support.jp
+Return-Path: <staff@isp-support.jp>
+Received: from kabosu.spcloud.jp (kabosu.spcloud.jp. [54.65.163.216])
+        by mx.google.com with ESMTP id v5si6946218pgv.408.2020.05.17.21.22.17
+        for <hujyorom@gmail.com>;
+        Sun, 17 May 2020 21:22:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of staff@isp-support.jp designates 54.65.163.216 as permitted sender) client-ip=54.65.163.216;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@netforest.onmicrosoft.com header.s=selector1-netforest-onmicrosoft-com header.b=qhpZCpjS;
+       arc=pass (i=1 spf=pass spfdomain=isp-support.jp dkim=pass dkdomain=isp-support.jp dmarc=pass fromdomain=isp-support.jp);
+       spf=pass (google.com: domain of staff@isp-support.jp designates 54.65.163.216 as permitted sender) smtp.mailfrom=staff@isp-support.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZJV7awCIPVcJMOM7IfyMLIpgqDaUpVGWsmcfeLNv/dpEr/J6ERcQEddxzdJTSfz8rs5wDshAsHKQyZe9KVNEGrYaxFitg1kQG10FiS+7A2hUQ2nEIkz8QWVnaFyvtbe0ATSTX4A6MZnoUnDhGAquVaiHiRvclRQf0U+lyAeivlEd9ruApGUTbe0PsG2YkHL8+80D8Ex/AinZVpHl0qrKhtAcu8aOO8nJVwYSFNUN1RX24GQ/mViC/lAY6nhBM1b3Df+iEJRvqRiDXEC/y/p31844vBWvNwo1oPmtayt/1+I+PajrlHghyCaIw/53GKT8fuD5yeGCokhzFLwtFXabdA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zuuiAQSlpLgJBQaVOugoeDZ1POBKTHiNRMCIC3Iq5vM=;
+ b=WFSSMeyh6gf4E4NC4SFPg9yweKyZwZ4vrDx4BGq/jTM4GuD4fHoK+j2Db1F7hIBJ/f1Xo0RcuPzPqubzoLaKiE0ULa2sW9e0BE74tOiIYR2ZRSdXP1lma3UbK2H6wKo9TYe4l1PAAHcevwqUWAaNkXSeUlRpRTwfXIkXwdSR4L2s7WPhWSvahRTshu6ZNCMK0Xb5dmonHZuXobkDn5jkpIhrV2Ogwl73aanV8WFdmZ7WyeNB++ReNH3+rrK2njb6d3EGUhby1r0HGo+GGrm162k4lTjLw1vu5hk+TtpqxbBtOEjboItcUsf9v3X6ueDrIVkdOdWN2acBmFxHqIh5+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=isp-support.jp; dmarc=pass action=none
+ header.from=isp-support.jp; dkim=pass header.d=isp-support.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=netforest.onmicrosoft.com; s=selector1-netforest-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zuuiAQSlpLgJBQaVOugoeDZ1POBKTHiNRMCIC3Iq5vM=;
+ b=qhpZCpjStb6a9zPQScGcwOo9FxaVOfYmonIGw6SdWIOMxwqb0hZJSH4RfIItUdKfiKq77COooLUkhBQggR1StkItoUJQq2f9o0xSkzr+7Y/YYuU6blsuO3IQBytSRKzYJ6rwRfci+SI6IJpJJThcnpfRBUOGk4jgXxrRd/kj/DM=
+Authentication-Results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=isp-support.jp;
+Received: from PS2PR03MB3701.apcprd03.prod.outlook.com (2603:1096:300:34::20)
+ by PS2PR03MB3767.apcprd03.prod.outlook.com (2603:1096:300:35::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3021.13; Mon, 18 May
+ 2020 04:21:57 +0000
+Received: from PS2PR03MB3701.apcprd03.prod.outlook.com
+ ([fe80::841d:fb7e:a8d4:deae]) by PS2PR03MB3701.apcprd03.prod.outlook.com
+ ([fe80::841d:fb7e:a8d4:deae%5]) with mapi id 15.20.3021.019; Mon, 18 May 2020
+ 04:21:57 +0000
+Date: Mon, 18 May 2020 13:21:57 +0900
+From: =?ISO-2022-JP?B?IhskQiFKM3QhSyVNJUMlSCVVJSklbCU5JUgbKEIgSVNQIA==?=
+ =?ISO-2022-JP?B?GyRCJTUlXSE8JUglOyVzJT8hPBsoQiI=?= <staff@isp-support.jp>
+Message-ID: <158977571728172500000d7c@nat.cybozu.com>
+References: <5ebdec5913e8a_1df92b1eb42f19c8287821@hibiscus.netforest.co.jp.mail> <20200515115345.pltyjjrnmodurvpr@Kx250>
+In-Reply-To: <20200515115345.pltyjjrnmodurvpr@Kx250>
+Subject: =?ISO-2022-JP?B?W0dhbWluZytdIBskQiQqTGQkJDlnJG8kOyQkJD8kQCQtJF4bKEI=?=
+ =?ISO-2022-JP?B?GyRCJDckPzdvJEskRCQtJF4kNyRGGyhC?=
+X-Mailer: Cybozu MailWise 5.4.7
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TY2PR0101CA0018.apcprd01.prod.exchangelabs.com
+ (2603:1096:404:92::30) To PS2PR03MB3701.apcprd03.prod.outlook.com
+ (2603:1096:300:34::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from nat.cybozu.com (103.79.14.76) by TY2PR0101CA0018.apcprd01.prod.exchangelabs.com (2603:1096:404:92::30) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3000.25 via Frontend Transport; Mon, 18 May 2020 04:21:57 +0000
+X-Mailer: Cybozu MailWise 5.4.7
+X-Originating-IP: [103.79.14.76]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 4354f093-1cf9-44da-ec8f-08d7fae300bb
+X-MS-TrafficTypeDiagnostic: PS2PR03MB3767:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS:
+	<PS2PR03MB37679EF3152501580063539B80B80@PS2PR03MB3767.apcprd03.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2803;
+X-Forefront-PRVS: 04073E895A
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	3EjkDy0h4o3T/he8i6TfX+FaNP5tDx7FRP/7E/UZyT1oqLqDROzHBISstD/em//tip0ejdrmTW/h7TExy1mlRWsbiE0PH+rGQYkeDi30OoCPfoab2un9N9ZM3QgQ5+96O66FbFaFypJqAcH2ZOEorA6x0fpGlZbDMK+rIB+iE6gaUxTO8rmPXnQWZcNvRaZhf29eAu2auBMaizdXpJa3pv+gHFewlD8KduqDGXRyokIwOFxIH/ttMSHupadCI68ME8Ciksi6nEUho7O9DIOlcZA/SvynOUOz94ZUBCXkjkWtIBuXOLPJT/8yhjv+oQGkiEHdNkAE0lm8RBiqecRiIXBIkcwvYzixgv5DOukg9U8ekWjJYUbo2TmqmhVQukdTzQb5mHfDrmtpx03Hv6UzVYISAtt7pvKhn3BlLuQTp1zGLpWo9KeFWFz70gY6KdS0K3gZqTBbJW5lIJdUHIL2ag==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS2PR03MB3701.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(136003)(396003)(376002)(39840400004)(346002)(366004)(66476007)(66556008)(66946007)(86362001)(316002)(5660300002)(55016002)(9686003)(508600001)(224303003)(8936002)(2906002)(6916009)(186003)(26005)(52116002)(16526019)(956004)(6506007)(7696005)(18906007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData:
+	JKi7+uIYMC3cQpgsaAEehNH4/Lk2vwvIP7o1dNZMxky2hBptP2P+B2TsS+gHwjq9qGFHq09zZQfR9v9H2F5OmCgzG2ITarMAoFa22+sInOE2pFgGdzzIwH7z6Q4dSKEmAityuVJHoIvyyWE8DwFjHryk95RBuMbaNMqjtcYYcQZynGP9aByKnYj21bljs+QEA85FjKH/f2LlyMuqVxQ22JriBoUAgyqUKhzidIfFzGhQgo9PFGrTD+5MgZ0WtAswbnVp/XXG7bxBPUJMqItJ8Q89cq4YU+Fqv1/UvtSDI+sG0UxYb7nvjBAvDFtkVq6sOZQo1EttlDv4XvPEGttIRNmw0XC4i0cIdMfwsTA+IRfx7tQtQ35M/KAm132RVyWRnTbhTfi3f9+XoC58qQeiPczMbx4j1U+PT/US2kHqY+SfB1lfizKzEbI3Mo72j+JTVIZBp3Has0wPK82SEvOi9gDi0FDSjcaZ4ColKlw1pms=
+X-OriginatorOrg: isp-support.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4354f093-1cf9-44da-ec8f-08d7fae300bb
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2020 04:21:57.3898
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 94dbc9c6-ee7d-49a6-bd15-b1bfbbbd1c2c
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: E7FxvqyVXNSRqYJbhKm5B01WcWm1Z+PmiyhFmLFKhTcQS4kQmJSqThfVQLDvlxanCOGVlCc8IDyFF+mAVFmaLQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PS2PR03MB3767
+X-CC-Mail-RelayStamp:CC/Mail Relayed
+X-CC-Mail-RelayStamp: CC/Mail EncServer Relayed
+To: hujyorom@gmail.com
+
+遠藤 將司 様
+
+平素は弊社サービスをご愛顧いただき、誠にありがとうございます。
+株式会社ネットフォレスト ISPサポートセンターの植田と申します。
+
+
+お問い合わせの件ですが、該当メールは今月の請求内容をご案内するものであ
+り、ご指摘箇所はその明細の一項目となります。
+
+5月9日にお支払い済みとおっしゃる請求が下記の総額10,956円のものを指して
+いらっしゃるようでしたら、ご認識の通り4月度の未払い分もご精算済みとな
+ります。
+
+上記以外で弊社からご請求したものはございませんので、その他にお支払いを
+されたということでしたら弊社では詳細情報を持ち合わせておりませんので、
+ご案内できかねます。カード会社等とのやり取りかと存じますので、詳細はカ
+ード会社にもご確認いただければ幸いです。
+
+※ 弊社からお客様ご指定のクレジットカードへの請求ができなかった場合は
+　 4月3日にお送りしたメールのような内容でのお知らせとなります。
+
+
+その他ご不明な点等ございましたら、お気軽にお問い合わせくださいませ。
+引き続き弊社サービスをご愛顧くださいますよう、宜しくお願い申し上げま
+す。
+
+> 株式会社ネットフォレスト
+> ISPサポートセンター 担当者様
+> 
+> 遠藤です
+> 
+> 利用料金の連絡、ありがとうございます。
+> 
+> >・2020年4月 請求分（未払い）×1： 5,478円
+> とありますが、未払分は5/9に支払い済みとの認識ですが、いかがでしょう
+> か。
+> お手数ですが、ご確認お願いします。
+> 
+> よろしくお願いします。
+> 
+> 以上
+> 
+> On Fri, May 15, 2020 at 10:11:53AM +0900, payment@isp-support.jp 
+> wrote:
+> > 遠藤 將司 様
+> > (会員番号：G1907002)
+> > 
+> > 平素は Gaming+ をご利用頂きまして誠にありがとうございます。
+> > 株式会社ネットフォレスト ISPサポートセンターでございます。
+> > 
+> > お客様のご契約内容に基づき、今月の弊社サービスご利用料金およびお支
+> 払い方
+> > 法について以下の通りお知らせいたしますので、ご確認いただければ幸い
+> です。
+> > 
+> > ----+----+----+----+----+----+----+----+----+----+----+----+
+> > 
+> > ○サービスご利用料金
+> > 　　税込 10,956円
+> > 　　　内訳：
+> > 　　　　・v6プラス コース×1： 3,278円
+> > 　　　　・グローバル IP オプション×1： 2,200円
+> > 　　　　・2020年4月 請求分（未払い）×1： 5,478円
+> > 
+> > ○お支払い方法
+> > 　　お客様ご指定のクレジットカード払い
+> > 
+> > ○お支払い日
+> > 　　クレジットカード会社毎に異なります。
+> > 　　※ 弊社からは今月上旬にクレジットカード会社宛に請求済みです。
+> > 
+> > ----+----+----+----+----+----+----+----+----+----+----+----+
+> > 
+> > 
+> > 【ご注意ください】
+> > 
+> > 【お支払い方法などについて】
+> > お支払い方法の変更や詳細確認をご希望の場合は弊社までご連絡くださ
+> い。
+> > 
+> > 注：お支払い方法の変更をご希望の場合、お手続きが完了した後の請求か
+> ら適用
+> > 　　となります。本メールでお知らせしている請求のお支払い方法は変更
+> できま
+> > 　　せんので予めご了承ください。
+> > 
+> > 【お問い合わせについて】
+> > 本メールの内容に関するお問い合わせの際には、件名を変更せず、本文を
+> 引用し
+> > た上で返信メールにてご連絡いただければ幸いです。
+> > 
+> > 
+> > ┌───────────────────────┐
+> > 　株式会社ネットフォレスト ISPサポートセンター
+> > 　　　TEL   : 0800-800-6244 (フリーダイヤル)
+> > 　　　(平日10:00-12:00、13:00-17:00)
+> > 
+> > 　　　FAX   : 045-548-5502
+> > 　　　MAIL  : staff@isp-support.jp
+> > └───────────────────────┘
+> 
+> -- 
+> 遠藤 將司 ( Masashi Endo )
+> e-Mail <hujyorom@gmail.com>
+> github <https://github.com/masashiendou>
+
+
+┌───────────────────────┐
+　株式会社ネットフォレスト ISPサポートセンター
+　　　TEL   : 0800-800-6244 (フリーダイヤル)
+　　　(平日10:00-12:00、13:00-17:00)
+
+　　　FAX   : 045-548-5502
+　　　MAIL  : staff@isp-support.jp
+└───────────────────────┘
+
+

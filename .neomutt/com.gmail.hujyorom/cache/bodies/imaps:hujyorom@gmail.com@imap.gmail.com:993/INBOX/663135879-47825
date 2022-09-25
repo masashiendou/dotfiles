@@ -1,0 +1,396 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp1471244vky;
+        Thu, 18 Feb 2021 17:32:25 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJy28eCdp3Kl0/dQHR+ZvTIju1+sccIe2k5C9NM9jfY9xoRFgT7GYzqEiqyL2w5Ckn7wNEGp
+X-Received: by 2002:a92:940d:: with SMTP id c13mr1931055ili.120.1613698345714;
+        Thu, 18 Feb 2021 17:32:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613698345; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hNrH/AHCJ10h8JAL32FqHuh5hMkDodNAj5mRE+Y2l1TMlqybwwkNOMdZ3Vyu8LSti1
+         Idwdp64r608oILVRmdeRn9WKho8XMp0ufP0mgu/tdeTcveeC3DiNJltvmYLCTeh9M9Lq
+         eOpnbFfZTyDf1mdCdzPHcr9QrRRS6CNRS8bQT6XbyXuUe6dxDsqY8l8h+yieV9a0ZV8Z
+         5Tcp3uEUntQpXXsULOKbo8DoMHSOsv37IETon5ABt8dMZGsmtJ51dNrc6NjXMXLyV/J/
+         bEd3rW7tkDGOGxD+oXOuEI7oPxpsad+I/gNDp6M5hMUjDJFIUEW/Jae0xKIaEW9Qj3jE
+         CsaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:from:to:message-id:date:dkim-signature
+         :dkim-signature;
+        bh=f+8IGjllYe0dGPW0Ao1TCyah2w5g43xzF6qAdTNtteg=;
+        b=cPTER/T7FMMIk2/YDT6wJIsZuE2uefrDSTBNTx1/kXqqVtEZccVUlcP33kf7endDM9
+         MVOwKK6GkJY5vJTy2r+rVyFZK4WhBKYrzXiVXaZyzRnqx3GkmJ8G7AS2mq+MypZyNr6y
+         H5TJ7DsxYKQJ6bTE1gH17NIFAcIkQVMP4PSD8VQAnhp2bBpGsDrME7adpWSI/qrh7Dc9
+         GBWrvrYiqc0pFlj8JiB1PbMBxt0FzD8sOjQGkennwiXdWlHXsspD87rRxjfmcKtz03wp
+         cxOstxmSv6qLkK7Pzi7fkxLGYuZO1KJfQATHkZy6ZJboH6AVwsEZcd9R9ll/VrFEJBs1
+         WK5A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mailgun.patreon.com header.s=krs header.b=ROyq0FrQ;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=lh2vH9o1;
+       spf=pass (google.com: domain of bounce+519610.e05498-hujyorom=gmail.com@mailgun.patreon.com designates 159.135.225.213 as permitted sender) smtp.mailfrom="bounce+519610.e05498-hujyorom=gmail.com@mailgun.patreon.com"
+Return-Path: <bounce+519610.e05498-hujyorom=gmail.com@mailgun.patreon.com>
+Received: from m225-213.mailgun.net (m225-213.mailgun.net. [159.135.225.213])
+        by mx.google.com with UTF8SMTPS id n1si6341595ili.111.2021.02.18.17.32.24
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Feb 2021 17:32:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+519610.e05498-hujyorom=gmail.com@mailgun.patreon.com designates 159.135.225.213 as permitted sender) client-ip=159.135.225.213;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mailgun.patreon.com header.s=krs header.b=ROyq0FrQ;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=lh2vH9o1;
+       spf=pass (google.com: domain of bounce+519610.e05498-hujyorom=gmail.com@mailgun.patreon.com designates 159.135.225.213 as permitted sender) smtp.mailfrom="bounce+519610.e05498-hujyorom=gmail.com@mailgun.patreon.com"
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.patreon.com;
+ q=dns/txt; s=krs; t=1613698345; h=Content-Type: Mime-Version: Subject:
+ From: To: Message-Id: Date: X-Feedback-Id;
+ bh=f+8IGjllYe0dGPW0Ao1TCyah2w5g43xzF6qAdTNtteg=; b=ROyq0FrQjcJSyqX+/SiHI0yENNT5EWzR3r+mLWla9e18iSUezUE0/cvKoSXkpzP5QW4zZ4A+
+ cpAPFmsXit/Ei90V+ryQmLRF4i8XzYxAJFpmKga0KaLXsloM7PFe+uzPzZkB6kIx6v8EZuRk
+ yncTyBsKMnhCQwZX4Rf1aDQvwSc=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1613698345; h=Content-Type: Mime-Version: Subject: From: To:
+ Message-Id: Date: X-Feedback-Id;
+ bh=f+8IGjllYe0dGPW0Ao1TCyah2w5g43xzF6qAdTNtteg=; b=lh2vH9o1CT2AgQAuyMbMpdTwLfjHKtwypCoPXaw+JwBxBeWt3z7UqxTtFdpciO7puPiiS1pj
+ 3LDfbCIkNGOFBB4KxQQDftuwEC9jAhm1fPyiRxk9BP8cp5Dr7I8NafjjUj6fbrNqeacYutTC
+ lAZzd9DsDHR6wv8V4fzt19NPWQw=
+X-Feedback-Id: 5b8f05ca4f41fe0001aec40e:mailgun
+X-Mailgun-Sending-Ip: 159.135.225.213
+X-Mailgun-Sid: WyIwYjcyOSIsICJodWp5b3JvbUBnbWFpbC5jb20iLCAiZTA1NDk4Il0=
+Received: by luna.mailgun.net with HTTP; Fri, 19 Feb 2021 01:32:21 +0000
+Date: Fri, 19 Feb 2021 01:32:21 +0000
+Message-Id: <20210219013221.1.E81B730A839B2DF3@mailgun.patreon.com>
+X-Mailgun-Variables: {"batch_id": "c0bcb977-61c1-4f55-be4f-0ab11c1afce1",
+ "template_name": "verifyemail", "task_id":
+ "97dedd82-8383-4db6-8803-7d5a8e2a5778"}
+X-Patreon-Uuid: 97dedd82-8383-4db6-8803-7d5a8e2a5778
+X-Mailgun-Rewrite-Sender-Header: false
+To: MasashiEndo <hujyorom@gmail.com>
+From: Patreon <no-reply@patreon.com>
+Subject: Patreon Email Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="e6027d11ccc14b7db095c322715c1c85"
+
+--e6027d11ccc14b7db095c322715c1c85
+Content-Type: text/plain; charset="utf-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+Request Email Confirmation
+
+Let's make sure this email is active. Please click on the button below to
+validate your email address and confirm that you are the owner of this acco=
+unt.
+
+Confirm Email [https://email.mailgun.patreon.com/c/eJxNkMtqwzAURL_G3slIunIk=
+LbTIy9BCSxdtKd0YPa5iJ7GdOkpC_r5KV4VZDMMc7iMYpLXQqkz2fGj7YLQMGILiRIECIoJbEKU=
+oEBlqq5DbWkpV9oZTzrI0ZcA5q1i1VWwlgS4V6BXfNFAIOtj-uLuM1cmmGaex8tNQJhxOR5uwHe=
+2A5opzH-_4KJZH06V0OhewLHiTdbvd_pM58dMY-3kooEnTAccCNmR__fl-bffbrxfNmqe1gsP8g=
+Z_vzyMgwtuynE132d-nOfOC7h5z_rboTJRKa-68zAfooIXWPmaHHBfIPIrS2eS7x0M8dd5pKcmC=
+eUZErGviUERCrWM5sdEj-wXLSWQJ] We love hearing from you!
+Have any questions? Please check out our help center
+[https://email.mailgun.patreon.com/c/eJxNT8tuxCAM_JpwI7KBBDhw2FW7v7ECDJu0eS=
+khlfbvS3qqNLKleXhkcgk6ZQ0r_vh-juSspkRkBDfSSK4o9NwYkFxT500SvtPasNEJEFhhAaUQ2=
+GL7afCuJdyMtHfx8ZCNgtmP0-tc2s2XPa1LG9eZlTRvky_pufg5uZ-0j_mdLiOb3FDKdjTy1ohH=
+xXFu27qX_-nKDrGOtPDzqJvtbji_3uteJQWv68xfyeCUFYhWhgBdFtaT0r7XlA0RUo4ALPgSh-v=
+fCCEGqzXvMSJXuet4SCpz8AEr43NM-As8yllp].
+
+Patreon [https://email.mailgun.patreon.com/c/eJxVj8tuwyAURL_G7LCACwYWLBK1-Y=
+3oApfYrV9ySK38fe3uKs3qaM5IkwMJo71jFZ_f9yEHbzPl7BR34IDrHDvunABus0FHCo21jg1BC=
+SWPeCFBKdnK9tPJqwVxceCv6uMGjRYTDuPjNbcr1o2WuU3LxCpN64iV7jNOFH5oG8qbziIbQ1_r=
+-mzg0qjbkX3f_5lb6F9f72VbpmP6cSp_uA-CSBXo0OvO-khgpQbphDCdSYaKYhFr6s9vScQUvbW=
+8k0lyXYzhkXThAqM8CJZE8hdEIVJw]=C2=B7 Twitter [https://email.mailgun.patreon=
+=2Ecom/c/eJwtj8tuwyAURL_G7LCAC-ayYJGozW9=
+EPC6xW7_kkFr5-9pVpVkdzRlpsidhtENWw_P7=
+PmTvbKacUXEEBK5z7DiiAG6zCUgqGGuRDV4JJY84IUEp2cr2E-XVgrgguKv6uEGjxRSG8fGa2zX=
+UjZa5TcvEKk3rGCrd5zCR_6FtKG86i2z0fa3rs4FLo25H9n1v6z7USttpHuR_h22-f329l-2AWj=
+xO-W-698XoUhyA0jqXDrFLDlBidM6mYkrHYqipP18mEVN01vJOJsl1MYZH0oWLEOVBQkkkfwHsP=
+VZ5]=C2=B7=20
+Facebook [https://email.mailgun.patreon.com/c/eJwtj0uOwyAQRE8TdljQgIEFi0SZX=
+CNqoIk98U8OGSu3H3s0Uq2e6pVUOZAw2jtW8fW89zl4mylnB9wpp7jOseXOCcVtNugI0FjrWB9A=
+gNzjhVQAspHNl5MXq8TZKX-B602dtBixHx7vqVmwrjRPTZpHVmlcBqx0n3Ck8ENrXz50FNkQulq=
+X10mdT3Dbs21bUzBRnOfnoe7of4itoXt_f-Z1h1o8Dvtvuwu2BYCSpcZYTFG6eG1jpKypiDaRYx=
+Fr6o6bScQUvbW8lUlyXYzhkXThAqPcCZZE8hdaLFdq] Patreon Inc. 600 Townsend Stree=
+t,
+Suite 500 West, San Francisco, 94103 CA
+
+This email was sent to hujyorom@gmail.com [hujyorom@gmail.com].=20
+You can change your preferences for Patreon emails under settings
+[https://email.mailgun.patreon.com/c/eJxNj8luwzAMRL_GvsnQakoHHRK0-Y1AC2W78Q=
+ZbiZG_j9xeCsxh8MgBh9EiVdLoOrv9cR-iNRAxRs2JFloQGX1LtKaCQFROI3cKQNeD5ZSzIkOZ4=
+Jw1rPnW7AqCXrQwV_51E5WkkxvG7jk3q8sbLnMTlqnOOK2jy3if3YT2hduQ3ngu1qPtc173Slwq=
+fis6juN_spAdcx7mbi_2L7LZ_vnzXrYylbQ70e-N3spoTIIWmaJJSEA0IQmvMLWlLCDU3uXQn-8=
+G6oM3AKRlgRGZlCIeZSLUeVaISwHZBzRXWcg].
+--e6027d11ccc14b7db095c322715c1c85
+Content-Type: text/html; charset="utf-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" style=3D"font-fami=
+ly: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;=
+">
+
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <title>Email from Patreon</title>
+    <style data-styled=3D"true" data-styled-version=3D"5.1.0">
+      @media (max-width:32rem) {
+        #component-playground .containerInner .fullWidthMobile,
+        .reactWrapper .containerInner .fullWidthMobile {
+          padding-left: 0;
+          padding-right: 0;
+          overflow-x: hidden;
+        }
+      }
+    </style>
+  </head>
+
+  <body style=3D"min-width: 320px; background-color: #FFFFFF; width: 100%; =
+margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%;">
+    <table width=3D"100%" height=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" align=3D"left" valign=3D"top" style=3D"border-collapse: col=
+lapse; border-spacing: 0;">
+      <tbody>
+        <tr>
+          <td align=3D"center" valign=3D"top" style=3D"padding: 0;">
+            <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"border-collapse: collapse; border-spacing: 0; backgroun=
+d-color: #FFFFFF; text-align: center;" border=3D"0" valign=3D"top" bgcolor=
+=3D"#FFFFFF">
+              <tbody>
+                <tr>
+                  <td style=3D"padding: 0;">
+                    <div class=3D"sc-fznxsB jMVwxZ" style=3D"box-sizing: bo=
+rder-box; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transi=
+tion: all 300ms cubic-bezier(0.19,1,0.22,1); padding-top: 3rem; padding-rig=
+ht: 3rem; padding-bottom: 3rem; padding-left: 3rem; margin-top: 0rem; margi=
+n-right: 0rem; margin-bottom: 0rem; margin-left: 0rem;">
+                      <img src=3D"https://c5.patreon.com/external/logo/rebr=
+andLogoWordmarkNavy@2x.png" alt=3D"Patreon trademark" width=3D"20" class=3D=
+"sc-qYIQh ichdZT" style=3D"border: 0; width: 10rem;">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style=3D"padding: 0;">
+                    <div class=3D"sc-fznxsB xQYeV" style=3D"box-sizing: bor=
+der-box; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transit=
+ion: all 300ms cubic-bezier(0.19,1,0.22,1); padding-top: 0rem; padding-righ=
+t: 1rem; padding-bottom: 0rem; padding-left: 1rem; margin-top: 0rem; margin=
+-right: 0rem; margin-bottom: 0rem; margin-left: 0rem;"><span color=3D"dark"=
+ class=3D"sc-AxiKw jXhkHr" style=3D"color: #241E12; font-family: aktiv-grot=
+esk,sans-serif; margin: 0; position: relative; -webkit-transition: all 300m=
+s cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0.=
+22,1); font-weight: 400; font-size: 1rem; line-height: 1.5;"><div overflow=
+=3D"hidden" class=3D"sc-fzoXWK czrgYH" style=3D"border-top: 1px solid #E5E3=
+DD; border-bottom: 1px solid #E5E3DD; border-left: 1px solid #E5E3DD; borde=
+r-right: 1px solid #E5E3DD; border-radius: 4px; box-shadow: none; backgroun=
+d-color: #FFFFFF; overflow: hidden;"><div class=3D"sc-fznxsB hjVxaV" style=
+=3D"box-sizing: border-box; -webkit-transition: all 300ms cubic-bezier(0.19=
+,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0.22,1); padding-top:=
+ 2rem; padding-right: 2rem; padding-bottom: 2rem; padding-left: 2rem; margi=
+n-top: 0rem; margin-right: 0rem; margin-bottom: 0rem; margin-left: 0rem;"><=
+p color=3D"gray2" class=3D"sc-AxhCb dXQPkU" style=3D"color: #706C64; font-f=
+amily: aktiv-grotesk,sans-serif; margin: 0; position: relative; -webkit-tra=
+nsition: all 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic=
+-bezier(0.19,1,0.22,1); text-align: left; font-weight: 400; font-size: 1.31=
+25rem; line-height: 1.25;">Request Email Confirmation</p><div class=3D"sc-f=
+znxsB kKJFke" style=3D"box-sizing: border-box; -webkit-transition: all 300m=
+s cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0.=
+22,1); padding-top: 1rem; padding-right: 0rem; padding-bottom: 2rem; paddin=
+g-left: 0rem; margin-top: 0rem; margin-right: 0rem; margin-bottom: 0rem; ma=
+rgin-left: 0rem;"><p color=3D"dark" class=3D"sc-AxhCb cfybbU" style=3D"colo=
+r: #241E12; font-family: aktiv-grotesk,sans-serif; position: relative; -web=
+kit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300m=
+s cubic-bezier(0.19,1,0.22,1); text-align: left; font-weight: 400; margin: =
+0.5rem 0rem; font-size: 1rem; line-height: 1.5;">Let&#x27;s make sure this =
+email is active. Please click on the button below to validate your email ad=
+dress and confirm that you are the owner of this account.</p></div><div cla=
+ss=3D"sc-fznxsB lnmhOp" style=3D"box-sizing: border-box; -webkit-transition=
+: all 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier=
+(0.19,1,0.22,1); padding-top: 0rem; padding-right: 0rem; padding-bottom: 0r=
+em; padding-left: 0rem; margin-top: 0rem; margin-right: 0rem; margin-bottom=
+: 0rem; margin-left: 0rem;"><a class=3D"sc-fzoNJl dhwXYT" color=3D"primary"=
+ tabindex=3D"0" type=3D"button" href=3D"https://email.mailgun.patreon.com/c=
+/eJxNkMtqwzAURL_G3slIunIkLbTIy9BCSxdtKd0YPa5iJ7GdOkpC_r5KV4VZDMMc7iMYpLXQqk=
+z2fGj7YLQMGILiRIECIoJbEKUoEBlqq5DbWkpV9oZTzrI0ZcA5q1i1VWwlgS4V6BXfNFAIOtj-u=
+LuM1cmmGaex8tNQJhxOR5uwHe2A5opzH-_4KJZH06V0OhewLHiTdbvd_pM58dMY-3kooEnTAccC=
+NmR__fl-bffbrxfNmqe1gsP8gZ_vzyMgwtuynE132d-nOfOC7h5z_rboTJRKa-68zAfooIXWPma=
+HHBfIPIrS2eS7x0M8dd5pKcmCeUZErGviUERCrWM5sdEj-wXLSWQJ" role=3D"button" styl=
+e=3D"-webkit-align-items: center; -webkit-box-align: center; -ms-flex-align=
+: center; align-items: center; -webkit-backface-visibility: hidden; backfac=
+e-visibility: hidden; background-color: #FF424D; border-radius: 9999px; bor=
+der: 1px solid #FF424D; box-sizing: border-box; cursor: pointer; display: -=
+webkit-inline-box; display: -webkit-inline-flex; display: -ms-inline-flexbo=
+x; display: inline-flex; font-weight: 500; height: unset; -webkit-box-pack:=
+ center; -webkit-justify-content: center; -ms-flex-pack: center; justify-co=
+ntent: center; padding: 0.78125rem 1.5rem; position: relative; pointer-even=
+ts: unset; text-align: center; -webkit-text-decoration: none; text-decorati=
+on: none; text-transform: none; -webkit-transition: all 300ms cubic-bezier(=
+0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0.22,1); -webkit-=
+user-select: none; -moz-user-select: none; -ms-user-select: none; user-sele=
+ct: none; white-space: unset; width: unset; color: #FFFFFF; font-size: 1rem=
+;"><div tabindex=3D"-1" class=3D"sc-fzqNqU cUXfOO" style=3D"position: absol=
+ute; width: 100%; height: 100%; top: 0; left: 0; z-index: 2000; -webkit-fle=
+x-direction: column; -ms-flex-direction: column; flex-direction: column; -w=
+ebkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: cen=
+ter; justify-content: center; -webkit-align-items: center; -webkit-box-alig=
+n: center; -ms-flex-align: center; align-items: center; display: none;"><sv=
+g aria-label=3D"Loading" viewbox=3D"0 0 64 64" class=3D"sc-fznJRM hRqKEv" s=
+tyle=3D"margin-left: auto; margin-right: auto; -webkit-animation: cJiLXh 1.=
+116s linear infinite; animation: cJiLXh 1.116s linear infinite; display: bl=
+ock; padding: 1.5px; height: 1.5rem; width: 1.5rem; overflow: visible;"><ci=
+rcle cx=3D"32" cy=3D"32" r=3D"32" class=3D"sc-fznWqX GoVHY" style=3D"fill: =
+none; stroke: transparent; stroke-width: 8;"/><circle color=3D"light" cx=3D=
+"32" cy=3D"32" r=3D"32" stroke-linecap=3D"round" class=3D"sc-fzoiQi cESdjF"=
+ style=3D"-webkit-animation: fnezX 1.8s cubic-bezier(0.445,0.05,0.55,0.95) =
+infinite; animation: fnezX 1.8s cubic-bezier(0.445,0.05,0.55,0.95) infinite=
+; fill: none; stroke: #FFFFFF; stroke-dasharray: 180; -webkit-transform-ori=
+gin: center; -ms-transform-origin: center; transform-origin: center; stroke=
+-width: 8;"/></svg></div><div class=3D"sc-fzqARJ gIblMu" style=3D"-webkit-a=
+lign-items: center; -webkit-box-align: center; -ms-flex-align: center; alig=
+n-items: center; display: -webkit-box; display: -webkit-flex; display: -ms-=
+flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: =
+center; -ms-flex-pack: center; justify-content: center; visibility: visible=
+;">Confirm Email</div></a></div></div></div></span></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style=3D"padding: 0;">
+                    <div class=3D"sc-fznxsB jMVwxZ" style=3D"box-sizing: bo=
+rder-box; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transi=
+tion: all 300ms cubic-bezier(0.19,1,0.22,1); padding-top: 3rem; padding-rig=
+ht: 3rem; padding-bottom: 3rem; padding-left: 3rem; margin-top: 0rem; margi=
+n-right: 0rem; margin-bottom: 0rem; margin-left: 0rem;"><span color=3D"dark=
+" class=3D"sc-AxiKw jXhkHr" style=3D"color: #241E12; font-family: aktiv-gro=
+tesk,sans-serif; margin: 0; position: relative; -webkit-transition: all 300=
+ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0=
+=2E22,1); font-weight: 400; font-size: 1=
+rem; line-height: 1.5;"><div class=3D=
+"sc-fznxsB liEJWS" style=3D"box-sizing: border-box; -webkit-transition: all=
+ 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19=
+,1,0.22,1); padding-top: 0rem; padding-right: 0rem; padding-bottom: 3rem; p=
+adding-left: 0rem; margin-top: 0rem; margin-right: 0rem; margin-bottom: 0re=
+m; margin-left: 0rem;"><img src=3D"https://c5.patreon.com/external/logo/reb=
+randLogoIconMark@2x.png" alt=3D"Patreon trademark" width=3D"8" height=3D"8"=
+ class=3D"sc-qYIQh OTMux" style=3D"border: 0; width: 4rem; height: 4rem;"><=
+/div><div class=3D"sc-fznxsB cjsgT" style=3D"box-sizing: border-box; -webki=
+t-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms =
+cubic-bezier(0.19,1,0.22,1); padding-top: 0rem; padding-right: 0rem; paddin=
+g-bottom: 1.5rem; padding-left: 0rem; margin-top: 0rem; margin-right: 0rem;=
+ margin-bottom: 0rem; margin-left: 0rem;"><p color=3D"gray2" class=3D"sc-Ax=
+hCb igmqba" style=3D"color: #706C64; font-family: aktiv-grotesk,sans-serif;=
+ position: relative; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22=
+,1); transition: all 300ms cubic-bezier(0.19,1,0.22,1); font-weight: 400; m=
+argin: 0.5rem 0rem; font-size: 1rem; line-height: 1.5;">We love hearing fro=
+m you!<br>Have any questions? Please check out our <a href=3D"https://email=
+=2Emailgun.patreon.com/c/eJxNT8tuxCAM_Jp=
+wI7KBBDhw2FW7v7ECDJu0eSkhlfbvS3qqNLKl=
+eXhkcgk6ZQ0r_vh-juSspkRkBDfSSK4o9NwYkFxT500SvtPasNEJEFhhAaUQ2GL7afCuJdyMtHf=
+x8ZCNgtmP0-tc2s2XPa1LG9eZlTRvky_pufg5uZ-0j_mdLiOb3FDKdjTy1ohHxXFu27qX_-nKDr=
+GOtPDzqJvtbji_3uteJQWv68xfyeCUFYhWhgBdFtaT0r7XlA0RUo4ALPgSh-vfCCEGqzXvMSJXu=
+et4SCpz8AEr43NM-As8yllp" class=3D"sc-fzocqA fualml" style=3D"background-col=
+or: transparent; border-radius: 4px; color: #FF424D; cursor: pointer; displ=
+ay: inline-block; font-weight: 400; max-width: 100%; overflow: hidden; -web=
+kit-text-decoration-skip: ink; text-decoration-skip: ink; text-overflow: el=
+lipsis; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transiti=
+on: all 300ms cubic-bezier(0.19,1,0.22,1); vertical-align: bottom; -webkit-=
+text-decoration: underline; text-decoration: underline; font-size: 1rem; li=
+ne-height: 1.5;">help center</a>.</p></div><div class=3D"sc-fznxsB liEJWS" =
+style=3D"box-sizing: border-box; -webkit-transition: all 300ms cubic-bezier=
+(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0.22,1); padding=
+-top: 0rem; padding-right: 0rem; padding-bottom: 3rem; padding-left: 0rem; =
+margin-top: 0rem; margin-right: 0rem; margin-bottom: 0rem; margin-left: 0re=
+m;"><a href=3D"https://email.mailgun.patreon.com/c/eJxVj8tuwyAURL_G7LCACwYW=
+LBK1-Y3oApfYrV9ySK38fe3uKs3qaM5IkwMJo71jFZ_f9yEHbzPl7BR34IDrHDvunABus0FHCo2=
+1jg1BCSWPeCFBKdnK9tPJqwVxceCv6uMGjRYTDuPjNbcr1o2WuU3LxCpN64iV7jNOFH5oG8qbzi=
+IbQ1_r-mzg0qjbkX3f_5lb6F9f72VbpmP6cSp_uA-CSBXo0OvO-khgpQbphDCdSYaKYhFr6s9vS=
+cQUvbW8k0lyXYzhkXThAqM8CJZE8hdEIVJw" class=3D"sc-fzocqA fualml" style=3D"ba=
+ckground-color: transparent; border-radius: 4px; color: #FF424D; cursor: po=
+inter; display: inline-block; font-weight: 400; max-width: 100%; overflow: =
+hidden; -webkit-text-decoration-skip: ink; text-decoration-skip: ink; text-=
+overflow: ellipsis; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,=
+1); transition: all 300ms cubic-bezier(0.19,1,0.22,1); vertical-align: bott=
+om; -webkit-text-decoration: underline; text-decoration: underline; font-si=
+ze: 1rem; line-height: 1.5;">Patreon</a><span style=3D"margin-left:1em;marg=
+in-right:1em">=C2=B7</span>
+                      <a
+                        href=3D"https://email.mailgun.patreon.com/c/eJwtj8t=
+uwyAURL_G7LCAC-ayYJGozW9EPC6xW7_kkFr5-9pVpVkdzRlpsidhtENWw_P7PmTvbKacUXEEBK=
+5z7DiiAG6zCUgqGGuRDV4JJY84IUEp2cr2E-XVgrgguKv6uEGjxRSG8fGa2zXUjZa5TcvEKk3rG=
+Crd5zCR_6FtKG86i2z0fa3rs4FLo25H9n1v6z7USttpHuR_h22-f329l-2AWjxO-W-698XoUhyA=
+0jqXDrFLDlBidM6mYkrHYqipP18mEVN01vJOJsl1MYZH0oWLEOVBQkkkfwHsPVZ5" class=3D"=
+sc-fzocqA fualml" style=3D"background-color: transparent; border-radius: 4p=
+x; color: #FF424D; cursor: pointer; display: inline-block; font-weight: 400=
+; max-width: 100%; overflow: hidden; -webkit-text-decoration-skip: ink; tex=
+t-decoration-skip: ink; text-overflow: ellipsis; -webkit-transition: all 30=
+0ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,=
+0.22,1); vertical-align: bottom; -webkit-text-decoration: underline; text-d=
+ecoration: underline; font-size: 1rem; line-height: 1.5;">Twitter</a><span =
+style=3D"margin-left:1em;margin-right:1em">=C2=B7</span>
+                        <a href=3D"https://email.mailgun.patreon.com/c/eJwt=
+j0uOwyAQRE8TdljQgIEFi0SZXCNqoIk98U8OGSu3H3s0Uq2e6pVUOZAw2jtW8fW89zl4mylnB9w=
+pp7jOseXOCcVtNugI0FjrWB9AgNzjhVQAspHNl5MXq8TZKX-B602dtBixHx7vqVmwrjRPTZpHVm=
+lcBqx0n3Ck8ENrXz50FNkQulqX10mdT3Dbs21bUzBRnOfnoe7of4itoXt_f-Z1h1o8Dvtvuwu2B=
+YCSpcZYTFG6eG1jpKypiDaRYxFr6o6bScQUvbW8lUlyXYzhkXThAqPcCZZE8hdaLFdq" class=
+=3D"sc-fzocqA fualml" style=3D"background-color: transparent; border-radius=
+: 4px; color: #FF424D; cursor: pointer; display: inline-block; font-weight:=
+ 400; max-width: 100%; overflow: hidden; -webkit-text-decoration-skip: ink;=
+ text-decoration-skip: ink; text-overflow: ellipsis; -webkit-transition: al=
+l 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.1=
+9,1,0.22,1); vertical-align: bottom; -webkit-text-decoration: underline; te=
+xt-decoration: underline; font-size: 1rem; line-height: 1.5;">Facebook</a>
+                    </div>
+                    <p color=3D"gray2" class=3D"sc-AxhCb hxMgcW" style=3D"c=
+olor: #706C64; font-family: aktiv-grotesk,sans-serif; margin: 0; position: =
+relative; -webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transi=
+tion: all 300ms cubic-bezier(0.19,1,0.22,1); font-weight: 400; font-size: 1=
+rem; line-height: 1.5;">Patreon Inc. 600 Townsend Street, Suite 500 West, S=
+an Francisco, 94103 CA</p>
+                    <p color=3D"gray2" class=3D"sc-AxhCb igmqba" style=3D"c=
+olor: #706C64; font-family: aktiv-grotesk,sans-serif; position: relative; -=
+webkit-transition: all 300ms cubic-bezier(0.19,1,0.22,1); transition: all 3=
+00ms cubic-bezier(0.19,1,0.22,1); font-weight: 400; margin: 0.5rem 0rem; fo=
+nt-size: 1rem; line-height: 1.5;">This email was sent to
+                      <a href=3D"mailto:hujyorom@gmail.com" class=3D"sc-fzo=
+cqA fualml" style=3D"background-color: transparent; border-radius: 4px; col=
+or: #FF424D; cursor: pointer; display: inline-block; font-weight: 400; max-=
+width: 100%; overflow: hidden; -webkit-text-decoration-skip: ink; text-deco=
+ration-skip: ink; text-overflow: ellipsis; -webkit-transition: all 300ms cu=
+bic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.19,1,0.22,1=
+); vertical-align: bottom; -webkit-text-decoration: underline; text-decorat=
+ion: underline; font-size: 1rem; line-height: 1.5;">hujyorom@gmail.com</a>.
+                      <br>You can change your preferences for Patreon email=
+s under
+                      <a href=3D"https://email.mailgun.patreon.com/c/eJxNj8=
+luwzAMRL_GvsnQakoHHRK0-Y1AC2W78QZbiZG_j9xeCsxh8MgBh9EiVdLoOrv9cR-iNRAxRs2JF=
+loQGX1LtKaCQFROI3cKQNeD5ZSzIkOZ4Jw1rPnW7AqCXrQwV_51E5WkkxvG7jk3q8sbLnMTlqnO=
+OK2jy3if3YT2hduQ3ngu1qPtc173Slwqfis6juN_spAdcx7mbi_2L7LZ_vnzXrYylbQ70e-N3sp=
+oTIIWmaJJSEA0IQmvMLWlLCDU3uXQn-8G6oM3AKRlgRGZlCIeZSLUeVaISwHZBzRXWcg" class=
+=3D"sc-fzocqA fualml" style=3D"background-color: transparent; border-radius=
+: 4px; color: #FF424D; cursor: pointer; display: inline-block; font-weight:=
+ 400; max-width: 100%; overflow: hidden; -webkit-text-decoration-skip: ink;=
+ text-decoration-skip: ink; text-overflow: ellipsis; -webkit-transition: al=
+l 300ms cubic-bezier(0.19,1,0.22,1); transition: all 300ms cubic-bezier(0.1=
+9,1,0.22,1); vertical-align: bottom; -webkit-text-decoration: underline; te=
+xt-decoration: underline; font-size: 1rem; line-height: 1.5;">settings</a>.=
+</p>
+                    </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <img width=3D"1px" height=3D"1px" alt=3D"" src=3D"https://email.mailgun.p=
+atreon.com/o/eJwdjktuwzAMBU9T7WRQH5vUQosGTa8RUBIVu4ntwFEK5Pa1C7zV4A0wJQr0Pp=
+Bq_LxdphIDFimFrCZHTvuSBk0ETmPpmcRyj0hqihas2RfAOGtNZ7ozmRM6-CQXTvbr2314mHm6X=
+19L9-C2ybp0eZ1Vk_lx5yaXhWeJv7JN9S3HUW1xfP28122dd_V6oH9hjAycLQqVQcBjBQ6DDy6j=
+yaHuUagStzwe7RlSTgFRDyYb7Wvf6yS-auBkdsI1i_kDUUFIZQ"></body>
+
+</html>
+--e6027d11ccc14b7db095c322715c1c85--

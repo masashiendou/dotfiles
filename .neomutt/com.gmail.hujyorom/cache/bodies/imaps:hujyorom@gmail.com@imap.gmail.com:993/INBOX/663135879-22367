@@ -1,0 +1,109 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a6b:e44:0:0:0:0:0 with SMTP id 65-v6csp7034268ioo;
+        Sun, 20 May 2018 15:36:37 -0700 (PDT)
+X-Received: by 2002:a6b:2583:: with SMTP id l125-v6mr19699747iol.151.1526855797149;
+        Sun, 20 May 2018 15:36:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1526855797; cv=none;
+        d=google.com; s=arc-20160816;
+        b=WLlDfU1lBSbcjkUmwtmxM/OtTDgy8u+W0DM8Ll3pSW5s5QCGVYTpaiyrSDeTVn6Rrf
+         lOU7iSJXp8I9xkAyI83D7GqK1RQGRxoK8oCunP/eDx3wFFOzK5WYNmgyYZDR7eAJg16r
+         qtg+54x08tcbnduXz6jNgfUVwsXfbTgsvz/MhkhAGvdaSf9l2TuSAmghCyG/q0++4hSU
+         cWh8sHcdF675L9FvmQWk/Wx+PyJW2PcdFJxsq8c8TA2WHujPsAgw6gYRKBPKGY1L72FS
+         efF8YqLY3v1VYr/0JhGfcg06BJtldrbWkOoBfATA1+YP2xqiHz4dDlpL97fUldK/jN8t
+         AdeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:from:subject
+         :to:dkim-signature:arc-authentication-results;
+        bh=ynmtI6b4hxn0Hat/34VSR0XfUMM3OKyawT/YOxEzi3M=;
+        b=kT79YjBOa3ptEro4Snw+x9whTkRy5/jsCjQFnkIc8MO1DLknQFH0Al4B62tPR6k5wc
+         qVqvlgdiTws58cLQ0ZmNHBjHzAUScE+CBJRiL52oVH9tDckrS2GtGP2fyq6sGGHHwbac
+         aHacQJ4jT2Woi91mdKjPFT9UN9iT7lofiLM48Eh6KV0okyeDfm9dt0Rfw3LlRFJWaZlR
+         oLihZhb3pAR/McQS0ccIej5Kx9cBOHLSYpwn7KF+CWO7UtZmyFpnGaJ+xCbbEIz8a/+j
+         n/wlxAmjN9rdqlwR443b+VIB3plRJT1I/cu8V+xHC00XfHfm4X26vzPykyyUhS8GQVfU
+         X+yw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@looop-denki-com.20150623.gappssmtp.com header.s=20150623 header.b=pz/dG3Oi;
+       spf=pass (google.com: domain of apache@looop-denki.com designates 209.85.220.97 as permitted sender) smtp.mailfrom=apache@looop-denki.com
+Return-Path: <apache@looop-denki.com>
+Received: from mail-sor-f97.google.com (mail-sor-f97.google.com. [209.85.220.97])
+        by mx.google.com with SMTPS id r26-v6sor2490035ioh.38.2018.05.20.15.36.37
+        for <hujyorom@gmail.com>
+        (Google Transport Security);
+        Sun, 20 May 2018 15:36:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of apache@looop-denki.com designates 209.85.220.97 as permitted sender) client-ip=209.85.220.97;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@looop-denki-com.20150623.gappssmtp.com header.s=20150623 header.b=pz/dG3Oi;
+       spf=pass (google.com: domain of apache@looop-denki.com designates 209.85.220.97 as permitted sender) smtp.mailfrom=apache@looop-denki.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=looop-denki-com.20150623.gappssmtp.com; s=20150623;
+        h=to:subject:from:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=ynmtI6b4hxn0Hat/34VSR0XfUMM3OKyawT/YOxEzi3M=;
+        b=pz/dG3OiPMbEl8N8SX1d3jGQHe1yhgtrcCIOD6JeXAoDZ9IstE5zwwKLUraSDlEkAe
+         ubdwVPGjs/Ta0kRo4lEfYreuJf9LJ7v/hBFkMaasuKKK0ZgpDJCLJAZKN+UDo1YB0hBT
+         tNy+WHMSyVvE41liV5kh00YzIbbQpAgKbjGU3CUWvAuwGT39ngG63t/JWoI25CUrBuB+
+         jyBnxfq9ToCtFd6oB7YlCscRjws2bgYE4idjZ0SNewUC3/pgPvvJW2xb77NrGJGf9y/J
+         qCWCsuUbuj1doA888AsKrU01bdD3HrIF9TgA74/wnvrFKYBVRk6qujm3eUk7fSjkhBTm
+         fb7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:to:subject:from:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=ynmtI6b4hxn0Hat/34VSR0XfUMM3OKyawT/YOxEzi3M=;
+        b=UvzHtWcPW5FYOtJu9y4xVU0tILgODBrg57zRtBCkP3z5p9j1jIuPoATm6yC3/+R6Gx
+         PG7sTjAmHxZB9+R98clTp3kia6az/h1FzbfxwfSQ8PfL+Qpjm4lzKsm+BZ3X+hpkkPim
+         LNlamRhETPewcJPsMFJRdjtwWc9TvvJ8orKn9kRx8l5WBtQj+uk/+vHoVzO207z24Fpv
+         Qekp/B9kRc8oYJAFGxq/1EEmQIvpM2Jcf0k6avAMCH98j7E9Z5TP2uFGvzJr8ZSOHQfG
+         TiyE7fAFqPP39ZTR/qWvG01nLGMYerhn3W4D1FQDEC2FkMh/iZ17wjH1Fof5rdgR3fvL
+         6i4Q==
+X-Gm-Message-State: ALKqPwf8Jldc46lsxE1CFYiKdBMKLDdj2XwuO6DFIJwN8/5ZZfp3qdM4
+	b2dKIgkYu0exp+wulJtuP2Vpxd+O8r3ON8TWoj4g2xhDJiIugA==
+X-Google-Smtp-Source: AB8JxZr/MfsZ+01HwmGZErj9krdIuCHQBrShxPJr+8IJESCvVgrP5qjKmSFmlG4xf7O7VEBmXztPpf2a3e7n
+X-Received: by 2002:a6b:a784:: with SMTP id q126-v6mr19742702ioe.98.1526855797017;
+        Sun, 20 May 2018 15:36:37 -0700 (PDT)
+Return-Path: <apache@looop-denki.com>
+Received: from web02 ([210.152.138.162])
+        by smtp-relay.gmail.com with ESMTPS id i73-v6sm4927381itb.3.2018.05.20.15.36.36
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 20 May 2018 15:36:37 -0700 (PDT)
+X-Relaying-Domain: looop-denki.com
+Received: by web02 (Postfix, from userid 48)
+	id 00B601BF63E; Mon, 21 May 2018 07:36:34 +0900 (JST)
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIVobKEJMb29vcBskQiRHJHMkLSFbJCo/PTl+JF8lYSE8JWsbKEI=?= =?ISO-2022-JP?B?GyRCJSIlSSVsJTkkTiQ0M05HJxsoQg==?=
+X-PHP-Originating-Script: 500:MailTransport.php
+From: admin@looop-denki.com
+Date: Mon, 21 May 2018 07:36:34 +0900
+Message-ID: <8d5074c4476048ac8a8e5696d9ca468a@looop-denki.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+遠藤將司様
+
+この度はLooopでんきに申込いただきまして、誠にありがとうございます。
+お申し込みいただきましたメールアドレスのご確認のため、以下URLをクリックください。
+
+申込番号：Looop030000000118895
+----
+URL：https://looop-denki.com/low-v/mailAuthenticate/29275fa01a8321d8c6d6026eac1840c2c202761a
+有効期限：2018年5月24日 07時
+
+■情報変更のお手続きにお心あたりのない場合
+メールアドレスご確認は本メールの認証URLをクリックされませんと、完了いたしません。
+情報変更にお心当たりのない場合、下記のコンタクトセンターへお問合せください。
+
+----------------------------------------
+電気も、自然派でいこう
+株式会社Looop
+　http://looop.co.jp/
+　〒113-0033　東京都文京区本郷四丁目1番4号
+
+Looopでんき
+　http://looop-denki.com/
+
+Looopでんき　コンタクトセンター
+　0120-707-454（365日　9：00〜20：00）
+----------------------------------------
+

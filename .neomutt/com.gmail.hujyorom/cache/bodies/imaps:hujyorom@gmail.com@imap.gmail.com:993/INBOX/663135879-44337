@@ -1,0 +1,975 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp3027074vkl;
+        Sun, 18 Oct 2020 14:27:38 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJy6oGkUNPxslsUPunQ8EJW0RojC4aj07s/y28tBzmv7UhAtgPZGKUwy0EEMS1oq/Gl3gVGQ
+X-Received: by 2002:a17:902:8493:b029:d2:42a6:238 with SMTP id c19-20020a1709028493b02900d242a60238mr13923125plo.4.1603056457941;
+        Sun, 18 Oct 2020 14:27:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603056457; cv=none;
+        d=google.com; s=arc-20160816;
+        b=uwtm3pqOmkvuf4qwtTfDTxlwGSweLSm+P+OllBoSq1K9nFMQGQV8jkEgUnktfThgJh
+         TrhvWC08a8Ry9CyDkyeY721ZbKluC+7u4TuSpYFA9JAVE9ZNPL/sPI+s5/bXxRVIvbIM
+         s0WEKqkjQSq8+rhln+Pq/diJrGDuPPqgPlXDwAGKM8TKCwaqZLHAgrcadsFI7OcSrDox
+         TI8sK3xUa7kYaelnjQT5XijIYnKN5VAZULdQp6m6+M3YlgvnSX/E8fOPmCvpUqPKwQ4c
+         D9gOePI+S5iA8T3tH4LvEWXgxheukG0C+qRUlaZoUwliVVC+bnmGlBmCfnwW6rtGgTUi
+         Wu7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:reply-to:from:date
+         :dkim-signature;
+        bh=zU847iiqgxcg2mmROTTDBItBeALipC7/qFOdGeerqCs=;
+        b=w2ssFi0ALGhOpQUnOyZg9UFw2Stiwyov7t6Ld0Cymo/ixqUynPG5yeNXu0jaSUbu6d
+         WcbBlbURtGzPFxpZHQqwg5njL8yTTRUKBEANTbl6/nVvfOdjSshdbV74IDXyDqirVNhK
+         6p8Pcoi9DnAF1WvT0BRCcIJ3LBS5D9pU/k3tn3OwUaz/tnS0+tJb+wCmzP8fS90MkAZw
+         woGKDFFygYyM0ZetrMijg5HQxT3/IYbjXxLeZg4c1TkBOYe1AwooNJknrUC7Gs0r0QxG
+         q+4DwZv2EvWn9dSI+4Jyq/PVesfVQefVOhDVMXxku3ITYLLjEba7/1OZYgJM8bSB8MCQ
+         FgMQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@rakuten.co.jp header.s=mfw0012014080 header.b=q+yqn29k;
+       spf=pass (google.com: domain of order@rakuten.co.jp designates 202.72.58.132 as permitted sender) smtp.mailfrom=order@rakuten.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=rakuten.co.jp
+Return-Path: <order@rakuten.co.jp>
+Received: from rakuten.co.jp (mat58-132.smtp.rakuten.co.jp. [202.72.58.132])
+        by mx.google.com with ESMTPS id r2si9189203pjz.129.2020.10.18.14.27.37
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 18 Oct 2020 14:27:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of order@rakuten.co.jp designates 202.72.58.132 as permitted sender) client-ip=202.72.58.132;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@rakuten.co.jp header.s=mfw0012014080 header.b=q+yqn29k;
+       spf=pass (google.com: domain of order@rakuten.co.jp designates 202.72.58.132 as permitted sender) smtp.mailfrom=order@rakuten.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=rakuten.co.jp
+Received: from mat.rakuten.co.jp (mat305z.prod.jp.local [100.71.56.42])
+	by mxmatorder205z.prod.jp.local (Rakuten MGw 1.3.7) with ESMTP id 4CDtJm2gGzz8sWN
+	for <hujyorom@gmail.com>; Mon, 19 Oct 2020 06:27:36 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rakuten.co.jp;
+	s=mfw0012014080; t=1603056456;
+	bh=zU847iiqgxcg2mmROTTDBItBeALipC7/qFOdGeerqCs=;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:
+	 Content-Type;
+	b=q+yqn29k2K5FJkHZfUxcyWp1+uWo1EFv3g2RvSjccxW39OzCtiZcm+vnC1H1MV+NV
+	 4OZl6qIcFOQWxYK0ydbWsDp7S47T+My2QXpklNFyLWVXfydyKXnUPh0chFN36q2B9l
+	 tpRCs3lTxR8lhvBnyJcp0YdEm/bzcu0PajOkaQxM=
+Received: from rakuten.co.jp (matqorder202z.prod.jp.local [100.71.57.74])
+	by mat305z.prod.jp.local (Switch-3.3.4/Switch-3.3.4) with ESMTP id 09ILRaGe021324
+	for <hujyorom@gmail.com>; Mon, 19 Oct 2020 06:27:36 +0900
+Date: Mon, 19 Oct 2020 06:27:36 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCM1pFNztUPmwbKEI=?= <order@rakuten.co.jp>
+Reply-To: hujyorom@gmail.com, cat-land_2@shop.rakuten.co.jp
+To: hujyorom@gmail.com
+Message-ID: <202010190627.09ILRaGe021324@mat305z.rakuten.co.jp>
+Subject: =?iso-2022-jp?B?GyRCIVozWkU3O1Q+bCFbQ21KOEZiTUYkNBsoQg==?=
+ =?iso-2022-jp?B?GyRCM05HJyFKPCtGMEdbPy4lYSE8JWshSxsoQg==?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1261062_433759800.1603056456007"
+X-Rams-Source: 100.71.57.74
+X-Rams-Id: 212B0276A8293BE20C1ECF9277913436FC7171C3
+
+------=_Part_1261062_433759800.1603056456007
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+
+---------------------------------------------------------------------
+本メールはお客様のご注文情報が楽天市場のサーバに到達した時点で送信
+される、自動配信メールです。ショップによる注文の確認
+をもって売買契約成立となります。
+---------------------------------------------------------------------
+
+
+
+この度は楽天市場内のショップ「キャットランド」を
+ご利用いただきまして、誠にありがとうございます。
+
+---------------------------------------------------------------------
+
+[ショップ名]   キャットランド
+==========
+[送付先]   遠藤 將司 (エンドウ マサシ) 様
+           〒054-0022 北海道勇払郡むかわ町花園2-45 神野アパート28号
+           (TEL) 080-8164-5426
+[商品]
+【200円offクーポン対象！】猫 キャリー ペットキャリー 飛行機 ドライブペットキャリー Mサイズ (12kg未満) PDPC-600 猫 小型犬 キャリー ハウス プラスチック製 ハードキャリー キャリーバッグ おでかけ 通院 ペット用品(228416)
+カラー:カラー
+カラー:オレンジ：228416
+当店では、お取り置きのご対応は出来かねます。:了承しました。
+現在、お届け日時のご指定はお受付出来かねております:了承しました
+価格  5,680(円) x 1(個) = 5,680(円) ※10%税込
+獲得ポイント56
+*********************************************************************
+送料計      0(円) 
+お支払い金額     5,680(円)
+---------------------------------------------------------------------
+今回のお買い物で獲得するポイント　56
+---------------------------------------------------------------------
+
+[受注番号] 248288-20201019-06961709
+[日時]     2020-10-19 06:27:33
+[注文者]   遠藤 將司 (エンドウ マサシ) 様
+           〒101-0031 東京都千代田区東神田3-1-7 couri003 302号
+           (TEL) 050-3690-9966
+
+[お支払い方法] クレジットカード 一括払い
+[ポイント利用] なし
+[配送方法] 宅配便
+[配送日時指定]
+
+[備考]
+ご住所変更をご希望の方は※備考へ記載して下さい。領収書はお客様ご自身で発行となります。商品発送後メールにてご案内させて頂きますので備考欄へのご入力は不要です。
+
+
+---------------------------------------------------------------------
+
+■　購入履歴
+https://order.my.rakuten.co.jp/?page=myorder&act=detail_view&shop_id=248288&order_number=248288-20201019-06961709&scid=me_ich_conf_07
+
+■　消費税額の算出方法についてはこちら…
+楽天市場　　https://ichiba.faq.rakuten.net/detail/000011147
+
+お客様のお取引先は以下ショップとなりますので、お支払い以外に関するご不明な点や、ご注文内容に誤りがある場合は、直接ショップ「キャットランド」までお問い合わせください。
+
+=====================================================================
+■ ショップ名 ： キャットランド
+■ ショップURL： https://www.rakuten.co.jp/cat-land/?scid=me_ich_conf_02
+■ 電話   ： 03-6706-4521
+■ 問い合わせフォーム: https://ask.step.rakuten.co.jp/inquiry-form/?on=248288-20201019-06961709&mh=325bf992b7cf9000899da13b78c9d935e5066c59466a3eaa3bd03d91c7c684ba&ht=0627&ms=202
+=====================================================================
+
+---------------------------------------------------------------------
+＊楽天会員の場合、キャンペーン特典ポイントが本メール記載の獲得ポイントとは別に計算、付与される場合があります。
+＊会員登録またはログインせずにお買い物された場合はポイントが付きません｡
+＊お客様都合の返品等により楽天市場から返金が発生する場合は、振込手数料はお客様負担となります。
+---------------------------------------------------------------------
+ お支払いに関するご質問は、楽天市場までお問い合わせ下さい。
+＊本ご注文に心あたりが無い場合には、大変お手数をおかけしますが、上記ショップならびに楽天市場までお問い合わせください。
+＊このメールに返信いただいてもお答えできません。
+
+その他、楽天市場の各サービスに関してはこちらまでお問い合わせ下さい。
+https://ichiba.faq.rakuten.net/?scid=me_ich_conf_01
+
+
+────────楽天市場　・　お支払いに関するご質問はこちら──────────
+■問い合わせフォーム（24時間年中無休）
+https://ichiba.faq.rakuten.net/form/summary-inquiry
+■電話： 050-5838-4333 （9:00-18:00 年中無休）
+■チャット（24時間年中無休）
+https://ichiba.faq.rakuten.net/livechat/chat_launch
+■個人情報保護方針
+https://privacy.rakuten.co.jp/
+
+
+------=_Part_1261062_433759800.1603056456007
+Content-Type: text/html; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-2022-jp">
+<title> 【楽天市場】 </title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,  user-scalable=no">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Order",
+  "merchant": {
+    "@type": "Organization",
+    "name": "Rakuten.co.jp"
+  },
+  "orderNumber": "248288-20201019-06961709",
+  "url": "https://order.my.rakuten.co.jp/?page=myorder&act=detail_view&shop_id=248288&order_number=248288-20201019-06961709&_mpt=101&_mpe=248288-20201019-06961709&scid=me_ich_conf_order_gmail",
+  "orderStatus": "http://schema.org/OrderProcessing",
+  "priceCurrency": "JPY",
+  "price": "5680",
+  "acceptedOffer": [
+      {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Product",
+        "name": "【200円offクーポン対象！】猫 キャリー ペットキャリー 飛行機 ドライブペットキャリー Mサイズ (12kg未満) PDPC-600 猫 小型犬 キャリー ハウス プラスチック製 ハードキャリー キャリーバッグ おでかけ 通院 ペット用品",
+        "url": "https://item.rakuten.co.jp/cat-land/228235?scid=me_ich_conf_order_gmail_item&_mpt=101&_mpe=248288-20201019-06961709",
+        "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/cat-land/cabinet/05305489/07295270/imgrc0079211776.jpg?_ex=64x64"
+      },
+      "price": "5680",
+      "priceCurrency": "JPY",
+      "eligibleQuantity": {
+        "@type": "QuantitativeValue",
+        "value": "1"
+      }
+    }  
+  ]
+}
+</script>
+</head>
+<body bgcolor="#ffffff" style="margin: 0; padding: 0;font-family:sans-serif; -webkit-text-size-adjust: none;">
+<img src="https://rakuten.112.2o7.net/b/ss/rakutenichibamailprod/1/H.22.1/248288-20201019-06961709?AQB=1&pccr=true&g=none&pageName=117_20201019&c1=117_20201019_248288-20201019-06961709&ch=117&c11=248288-20201019-06961709&AQE=1" width="1" height="1">
+<img src="https://r.rakuten.co.jp/0Qn6LE5RF7bzgcN4Bt7PNeT4.gif?mpe=248288-20201019-06961709" width="1" height="1">
+<!--[if IE]>
+  <table width="700" align="center" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+  <table width="700" align="center" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td>
+<![endif]-->
+<div align="center" style="text-align:center;">
+
+<table border="0" cellpadding="0" cellspacing="0" align="center">
+  <tr valign="top">
+    <td align="center" style="max-width: 700px;">
+
+      <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+        <tr>
+          <td bgcolor="#3f3f3f">
+            <table border="0" cellpadding="3" cellspacing="0" align="right">
+              <tr>
+                <td align="right"><font size="-2" color="#ffffff">ご注文ありがとうございます&nbsp;</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+            <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="100%" style="max-width: 700px; min-width:320px;">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="200" style="font-size:0;line-height:0;"><a href="https://www.rakuten.co.jp/?scid=me_ich_conf_head_01&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/2018/0702/ichibalogo.gif" alt="Rakuten" width="200" border="0"></a></td>
+<td valign="bottom"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="left" style="line-height: 8px;"><img src="https://r.r10s.jp/com/img/home/t.gif" width="1" height="8" border="0"></td>
+</tr>
+<tr>
+<td  align="right"><a href="https://r10.to/hG8OZZ" target="_blank" style="text-decoration: none; color:#ffffff;"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20131007/0_card_order_mail_195_22.gif" alt="" width="195" border="0"></a></td>
+</tr>
+<tr>
+<td align="left" style="line-height: 8px;"><img src="https://r.r10s.jp/com/img/home/t.gif" width="1" height="8" border="0"></td>
+</tr>
+<tr>
+<td align="right"><font size="-1" color="#1d54a7"><a href="https://basket.step.rakuten.co.jp/rms/mall/bs/cartall/?scid=me_ich_conf_head_02&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none;color:#1d54a7">買い物かご</a>&nbsp;&nbsp;<a href="https://order.my.rakuten.co.jp/?scid=me_ich_conf_head_03&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none;color:#1d54a7">購入履歴</a>&nbsp;&nbsp;<a href="https://ichiba.faq.rakuten.net?scid=me_ich_conf_head_04&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none;color:#1d54a7">ヘルプ</a></font>
+</td>
+</tr>
+<tr>
+<td align="left" style="line-height: 8px;"><img src="https://r.r10s.jp/com/img/home/t.gif" width="1" height="8" border="0"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td><td width="8">&nbsp;</td></tr></table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="max-width:700px;"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20131007/btm_bdr_2.gif" width="100%" border="0" style="max-width:700px;"></td>
+</tr>
+</table>
+
+      <table width="100%" border="0" cellpadding="8" cellspacing="0">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="max-width:700px;" align="center">
+<a href="https://event.rakuten.co.jp/campaign/point-up/everyday/point/?scid=me_ich_conf_head_spu7&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/2019/0701/20190701_spu13_089_468x60.jpg" width="468" border="0" style="max-width:100%;"></a>
+</td>
+</tr>
+</table>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellpadding="8" cellspacing="0">
+                    <tr>
+                      <td align="left"><font size="-1" color="#000000"><b>遠藤 將司 様</b></font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="line-height: 16px;" align="left"><font size="-1" color="#000000">この度は楽天市場内のショップ「<font color="#bf0000"><b>キャットランド</b></font>」をご利用いただきまして、誠にありがとうございます。</font></td>
+                    </tr>
+                  </table>
+
+                  <table width="100%" border="0" cellpadding="9" cellspacing="0" bgcolor="#f2f2f2">
+                    <tr>
+                      <td style="line-height: 16px;" align="left">
+                      <font size="-1">本メールは、お客様のご注文情報を受け付けた時点で送信される自動配信メールです。<br>ショップによる注文の確認をもってご購入についての契約が成立します。<br>ご注文のキャンセルについてはこちらをご確認ください。<a href="https://ichiba.faq.rakuten.net/detail/000009739" target="_blank" style="text-decoration: none; color:#1d54a7;">キャンセルについて</a><br>(in <a href="#faqEnglish" style="text-decoration: none; color:#1d54a7;">English</a>)</font>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+              <tr>
+                <td style="line-height: 12px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="12" border="0"></td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#bf0000">
+                    <tr>
+                      <td style="line-height: 16px;" align="left"><font size="-1" color="#ffffff"><b>ご注文内容</b></font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellpadding="8" cellspacing="0">
+                    <tr>
+                      <td style="line-height: 16px;" align="left"><font size="-1" color="#000000">注文番号&nbsp;248288-20201019-06961709<br>注文日時&nbsp;2020-10-19 06:27:33</font>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+
+
+                        <a name="shopInfo"></a>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td align="left"><font size="-1" color="#000000"><b>商品に関するお問い合わせ先</b></font></td>
+                          </tr>
+                          <tr>
+                            <td width="100%">
+                              <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr><td style="line-height:20px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="20" border="0"></td></tr>
+                                <tr valign="top">
+                                  <td width="80" valign="top"><a href="https://www.rakuten.co.jp/cat-land/?scid=me_ich_conf_order_02&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/cat-land/logo/logo1.jpg?_ex=80x80" alt="キャットランド" width="80" height="80" border="0"></a>
+                                  </td>
+                                  <td width="10"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="10" height="1" border="0"></td>
+                                    <td width="100%" align="left">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                      <tr><td><b><a href="https://www.rakuten.co.jp/cat-land/?scid=me_ich_conf_order_01&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">キャットランド</a></b></td></tr>
+                                      <tr><td style="line-height: 15px;">
+                                        <img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20170403/rc-i-phone-20x20px.gif" align="middle" border="0">
+                                        <font size="-1">03-6706-4521</font>
+                                      </td></tr>
+                                      <tr><td style="line-height: 15px;">
+                                        <font size="-1"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20170403/rc-i-review-edit-20x20px.gif" align="middle" border="0">
+                                        <a href="https://ask.step.rakuten.co.jp/inquiry-form/?on=248288-20201019-06961709&mh=325bf992b7cf9000899da13b78c9d935e5066c59466a3eaa3bd03d91c7c684ba&ht=0627&ms=202" target="_blank" style="text-decoration: none; color:#1d54a7;">問い合わせフォームから連絡</a></font>
+                                      </td></tr>
+                                      <tr><td style="line-height: 8px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="10" height="8" border="0" style="display: block;"></td></tr>
+                                    </table>
+                                  </td>
+                                </tr>
+    <tr>
+        <td style="line-height: 20px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1"
+                                            height="20" border="0"></td>
+    </tr>
+    
+                                <tr><td width="100%" align="left" style="max-width: 664px; line-height:16px;" colspan="3"><font size="-1">※以下内容については、上記の問い合わせ先より直接ショップにお問い合せください。<br>
+                                　・商品やお取引に関するご不明点<br>
+                                　・ご注文内容の変更（商品、配送方法など）<br>
+※お支払いに関するご質問は、楽天市場までお問い合わせ下さい。<br>
+※このメールに返信いただいてもお答えできません。<br>
+※ショップの情報・返品ポリシー・営業時間は<a href="https://www.rakuten.co.jp/cat-land/info.html"  target="_blank" style="text-decoration: none; color:#1d54a7;">こちら</a><br>
+※その他ご不明点がある場合は楽天市場の<a href="https://ichiba.faq.rakuten.net/" target="_blank" style="text-decoration: none; color:#1d54a7;">ヘルプページ</a>をご確認ください。</font>
+                                </td></tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+
+
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="100%" style="max-width: 700px; line-height:10px;" colspan="3"><br></td>
+              </tr>
+              <tr>
+                <td width="100%" style="max-width: 680px; line-height:3px; border-bottom:solid 3px #dcdcdc;" colspan="3"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="3" border="0"></td>
+              </tr>
+              <tr>
+                <td bgcolor="#dcdcdc" width="3" style="max-width: 3px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="3" height="3" border="0"></td>
+                <td style="max-width: 664px;" width="100%" align="left">
+
+                    <table border="0" cellpadding="10" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                    <tr valign="top">
+                      <td width="64"><a href="https://item.rakuten.co.jp/cat-land/228235?scid=me_ich_conf_order_03&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/cat-land/cabinet/05305489/07295270/imgrc0079211776.jpg?_ex=64x64" alt="" width="64" height="64" border="0"></a>
+                      <a href="https://room.rakuten.co.jp/mix?itemcode=cat-land:10087788" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20170120/room_btn_2.gif" alt="" border="0"></a>
+                      </td>
+                      <td width="100%">
+                      <a href="https://item.rakuten.co.jp/cat-land/228235?scid=me_ich_conf_order_03&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">【200円offクーポン対象！】猫 キャリー ペットキャリー 飛行機 ドライブペットキャリー Mサイズ…</a><br><font size="-2">カラー:カラー
+カラー:オレンジ：228416
+当店では、お取り置きのご対応は出来かねます。:了承…</font></td>
+                    </tr>
+                    <tr>
+                      <td align="left" colspan="2">
+                        <table border="0" cellpadding="0" cellspacing="0" style="font-size:12px; line-height:14px; width: 100%; max-width: 664px;">
+                          <tr valign="top"><td style="word-break: break-all;"><font size="-2">お届けの目安：3営業日以内に発送予定</font></td></tr>
+                          <tr><td width="100%" align="right" style="max-width: 664px;">5,680円 x 1個 = 5,680円<br>※10%税込</td></tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <table width="98%" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <tr>
+                      <td style="background:none; border-top:solid 1px #d7d7d7; border-width:1px 0 0 0; height:1px; width:100%; margin:0px 0px 0px 0px; line-height:1px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="1" border="0"></td>
+                    </tr>
+                  </table>
+  
+
+                                    <table border="0" cellpadding="10" cellspacing="0" width="100%">
+                    <tr>
+                      <td align="right">
+                        <table border="0" cellpadding="0" cellspacing="0" width="30%" style="font-size:12px; line-height:14px;">
+                          <tr><td align="left" nowrap>送料&nbsp;</td><td align="right" width="10%" nowrap> 0（円）</td></tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr><td align="right" style="line-height:34px;"><font size="-1"><b>お支払い金額</b></font>&nbsp;&nbsp;&nbsp;<font color="#bf0000" size="+1"><b>5,680（円）</b></font></td></tr>
+                          <tr><td align="right" style="line-height:13px;"><font size="-2">※送料等の諸費用は変わる場合があります</font></td></tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                                    <table border="0" cellpadding="10" cellspacing="0" width="100%" bgcolor="#ffffff">
+                    <tr>
+                      <td align="center">
+                        <table border="0" cellpadding="7" cellspacing="0" bgcolor="#f0c2c2" width="100%">
+                          <tr>
+                              <td style="line-height: 12px;" align="center"><font size="-1" color="#bf0000">今回のお買い物で<b>56ポイント</b>獲得予定</font></td>
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="line-height: 14px;" align="left">
+                      <font size="-1">・ご注文の修正・キャンセルなどにより、獲得するポイントが変動する場合があります。</font><br>
+                      <font size="-1">・ショップ買いまわりキャンペーンなど、過去の購入分に付与されるポイントの一部を合算している場合があります。</font><br>
+                      <font size="-1">・SPU(スーパーポイントアッププログラム)は、対象サービスごとに獲得ポイントの上限や条件があります。<a href="https://event.rakuten.co.jp/campaign/point-up/everyday/point/a.html?l-id=top_normal_festival_point7x_00" target="_blank" style="text-decoration: none; color:#1d54a7;">詳細はこちら</a></font><br>
+                      <font size="-1">・その他各キャンペーン毎に獲得ポイントの上限や条件が異なり、獲得予定ポイントに反映されていない場合があります。詳しくは各キャンペーン詳細をご確認ください。</font></td>
+
+                    </tr>
+                  </table>
+
+                  <table border="0" cellpadding="10" cellspacing="0" width="100%">
+                  </table>
+
+                                    <table width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#bf0000">
+                    <tr>
+                      <td style="line-height: 16px;"><font size="-1" color="#ffffff"><b>詳細</b></font>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table border="0" cellpadding="10" cellspacing="0" width="100%">
+                    <tr>
+                      <td>
+
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                          <tr>
+                            <td><font color="#bf0000"><b>注文者</b></font></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                                      <tr>
+                                        <td>遠藤 將司 (エンドウ マサシ) 様</td>
+                                      </tr>
+                                      <tr>
+                                        <td>〒101-0031 東京都千代田区東神田3-1-7 couri003 302号</td>
+                                      </tr>
+                                      <tr>
+                                        <td>050-3690-9966</td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td><font color="#bf0000"><b>送付先</b></font></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                                      <tr>
+                                        <td>遠藤 將司 (エンドウ マサシ) 様</td>
+                                      </tr>
+                                      <tr>
+                                        <td>〒054-0022 北海道勇払郡むかわ町花園2-45 神野アパート28号</td>
+                                      </tr>
+                                      <tr>
+                                        <td>080-8164-5426</td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><font color="#bf0000"><b>お支払い方法</b></font></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                                      <tr>
+                                        <td>クレジットカード
+<br> 一括払い                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr>
+                           <td><font color="#bf0000"><b>配送方法</b></font></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                                      <tr>
+                                        <td>宅配便</td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                                      <tr>
+                            <td><font color="#bf0000"><b>配送日時指定</b></font></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                                      <tr>
+                                        <td>
+                                                          </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><font color="#bf0000"><b>備考</b></font></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="10" width="100%">
+                                <tr>
+                                  <td>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:14px;">
+                                      <tr>
+                                        <td>
+ご住所変更をご希望の方は※備考へ記載して下さい。領収書はお客様ご自身で発行となります。商品発送後メールにてご案内させて頂きますので備考欄へのご入力は不要です。<br>
+<br>                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="left" style="line-height: 8px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="8" border="0"></td>
+                          </tr>
+
+                          <tr>
+                            <td align="left" style="line-height: 15px;"><font size="-1"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/email/www/item/2013/0000/arrow_r.gif" width="7" border="0">&nbsp;
+<a href="https://order.my.rakuten.co.jp/?page=myorder&act=detail_view&shop_id=248288&order_number=248288-20201019-06961709&_mpt=101&_mpe=248288-20201019-06961709&scid=me_ich_conf_order_06" target="_blank" style="text-decoration: none; color:#1d54a7;">注文情報の詳細を確認する</a>
+                            </font></td>
+                          </tr>
+
+                        </table>
+
+
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+                <td bgcolor="#dcdcdc" width="3" style="max-width: 3px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="3" height="3" border="0"></td>
+              </tr>
+              <tr><td width="100%" style="max-width: 680px; line-height:1px; border-top:solid 3px #dcdcdc;" colspan="3"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="1" border="0"></td></tr>
+            </table>
+
+
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:12px; line-height:28px;">
+              <tr>
+                <td align="right"><font size="-1"><a href="https://www.rakuten.co.jp/cat-land/news.html?scid=me_ich_conf_order_07&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">ショップのメルマガに申し込む</a></font></td>
+              </tr>
+              <tr>
+                <td align="right"><font size="-1"><a href="https://my.bookmark.rakuten.co.jp/shop/regist?scid=me_ich_conf_order_05&_mpt=101&_mpe=248288-20201019-06961709&snam=%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88%E3%83%A9%E3%83%B3%E3%83%89&sid=248288&surl=cat-land&svid=201&func=reg" target="_blank" style="text-decoration: none; color:#1d54a7;">お気に入りショップに登録</a></font></td>
+              </tr>
+            </table>
+
+                    
+
+                    <div style="line-height: 18px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="18" border="0"></div>
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#bf0000">
+  <tr>
+    <td style="line-height: 16px;" align="left"><font size="-1" color="#ffffff"><b>最近チェックした商品</b></font>
+    </td>
+  </tr>
+</table>
+
+<div style="line-height: 20px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="20" border="0"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr valign="top">
+    <td align="center">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/your-sales-shop/2b66vukriu?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/your-sales-shop/cabinet/0284/2b66vukriu_0.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/your-sales-shop/2b66vukriu?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">下駄 一本 体幹 トレ…</font></a></td>
+              </tr>
+            </table>
+          </td>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/hiraiya/i01-b?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/hiraiya/cabinet/item/i01.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/hiraiya/i01-b?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">【男 一本歯下駄】 i0…</font></a></td>
+              </tr>
+            </table>
+          </td>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/super-sports/10000438?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/super-sports/cabinet/shinsyouhin20140326/img63495213.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/super-sports/10000438?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">IROTEC（アイロテック…</font></a></td>
+              </tr>
+            </table>
+          </td>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/shapeshop/10036790?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/shapeshop/cabinet/05735747/06084979/imgrc0068429057.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/shapeshop/10036790?scid=me_ich_conf_browsehist&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">【バーベルシャフト】…</font></a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+                    <div style="line-height: 18px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="18" border="0"></div>
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#bf0000">
+  <tr>
+    <td style="line-height: 16px;" align="left"><font size="-1" color="#ffffff"><b>あなたにオススメの商品</b></font>
+    </td>
+  </tr>
+</table>
+
+<div style="line-height: 20px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="20" border="0"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr valign="top">
+    <td align="center">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/petworldone/228234/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/petworldone/cabinet/jishahin17/white0417/228234.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/petworldone/228234/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">【200円OFFクーポン対…</font></a></td>
+              </tr>
+            </table>
+          </td>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/dog-kan/228234/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/dog-kan/cabinet/jishahin31/228234.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/dog-kan/228234/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">【最大350円OFFクーポ…</font></a></td>
+              </tr>
+            </table>
+          </td>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/cat-land/226404/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/cat-land/cabinet/siro100/226404.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/cat-land/226404/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">猫 キャリー ペットハ…</font></a></td>
+              </tr>
+            </table>
+          </td>
+              <td width="4.8%"></td>
+          <td width="19%" align="center" style="max-width: 128px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 128px;">
+              <tr valign="top">
+                <td><a href="https://item.rakuten.co.jp/dog-kan/226404/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank"><img src="https://thumbnail.image.rakuten.co.jp/@0_mall/dog-kan/cabinet/wh4/226404.jpg?_ex=128x128" alt="" width="100%" border="0" style="max-width: 128px;"></a></td>
+              </tr>
+              <tr><td style="line-height: 5px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="5" border="0"></td>
+              </tr>
+              <tr>
+                <td style="max-width: 128px;" align="left"><a href="https://item.rakuten.co.jp/dog-kan/226404/?scid=me_ich_conf_recommend&_mpt=101&_mpe=248288-20201019-06961709&rtg=5c7e4dead6cfc0e374b855181a0018b6" target="_blank" style="text-decoration: none; color:#1d54a7;"><font size="-1">【最大350円OFFクーポ…</font></a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+                    <div style="font-size:18px; line-height:18px;">&nbsp;</div>
+
+<table width="100%" border="0" cellpadding="8" cellspacing="0" bgcolor="#bf0000">
+  <tr>
+    <td style="line-height: 16px;" align="left"><font size="-1" color="#ffffff"><b>楽天グループからのお知らせ</b></font>
+    </td>
+  </tr>
+</table>
+
+
+<div style="font-size:20px; line-height:20px;">&nbsp;</div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr valign="top">
+    <td align="center">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="5%"></td>
+                <td width="25%" align="center" style="max-width: 165px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="left">
+<tr><td><a href="https://r10.to/hGZMfP" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20130110/165x100_07.gif" width="100%" border="0" style="max-width: 165px;"></a></td></tr>
+</table>
+
+          </td>
+                <td width="7%"></td>
+            <td width="25%" align="center" style="max-width: 165px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="left">
+<tr><td><a href="https://event.rakuten.co.jp/beginner/?scid=me_ich_conf_info_beginner&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20130110/165x100px_starters.gif" width="100%" border="0" style="max-width: 165px;"></a></td></tr>
+</table>
+
+          </td>
+                <td width="7%"></td>
+            <td width="25%" align="center" style="max-width: 165px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="left">
+<tr><td><a href="https://ad2.trafficgate.net/t/r/4979/3629/198512_234039/" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/2018/0702/165x100_05.gif" width="100%" border="0" style="max-width: 165px;"></a></td></tr>
+</table>
+
+          </td>
+              <td width="5%"></td>
+        </tr>
+        <tr>
+          <td colspan="7" style="font-size:17px; line-height:17px;">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="5%"></td>
+              <td width="25%" align="center" style="max-width: 165px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="left">
+<tr><td><a href="https://r10.to/hGvLwH" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/2019/0131/165x100_04.gif" width="100%" border="0" style="max-width: 165px;"></a></td></tr>
+</table>
+
+          </td>
+                <td width="7%"></td>
+            <td width="25%" align="center" style="max-width: 165px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="left">
+<tr><td><a href="https://event.rakuten.co.jp/mobile/?scid=me_ich_conf_info_smart&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/2018/1001/165x100_03.gif" width="100%" border="0" style="max-width: 165px;"></a></td></tr>
+</table>
+
+          </td>
+                <td width="7%"></td>
+            <td width="25%" align="center" style="max-width: 165px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" align="left">
+<tr><td><a href="https://point.rakuten.co.jp/campaign/ichiba/?scid=me_ich_conf_info_campaign&_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img src="https://r.r10s.jp/com/inc/rms/mail/order/img/20130110/165x100px_campaign.gif" width="100%" border="0" style="max-width: 165px;"></a></td></tr>
+</table>
+
+          </td>
+          <td width="5%"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+<style type="text/css">
+@media screen and (max-width: 699px) {img[class="img-max"]{max-width:100% !important;height:auto !important;}}
+</style>
+<table border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+
+<tr><td><div style="font-size:10px; line-height:10px;">&nbsp;</div></td></tr>
+<tr valign="top">
+<td align="center"><a href="https://event.rakuten.co.jp/furusato/?scid=me_ich_conf_info_468br_furusato&amp;_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img class="img-max" src="https://r.r10s.jp/com/inc/rms/mail/order/img/20161222/20150731_furusato_468x60b.jpg" width="468" height="60" border="0" style="padding-bottom: 3px;"><br></a></td>
+</tr>
+
+<tr><td><div style="font-size:10px; line-height:10px;">&nbsp;</div></td></tr>
+<tr valign="top">
+<td align="center"><a href="https://event.rakuten.co.jp/bargain/timesale/?scid=me_ich_conf_info_468br_sale&amp;_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img class="img-max" src="https://r.r10s.jp/com/inc/rms/mail/order/img/2018/0412/20180412_timesale_468x60.jpg" width="468" height="60" border="0" style="padding-bottom: 3px;"><br></a></td>
+</tr>
+
+<tr><td><div style="font-size:10px; line-height:10px;">&nbsp;</div></td></tr>
+<tr valign="top">
+<td align="center"><a href="https://event.rakuten.co.jp/anshin/anshinshopping/?scid=me_ich_conf_info_468br&amp;_mpt=101&_mpe=248288-20201019-06961709" target="_blank"><img class="img-max" src="https://r.r10s.jp/com/inc/rms/mail/order/img/20170123/bn_anshinshopping_468_67.gif" width="468" height="67" border="0" style="padding-bottom: 3px;"><br></a></td>
+</tr>
+
+<tr><td><div style="font-size:10px; line-height:10px;">&nbsp;</div></td></tr>
+</table>
+
+
+
+                        <div style="line-height: 30px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="30" border="0"></div>
+            <a name="cautionNotice"></a>
+            <table width="100%" border="0" cellpadding="20" cellspacing="0" bgcolor="#f2f2f2">
+              <tr>
+                <td>
+                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="left"><font size="-1" color="#000000"><b>ご注意事項</b></font></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" align="left">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tr><td style="line-height:17px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="17" border="0"></td></tr>
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="0">
+                                <tr><td style="line-height:16px;"><font size="-1">・消費税額の算出方法について、よくある質問は<a href="https://ichiba.faq.rakuten.net/detail/000011147" style="text-decoration: none; color:#1d54a7;">こちら</a></font></td></tr>
+                                <tr><td style="line-height:16px;"><font size="-1">・お客様のお取引先は「<a href="#shopInfo" style="text-decoration: none; color:#1d54a7;">キャットランド</a>」となりますので、お支払い以外に関するご不明な点や、ご注文内容に誤りがある場合は、直接ショップまでお問い合わせください。</font></td></tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr><td style="line-height: 17px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="17" border="0"></td></tr>
+
+                          <tr>
+                            <td>
+                              <table width="98%" border="0" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                  <td width="98%" style="background:none; border-top:solid 1px #d7d7d7; border-width:1px 0 0 0; height:1px; width:100%; margin:0px 0px 0px 0px; line-height:1px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="1" border="0"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr><td style="line-height: 17px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="17" border="0"></td></tr>
+
+                          <tr>
+                            <td>
+                              <table border="0" cellpadding="0" cellspacing="0">
+                                <tr><td style="line-height:16px;"><font size="-1">
+・後日計算の送料等により、「全てのポイントを使う」を選択の場合でもお支払いの差額が生じる場合が<br>あります。<br>
+・楽天会員を利用したご注文の場合、キャンペーン特典ポイントが本メール記載の獲得ポイントとは別に計算、<br>付与される場合があります。ポイント利用・獲得履歴は<a href="https://point.rakuten.co.jp/history/?scid=me_ich_conf_note_01&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">こちら</a><br>
+・お客様都合の返品等により楽天市場から返金が発生する場合は、振込手数料はお客様負担となります。<br>
+・楽天市場ご利用上のご注意は<a href="https://www.rakuten.co.jp/doc/info/rule/service.html?scid=me_ich_conf_note_02&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">こちら</a>。
+<br>・個人情報の取り扱いについては<a href="https://privacy.rakuten.co.jp/?scid=me_ich_conf_05&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">個人情報保護方針</a>をご覧ください。
+<br>・よくある質問は<a href="https://ichiba.faq.rakuten.net/?scid=me_ich_conf_note_03&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">こちら</a>。<br>
+</font></td></tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr><td style="line-height: 17px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="17" border="0"></td></tr>
+
+                          <tr>
+                            <td>
+                              <table width="98%" border="0" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                  <td width="98%" style="background:none; border-top:solid 1px #d7d7d7; border-width:1px 0 0 0; height:1px; width:100%; margin:0px 0px 0px 0px; line-height:1px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="1" border="0"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+
+                          <tr><td style="line-height: 17px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="17" border="0"></td></tr>
+                          <tr><td style="line-height:16px;"><font size="-1">お支払いに関するご質問は、楽天市場までお問い合わせ下さい。<br>※本ご注文に心あたりが無い場合には、大変お手数をおかけしますが、<a href="#shopInfo" style="text-decoration: none; color:#1d54a7;">上記ショップ</a>ならびに<a href="https://ichiba.faq.rakuten.net/?scid=me_ich_conf_note_04&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">楽天市場</a>までお知らせください。<br>※このメールに返信いただいてもお答えできません。<br>
+</font></td></tr>
+
+                          <tr><td style="line-height: 17px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="17" border="0"></td></tr>
+                          <tr><td style="line-height:16px;"><a name="faqEnglish"></a><font size="-1">（English）Thank you for shopping at Rakuten. This e-mail is automatically generated in response to your order.<br>Please note that your order is not complete until confirmed by the seller.<br>To modify your order (item, payment, delivery, etc.), please contact the seller directly.<br>As this is an automated e-mail, please do not respond directly to this address.<br>Click here for <a href="https://global.rakuten.com/en/help/?scid=me_ich_conf_note_05&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">Frequently Asked Questions</a>.<br></font></td></tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <div style="line-height: 20px;"><img src="https://a.ichiba.jp.rakuten-static.com/com/img/home/t.gif" width="1" height="20" border="0"></div>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+              <tr><td align="center" style="line-height: 16px;"><font size="-1"><a href="https://www.rakuten.co.jp/?scid=me_ich_conf_foot_01&_mpt=101&_mpe=248288-20201019-06961709" target="_blank" style="text-decoration: none; color:#1d54a7;">楽天市場</a></font></td></tr>
+              <tr><td align="center" style="line-height: 16px;"><font size="-1">発行元：楽天株式会社</font></td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</div>
+<!--[if (gte mso 9)|(IE)]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+<!--[if IE]>
+      </td>
+    </tr>
+  </table>
+<![endif]-->
+</body>
+</html>
+------=_Part_1261062_433759800.1603056456007--

@@ -1,0 +1,530 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:6042:0:0:0:0:0 with SMTP id u63csp3228133vkb;
+        Tue, 17 Aug 2021 10:30:45 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwJw1qkeQ7Xtz6RnoRKh6fE0qG547YELa+4C1DuLJfUd7wYJ71SVmrRRY5WSCOCZmaMARUM
+X-Received: by 2002:a25:da89:: with SMTP id n131mr5854133ybf.255.1629221445174;
+        Tue, 17 Aug 2021 10:30:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629221445; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Umftns2kymXaVVa74fu3ERSceGBbqAG7RxPAexavODUNCQGER2yuG7QEyrAopuJ5ps
+         B12SCAD+KZSwg5fQS3azEPS5XVAeA6JYpldjWnS2FeIkcOQ25YKldZ4Kt3DG+7aws/94
+         dTTuMopwk98jdDv8HIA17FsXIlcP0XNkBBZR9XngO66AYKXejQiyXyST3YQR0praovoC
+         2YMYphY+/kFjqYlwceXlyJ4LR8C9rTVrpJRnPIzdt4FNlAF//YwEu7Dr5P2YsPhB7irH
+         FwH6jBiRCQL+GvOnMFZiKSUqbQ4sJ8SDQy07bZoCcNQI6sD+VafZWZlaKwUC2wq4i6gA
+         txmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-unsubscribe-post:mime-version:subject
+         :message-id:to:reply-to:from:date:dkim-signature;
+        bh=Ep5+ZQO1LzZkmdMpOr9I/dzusGooJPUR2a/jRzD9szM=;
+        b=b6P84FPzNdsk+cZNk1b1bvmKy2ssvDYvMVmZq3gQWXv690ilDVDD902CsFEBBXLkhm
+         wZ9OS/KloLQooaVerfXJrbN3uUA7EwlDE6C+2bYcnqr0K4WwmhNrDcbYnlyNxQFjTrFN
+         iLg4o5qkcNNTo9T4RO+/mUIjHbYeE/RpLnVPkOHknW0AYOJXzdFvtJooFUwEe+7Sa9SE
+         MR6Vs+cjPqUjdsEehRHWl7dVHPIzyP03+1NGy989Oz1M3CaX1S7VtrGRe7JuD0TZYLF8
+         KYpHOiIwiZaquneF1tOlqUufAtWtYnYZsxGf4HBEX1zlxf/A7pMG/pFF4umpQcdyeAg3
+         4SHQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.mozilla.org header.s=spop1024 header.b=bePAfhN9;
+       spf=pass (google.com: domain of v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org designates 74.112.70.247 as permitted sender) smtp.mailfrom=v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=email.mozilla.org
+Return-Path: <v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org>
+Received: from mail10195.email.mozilla.org (mail10195.email.mozilla.org. [74.112.70.247])
+        by mx.google.com with ESMTPS id g197si2455227ybf.255.2021.08.17.10.30.44
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Aug 2021 10:30:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org designates 74.112.70.247 as permitted sender) client-ip=74.112.70.247;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.mozilla.org header.s=spop1024 header.b=bePAfhN9;
+       spf=pass (google.com: domain of v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org designates 74.112.70.247 as permitted sender) smtp.mailfrom=v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=email.mozilla.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=spop1024; d=email.mozilla.org;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ X-CSA-Complaints:List-Unsubscribe-Post:List-Unsubscribe;
+ i=mozilla@email.mozilla.org;
+ bh=Ep5+ZQO1LzZkmdMpOr9I/dzusGooJPUR2a/jRzD9szM=;
+ b=bePAfhN9c2qzZ9hGwdrdnDsyJyoqGwNPyEBMps4rG+VhzZqSBy4EC4E4a52wy0GyGfHCpf86IwWL
+   wwCCr2qSaTSZzx3uLml6AqU+3wP3HOxIpHTZBejDubz+iTS6Q/zcy2uZb97GencHqQr36a9fZAns
+   xPY99NM9W7WZKMmRXlM=
+Received: by mail10195.email.mozilla.org id h3fp482r7ao4 for <hujyorom@gmail.com>; Tue, 17 Aug 2021 17:15:56 +0000 (envelope-from <v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org>)
+Date: Tue, 17 Aug 2021 17:15:56 +0000 (GMT)
+From: "Juan Barajas, Mozilla Foundation" <mozilla@email.mozilla.org>
+Reply-To: mozilla@email.mozilla.org
+To: hujyorom@gmail.com
+Message-ID: <1055764327.221273291629220556541.JavaMail.app@rbg92.atlis1>
+Subject: re: We need your help.
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_246566_1655424556.1629220536034"
+x-mid: 2112502
+X-CSA-Complaints: csa-complaints@eco.de
+x-rpcampaign: sp2112502
+x-job: 2112502
+x-orgId: 11776
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://links.email.mozilla.org/luoo/v1/QkovZng2Y1pBOXN2ekcyMjFLaDFyMm0wb2plZTB5ektnU29iNG1LUFlFTkgwRi8xTmd4WmtCVFQwTEpVR2VMTDNtUU8vSFR5aCs0RDd4b2M1YU1lN0E9PQS2>, <mailto:v-cadlpg_colldffge_dcckkgbi_dcckkgbi_a@bounce.email.mozilla.org?subject=Unsubscribe>
+
+------=_Part_246566_1655424556.1629220536034
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+MOZILLA
+************
+
+Hey -- we wanted to make sure you saw our appeal from last week. We're only=
+ about $8,000 away from reaching our goal for this campaign, so we're hopin=
+g you can step up today with a donation to Mozilla. Your support will help =
+us keep fighting for a better and healthier internet for all. Thanks in adv=
+ance for whatever you can chip in!
+=E2=80=93 Juan
+
+ --->>> Yes, I'll donate: https://links.email.mozilla.org/els/v2/ZdYRQ_RmDc=
+3/QWhHYWNxZGpWNXFmRlpFYXF4eFduNTZhTGxrRHFyYzFyeTBRRWVMTzlIOGVuazQrR0ZOTzlkM=
+nVWYnVUYnRPYkNQb1M5VUNad3RLQ003SWJuVVdKcGhhTG11TGZuQ1lNaWI5UEFPSkVXU1k9S0/=
+=20
+
+(original message below)
+-----------------
+Dear Mozilla Supporter,
+=09=09=09=09=09=09=09=09=09=09=09=09
+2021. It sure hasn=E2=80=99t been easy. People are struggling all around th=
+e world with an ongoing pandemic, misinformation spreading through social m=
+edia, and big technology companies gathering up more and more of our person=
+al information with no accountability.
+=09=09=09=09=09=09=09=09=09=09=09=09
+But Mozilla doesn't shy away from a fight. We knuckle down, and work even h=
+arder to make  the internet a good place, a safe place, an accessible place=
+ for ALL of us. Because that matters now more than ever.=20
+=09=09=09=09=09=09=09=09=09=09=09=09
+So, I want to ask you to give a donation to Mozilla to help us fight for a =
+better internet for everyone.=09
+
+=C2=A0--->=C2=A0Yes, I'll step up as a Mozilla supporter:=C2=A0=C2=A0=20
+ https://links.email.mozilla.org/els/v2/XDLKhZKdAf_/QWhHYWNxZGpWNXFmRlpFYXF=
+4eFduNTZhTGxrRHFyYzFyeTBRRWVMTzlIOGVuazQrR0ZOTzlkMnVWYnVUYnRPYkNQb1M5VUNad3=
+RLQ003SWJuVVdKcGhhTG11TGZuQ1lNaWI5UEFPSkVXU1k9S0/=20
+=09=09=09=09=09=09=09=09=09=09
+With your gift to Mozilla, you give us the support we count on to do the wo=
+rk that needs to be done:
+
+ =E2=80=A2 We can take our YouTube Regrets campaign to the next level, and =
+help fight back against the flood of misinformation being spread on the int=
+ernet that is hurting us all.
+ =E2=80=A2 We can expand our advocacy work fighting for better online priva=
+cy and trustworthy artificial intelligence.
+ =E2=80=A2 We can grow our *Privacy Not Included buyer=E2=80=99s guide to h=
+elp you understand which products will protect your privacy, and which won=
+=E2=80=99t.=09=09=09=09=09=09=09=09=09=09=09=09
+
+=C2=A0 ---> =C2=A0Yes, I'll chip in:=C2=A0=C2=A0
+ https://links.email.mozilla.org/els/v2/e-akcm~y_TD/QWhHYWNxZGpWNXFmRlpFYXF=
+4eFduNTZhTGxrRHFyYzFyeTBRRWVMTzlIOGVuazQrR0ZOTzlkMnVWYnVUYnRPYkNQb1M5VUNad3=
+RLQ003SWJuVVdKcGhhTG11TGZuQ1lNaWI5UEFPSkVXU1k9S0/=20
+
+If you are able, please make a donation today. Even just the price of one m=
+eal out will be a big help in our mission to put you in control of your onl=
+ine experience, and shape the future of the web for the public good.=09=09=
+=09
+
+Thanks in advance for your help in these tough times,=09=09
+
+Juan Barajas
+Director, Fundraising & Partnerships
+Mozilla Foundation=09=09=09=09=09=09=09=09=09=09=09=09
+
+P.S. Here at Mozilla we live our values when it comes to privacy; we never =
+sell, rent or trade your email address to any other organizations. We=E2=80=
+=99re also proud to have earned top rankings from independent non-profit ev=
+aluators Charity Navigator (four out of four stars) and Guidestar (Gold Sea=
+l of Transparency).=09
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09=C2=A0=09=09=09=09=09=09=09=09=09=09=09=
+=09=C2=A0=09=09=09=09=09=09=09=09=09
+
+
+Thanks for reading!
+=09=09=09=09=09=09=09=09=09=09=09=09
+You're receiving this email because we think you're neat, AND you subscribe=
+d to hear from us. If our emails aren't sparking joy, we'll understand if y=
+ou unsubscribe. https://links.email.mozilla.org/els/v2/~8_WQrjaZQL/QWhHYWNx=
+ZGpWNXFmRlpFYXF4eFduNTZhTGxrRHFyYzFyeTBRRWVMTzlIOGVuazQrR0ZOTzlkMnVWYnVUYnR=
+PYkNQb1M5VUNad3RLQ003SWJuVVdKcGhhTG11TGZuQ1lNaWI5UEFPSkVXU1k9S0/bFU3MzZ2b3R=
+jaUJWaXNhZjZzdmk2WjhXaWgyNFR5MExxdkJ3V3ZmRjROYWlzRW5sK0NKY3ZEZEdXTXFhem5IcU=
+ZlZmZFQ1FQdHIrWVR2NFpQLzVSeEE9PQS2=20
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09
+You can also update your email preferences at any time: https://links.email=
+.mozilla.org/els/v2/~8_WQrjaZQL/QWhHYWNxZGpWNXFmRlpFYXF4eFduNTZhTGxrRHFyYzF=
+yeTBRRWVMTzlIOGVuazQrR0ZOTzlkMnVWYnVUYnRPYkNQb1M5VUNad3RLQ003SWJuVVdKcGhhTG=
+11TGZuQ1lNaWI5UEFPSkVXU1k9S0/bFU3MzZ2b3RjaUJWaXNhZjZzdmk2WjhXaWgyNFR5MExxdk=
+J3V3ZmRjROYWlzRW5sK0NKY3ZEZEdXTXFhem5IcUZlZmZFQ1FQdHIrWVR2NFpQLzVSeEE9PQS2=
+=20
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09
+
+2 Harrison St. #175, San Francisco, CA 94105
+
+Legal: https://links.email.mozilla.org/els/v2/4N~9H_rWwcE/QWhHYWNxZGpWNXFmR=
+lpFYXF4eFduNTZhTGxrRHFyYzFyeTBRRWVMTzlIOGVuazQrR0ZOTzlkMnVWYnVUYnRPYkNQb1M5=
+VUNad3RLQ003SWJuVVdKcGhhTG11TGZuQ1lNaWI5UEFPSkVXU1k9S0/=20
+Privacy: https://links.email.mozilla.org/els/v2/jbArQ8gw6QV/QWhHYWNxZGpWNXF=
+mRlpFYXF4eFduNTZhTGxrRHFyYzFyeTBRRWVMTzlIOGVuazQrR0ZOTzlkMnVWYnVUYnRPYkNQb1=
+M5VUNad3RLQ003SWJuVVdKcGhhTG11TGZuQ1lNaWI5UEFPSkVXU1k9S0/=20
+
+
+------=_Part_246566_1655424556.1629220536034
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+=09<title></title>
+</head>
+<body style=3D"background: #F2F2F2;font-family:Arial, Helvetica, sans-serif=
+; font-size:1em;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" id=3D"backgroundTab=
+le" style=3D"background:#F2F2F2;" width=3D"100%">
+=09
+=09=09<tr>
+=09=09=09<td align=3D"center" class=3D"body" style=3D"background:#F2F2F2;" =
+valign=3D"top" width=3D"100%">
+=09=09=09<div id=3D"mktcloud-preheader" key=3D"preheader" style=3D"display:=
+none!important;visibility:hidden;mso-hide:all;font-size:1px;color:#ffffff;l=
+ine-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+=09=09=09<p id=3D"mktcloud-preheader-text">On this Tuesday, will you commit=
+ to shaping the future of the web for the public good?</p>
+=09=09=09</div>
+
+=09=09=09<table cellpadding=3D"0" cellspacing=3D"0">
+=09=09=09=09
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td width=3D"640">
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=3D"styli=
+ngblock-content-wrapper" role=3D"presentation" style=3D"min-width: 100%; " =
+width=3D"100%">
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"stylingblock-content-wrapper camark=
+er-inner">
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0">
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" width=3D"640">
+=09=09=09=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 10px 10px;"><a href=3D"https://links.email.mozilla.org/els/v2/6j~2Q7=
+e-8fb/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ=
+2x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9=
+S0/" name=3D"logo_img" ><img alt=3D"  =E2=9D=A4=EF=B8=8F Mozilla =E2=9D=A4=
+=EF=B8=8F "  height=3D"45"  spname=3D"moz-logo-bw-rgb.png" src=3D'http://co=
+ntentz.mkt10794.com/ra/2021/11776/08/2112502/Cont_0.png' style=3D"display: =
+block; border: 0;" width=3D"158"  /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" class=3D"main" style=3D"padding: 0 1=
+0px;" width=3D"640">
+=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=3D"styli=
+ngblock-content-wrapper" role=3D"presentation" style=3D"min-width: 100%; " =
+width=3D"100%">
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td class=3D"stylingblock-content-wrapper camark=
+er-inner">
+=09=09=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"background-color: #ffffff; font-family: Arial, 'Helvetica =
+Neue', Helvetica, sans-serif; width: 100%; margin: 0 auto; padding: 0;" wid=
+th=3D"100%">
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"background-color: #ffffff;=
+ width: 30px;" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"background-color: #ffffff;=
+">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"background-color: #ffffff;=
+ width: 30px;" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"background-color: rgb(255,=
+ 255, 255); width: 30px;" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"background-color: #ffffff;=
+ font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #4b4b4=
+b; text-align: left; line-height: 150%;font-size: 16px;">Hey --&nbsp;we wan=
+ted to make sure you saw our appeal from last week. We&#39;re only about $8=
+,000 away from reaching our goal for this campaign, so we&#39;re hoping you=
+ can <a href=3D"https://links.email.mozilla.org/els/v2/LaKZCrZGkQx/ckx4aHNM=
+N3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXB=
+JTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"k=
+ickertextlink" style=3D"text-decoration: underline; color: #0c99d5; font-we=
+ight: bold;" >step up today with a donation</a> to the Mozilla Foundation. =
+Your support will help us keep fighting for a better and healthier internet=
+ for all. Thanks in advance for whatever you can chip in!<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<em>&ndash; Juan</em>
+=09=09=09=09=09=09=09=09=09=09=09=09<p style=3D"text-align: center;"><a hre=
+f=3D"https://links.email.mozilla.org/els/v2/gdAPQK0X8TX/ckx4aHNMN3BlRXBsbVh=
+LSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcF=
+lRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"button0" sty=
+le=3D"background-color: #0c99d5; display: inline-block; padding: 10px 42px;=
+ margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; co=
+lor: #fff; font-size: 16px; font-weight: bold; text-transform: uppercase; t=
+ext-align: center; text-decoration: none; border-radius: 4px;" >&nbsp;&nbsp=
+;Yes, I&#39;ll donate&nbsp;&nbsp;</a></p>
+
+=09=09=09=09=09=09=09=09=09=09=09=09<p><em>(original message below)</em></p=
+>
+
+=09=09=09=09=09=09=09=09=09=09=09=09<hr />Dear Mozilla Supporter,<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=092021. It sure hasn&rsquo;t been easy. P=
+eople are struggling all around the world with an ongoing pandemic, misinfo=
+rmation spreading through social media, and big technology companies gather=
+ing up more and more of our personal information with no accountability.<br=
+ />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09But Mozilla doesn&#39;t shy away from a=
+ fight. We knuckle down, and work even harder to make the internet a good p=
+lace, a safe place, an accessible place for ALL of us. <strong>Because that=
+ matters now more than ever.</strong><br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09So, I want to ask you to <a href=3D"htt=
+ps://links.email.mozilla.org/els/v2/G4EXHPXekc-/ckx4aHNMN3BlRXBsbVhLSVo2MGF=
+meWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2=
+lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"textlink1" style=3D"=
+text-decoration: underline; color: #0c99d5; font-weight: bold;" >give a don=
+ation to Mozilla</a> to help us fight for a better internet for everyone.
+
+=09=09=09=09=09=09=09=09=09=09=09=09<p style=3D"text-align: center;"><a hre=
+f=3D"https://links.email.mozilla.org/els/v2/q7AwHZyYXfa/ckx4aHNMN3BlRXBsbVh=
+LSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcF=
+lRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"button1" sty=
+le=3D"background-color: #0c99d5; display: inline-block; padding: 10px 42px;=
+ margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; co=
+lor: #fff; font-size: 16px; font-weight: bold; text-transform: uppercase; t=
+ext-align: center; text-decoration: none; border-radius: 4px;" >&nbsp;&nbsp=
+;Yes, I&#39;ll step up as a Mozilla supporter&nbsp;&nbsp;</a></p>
+=09=09=09=09=09=09=09=09=09=09=09=09With your donation to Mozilla, you give=
+ us the support we count on to do the work that needs to be done:
+
+=09=09=09=09=09=09=09=09=09=09=09=09<ul>
+=09=09=09=09=09=09=09=09=09=09=09=09=09<li style=3D"padding-bottom: 8px;">W=
+e can take our YouTube Regrets campaign to the next level, and help fight b=
+ack against the flood of misinformation being spread on the internet that i=
+s hurting us all.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09<li style=3D"padding-bottom: 8px;">W=
+e can expand our advocacy work fighting for better online privacy and trust=
+worthy artificial intelligence.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09=09<li>We can grow our <em>*Privacy Not=
+ Included</em> buyer&rsquo;s guide to help you understand which products wi=
+ll protect your privacy, and which won&rsquo;t.</li>
+=09=09=09=09=09=09=09=09=09=09=09=09</ul>
+
+=09=09=09=09=09=09=09=09=09=09=09=09<p style=3D"text-align: center;"><a hre=
+f=3D"https://links.email.mozilla.org/els/v2/P3XghAgZ0M7/ckx4aHNMN3BlRXBsbVh=
+LSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcF=
+lRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"button2" sty=
+le=3D"background-color: #0c99d5; display: inline-block; padding: 10px 42px;=
+ margin-bottom: 10px; line-height: 200%; min-height: 32px; height: auto; co=
+lor: #fff; font-size: 16px; font-weight: bold; text-transform: uppercase; t=
+ext-align: center; text-decoration: none; border-radius: 4px;" >&nbsp;&nbsp=
+;Yes, I&#39;ll chip in&nbsp;&nbsp;</a></p>
+=09=09=09=09=09=09=09=09=09=09=09=09If you are able, please make a <a href=
+=3D"https://links.email.mozilla.org/els/v2/wdAgQA2WxMd/ckx4aHNMN3BlRXBsbVhL=
+SVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcFl=
+RbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"textlink2" st=
+yle=3D"text-decoration: underline; color: #0c99d5; font-weight: bold;" >don=
+ation</a> today. Even just the price of one meal out will be a <strong>big<=
+/strong> help in our mission to put you in control of your online experienc=
+e, and shape the future of the web for the public good.<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09Thanks in advance for your help in thes=
+e tough times,<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09Juan Barajas<br />
+=09=09=09=09=09=09=09=09=09=09=09=09Director, Fundraising &amp; Partnership=
+s<br />
+=09=09=09=09=09=09=09=09=09=09=09=09Mozilla Foundation<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09P.S. Here at Mozilla we live our values=
+ when it comes to privacy; we <strong>never</strong> sell, rent or trade yo=
+ur email address to any other organizations. We&rsquo;re also proud to have=
+ earned top rankings from independent non-profit evaluators Charity Navigat=
+or (four out of four stars) and Guidestar (Gold Seal of Transparency). If y=
+ou have questions about making a donation to Mozilla, please read our <a hr=
+ef=3D"https://links.email.mozilla.org/els/v2/YWg8Bg8vPMe/ckx4aHNMN3BlRXBsbV=
+hLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlc=
+FlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"faqlink" st=
+yle=3D"text-decoration: underline; color: #0c99d5;" >frequently-asked quest=
+ions</a>, and/or <a href=3D"https://links.email.mozilla.org/els/v2/dpANQmwV=
+rTz/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x=
+2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0=
+/" name=3D"faqlink_1" style=3D"text-decoration: underline; color: #0c99d5;"=
+ >drop us a note here</a>.
+
+=09=09=09=09=09=09=09=09=09=09=09=09<p style=3D"text-align: center;"><a hre=
+f=3D"https://links.email.mozilla.org/els/v2/rjAzQ_KqLc_/ckx4aHNMN3BlRXBsbVh=
+LSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcF=
+lRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"cnlogo" ><im=
+g    src=3D'http://contentz.mkt10794.com/ra/2021/11776/08/2112502/CharityNa=
+vigator4StarSquare.jpg' width=3D"75"  /></a> &nbsp;&nbsp; &nbsp;&nbsp; <a h=
+ref=3D"https://links.email.mozilla.org/els/v2/E8YjQrDwkQA/ckx4aHNMN3BlRXBsb=
+VhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNl=
+cFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"gslogo" ><=
+img    src=3D'http://contentz.mkt10794.com/ra/2021/11776/08/2112502/guidest=
+ar_gold.svg.png' width=3D"75"  /></a></p>
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09=09<td style=3D"background-color: #ffffff;=
+ width: 30px;" width=3D"30">&nbsp;</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09</table>
+
+=09=09=09=09=09=09=09=09=09<p>&nbsp;</p>
+
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"stylingblock-content-wrapper" role=3D"presentation" style=3D"min-width:=
+ 100%; " width=3D"100%">
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td class=3D"stylingblock-content-wrapp=
+er camarker-inner">&nbsp;
+=09=09=09=09=09=09=09=09=09=09=09=09<table align=3D"center" cellpadding=3D"=
+0" cellspacing=3D"0">
+=09=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" colspan=
+=3D"3" style=3D"font-family: 'Gill Sans MT', Calibri, sans-serif; font-size=
+: 22px; color: #586E84; padding-bottom: 15px;">Connect with us</td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"right" style=3D"p=
+adding: 0 10px;"><a href=3D"https://links.email.mozilla.org/els/v2/R36qhDq4=
+9QG/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x=
+2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0=
+/" name=3D"footer_youtube_img" target=3D"_blank" ><img alt=3D"YouTube"   sp=
+name=3D"youtube-icon-blue_2x.png" src=3D'http://contentz.mkt10794.com/ra/20=
+21/11776/08/2112502/Cont_1.png' style=3D"display: block; border: 0;" width=
+=3D"45"  /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"=
+padding: 0 12px;"><a href=3D"https://links.email.mozilla.org/els/v2/A-0Ac20=
+wkHN/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2=
+x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S=
+0/" name=3D"footer_twitter_img" target=3D"_blank" ><img alt=3D"Twitter"   s=
+pname=3D"twitter_icon.png" src=3D'http://contentz.mkt10794.com/ra/2021/1177=
+6/08/2112502/Cont_2.png' style=3D"display: block; border: 0;" width=3D"45" =
+ /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"left" style=3D"pa=
+dding: 0 12px;"><a href=3D"https://links.email.mozilla.org/els/v2/zdjEQK8xP=
+Tx/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2=
+ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/=
+" name=3D"footer_insta_img" target=3D"_blank" ><img alt=3D"Instagram"   spn=
+ame=3D"instagram_icon.png" src=3D'http://contentz.mkt10794.com/ra/2021/1177=
+6/08/2112502/Cont_3.png' style=3D"display: block; border: 0;" width=3D"45" =
+ /></a></td>
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09<td align=3D"center" class=3D"footer" style=3D"p=
+adding-top: 10px;" width=3D"640">
+=09=09=09=09=09=09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0">
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09=09=09=09=09<td align=3D"center" style=3D"font-fami=
+ly: Geneva, Tahoma, Verdana, sans-serif; font-size: 14px; line-height: 18px=
+; color: #586E84; padding: 0 20px 40px;"><br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<strong>Thanks for reading!</strong><br=
+ />
+=09=09=09=09=09=09=09=09=09=09=09=09You&#39;re receiving this email because=
+ we think you&#39;re neat, AND you subscribed to hear from us. If our email=
+s aren&#39;t sparking joy, we&#39;ll understand if you <a href=3D"https://l=
+inks.email.mozilla.org/ctt?ms=3DMjExMjUwMgS2&kn=3D8&r=3DMTI1NDQzMzMxNTYS1&b=
+=3D0&j=3DODQxNjU1ODMyS0&mt=3D1&rt=3D0" name=3D"footer_unsub" style=3D"text-=
+decoration: underline; color: #0c99d5; font-weight: bold;" target=3D"_blank=
+" >unsubscribe</a>.<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09You can also update your <a href=3D"htt=
+ps://links.email.mozilla.org/els/v2/~8_WQrjaZQL/ckx4aHNMN3BlRXBsbVhLSVo2MGF=
+meWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2=
+lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/WngzT1VqZENqa3lxRXluQnJ2T2hRT0=
+N1OFdyNkFiTXRqbEh1dVY3Q0RVNXNPS01ibmdrZXJiQmVzQklHWGpXN045NVRwRXpVVEhXVG1wR=
+1lCNWRjcFE9PQS2" name=3D"footer_prefs" style=3D"text-decoration: underline;=
+ color: #0c99d5; font-weight: bold;" target=3D"_blank" >email preferences</=
+a> at any time.<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<a href=3D"https://links.email.mozilla.=
+org/els/v2/-Z~dQZk6Yfb/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJU=
+S25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG1=
+5cXRnR3VQbHNMOTg9S0/" name=3D"footer_newwater" target=3D"_blank" ><img alt=
+=3D"Mozilla"   spname=3D"moz-logo-bw-rgb.png" src=3D'http://contentz.mkt107=
+94.com/ra/2021/11776/08/2112502/Cont_4.png' style=3D"display: block; border=
+: 0;" width=3D"100"  /></a><br />
+=09=09=09=09=09=09=09=09=09=09=09=09<strong><a href=3D"https://links.email.=
+mozilla.org/els/v2/a9KyJLy2mS_/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJ=
+UHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3h=
+GS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"footer_donate" style=3D"color: #0c99d=
+5;" target=3D"_blank" >Donate&nbsp;to&nbsp;Mozilla</a></strong> &nbsp;|&nbs=
+p; <strong><a href=3D"https://links.email.mozilla.org/els/v2/0d~WQVL4dJ7/ck=
+x4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMO=
+DZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" nam=
+e=3D"footer_download" style=3D"color: #0c99d5;" target=3D"_blank" >Download=
+&nbsp;Firefox</a></strong><br />
+=09=09=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09=09=092 Harrison St. #175, San Francisco, CA =
+94105<br />
+=09=09=09=09=09=09=09=09=09=09=09=09<a href=3D"https://links.email.mozilla.=
+org/els/v2/4N~9H_rWwcE/ckx4aHNMN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJU=
+S25vb2Z5SkZrSU8yZ2x2ekJMODZuVXBJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG1=
+5cXRnR3VQbHNMOTg9S0/" name=3D"legal" style=3D"color: #0c99d5;" >Legal</a> &=
+bull; <a href=3D"https://links.email.mozilla.org/els/v2/jbArQ8gw6QV/ckx4aHN=
+MN3BlRXBsbVhLSVo2MGFmeWZjTHpVS0EvY0xJUHZXQXJUS25vb2Z5SkZrSU8yZ2x2ekJMODZuVX=
+BJTEZ4elNlcFlRbFZid2lWUThSams2QkQ1U3hGS29VWG15cXRnR3VQbHNMOTg9S0/" name=3D"=
+privacy" style=3D"color: #0c99d5;" >Privacy</a></td>
+=09=09=09=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09
+=09=09=09</table>
+=09=09=09</td>
+=09=09</tr>
+=09
+</table>
+<IMG src=3D"https://links.email.mozilla.org/eos/v1/T080R1FBQTJDOEJ0TUNJSk9L=
+ZjE1Zmw0L0JjM2tZc215LzFyWk1JalZISXNZYkIwcHc4eHpLaGJ5aVVsaWhxUWMxd1pqVTlkekt=
+ycGlZKzVOcU04UlE1Y2hqZnB2eUhBMkxMalFTaWFtZnpXSzdLSk82eWdsNkdJMW9GUmdwNnc2NE=
+syNVZFZkVwRzFYaStsY01ON2hvRm1JV2hEUXJrZUdRamsrcjRXZE1FPQS2"></body>
+</html>
+
+
+
+------=_Part_246566_1655424556.1629220536034--
+

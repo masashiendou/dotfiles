@@ -1,0 +1,289 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp2912735vky;
+        Sun, 28 Feb 2021 19:01:15 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJx4ZS9IUjBngVF90riS/1bzP11O1kSCMdb4f1BN9UH/7IDLZdRWiityVNqy24j2tFn+W9Mu
+X-Received: by 2002:ac8:d4f:: with SMTP id r15mr11644467qti.289.1614567674600;
+        Sun, 28 Feb 2021 19:01:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614567674; cv=none;
+        d=google.com; s=arc-20160816;
+        b=NcZDoDNgGWRy0k/5TpdEKyNYjdwZ+txnittiOOacHNICqQyvEp8lB12ptoXQZXolUm
+         s7t2+ZuU5F19UffBKHePgNB6+VnkYiyzi+5PHiHiSiCTiyhxi7zXts1c2gdRVuzYvAQF
+         siFChsRepneaBvEKPFiyyl5ppGQ76EKwwKJ0lhO2Pd3r0oWOY/lMsj6Kvgv7KZTJ+SJp
+         bE4QkFprQV3LhyM/9+XSGqYywrSLArLRTEKbfq20dXYoQ0ssdD/eYdm8aFeVIn4kShgu
+         5E66E6Ce4L0NgDHKBdf7AW2Ox0n17ULPTuQ0dVzY/Dt1jw23qPWNKm7sNXFUkWmm6oQl
+         TU1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:subject:message-id:to:from:date
+         :dkim-signature:dkim-signature;
+        bh=ANgrRR5nMkYbg15eQZiSphkKrZTHXe+TByeyQbGw9No=;
+        b=ViHhU58RuSMB0iccJzNKuj9lp2e4OYcAHgLK1cBXRC+zC8WTVlweN2H4BcXQtbwA+G
+         +rglXAM1EMANgckMm+B9W3hsRCqbuOpp9oDdvhNHX1rasqGM77JL/XdY3qYNezHUeLJy
+         EDGYp5ZAikxTiY5d6ZNCM5MQBpk3ZmVbbYkvhI6GlpSy/JSJ6jXAPqWfjl4bxJ9T1qW2
+         yyURfg17qjpaQR7Yxr21TcSfILwUXshh5++TD0iNeV5YGrCHPdUpW20wxrcNvGduSIZU
+         j8mGiR0DHkF0fzDuGOFTYVaRTBufjr4vEFOWqu2T7jg0UuaTIwubdHH9+rWp2tB3vXRZ
+         m0Sg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@connpass.com header.s=qgwij7ngzf35poavjaohcwhw362hh6qr header.b=CMSlCsK8;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b="blb/3wju";
+       spf=pass (google.com: domain of 01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@amazonses.com designates 54.240.11.160 as permitted sender) smtp.mailfrom=01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@amazonses.com
+Return-Path: <01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@amazonses.com>
+Received: from a11-160.smtp-out.amazonses.com (a11-160.smtp-out.amazonses.com. [54.240.11.160])
+        by mx.google.com with ESMTPS id f8si3692088qto.296.2021.02.28.19.01.14
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Sun, 28 Feb 2021 19:01:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of 01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@amazonses.com designates 54.240.11.160 as permitted sender) client-ip=54.240.11.160;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@connpass.com header.s=qgwij7ngzf35poavjaohcwhw362hh6qr header.b=CMSlCsK8;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b="blb/3wju";
+       spf=pass (google.com: domain of 01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@amazonses.com designates 54.240.11.160 as permitted sender) smtp.mailfrom=01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=qgwij7ngzf35poavjaohcwhw362hh6qr; d=connpass.com; t=1614567674;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type;
+	bh=nRummCuBL3vJMUGkcUN4ej7fBCnlqTSHHfmeR3tbQEU=;
+	b=CMSlCsK8YwFD24Hhmn3QyKfE8P0OWyALAf2BzSVhdenaUB88SeJU5foS1Lud8n2i
+	PUw/VntQosNnvOVkl/VcHPsh+I2dJydWMU0I5CTvzyj8pAm+49Vy2C6A2n4C2SrR4fV
+	TFVWzvaqa1s+fGEdyMVRrrcjilu6itirL255nUMg=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1614567674;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Feedback-ID;
+	bh=nRummCuBL3vJMUGkcUN4ej7fBCnlqTSHHfmeR3tbQEU=;
+	b=blb/3wjua2yDd9j7YG7CDyoaT/igMwl5mNNfPbYgHD3t1mLGz2xbzjxIcRaabD3c
+	do6I5F8FQg5VvuepwYQ3BzqoDKCGxtarMVUB30XcjfdXwIlv8zkcsn4iL+pj57KNbTb
+	0pSn/YntuwYej5ySqCoMu6FSXL8KUeGpkruPwHr4=
+Date: Mon, 1 Mar 2021 03:01:13 +0000
+From: connpass <no-reply@connpass.com>
+To: hujyorom@gmail.com
+Message-ID: <01000177ebbb8fbd-d4d41ff2-e139-47c0-8639-cd539f02da1d-000000@email.amazonses.com>
+Subject: =?UTF-8?Q?Message_from_group_organizer:_=E3=83=A9=E3=82=AF=E3=82=B9?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_3133645_1097919119.1614567673842"
+X-SES-Outgoing: 2021.03.01-54.240.11.160
+Feedback-ID: 1.us-east-1.C+rviT2VKZkMbeWWHMBlU6/bujQYrIHKb2DGcP0nnro=:AmazonSES
+
+------=_Part_3133645_1097919119.1614567673842
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+syouji
+
+Message from =E3=83=A9=E3=82=AF=E3=82=B9 of "=E3=83=A9=E3=82=AF=E3=82=B9" g=
+roup organizer=20
+
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81
+
+=E2=80=BBconnpass=E3=82=B0=E3=83=AB=E3=83=BC=E3=83=97=E3=80=8E=E3=83=A9=E3=
+=82=AF=E3=82=B9=E3=80=8F=E3=81=AB=E3=83=A1=E3=83=B3=E3=83=90=E3=83=BC=E7=99=
+=BB=E9=8C=B2=E3=82=92=E3=81=97=E3=81=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=
+=E3=81=A6=E3=81=84=E3=82=8B=E7=9A=86=E6=A7=98=E3=81=AB
+=E4=B8=80=E6=96=89=E9=80=81=E4=BF=A1=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=
+=81=BE=E3=81=99=E3=80=82
+
+=E3=83=A9=E3=82=AF=E3=82=B9=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E9=81=8B=E5=
+=96=B6=E4=BA=8B=E5=8B=99=E5=B1=80=E3=82=88=E3=82=8A=E3=81=94=E9=80=A3=E7=B5=
+=A1=E3=81=A7=E3=81=99=E3=80=82
+
+=E2=98=853/3 (=E6=B0=B4)=E3=80=8019:00-
+UI/UX=E3=83=87=E3=82=B6=E3=82=A4=E3=83=8A=E3=83=BCLT=E4=BC=9A
+https://rakus.connpass.com/event/202742/
+=E3=83=87=E3=82=B6=E3=82=A4=E3=83=8A=E3=83=BC=E3=81=AB=E3=82=88=E3=82=8B=E3=
+=83=87=E3=82=B6=E3=82=A4=E3=83=8A=E3=83=BC=E3=81=AE=E7=82=BA=E3=81=AE=E3=83=
+=87=E3=82=B6=E3=82=A4=E3=83=B3LT=E5=A4=A7=E4=BC=9A
+--=E7=99=BA=E8=A1=A8=E5=86=85=E5=AE=B9
+=E3=83=BBUX=E6=88=A6=E7=95=A5=E3=82=92=E8=80=83=E3=81=88=E3=82=8B
+=E3=83=BB=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=E9=96=8B=E7=99=BA=E3=81=A7=E3=
+=81=AEUX=E3=83=87=E3=82=B6=E3=82=A4=E3=83=B3
+=E3=83=BB=E3=83=87=E3=82=B6=E3=82=A4=E3=83=B3=E3=83=AC=E3=83=93=E3=83=A5=E3=
+=83=BC=E3=81=AE=E6=82=A9=E3=81=BF
+=E3=83=BB=E4=BC=81=E7=94=BB=E8=81=B7=E7=9A=84UX
+=E3=83=BB=E3=83=96=E3=83=A9=E3=83=B3=E3=83=87=E3=82=A3=E3=83=B3=E3=82=B0=E3=
+=81=A8UI/UX
+=E3=83=BB=E3=82=A2=E3=82=B8=E3=83=A3=E3=82=A4=E3=83=AB=E3=81=ABUX=E3=82=92=
+=E5=8F=96=E3=82=8A=E5=85=A5=E3=82=8C=E3=82=8B
+etc
+=E3=82=92=E4=BA=88=E5=AE=9A=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=
+=81=99=E3=80=82
+
+=E3=81=94=E6=A4=9C=E8=A8=8E=E4=B8=AD=E3=81=AE=E6=96=B9=E3=81=AF=E3=81=8A=E5=
+=BF=98=E3=82=8C=E3=81=AA=E3=81=8F=E5=8F=82=E5=8A=A0=E7=94=B3=E8=BE=BC=E3=82=
+=92=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E3=81=AD=E3=81=8C=E3=81=84=
+=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+
+=E5=B0=91=E3=81=97=E3=81=A7=E3=82=82=E3=81=94=E8=88=88=E5=91=B3=E3=81=8A=E6=
+=8C=81=E3=81=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=82=8B=E3=82=88=E3=81=86=E3=81=
+=A7=E3=81=97=E3=81=9F=E3=82=89
+=E6=98=AF=E9=9D=9E=E3=80=81=E3=81=94=E5=8F=82=E5=8A=A0=E4=B8=8B=E3=81=95=E3=
+=81=84=EF=BC=81
+
+---
+Twitter=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88 -=EF=BC=A0Devrakus
+https://twitter.com/DevRakus
+
+=E9=96=8B=E7=99=BA=E3=83=96=E3=83=AD=E3=82=B0 -RAKUS Developers Blog
+http://tech-blog.rakus.co.jp/
+
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81
+
+=E3=83=A9=E3=82=AF=E3=82=B9
+https://rakus.connpass.com/?utm_campaign=3Dgroup_message_to_member&utm_sour=
+ce=3Dnotifications&utm_medium=3Demail&utm_content=3Dtext_detail_url
+
+Group owner =E3=83=A9=E3=82=AF=E3=82=B9's profile
+https://connpass.com/user/rakus/?utm_campaign=3Dgroup_message_to_member&utm=
+_source=3Dnotifications&utm_medium=3Demail&utm_content=3Dtext_profile_url
+
+This email was sent to hujyorom@gmail.com.
+This message was sent via connpass to you and all other group members by th=
+e =E3=83=A9=E3=82=AF=E3=82=B9 group organizer. You cannot reply directly to=
+ this message.
+If you don't want to receive further notifications about this group please =
+leave the group on the group page.
+=E2=80=BB Please contact us via the inquriy form (https://connpass.com/inqu=
+iry/) if you do not recognize the contents, or receieve solicitation or oth=
+er spam emails. We will take the appropriate action after confirming the re=
+port.
+Copyright (C) 2021 BeProud, Inc. All Rights Reserved.
+
+
+------=_Part_3133645_1097919119.1614567673842
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<body style=3D"background-color:#FFFFFF; margin:10px 0; padding:0;">
+<table width=3D"800" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"margin:0 auto;border:2px solid #EBE9E3;">
+  <tbody>
+    <tr valign=3D"top">
+      <td>
+        <table width=3D"800" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"padding:10px 20px;margin:0 auto 20px auto;background-color:#EBE=
+9E3;">
+          <tbody>
+            <tr>
+              <td><a href=3D"https://connpass.com/"><img src=3D"https://con=
+npass.com/static/img/mail/logo.png" alt=3D"connpass" border=3D"0" /></a></t=
+d>
+              <td align=3D"right"><div style=3D"color:#666; font-size:14px;=
+"></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <table width=3D"760" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"margin: 0 auto">
+          <tbody>
+            <tr>
+              <td>
+
+<div style=3D"color:#000; font-size:12px;">
+  <strong>syouji</strong>,
+</div>
+<div style=3D"margin:10px auto; ">
+  <p style=3D"font-size:14px; color:#000; border-bottom:1px solid #ccc;">
+  =E3=80=8C<a href=3D"https://rakus.connpass.com/?utm_campaign=3D&utm_sourc=
+e=3Dnotifications&utm_medium=3Demail&utm_content=3Dtitle_link" target=3D"_b=
+lank" style=3D"color:#000;">=E3=83=A9=E3=82=AF=E3=82=B9</a>=E3=80=8D=E3=81=
+=AE=E7=AE=A1=E7=90=86=E8=80=85<a href=3D"https://connpass.com/user/rakus/?u=
+tm_campaign=3D&utm_source=3Dnotifications&utm_medium=3Demail&utm_content=3D=
+user_link" target=3D"_blank" style=3D"color:#000; font-weight:bold;">=E3=83=
+=A9=E3=82=AF=E3=82=B9</a>=E3=81=95=E3=82=93=E3=81=8B=E3=82=89=E3=81=AE=E3=
+=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=A7=E3=81=99=E3=80=82</p>
+  <h1 style=3D"font-size: 16px;color:#000; font-weight: bold;">=E3=80=90=E6=
+=98=8E=E5=BE=8C=E6=97=A53/3=E9=96=8B=E5=82=AC=E3=80=91UI/UX=E3=83=87=E3=82=
+=B6=E3=82=A4=E3=83=8A=E3=83=BCLT=E4=BC=9A=E3=81=B8=E3=81=AE=E3=81=94=E5=8F=
+=82=E5=8A=A0=E3=81=8A=E5=BE=85=E3=81=A1=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=
+=E3=81=BE=E3=81=99=EF=BC=81</h1>
+  <p style=3D"font-size: 14px;color:#000; ">=E2=80=BBconnpass=E3=82=B0=E3=
+=83=AB=E3=83=BC=E3=83=97=E3=80=8E=E3=83=A9=E3=82=AF=E3=82=B9=E3=80=8F=E3=81=
+=AB=E3=83=A1=E3=83=B3=E3=83=90=E3=83=BC=E7=99=BB=E9=8C=B2=E3=82=92=E3=81=97=
+=E3=81=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=A6=E3=81=84=E3=82=8B=E7=
+=9A=86=E6=A7=98=E3=81=AB<br>=E4=B8=80=E6=96=89=E9=80=81=E4=BF=A1=E3=81=97=
+=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br><br>=E3=83=A9=E3=
+=82=AF=E3=82=B9=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E9=81=8B=E5=96=B6=E4=BA=
+=8B=E5=8B=99=E5=B1=80=E3=82=88=E3=82=8A=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=A7=
+=E3=81=99=E3=80=82<br><br>=E2=98=853/3 (=E6=B0=B4)=E3=80=8019:00-<br>UI/UX=
+=E3=83=87=E3=82=B6=E3=82=A4=E3=83=8A=E3=83=BCLT=E4=BC=9A<br>https://rakus.c=
+onnpass.com/event/202742/<br>=E3=83=87=E3=82=B6=E3=82=A4=E3=83=8A=E3=83=BC=
+=E3=81=AB=E3=82=88=E3=82=8B=E3=83=87=E3=82=B6=E3=82=A4=E3=83=8A=E3=83=BC=E3=
+=81=AE=E7=82=BA=E3=81=AE=E3=83=87=E3=82=B6=E3=82=A4=E3=83=B3LT=E5=A4=A7=E4=
+=BC=9A<br>--=E7=99=BA=E8=A1=A8=E5=86=85=E5=AE=B9<br>=E3=83=BBUX=E6=88=A6=E7=
+=95=A5=E3=82=92=E8=80=83=E3=81=88=E3=82=8B<br>=E3=83=BB=E3=82=B7=E3=82=B9=
+=E3=83=86=E3=83=A0=E9=96=8B=E7=99=BA=E3=81=A7=E3=81=AEUX=E3=83=87=E3=82=B6=
+=E3=82=A4=E3=83=B3<br>=E3=83=BB=E3=83=87=E3=82=B6=E3=82=A4=E3=83=B3=E3=83=
+=AC=E3=83=93=E3=83=A5=E3=83=BC=E3=81=AE=E6=82=A9=E3=81=BF<br>=E3=83=BB=E4=
+=BC=81=E7=94=BB=E8=81=B7=E7=9A=84UX<br>=E3=83=BB=E3=83=96=E3=83=A9=E3=83=B3=
+=E3=83=87=E3=82=A3=E3=83=B3=E3=82=B0=E3=81=A8UI/UX<br>=E3=83=BB=E3=82=A2=E3=
+=82=B8=E3=83=A3=E3=82=A4=E3=83=AB=E3=81=ABUX=E3=82=92=E5=8F=96=E3=82=8A=E5=
+=85=A5=E3=82=8C=E3=82=8B<br>etc<br>=E3=82=92=E4=BA=88=E5=AE=9A=E3=81=97=E3=
+=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br><br>=E3=81=94=E6=A4=
+=9C=E8=A8=8E=E4=B8=AD=E3=81=AE=E6=96=B9=E3=81=AF=E3=81=8A=E5=BF=98=E3=82=8C=
+=E3=81=AA=E3=81=8F=E5=8F=82=E5=8A=A0=E7=94=B3=E8=BE=BC=E3=82=92=E3=82=88=E3=
+=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E3=81=AD=E3=81=8C=E3=81=84=E3=81=97=E3=81=
+=BE=E3=81=99=E3=80=82<br><br>=E5=B0=91=E3=81=97=E3=81=A7=E3=82=82=E3=81=94=
+=E8=88=88=E5=91=B3=E3=81=8A=E6=8C=81=E3=81=A1=E3=81=84=E3=81=9F=E3=81=A0=E3=
+=82=8B=E3=82=88=E3=81=86=E3=81=A7=E3=81=97=E3=81=9F=E3=82=89<br>=E6=98=AF=
+=E9=9D=9E=E3=80=81=E3=81=94=E5=8F=82=E5=8A=A0=E4=B8=8B=E3=81=95=E3=81=84=EF=
+=BC=81<br><br>---<br>Twitter=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88 -=
+=EF=BC=A0Devrakus<br>https://twitter.com/DevRakus<br><br>=E9=96=8B=E7=99=BA=
+=E3=83=96=E3=83=AD=E3=82=B0 -RAKUS Developers Blog<br>http://tech-blog.raku=
+s.co.jp/</p>
+</div>
+</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- =E3=83=95=E3=83=83=E3=82=BF=E6=96=87=E8=A8=80=E9=83=A8=E5=88=
+=86 -->
+        <table width=3D"800" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"margin:0 auto;background-color:#EBE9E3;;padding:10px;">
+          <tbody>
+            <tr>
+              <td>
+                <div style=3D"font-size:10px; color:#333; line-height:16px;=
+">
+                  This email was sent to hujyorom@gmail.com.<br />
+                 =20
+This message was sent via connpass to you and all other group members by th=
+e =E3=83=A9=E3=82=AF=E3=82=B9 group organizer. You cannot reply directly to=
+ this message.<br />
+If you don't want to receive further notifications about this group please =
+leave the group on the group page.<br />
+
+                 =20
+=E2=80=BB =E5=BF=83=E5=BD=93=E3=81=9F=E3=82=8A=E3=81=AE=E7=84=A1=E3=81=84=
+=E5=86=85=E5=AE=B9=E3=83=BB=E5=8B=A7=E8=AA=98=E3=82=84=E3=82=B9=E3=83=91=E3=
+=83=A0=E3=81=AA=E3=81=A9=E3=81=AE=E8=BF=B7=E6=83=91=E3=83=A1=E3=83=BC=E3=83=
+=AB=E3=81=8C=E5=B1=8A=E3=81=84=E3=81=9F=E5=A0=B4=E5=90=88=E3=80=81<a href=
+=3D"https://connpass.com/inquiry/" target=3D"_blank" style=3D"color:#000;">=
+=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E3=83=95=E3=82=A9=E3=
+=83=BC=E3=83=A0</a>=E3=82=88=E3=82=8A=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=E5=86=85=E5=AE=B9=E3=82=92=E7=A2=BA=E8=
+=AA=8D=E3=81=AE=E3=81=86=E3=81=88=E9=81=A9=E5=88=87=E3=81=AA=E5=87=A6=E7=BD=
+=AE=E3=82=92=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+
+                </div>
+                <div style=3D"font-size:9px; color:#333; font-weight:bold; =
+text-align:center; margin:15px auto 0;">Copyright &copy; 2021 BeProud, Inc.=
+ All Rights Reserved.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </table>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+
+------=_Part_3133645_1097919119.1614567673842--

@@ -1,0 +1,90 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:a8ce:0:0:0:0:0 with SMTP id r197csp373735vke;
+        Wed, 2 Sep 2020 02:55:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJymTlXRxsjM7T1z7ARySD9UAK37VsNYFgiNpcEEETTJefFnuB5DkQa0fk1i7iY1Vc0gD2qf
+X-Received: by 2002:a17:90b:3717:: with SMTP id mg23mr1636380pjb.42.1599040515260;
+        Wed, 02 Sep 2020 02:55:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599040515; cv=none;
+        d=google.com; s=arc-20160816;
+        b=a0oSKUaGTcw7cr1M/f5tRQkkPJfrQn3yw+vz7Vp3c2Aco6MgUnId9IISAaIMOxKl6m
+         DV/igvzJOBGlF+NnoxqmlvratrsLLVqh19GoBoZbvGQJrxpYaMax3K6P1EGobXCIpcpI
+         zfw2SvF+psDm3+ckxYLPKG22ZdZDiWcl0zMZu6RBkEBQaIDG+9ncY9QKqdD1neDjzQCj
+         VmKAm/4xJmKk3Jx8XYSbTNRgrVIflE17CBA9auuAFU4LO2xJmWP6hEka50mK2QLBop3T
+         cua9MUCUTLv3MLdEsluHrqCVs7g6yT03MmOSMmk4JVJuEQApSoegekg8uaw594ZyLpCs
+         Tx7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:mime-version:message-id:from:errors-to:date
+         :content-transfer-encoding:dkim-signature;
+        bh=mlrRSxKKM5rITZvQamCa5ae2o/q+H6HYChYoDXlmk70=;
+        b=L5AF7kuTcRhq8uDkvW/xsh7zKfZVnZOLHIw/5j1IjVI1VrQhXddwi4p1iDmDZYra/v
+         M0rsuG3/d8mNd9+4qARFBcNR8uXvq72Pe0fmzH+tT+NFxmUTaQBgWhS5zElwsbINc1kH
+         cr5qvotMrSsQMerbWKJ2ztCYFPYb179F0JFFxdVwWduv+f046QLGgPP9NVjafefdkiV/
+         Heg9v7ECyRHHapzWBBhVuthYVM4IBNCvEP6CJVjGSym4GLdpkHDXOlbskkW4ZGdLUVJ2
+         /7GBPQ73qUO2mCgb1RaFyDnVu3rKKYhZBTpcc46PLK7F/6BtxdKfXLRkkAZCHCF7UfUu
+         mDVg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@valuecommerce.co.jp header.s=cojp20200508 header.b=FwQlzswB;
+       spf=pass (google.com: domain of bounce-000010629-0009709983a7a1@fc0849.cuenote.jp designates 210.152.203.186 as permitted sender) smtp.mailfrom=bounce-000010629-0009709983a7a1@fc0849.cuenote.jp
+Return-Path: <bounce-000010629-0009709983a7a1@fc0849.cuenote.jp>
+Received: from fc0849.cuenote.jp (fc0849.cuenote.jp. [210.152.203.186])
+        by mx.google.com with ESMTPS id b4si3634610pgh.266.2020.09.02.02.55.14
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Sep 2020 02:55:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-000010629-0009709983a7a1@fc0849.cuenote.jp designates 210.152.203.186 as permitted sender) client-ip=210.152.203.186;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@valuecommerce.co.jp header.s=cojp20200508 header.b=FwQlzswB;
+       spf=pass (google.com: domain of bounce-000010629-0009709983a7a1@fc0849.cuenote.jp designates 210.152.203.186 as permitted sender) smtp.mailfrom=bounce-000010629-0009709983a7a1@fc0849.cuenote.jp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=valuecommerce.co.jp; s=cojp20200508; t=1599040514;
+	x=1599645314; bh=mlrRSxKKM5rITZvQamCa5ae2o/q+H6HYChYoDXlmk70=;
+	h=Date:From:Subject:To;
+	b=FwQlzswBv2898pRAPVo7mv4OCwbxVb/yCeSPPnKCs2f9NaIj9GVIun6XA+YJ
+	 8kJUdrOEkqQUPytP5UAHHXLRS4af53jMplO20EoJsRuCFdf5FonlucEi/pmwL
+	 jprV0smi1nSRyO0RwxB/OHo2NmGk4nLeBFjtn/TiEzhFedpryo=
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 02 Sep 2020 18:55:14 +0900
+Errors-To: bounce-000010629-0009709983a7a1@fc0849.cuenote.jp
+From: =?UTF-8?B?44OQ44Oq44Ol44O844Kz44Oe44O844K55qCq5byP5Lya56S+?=
+ <support@valuecommerce.co.jp>
+Message-ID: <5577865d-a11a-43af-8b4d-9c672ce6b613@fc0849.cuenote.jp>
+MIME-Version: 1.0
+Subject: =?UTF-8?B?44CQ6YeN6KaB44CR44K544Oe44O844OI44OV44Kp44Oz54mI44Os?=
+ =?UTF-8?B?44Od44O844OI44Oq44Oq44O844K544Gu44GK55+l44KJ44Gb?=
+To: <hujyorom@gmail.com>
+X-Priority: 3
+
+44Ki44OV44Kj44Oq44Ko44Kk44OI44K144Kk44OI6YGL5Za26ICFIOWQhOS9jQ0KDQoNCuW5s+e0
+oOOCiOOCiuODkOODquODpeODvOOCs+ODnuODvOOCuSDjgqLjg5XjgqPjg6rjgqjjgqTjg4jjgpLj
+gZTliKnnlKjjgYTjgZ/jgaDjgY3jgIHoqqDjgavjgYLjgorjgYzjgajjgYbjgZTjgZbjgYTjgb7j
+gZnjgIINCg0K44GT44Gu44Gf44Gz5byK56S+44Gn44Gv566h55CG55S76Z2i44Gu5qmf6IO95pS5
+5ZaE44Gu5LiA55Kw44Go44GX44Gm44CB44K544Oe44O844OI44OV44Kp44Oz44Gn44Gu6KGo56S6
+44Gr5pyA6YGp5YyW44GX44Gf44Os44Od44O844OI44KS44Oq44Oq44O844K544GE44Gf44GX44G+
+44GX44Gf44CCDQoNCuKWoOODquODquODvOOCueaXpe+8mjIwMjDlubQ55pyIMuaXpe+8iOawtO+8
+iQ0KDQrilqDlr77osaHjg6zjg53jg7zjg4gNCg0K44O75qaC6KaB44Os44Od44O844OIKOKAuzEp
+DQrjg7vms6jmlofliKXjg6zjg53jg7zjg4gNCuODu+e1seioiOODrOODneODvOODiA0K44O75bqD
+5ZGK5Li75Yil44Os44Od44O844OIDQrjg7vluoPlkYrkuLvliKXoqbPntLDjg6zjg53jg7zjg4go
+4oC7MikNCuODu+aMr+i+vOODrOODneODvOODiA0K44O744K144Kk44OI5Yil5pSv5omV44Os44Od
+44O844OIDQoNCijigLsxKeODkeOCveOCs+ODs+eJiOOBp+OBr+ODgOODg+OCt+ODpeODnOODvOOD
+ieOBp+ihqOekuuOBleOCjOOCi+ODrOODneODvOODiOOBqOOBquOCiuOBvuOBmeOAgg0KKOKAuzIp
+5bqD5ZGK5Li75Yil44Os44Od44O844OI44Gu5bqD5ZGK5Li75ZCN44KS44Kv44Oq44OD44Kv44GZ
+44KL44GT44Go44Gn44CB5bqD5ZGK5Li75Yil6Kmz57Sw44Os44Od44O844OI44GM6KGo56S644GV
+44KM44G+44GZ44CCDQoNCuips+e0sOOBr+S4i+iomOOCkuOBlOeiuuiqjeOBj+OBoOOBleOBhOOA
+gg0KDQpb566h55CG55S76Z2i44Ks44Kk44OJ77ya44K544Oe44O844OI44OV44Kp44Oz54mI44Os
+44Od44O844OIXQ0KaHR0cHM6Ly93d3cudmFsdWVjb21tZXJjZS5uZS5qcC90b3BpY3Mvc3BfcmVw
+b3J0DQoNClvjg5jjg6vjg5fvvJrjgrnjg57jg7zjg4jjg5Xjgqnjg7PniYhdDQpodHRwOi8vaGVs
+cC52YWx1ZWNvbW1lcmNlLm5lLmpwL2FmZi9zbWFydHBob25lLw0KDQrlvJXjgY3ntprjgY3jgIHj
+g5Djg6rjg6Xjg7zjgrPjg57jg7zjgrkg44Ki44OV44Kj44Oq44Ko44Kk44OI44KS44Gp44GG44Ge
+44KI44KN44GX44GP44GK6aGY44GE55Sz44GX5LiK44GS44G+44GZ44CCDQoNCi0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tDQrjg5Djg6rjg6Xjg7zjgrPjg57jg7zjgrnmoKrlvI/kvJrnpL4NCuOAkjEw
+Ny0wMDYyIOadseS6rOmDvea4r+WMuuWNl+mdkuWxsTItMjYtMSDjgIDljZfpnZLlsbHjg5bjg6nj
+gqTjg4jjgrnjgq/jgqjjgqINCg0K4pagIOODkOODquODpeODvOOCs+ODnuODvOOCuSDjgqLjg5Xj
+gqPjg6rjgqjjgqTjg4gNCmh0dHBzOi8vd3d3LnZhbHVlY29tbWVyY2UubmUuanAvDQrilqAg44Ki
+44OV44Kj44Oq44Ko44Kk44OI6YGL5Za244Od44Oq44K344O8DQpodHRwczovL3d3dy52YWx1ZWNv
+bW1lcmNlLm5lLmpwL3BvbGljeS8NCuKWoCDjgojjgY/jgYLjgovjgZTos6rllY8NCmh0dHBzOi8v
+aGVscC52YWx1ZWNvbW1lcmNlLm5lLmpwL2FmZi8NCuKWoCDjgYrllY/jgYTlkIjjgo/jgZvjg5Xj
+gqnjg7zjg6ANCmh0dHBzOi8vYWZmLnZhbHVlY29tbWVyY2UubmUuanAvaW5xdWlyeS9pbnF1aXJ5
+QXMNCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQo=

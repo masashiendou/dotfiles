@@ -1,0 +1,1008 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2b15:0:0:0:0:0 with SMTP id r21csp4421166vkr;
+        Tue, 26 Jan 2021 17:01:39 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJyu1O8upMIA0y8oVtWsycm5RNP2PE62WeJ5hWulqochOU4r0JjeaZ4izwEiMWdyS1nJBwcS
+X-Received: by 2002:aca:4ac5:: with SMTP id x188mr1504153oia.14.1611709299661;
+        Tue, 26 Jan 2021 17:01:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611709299; cv=none;
+        d=google.com; s=arc-20160816;
+        b=oX8FYh1kqGaCpZJhXu9B5HsHrj+53vLnvFlTML8ynjD9QYYWnPCLYdCA9Y0P0JNkUU
+         wN8NKadywOoCBwPf6pA8fxVQYF35JSEVg5L9A7C39pcSfQ6fPBeuXBGXFwp0pJCIuvN8
+         PKF1xGa9TblKSw0tqAHP4BabgAEVfFmbiX0OsvRJf4O4+/mgI8qNi4KpikcJ66Bpc6D8
+         5VXl6BveVpd0YNnVUZVeQnf7Xera9cIpzxywf10xDKSRJbN1dFyQd5//5ml5P0YRa+Qv
+         IL7aTknJ8cG6wdSaFyRlaubwT8jesQt+Xgo6js2+Bgpp5hC32MiTT0ZQF6385Etg9dwI
+         NYog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature;
+        bh=txOd052eFQlPhOs4qGAokFc3MxzUvZz1utdJcj2XKGc=;
+        b=mCYdUDAjEb673NS/6ROYicLWCD0v6+wQuAIwT19IYgrvR3D3qL8vLs9O26NLj57SC9
+         +5qQ7ubsCVNOtikCyg8dztVbYk+OaPY4ma/bsUSmU5T2fQ4TGlFkToAkv06kHAr3hAXG
+         c0dsfl+YEAN5Hbp9Ch8kpVXfgDterclNy5z5AOucJCmqPMyXieVnULkUg88qPxsH3S3Y
+         QfHPC3ok3R5mt+WTeruFUfqIKD8HkKePBZeJpCozZSiZ9PWdWncNIQVdunMFR3/x+zCl
+         /ljzBGqQ6HmOfPBHFUDJVCYEnDYhbYnMQ4qb32+LWFHhPe5aAIo4l3uj2CrX5dLRSIde
+         E4dw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cisco.com header.s=asp header.b=XPjkah76;
+       spf=softfail (google.com: domain of transitioning 564-whv-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com does not designate 173.37.147.246 as permitted sender) smtp.mailfrom=564-WHV-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cisco.com
+Return-Path: <564-WHV-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com>
+Received: from alln-asp-1.cisco.com (alln-asp-1.cisco.com. [173.37.147.246])
+        by mx.google.com with ESMTPS id n6si147191otq.13.2021.01.26.17.01.39
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 26 Jan 2021 17:01:39 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning 564-whv-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com does not designate 173.37.147.246 as permitted sender) client-ip=173.37.147.246;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cisco.com header.s=asp header.b=XPjkah76;
+       spf=softfail (google.com: domain of transitioning 564-whv-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com does not designate 173.37.147.246 as permitted sender) smtp.mailfrom=564-WHV-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cisco.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=cisco.com; i=@cisco.com; l=41044; q=dns/txt; s=asp;
+  t=1611709299; x=1614301299;
+  h=date:from:reply-to:to:message-id:subject:mime-version:
+   list-unsubscribe;
+  bh=MNEPjrqEe1u8E7LKMOH34l93zezbuSCsGZzWC7SiFps=;
+  b=XPjkah7627zax1EaRbdcsX9y4u9fZsrKA/TcbU/5qsK8W6OJdBe2+yV4
+   WQ4/hqwPYz1rf5lGmEAlT8GEcGdRh2TH979iqZNgp93RvgiJhZrLj0aYB
+   dCIgfIkVg0igO1mc/aUzZgIV6DzLcaBXnvzRMsRX+jUQYTqUL77nrMq6u
+   g=;
+Received: from donkey.mktdns.com ([199.15.215.91])
+  by alln-asp-1.cisco.com with ESMTP/TLS/DHE-RSA-SEED-SHA; 27 Jan 2021 01:01:34 +0000
+X-Cisco-Communication: 
+X-CASPR: 
+X-IronPort-AV: E=Sophos;i="5.79,378,1602547200"; 
+   d="scan'208,217";a="184987061"
+X-MSFBL: Pd+aRe4fQDYMISJiX2lokDUhHXpH+ZaZ3YG+ejs22lE=|eyJyIjoiaHVqeW9yb21
+	AZ21haWwuY29tIiwidSI6IjU2NC1XSFYtMzIzOjA6MTA3OTM6MjkzOTg6MTI3OTA
+	xOjE5MjM5Ojk6ODA3MjY6MTg0MDcyMTEiLCJnIjoiYmctc2pyLTAxIiwiYiI6ImR
+	2cC0xOTktMTUtMjE1LTkxYSJ9
+Date: Tue, 26 Jan 2021 18:45:56 -0600 (CST)
+From: Cisco DevNet <devnet@cisco.com>
+Reply-To: devnet@cisco.com
+To: hujyorom@gmail.com
+Message-ID: <498002100.16135728.1611708356158@sjmktmail-batch1h.marketo.org>
+Subject: =?UTF-8?Q?=E4=BB=8A=E3=81=99=E3=81=90_Cisco_DevNet_Inno?=
+ =?UTF-8?Q?vators_2021?= =?UTF-8?Q?_=E3=81=AB=E7=99=BB=E9=8C=B2=E3=81=97?=
+ =?UTF-8?Q?=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_16135722_960760189.1611708356145"
+X-Binding: bg-sjr-01
+List-Unsubscribe: <mailto:IVLWQS2NIZMDST3OINPWQUDSNZFXSWSGJN5G6SKTKFUDGTRRNZ5EC4CXIR4FI52YFVMWWPI=.80726.19239.9@unsub-sj.mktomail.com>
+X-PVIQ: mkto-564WHV323-000001-000000-080726
+X-MarketoID: 564-WHV-323:0:10793:29398:127901:19239:9:80726:18407211
+X-Mailfrom: 564-WHV-323.0.80726.0.0.19239.9.18407211@em-sj-77.mktomail.com
+X-MktArchive: false
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+
+------=_Part_16135722_960760189.1611708356145
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+Q2lzY28gQVBKQyBEZXZOZXQgSW5ub3ZhdG9ycyAyMDIxIOOBrueZu+mMsuOCkumWi+Wni+OBl+OB
+vuOBl+OBnwoK4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB
+4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSB4pSBCgrjgqLjgqTjg4fjgqLj
+gr3jg7Pjgajjg4/jg4Pjgqvjgr3jg7PjgafjgqTjg47jg5njg7zjgrfjg6fjg7PjgpLpgLLjgoHj
+gaYK5aSn44GN44Gq5oiQ5p6c44KS5a6f54++44GX44CB57Sg5pm044KJ44GX44GE6LOe5ZOB44KS
+542y5b6X44GX44G+44GX44KH44GG44CCCgrjgIDku4rjgZPjgZ3jgIFDaXNjbyBBUEpDIERldk5l
+dCBJbm5vdmF0b3JzIENoYWxsZW5nZSDjga4gRGV2TmV0IOOBp+OAgQrjgIDjgrfjgrnjgrPjgajj
+gajjgoLjgavjgqTjg47jg5njg7zjgrfjg6fjg7PjgpLlrp/nj77jgZflpKLjgpLlrp/nj77jgZnj
+govjg4Hjg6Pjg7PjgrnjgafjgZnjgIIKCuOAgOOBguOCieOChuOCi+alreeoruOBruOBiuWuouan
+mOOAgeODkeODvOODiOODiuODvOanmOOAgeWtpueUn+OBrueahuanmOOBjOWPguWKoOWvvuixoeOB
+p+OAgQrjgIDjgrfjgrnjgrPjga7jg4bjgq/jg47jg63jgrjjg7zjgpLkvb/nlKjjgZfmp5jjgIXj
+garllY/poYzjgpLop6PmsbrjgZnjgovjg6bjg7zjgrnjgrHjg7zjgrnjgpLogIPjgYjjgIEK44CA
+6ZaL55m644GZ44KL44GT44Go44GM6Kqy6aGM44Gn44GZ44CC44Gd44Gu5b6M44CB44OX44Ot44OI
+44K/44Kk44OX44KS6ZaL55m644GX44Gm44Ki44Kk44OH44Ki44KSCuOAgOWun+ePvuOBl+OBvuOB
+l+OCh+OBhuOAglNvbnkgUGxheXN0YXRpb24gNSDjgarjganjgIHmnIDlpKcgNTAwIOexs+ODieOD
+q+ebuOW9k+OBrgrjgIDos57lk4HjgpLnjbLlvpfjgafjgY3jgb7jgZnjgIIK44CACuOAgOeZu+mM
+suOBr+OBk+OBoeOCiQrjgIBodHRwczovL21rdG8tdHJrLmNpc2NvLmNvbS9LMDBlZldIMTBaWEky
+Vm15djEwTjBWMAoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tCgpDaXNjbyBEZXZOZXQgSW5ub3ZhdG9ycyDjga7oqbPntLAKCuOAgENp
+c2NvIEFQSkMgRGV2TmV0IElubm92YXRvcnMg44Kk44OZ44Oz44OI44GvIDIg44K544OG44O844K4
+44Gu44OB44Oj44Os44Oz44K444Gn44CBCuOAgOWkp+OBjeOBquaIkOaenOOBruWun+ePvuOBq+W9
+ueeri+OBpOODr+ODvOOCr+OCt+ODp+ODg+ODl+OBqOaUr+aPtOOCu+ODg+OCt+ODp+ODs++8iOeE
+oeaWme+8ieOBjArjgIDmj5DkvpvjgZXjgozjgb7jgZnjgIIK44CACuOAgOWPguWKoOWvvuixoeiA
+hQrjgIDjgIDjg7vjgYrlrqLmp5jvvJrntYzpqJPjgpLnlJ/jgYvjgZfjgIHjg5Pjgrjjg43jgrnk
+uIrjga7oqrLpoYzjgpLop6PmsbrjgZnjgovjgIIK44CA44CA44O744OR44O844OI44OK44O85qeY
+77ya44K344K544Kz44Gu44K944Oq44Ol44O844K344On44Oz44GK44KI44Gz44GK5a6i5qeY44Gu
+5ZWP6aGM54K544GrCuOAgOOAgOOAgOOBiuOBhOOBpuWwgumWgOefpeitmOOCkua0u+eUqOOBmeOC
+i+OAggrjgIDjgIDjg7vlrabnlJ/jga7nmobmp5jvvJrntYzpqJPosYrlr4zjgarmpa3nlYzjga7l
+sILploDlrrbjgYvjgonnn6XorZjjgpLnjbLlvpfjgZnjgovjgIIK44CACuOAgDIg44Gk44Gu44K5
+44OG44O844K444GM44GC44KK44G+44GZ44CC5Lih5pa544G+44Gf44Gv44GE44Ga44KM44GL44Gu
+44K544OG44O844K444GrCuOAgOWPguWKoOOBp+OBjeOBvuOBmeOAguOCueODhuODvOOCuCAyIOOB
+q+WPguWKoOOBmeOCi+WgtOWQiOOAgeOCueODhuODvOOCuCAxIOOBruWPguWKoOOBrwrjgIDlv4Xp
+oIjjgafjga/jgYLjgorjgb7jgZvjgpPjgILjgrnjgq3jg6vjg6zjg5njg6vjga/llY/jgYTjgb7j
+gZvjgpPjgILjg6/jg7zjgq/jgrfjg6fjg4Pjg5fjgagK44CA5pSv5o+044K744OD44K344On44Oz
+44Gr5Y+C5Yqg44GX44Gm44CB44OH44K244Kk44Oz5oCd6ICD44CB44Om44O844K544Kx44O844K5
+44Gu6ZaL55m644CBCuOAgOOCs+ODvOODh+OCo+ODs+OCsOaWueazleOAgeODl+ODreODiOOCv+OC
+pOODl+OBruS9nOaIkOaWueazleOCkuWtpuOCk+OBp+OBj+OBoOOBleOBhOOAggrjgIAK44CA5LuK
+44GZ44GQ55m76YyyCuOAgGh0dHBzOi8vbWt0by10cmsuY2lzY28uY29tL0swMGVmV0gxMFpYSTJW
+bXl2MTBOMFYwCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0KCuOCueODhuODvOOCuCAx77ya44Ki44Kk44OH44Ki44K944OzCuOAgOiq
+sumhjOOChOWVj+mhjOeCueOCkueJueWumuOBl+OBpuODpuODvOOCueOCseODvOOCueOCkuS9nOaI
+kOOBl+OAgUNpc2NvIERldk5ldCDjgacK44CA5pyb44G+44GX44GE5oiQ5p6c44KS5a6f54++44GZ
+44KL5pa55rOV44KS6ICD44GI44G+44GZ44CCCgrjgrnjg4bjg7zjgrggMu+8muODj+ODg+OCq+OC
+veODswrjgIDjg4/jg4Pjgqvjgr3jg7Pjgafjga/jgqLjgqTjg4fjgqLjga7jg5fjg63jg4jjgr/j
+gqTjg5fjgpLplovnmbrjgZfjgIEK44CA44Kz44Oz44K744OX44OI44KS44OG44K544OI44GX44G+
+44GZ44CCCgrigLsg44Kk44OZ44Oz44OI44Gv6Iux6Kqe44Gn6KGM44KP44KM44G+44GZ44CCCgot
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0KCuOCveODvOOCt+ODo+ODq+ODoeODh+OCo+OCouOBp+WFseacieOBl+OBpuOAgVRpbGUgUHJv
+IO+8iDIg44OR44OD44Kv77yJ44KSCueNsuW+l+OBl+OBvuOBl+OCh+OBhgoK44CATGlua2VkSW7j
+gIFJbnN0YWdyYW3jgIFUd2l0dGVy44CBRmFjZWJvb2sg44GnIENpc2NvIERldk5ldCDjgacK44CA
+44Gn44GN44KL6Z2i55m944GE5YaF5a6544Gu5oqV56i/44KS5L2c5oiQ44GX44CB44OP44OD44K3
+44Ol44K/44Kw44CMI0Npc2NvIArjgIAjRGV2TmV0ICNBUEpDU0XjgI3jgpLkvb/nlKjjgZfjgaYg
+VGlsZSBQcm/vvIgyIOODkeODg+OCr++8ieOCkueNsuW+l+OBl+OBvuOBmeOAggrjgIA1MCDlkI3j
+gavos57lk4HjgYznlKjmhI/jgZXjgozjgabjgYTjgb7jgZnjgIIKCuOAgFRpbGUg44Gv5L2/44GE
+44KE44GZ44GE44Ki44OX44Oq44KS5YKZ44GI44GfIEJsdWV0b290aCDjg4jjg6njg4Pjgqvjg7zj
+gafjgIEK44CA6Y2144KE6LKh5biD44Gr5Y+W44KK5LuY44GR44Gm44GK44GP44Go44CB5aSx44GP
+44GX44Gf44Go44GN44Gr5pWw56eS44Gn6KaL44Gk44GR44KL44GT44Go44GMCuOAgOOBp+OBjeOB
+vuOBmeOAglQmQyDvvIjoi7Hoqp7vvIkg44Gr44Gk44GE44Gm44Gv44GT44Gh44KJ44KS44GU6Kan
+44GP44Gg44GV44GE44CCCuOAgGh0dHBzOi8vbWt0by10cmsuY2lzY28uY29tL1dXMDBXTkhmWjFK
+MlZtdjAwZTF5WDAwCgrilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHi
+lIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIHilIEKCkZhY2Vib29r
+Cmh0dHBzOi8vbWt0by10cmsuY2lzY28uY29tL0NIdjAwODBWWjFYVzBObXkyZTEwVjBmCgpUd2l0
+dGVyCmh0dHBzOi8vbWt0by10cmsuY2lzY28uY29tL3owZXkybVowMDFmSE5RWDBXdjMxVjAwCgpM
+aW5rZWRJbgpodHRwczovL21rdG8tdHJrLmNpc2NvLmNvbS9PMFgwdmZlVjAyMTFOV1pSMDQwbTB5
+SAoKWW91VHViZQpodHRwczovL21rdG8tdHJrLmNpc2NvLmNvbS96MGV5Mm1aMDAxZkhOU1gwV3Y1
+MVYwMAoKCkNvcHlyaWdodCDCqSAyMDIxLCBDaXNjbyBTeXN0ZW1zLCBJbmMuIEFsbCByaWdodHMg
+cmVzZXJ2ZWQuIENpc2NvLCBDaXNjbyBTeXN0ZW1zIGFuZCB0aGUgQ2lzY28gU3lzdGVtcyBsb2dv
+IGFyZSByZWdpc3RlcmVkIHRyYWRlbWFya3Mgb2YgQ2lzY28gU3lzdGVtcywgSW5jLiBhbmQvb3Ig
+aXRzIGFmZmlsaWF0ZXMgaW4gdGhlIFVuaXRlZCBTdGF0ZXMgYW5kIGNlcnRhaW4gb3RoZXIgY291
+bnRyaWVzLgoKQ2xpY2sgaGVyZSB0byB1bnN1YnNjcmliZSBmcm9tIENpc2NvIG1hcmtldGluZyBj
+b21tdW5pY2F0aW9ucwpodHRwczovL21rdG8tdHJrLmNpc2NvLmNvbS9QMDEwTjFtV1pIMHZUZjBY
+MHk2VjBlMgoKQ2lzY28gd2lsbCBjb250aW51ZSB0byBzZW5kIHNlcnZpY2UvdHJhbnNhY3Rpb25h
+bCBjb21tdW5pY2F0aW9ucywgaW5jbHVkaW5nIHRob3NlIHRoYXQgaGF2ZSB0byBkbyB3aXRoIGFu
+eSBhY2NvdW50cyB0aGF0IHlvdSBtYXkgaGF2ZSB3aXRoIHVzLgoKQ2lzY28uY29tCmh0dHBzOi8v
+bWt0by10cmsuY2lzY28uY29tL1pITmZ2MDBYbTAxMDFlMHlLMjBaVldYCgpQcml2YWN5Cmh0dHBz
+Oi8vbWt0by10cmsuY2lzY28uY29tL3RtVnYyZTFYV3kwWlkwMU5IZjAwMDBMCgpUZXJtcyAmIENv
+bmRpdGlvbnMKaHR0cHM6Ly9ta3RvLXRyay5jaXNjby5jb20vRjB5SFowME1aMVcxdjJYZTAwMFZt
+TmYKCkNvb2tpZXMKaHR0cHM6Ly9ta3RvLXRyay5jaXNjby5jb20vWkhOZnYwMDBtMDEwMWUweU4y
+MFpWV1gKClRyYWRlbWFya3MKaHR0cHM6Ly9ta3RvLXRyay5jaXNjby5jb20vTU4xVjFlMHlXWGYw
+bTAwMVowdkgwTzIKCuKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgQoKCjwhLS0gIC0t
+Pi4K
+------=_Part_16135722_960760189.1611708356145
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>=20
+<title>Email Template</title>=20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />=
+=20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />=
+=20
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1,=
+ minimum-scale=3D1, maximum-scale=3D1" />=20
+<!--  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1">-->=20
+<meta name=3D"robots" content=3D"noindex,nofollow" />=20
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" /> =20
+<!--Background    -->      =20
+<!--Spacer    --> =20
+<!--Divider-->                  =20
+<!--[if !mso]>
+<!--<![endif]-->=20
+<!--[if gte mso 9]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->=20
+<!--[if mso]>
+<style> Body,table tr,table td,a, span,table.MsoNormalTable {  font-family:=
+Arial,sans-serif !important;  }</style>
+<!--<![endif]-->=20
+<style type=3D"text/css">
+/* CLIENT-SPECIFIC STYLES */
+#outlook a {
+padding: 0;
+}
+/* Force Outlook to provide a "view in browser" message */
+.ReadMsgBody {
+width: 100%;
+}
+.ExternalClass {
+width: 100%;
+}
+/* Force Hotmail to display emails at full width */
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+line-height: 100%;
+}
+/* Force Hotmail to display normal line spacing */
+/* iOS BLUE LINKS */
+@-ms-viewport {
+width: device-width;
+}
+</style>=20
+<style type=3D"text/css">
+Body {-webkit-font-smoothing: antialiased !important; -webkit-text-size-adj=
+ust: none !important; width: 100% !important; height: 100% !important; }
+a[x-apple-data-detectors] {color: inherit !important;text-decoration: none =
+!important;font-size: inherit !important;font-family: inherit !important;fo=
+nt-weight: inherit !important;line-height: inherit !important;}
+a {outline: 0;text-decoration: none;}
+table {border-spacing: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;}
+Body, td, input, textarea, select {
+font-family:sans-serif !important;=20
+}
+    th{
+        text-align: left;
+        font-weight: normal;
+       =20
+    }
+</style>=20
+<style type=3D"text/css">
+@media only screen and (max-width: 640px) {
+.deviceWidth {
+width: 100% !important;
+min-width: 100% !important;
+}
+
+.deviceWidth1 {
+width: 90% !important;
+min-width: 90% !important;
+}
+
+.block {
+width: 100% !important;
+display: block !important;
+box-sizing: border-box;
+clear: both;
+}
+.h100{
+height: 100% !important;
+}
+.center {
+text-align: center !important;
+}
+.left{
+text-align: left !important;=20
+}
+.pad-top {
+padding-top: 25px !important;
+}
+
+.iphn_img img {
+width: 100% !important;
+}
+.extra-space {
+height: 20px !important;
+}
+.top-pad {
+padding-top: 15px !important;
+}
+.bottom-pad {
+padding-bottom: 20px !important;
+}
+.hidden-xs{
+display: none !important;
+}
+.border-btm2 {
+border-right: none !important;
+border-bottom: 1px solid #eeeeee !important;
+}
+.m-top{
+margin-top: 15px;
+}
+    .bg-right{
+        background-position: right !important;
+    }  =20
+    .iphn_img-m img{
+        max-width:100% !important;
+    }
+}
+
+@media (max-width:480px){
+.iphn_img1 img {
+width: 100% !important;
+}
+}
+</style>=20
+</head>=20
+<body style=3D"-webkit-font-smoothing: antialiased !important; -webkit-text=
+-size-adjust: none !important; width: 100% !important; height: 100% !import=
+ant; font-family:''Open Sans',Arial',Helvetica,sans-serif; -webkit-font-smo=
+othing: antialiased; -webkit-text-size-adjust: none; width: 100% !important=
+; height: 100%; margin: 0; padding: 0;"><style type=3D"text/css">div#emailP=
+reHeader{ display: none !important; }</style><div id=3D"emailPreHeader" sty=
+le=3D"mso-hide:all; visibility:hidden; opacity:0; color:transparent; mso-li=
+ne-height-rule:exactly; line-height:0; font-size:0px; overflow:hidden; bord=
+er-width:0; display:none !important;">Now open for registration!</div>=20
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width=
+:100%;table-layout:fixed">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#e0e0e0;" bgcolor=3D"#e0e0e0">=20
+<!--MAIN TABLE Starts-->=20
+<table width=3D"600" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin:0 auto;width=
+:600px;min-width:600px;" border=3D"0" align=3D"center" class=3D"deviceWidth=
+">=20
+<tbody>=20
+<tr>=20
+<td class=3D"mktoContainer" id=3D"template-wrapper" valign=3D"top" style=3D=
+"vertical-align:top;-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 1=
+00%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word; =
+-webkit-hyphens: none; -moz-hyphens: none; hyphens: none; border-collapse: =
+collapse;">
+<table class=3D"mktoModule" id=3D"Header1" style=3D"border-collapse: collap=
+se;" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"border-collapse: collapse;background-color:#ffffff;" bgcolor=
+=3D"#ffffff" valign=3D"top">=20
+<table class=3D"deviceWidth1" width=3D"560" align=3D"center" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0" style=3D"width:560px; margin:0 auto; bor=
+der-collapse:collapse; mso-table-lspace:0; mso-table-rspace:0; border-spaci=
+ng:0; ">=20
+<!-- Extra space -->=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"10"> &nbsp;</td>=
+=20
+</tr>=20
+<tr>=20
+<td>=20
+<table style=3D"width: 100%; margin: 0 auto; border-collapse: collapse;" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<th width=3D"100" valign=3D"top" style=3D"width: 100px; vertical-align: top=
+;" class=3D"block center">=20
+<table align=3D"center" style=3D"width: 100%; margin: 0 auto; border-collap=
+se: collapse;" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%">=20
+<tbody>=20
+<tr>=20
+<td align=3D"left" style=3D"text-align: left;" class=3D"center">=20
+<div class=3D"mktoImg" id=3D"logosection1">=20
+<a href=3D
+"https://mkto-trk.cisco.com/p0f00W10UV0e1HNHmZ0vyX2" target=3D"_blank"
+> <img width=3D"77" border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-3=
+23/images/cisco-logo123.jpg" alt=3D"Logo" /></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </th>=20
+<th width=3D"20" valign=3D"top" style=3D"width:20px; vertical-align: top;" =
+class=3D"block">&nbsp;</th>=20
+<th valign=3D"middle" style=3D"vertical-align: middle;text-align:right;colo=
+r:#555555;font-family:sans-serif;font-size:15px;line-height:21px;font-weigh=
+t:400;" class=3D"block center">=20
+<div class=3D"mktoText" id=3D"head-texts">=20
+<p><span style=3D"color: #ffffff;">rfrf</span></p>=20
+</div> </th>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<!-- Extra space -->=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"5">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module2Headline781=
+9f087-a116-40cd-83df-28840c7991eb">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:22px;line-height:28px;color:#00BCEB;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec2-1Headline7819f087-a116-40cd-83df-28840c7=
+991eb">=20
+<h2 style=3D"color: #000000; font-style: normal; font-variant-ligatures: no=
+rmal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-a=
+lign: left; text-indent: 0px; text-transform: none; white-space: normal; wi=
+dows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-colo=
+r: #ffffff; font-size: 24pt; line-height: 38.4px;"><span style=3D"color: #0=
+d274d;">Cisco APJC DevNet Innovators 2021 =E3=81=AE=E7=99=BB=E9=8C=B2=E3=82=
+=92=E9=96=8B=E5=A7=8B=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F</span></h2>=20
+<p><span style=3D"color: #0d274d; font-size: 22px; font-style: normal; font=
+-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; le=
+tter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-=
+transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit=
+-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickne=
+ss: initial; text-decoration-style: initial; text-decoration-color: initial=
+; display: inline !important; float: none;">=E3=82=A2=E3=82=A4=E3=83=87=E3=
+=82=A2=E3=82=BD=E3=83=B3=E3=81=A8=E3=83=8F=E3=83=83=E3=82=AB=E3=82=BD=E3=83=
+=B3=E3=81=A7=E3=82=A4=E3=83=8E=E3=83=99=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=
+=E3=82=92=E9=80=B2=E3=82=81=E3=81=A6=E5=A4=A7=E3=81=8D=E3=81=AA=E6=88=90=E6=
+=9E=9C=E3=82=92=E5=AE=9F=E7=8F=BE=E3=81=97=E3=80=81=E7=B4=A0=E6=99=B4=E3=82=
+=89=E3=81=97=E3=81=84=E8=B3=9E=E5=93=81=E3=82=92=E7=8D=B2=E5=BE=97=E3=81=97=
+=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82</span></p>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module2Paragraphda=
+579f92-d024-4960-bab5-772ed767c6f9">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:15px;line-height:21px;color:#555555;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec2textParagraphda579f92-d024-4960-bab5-772e=
+d767c6f9">=20
+<div>
+ =E4=BB=8A=E3=81=93=E3=81=9D=E3=80=81Cisco APJC DevNet Innovators Challenge=
+ =E3=81=AE DevNet =E3=81=A7=E3=80=81=E3=82=B7=E3=82=B9=E3=82=B3=E3=81=A8=E3=
+=81=A8=E3=82=82=E3=81=AB=E3=82=A4=E3=83=8E=E3=83=99=E3=83=BC=E3=82=B7=E3=83=
+=A7=E3=83=B3=E3=82=92=E5=AE=9F=E7=8F=BE=E3=81=97=E5=A4=A2=E3=82=92=E5=AE=9F=
+=E7=8F=BE=E3=81=99=E3=82=8B=E3=83=81=E3=83=A3=E3=83=B3=E3=82=B9=E3=81=A7=E3=
+=81=99=E3=80=82=20
+</div>=20
+<div>=20
+<br />=20
+</div>=20
+<div>
+ =E3=81=82=E3=82=89=E3=82=86=E3=82=8B=E6=A5=AD=E7=A8=AE=E3=81=AE=E3=81=8A=
+=E5=AE=A2=E6=A7=98=E3=80=81=E3=83=91=E3=83=BC=E3=83=88=E3=83=8A=E3=83=BC=E6=
+=A7=98=E3=80=81=E5=AD=A6=E7=94=9F=E3=81=AE=E7=9A=86=E6=A7=98=E3=81=8C=E5=8F=
+=82=E5=8A=A0=E5=AF=BE=E8=B1=A1=E3=81=A7=E3=80=81=E3=82=B7=E3=82=B9=E3=82=B3=
+=E3=81=AE=E3=83=86=E3=82=AF=E3=83=8E=E3=83=AD=E3=82=B8=E3=83=BC=E3=82=92=E4=
+=BD=BF=E7=94=A8=E3=81=97=E6=A7=98=E3=80=85=E3=81=AA=E5=95=8F=E9=A1=8C=E3=82=
+=92=E8=A7=A3=E6=B1=BA=E3=81=99=E3=82=8B=E3=83=A6=E3=83=BC=E3=82=B9=E3=82=B1=
+=E3=83=BC=E3=82=B9=E3=82=92=E8=80=83=E3=81=88=E3=80=81=E9=96=8B=E7=99=BA=E3=
+=81=99=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E8=AA=B2=E9=A1=8C=E3=81=A7=E3=81=
+=99=E3=80=82=E3=81=9D=E3=81=AE=E5=BE=8C=E3=80=81=E3=83=97=E3=83=AD=E3=83=88=
+=E3=82=BF=E3=82=A4=E3=83=97=E3=82=92=E9=96=8B=E7=99=BA=E3=81=97=E3=81=A6=E3=
+=82=A2=E3=82=A4=E3=83=87=E3=82=A2=E3=82=92=E5=AE=9F=E7=8F=BE=E3=81=97=E3=81=
+=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82Sony Playstation 5 =E3=81=AA=E3=81=
+=A9=E3=80=81=E6=9C=80=E5=A4=A7 500 =E7=B1=B3=E3=83=89=E3=83=AB=E7=9B=B8=E5=
+=BD=93=E3=81=AE=E8=B3=9E=E5=93=81=E3=82=92=E7=8D=B2=E5=BE=97=E3=81=A7=E3=81=
+=8D=E3=81=BE=E3=81=99=E3=80=82=20
+</div>=20
+<div>=20
+<br />=20
+</div>=20
+<div>=20
+<table align=3D"center" style=3D"width: 100%; margin: 0 auto; border-collap=
+se: collapse;" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%">=20
+<tbody>=20
+<tr>=20
+<td align=3D"left" style=3D"text-align: left;" class=3D"center">=20
+<div>=20
+<a href=3D
+"https://mkto-trk.cisco.com/K00efWH10ZXI2Vmyv10N0V0" target=3D"_blank"
+><img width=3D"165" border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-3=
+23/images/learn-more-and-register-cta-ja01.png" alt=3D"=E8=A9=B3=E7=B4=B0=
+=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px; line-height: 20px;" height=3D"20">&nbsp;</td>=
+=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"5">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"Image-Section1s">=
+=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table align=3D"center" width=3D"600" style=3D"width: 600px; margin: 0 auto=
+;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"deviceWidth">=
+=20
+<tbody>=20
+<tr>=20
+<td class=3D"iphn_img" style=3D"text-align:center;font-size:1px;line-height=
+:1px;">=20
+<div class=3D"mktoImg" id=3D"Image-sec1s" mktolockimgsize=3D"true">=20
+<img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/banner-2020.png" w=
+idth=3D"600" border=3D"0" align=3D"absbottom" style=3D"" />=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module2Headline">=
+=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:22px;line-height:28px;color:#00BCEB;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec2-1Headline">=20
+<p><span style=3D"color: #0d274d; font-size: 22px; font-style: normal; font=
+-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; le=
+tter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-=
+transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit=
+-text-stroke-width: 0px; background-color: #ffffff; text-decoration-thickne=
+ss: initial; text-decoration-style: initial; text-decoration-color: initial=
+; display: inline !important; float: none;">Cisco DevNet Innovators =E3=81=
+=AE=E8=A9=B3=E7=B4=B0</span></p>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module2Paragraph">=
+=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:15px;line-height:21px;color:#555555;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec2textParagraph">=20
+<p style=3D"color: #555555; font-size: 15px; font-style: normal; font-varia=
+nt-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-s=
+pacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transf=
+orm: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-=
+stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: in=
+itial; text-decoration-style: initial; text-decoration-color: initial;">Cis=
+co APJC DevNet Innovators =E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E3=81=AF 2 =
+=E3=82=B9=E3=83=86=E3=83=BC=E3=82=B8=E3=81=AE=E3=83=81=E3=83=A3=E3=83=AC=E3=
+=83=B3=E3=82=B8=E3=81=A7=E3=80=81=E5=A4=A7=E3=81=8D=E3=81=AA=E6=88=90=E6=9E=
+=9C=E3=81=AE=E5=AE=9F=E7=8F=BE=E3=81=AB=E5=BD=B9=E7=AB=8B=E3=81=A4=E3=83=AF=
+=E3=83=BC=E3=82=AF=E3=82=B7=E3=83=A7=E3=83=83=E3=83=97=E3=81=A8=E6=94=AF=E6=
+=8F=B4=E3=82=BB=E3=83=83=E3=82=B7=E3=83=A7=E3=83=B3=EF=BC=88=E7=84=A1=E6=96=
+=99=EF=BC=89=E3=81=8C=E6=8F=90=E4=BE=9B=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=
+=E3=80=82</p>=20
+<p style=3D"color: #555555; font-size: 15px; font-style: normal; font-varia=
+nt-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-s=
+pacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transf=
+orm: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-=
+stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: in=
+itial; text-decoration-style: initial; text-decoration-color: initial;"><st=
+rong>=E5=8F=82=E5=8A=A0=E5=AF=BE=E8=B1=A1=E8=80=85</strong></p>=20
+<ul style=3D"color: #555555; font-size: 15px; font-style: normal; font-vari=
+ant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-=
+spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-trans=
+form: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text=
+-stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: i=
+nitial; text-decoration-style: initial; text-decoration-color: initial;">=
+=20
+<li><strong>=E3=81=8A=E5=AE=A2=E6=A7=98=EF=BC=9A</strong>=E7=B5=8C=E9=A8=93=
+=E3=82=92=E7=94=9F=E3=81=8B=E3=81=97=E3=80=81=E3=83=93=E3=82=B8=E3=83=8D=E3=
+=82=B9=E4=B8=8A=E3=81=AE=E8=AA=B2=E9=A1=8C=E3=82=92=E8=A7=A3=E6=B1=BA=E3=81=
+=99=E3=82=8B=E3=80=82</li>=20
+<li><strong>=E3=83=91=E3=83=BC=E3=83=88=E3=83=8A=E3=83=BC=E6=A7=98=EF=BC=9A=
+</strong>=E3=82=B7=E3=82=B9=E3=82=B3=E3=81=AE=E3=82=BD=E3=83=AA=E3=83=A5=E3=
+=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=8A=E3=82=88=E3=81=B3=E3=81=8A=E5=AE=
+=A2=E6=A7=98=E3=81=AE=E5=95=8F=E9=A1=8C=E7=82=B9=E3=81=AB=E3=81=8A=E3=81=84=
+=E3=81=A6=E5=B0=82=E9=96=80=E7=9F=A5=E8=AD=98=E3=82=92=E6=B4=BB=E7=94=A8=E3=
+=81=99=E3=82=8B=E3=80=82</li>=20
+<li><strong>=E5=AD=A6=E7=94=9F=E3=81=AE=E7=9A=86=E6=A7=98=EF=BC=9A</strong>=
+=E7=B5=8C=E9=A8=93=E8=B1=8A=E5=AF=8C=E3=81=AA=E6=A5=AD=E7=95=8C=E3=81=AE=E5=
+=B0=82=E9=96=80=E5=AE=B6=E3=81=8B=E3=82=89=E7=9F=A5=E8=AD=98=E3=82=92=E7=8D=
+=B2=E5=BE=97=E3=81=99=E3=82=8B=E3=80=82</li>=20
+</ul>=20
+<p style=3D"color: #555555; font-size: 15px; font-style: normal; font-varia=
+nt-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-s=
+pacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transf=
+orm: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-=
+stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: in=
+itial; text-decoration-style: initial; text-decoration-color: initial;">2 =
+=E3=81=A4=E3=81=AE=E3=82=B9=E3=83=86=E3=83=BC=E3=82=B8=E3=81=8C=E3=81=82=E3=
+=82=8A=E3=81=BE=E3=81=99=E3=80=82=E4=B8=A1=E6=96=B9=E3=81=BE=E3=81=9F=E3=81=
+=AF=E3=81=84=E3=81=9A=E3=82=8C=E3=81=8B=E3=81=AE=E3=82=B9=E3=83=86=E3=83=BC=
+=E3=82=B8=E3=81=AB=E5=8F=82=E5=8A=A0=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=
+=80=82=E3=82=B9=E3=83=86=E3=83=BC=E3=82=B8 2 =E3=81=AB=E5=8F=82=E5=8A=A0=E3=
+=81=99=E3=82=8B=E5=A0=B4=E5=90=88=E3=80=81=E3=82=B9=E3=83=86=E3=83=BC=E3=82=
+=B8 1 =E3=81=AE=E5=8F=82=E5=8A=A0=E3=81=AF=E5=BF=85=E9=A0=88=E3=81=A7=E3=81=
+=AF=E3=81=82=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82=E3=82=B9=E3=82=AD=
+=E3=83=AB=E3=83=AC=E3=83=99=E3=83=AB=E3=81=AF=E5=95=8F=E3=81=84=E3=81=BE=E3=
+=81=9B=E3=82=93=E3=80=82=E3=83=AF=E3=83=BC=E3=82=AF=E3=82=B7=E3=83=A7=E3=83=
+=83=E3=83=97=E3=81=A8=E6=94=AF=E6=8F=B4=E3=82=BB=E3=83=83=E3=82=B7=E3=83=A7=
+=E3=83=B3=E3=81=AB=E5=8F=82=E5=8A=A0=E3=81=97=E3=81=A6=E3=80=81=E3=83=87=E3=
+=82=B6=E3=82=A4=E3=83=B3=E6=80=9D=E8=80=83=E3=80=81=E3=83=A6=E3=83=BC=E3=82=
+=B9=E3=82=B1=E3=83=BC=E3=82=B9=E3=81=AE=E9=96=8B=E7=99=BA=E3=80=81=E3=82=B3=
+=E3=83=BC=E3=83=87=E3=82=A3=E3=83=B3=E3=82=B0=E6=96=B9=E6=B3=95=E3=80=81=E3=
+=83=97=E3=83=AD=E3=83=88=E3=82=BF=E3=82=A4=E3=83=97=E3=81=AE=E4=BD=9C=E6=88=
+=90=E6=96=B9=E6=B3=95=E3=82=92=E5=AD=A6=E3=82=93=E3=81=A7=E3=81=8F=E3=81=A0=
+=E3=81=95=E3=81=84=E3=80=82</p>=20
+<p style=3D"color: #555555; font-size: 20px; font-style: normal; font-varia=
+nt-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-s=
+pacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transf=
+orm: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-=
+stroke-width: 0px; background-color: #ffffff; text-decoration-thickness: in=
+itial; text-decoration-style: initial; text-decoration-color: initial;"><sp=
+an style=3D"font-size: 18px;"><a href=3D
+"https://mkto-trk.cisco.com/K00efWH10ZXI2Vmyv10N0V0" target=3D"_blank" styl=
+e=3D"outline: 0px; text-decoration: none; color: #0175a2; font-weight: norm=
+al;"
+>=E4=BB=8A=E3=81=99=E3=81=90=E7=99=BB=E9=8C=B2 &gt;</a></span></p>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"0">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module102cb0dae1-d=
+fc2-4dbd-b676-cb8e90bd44af">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#1e4471" style=3D"background-color:#1e4471;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"8">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:15px;line-height:21px;color:#FFFFFF;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec10text2cb0dae1-dfc2-4dbd-b676-cb8e90bd44af=
+">=20
+<div>
+ =E3=82=B9=E3=83=86=E3=83=BC=E3=82=B8 1=EF=BC=9A=E3=82=A2=E3=82=A4=E3=83=87=
+=E3=82=A2=E3=82=BD=E3=83=B3=20
+</div>=20
+<div>
+ =E8=AA=B2=E9=A1=8C=E3=82=84=E5=95=8F=E9=A1=8C=E7=82=B9=E3=82=92=E7=89=B9=
+=E5=AE=9A=E3=81=97=E3=81=A6=E3=83=A6=E3=83=BC=E3=82=B9=E3=82=B1=E3=83=BC=E3=
+=82=B9=E3=82=92=E4=BD=9C=E6=88=90=E3=81=97=E3=80=81Cisco DevNet =E3=81=A7=
+=E6=9C=9B=E3=81=BE=E3=81=97=E3=81=84=E6=88=90=E6=9E=9C=E3=82=92=E5=AE=9F=E7=
+=8F=BE=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=95=E3=82=92=E8=80=83=E3=81=88=E3=81=
+=BE=E3=81=99=E3=80=82=20
+</div>=20
+<div>=20
+<br />=20
+</div>=20
+<div>
+ =E3=82=B9=E3=83=86=E3=83=BC=E3=82=B8 2=EF=BC=9A=E3=83=8F=E3=83=83=E3=82=AB=
+=E3=82=BD=E3=83=B3=20
+</div>=20
+<div>
+ =E3=83=8F=E3=83=83=E3=82=AB=E3=82=BD=E3=83=B3=E3=81=A7=E3=81=AF=E3=82=A2=
+=E3=82=A4=E3=83=87=E3=82=A2=E3=81=AE=E3=83=97=E3=83=AD=E3=83=88=E3=82=BF=E3=
+=82=A4=E3=83=97=E3=82=92=E9=96=8B=E7=99=BA=E3=81=97=E3=80=81=E3=82=B3=E3=83=
+=B3=E3=82=BB=E3=83=97=E3=83=88=E3=82=92=E3=83=86=E3=82=B9=E3=83=88=E3=81=97=
+=E3=81=BE=E3=81=99=E3=80=82=20
+</div>=20
+<div>=20
+<br />=20
+</div>=20
+<div>
+ =E2=80=BB =E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E3=81=AF=E8=8B=B1=E8=AA=9E=
+=E3=81=A7=E8=A1=8C=E3=82=8F=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"8">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module2Headlined6a=
+1fa6a-016f-4e40-8de5-afc0531cd1be">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"15">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:22px;line-height:28px;color:#00BCEB;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec2-1Headlined6a1fa6a-016f-4e40-8de5-afc0531=
+cd1be">=20
+<div>=20
+<span style=3D"color: #0d274d;">=E3=82=BD=E3=83=BC=E3=82=B7=E3=83=A3=E3=83=
+=AB=E3=83=A1=E3=83=87=E3=82=A3=E3=82=A2=E3=81=A7=E5=85=B1=E6=9C=89=E3=81=97=
+=E3=81=A6=E3=80=81Tile Pro =EF=BC=882 =E3=83=91=E3=83=83=E3=82=AF=EF=BC=89=
+=E3=82=92=E7=8D=B2=E5=BE=97=E3=81=97=E3=81=BE=E3=81=97=E3=82=87=E3=81=86</s=
+pan>=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"10">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"module2Paragraph39=
+c1eaec-a9d6-4ed7-9e4b-2af174fb86a3">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"10">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td style=3D"text-align:left;font-size:15px;line-height:21px;color:#555555;=
+font-family:sans-serif;font-weight:400; mso-line-height-rule: exactly;">=20
+<div class=3D"mktoText" id=3D"sec2textParagraph39c1eaec-a9d6-4ed7-9e4b-2af1=
+74fb86a3">=20
+<div>
+ LinkedIn=E3=80=81Instagram=E3=80=81Twitter=E3=80=81Facebook =E3=81=A7 Cisc=
+o DevNet =E3=81=A7=E3=81=A7=E3=81=8D=E3=82=8B=E9=9D=A2=E7=99=BD=E3=81=84=E5=
+=86=85=E5=AE=B9=E3=81=AE=E6=8A=95=E7=A8=BF=E3=82=92=E4=BD=9C=E6=88=90=E3=81=
+=97=E3=80=81=E3=83=8F=E3=83=83=E3=82=B7=E3=83=A5=E3=82=BF=E3=82=B0=E3=80=8C=
+#Cisco #DevNet #APJCSE=E3=80=8D=E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=
+=A6 Tile Pro=EF=BC=882 =E3=83=91=E3=83=83=E3=82=AF=EF=BC=89=E3=82=92=E7=8D=
+=B2=E5=BE=97=E3=81=97=E3=81=BE=E3=81=99=E3=80=8250 =E5=90=8D=E3=81=AB=E8=B3=
+=9E=E5=93=81=E3=81=8C=E7=94=A8=E6=84=8F=E3=81=95=E3=82=8C=E3=81=A6=E3=81=84=
+=E3=81=BE=E3=81=99=E3=80=82=20
+</div>=20
+<div>=20
+<br />=20
+</div>=20
+<div>
+ Tile =E3=81=AF=E4=BD=BF=E3=81=84=E3=82=84=E3=81=99=E3=81=84=E3=82=A2=E3=83=
+=97=E3=83=AA=E3=82=92=E5=82=99=E3=81=88=E3=81=9F Bluetooth =E3=83=88=E3=83=
+=A9=E3=83=83=E3=82=AB=E3=83=BC=E3=81=A7=E3=80=81=E9=8D=B5=E3=82=84=E8=B2=A1=
+=E5=B8=83=E3=81=AB=E5=8F=96=E3=82=8A=E4=BB=98=E3=81=91=E3=81=A6=E3=81=8A=E3=
+=81=8F=E3=81=A8=E3=80=81=E5=A4=B1=E3=81=8F=E3=81=97=E3=81=9F=E3=81=A8=E3=81=
+=8D=E3=81=AB=E6=95=B0=E7=A7=92=E3=81=A7=E8=A6=8B=E3=81=A4=E3=81=91=E3=82=8B=
+=E3=81=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82=20
+<a href=3D
+"https://mkto-trk.cisco.com/WW00WNHfZ1J2Vmv00e1yX00" target=3D"_blank" id=
+=3D"" style=3D"color: #0175a2; text-decoration: none; font-weight: normal;"
+>T&amp;C =EF=BC=88=E8=8B=B1=E8=AA=9E=EF=BC=89</a> =E3=81=AB=E3=81=A4=E3=81=
+=84=E3=81=A6=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=E3=82=92=E3=81=94=E8=A6=A7=
+=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"8">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"Footer">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#0D274D" style=3D"background-color:#0D274D;">=20
+<table width=3D"520" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:520px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"15">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" alig=
+n=3D"center">=20
+<tbody>=20
+<tr>=20
+<th valign=3D"top" width=3D"380" style=3D"width:380px;vertical-align: top;t=
+ext-align:left;font-size:12px;line-height:18px;color:#FFFFFF;font-family:sa=
+ns-serif;font-weight:400; mso-line-height-rule: exactly;" class=3D"block">=
+=20
+<div class=3D"mktoText" id=3D"footertext">=20
+<div>=20
+<a href=3D
+"https://mkto-trk.cisco.com/ZHNfv00Xm0101e0yK20ZVWX" style=3D"color: #fffff=
+f;text-decoration: none;"
+>Cisco.com</a> |=20
+<a href=3D
+"https://mkto-trk.cisco.com/tmVv2e1XWy0ZY01NHf0000L" style=3D"color: #fffff=
+f;text-decoration: none;"
+>Privacy</a> |=20
+<a href=3D
+"https://mkto-trk.cisco.com/F0yHZ00MZ1W1v2Xe000VmNf" style=3D"color: #fffff=
+f;text-decoration: none;"
+>Terms &amp; Conditions</a> |=20
+<a href=3D
+"https://mkto-trk.cisco.com/ZHNfv000m0101e0yN20ZVWX" style=3D"color: #fffff=
+f;text-decoration: none;"
+>Cookies</a> |=20
+<a href=3D
+"https://mkto-trk.cisco.com/MN1V1e0yWXf0m001Z0vH0O2" style=3D"color: #fffff=
+f;text-decoration: none;"
+>Trademarks</a>=20
+</div>=20
+</div> </th>=20
+<th width=3D"20" style=3D"width:20px;font-size:1px;line-height:1px;" class=
+=3D"block">&nbsp;</th>=20
+<th valign=3D"top" width=3D"120" style=3D"vertical-align: top;width:120px;t=
+ext-align: right;" class=3D"block extra-space left">=20
+<div class=3D"mktoText" id=3D"foot-socialicon1">=20
+<div>=20
+<a href=3D
+"https://mkto-trk.cisco.com/o02PN002X000vW1fyVHmeZ1" target=3D"_blank" styl=
+e=3D"text-decoration: none; outline: none;"
+> <img width=3D"14" border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-3=
+23/images/social-fb1.png" alt=3D"Facebook" align=3D"absbottom" /></a>&nbsp;=
+&nbsp;=20
+<a href=3D
+"https://mkto-trk.cisco.com/z0ey2mZ001fHNQX0Wv31V00" target=3D"_blank" styl=
+e=3D"text-decoration: none; outline: none;"
+> <img width=3D"14" border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-3=
+23/images/social-twitter3.png" alt=3D"Twitter" align=3D"absbottom" height=
+=3D"15" /></a>&nbsp;&nbsp;=20
+<a href=3D
+"https://mkto-trk.cisco.com/O0X0vfeV0211NWZR040m0yH" target=3D"_blank" styl=
+e=3D"text-decoration: none; outline: none;"
+> <img width=3D"14" border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-3=
+23/images/social-linkedin2.png" alt=3D"LinkedIn" align=3D"absbottom" /></a>=
+&nbsp;&nbsp;=20
+<a href=3D
+"https://mkto-trk.cisco.com/z0ey2mZ001fHNSX0Wv51V00" target=3D"_blank" styl=
+e=3D"text-decoration: none; outline: none;"
+> <img width=3D"14" border=3D"0" src=3D"https://mkto.cisco.com/rs/564-WHV-3=
+23/images/social-youtube4.png" alt=3D"YouTube" align=3D"absbottom" /></a>=
+=20
+</div>=20
+</div> </th>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"20">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" style=3D"text-align:left;font-size:12px;line-height:18px=
+;color:#FFFFFF;font-family:sans-serif;font-weight:400; mso-line-height-rule=
+: exactly;" class=3D"block">=20
+<div class=3D"mktoText" id=3D"footertext2">=20
+<div>
+ Copyright =C2=A9 2021, Cisco Systems, Inc. All rights reserved. Cisco, Cis=
+co Systems and the Cisco Systems logo are registered trademarks of Cisco Sy=
+stems, Inc. and/or its affiliates in the United States and certain other co=
+untries.=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"15">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"width:100%;" class=3D"deviceWidth mktoModule" id=3D"Unsubscribe">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff" style=3D"background-color:#ffffff;">=20
+<table width=3D"560" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-sp=
+acing: 0; margin:0 auto;width:560px;" border=3D"0" align=3D"center" class=
+=3D"deviceWidth1">=20
+<tbody>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"15">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" style=3D"text-align:center;font-size:12px;line-height:18=
+px;color:#888888;font-family:sans-serif;font-weight:400; mso-line-height-ru=
+le: exactly;" class=3D"block">=20
+<div class=3D"mktoText" id=3D"footertext3">=20
+<div>=20
+<a href=3D
+"https://mkto-trk.cisco.com/P010N1mWZH0vTf0X0y6V0e2" style=3D"color: #88888=
+8; text-decoration: underline;" target=3D"_blank"
+>Click here</a> to unsubscribe from Cisco marketing communications=20
+<br />=20
+<br /> Cisco will continue to send service/transactional communications, in=
+cluding those that have to do with any accounts that you may have with us.=
+=20
+</div>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"font-size: 1px;line-height: 1px;" height=3D"15">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table></td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> =20
+<a href=3D
+"https://mkto-trk.cisco.com/B0017W2VN000f1XH0yUZvem"
+></a>
+<img src=3D"https://mkto-trk.cisco.com/trk?t=3D1&mid=3DNTY0LVdIVi0zMjM6MDox=
+MDc5MzoyOTM5ODoxMjc5MDE6MTkyMzk6OTo4MDcyNjoxODQwNzIxMTpodWp5b3JvbUBnbWFpbC5=
+jb20%3D" width=3D"1" height=3D"1" style=3D"display:none !important;" alt=3D=
+"" />
+
+<!--This is a comment -->.
+</body>
+</html>
+------=_Part_16135722_960760189.1611708356145--

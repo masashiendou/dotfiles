@@ -1,0 +1,123 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp1080883vky;
+        Thu, 18 Mar 2021 20:27:49 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwxpkcoBKfwhXxKNDZmOgshMPclsrYjtF9hxXZ9tZ0c1fejurtPRN25/BBVT4sYYevAlrGB
+X-Received: by 2002:a17:906:828e:: with SMTP id h14mr1963577ejx.529.1616124469215;
+        Thu, 18 Mar 2021 20:27:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616124469; cv=none;
+        d=google.com; s=arc-20160816;
+        b=KUOLrlFKnMFtI0S+FekXm13Su0waAD7jC4wpIn/SeNPOaKXMcSVl7jZzu0uvkudYxY
+         GneeJC0fIKKYeJlWVNOiSABxN4cmc0EL2ZycwiVQI7vdBR4qHbQ0qerfjjw5KKUxpOn0
+         1f0rEQ/V0lsxRy0+7HLEb7T8Ww5ybEIVXa+7BcyrLW6Qc7v0ypJRLOPCTNC2XSfsfrsx
+         CSTk8gmaPLDhttyeWgDJ0ETmDF+Y8LEa17GPZUSFY/B0UoGbSLWjWre6wyyzPmKXzWhN
+         g9tRr70yemCOVY/UvUbPl+pVQXo8xlDVuWrd92C+EWKqUvyqGle3iwG/Ctqtnyk2JnPs
+         744A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:subject:message-id:mime-version:from:date
+         :content-transfer-encoding:dkim-signature;
+        bh=61kZ4qtkEbaShTHOfBoBsWVFfMHhrOmyb+ZtWg7j+aA=;
+        b=ZMfMOs2Us335+9D7gJfexxBCn3rQsGl8E2DSy3ob6r8P/6nenxz1/FjMwpwAM/yH/E
+         58xMnwl6R5j4nBsITEwdimfxKmd8Ho7hmE4kG8hin+L5ywlOAzFVzB7438BmVts2rpXd
+         DmjOHOjYdHrb1xeaLPG90UCm1kowb53PfvnuMv7H990HYFAXxyxT3gY+Sz/S9oWsmf8t
+         kcE5++IbJDj/qcfdw9ubSFvaiK/4wHsmuZbEpVjWsjQhVgub/9ebRTgckSkgwNxNYsWZ
+         ri+ajiHbCNkzoDwWleseu+cPjouc4PK5p5Tdecao9cixXoiFs8zRkNSsBM/7AAgS3J+A
+         1WyQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=iG1xfKmP;
+       spf=pass (google.com: domain of bounces+18814560-1f03-hujyorom=gmail.com@sendgrid.net designates 198.37.159.89 as permitted sender) smtp.mailfrom="bounces+18814560-1f03-hujyorom=gmail.com@sendgrid.net"
+Return-Path: <bounces+18814560-1f03-hujyorom=gmail.com@sendgrid.net>
+Received: from o19837159x89.outbound-mail.sendgrid.net (o19837159x89.outbound-mail.sendgrid.net. [198.37.159.89])
+        by mx.google.com with ESMTPS id e26si3130362edr.396.2021.03.18.20.27.48
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Mar 2021 20:27:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+18814560-1f03-hujyorom=gmail.com@sendgrid.net designates 198.37.159.89 as permitted sender) client-ip=198.37.159.89;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=iG1xfKmP;
+       spf=pass (google.com: domain of bounces+18814560-1f03-hujyorom=gmail.com@sendgrid.net designates 198.37.159.89 as permitted sender) smtp.mailfrom="bounces+18814560-1f03-hujyorom=gmail.com@sendgrid.net"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.net;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:x-feedback-id:to;
+	s=smtpapi; bh=61kZ4qtkEbaShTHOfBoBsWVFfMHhrOmyb+ZtWg7j+aA=;
+	b=iG1xfKmPqmxNNT5Og0HgnFQ5z3aOSqwUlYm2tRAY7dQVTXtpinlcrLOydmXdve1/SBdM
+	JH2Qn5IpaszTMnhzw+B5EKyFoi78bO2/qX3wseic9PithEg3sgV6Jta+Ie79R3g++Po8GF
+	fBSns8wYSDDmjIXL+jEr6J56tZ71EYpA0=
+Received: by filterdrecv-p3las1-55495bcc8d-ml2ps with SMTP id filterdrecv-p3las1-55495bcc8d-ml2ps-19-60541A33-B
+        2021-03-19 03:27:47.229083888 +0000 UTC m=+30121.308218002
+Received: from MTg4MTQ1NjA (unknown)
+	by geopod-ismtpd-4-0 (SG) with HTTP
+	id i-4_SfjeSSeTuP--otewsg
+	Fri, 19 Mar 2021 03:27:46.964 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Date: Fri, 19 Mar 2021 03:27:47 +0000 (UTC)
+From: VIDEO NEWS <noreply@videonews.com>
+Mime-Version: 1.0
+Message-ID: <i-4_SfjeSSeTuP--otewsg@geopod-ismtpd-4-0>
+Subject: =?UTF-8?B?44CQVklERU8=?=
+ =?UTF-8?B?IE5FV1PjgJHjgYrllY/jgYTlkIjjgo/jgZvjgYzpgIHkv6HjgZXjgozjgb7jgZfjgZ/jgII=?=
+Reply-To: info1@videonews.com
+X-Mailer: WPMailSMTP/Mailer/sendgrid 2.4.0
+X-Feedback-ID: 18814560:SG
+X-SG-EID: 
+ =?us-ascii?Q?84lvcN2YPxRr7yB+u2HMnEvomSyyPY8JKNEggHw4JmidsJdOzz9nYTU5E=2FZUDx?=
+ =?us-ascii?Q?mKt2RafoZvRb4awrS1lrukvtbwl0c+VTISTzmwK?=
+ =?us-ascii?Q?iBphQbEqaV722b7lbDonXYc5PGa27EhHn1ji8xH?=
+ =?us-ascii?Q?E=2Fd1vnrpFswccJ1O65MafBHPIpvUk=2FCbb+=2F2q64?=
+ =?us-ascii?Q?bEE7vAvvm2fb5PMjXu1hQNCVIJeCvvRMElRW1pv?=
+ =?us-ascii?Q?=2FmumoAqL2EIXj3aihTcO5f3JfGpgicNFttF4AQ?=
+To: hujyorom@gmail.com
+X-Entity-ID: BiGVwvcQOCcJrM1M4aJ3wA==
+
+=E9=81=A0=E8=97=A4 =E5=B0=87=E5=8F=B8 =E6=A7=98
+
+=E4=BB=A5=E4=B8=8B=E3=81=AE=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=
+=81=9B=E3=82=92=E5=8F=97=E3=81=91=E4=BB=98=E3=81=91=E3=81=BE=E3=81=97=E3=81=
+=9F=E3=80=82
+=E8=BF=94=E4=BF=A1=E3=81=AB=E3=81=AF=E3=81=8A=E6=99=82=E9=96=93=E3=82=92=E3=
+=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=
+=8A=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=80=81=E3=81=94=E4=BA=86=E6=89=BF=
+=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+
+=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=EF=BC=9A hu=
+jyorom@gmail.com
+ID=EF=BC=9A=20
+=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E6=9C=AC=E6=96=87: =E4=BB=A5=
+=E5=89=8D=E8=B2=B4=E7=A4=BEtwitter=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=
+=83=88(@videonewscom)=E3=81=AE=E6=96=B9=E3=81=AB=E3=82=82=E9=80=81=E3=82=8A=
+=E3=81=BE=E3=81=97=E3=81=9F=E3=81=8C=E3=80=81=E4=BE=9D=E7=84=B6=E3=81=A8=E3=
+=81=97=E3=81=A6=E5=95=8F=E9=A1=8C=E3=81=8C=E8=A7=A3=E6=B1=BA=E3=81=95=E3=82=
+=8C=E3=81=A6=E3=81=84=E3=81=AA=E3=81=8B=E3=81=A3=E3=81=9F=E3=82=88=E3=81=86=
+=E3=81=A7=E3=81=99=E3=81=AE=E3=81=A7=E3=80=81=E3=81=93=E3=81=A1=E3=82=89=E3=
+=81=AB=E3=82=82=E3=81=8A=E9=80=81=E3=82=8A=E3=81=97=E3=81=BE=E3=81=99=E3=80=
+=82
+=E3=82=82=E3=81=97=E5=95=8F=E9=A1=8C=E3=81=8C=E5=88=A4=E6=98=8E=E3=81=97=E3=
+=81=A6=E8=A7=A3=E6=B1=BA=E3=81=97=E3=81=9F=E3=82=89=E3=80=81@videonewscom=
+=E3=81=AE=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=A7=E5=BA=83=E5=
+=A0=B1=E3=81=95=E3=82=8C=E3=81=9F=E3=81=BB=E3=81=86=E3=81=8C=E8=89=AF=E3=81=
+=84=E3=81=A8=E6=80=9D=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E5=90=8C=E6=A7=98=
+=E3=81=AE=E7=8A=B6=E6=B3=81=E3=81=A7=E3=80=81=E8=B3=BC=E5=85=A5=E3=81=97=E3=
+=82=88=E3=81=86=E3=81=A8=E6=80=9D=E3=81=A3=E3=81=A6=E3=82=A8=E3=83=A9=E3=83=
+=BC=E3=81=A8=E3=81=AA=E3=81=A3=E3=81=9F=E6=96=B9=E3=81=8C=E3=81=84=E3=82=89=
+=E3=81=A3=E3=81=97=E3=82=83=E3=82=8B=E3=81=A8=E6=80=9D=E3=81=86=E3=81=AE=E3=
+=81=A7=E3=80=82
+
+=E4=BB=A5=E4=B8=8B=E6=9C=AC=E6=96=87=E3=81=A7=E3=81=99
+=3D=3D=3D
+=E9=81=8E=E5=8E=BB=E6=94=BE=E9=80=81=E5=88=86=E3=82=92vimeo=E3=81=A7=E8=B3=
+=BC=E5=85=A5=E3=81=97=E3=82=88=E3=81=86=E3=81=A8=E3=81=97=E3=81=9F=E3=81=A8=
+=E3=81=93=E3=82=8D=E3=80=81=E3=81=84=E3=81=8F=E3=81=A4=E3=81=8B=E3=81=AE=E6=
+=94=BE=E9=80=81=E5=88=86=E3=81=AEvimeo=E3=83=AA=E3=83=B3=E3=82=AF=E3=81=8C=
+=E6=A9=9F=E8=83=BD=E3=81=97=E3=81=A6=E3=81=84=E3=81=AA=E3=81=84=E3=82=88=E3=
+=81=86=E3=81=A7=E3=81=99=E3=80=82=E5=B0=91=E3=81=AA=E3=81=8F=E3=81=A8=E3=82=
+=82=E3=80=81934 / 913=E5=9B=9E=E5=88=86=E3=81=AF=E9=A7=84=E7=9B=AE=E3=81=A7=
+=E3=81=97=E3=81=9F=E3=80=82=E3=83=AA=E3=83=B3=E3=82=AF=E3=81=AE=E6=9C=89=E5=
+=8A=B9=E6=9C=9F=E9=96=93=E3=81=AA=E3=81=A9=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=
+=95=E3=82=8C=E3=81=9F=E3=81=BB=E3=81=86=E3=81=8C=E8=89=AF=E3=81=84=E3=81=A8=
+=E6=80=9D=E3=82=8F=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82
+
+--=20
+=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF VIDEO NEWS ( www.vid=
+eonews.com ) =E3=81=AE=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=
+=9B=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A0=E3=81=8B=E3=82=89=E9=80=81=E4=BF=A1=
+=E3=81=95=E3=82=8C=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82

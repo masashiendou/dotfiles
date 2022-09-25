@@ -1,0 +1,168 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp87178vky;
+        Wed, 10 Mar 2021 18:05:32 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxtNrfvScohU0V2ys+emHzod44zbeFXK9IF3SgykjSw6h9M+1Yi6P9ma+tUDbDk5qduXizv
+X-Received: by 2002:a05:6e02:b4d:: with SMTP id f13mr4851157ilu.138.1615428332816;
+        Wed, 10 Mar 2021 18:05:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615428332; cv=none;
+        d=google.com; s=arc-20160816;
+        b=q/7ESBaA5KBxTaBGD91ul3You8Zf27u3WU8DNrYJGhvktuH1VLF+d3LJhb1ANTL6zR
+         CCIqvM0QuiwFcS3Sg0RZ+udlRbjk/hmKJ8khLguJyPRW1kGai+lGZ5Fq7LmKIgYAzsEX
+         yclvVoXIJ5TR0VAYB6Rqj7TO8rjAIr+29EFsSv3im8A4Up+xKzeSHUTA+qRa/ise8ymV
+         rCfXWdcEfEJG+Ofy8zDVGCZlFHq+OIqzzIIEwvWzlKDai1DrPLTwRUxxQkRiMaRuXi84
+         x+Aw3CuKKZPPNUyPlYT5ix6KyFXfTHWKybmeX52oXWi6XasHNgYkrSRC6/KWCoTeqhzG
+         2+cQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:to:mime-version:subject:message-id:from
+         :date:dkim-signature:dkim-signature;
+        bh=L0VaE3FexoRjDl18bVq2ycz4rblkmHip8qivsohVx0E=;
+        b=PZRUxm21c0i4mT+4O0TQLPhxTZLxTEgEh9P5MQDafW5jM/TmPT4UeAUxZmEy7UfJAU
+         eXwnfxZ558nf11+wrDdgL/jL7fQvWih7QHxWUdx43qPgR3OyUPTppXLvYaOc7bptu69O
+         +eBzqlAYo9WciHTn2GjifL3Z6fDXMcSQaL8p6u+Na2ANPeFL7idvHdEWb7wHuiFCehv0
+         999gfy9Njs5QNMFDtyc3BvofMSdr5TveyAQW3x4ou6TrU2eYmAaaH0QyS0rxQluNAdGe
+         db++LGWOHI9enAfSneGDR23vVQqPvbIShC5ouNWc9frTaLLOgYNwCMI6fgVSpleCg6Jf
+         p6VA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@crowdtech.jp header.s=m1 header.b=Q50spoiS;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=WUbzeNhJ;
+       spf=pass (google.com: domain of bounces+1951994-7b1d-hujyorom=gmail.com@mail.crowdtech.jp designates 167.89.37.70 as permitted sender) smtp.mailfrom="bounces+1951994-7b1d-hujyorom=gmail.com@mail.crowdtech.jp"
+Return-Path: <bounces+1951994-7b1d-hujyorom=gmail.com@mail.crowdtech.jp>
+Received: from o3.mail.crowdtech.jp (o3.mail.crowdtech.jp. [167.89.37.70])
+        by mx.google.com with ESMTPS id d8si1392207ila.40.2021.03.10.18.05.32
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Mar 2021 18:05:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+1951994-7b1d-hujyorom=gmail.com@mail.crowdtech.jp designates 167.89.37.70 as permitted sender) client-ip=167.89.37.70;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@crowdtech.jp header.s=m1 header.b=Q50spoiS;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=WUbzeNhJ;
+       spf=pass (google.com: domain of bounces+1951994-7b1d-hujyorom=gmail.com@mail.crowdtech.jp designates 167.89.37.70 as permitted sender) smtp.mailfrom="bounces+1951994-7b1d-hujyorom=gmail.com@mail.crowdtech.jp"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crowdtech.jp;
+	h=from:subject:mime-version:x-feedback-id:to:content-type:
+	content-transfer-encoding;
+	s=m1; bh=L0VaE3FexoRjDl18bVq2ycz4rblkmHip8qivsohVx0E=;
+	b=Q50spoiSlW6t3t+PUKtgnY+B7HGhlA60EIdYt6S7JWFQ66t/w9RE2hT6n9ReWNmK35lu
+	+QyK8cyL+pVTQC7sGGHwwsv7dmaaLXVC/L68iRzh3nv9Q/MWl34epCcbV2Y3NwHEm9Ssxy
+	MfIXJpYU/0xJV38gbqdZcVyKRaRb8Yeyo=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:mime-version:x-feedback-id:to:content-type:
+	content-transfer-encoding;
+	s=smtpapi; bh=L0VaE3FexoRjDl18bVq2ycz4rblkmHip8qivsohVx0E=;
+	b=WUbzeNhJy8fr2sF9Zf001ht37r41WGsFjbRQ3cRp1rxDT8W87L9Z3R4xjGYsP7vvTSUw
+	pUfI3fynPCY1bRPdgFIwu+kBTHG3JAIjjJ6P5fFHc88NcfVliTVjiAiC7yTOsigLC0G89P
+	CslMOwk+IKm5kdDueB8JDJ00/K/m23j9A=
+Received: by filterdrecv-p3mdw1-7745b6f999-qz8ps with SMTP id filterdrecv-p3mdw1-7745b6f999-qz8ps-19-60497AEC-31
+        2021-03-11 02:05:32.417057231 +0000 UTC m=+1900147.956980304
+Received: from crowdtech.jp (unknown)
+	by ismtpd0132p1iad2.sendgrid.net (SG)
+	with ESMTP id oUD4wfcURXunvJcHx10Q0Q
+	for <hujyorom@gmail.com>;
+	Thu, 11 Mar 2021 02:05:32.359 +0000 (UTC)
+Date: Thu, 11 Mar 2021 02:05:32 +0000 (UTC)
+From: "crowdtech.jp" <no-reply@crowdtech.jp>
+Message-ID: <60497aec38292_420da0872e9@5aba0a7f-cea1-4165-8970-177f1a25565d.mail>
+Subject: 
+ =?UTF-8?B?44CQ44Kv44Op44Km44OJ44OG44OD44Kv44CR44CQ44OG44K544K/44O8L+mAsTLml6V+NOaXpS/jg5Xjg6vjg6rjg6Ljg7zjg4gv5YWt5pys5pyo5LiA5LiB55uu44CR?=
+ =?UTF-8?B?IFdFQuaOpeWuouODhOODvOODq+OBruODhuOCueOCv+ODvOalreWLmeahiOS7tuOBuOOBruOBlOW/nOWLn+OBjOWujOS6huOBl+OBvuOBl+OBnw==?=
+Mime-Version: 1.0
+X-Feedback-ID: 1951994:SG
+X-SG-EID: 
+ =?us-ascii?Q?jCI5iqeYHDbCedNJhiUuiuEbawgzTjgWBldOX4XLz9VvfBzCcTpyzRMSqeLb0k?=
+ =?us-ascii?Q?a=2FcObioD7tZxd1NACXU1iHcFNS02JjQM5W8oOlK?=
+ =?us-ascii?Q?aQapbH=2FEjf5M+gZUrSDffAOtahZEE9Xa4aF+KFS?=
+ =?us-ascii?Q?mCPkqcQ9lRRQ8u2cyFtNyXpvL+pyN6SzPM=2Fp4DY?=
+ =?us-ascii?Q?roVYTPQVY70XIGMtPda9mc1i6Hvutw43f8GGrd9?=
+ =?us-ascii?Q?maB9Yg+oVPBz5bp1zPXyKSu58zdPceRri7SpoU?=
+To: hujyorom@gmail.com
+X-Entity-ID: Er7u2LbJz1lvkoxja0bFtg==
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_60497aec36b87_420da087119";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_60497aec36b87_420da087119
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09DQrjgZPjga7jg6Hjg7zjg6vjga9IVE1M44Oh44O844Or44KS6Ieq5YuV5aSJ5o+b44GX44Gm
+5L2c5oiQ44GX44Gm44GK44KK44G+44GZ44CCDQrjgoLjgZfopovjgaXjgonjgYTnrofmiYDjgYzj
+gYLjgovloLTlkIjjga/jgIFIVE1M44Oh44O844Or44KS6KaL44KL5LqL44GM44Gn44GN44KLDQrj
+gqLjg4njg6zjgrnjgavou6LpgIHjgZnjgovjgarjganjgZfjgabjgZTopqfjgY/jgaDjgZXjgYTj
+gIINCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PQ0K6YGg6Jek5qeYDQoNCuOBhOOBpOOCguOBiuS4luipseOBq+OBquOBo+OBpuOBiuOC
+iuOBvuOBmeOAguOCr+ODqeOCpuODieODhuODg+OCr+S6i+WLmeWxgOOBp+OBmeOAgg0KDQrjgq/j
+g6njgqbjg4njg4bjg4Pjgq/jga7moYjku7bjgavjgZTlv5zli5/jgYTjgZ/jgaDjgY3jgYLjgorj
+gYzjgajjgYbjgZTjgZbjgYTjgb7jgZnjgIINCuS7peS4i+WGheWuueOBp+OBlOW/nOWLn+OCkuaJ
+v+OCiuOBvuOBl+OBn+OBruOBp+OBlOmAo+e1oeOBhOOBn+OBl+OBvuOBmeOAgg0KDQotLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQ0KDQrjg7sg5qGI5Lu2
+5ZCN77yaIOOAkOODhuOCueOCv+ODvC/pgLEy5pelfjTml6Uv44OV44Or44Oq44Oi44O844OIL+WF
+reacrOacqOS4gOS4geebruOAkSBXRULmjqXlrqLjg4Tjg7zjg6vjga7jg4bjgrnjgr/jg7zmpa3l
+i5nmoYjku7YNCmh0dHBzOi8vY3Jvd2R0ZWNoLmpwL2pvYl9vZmZlcnMvMzExNDMNCuODuyAtIEpP
+QiBJRCAzMTE0Mw0KDQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLQ0KDQrigLvkvIHmpa3jgavjgZTmjqjolqblvozjgIHjgZTpnaLoq4fkvp3poLzjgYzj
+gYLjgaPjgZ/loLTlkIjjga7jgb/jgIHkuovli5nlsYDjgojjgorjgZTpgKPntaHjgZXjgZvjgabj
+gYTjgZ/jgaDjgY3jgb7jgZnjgIINCuOBquOBiuOAgeOBlOW/nOWLn+OBhOOBn+OBoOOBhOOBn+aX
+peOCkumZpOOBjTXllrbmpa3ml6Xku6XlhoXjgavkuovli5nlsYDjgYvjgonpgKPntaHjgYzjgarj
+gYTloLTlkIjjga/jgYropovpgIHjgorjgajjgarjgorjgb7jgZnjgZPjgajjgIHkvZXljZLjgZTk
+uobmib/jgYTjgZ/jgaDjgY3jgb7jgZnjgojjgYbjgYrpoZjjgYTjgYTjgZ/jgZfjgb7jgZnjgIIN
+Cg0K44G+44Gg6IG35YuZ57WM5q205pu444KS5byK56S+44Gr44GU5o+Q5Ye644Gn44Gq44GE5pa5
+44Gv44CB44CM44OX44Ot44OV44Kj44O844Or57eo6ZuG77yc6IG35YuZ57WM5q205pu477ye44CN
+44KI44KK6IG35YuZ57WM5q205pu444Gu5YWl5Yqb44KS44GK6aGY44GE44GE44Gf44GX44G+44GZ
+44CCDQoNCmh0dHBzOi8vY3Jvd2R0ZWNoLmpwL3Byb2ZpbGVfc2hlZXQvcmVzdW1lDQoNCi0tLS0t
+LS0tLS3lg43jgY/jgpLpgJrjgZfjgabkurrjgIXjgavnrJHpoZTjgpItLS0tLS0tLS0tDQoNCuag
+quW8j+S8muekvuOCr+ODqeOCpuODieODr+ODvOOCr+OCuQ0KDQrjgq/jg6njgqbjg4njg4bjg4Pj
+gq/kuovmpa3pg6gNCg0K5Za25qWt5pmC6ZaT77yaMTA6MDAtMTk6MDANCg0K5Za25qWt5pel77ya
+5pyI772e6YeR77yI5Zyf5pel56Wd6Zmk44GP77yJ
+
+----==_mimepart_60497aec36b87_420da087119
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJqYSI+DQo8aGVhZD4NCiAgPHRpdGxlPuOCr+OD
+qeOCpuODieODr+ODvOOCr+OCuTwvdGl0bGU+DQo8L2hlYWQ+DQo8Ym9keT4NCiAgPGRpdiBzdHls
+ZT0ibWF4LXdpZHRoOiA1NWVtOyI+DQogICAgICA8cD4NCiAgICAgIOmBoOiXpOanmA0KICAgICAg
+PC9wPg0KDQogICAgDQo8cD4NCiAg44GE44Gk44KC44GK5LiW6Kmx44Gr44Gq44Gj44Gm44GK44KK
+44G+44GZ44CC44Kv44Op44Km44OJ44OG44OD44Kv5LqL5YuZ5bGA44Gn44GZ44CCPGJyPg0KPC9w
+Pg0KPHA+DQogIOOCr+ODqeOCpuODieODhuODg+OCr+OBruahiOS7tuOBq+OBlOW/nOWLn+OBhOOB
+n+OBoOOBjeOBguOCiuOBjOOBqOOBhuOBlOOBluOBhOOBvuOBmeOAgjxicj4NCiAg5Lul5LiL5YaF
+5a6544Gn44GU5b+c5Yuf44KS5om/44KK44G+44GX44Gf44Gu44Gn44GU6YCj57Wh44GE44Gf44GX
+44G+44GZ44CCDQo8L3A+DQotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLQ0KPHVsPg0KICA8bGk+IOahiOS7tuWQje+8miA8YSBocmVmPSJodHRwczovL2Ny
+b3dkdGVjaC5qcC9qb2Jfb2ZmZXJzLzMxMTQzIj7jgJDjg4bjgrnjgr/jg7wv6YCxMuaXpX405pel
+L+ODleODq+ODquODouODvOODiC/lha3mnKzmnKjkuIDkuIHnm67jgJEgV0VC5o6l5a6i44OE44O8
+44Or44Gu44OG44K544K/44O85qWt5YuZ5qGI5Lu2PC9hPiA8L2xpPg0KICA8bGk+IC0gSk9CIElE
+IDMxMTQzIDwvbGk+DQo8L3VsPg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0NCjxwPg0KICDigLvkvIHmpa3jgavjgZTmjqjolqblvozjgIHjgZTpnaLo
+q4fkvp3poLzjgYzjgYLjgaPjgZ/loLTlkIjjga7jgb/jgIHkuovli5nlsYDjgojjgorjgZTpgKPn
+taHjgZXjgZvjgabjgYTjgZ/jgaDjgY3jgb7jgZnjgII8YnI+DQogIOOBquOBiuOAgeOBlOW/nOWL
+n+OBhOOBn+OBoOOBhOOBn+aXpeOCkumZpOOBjTXllrbmpa3ml6Xku6XlhoXjgavkuovli5nlsYDj
+gYvjgonpgKPntaHjgYzjgarjgYTloLTlkIjjga/jgYropovpgIHjgorjgajjgarjgorjgb7jgZnj
+gZPjgajjgIHkvZXljZLjgZTkuobmib/jgYTjgZ/jgaDjgY3jgb7jgZnjgojjgYbjgYrpoZjjgYTj
+gYTjgZ/jgZfjgb7jgZnjgIINCg0KPC9wPg0KPHA+DQogIOOBvuOBoOiBt+WLmee1jOattOabuOOC
+kuW8iuekvuOBq+OBlOaPkOWHuuOBp+OBquOBhOaWueOBr+OAgeOAjOODl+ODreODleOCo+ODvOOD
+q+e3qOmbhu+8nOiBt+WLmee1jOattOabuO+8nuOAjeOCiOOCiuiBt+WLmee1jOattOabuOOBruWF
+peWKm+OCkuOBiumhmOOBhOOBhOOBn+OBl+OBvuOBmeOAgjxicj4NCiAgPGEgaHJlZj0iaHR0cHM6
+Ly9jcm93ZHRlY2guanAvcHJvZmlsZV9zaGVldC9yZXN1bWUiPmh0dHBzOi8vY3Jvd2R0ZWNoLmpw
+L3Byb2ZpbGVfc2hlZXQvcmVzdW1lPC9hPg0KDQo8L3A+DQoNCg0KICAgIDxkaXYgc3R5bGU9ImJv
+cmRlci10b3A6IDFweCBzb2xpZCAjY2NjOyBtYXJnaW4tdG9wOiAxZW07IHBhZGRpbmctdG9wOiAu
+NWVtOyI+DQogICAgICA8cD4tLS0tLS0tLS0t5YON44GP44KS6YCa44GX44Gm5Lq644CF44Gr56yR
+6aGU44KSLS0tLS0tLS0tLQ0KPGJyIC8+5qCq5byP5Lya56S+44Kv44Op44Km44OJ44Ov44O844Kv
+44K5DQo8YnIgLz7jgq/jg6njgqbjg4njg4bjg4Pjgq/kuovmpa3pg6gNCjxiciAvPuWWtualreaZ
+gumWk++8mjEwOjAwLTE5OjAwDQo8YnIgLz7llrbmpa3ml6XvvJrmnIjvvZ7ph5HvvIjlnJ/ml6Xn
+pZ3pmaTjgY/vvIk8L3A+DQogICAgPC9kaXY+DQogIDwvZGl2Pg0KPGltZyBzcmM9Imh0dHA6Ly9s
+aW5rLmNyb3dkdGVjaC5qcC93Zi9vcGVuP3Vwbj1kTVQ2LTJCb1B3enNacnFyam5YbHlEWk1rWURz
+SHd4bUJSRVRmLTJCSmYybHVaMW94UEJMeXhhdkVDU0V0cS0yRlNodmVQYnREMnVpOG0xNWhnSnhk
+T2xaSmdDUzlxV1h3VXBIamlpTjFsOGI5Y1VhWHFPUUtFc2EyY2tPNS0yRjFqUGVKaXFkMWwtMkZS
+b2xIWlktMkZteUtVYzI0LTJCbFl1UWRDVDJNdm9kY1dGeEdsQzNCTG5QVmlxeWNpWG5pWkJwVUxv
+dC0yRkRzMEpVUHM4WXBsWkZaQ0hFWEltRE4zRWpMdURvZ3VwWk5aVjRabFFMOG1lOHFkUS0zRCIg
+YWx0PSIiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGJvcmRlcj0iMCIgc3R5bGU9ImhlaWdodDoxcHgg
+IWltcG9ydGFudDt3aWR0aDoxcHggIWltcG9ydGFudDtib3JkZXItd2lkdGg6MCAhaW1wb3J0YW50
+O21hcmdpbi10b3A6MCAhaW1wb3J0YW50O21hcmdpbi1ib3R0b206MCAhaW1wb3J0YW50O21hcmdp
+bi1yaWdodDowICFpbXBvcnRhbnQ7bWFyZ2luLWxlZnQ6MCAhaW1wb3J0YW50O3BhZGRpbmctdG9w
+OjAgIWltcG9ydGFudDtwYWRkaW5nLWJvdHRvbTowICFpbXBvcnRhbnQ7cGFkZGluZy1yaWdodDow
+ICFpbXBvcnRhbnQ7cGFkZGluZy1sZWZ0OjAgIWltcG9ydGFudDsiLz48L2JvZHk+DQo8L2h0bWw+
+DQo=
+
+----==_mimepart_60497aec36b87_420da087119--

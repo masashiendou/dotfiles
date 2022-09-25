@@ -1,0 +1,86 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:93ce:0:0:0:0:0 with SMTP id v197csp1031054vkd;
+        Wed, 24 Jun 2020 16:43:33 -0700 (PDT)
+X-Received: by 2002:a05:6102:405:: with SMTP id d5mr26501220vsq.203.1593042213390;
+        Wed, 24 Jun 2020 16:43:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593042213; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QC8zCZ71wgqZ4kiJg1Aw+FwSalM7HX0mKKeONcEFuIlIdbT+RMbpwFAYDlx9iMeDkN
+         cm8YRfq5+xI9vXJzxViF+LXBgfLgn+1EMeggNw583CTVY9oSmwLKXHtjGxoMNGFLm3vV
+         oOHMpWc+ZSUzS0lGjAdEk4qCZB5JoJ6/suzztZtQWG0cEFGPw5SvQD5MoE5iPanyuGKu
+         AYx33gbklfJPUDCmnZiKmypDCWeIX0fbPf7bfMcHKViSV0TGfxLueSxvGgmIPT9LrvfL
+         Wvf0ZqwVWPiJPQ267Ei2zsrt09VfHkDWY4NhIWDKjs8hi2QbJN4Y4q2oA62SrNOxiPz1
+         djUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=gOS0vWbKoqLA0HTW3utF/xy3/bupSs9bx5jdhmbKPyE=;
+        b=IWhfjhsxHFLu38nh/pCi4NY714TTRM2SMqYKjnA+GJwLZws7W5UNzIKrOvGrE2AxRc
+         jK58+SYtQdv+7AHOfVvD2Riy0veK3O7oND8eSMxlp9iHLfdhOQ368HyVkfaN41dNvHB/
+         YR3b2Yp54Utjx3aAYsD+V9TDNihJKLz9Ad5HHa3s04eBP6ZNUcOh8XuP7Vwq8ZcJndwc
+         nfISYudJigMY+CozGFlklP1kO2cNerTzaaAgZyhoz1HbxrjSCQynraQRvtXzy1ib3RfI
+         zlIXWtKX2OCjBqsoSaq3zOy+T1xTTPJ4gk1weI5vo98OlmLv4qP/C4tSEKMDs+433nS1
+         R8lQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="rec/lf7y";
+       spf=pass (google.com: domain of kendou9933@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=kendou9933@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <kendou9933@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id u134sor5227278vsc.30.2020.06.24.16.43.33
+        for <hujyorom@gmail.com>
+        (Google Transport Security);
+        Wed, 24 Jun 2020 16:43:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kendou9933@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="rec/lf7y";
+       spf=pass (google.com: domain of kendou9933@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=kendou9933@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=gOS0vWbKoqLA0HTW3utF/xy3/bupSs9bx5jdhmbKPyE=;
+        b=rec/lf7yxCnckyROday5iP5o5z1XxaI/ZR3uVa8unQdnoKYreUfWXEbzLFOf5LBkVP
+         /wqBpCZoGIkPw6G8VWvCLjH7pPIWt1PrD6wTLtXhVEVDh9BpfoWd63tTq5sVnlWub5sr
+         eDoWS0xgxHouis73F+YRSfukcEh5HKIGA1voM7jKvCHBLiIj+m5GFLsJQp1sYPxVVJ0b
+         cQBFRtUkxEbsCZSPDueUsvm4FDzplbML2LjpAE9jKCOLzGUgy4apZjZFFHedtr0hYWhr
+         W613bbD/8Y0qCBkDh7T56EB6/91Yp/sZa75IwKELCiUTrPRUSSeWGE7K1+mBFzgbNuCx
+         ezog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=gOS0vWbKoqLA0HTW3utF/xy3/bupSs9bx5jdhmbKPyE=;
+        b=RWBV136Gqif2T0q1RoJ+/BAxmOM0Vws/9TRdKzHrbAj4D0fLgmvFPZKgyhIgyE6mSL
+         JWLdSLF3qKkCx2LVfbgtRUzwSnvaHRfkHDdCRFqv/ax7MAcXtRy58W1RDrHhpvjUNmaI
+         BEuqFQdsawjSNP25r9roZ4dB07XHH2DKcn2XyB7/hgNrPzJBmj00bXp+XXlMU//whDJx
+         BSZz+omBk5M2x4IdC6RHDBuVO7vzMujsvL9E0UWM4hm+aJp16oJlGjJMz9av5dSHa0KJ
+         lu2jkD5/OiuXmxR7Rz2aGkJc6/HrQzVxoe9gI4zP3obU2CokMEOIU+s4BWZ/YS5B5XRb
+         bNyw==
+X-Gm-Message-State: AOAM5324gGUwLVW7aBUhNtIs4OjlLt5MXcoHKXkNfSIObUOutzekWKGr
+	NqSVuOoC/JV6HOJ8ECf4Mga5I/w+3waV168y8Fr9WA==
+X-Google-Smtp-Source: ABdhPJw8dBYiXJnu8Oxzlu2EDOxVCl+j9vXVNC4DI7Qv0Df+AhjnC0tOUCz+7FhaP/p6c8/K6sCr7dA81GY1WkUedFY=
+X-Received: by 2002:a67:fd16:: with SMTP id f22mr25355256vsr.213.1593042213061;
+ Wed, 24 Jun 2020 16:43:33 -0700 (PDT)
+MIME-Version: 1.0
+From: keiko endou <kendou9933@gmail.com>
+Date: Thu, 25 Jun 2020 08:43:22 +0900
+Message-ID: <CA+zwgyZ7Mt4pP-_x6g5pmcfjM54etve2sbtECe8mLx1+ZNwfDQ@mail.gmail.com>
+Subject: =?UTF-8?B?5q+N44KI44KK?=
+To: =?UTF-8?B?44G+44GV44GX?= <hujyorom@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000038c8a305a8dd0b83"
+
+--00000000000038c8a305a8dd0b83
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+55yf5aWI44Gh44KD44KT44Gr6KqV55Sf5pel44Oh44O844Or44GX44KH44GG44GoDQrmgJ3jgaPj
+gaY25pyIMjfml6XjgafjgYTjgYTjgpPjgaDjgojjga3jgIINCuS4gOW/nOOCouODieODrOOCueOC
+gumAgeOBo+OBpuOAgg0K
+--00000000000038c8a305a8dd0b83
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+PGRpdiBkaXI9ImF1dG8iPuecn+WliOOBoeOCg+OCk+OBq+iqleeUn+aXpeODoeODvOODq+OBl+OC
+h+OBhuOBqDwvZGl2PjxkaXYgZGlyPSJhdXRvIj7mgJ3jgaPjgaY25pyIMjfml6XjgafjgYTjgYTj
+gpPjgaDjgojjga3jgII8L2Rpdj48ZGl2IGRpcj0iYXV0byI+5LiA5b+c44Ki44OJ44Os44K544KC
+6YCB44Gj44Gm44CCPC9kaXY+PGRpdiBkaXI9ImF1dG8iPjxicj48L2Rpdj4NCg==
+--00000000000038c8a305a8dd0b83--

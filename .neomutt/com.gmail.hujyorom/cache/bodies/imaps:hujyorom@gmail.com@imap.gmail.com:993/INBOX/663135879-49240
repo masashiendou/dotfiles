@@ -1,0 +1,246 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp1988398vkx;
+        Sat, 27 Mar 2021 05:32:50 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyjgNKrnyW/pEbn4BVDoahjLIjLHTsEhHmxidpdR1nTH2TYIHv8BSg+E8W4x8P+Mog7zdG1
+X-Received: by 2002:a37:4396:: with SMTP id q144mr16692499qka.441.1616848370431;
+        Sat, 27 Mar 2021 05:32:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616848370; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yD8GHju2q96YEDY8UBbEG0XIO6Dwz421sUb398yPz7zSlLvAW2k2meuSyIiMRVoyZG
+         k/uNpXbSIsRNTgR55n2+3VaJohaW7Kfi8Z8m3BkT//SYXvfTt60u0kqOGjAUx2FA25J5
+         MUSc7lvFuRHf3Mvt0g5ariJ6Rfwo0XEwSUJeqba6Yr4HgSip+x3dH8DKI8dovQqpNtnC
+         6NFUs5Dp57rsag/5yF7tgxcVc0gpxpjqh2tb/xn9t0THn0wVFZ4xfizt9WDAR3r1GjR2
+         V2tZDpLvRIM8X/jyAtCZUvVSByEDCc0syldD4TeT0wqFGy/CludUzqCksZ0oOsXjo06R
+         zRew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:subject:message-id:to:from:date
+         :dkim-signature:dkim-signature;
+        bh=X5vlz+NWjSVX5oYlcYk3liNEIlS1hAt6Hlhuo6bDcqE=;
+        b=FtuTZjyM5gONcM5cip2kNWjyzyezuy2LJJ9/LZBqPItgimnxuGI7JDVQFjZ70DgwQl
+         tcVkVHSl+GQFxX3Okc6sj/3QC6bAnMOI0oLr79syQmdJn2EQ706ujqWkioLuq5+78pX7
+         goRP+XLBI4Zii4w/4hvvvYt45wny52tIM858gowprynLf7btcHyXkyLoTqWdcrz4LEcs
+         pH6UxMjpOwkCfiBi6TN/LLPrgQpI7JoLfttlIcZC9sscelNIC0K8cMW7lFX+bn3LP6hi
+         oT3CG54x/zJV28MSQ7/U6iKRVwzJY7X4KZRxTC20L2LkbSJe7Hiz0MSJMev8nCf1FGmf
+         bV1A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@connpass.com header.s=qgwij7ngzf35poavjaohcwhw362hh6qr header.b=MlElhf3P;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=guaaqWd0;
+       spf=pass (google.com: domain of 0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@amazonses.com designates 54.240.11.3 as permitted sender) smtp.mailfrom=0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@amazonses.com
+Return-Path: <0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@amazonses.com>
+Received: from a11-3.smtp-out.amazonses.com (a11-3.smtp-out.amazonses.com. [54.240.11.3])
+        by mx.google.com with ESMTPS id k14si6478258qtx.214.2021.03.27.05.32.50
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Sat, 27 Mar 2021 05:32:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@amazonses.com designates 54.240.11.3 as permitted sender) client-ip=54.240.11.3;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@connpass.com header.s=qgwij7ngzf35poavjaohcwhw362hh6qr header.b=MlElhf3P;
+       dkim=pass header.i=@amazonses.com header.s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug header.b=guaaqWd0;
+       spf=pass (google.com: domain of 0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@amazonses.com designates 54.240.11.3 as permitted sender) smtp.mailfrom=0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=qgwij7ngzf35poavjaohcwhw362hh6qr; d=connpass.com; t=1616848369;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type;
+	bh=I9OfVhxsiV+kVrvc53GQ4h5lUzArxZZ9QeLU2p7dY38=;
+	b=MlElhf3PvsALwIIGSPqG8XruNG1DlES+4kenxTqNQCIXoivydLJEdbd6JatpmpA0
+	HyyUfYRvUShOdsiqfBayK8KXjRrE90Bk8wuexQYZF8M2T7M554rBIo1t0+HWk0aBkLy
+	DCtX0stqWPBdVxgCuIcV7HShb87GOHojvRD6vRIk=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1616848369;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Feedback-ID;
+	bh=I9OfVhxsiV+kVrvc53GQ4h5lUzArxZZ9QeLU2p7dY38=;
+	b=guaaqWd0Au5MAkvb99iQeg8kd76L2KZjZOIIZCJXwutteLkAJJJ+BxnFhHNY/pzH
+	kwrmt+bWcEv5KTwvq9iVpzheE3LURqid5CBzmolDLNjRfzGHF3ViC4bB8SrL/ydOw2/
+	1thHf3acdHY5fQWfjHKF+ylchBbnVfTLfrqDMO0U=
+Date: Sat, 27 Mar 2021 12:32:49 +0000
+From: connpass <no-reply@connpass.com>
+To: hujyorom@gmail.com
+Message-ID: <0100017873ac38a1-e4afd59d-4d7b-4c00-a325-c33a2662e1cb-000000@email.amazonses.com>
+Subject: =?UTF-8?B?QWRkZWQgbWVkaWEgYXQg44CQTFTlopfmnqDjgJHjgYrjgZk=?=
+ =?UTF-8?B?44GZ44KB44Gu5oqA6KGT5pu4IExU5LyaIA==?=
+ =?UTF-8?B?44CQ55m75aOH5Yid5b+D6ICF44Gu5pa55aSn5q2T6L+O44CR?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1203688_538035125.1616848369888"
+X-SES-Outgoing: 2021.03.27-54.240.11.3
+Feedback-ID: 1.us-east-1.C+rviT2VKZkMbeWWHMBlU6/bujQYrIHKb2DGcP0nnro=:AmazonSES
+
+------=_Part_1203688_538035125.1616848369888
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Added new 1 medias at "=E3=80=90LT=E5=A2=97=E6=9E=A0=E3=80=91=E3=81=8A=E3=
+=81=99=E3=81=99=E3=82=81=E3=81=AE=E6=8A=80=E8=A1=93=E6=9B=B8 LT=E4=BC=9A =
+=E3=80=90=E7=99=BB=E5=A3=87=E5=88=9D=E5=BF=83=E8=80=85=E3=81=AE=E6=96=B9=E5=
+=A4=A7=E6=AD=93=E8=BF=8E=E3=80=91"
+
+---------------------------------------------------------------------------=
+---
+=E3=80=90LT=E5=A2=97=E6=9E=A0=E3=80=91=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=
+=E3=81=AE=E6=8A=80=E8=A1=93=E6=9B=B8 LT=E4=BC=9A =E3=80=90=E7=99=BB=E5=A3=
+=87=E5=88=9D=E5=BF=83=E8=80=85=E3=81=AE=E6=96=B9=E5=A4=A7=E6=AD=93=E8=BF=8E=
+=E3=80=91
+URL: https://rakus.connpass.com/event/204979/?utm_campaign=3Dnew_event_link=
+s_to_group_member&utm_source=3Dnotifications&utm_medium=3Demail&utm_content=
+=3Dtext_link
+
+* 3=E3=81=A4=E3=81=AE=E6=A6=82=E5=BF=B5=E3=81=A7=E8=A6=9A=E3=81=88=E3=82=8B=
+Linux=E3=81=AE=E4=B8=96=E7=95=8C
+---------------------------------------------------------------------------=
+---
+
+Check the details in event media list:
+https://rakus.connpass.com/event/204979/presentation/?utm_campaign=3Dnew_ev=
+ent_links_to_group_member&utm_source=3Dnotifications&utm_medium=3Demail&utm=
+_content=3Dtext_link
+
+This email was sent to hujyorom@gmail.com.
+If you want to stop receiving notifications from connpass.com you can turn =
+off notifications at any time on the settings page (https://connpass.com/se=
+ttings/).
+If you received this email in error, please let us know via our contact for=
+m. (https://connpass.com/inquiry/)
+Copyright (C) 2021 BeProud, Inc. All Rights Reserved.
+
+
+------=_Part_1203688_538035125.1616848369888
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<body style=3D"background-color:#FFFFFF; margin:10px 0; padding:0;">
+<table width=3D"500" border=3D"0" align=3D"center" cellpadding=3D"0" cellsp=
+acing=3D"0">
+  <tr>
+    <td width=3D"494" valign=3D"top" bgcolor=3D"#F1F1F1"><img src=3D"https:=
+//connpass.com/static/img/mail/bg_top.gif" width=3D"494" height=3D"25" bord=
+er=3D"0" /></td>
+    <td width=3D"6" rowspan=3D"3" valign=3D"top"><img src=3D"https://connpa=
+ss.com/static/img/mail/bg_sideshadow.gif" width=3D"6" height=3D"118" /></td=
+>
+  </tr>
+  <tr valign=3D"top">
+    <td bgcolor=3D"#F1F1F1">
+      <table width=3D"460" border=3D"0" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"margin-bottom:20px;">
+        <tr>
+          <td><img src=3D"https://connpass.com/static/img/mail/logo.png" wi=
+dth=3D"116" height=3D"39" border=3D"0" alt=3D"connpass" title=3D"connpass" =
+/></td>
+          <td align=3D"right"><div style=3D"color:#666; font-size:14px;"></=
+div></td>
+        </tr>
+      </table>
+      <table width=3D"460" border=3D"0" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"margin:0 auto 25px;">
+        <tr>
+          <td>
+
+
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"460px" sty=
+le=3D"margin-bottom:20px;">
+  <tbody>
+    <tr>
+      <td style=3D"font-size:14px; color:#666; vertical-align:top;padding-l=
+eft:10px;">1 medias were added to <a href=3D"https://rakus.connpass.com/eve=
+nt/204979/?utm_campaign=3D&utm_source=3Dnotifications&utm_medium=3Demail&ut=
+m_content=3Dtitle_link" target=3D"_blank" style=3D"color:#000;"><strong>=E3=
+=80=90LT=E5=A2=97=E6=9E=A0=E3=80=91=E3=81=8A=E3=81=99=E3=81=99=E3=82=81=E3=
+=81=AE=E6=8A=80=E8=A1=93=E6=9B=B8 LT=E4=BC=9A =E3=80=90=E7=99=BB=E5=A3=87=
+=E5=88=9D=E5=BF=83=E8=80=85=E3=81=AE=E6=96=B9=E5=A4=A7=E6=AD=93=E8=BF=8E=E3=
+=80=91</strong></a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"460px" sty=
+le=3D"margin-bottom:20px;">
+  <tbody>
+    <tr>
+     =20
+      <td style=3D"font-size:0;vertical-align: top;">
+       =20
+        <div style=3D"overflow: hidden;height: 107px;width: 142px;margin: 0=
+ auto;text-align: center;background-color: #E4E4E4;">
+         =20
+          <img src=3D"https://files.speakerdeck.com/presentations/34a334b7e=
+c854b22950bd5dac414d922/slide_0.jpg?17690362" style=3D"width: 140px;margin:=
+ 0 auto;border: 1px solid #ccc;">
+         =20
+        </div>
+       =20
+        <div style=3D"margin-left: 10px;margin-top: -10px;">
+         =20
+            <a href=3D"
+            https://connpass.com/user/NakajimaJun/presentation/?utm_campaig=
+n=3Dnew_event_links_to_group_member&utm_source=3Dnotifications&utm_medium=
+=3Demail&utm_content=3Dpresenter_link_1" style=3D"color:#000;">
+             =20
+                <img src=3D"https://connpass-tokyo.s3.amazonaws.com/thumbs/=
+7b/9b/7b9beaf14d3e52ce2ae89e77b6423e11.png" alt=3D"NakajimaJun" width=3D"24=
+" height=3D"24">
+             =20
+              <span style=3D"font-size:11px;margin-left: 6px;">NakajimaJun<=
+/span>
+            </a>
+         =20
+        </div>
+       =20
+      </td>
+     =20
+    </tr>
+  </tbody>
+</table>
+
+
+<div style=3D"font-size:12px; color:#333; line-height:18px; font-weight:bol=
+d; text-align:center; margin:15px auto; padding:15px 0; background-image:ur=
+l(https://connpass.com/static/img/mail/confirm_bg.jpg); background-repeat:r=
+epeat-y;">
+  Check the details in event media list:<br /><br />
+  <a href=3D"https://rakus.connpass.com/event/204979/presentation/?utm_camp=
+aign=3Dnew_event_links_to_group_member&utm_source=3Dnotifications&utm_mediu=
+m=3Demail&utm_content=3Ddetail_btn" target=3D"_blank" style=3D"text-decorat=
+ion:none;line-height:1; text-align:center; border-radius:5px; -webkit-borde=
+r-radius:5px; -moz-border-radius:5px; cursor:pointer; color:#FFF; font-weig=
+ht:bold; background:#c82a16 url(https://connpass.com/static//img/mail/btn_r=
+ed.gif) 0 50% repeat-x; border:none; padding: 14px 10px; font-size:14px; wi=
+dth: 280px; display:inline-block;">See all medias</a>
+</div>
+</td>
+        </tr>
+      </table>
+      <!-- =E3=83=95=E3=83=83=E3=82=BF=E6=96=87=E8=A8=80=E9=83=A8=E5=88=86 =
+-->
+      <table width=3D"460" border=3D"0" align=3D"center" cellpadding=3D"0" =
+cellspacing=3D"0" style=3D"border-top:1px #CCC solid; padding-top:10px;">
+        <tr>
+          <td>
+            <div style=3D"font-size:10px; color:#333; line-height:16px;">
+             =20
+              This email was sent to hujyorom@gmail.com.<br />
+              If you want to stop receiving notifications from <a href=3D"h=
+ttps://connpass.com/" target=3D"_blank" style=3D"color:#000;">connpass.com<=
+/a> you can turn off notifications at any time on the <a href=3D"https://co=
+nnpass.com/settings/" target=3D"_blank" style=3D"color:#000;">settings page=
+</a>.
+              If you received this email in error, please let us know via o=
+ur <a href=3D"https://connpass.com/inquiry/" target=3D"_blank" style=3D"col=
+or:#000;">contact form</a>.<br />
+            </div>
+            <div style=3D"font-size:9px; color:#333; font-weight:bold; text=
+-align:center; margin:15px auto 0;">Copyright &copy; 2021 BeProud, Inc. All=
+ Rights Reserved.</div></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr valign=3D"top">
+    <td><img src=3D"https://connpass.com/static/img/mail/bg_bottom.gif" wid=
+th=3D"494" height=3D"26" border=3D"0" /></td>
+  </tr>
+</table>
+</body>
+
+------=_Part_1203688_538035125.1616848369888--

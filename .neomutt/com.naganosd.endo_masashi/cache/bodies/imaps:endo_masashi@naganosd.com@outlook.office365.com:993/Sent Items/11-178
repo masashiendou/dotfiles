@@ -1,0 +1,615 @@
+Received: from [192.168.41.9] (125.30.78.83) by
+ TYAPR01CA0025.jpnprd01.prod.outlook.com (2603:1096:404:28::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2878.17 via Frontend Transport; Mon, 6 Apr 2020 07:40:38 +0000
+Subject: =?UTF-8?B?UmU6IFttaW5vX3NodWs6MDAxMTBdIFJlOiBbbWlub19zaHVrOjAwMTA5?=
+ =?UTF-8?B?XSBSZTogW21pbm9fc2h1azowMDEwMF0gUmU6IFttaW5vX3NodWs6MDAwOTldIFJl?=
+ =?UTF-8?B?OiBbbWlub19zaHVrOjAwMDk4XSBSRTogW21pbm9fc2h1azowMDA5Nl0gUmU6IFtt?=
+ =?UTF-8?B?aW5vX3NodWs6MDAwOTNdIFJFOiBbbWlub19zaHVrOjAwMDkxXSBSZTogW21pbm9f?=
+ =?UTF-8?B?c2h1azowMDA5MF0g5YuV5L2c54q25rOB44Gr44Gk44GE44Gm?=
+To: mino_shukka_ml@system-quest.co.jp, =?UTF-8?B?5YyX5r6k5a2d5riF?=
+ <t-kitazawa@nuan.jp>
+References: <F0A01DF8-2A33-4C09-BE21-B62199F618B9@naganosd.com>
+ <CAMn1dDypLw8ecmh=FQ8T_LkYCjRKy9OUKLOa309RDrwSAtqtdA@mail.gmail.com>
+ <TY2PR06MB28299F5CB8653BCFEBD40ED7F1F40@TY2PR06MB2829.apcprd06.prod.outlook.com>
+ <CAMn1dDyqxrbcwJtyh0RqRpnHG9XHOy8O6zuQ8PsMsDSDX=H3CQ@mail.gmail.com>
+ <TY2PR06MB28290B9C8591A02F6CC6F18DF1F00@TY2PR06MB2829.apcprd06.prod.outlook.com>
+ <TY2PR06MB28291F0F6EA1BDA26B42C2D7F1F10@TY2PR06MB2829.apcprd06.prod.outlook.com>
+ <c28b213b-16f9-3ae6-e402-3b19fc59e45c@naganosd.com>
+ <CAMn1dDz2MfcQEZw6oj0KdKLQj0TqG4hgaDHB0mbTiDDFvUsJiQ@mail.gmail.com>
+ <c92ed913-70bc-6902-3679-725f1e82c6a2@naganosd.com>
+ <f180b04d-4ebf-2034-fd7f-d00152eba4d3@naganosd.com>
+ <0d8e878b-8c51-6c53-1eab-4dd31f8d84e1@naganosd.com>
+ <CACzEcNiCD8isdTq=0qrM-MJNsW0nf5o6Nr=CYL9FfRscyWg8PQ@mail.gmail.com>
+Cc: =?UTF-8?B?5LiJ5a6F5pit5aSr?= <a-miyake@nuan.jp>,
+ NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>
+From: masashiendou <endo_masashi@naganosd.com>
+Message-ID: <cb2d3ea9-b801-e4fd-d705-e01ab01822c3@naganosd.com>
+Date: Mon, 6 Apr 2020 16:40:38 +0900
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
+In-Reply-To: <CACzEcNiCD8isdTq=0qrM-MJNsW0nf5o6Nr=CYL9FfRscyWg8PQ@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Apr 2020 07:40:38.9048
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 3599e1fd-cda9-4a10-30fe-08d7d9fdcd36
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.83]
+X-ClientProxiedBy: TYAPR01CA0025.jpnprd01.prod.outlook.com
+ (2603:1096:404:28::13) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社 北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+AI出荷向けDBの大文字から小文字テーブルへの変更作業について、手順および命名規則について
+お教えいただき、ありがとうございます。
+
+実作業はVer_1.0のマイルストーン内で実施予定ですが、現在の作業の合間を見て、当該手順で動作確認をしてみます。
+
+よろしくお願いします
+
+以上
+
+
+On 2020/04/06 8:51, 北澤孝清 wrote:
+> 
+> ビューテーブルについての命名規則
+> 
+> "create database shipping"で shipping データベースを作成してください。
+> その中にビューテーブルを作成してください。
+> テーブル作成は名前の先頭を"v_sh"を必ずつけてください。
+> (mysqlではシステム全体で同じビューテーブル名を作成することができないため)
+> 
+> テーブル作成例：
+> Alpha1_TranのT_SEISAKU_SHIJIのビューテーブルを作成する場合
+> 
+> create view v_sh_t_seisaku_shiji as select * from Alpha1_Tran.T_SEISAKU_SHIJI;
+> 
+> 以上、よろしくおねがいします。
+> なにかわからないことがあればメールください。
+> 
+> 
+> 2020年4月4日(土) 23:06 masashiendou <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>:
+> 
+>     MINO株式会社 三宅様
+> 
+>     お世話になっております
+>     長野システム開発 遠藤です
+> 
+>     貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+> 
+>     4/4時点での作成分をDropboxにアップロードしましたので、お知らせします。
+>     ダウンロード先: "https://www.dropbox.com/s/mki0h93x99h2tdt/mino-feature-MINO-23.zip?dl=0"
+>     ※ドキュメントルート以下のファイル一式をzipにまとめています
+>     ※作成途中の画面のイメージ画像を添付します
+> 
+>     当該ファイルには以下が含まれます
+>     　◆ ラベル・送り状発行(画面)
+>     　　　- 仕様を元にボタンとフォームを配置
+>     　　　　※DB参照部分は作成途中ですので、色の反映などは未実装です
+>     　◆ 出荷品確認
+>     　　　- タイトルの表示の修正
+> 
+>     現在、以下項目の作業中です
+>     　◆ ラベル・送り状発行(画面)
+>     　　　- DBのテーブル参照部分の実装中
+>     　　　- フォームの大きさなど微調整中
+>     　◆ 臨時出荷登録(機能)
+>     　　　- DBのテーブル参照部分の実装中
+>     　◆ DBのテーブル名の変更対応
+>     　　　- 現DBのTableが大文字のためcakephpの規約に則しておらず、bakeなどのコマンドが使用できない状態
+>     　　　　実装自体は出来るもののcakephpのアンチパターンのため、実装含めた改修などの対応に手間がかかってしまう
+>     　　　　-> 4/3 電話にて北澤様と話し合い、小文字対応用のshipping DBとビューテーブルを作ることになりました
+>     　　　　　　　 当社にて当該作業を実施するか、北澤様にて作業をするか明確には決定していませんが、当社側にて
+>     　　　　　　　 作業する場合は、北澤様よりビューテーブル作成のための参考情報および命名規則の情報をいただける
+>     　　　　　　　 とのこと
+> 
+>     よろしくお願いします
+> 
+>     以上
+> 
+>     On 2020/04/01 13:02, masashiendou wrote:
+>      > MINO株式会社 三宅様
+>      >
+>      > お世話になっております
+>      > 長野システム開発 遠藤です
+>      >
+>      > 貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+>      >
+>      > 4/1時点での作成分をDropboxにアップロードしましたので、お知らせします。
+>      > ダウンロード先: "https://www.dropbox.com/s/0xuc8nsow88g1mv/mino-feature-MINO-5.zip?dl=0"
+>      > ※ドキュメントルート以下のファイル一式をzipにまとめています
+>      >
+>      > 当該ファイルには以下が含まれます
+>      >　 ◆ 出荷予定表
+>      >　　　 - ヘッダーから出荷予定表のリンクを削除
+>      >　 ◆ 製作出荷詳細(画面)
+>      >　　　 - "保存"から"登録"にボタン名称を変更
+>      >　　　 - "戻る"と"登録"ボタン位置を調整
+>      >　 ◆ 臨時出荷登録(画面)
+>      >　　　 - "保存"から"登録"にボタン名称を変更
+>      >　　　 - "戻る"と"登録"ボタン位置を調整
+>      >　　　 - 製作出荷情報画面に臨時出荷登録のボタンを追加
+>      >
+>      > 現在、以下項目の作業中です
+>      >　 ◆ 臨時出荷登録(機能)
+>      >　　　 - DB参照部分の実装を進めています
+>      >　　　　 ※現DBのTableが大文字のためcakephpの規約に則しておらず、bakeなどのコマンドが使用できない状態
+>      >　　　　　 実装自体は出来るもののcakephpのアンチパターンのため、実装含めた改修などの対応に手間がかかって
+>     しまう
+>      >　　　　　 別メールにて、北澤様と調整中です
+>      >　 ◆ ラベル・送り状発行(画面)
+>      >　　　 - 4/3 の時点でおおよその画面が完成する見込みですので、
+>      >　　　　 仕様およびイメージと相違無いか認識合わせをしたいと考えております
+>      >
+>      > よろしくお願いします
+>      >
+>      > 以上
+>      >
+>      > On 2020/03/24 17:33, masashiendou wrote:
+>      >> MINO株式会社 三宅様
+>      >>
+>      >> お世話になっております
+>      >> 長野システム開発 遠藤です
+>      >>
+>      >> ご確認ありがとうございます。
+>      >>
+>      >>> 製作出荷情報の画面に統合するのは
+>      >>>　 出荷処理
+>      >>>　 以前仕様にあった、出荷予定表
+>      >>> の２画面です。
+>      >>> ラベル送り状画面は残ります。
+>      >> 承知しました。
+>      >> 現在表示されている出荷予定表を非表示として、製作出荷情報の画面に統合いたします。
+>      >> ※出荷処理についても同様
+>      >>
+>      >> ラベル送り状画面については、3/23 14:19 いただいたメールのとおり"発行・印刷するためのボタンが配置された
+>     画面"
+>      >> を 当社にて用意いたします。
+>      >>
+>      >> また、各画面についてご説明くださり、ありがとうございます。
+>      >> 既に提供いただいている文書と合わせて、仕様を確認の上、実装を進めております。
+>      >>
+>      >> よろしくお願いします。
+>      >>
+>      >> 以上
+>      >>
+>      >> On 2020/03/24 16:30, 三宅昭夫 wrote:
+>      >>> 長野システム開発 遠藤様
+>      >>>
+>      >>> お世話になります。
+>      >>> ＭＩＮＯ株式会社・技術部の三宅です。
+>      >>>
+>      >>> 最新の基本仕様は、添付ファイルの通りです。
+>      >>> 製作出荷情報の画面に統合するのは
+>      >>>　 出荷処理
+>      >>>　 以前仕様にあった、出荷予定表
+>      >>> の２画面です。
+>      >>> ラベル送り状画面は残ります。
+>      >>>
+>      >>> 製作出荷情報画面　・・・　制作のための情報付加
+>      >>>　　　　　　　　　　　　　 制作の予定表
+>      >>>　　　　　　　　　　　　　 出荷処理
+>      >>>　　　　　　　　　　　　　 送り状印刷
+>      >>> 製作出荷情報詳細　・・・　製作出荷情報画面で足りない情報の付加
+>      >>> 臨時出荷登録　・・・　製作出荷情報に載ってこない、イレギュラーな出荷の情報登録
+>      >>> ラベル・送り状発行　・・・　制作時の補助情報
+>      >>>　　　　　　　　　　　　　　　 どんなラベルを貼るか
+>      >>>　　　　　　　　　　　　　　　 足りないラベルの印刷（ラベルや送り状）
+>      >>> 出荷品確認　・・・　出荷したものの情報（荷の受け取り側が確認するための画面）
+>      >>>
+>      >>> 以上、簡単ですが画面の説明です。
+>      >>>
+>      >>> よろしくお願いします。
+>      >>>
+>      >>> ※電話は、下記の会社携帯にお願いします。
+>      >>> ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>       ＭＩＮＯ株式会社　
+>      >>>　　　 伊那本社・技術部
+>      >>>   　      三宅　昭夫   Miyake Akio
+>      >>>      　   〒399-4501
+>      >>>　　     　 長野県伊那市西箕輪2700
+>      >>>　　     　 伊那インター工業団地内
+>      >>>               　 　   TEL ： 090-6498-0595     FAX ： 0265-73-3250
+>      >>>　　　     　 E-mail :a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>>
+>      >>>　　　     　 URL : https://nuan.jp <http://nuan.jp/>
+>      >>> ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>
+>      >>>
+>      >>>
+>      >>> 2020年3月24日(火) 13:46 遠藤 將司 <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>
+>     <mailto:endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>>:
+>      >>>
+>      >>>     MINO株式会社 三宅様
+>      >>>
+>      >>>     お世話になっております
+>      >>>     長野システム開発 遠藤です
+>      >>>
+>      >>>     貴社向けリリースが大幅に遅れており、ご迷惑をお掛けしています。
+>      >>>
+>      >>>     3/18 11:37 お問い合わせいただいた"梱包の出荷予定表はエラーで起動しない"件ですが、
+>      >>>     下村から引継いだ情報と突合したところ、出荷準備メニュー下の"制作出荷情報修正"を選択すると表示され
+>     る"制作出
+>      >>>     荷情報"画面に統合するとの認識ですが、間違いないでしょうか?
+>      >>>
+>      >>>     相違無ければ、本日(3/24)登内から送付した次期マイルストーン(Ver0.8)内のコードから、出荷予定表のGUI
+>     を削除い
+>      >>>     たします。
+>      >>>     また、当初よりご提供いただいている出荷予定表の仕様を元に、機能を"制作出荷情報"画面に実装していき
+>     ます。
+>      >>>     ※"制作出荷情報"画面/機能は、マイルストーンVer0.85内で作成予定です
+>      >>>
+>      >>>     お手数ですが、ご確認お願いします。
+>      >>>
+>      >>>     以上
+>      >>>
+>      >>>     On 2020/03/24 10:56, NSD Mizuki Tonouchi wrote:
+>      >>>      > 三宅　様
+>      >>>      >
+>      >>>      > お世話になっております。
+>      >>>      >
+>      >>>      > 長野システム開発　登内です。
+>      >>>      >
+>      >>>      > ご指摘いただきましたスケジュールにつきまして、
+>      >>>      >
+>      >>>      > 再度、調整いたしましたのでご確認ください。
+>      >>>      >
+>      >>>      > https://bit.ly/2vJOjr7
+>      >>>      >
+>      >>>      > 登録機能については、切り離しての開発が難しいため、
+>      >>>      >
+>      >>>      > まずは、4/9を目途に現在の未実装画面２つの作成を進め、画面遷移を確認できるよう進めます。
+>      >>>      >
+>      >>>      > その段階でのフィードバックを基に、現在作成中の３～５について作成を進め、
+>      >>>      >
+>      >>>      > 一通りの動作ができるものを4/24にリリースいたします。
+>      >>>      >
+>      >>>      > ※この段階で、三宅様のご希望の完成度まで作成予定です。
+>      >>>      >
+>      >>>      > ６，７については、１～５の画面作成を優先し、優先順位を下げて、
+>      >>>      >
+>      >>>      > 先日のご指摘事項含めて、5/7のリリースとなります。
+>      >>>      >
+>      >>>      > 修正・ドキュメント類作成等を含めて、5/29日にVer_1.0のリリース予定となります。
+>      >>>      >
+>      >>>      > １．臨時出荷登録・・・【3/31】作成分をアップロード
+>      >>>      >
+>      >>>      > ２．ラベル・送り状発行・・・【4/9】Ver_0.8リリース（MS）
+>      >>>      >
+>      >>>      > ３．制作出荷詳細・・・【4/15】作成分アップロード
+>      >>>      >
+>      >>>      > ４．制作出荷情報・・・【4/20】制作分アップロード
+>      >>>      >
+>      >>>      > ５．出荷確認・・・【4/24】Ver_0.85リリース（MS）
+>      >>>      >
+>      >>>      > ６．お知らせ・画面選択・・・【4/28】
+>      >>>      >
+>      >>>      > ７．ログイン・・・【5/7】Ver_0.9リリース（MS）
+>      >>>      >
+>      >>>      > ８．Ver_1.0リリース・・・【5/29】Ver_1.0リリース
+>      >>>      >
+>      >>>      > ※MS・・・マイルストーン
+>      >>>      >
+>      >>>      > ご不明点ございましたらご連絡ください。
+>      >>>      >
+>      >>>      > よろしくお願いいたします。
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > 長野システム開発株式会社
+>      >>>      >
+>      >>>      > 登内　瑞貴（Tonouchi Mizuki)
+>      >>>      >
+>      >>>      > TEL：0265-85-3385
+>      >>>      >
+>      >>>      > FAX：0265-85-3398
+>      >>>      >
+>      >>>      > 携帯：090-7215-7232　
+>      >>>      >
+>      >>>      > 〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>      >
+>      >>>      > E-mail:tonouchi_mizuki@naganosd.com <mailto:E-mail%3Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>>
+>      >>>      >
+>      >>>      > URL: http://www.naganosd.com/
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > *From:*NSD Mizuki Tonouchi
+>      >>>      > *Sent:* Monday, March 23, 2020 3:25 PM
+>      >>>      > *To:* mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>
+>      >>>      > *Subject:* RE: [mino_shuk:00096] Re: [mino_shuk:00093] RE: [mino_shuk:00091] Re:
+>     [mino_shuk:00090] 動作
+>      >>>     状況に
+>      >>>      > ついて
+>      >>>      >
+>      >>>      > 三宅　様
+>      >>>      >
+>      >>>      > お世話になっております。
+>      >>>      >
+>      >>>      > 長野システム開発　登内です。
+>      >>>      >
+>      >>>      > ご指摘ありがとうございます。
+>      >>>      >
+>      >>>      > 下記について承知いたしました。
+>      >>>      >
+>      >>>      > よろしくお願いいたします。
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > 長野システム開発株式会社
+>      >>>      >
+>      >>>      > 登内　瑞貴（Tonouchi Mizuki)
+>      >>>      >
+>      >>>      > TEL：0265-85-3385
+>      >>>      >
+>      >>>      > FAX：0265-85-3398
+>      >>>      >
+>      >>>      > 携帯：090-7215-7232　
+>      >>>      >
+>      >>>      > 〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>      >
+>      >>>      > E-mail:tonouchi_mizuki@naganosd.com <mailto:E-mail%3Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>>
+>      >>>      >
+>      >>>      > URL: http://www.naganosd.com/
+>      >>>      >
+>      >>>      > ─────────────────────────────
+>      >>>      >
+>      >>>      > *From:*三宅昭夫<a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>>
+>      >>>      > *Sent:* Monday, March 23, 2020 2:20 PM
+>      >>>      > *To:* mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>
+>      >>>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>>
+>      >>>      > *Subject:* [mino_shuk:00096] Re: [mino_shuk:00093] RE: [mino_shuk:00091] Re: [mino_shuk:00090]
+>     動作状況
+>      >>>     について
+>      >>>      >
+>      >>>      > 長野システム開発　登内様
+>      >>>      >
+>      >>>      > お世話になります。
+>      >>>      >
+>      >>>      > ＭＩＮＯ株式会社・技術部の三宅です。
+>      >>>      >
+>      >>>      > ＞梱包のラベル送り状発行は、イベントが何も起きません
+>      >>>      >
+>      >>>      > ラベルや送り状の発行・印刷そのものは
+>      >>>      >
+>      >>>      > こちらで組み込みますが
+>      >>>      >
+>      >>>      > 発行・印刷するためのボタンが配置された画面は用意をお願いします。
+>      >>>      >
+>      >>>      > それが、添付ファイルの画面です。
+>      >>>      >
+>      >>>      > この仕様に関しては、最初と変わっていません。
+>      >>>      >
+>      >>>      > ご検討、よろしくお願いします。
+>      >>>      >
+>      >>>      > ※電話は、下記の会社携帯にお願いします。
+>      >>>      >
+>      >>>      > ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      > ＭＩＮＯ株式会社　
+>      >>>      >
+>      >>>      >　　　 伊那本社・技術部
+>      >>>      >　 三宅　昭夫   Miyake Akio
+>      >>>      >　 〒399-4501
+>      >>>      >　　　 長野県伊那市西箕輪2700
+>      >>>      >　　　 伊那インター工業団地内
+>      >>>      >
+>      >>>      >　　   TEL ：090-6498-0595     FAX ：0265-73-3250
+>      >>>      >
+>      >>>      >　　　　 E-mail :a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>
+>      >>>      >　　　　 URL : https://nuan.jp <http://nuan.jp/>
+>      >>>      > ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      > 2020年3月19日(木) 17:30 NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com
+>     <mailto:tonouchi_mizuki@naganosd.com>
+>      >>>     <mailto:tonouchi_mizuki@naganosd.com <mailto:tonouchi_mizuki@naganosd.com>>
+>     <mailto:tonouchi_mizuki@naganosd.com <mailto:tonouchi_mizuki@naganosd.com>
+>      >>>     <mailto:tonouchi_mizuki@naganosd.com <mailto:tonouchi_mizuki@naganosd.com>>>>:
+>      >>>      >
+>      >>>      >     三宅　様
+>      >>>      >
+>      >>>      >     お世話になっております。
+>      >>>      >
+>      >>>      >     長野システム開発　登内です。
+>      >>>      >
+>      >>>      >     下記についていくつかご確認させていただきたくご
+>      >>>      >
+>      >>>      >     連絡させていただきました。
+>      >>>      >
+>      >>>      >     ＞①梱包の出荷予定表はエラーで起動しません
+>      >>>      >
+>      >>>      >     ＞Cake \ Routing \ Exception \ MissingControllerExceptionがありません
+>      >>>      >
+>      >>>      >     現在、お送りしているものについては、実装途中のものが含まれており、
+>      >>>      >
+>      >>>      >     恐らく、未実装部分と思われますので表示される画面のURLをお送りいただくことは可能でしょうか。
+>      >>>      >
+>      >>>      >     未実装部分については、遠藤の方で実装進めております。
+>      >>>      >
+>      >>>      >     情報共有が不足しており申し訳ございません。
+>      >>>      >
+>      >>>      >     ・MINO-6　 臨時出荷登録( 画面)
+>      >>>      >
+>      >>>      >     ・MINO-5 製作出荷詳細( 画面)
+>      >>>      >
+>      >>>      >     ・MINO-16 製作出荷情報( 画面)
+>      >>>      >
+>      >>>      >     については、実装途中となります。
+>      >>>      >
+>      >>>      >     ＞②梱包のラベル送り状発行は、イベントが何も起きません
+>      >>>      >
+>      >>>      >     こちらについてですが、
+>      >>>      >
+>      >>>      >     以前、北澤様より弊社側での実装は必要のない旨ご連絡いただいております。
+>      >>>      >
+>      >>>      >     ご確認いただけますでしょうか。
+>      >>>      >
+>      >>>      >     ボタン等は以前のままとなっておりますので、今後削除いたします。
+>      >>>      >
+>      >>>      >     よろしくお願いいたします。
+>      >>>      >
+>      >>>      >     ─────────────────────────────
+>      >>>      >
+>      >>>      >     長野システム開発株式会社
+>      >>>      >
+>      >>>      >     登内　瑞貴（Tonouchi Mizuki)
+>      >>>      >
+>      >>>      >     TEL：0265-85-3385
+>      >>>      >
+>      >>>      >     FAX：0265-85-3398
+>      >>>      >
+>      >>>      >     携帯：090-7215-7232　
+>      >>>      >
+>      >>>      >     〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>      >
+>      >>>      > E-mail:tonouchi_mizuki@naganosd.com <mailto:E-mail%3Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>>
+>      >>>     <mailto:E-mail%3Atonouchi_mizuki@naganosd.com <mailto:E-mail%253Atonouchi_mizuki@naganosd.com>
+>     <mailto:E-mail%253Atonouchi_mizuki@naganosd.com <mailto:E-mail%25253Atonouchi_mizuki@naganosd.com>>>
+>      >>>      >
+>      >>>      >     URL: http://www.naganosd.com/
+>      >>>      >
+>      >>>      >     ─────────────────────────────
+>      >>>      >
+>      >>>      >     *From:*三宅昭夫<a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>>
+>      >>>      >     *Sent:* Wednesday, March 18, 2020 11:37 AM
+>      >>>      >     *To:* mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>
+>      >>>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>
+>     <mailto:mino_shukka_ml@system-quest.co.jp <mailto:mino_shukka_ml@system-quest.co.jp>>>
+>      >>>      >     *Subject:* [mino_shuk:00091] Re: [mino_shuk:00090] 動作状況について
+>      >>>      >
+>      >>>      >     長野システム開発 下村様
+>      >>>      >
+>      >>>      >     お世話になります。
+>      >>>      >
+>      >>>      >     ＭＩＮＯ株式会社・技術部の三宅です。
+>      >>>      >
+>      >>>      >     確認遅くなりましたが、下記の状況が発生します。
+>      >>>      >
+>      >>>      >     ①梱包の出荷予定表はエラーで起動しません
+>      >>>      >
+>      >>>      >　     Cake \ Routing \ Exception \ MissingControllerExceptionがありません
+>      >>>      >
+>      >>>      >     ②梱包のラベル送り状発行は、イベントが何も起きません
+>      >>>      >
+>      >>>      >     ご確認ください。
+>      >>>      >
+>      >>>      >
+>      >>>      >     ※電話は、下記の会社携帯にお願いします。
+>      >>>      >
+>      >>>      >     ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      >     ＭＩＮＯ株式会社　
+>      >>>      >
+>      >>>      >　　　     伊那本社・技術部
+>      >>>      >　     三宅　昭夫   Miyake Akio
+>      >>>      >　     〒399-4501
+>      >>>      >　　　     長野県伊那市西箕輪2700
+>      >>>      >　　　     伊那インター工業団地内
+>      >>>      >
+>      >>>      >　　       TEL ：090-6498-0595     FAX ：0265-73-3250
+>      >>>      >
+>      >>>      >　　　　     E-mail :a-miyake@nuan.jp <mailto:a-miyake@nuan.jp> <mailto:a-miyake@nuan.jp
+>     <mailto:a-miyake@nuan.jp>> <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>
+>      >>>     <mailto:a-miyake@nuan.jp <mailto:a-miyake@nuan.jp>>>
+>      >>>      >　　　　     URL : https://nuan.jp <http://nuan.jp/>
+>      >>>      >     ∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽∽
+>      >>>      >
+>      >>>      >     2020年3月17日(火) 13:32 Shimomura Ayumu <shimomura_ayumu@naganosd.com
+>     <mailto:shimomura_ayumu@naganosd.com>
+>      >>>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>
+>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>
+>      >>>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>>>:
+>      >>>      >
+>      >>>      >         ＭＩＮＯ株式会社
+>      >>>      >
+>      >>>      >         三宅さま
+>      >>>      >
+>      >>>      >         お世話になっております
+>      >>>      >
+>      >>>      >         長野システム開発 下村です
+>      >>>      >
+>      >>>      >         以前からお送りしていますプログラムはMINO様環境下で動作していますでしょうか
+>      >>>      >
+>      >>>      >         こちらで環境を変更した際動作しないことがあり確認をさせていただく思いご連絡を
+>      >>>      >
+>      >>>      >         させていただきました
+>      >>>      >
+>      >>>      >         以上、よろしくお願いいたします
+>      >>>      >
+>      >>>      >         □■━━━━━━━━━━━━━━━━━━━━━━━
+>      >>>      >
+>      >>>      >　　         長野システム開発株式会社
+>      >>>      >
+>      >>>      >　　         技術開発部
+>      >>>      >
+>      >>>      >　　         下村歩睦 / Shimomura Ayumu
+>      >>>      >
+>      >>>      >　　         〒399-4301 長野県上伊那郡宮田村 5672-2
+>      >>>      >
+>      >>>      >　　         TEL: 0265-85-3385 FAX: 0265-85-3398
+>      >>>      >
+>      >>>      >　　         Email: shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>
+>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>
+>      >>>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>
+>     <mailto:shimomura_ayumu@naganosd.com <mailto:shimomura_ayumu@naganosd.com>>>
+>      >>>      >
+>      >>>      >　　         URL: https://naganosd.com
+>      >>>      >
+>      >>>      >　         ━━━━━━━━━━━━━━━━━━━━━━━■□
+>      >>>      >
+>      >>>
+>      >>>     --     長野システム開発株式会社
+>      >>>     遠藤 將司 ( Masashi Endo )
+>      >>>     e-Mail <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>
+>     <mailto:endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>>
+>      >>>     TEL：0265-85-3385
+>      >>>     FAX：0265-85-3398
+>      >>>     〒399-4301 長野県上伊那郡宮田村5672-2
+>      >>>     URL: http://www.naganosd.com/
+>      >>>
+>      >>>
+>      >>
+>      >
+> 
+>     -- 
+>     長野システム開発株式会社
+>     遠藤 將司 ( Masashi Endo )
+>     e-Mail <endo_masashi@naganosd.com <mailto:endo_masashi@naganosd.com>>
+>     〒399-4301 長野県上伊那郡宮田村5672-2
+>     URL: http://www.naganosd.com/
+> 
+
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

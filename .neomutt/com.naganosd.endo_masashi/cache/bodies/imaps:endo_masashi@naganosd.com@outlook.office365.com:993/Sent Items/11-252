@@ -1,0 +1,130 @@
+Received: from [192.168.41.9] (125.30.78.83) by
+ TYCPR01CA0071.jpnprd01.prod.outlook.com (2603:1096:405:2::35) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2900.24 via Frontend Transport; Fri, 17 Apr 2020 02:57:52 +0000
+From: masashiendou <endo_masashi@naganosd.com>
+Subject: =?UTF-8?B?W0FJ5Ye66I23XSBCYWNrbG9n55m76Yyy5riI44G/6Kqy6aGM44Gu5a++?=
+ =?UTF-8?B?5b+c44Gr44Gk44GE44Gm?=
+To: =?UTF-8?B?5YyX5r6k5a2d5riF?= <t-kitazawa@nuan.jp>
+Cc: mino_shukka_ml@system-quest.co.jp,
+ NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>,
+ tanahashi_katsuhiro@naganosd.com
+Message-ID: <0a9c970c-9ce0-0ce5-a205-5249e8ede857@naganosd.com>
+Date: Fri, 17 Apr 2020 11:57:50 +0900
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+X-MS-Exchange-Organization-ExpirationStartTime: 17 Apr 2020 02:57:53.0387
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 33057ee5-8ad5-4d4b-b9c2-08d7e27b1f4f
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.83]
+X-ClientProxiedBy: TYCPR01CA0071.jpnprd01.prod.outlook.com
+ (2603:1096:405:2::35) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社 北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+AI出荷システムについて、Backlogに登録している課題一覧のお知らせです。
+大変お手数ですが、質問および問題点と記載のある部分について、ご対応お願いいたします。
+
+本日(4/17)より製作出荷詳細情報の作業を進めていますので、
+製作出荷詳細情報 -> ラベル・送り状発行 の順でご確認いただければと思います。
+
+
+●製作出荷詳細情報
+　MINO-49 製作出荷詳細情報の仕様書 / DB不一致の改善
+　　https://naganosd.backlog.com/view/MINO-49
+　　　-> 着日指定・配達時間
+　　　　　質問;
+　　　　　- 配送先・運送会社によって指定可能範囲が異なる
+　　　　　- 配達時間の範囲　運送会社によって異なる
+　　　　　と想定しているのですが、特別システム側で実装が必要な部分はありますでしょうか？
+　　　
+　　　-> 出荷サイン
+　　　　　問題点;
+　　　　　　仕様書には「送り状印刷のフラグ、梱包完了のフラグがあれば”○”」とあり、
+　　　　　　 -> T_SEISAKU_SHIJI_SEIHIN_MEISAI　の　梱包完了フラグ　で　絞り込む
+　　　　　　 -> T_SEISAKU_SHIJI_KOTEI　の　SYUKKA_HOLD_FLG（新規）を検索し、一つでも”１”が立っていれば保留
+　　　　　　　　と表示　通常は空白
+　　　　　とありますが、SYUKKA_HOLD_FLGと梱包完了フラグが仕様書、ご提供DBに存在しません
+　　　　　関係するテーブル/カラム;
+　　　　　　T_SEISAKU_SHIJI_SEIHIN_MEISAI
+　　　　　　T_SEISAKU_SHIJI_KOTEI
+　　　　　　SYUKKA_HOLD_FLG
+
+●ラベル・送り状発行
+　MINO-48 ラベル・送り状発行の仕様書 / DB不一致の改善
+　　https://naganosd.backlog.com/view/MINO-48
+　　 -> "日・祝日"ボタン
+　　　　問題点;
+　　　　　仕様書にはご希望の機能の記載があるだけで、仕様の記載がありませんでした
+
+　MINO-51 ラベル・送り状発行の仕様確認
+　　https://naganosd.backlog.com/view/MINO-51
+　　　-> 4/16にコメント頂いたプリントサーバへのキューの実装については、別課題を作成して管理しています
+　　　　　MINO-53 ラベル・送り状発行のプリントサーバとの通信機能の実装
+　　　　　　https://naganosd.backlog.com/view/MINO-53
+　　　-> "物件名ラベル発行"ボタン
+　　　　　質問;
+　　　　　　印刷機能は、送り状まとめ発行 / 送り状再発行のようにMINO様作成ではなく、ブラウザの印刷機能を使用
+　　　　　　したものの実装との認識で合っているでしょうか？
+　　　-> "TOP"ボタン
+　　　　　質問;
+　　　　　　製作出荷詳細 / 臨時出荷登録では、同様の場所に"戻る"ボタンがありますが、TOP画面に戻る仕様で間違い
+　　　　　　ないでしょうか？
+　　  -> 画面解像度
+　　　　　質問;
+　　　　　　画面によっては ( 特にラベル・送り状発行  ) ディスプレイの画面解像度が低いとボタンのレイアウトが
+　　　　　　若干崩れる場合があります
+　　　　　　当該システムの推奨解像度 (1680x1050 など) があれば、お教えください
+　　  -> "外装異常シール"ボタン
+　　　　　質問;
+　　　　　　仕様書では以下の記述ですが、藤枝支店のみ対象となります。
+　　　　　　仕様に間違いはないでしょうか？
+　　　　　　　T_SEISAKU_SHIJI の UNSO_EIGYOSYO_CD が”１５”の時表示
+
+　MINO-52 ラベル・送り状発行の仕様確認 ( 担当者仕訳/発行ボタン/ミニ )
+　　https://naganosd.backlog.com/view/MINO-52
+　　　-> 担当者仕訳
+　　　　　質問;
+　　　　　　M_AI_TANTOUSYA_IRO_KBN（新規）の担当者
+　　　　　　　-> "担当者"のカラムは SOUFU_TANTO_NM で合っているでしょうか?
+　　　　　　T_SEISAKU_SHIJI　の送り先 担当者名の一致した色を表示、担当者名も表示
+　　　　　　　-> "担当者名"のカラムは SOUFU_TANTO_NM で合っているでしょうか?
+　　　　　上記が仕様である場合、T_SEISAKU_SHIJI の SOUFU_TANTO_NM に 名字のみ入力されているレコードがいくつ
+　　　　　かあり、該当する場合は担当者仕訳の氏名表示および色表示は機能しませんので、ご了承ください。
+　　　-> "発行"ボタンクリック時の動作
+　　　　　質問;
+　　　　　　発行ボタンクリック時、SEISAKU_SHIJI_CD　と　KOTEI_CD　から　　T_SEISAKU_SHIJI_KOTEIのKONPOU_SU　を
+　　　　　　更新（累積していく）
+　　　　　　　-> 上記の発行ボタンとは、"送り状まとめ発行"ボタンのことで合っているでしょうか？
+　　　-> ミニ
+　　　　　問題点 ( 仕様書とご提供DBの不一致  );
+　　　　　　T_SEISAKU_SHIJI_SEIHIN_MEISAI の BIN_KBN（新規カラム）から　M_AI_BIN_KBN（新規マスター）　を見
+　　　　　　て、""2""　であればチェックを入れる"
+　　　　　　　-> BIN_KBN (新規カラム) がご提供DBに存在しませんでした
+
+よろしくお願いします
+
+以上
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

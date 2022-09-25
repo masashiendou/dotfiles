@@ -1,0 +1,91 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:6042:0:0:0:0:0 with SMTP id u63csp1025785vkb;
+        Thu, 19 Aug 2021 22:43:19 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxn2cvV9HR/SEIjDUUdMBTAZtGMx0p2A4UecTNW+NroKrTSgediQ99T7629nfkd0uZJ5yex
+X-Received: by 2002:a02:84c2:: with SMTP id f60mr15966135jai.133.1629438199366;
+        Thu, 19 Aug 2021 22:43:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629438199; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Wdn2STN5njejKj/wC+GZR0p6/F1f2YCGZ1SqMoE/Ssk2Bb5E0ld7SKOEWbBi/0/o9r
+         tE5XC3QJ5UEUKbA5FRjGBxgD002FEiTlnIZNKFkfZIDKAVq/lDBqmlxEh30RH+XYsKlN
+         vBQ75jwBY2hjI/mGXmJ+2JaNRxiA1XYZx3VDf+8l1GjcuKkTrp6sAY51Tzd/a/MHv58g
+         vQOqAwL7QBE018frZDtMYGIoqHMvC1bO0Vz9MuzKU6t6Aay9icfCVEzk5wB/nH1Cykbx
+         4MHH2p+M9+iPiSx8KI7KvUxk2EyJaj5usz2mwiWe4lUqpiiPViVZW6dABKQO80sw9TsH
+         dTHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:mime-version:subject:message-id:to:from;
+        bh=eztBHluoy/2LUb9ZIuP5RDRjSKLvuwOEEitzS874NNs=;
+        b=hvcNPjZiPBEAFYsDzAhc8Sa9BEGPmyp0sVgIcl27p03meItWhpUk1J7SxfLCQI0FWb
+         N01x+Z/RtEot9yptKD4pNAAXE/FAzjmqJ0zDjTACYwl1scujqnSGBPhQM/Doti6eSvLz
+         5ySDamwk4pMb2dZYOQrT4T6Jhv4C2kgXIgpJYrwb47TXkU1iumHl63t69ga6RY4ieMqx
+         klpc1321vOzQ0sWEjYctMrDLSEiZm4IMXoJrto82a7qZwIizAksFKNZVyT7qvFuC7PRj
+         ASJl9qx0mFjn/3dNbfvG/UmKUiFaqjqma/UkNENJYXvmZ3d5bWgEtjISNme0ZUjmtnmp
+         AR/g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of spengineering@staffservice.ne.jp designates 160.17.13.16 as permitted sender) smtp.mailfrom=spengineering@staffservice.ne.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <spengineering@staffservice.ne.jp>
+Received: from mgw11.x.recruit.co.jp (mgw11.x.recruit.co.jp. [160.17.13.16])
+        by mx.google.com with ESMTP id i1si5366906iow.3.2021.08.19.22.43.19
+        for <hujyorom@gmail.com>;
+        Thu, 19 Aug 2021 22:43:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of spengineering@staffservice.ne.jp designates 160.17.13.16 as permitted sender) client-ip=160.17.13.16;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of spengineering@staffservice.ne.jp designates 160.17.13.16 as permitted sender) smtp.mailfrom=spengineering@staffservice.ne.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Received: from mgw11.x.recruit.co.jp (localhost.localdomain [127.0.0.1])
+	by postfix.imss91 (Postfix) with ESMTP id 23C2C560D3F;
+	Fri, 20 Aug 2021 14:43:18 +0900 (JST)
+Received: from mail202rlt.b.rlt.raftel (unknown [172.17.2.24])
+	by mgw11.x.recruit.co.jp (Postfix) with ESMTP id 2303756083C;
+	Fri, 20 Aug 2021 14:43:18 +0900 (JST)
+Received: from batch201sse.b.rlt.raftel (unknown [172.17.3.51])
+	by mail202rlt.b.rlt.raftel (Postfix) with ESMTP id 21AB06B8185;
+	Fri, 20 Aug 2021 14:43:18 +0900 (JST)
+Received: from batch201sse (localhost.localdomain [127.0.0.1])
+	by batch201sse.b.rlt.raftel (Postfix) with ESMTP id 20676643FF;
+	Fri, 20 Aug 2021 14:43:18 +0900 (JST)
+From: =?utf-8?B?44OG44Kv44OL44Kr44Or44K744Oz44K/44O85pyt5bmM?=
+ <spengineering@staffservice.ne.jp>
+To: =?utf-8?B?6YGg6Jek44CA5bCH5Y+4?= <hujyorom@gmail.com>
+Message-ID: <1046878334.221283.1629438198132@batch201sse>
+Subject: =?utf-8?B?44Ko44Oz44K444OL44Ki56S+5ZOh44G444Gu5b6T5qWt?=
+ =?utf-8?B?5ZOh5Luj6KGo44Gu5L+h5Lu75oqV56Wo44Gu44GK6aGY44GE?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_221282_1745217340.1629438197983"
+Date: Fri, 20 Aug 2021 14:43:18 +0900 (JST)
+X-TM-AS-GCONF: 00
+
+------=_Part_221282_1745217340.1629438197983
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+6YGg6Jek44GV44KTDQoNCuOBiuOBpOOBi+OCjOOBleOBvuOBp+OBmeOAguacreW5jFRD44Gu5bGx
+55Sw44Gn44GZ44CCDQrllrbmpa3mi4XlvZPjga7ku6PnkIbjgafjg6Hjg7zjg6vjgZfjgabjgYrj
+gorjgb7jgZnjgIINCg0KOOaciDLml6XjgavjgIHlvpPmpa3lk6Hku6Pooajjga7kv6Hku7vmipXn
+pajjga7jg6Hjg7zjg6vjgpINCuOBiumAgeOCiuOBl+OBpuOBhOOBvuOBmeOBjOOAgeOBvuOBoOOB
+lOWbnuetlOOCkuOBhOOBn+OBoOOBkeOBpuOBhOOBquOBhOOCiOOBhuOBp+OBmeOAgg0KDQrjgZPj
+gaHjgonjgafjga7ku6PnkIbmipXnpajjgoLlj6/og73jgafjgZnjga7jgafjgIENCuS7o+eQhuaK
+leelqOOBruW4jOacm+OBjOOBguOCiuOBvuOBl+OBn+OCieOAgeOBk+OBruODoeODvOODq+OBq+i/
+lOS/oeOBj+OBoOOBleOBhOOAgg0KDQrjgarjgYrjgIHku6PnkIbmipXnpajjga7loLTlkIjjga/j
+gIENCuWAmeijnOiAheS4iuS9jTPlkI3lhajlk6Hkv6Hku7vjgajjgZXjgZvjgabjgYTjgZ/jgaDj
+gY3jgb7jgZnjga7jgafjgIENCuOBlOS6huaJv+OBj+OBoOOBleOBhOOAgg0KDQrjgYrlv5njgZfj
+gYTjgajjgZPjgo3jgIHmgZDjgozlhaXjgorjgb7jgZnjgYzjgIENCuOBiui/lOS6i+OBiuW+heOB
+oeOBl+OBpuOBiuOCiuOBvuOBmeOAgg0KDQoNCg0KDQrmoKrlvI/kvJrnpL7jgrnjgr/jg4Pjg5Xj
+grXjg7zjg5Pjgrnjg7vjgqjjg7Pjgrjjg4vjgqLjg6rjg7PjgrDkuovmpa3mnKzpg6gNCuWMl+a1
+t+mBk+ODu+adseWMl+ODluODreODg+OCr+OAgOacreW5jOODhuOCr+ODi+OCq+ODq+OCu+ODs+OC
+v+ODvA0K5bGx55Sw44CA55+l5a2QDQrjgJIwNjAtMDAwNQ0K5pyt5bmM5biC5Lit5aSu5Yy65YyX
+5LqU5p2h6KW/Mi0144CASlLjgr/jg6/jg7zjgqrjg5XjgqPjgrnjg5fjg6njgrbjgZXjgaPjgb3j
+go0yMOmajg0KVEVM44CAMDExLTIxMC04ODE244CA44CARkFY44CAMDExLTIxMC04ODA1DQogIGh0
+dHA6Ly93d3cuc3RhZmZzZXJ2aWNlLWVuZ2luZWVyaW5nLmpwLw0KDQrigLvjgZPjga5FLW1haWzj
+gavjga/jgIHmqZ/lr4bmg4XloLHjgYzlkKvjgb7jgozjgabjgYTjgovloLTlkIjjgYzjgZTjgZbj
+gYTjgb7jgZnjgIINCuS4h+OBjOS4gOOAgeW9k+aWueOBruaJi+mBleOBhOOBq+OCiOOCiuiytOaW
+ueanmOOBjOW9k+aWueOBjOaEj+Wbs+OBl+OBn+WPl+S/oeiAheOBp+OBquOBhOWgtOWQiOOBq+OB
+r+OAgQ0K44GK5omL5pWw44KS44GK5o6b44GR6Ie044GX44G+44GZ44GM44CB6YCf44KE44GL44Gr
+44GT44GuRS1tYWls44KS56C05qOE44GX44Gm6aCC44GN44G+44GZ5qeY44GK6aGY44GE55Sz44GX
+5LiK44GS44G+44GZ44CCDQrjgb7jgZ/jgIHoqqDjgavmgZDnuK7jgafjgZTjgZbjgYTjgb7jgZnj
+gYzjgIHnm7TjgaHjgavjgZTpgKPntaHos5zjgozjgbDlubjnlJrjgavlrZjjgZjjgb7jgZnjgII=
+
+------=_Part_221282_1745217340.1629438197983--
+

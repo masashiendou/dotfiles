@@ -1,0 +1,172 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:a8ce:0:0:0:0:0 with SMTP id r197csp3444072vke;
+        Mon, 7 Sep 2020 09:11:53 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyg//0KjOwVoVOX44mCrqf69l9NXEnwpPpd3TRI8COFpShizpYsNLC5pVS5DxcdfvwXztv9
+X-Received: by 2002:a17:906:fb97:: with SMTP id lr23mr7667581ejb.257.1599495112935;
+        Mon, 07 Sep 2020 09:11:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599495112; cv=none;
+        d=google.com; s=arc-20160816;
+        b=UsTbGCPgRzIwnTmLXikg0RLtKk0cDCiB43DIh6NCqIjOHHQ34LyrBD5xTjNx+9IUTu
+         mv/TWmfPOtkLtajoWTcVVSgAwUW1ozk5R68CkdWnRkq+InU0FZkLIU1LyqjqR5qJf5Wb
+         mMgqfJY2wtvQstcp4H8uPOsXDx7fBnXAOJWeTFaqPODr4T1GC2//WHrjXWhm1Zz1fgQX
+         nt3FKg20lt0RUt9RMTKC7aL85yeFdB4gMH+QJbJT1ubyBUrgfDepJiuYNghyNdtbqvzk
+         gTMopsoWUSqkfHSIOzusz9YnrOhPs2P3XVCsihLut3F35FwMyKP0HlbTren7pnNEKybq
+         FSyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:message-id:to:mime-version:from:date
+         :content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=48Z2OI18jKqRaEyYTMZ3v/YqlLS9SJGG7frZyUe5Yso=;
+        b=mL1SBz5PWY3cNrll8ubXEGsDjFJ49Bj63UjRWxtMAsDfA7KkmMLXLC6Do1RQ2suXFr
+         xEWEGFXswE+gq8VXpELNqRlHRK29uZhqP0E/XgddQSCA2xo/NFdE9N/57r3JWskvgi7Y
+         QR+FEd3nMzE+uGmTbN0KkEZc9uVlFQuDskxTuOPMN8gzATX7kahD3vA0uDsfFg090jKP
+         2AVtScRYCMwGxix0KcEmArcCannD2INvDiMBjuv+Ms/aODfV2Vs3OAB+3lxBQMSBomie
+         7NJi9YxE9zgj87Sty2qtuAfBQfj09JX63wUngCGkU3REoM9piW4fMyxGSdibqbmPwysD
+         kOQQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@booth.pm header.s=s1 header.b=TyO9BTrK;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=tJT629c0;
+       spf=pass (google.com: domain of bounces+12132873-3f8c-hujyorom=gmail.com@email.booth.pm designates 168.245.34.123 as permitted sender) smtp.mailfrom="bounces+12132873-3f8c-hujyorom=gmail.com@email.booth.pm";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=booth.pm
+Return-Path: <bounces+12132873-3f8c-hujyorom=gmail.com@email.booth.pm>
+Received: from o6.email.pixiv.net (o6.email.pixiv.net. [168.245.34.123])
+        by mx.google.com with ESMTPS id f4si879383ejt.278.2020.09.07.09.11.51
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 07 Sep 2020 09:11:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+12132873-3f8c-hujyorom=gmail.com@email.booth.pm designates 168.245.34.123 as permitted sender) client-ip=168.245.34.123;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@booth.pm header.s=s1 header.b=TyO9BTrK;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=tJT629c0;
+       spf=pass (google.com: domain of bounces+12132873-3f8c-hujyorom=gmail.com@email.booth.pm designates 168.245.34.123 as permitted sender) smtp.mailfrom="bounces+12132873-3f8c-hujyorom=gmail.com@email.booth.pm";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=booth.pm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=booth.pm; 
+	h=content-transfer-encoding:content-type:from:mime-version:to:subject; 
+	s=s1; bh=48Z2OI18jKqRaEyYTMZ3v/YqlLS9SJGG7frZyUe5Yso=; b=TyO9BTr
+	K0F+cbeUjTCfwi29Bk4+CNFXyhDTTBVJpX1Tfybpb9/Qw3Po0lrDJjgVADY36B/N
+	3rOwit4gp1OLzqHxout6jSuTRzWOxyG4l58uImLn6TQTGhaeEfFDyPe8ryLOLupw
+	Qu4Od1nE3yYQjNxksCVfJ4WjevalYmJBA7KE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-transfer-encoding:content-type:from:mime-version:to:subject:x-feedback-id; 
+	s=smtpapi; bh=48Z2OI18jKqRaEyYTMZ3v/YqlLS9SJGG7frZyUe5Yso=; b=tJ
+	T629c0ktjLxBw67l2Tkd2CAsytpDwvtOiZPWxurTKEcGCwEvcOYVjGQdvO6DZwzz
+	BtLeMwn917NuUf8SsjncJlSYKL269+DNQr5u9Tp5WwrEJzRPn8wD16cPHiqUB1vS
+	gpS2xMGHsorf726z3d+ybztkbk1/G9agO6J4seyvA=
+Received: by filter0358p1iad2.sendgrid.net with SMTP id filter0358p1iad2-32485-5F565BC5-68
+        2020-09-07 16:11:49.974012775 +0000 UTC m=+256915.568848695
+Received: from MTIxMzI4NzM (unknown)
+	by ismtpd0003p1maa1.sendgrid.net (SG) with HTTP id VOEews3ITZCqsZpKUJfz-A
+	Mon, 07 Sep 2020 16:11:49.582 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 07 Sep 2020 16:11:50 +0000 (UTC)
+From: =?UTF-8?B?Qk9PVEjkuovli5nlsYA=?= <noreply@booth.pm>
+Mime-Version: 1.0
+To: hujyorom@gmail.com
+Message-ID: <VOEews3ITZCqsZpKUJfz-A@ismtpd0003p1maa1.sendgrid.net>
+Subject: =?UTF-8?B?W0JPT1RIXSBvaHNhd2EwNTE144GL44KJ44Oh44OD44K744O844K444GM5bGK44GE44Gm44GE44G+44GZ44CC?=
+X-SG-EID: Fp6lE/7LJK1wPu9bx/HoQrxIWk8IcJQz0apvhLRDJVqA9IOAZ2z01QqY8Xw//TVhkWy+WTQDcdfQ6Y
+ UVcULdqGRmjn8kboxQI+RqGG6BF1izxkr5X77B0d05ro1mld0GQFG0k85Ov4FMc256+8NZ/q9FABLL
+ XEW7PAuc00Qb5rJEmqWkFqLXSF8nRRVz1/4O1XZnyDdGMCMbWQnxc94c74rVUOoNpksAWCw1nbM3kd
+ s=
+X-Feedback-ID: 12132873:oW74GPdRtzkUqEEnj/OAcaJfHaZFdbDDgimExWFkzAQ=:oW74GPdRtzkUqEEnj/OAcaJfHaZFdbDDgimExWFkzAQ=:SG
+
+BOOTH=E4=BA=8B=E5=8B=99=E5=B1=80=E3=81=A7=E3=81=99=E3=80=82
+
+ohsawa0515 =E3=81=8B=E3=82=89=E4=BB=A5=E4=B8=8B=E3=81=AE=E3=83=A1=E3=83=83=
+=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=8C=E5=B1=8A=E3=81=84=E3=81=A6=E3=81=84=E3=
+=81=BE=E3=81=99=E3=80=82
+
+---------------------------------------
+Body :
+=E3=80=90=E4=B8=80=E6=96=89=E9=80=81=E4=BF=A1=E3=83=A1=E3=83=83=E3=82=BB=E3=
+=83=BC=E3=82=B8=E3=80=91
+=E2=80=BB=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AFBOOTH Apps=E3=81=AE=
+=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E4=B8=80=E6=96=89=E9=80=81=E4=
+=BF=A1=E6=A9=9F=E8=83=BD=E3=82=92=E4=BD=BF=E3=81=A3=E3=81=A6=E3=81=8A=E9=80=
+=81=E3=82=8A=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+https://booth.pm/booth_apps/mass_message
+
+=E3=80=8CAmazon Web Services=E3=82=B3=E3=82=B9=E3=83=88=E6=9C=80=E9=81=A9=
+=E5=8C=96=E5=85=A5=E9=96=80=E3=80=8D=EF=BC=88AWS=E3=82=B3=E3=82=B9=E3=83=88=
+=E6=9C=AC=EF=BC=89=E3=81=AE=E7=AD=86=E8=80=85=E3=81=A7=E3=81=99=E3=80=82
+=E3=81=93=E3=81=AE=E5=BA=A6=E3=80=8CAmazon Web Services=E3=82=B3=E3=82=B9=
+=E3=83=88=E6=9C=80=E9=81=A9=E5=8C=96=E5=85=A5=E9=96=80 =E7=AC=AC2=E7=89=88=
+=E3=80=8D=E3=82=92=E8=B2=A9=E5=A3=B2=E3=82=92=E9=96=8B=E5=A7=8B=E3=81=84=E3=
+=81=9F=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82
+
+=E5=89=8D=E4=BD=9C=EF=BC=88=E7=AC=AC1=E7=89=88=EF=BC=89=E3=82=92=E3=81=94=
+=E8=B3=BC=E5=85=A5=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E7=9A=86=E6=
+=A7=98=E3=81=AB=E3=81=AF=E3=80=81500=E5=86=86=E3=81=A7=E6=8F=90=E4=BE=9B=E3=
+=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82
+https://ohsawa0515.booth.pm/items/2355032
+
+=E9=9B=BB=E5=AD=90=E3=83=87=E3=83=BC=E3=82=BF=EF=BC=88ZIP=E3=83=95=E3=82=A1=
+=E3=82=A4=E3=83=AB=EF=BC=89=E3=81=AB=E3=83=91=E3=82=B9=E3=83=AF=E3=83=BC=E3=
+=83=89=E3=81=8C=E3=81=8B=E3=81=8B=E3=81=A3=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=
+=BE=E3=81=99=E3=80=82=E4=BB=A5=E4=B8=8B=E3=81=AE=E3=83=95=E3=82=A9=E3=83=BC=
+=E3=83=A0=E3=81=AB=E6=84=9F=E6=83=B3=E3=82=92=E9=80=81=E3=81=A3=E3=81=A6=E3=
+=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E3=81=A8ZIP=E3=83=91=E3=82=B9=E3=83=AF=E3=
+=83=BC=E3=83=89=E3=81=8C=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=E3=80=81=E3=81=
+=94=E5=88=A9=E7=94=A8=E3=81=AB=E3=81=AA=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82
+https://docs.google.com/forms/d/e/1FAIpQLScrVqnahPlgYEud7UV1OkiboAlV0cJWa0X=
+HqtW32ApYXLUhfg/viewform
+
+
+=E7=AC=AC2=E7=89=88=E3=81=A7=E3=81=AF50=E3=83=9A=E3=83=BC=E3=82=B8=E4=BB=A5=
+=E4=B8=8A=E3=81=AE=E5=8A=A0=E7=AD=86=E3=82=92=E8=A1=8C=E3=81=84=E3=81=BE=E3=
+=81=97=E3=81=9F=E3=80=82=E8=A9=B3=E3=81=97=E3=81=84=E3=82=A2=E3=83=83=E3=83=
+=97=E3=83=87=E3=83=BC=E3=83=88=E5=86=85=E5=AE=B9=E3=81=AF=E4=BB=A5=E4=B8=8B=
+=E3=81=AE=E3=83=96=E3=83=AD=E3=82=B0=E8=A8=98=E4=BA=8B=E3=82=88=E3=82=8A=E3=
+=81=94=E5=8F=82=E7=85=A7=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+https://blog.jicoman.info/2020/09/teckbook-fest-9-aws-cost-2nd/
+
+
+=E3=82=B3=E3=82=B9=E3=83=88=E6=9C=80=E9=81=A9=E5=8C=96=E4=BA=8B=E4=BE=8B=E3=
+=81=AB=E3=81=A4=E3=81=8D=E3=81=BE=E3=81=97=E3=81=A6=E3=81=AF=E3=80=81=E8=BF=
+=91=E3=80=85=E7=99=BA=E5=A3=B2=E4=BA=88=E5=AE=9A=E3=81=AE=E5=95=86=E6=A5=AD=
+=E7=89=88=E3=80=8CAmazon Web Services=E3=82=B3=E3=82=B9=E3=83=88=E6=9C=80=
+=E9=81=A9=E5=8C=96=E5=85=A5=E9=96=80=E3=80=8D=E3=81=AB=E6=8E=B2=E8=BC=89=E3=
+=81=97=E3=81=BE=E3=81=99=E3=81=AE=E3=81=A7=E3=80=81=E8=B2=A9=E5=A3=B2=E6=99=
+=82=E6=9C=9F=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AF=E7=AD=86=E8=80=85=
+=E3=81=AE=E3=83=96=E3=83=AD=E3=82=B0=E3=81=BE=E3=81=9F=E3=81=AFTwitter=E3=
+=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=92=E3=82=A6=E3=82=A9=E3=83=
+=83=E3=83=81=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=81=BE=E3=81=99=E3=81=A8=
+=E5=B9=B8=E3=81=84=E3=81=A7=E3=81=99=E3=80=82
+
+=E3=83=96=E3=83=AD=E3=82=B0=E8=A8=98=E4=BA=8B
+https://blog.jicoman.info/
+
+Twitter
+https://twitter.com/ohsawa0515
+
+---------------------------------------
+
+=E3=81=93=E3=81=AE=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=B8=E3=
+=81=AE=E8=BF=94=E4=BF=A1=E3=81=AF https://accounts.booth.pm/conversations/1=
+552414/messages =E3=81=A7=E3=81=97=E3=81=A6=E3=81=84=E3=81=9F=E3=81=A0=E3=
+=81=91=E3=81=BE=E3=81=99=E3=80=82
+
+=E3=81=94=E5=88=A9=E7=94=A8=E3=81=AB=E9=9A=9B=E3=81=97=E3=81=A6=E3=81=AE=E3=
+=81=94=E4=B8=8D=E6=98=8E=E7=82=B9=E3=82=84=E3=81=94=E8=B3=AA=E5=95=8F=E3=80=
+=81=E3=83=A6=E3=83=BC=E3=82=B6=E3=83=BC=E9=96=93=E3=81=AE=E3=83=88=E3=83=A9=
+=E3=83=96=E3=83=AB=E3=81=AA=E3=81=A9=E3=81=AB=E3=81=A4=E3=81=8D=E3=81=BE=E3=
+=81=97=E3=81=A6=E3=81=AF=E4=BA=8B=E5=8B=99=E5=B1=80=E3=81=BE=E3=81=A7=E3=81=
+=8A=E6=B0=97=E8=BB=BD=E3=81=AB=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=
+=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+=E4=BB=8A=E5=BE=8C=E3=81=A8=E3=82=82BOOTH=E3=82=92=E3=82=88=E3=82=8D=E3=81=
+=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=
+=E3=81=99=E3=80=82
+
++=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=
+=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=
+=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5+
+BOOTH URL=EF=BC=9A https://booth.pm/
+Inquiry=EF=BC=9A https://booth.pm/support
+Operating company=EF=BC=9A pixiv Inc.
++=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=
+=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=
+=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5=E2=80=A5+
+=E2=80=BB Do not reply to this email.
+
+

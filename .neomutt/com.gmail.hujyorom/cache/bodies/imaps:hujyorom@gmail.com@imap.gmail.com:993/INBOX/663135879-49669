@@ -1,0 +1,117 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp937649vkx;
+        Wed, 7 Apr 2021 16:12:46 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwVeQ9BSRuBLHn4sUmPAdAwQxQEr2/5Xi9UG4LiVNibIhvXxjPfvnMY88WmaI66YrtFGQ7q
+X-Received: by 2002:a63:7e0b:: with SMTP id z11mr5339506pgc.331.1617837165960;
+        Wed, 07 Apr 2021 16:12:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617837165; cv=none;
+        d=google.com; s=arc-20160816;
+        b=os2hT7SFFuTN27jyOYlEmpFPBy6qe8xMuze0ZD9f+Pjgydo9wpntxdbsVEvFPfM96D
+         EtwXKYbFRw/EyHDVoHrk3i+u94NWS68gF7xUXdnVF5w8wwPJgcYCZszoZgQEUmFYI3Dp
+         Dn8/mYNpbx3kRqsZhRWf9LiQDtQZE7DDlcxjj0cdtEDUbQ5emioDgGnTnyiiBScJhRYB
+         ZwhSPjwQlKveP3nhnug5AtPpEC+eVLsqI/BykApTnHSL7rMxXqNyJNTwN04RnzLKXNPy
+         Orn91J9uJ4mep4zQq1H82qoXGLfDi6Pe1+o8Nvit88ZJqlcnTW5c4JzvjATJ2cOMooeX
+         kSKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=WlPc1XPUt0oaR1VvLauU06Cnduqu+TR2DeqwAdqgJdM=;
+        b=kg1rp7uFkdXAzWgvx/3uzbixAgloX6/peZjauySezHtOhDfmtQHG+o+nG8xFs2zIyS
+         M+mEiCNpPKMp9wLQcbpw69mP36jHu3PZrCsGSxCLct/poaLZaaupj8PJVxSMmOz4amqQ
+         CFQe7sXPkRJ/DuupWqozpw8JhH1QRULXPytKbxQt8N3St9CWo0ncCnXkPpZaDMgiULB8
+         9XVWHSBV5rWG+Oqd5zVUmTi+XywAP5L2iMLKD4tiu8xyOaIHo1+H80lOI2iAd/m2rCKu
+         YkPXv3Ao7SZv7MKTzIVF/cnygGJbXXlJncb5q30TRvimHgNoR32UVNczYxkQhGfHCV8x
+         uZNg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b="ag0G2Tr/";
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.118 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml101.ymt.japannetbank.co.jp (mml101.ymt.japannetbank.co.jp. [202.238.157.118])
+        by mx.google.com with ESMTP id u15si15430422pfh.56.2021.04.07.16.12.45
+        for <hujyorom@gmail.com>;
+        Wed, 07 Apr 2021 16:12:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.118 as permitted sender) client-ip=202.238.157.118;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b="ag0G2Tr/";
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.118 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer1@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1617837165;
+	bh=WlPc1XPUt0oaR1VvLauU06Cnduqu+TR2DeqwAdqgJdM=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=ag0G2Tr/5cx/HcnfGH/hy1aIzp0HoNjmd5cgGTTYJN61FW6w65AYt+zJ8hmd6PcAt
+	 PjF723Vku5mNPQma6Ax4/Bry3HAMrqEk2vx8WnCrvpUtvWmSPAVAp2fP5XoWiWGf+X
+	 CIs9dkcMLYmj+KnGXnBXtahJ0eWiTe002+n5xOR8=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer1@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMbKEJQYXlQYXkbJEI2ZDlUIWQbKEI=?=<customer1@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCJUghPCUvJXNIL0F3JE4kKkNOJGkkOxsoSg==?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20210407231245.3788212C0BE@mml101.ymt.japannetbank.co.jp>
+Date: Thu,  8 Apr 2021 08:11:39 +0900 (JST)
+
+いつもPayPay銀行をご利用いただきありがとうございます。
+
+------------------------------------
+トークンがお手元に届いたら必ず利用登録を行ってください
+------------------------------------
+ご登録の住所に、今後のお取引にご利用いただくトークンをお送りいたしました。
+4〜5日程度で普通郵便にてお届けします。
+
+新しいトークンが届きましたら、同封の資料をご確認のうえ、ログイン後、「各種手続」＞「ワンタイムパスワード切替登録」からトークンの利用登録を行ってください。
+ご登録が完了しますと、新しいトークンがご利用いただけます。
+
+※トークンは、登録手続をされるまで、お客さまの口座番号や個人情報とは関連性を持ちません。
+万一、利用登録前にトークンが他人の手に渡っても、不正取引をされる心配はありませんので、ご安心ください。
+
+------------------------------------
+トークンを台紙から剥がすときのご注意
+------------------------------------
+トークンはカード台紙に糊付けされた状態で届きます。
+トークンを折り曲げないように、左側からゆっくりと剥がしてください。
+強い力がかかると故障の原因になります。
+
+------------------------------------
+お引越しなどでご住所が変わったお客さまへ
+------------------------------------
+▽ご登録住所の確認・変更方法
+https://www.paypay-bank.co.jp/procedure/change_personal.html#H2-1?aatc=ot1808jb05g
+※BA-PLUSをご契約のお客さまは、ログイン後、「一般取引」＞「各種手続」＞「お客さま情報の変更」よりお手続きください。
+
+※変更後のご連絡は不要です。
+お送りしたトークンが当社へ戻り次第、新しいご住所へ再送させていただきます。
+2週間ほどお待ちいただき、届かない場合は、チャットよりお問い合わせください。
+
+▽チャットでお問い合わせ
+https://www.paypay-bank.co.jp/help/chat/index.html
+営業時間：9時〜17時
+休業日：12月31日〜1月3日、5月3日〜5月5日
+
+チャットがご利用いただけない場合、またはBA-PLUSをご利用のお客さまは下記の各種手続専用ダイヤルよりお問い合わせください。
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+PayPay銀行　各種手続専用ダイヤル
+
+■個人のお客さま
+0120-007-410（通話料無料）
+フリーダイヤルをご利用いただけない場合 03-6739-5012（通話料有料）
+営業時間：9時〜17時
+休業日：12月31日〜1月3日、5月3日〜5月5日
+
+■法人・営業性個人のお客さま
+0120-007-709（通話料無料）
+フリーダイヤルをご利用いただけない場合 03-6739-5044（通話料有料）
+営業時間：平日9時〜17時
+休業日：土曜日・日曜日・祝日、12月31日〜1月3日
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+PayPay銀行
+https://www.paypay-bank.co.jp/
+====================================

@@ -1,0 +1,147 @@
+Received: from Kx250 (125.30.78.201) by
+ TYAPR01CA0230.jpnprd01.prod.outlook.com (2603:1096:404:11e::26) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3239.17 via Frontend
+ Transport; Tue, 4 Aug 2020 00:01:31 +0000
+Date: Tue, 4 Aug 2020 09:01:29 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+To: mino_shukka_ml@system-quest.co.jp
+Cc: =?utf-8?B?5LiJ5a6F5pit5aSr?= <a-miyake@nuan.jp>,
+	NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>,
+	=?utf-8?B?5qOa5qmLIOWFi+W8mA==?= <tanahashi_katsuhiro@naganosd.com>
+Subject: =?utf-8?B?W0FJ5Ye66I23XSBWZXJfMC45LjdfMuOBruODquODquODvOOCuQ==?=
+ =?utf-8?B?44Gr44Gk44GE44Gm?=
+Message-ID: <20200804000129.fdg422gkzi53cga5@Kx250>
+Reply-To: mino_shukka_ml@system-quest.co.jp
+References: <0a9c970c-9ce0-0ce5-a205-5249e8ede857@naganosd.com>
+ <CAMn1dDzahPGO04WQvYv012eyc6JjgSYT29TycOD2LkF5-g=G6g@mail.gmail.com>
+ <20200420072234.tkdsf6stnisikrzv@Kx250>
+ <CAMn1dDzZJzBYkTtY3Xhgb9aqshrtb58+uzGHhhtvUgphArxpmQ@mail.gmail.com>
+ <CACzEcNhg+6PLZpKu4ZVabbN6NDsUJdYnW3DonKD23jUp9NVdJQ@mail.gmail.com>
+ <20200422041729.kpfuis52krib4i5f@Kx250>
+ <CACzEcNi4sQS-YA_Urz5Jvvs-WL2_bnLu5=si5dt_ekeJALxWvw@mail.gmail.com>
+ <20200422062528.3osi4ktpboq2zfky@Kx250>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20200422062528.3osi4ktpboq2zfky@Kx250>
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Aug 2020 00:01:32.1035
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ ffc5f547-6b75-46c9-e300-08d838098b9b
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.201]
+X-ClientProxiedBy: TYAPR01CA0230.jpnprd01.prod.outlook.com
+ (2603:1096:404:11e::26) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社
+三宅様
+北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+
+製作出荷情報のDB更新機能のバグ修正と検索機能、およびラベル・送り状発行の機能を加えたVer_0.9.7_2
+をリリースいたします。
+
+> 北澤様
+お手数ですが、ラベル・送り状発行画面~プリントサーバ間の動作確認をお願いします。
+IPとPortは以下"IpとPortの変更"のとおり変更すれば、印刷キューに反映されます。
+なお、制限事項"4.MINO-205...電卓の数値が0でも印刷キューが送信される"にあるとおり、現実装ですと
+数値が0のときでもプリントサーバに印刷キューが送信されてしまうのですが、当該動作は許容できる内容かどうか、
+ご確認お願いします。
+
+===
+IpとPortの変更
+　ファイル;
+　　www/webroot/IpPort.php
+　変更する変数;
+　　$port_no
+　　$ip_addr
+印刷キューの実行ファイル
+　ファイル;
+　　www/webroot/print.php
+===
+制限事項
+　検索機能
+　　1. MINO-192...
+　　　　製品グループで検索条件を指定しても対象レコードが抽出されません
+　　　　現在、当該バグを修正中です
+　　2. MINO-197...
+　　　　メニュー「製作出荷情報修正」から製作出荷情報を開いた時に検索条件が引き継がれます
+　　　　現在、当該バグを修正中です
+　　3. MINO-202...
+　　　　製作場所を指定した時の検索結果が不正
+　　　　現在、当該バグを修正中です
+
+　ラベル・送り状発行...
+　　1. MINO-56...
+　　　　電卓の"+"および"-"押下時の動作が不正
+　　　　現在、当該バグを修正中です
+　　2. MINO-181...
+　　　　日曜・祝日のラベル表示について常に表示していて、日付表示がされていない
+　　　　現在、当該バグを修正中です
+　　3. MINO-161...
+　　　　画面解像度の縦部分の調整が不十分で、画面下部が若干隠れてしまう
+　　　　現在、当該バグを修正中です
+　　4. MINO-205...
+　　　　電卓の数値が0でも印刷キューが送信される
+　　5. MINO-204...
+　　　　FireFoxの数値ボタン　０のレイアウトがおかしい。
+　　　　現在、当該バグを修正中です
+　　6. MINO-206...
+　　　　送り状再発行が残っている。
+　　　　現在、当該バグを修正中です
+　　7. MINO-207...
+　　　　着日指定の判定がされていない。
+　　　　現在、当該バグを修正中です
+　　8. MINO-208...
+　　　　担当者仕訳の情報有無に関わらす、枠及び「担当者仕訳」の名称が白で表示されている。
+　　　　現在、当該バグを修正中です
+　　9. MINO-209...
+　　　　担当者仕訳　担当者未選択の場合、担当者選択時の色が引き継がれる。
+　　　　現在、当該バグを修正中です
+===
+Ver0.9.7_2 リリースノート
+　1. ラベル・送り状発行
+　　　電卓で入力した枚数を、物件ラベル発行および送り状まとめ発行ボタンから
+　　　プリントサーバ宛に印刷キューを送信することが出来ます
+
+　2. 検索
+　　　制限事項のとおり、製品グループ/製作場所を指定した検索が行えません。
+　　　出荷日/運送会社/ロケーション/梱包フラグを指定した検索が、可能です。
+
+　3. 製作出荷情報の既知のバグ修正
+　　MINO-177...
+　　　製作出荷情報で変更を加えた後、画面右下の更新ボタンを
+　　　押下しても、自動で画面再読込がかからない現象
+　　MINO-187/188...
+　　　製作出荷情報で項目変更 -> 画面右下の更新ボタン押下しても、先頭レコード(※)の梱包数/運送会社
+　　　が更新されない現象
+
+==========================
+ダウンロード先:
+"https://www.dropbox.com/s/nlveyyzcju8311i/mino-develop2.zip?dl=0"
+※ドキュメントルート以下のファイル一式をzipにまとめています
+
+よろしくお願いします
+
+以上
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/
+

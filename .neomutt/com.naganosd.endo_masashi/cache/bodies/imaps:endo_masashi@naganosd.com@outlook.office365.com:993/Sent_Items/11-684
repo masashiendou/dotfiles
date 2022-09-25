@@ -1,0 +1,162 @@
+Received: from Kx250 (125.30.78.201) by
+ TYCPR01CA0039.jpnprd01.prod.outlook.com (2603:1096:405:1::27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3174.22 via Frontend Transport; Tue, 14 Jul 2020 23:35:01 +0000
+Date: Wed, 15 Jul 2020 08:34:59 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+To: mino_shukka_ml@system-quest.co.jp
+Subject: Re: [mino_shuk:00168] Re: [mino_shuk:00165] =?utf-8?B?W0FJ5Ye6?=
+ =?utf-8?B?6I23XSBWZXJfMC45Lnjjga7jg6rjg6rjg7zjgrnjgavjgaTjgYTjgaY=?=
+Message-ID: <20200714233459.5zk53puophq4curo@Kx250>
+References: <0a9c970c-9ce0-0ce5-a205-5249e8ede857@naganosd.com>
+ <CAMn1dDzahPGO04WQvYv012eyc6JjgSYT29TycOD2LkF5-g=G6g@mail.gmail.com>
+ <20200420072234.tkdsf6stnisikrzv@Kx250>
+ <CAMn1dDzZJzBYkTtY3Xhgb9aqshrtb58+uzGHhhtvUgphArxpmQ@mail.gmail.com>
+ <CACzEcNhg+6PLZpKu4ZVabbN6NDsUJdYnW3DonKD23jUp9NVdJQ@mail.gmail.com>
+ <20200422041729.kpfuis52krib4i5f@Kx250>
+ <CACzEcNi4sQS-YA_Urz5Jvvs-WL2_bnLu5=si5dt_ekeJALxWvw@mail.gmail.com>
+ <20200422062528.3osi4ktpboq2zfky@Kx250>
+ <20200710092242.nyxvr3dimtsxaoll@Kx250>
+ <CACzEcNgaCNwOg0uj3ahHi1O_qcaUNrJ0UOAB9HERjcg3JtuHyA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACzEcNgaCNwOg0uj3ahHi1O_qcaUNrJ0UOAB9HERjcg3JtuHyA@mail.gmail.com>
+X-MS-Exchange-Organization-ExpirationStartTime: 14 Jul 2020 23:35:01.7131
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ a430478b-4b7d-4d1c-939a-08d8284e8766
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.78.201]
+X-ClientProxiedBy: TYCPR01CA0039.jpnprd01.prod.outlook.com
+ (2603:1096:405:1::27) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+MINO株式会社 北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+Ver_0.9.xにリリースについて、ご確認および動作改善をご検討いただきありがとうございます。
+
+当該現象の原因および改善方法は以下Backlogの課題に記載のとおり、営業所のリストの絞り込み機能を
+cssのstyle操作で実現しようとしたところ、処理に時間がかかってしまっていたため、当部分の処理方法を
+変更して対応いたしました。
+"MINO-151 製作出荷詳細情報：運送会社選択から未選択にした際に、操作可能になるまでに時間がかかる。"
+"https://naganosd.backlog.com/view/MINO-151"
+なお、本日(7/15)リリースしたVer_0.9.6に当修正が含まれています。
+
+インデックスの追加方法についてご教示いただき、ありがとうございます。
+検索機能の修正などの実装時、参考といたします。
+
+よろしくお願いします。
+
+以上
+
+On Tue, Jul 14, 2020 at 08:49:14AM +0900, 北澤孝清 wrote:
+> お世話になっております。
+> MINO北澤です。
+> 
+> 運送会社、営業所の絞り込みが遅いのは、T_SEISAKU_SHIJIのUNSO_KAISYA_CD,UNSO_EIGYOSYO_CDにインデックスがないためだと思われます。
+> 
+> use Alpha1_Tran;
+> create index T_SEISAKU_SHIJI_1 on T_SEISAKU_SHIJI(UNSO_KAISYA_CD);
+> create index T_SEISAKU_SHIJI_2 on T_SEISAKU_SHIJI(UNSO_EIGYOSYO_CD);
+> 
+> 他のテーブルでも、検索項目にインデックスが貼ってないようであれば、同じようにインデックスを貼ってみてください。
+> 下記のコマンドテーブルのインデックスを確認できます。
+> 
+> show index from T_SEISAKU_SHIJI(テーブル名)
+> 
+> インデックスは、項目一個につき、1個作成してください。複数個指定もできますが、あまりよろしくないようです。
+> この指定はしないでください。create index T_SEISAKU_SHIJI_1 on
+> T_SEISAKU_SHIJI(UNSO_KAISYA_CD, UNSO_EIGYOSYO_CD );
+> 
+> よろしくおねがいします。
+> 
+> 
+> 2020年7月10日(金) 18:23 [Masashi Endo] <endo_masashi@naganosd.com>:
+> 
+> > MINO株式会社 三宅様
+> >
+> > お世話になっております
+> > 長野システム開発 遠藤です
+> >
+> > 貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+> >
+> > 製作出荷情報の一覧表示を実装したVer_0.9.xをリリースします。
+> > ===
+> > Ver0.9.x リリースノート
+> > 1. 製作出荷情報
+> > 備考-色...
+> > 担当者の色をDB参照して表示しています
+> > 2. 製作出荷詳細
+> > 製作出荷情報の編集ボタン...
+> > 任意の指示書Noレコードについて、各項目を編集して画面下部の更新ボタン
+> > にてDB更新できます(※2)
+> > 運送会社-営業所の絞り込み部分の処理が遅く、ブラウザが一時応答待ちに
+> > なることが有ります(※3)
+> >
+> > 3. 臨時出荷登録
+> > ヘッダ部分・製作出荷情報の臨時出荷登録ボタン...
+> > 新規レコードの登録ができます(※4)
+> > 運送会社-営業所の絞り込み部分の処理が遅く、ブラウザが一時応答待ちに
+> > なることが有ります(※5)
+> >
+> > 4. 臨時出荷編集
+> > 製作出荷情報の編集ボタン...
+> > BUKKEN_CDが"9000000"以上のレコードについて、各項目を編集して画面下部の更新ボタン
+> > にてDB更新できます(※6)
+> > 運送会社-営業所の絞り込み部分の処理が遅く、ブラウザが一時応答待ちに
+> > なることが有ります(※7)
+> >
+> > 5. 検索
+> > 検索ボタンの機能を一時停止しております(MINO-106対処中の為）
+> > そのため、各検索項目を変更しても反映されません
+> >
+> > 6. 製作出荷情報での変更項目は全て未実施です
+> > 製造可 ・・・ 実装遅延
+> > 製作場所：梱包数変更 ・・・ 実装遅延
+> > 製作場所：保留設定 ・・・ 実装遅延
+> > 保留一括解除(MINO-89) ・・・ 実装遅延
+> > 運送会社 ・・・ MINO-66 ⇒ 自社便にのみ変更予定
+> > ※一旦：送り先区分、運送会社のプルダウンは無効化しています。
+> > ==========================
+> > ※1ラベル・送り状発行、ＴＯＰページ、ログイン処理は進展無し
+> > ※2,4,6 MINO-140/162/164を対処中で原因は調査中ですが、
+> > T_SEISAKU_SHIJI_KOTEI の SEIHIN_MEISAI_CD カラムの追加位置の不一致による可能性があるため、
+> > 当該カラム挿入時は、添付画像のとおりcakephpのmigrationにてカラムの追加をお願いします
+> > ※3,5,7 MINO-151にて対処中で原因を特定済み、現在実装中です
+> >
+> > ダウンロード先:
+> > "
+> > https://www.dropbox.com/s/k1ya3x9qw28kw2p/mino-c5bb4232ea940e1b386c039596b608b2cbb9a5a5.zip?dl=0
+> > "
+> > ※ドキュメントルート以下のファイル一式をzipにまとめています
+> >
+> > よろしくお願いします
+> >
+> > 以上
+> > --
+> > 長野システム開発株式会社
+> > 遠藤 將司 ( Masashi Endo )
+> > e-Mail <endo_masashi@naganosd.com>
+> > 〒399-4301 長野県上伊那郡宮田村5672-2
+> > URL: http://www.naganosd.com/
+> >
+> >
+
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

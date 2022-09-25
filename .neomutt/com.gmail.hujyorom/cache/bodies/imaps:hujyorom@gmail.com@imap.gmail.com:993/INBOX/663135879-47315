@@ -1,0 +1,86 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:96d6:0:0:0:0:0 with SMTP id y205csp677832vkd;
+        Tue, 2 Feb 2021 16:55:37 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxwL5cC13fVhswOB7KYgNfg8cJR3vt0wPaiQwevnSSSnOAn2cXI5NRnqT70x6Uzmcpf/v8l
+X-Received: by 2002:a65:408c:: with SMTP id t12mr793538pgp.157.1612313737458;
+        Tue, 02 Feb 2021 16:55:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1612313737; cv=none;
+        d=google.com; s=arc-20160816;
+        b=FC34W3R4d7Cl6BxZ76eFHNfQLacIT1CXW2r8Ts7vt128J1QjpGHWzmQ880xP+eH+o0
+         ijmgUN5kokIjI6X/HlqjtRPmVcjfykS40YaBoh9WBEqtLjIVtB4/7zqB1ZlW0fiwc/qu
+         hsPBIW+9mt2Rdd33bDZXeTeaTlQgWtWvh/A++xVyrYi7HYouSWu34vD6kSFYX6YnhC8P
+         6YIH6WyP0LvG3t7ZHeX5NrsNQfeheeQaWMiCeA+i8HPIZ9QyQGwSCP/6yQZ+RYGwGXTV
+         j+U0GZjUSD4M0lWWPMSolpx6hV8d7VYRxGxlOWohiRfcZyz34SojFwsl+q0DCGf7z2Jq
+         3qyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=GQu55S7AcA9f+QlSTTie0O6gYr0CrCTt7uBqwNxgvwQ=;
+        b=xhPFlZH1IgFG+oYlJlGcuRv8DhUTNSMNmHtXptvqUa7lzvLM6kI7qy3jRnranc6ff4
+         PZPJQAGljqILR+JlE3aCYAxM1ctHEPOQjuk6fnawEaYknOanPA/ldRXJToGRv2XHdefH
+         dRJ+3aYPQHvUssWsJZe/hf3wrIu3dreaY+cj03Btw/1eazn2cNP0atU33/DIX928ewnk
+         0B6ZT1BnqWfGYxjq7Mdkt0JlSjZZnJ0hkWnDDRgNy5uGp9DgCAY9r2CmtU1vLT4l4UFS
+         +rJ0UN2zXNXHPi53QvU1urRFYlt11wmzXmwMd8+zLgssclvj1cJU/TRQauIWcOdSyYng
+         8Pow==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=gfqbsrQz;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.117 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml101.ymt.japannetbank.co.jp (mml101.ymt.japannetbank.co.jp. [202.238.157.117])
+        by mx.google.com with ESMTP id jx16si527675pjb.157.2021.02.02.16.55.37
+        for <hujyorom@gmail.com>;
+        Tue, 02 Feb 2021 16:55:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.117 as permitted sender) client-ip=202.238.157.117;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=gfqbsrQz;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.117 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1612313736;
+	bh=GQu55S7AcA9f+QlSTTie0O6gYr0CrCTt7uBqwNxgvwQ=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=gfqbsrQzm18S6EpQLM1yTjg7/Lfhib451YX3yDGueo+QkAdFU23lipv9swscs70VT
+	 lFOZBzbchuU7ZFXVRNgkmF51pC/aET+5uJjuKVV/cBx0bFWWXIp7Bjf+s3NlUvdBBM
+	 sDf3SFAI7Y/jyUxKPG6h8Mj0wEasXbeWFeDKyI+g=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer2@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCPzY5fkZ+NmIkTiQ0TyJNbRsoSg==?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20210203005536.8D94F12C0D3@mml101.ymt.japannetbank.co.jp>
+Date: Wed,  3 Feb 2021 09:55:20 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもジャパンネット銀行をご利用いただきありがとうございます。
+下記日時に、振り込みによる入金がございました。
+
+入金日時:2021/02/03 09:49:14
+
+詳細は、以下よりご確認ください。
+
+▽パソコン・スマートフォンの場合（ログイン画面が開きます）
+https://login.japannetbank.co.jp/wctx/LoginAction.do?idMenuSelect=2&aatc=vi2004jb04s
+ログイン後、該当の画面が表示できない場合は、Welcome Pageから、「明細・振込・振替」＞「普通預金取引明細照会」よりご確認いただけます。
+▽携帯電話の場合
+ログイン後、「取引明細照会（普通）」よりご確認いただけます。
+
+■残高確認アプリ
+スマートフォン画面をなぞるだけで1秒ログイン、口座の残高をカンタンに確認できます。
+▽アプリのダウンロード、詳細はこちら
+https://www.japannetbank.co.jp/smtapp/balance.html?aatc=ot1502jb04a
+
+※本メール記載のURLは、パソコンまたはスマートフォンからご覧ください。
+
+------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録したものと考えられます。
+配信停止のお手続きをさせていただきますので、メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、ご返信をお願いいたします。
+------------------------------------
+
+※本メールへの返信によるご質問にはご回答できません。
+====================================
+ジャパンネット銀行
+https://www.japannetbank.co.jp/
+====================================

@@ -1,0 +1,98 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2811:0:0:0:0:0 with SMTP id o17csp3685221vko;
+        Mon, 13 Sep 2021 06:18:47 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzp0IFzdA5/GJjxAsJeYdstAzmJVWeh1SAYu5KaNh+grYW76GaFKoWBKubCHctOxdh+dw+b
+X-Received: by 2002:aa7:8097:0:b029:3cd:b205:cfe9 with SMTP id v23-20020aa780970000b02903cdb205cfe9mr11095016pff.1.1631539126862;
+        Mon, 13 Sep 2021 06:18:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631539126; cv=none;
+        d=google.com; s=arc-20160816;
+        b=LF0xDNeJ035vBZgvPJqtqFzMyGTl7+N4XXDLuSo3QXiHM23tUt9QC66hiF5qN6T3E3
+         eZkpTnZIvhiFNWpzpMYD4xlISEZsqp8lDEcevrQj02esKtFrb7CK/biQOGX1WiLEWj2N
+         Ryf9pxjE7DyAPRNlrw3UodeCsoXR0afa7IWJnbX0WWt31qwRyu9erHYVW1Fv7sqyK0wT
+         q5aE1G4JNf8tpZn/M+j5kz158sFS68N2t+Atlr/2l2mFw7OzIlm0HWiZs0CULGSLg1d3
+         jyfvkPcjQvFKFUMVohe9AlsOnWDSScYdB5PQc6VaJo+AfNGUwaEIcr6zD8bCnDfg4MGu
+         CiHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:domainkey-signature:dkim-signature:comments;
+        bh=+2KCfSLS+4YxLVFHRy3gAPsUZkQf0HwtEIXp0xnD/Rw=;
+        b=U3x2G+ViyiBODkmSj6KyF1w/TdD5crpf2TEnDzUbUenWOjqWVAYJwUVkLrlRLJss3h
+         Oo+pnCllXLdThDIPMgzcYZUCno4IthlAKaXhKy/OgTi3FiXNNnXvUfq8giRNjVrNtKPP
+         LsFFVLgFCLDYnsgPh9el9gAeE8+q8dRma+/yyc6Vq+7CH3fv8HR5lTGkNHH7yauokOGA
+         /FieWeozxyR//hOL2Ff8ifQ/ZYzvNuOqQWTqH+Ae+qwYcKTmkpgojO/VJabvKvr3k/EL
+         cWzcrkY3L5xhk4EfpBSyqgC8pPGCbB9zDHOy6UaOeR5rNabPvlBZ1K2RW4YGLB/4yjYt
+         YJNg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.yahoo.co.jp header.s=bulk201106 header.b="l/QfqAF1";
+       spf=pass (google.com: domain of alerts-error@err.yahoo.co.jp designates 124.83.232.246 as permitted sender) smtp.mailfrom=alerts-error@err.yahoo.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.yahoo.co.jp
+Return-Path: <alerts-error@err.yahoo.co.jp>
+Received: from n50.bulk.ogk.yahoo.co.jp (n50.bulk.ogk.yahoo.co.jp. [124.83.232.246])
+        by mx.google.com with SMTP id k7si8870192pjq.117.2021.09.13.06.18.46
+        for <hujyorom@gmail.com>;
+        Mon, 13 Sep 2021 06:18:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alerts-error@err.yahoo.co.jp designates 124.83.232.246 as permitted sender) client-ip=124.83.232.246;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.yahoo.co.jp header.s=bulk201106 header.b="l/QfqAF1";
+       spf=pass (google.com: domain of alerts-error@err.yahoo.co.jp designates 124.83.232.246 as permitted sender) smtp.mailfrom=alerts-error@err.yahoo.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mail.yahoo.co.jp
+Comments: DKIM? See https://mail.yahoo.co.jp/antispam/efforts_dk.html
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.yahoo.co.jp; s=bulk201106; t=1631538919; bh=+2KCfSLS+4YxLVFHRy3gAPsUZkQf0HwtEIXp0xnD/Rw=; h=Received:Received:Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:X-yahoo-newman-id:X-yahoo-newman-property; b=l/QfqAF1PHUC+1f5889xihmkI7gi8TqGelSwpwZff5VN7ZKr0QvqohRuJIiDTfdR+DMb4Gw44S9mp9CAs+wtgc8odXCxhv0FuL1j0j+1WPYdkC+P48IuShx7x42+Kt/6SNoy8QoBg9t3wYpuxr1wTbBDBOxdd6S8Pt99+2RMEB8=
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=bulk201106; d=mail.yahoo.co.jp; 
+	b=S9LFs6GCGE1JWoFGuZOfkfY1HgAme736FUA4y1FXsv6bPrIBar73T+Q6b1nnv7JI+5X35YFLiM9d3LuAdDcslvM5GVFehY6QIZzeOdVgEuUqoRnFkMO+c2kCD/PPau12ZHECkIxS9TpYHQjD08/14qOV98R+9fdzcYuSyWXZ+Gk=;
+Received: from [100.98.144.187] by n50.bulk.ogk.yahoo.co.jp with NNFMP; 13 Sep 2021 13:15:19 -0000
+Received: from [100.101.44.143] by m03.pcf.bulk.kks.ynwp.yahoo.co.jp with SMTP; 13 Sep 2021 13:15:19 -0000
+Date: Mon, 13 Sep 2021 22:15:19 +0900 (JST)
+From: auction-master@mail.yahoo.co.jp
+To: hujyorom@gmail.com
+Message-ID: <1864311054.28913537.1631538919818@mailer-pcfkks.yahoo.co.jp>
+Subject: =?UTF-8?B?44Ok44OV44Kq44KvISAtIOOAkDEsMDAwIOWGhuWApOS4i+OBkuOAkVkxMA==?=
+ =?UTF-8?B?MEgxOEUwMDIg44CQ5biM5bCR44CRIEQmRCDjg4Djg7Pjgrjjg6fjg7Pjgro=?=
+ =?UTF-8?B?JuODieODqeOCtOODs+OCuiDjgqjjgq3jgrnjg5Hjg7w=?=
+ =?UTF-8?B?44OI44K744OD44OI55SoIOODmeODvOOCt+ODg+OCr+OCuw==?=
+ =?UTF-8?B?44OD44OI55So44Oi44K444Ol44O844OrIOOCsuODvOODoA==?=
+ =?UTF-8?B?44Ki44Kv44K744K144Oq44O8QUM2IOaWsOWSjA==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+X-yahoo-newman-id: auc_notice-e-auc_notice_mdrs_3b63247740fd4eec9bf2e8831fd89124_9f7830b8df5e780df36c6ad59c0a34b4_20210913221519751
+X-yahoo-newman-property: alerts
+
+4pag44Ok44OV44Kq44KvIToyMDIx5bm0OeaciDEz5pel77yI5pyI77yJ44CAMjLmmYIxNeWIhjE5
+56eS6YCB5L+hCuKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKU
+geKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgeKUgQoKaHVqeW9y
+b23mp5gKCuWVhuWTgeOAjFkxMDBIMThFMDAyIOOAkOW4jOWwkeOAkSBEJkQg44OA44Oz44K444On
+44Oz44K6JuODieODqeOCtOODs+OCuiDjgqjjgq3jgrnjg5Hjg7zjg4jjgrvjg4Pjg4jnlKgg44OZ
+44O844K344OD44Kv44K744OD44OI55So44Oi44K444Ol44O844OrIOOCsuODvOODoOOCouOCr+OC
+u+OCteODquODvEFDNiDmlrDlkozjgI3jgYzjgIHplovlp4vkvqHmoLzjgpLlgKTkuIvjgZLjgZfj
+gablho3lh7rlk4HjgZXjgozjgb7jgZfjgZ/jgIIK5YmN5Zue44Gu5Ye65ZOB5pmC44KI44KKMSww
+MDAg5YaG5YCk5LiL44GS44GV44KM44Gm44GE44G+44GZ77yBCgril4bil4bil4Yg5YCk5LiL44GS
+44GV44KM44Gf5ZWG5ZOB44CA4peG4peG4peGCgrllYblk4HvvJpZMTAwSDE4RTAwMiDjgJDluIzl
+sJHjgJEgRCZEIOODgOODs+OCuOODp+ODs+OCuibjg4njg6njgrTjg7Pjgrog44Ko44Kt44K544OR
+44O844OI44K744OD44OI55SoIOODmeODvOOCt+ODg+OCr+OCu+ODg+ODiOeUqOODouOCuOODpeOD
+vOODqyDjgrLjg7zjg6DjgqLjgq/jgrvjgrXjg6rjg7xBQzYg5paw5ZKMCmh0dHBzOi8vcGFnZS5h
+dWN0aW9ucy55YWhvby5jby5qcC9qcC9hdWN0aW9uL280OTQwNDIyOTA/bWQ9MQoKCumWi+Wni+S+
+oeagvO+8mjUsMDAwIOWGhgoKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KCuOBk+OBruODoeODvOODq+OBr+OAgeOCpuOCqeOD
+g+ODgeODquOCueODiOOBq+eZu+mMsuOBl+OBn+OCquODvOOCr+OCt+ODp+ODs+OBruaDheWgseOC
+kuOAgQrjgrfjgrnjg4bjg6Djgavjgojjgoroh6rli5XnmoTjgavjgYrnn6XjgonjgZvjgZfjgabj
+gYrjgorjgb7jgZnjgIIKCgrku4rlvozjgIHjgZPjga7jg6Hjg7zjg6vjga7phY3kv6HjgpLluIzm
+nJvjgZXjgozjgarjgYTloLTlkIjjga/jgIzjg6Hjg4Pjgrvjg7zjgrjjga7pgJrnn6XjgI0K44KI
+44KK6YCa55+l44Gu44OB44Kn44OD44Kv44KS5aSW44GX44Gm44GP44Gg44GV44GE44CCCgrilrzj
+g6Hjg4Pjgrvjg7zjgrjjga7pgJrnn6UK44CAIGh0dHBzOi8vYXVjdGlvbnMueWFob28uY28uanAv
+anAvc2hvdy9wcmVmc19ub3RpZnkKCgo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CuOBk+OBruiHquWLlemAmuefpeODoeODvOOD
+q+OBr1lhaG9vISBKQVBBTuOCiOOCiuiHquWLleeahOOBq+mAgeS/oeOBleOCjOOBpuOBhOOBvuOB
+meOAggrjgZPjga7jg6Hjg7zjg6vjgavov5Tkv6HjgZfjgarjgYTjgojjgYbjgYrpoZjjgYTjgYTj
+gZ/jgZfjgb7jgZnjgIIK44Gq44GK44CB44GT44Gu44Oh44O844Or44Gr5b+D5b2T44Gf44KK44Gu
+44Gq44GE5aC05ZCI44KE44GU5LiN5piO44Gq54K544GM44GC44KL5aC05ZCI44Gv44CBCuOBiuaJ
+i+aVsOOBp+OBmeOBjOOBiuWVj+OBhOWQiOOCj+OBm+ODleOCqeODvOODoOOCiOOCiuOBiuWVj+OB
+hOWQiOOCj+OBm+OBj+OBoOOBleOBhOOAggoK4pa844Oh44O844Or44Ki44OJ44Os44K544Gu5aSJ
+5pu044CB6YWN5L+h5YGc5q2iCuOAgGh0dHBzOi8vYXVjdGlvbnMueWFob28uY28uanAvanAvc2hv
+dy9wcmVmc19ub3RpZnkK4pa85LiA6Iis55qE44Gq44KI44GP44GC44KL6LOq5ZWPCuOAgGh0dHBz
+Oi8vd3d3LnlhaG9vLWhlbHAuanAvYXBwL2hvbWUvcC8zNTMvCuKWvOODpOODleOCquOCryEgLSDj
+gYrllY/jgYTlkIjjgo/jgZvjg5Xjgqnjg7zjg6AK44CAaHR0cHM6Ly93d3cueWFob28taGVscC5q
+cC9hcHAvYXNrL3AvMjQ0My9mb3JtL2F1Y3Rpb24tZmVlZGJhY2syLWlucXVpcnkKPT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQoK
+CgoK44Ok44OV44Kq44KvIeOCkuOBlOWIqeeUqOOBhOOBn+OBoOOBjeOAgeOBguOCiuOBjOOBqOOB
+huOBlOOBluOBhOOBvuOBl+OBn+OAggpodHRwczovL2F1Y3Rpb25zLnlhaG9vLmNvLmpwL2pwLwo=

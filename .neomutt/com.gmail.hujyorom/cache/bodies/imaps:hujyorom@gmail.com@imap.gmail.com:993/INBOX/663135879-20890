@@ -1,0 +1,89 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 10.107.156.196 with SMTP id f187csp1850409ioe;
+        Wed, 14 Mar 2018 03:35:22 -0700 (PDT)
+X-Google-Smtp-Source: AG47ELvZ/bUtxdS4c4IPWb94qbVJ703DVpi2HmZjH7W75qLqSFHokN1kbgJO1dmYYLyeI6LWwfZK
+X-Received: by 10.98.163.67 with SMTP id s64mr3802440pfe.67.1521023722065;
+        Wed, 14 Mar 2018 03:35:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1521023722; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pT7DxS7CX0yLmqtgNNG4UPdcWrJ6FMBOV4NHvdh1uiV/zZkmtLIjfAgODhFtAa9CeB
+         uxYJPTsuUFxc2hyCUlofn1BhaXQ3iQ9VKZL/uHtQ5auTFVTFc7m+8v0pUYfy1h7Og/ds
+         G2qKklgOQIDEVFhAD1kqJwTp+tJ6Icfy7fbwRC4C3REgIrOcY5RgTNROwGQzMcT9VHSM
+         2GLAVwQo9LcGanBFBKTJeYOcEIlDLhzeNcuDZr1AfPGdpmMXvuLQ95MCd9B4HqbxO2kA
+         e5O5/voA3n+upB8nsi4Lu+w8Cphvqwy/2vzsIp7D36Y2PFBRQ/Y6MM9S40nNhMHyPkwD
+         aTQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:to:subject:from:date:message-id:domainkey-signature
+         :dkim-signature:arc-authentication-results;
+        bh=JXVeNi3p+SMSleRIeM9glEn9fHPhxLiESEHGTH8twa8=;
+        b=xnxW7fw9Gog+MhmPXyec19B48THWJGsUxNExPYBN9aBPHEbIRNHSSUfvhqH3q/eTv4
+         fneJ38oWvs0NJ0ZwhKVR/IGFpd0VlER8au1xL41D/1AdIf1zi7GsTkhRZmS/BrWcmrKE
+         icvdDuP/+1xa+L5QMwqMeqKWuhfjBp95ZAdOMyVoNp0yBytxKyY4nj7FVaa6WxVDLOTt
+         d6nwZ6ZTniq4C0dojB5/3wGsblFqi+oCVLMJtmkrv2RGngaptq3CkPE+MO6Tz/DLAoXB
+         RX3ZmhOcS4rFdyWOOQaTMFWuslY8dBB6a9I9qJmreUHtrYL2vOKKBlCFVMfhHVIxyk9z
+         9eQA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@yahoo.co.jp header.s=yj20110701 header.b=hs/OUFGZ;
+       spf=pass (google.com: domain of rediscal@yahoo.co.jp designates 182.22.90.67 as permitted sender) smtp.mailfrom=rediscal@yahoo.co.jp
+Return-Path: <rediscal@yahoo.co.jp>
+Received: from nh604-vm10.bullet.mail.ssk.yahoo.co.jp (nh604-vm10.bullet.mail.ssk.yahoo.co.jp. [182.22.90.67])
+        by mx.google.com with SMTP id v12si1059086pfm.366.2018.03.14.03.35.21
+        for <hujyorom@gmail.com>;
+        Wed, 14 Mar 2018 03:35:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rediscal@yahoo.co.jp designates 182.22.90.67 as permitted sender) client-ip=182.22.90.67;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@yahoo.co.jp header.s=yj20110701 header.b=hs/OUFGZ;
+       spf=pass (google.com: domain of rediscal@yahoo.co.jp designates 182.22.90.67 as permitted sender) smtp.mailfrom=rediscal@yahoo.co.jp
+Received: from [182.22.66.106] by nh604.bullet.mail.ssk.yahoo.co.jp with NNFMP; 14 Mar 2018 10:35:20 -0000
+Received: from [182.22.91.128] by t604.bullet.mail.ssk.yahoo.co.jp with NNFMP; 14 Mar 2018 10:35:20 -0000
+Received: from [127.0.0.1] by omp601.mail.ssk.yahoo.co.jp with NNFMP; 14 Mar 2018 10:35:20 -0000
+X-Yahoo-Newman-Property: ymail-3
+X-Yahoo-Newman-Id: 955351.19466.bm@omp601.mail.ssk.yahoo.co.jp
+Received: (qmail 2587 invoked by uid 60001); 14 Mar 2018 10:35:20 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.co.jp; s=yj20110701; t=1521023720; bh=JXVeNi3p+SMSleRIeM9glEn9fHPhxLiESEHGTH8twa8=; h=Message-ID:X-YMail-OSG:Received:X-Mailer:X-YMail-JAS:Date:From:Subject:To:MIME-Version:Content-Type; b=hs/OUFGZkqTLbPEd/1ysYeH2zC4sN47sKeu2yuPTNVk7dWzrh+Lux0DoP3t3+pggO7Q1mbHwze4kg8Vs1yRc7xvaKKo5Qfy4kaPDdWk5FvvZWdWJrYDxdhaUClF7sJS8KB1hYCeYHz/vdxZ2B5bUApY5pM1r1vt+QjQSoM3orgM=
+DomainKey-Signature:a=rsa-sha1; q=dns; c=nofws;
+  s=yj20110701; d=yahoo.co.jp;
+  h=Message-ID:X-YMail-OSG:Received:X-Mailer:X-YMail-JAS:Date:From:Subject:To:MIME-Version:Content-Type;
+  b=PTuxltDaytEdcwfx8qs7HR1JttPVfjoXmXDVxADh36aAwnn+73CcKeJcsmaguyIPyqaekLjHFe9V276EHPvWeWGgfagvR+wIN8oaOQObA3+0WmaRCvw+yUtuVxwRVIMJTISXUHysr6bI+Lk3EAlrz5KRNsrPU9MgbGlJh9sTeqQ=;
+Message-ID: <704830.96479.qm@web102809.mail.ssk.yahoo.co.jp>
+X-YMail-OSG: hpaB4V4VM1l_q505GH9SEscXFjS5QXlnAPJhCYL1Q.Vv59uaolW0uIpkfPwtJGP0Dnt6rBpvroXWXcP4J1rLhi8bsDwonLof02V4MmP4DVHTDl9Rao8KY4Abt3o.TZEQV.3V9cKPHtQpQughPEqyu_YOp18HmvdjTjNa_JKSO4FvyRpYbf_Aep.Ty60pF1jKE84CMRFyTeWzbDkkNBVvmqvSNHYSa_Qz1kab0u4ip1YKMLzea1LZadkOetyUgk8JK_0HDilmJScmOizGtgFtKEszFzIcYwLjD3A7LaWvkugDRv8jCqbRPCd8wAjhuJGI6K1AIaF8YJg2jdX0uX9VbawMqZUHnAq0WcNtDrOQx3XCE0hLtgjrEigmJ8dJwuX4_wyZCOruu5du8yXoS0XT7V72oYkJkaLqZ.rhFXkCgAU41VUy.TiVEUi3CZnw7LIhZJo8HybT_Y9YlHbHLGy4LL3RuvT88EbFGbFmcx_31nEpkDf.wHaldSVPzB6kq2OCIe.D1ISEGu9K44IsD9JaZSwaVjMdyYW6gskZ7IM7zSCA90M3zqwKZKEzCjzGFmC43vTa4X6.c9onCsPU.Ei66jMDvMlHVCoV_vU0GOmrbQJIp9fU8lAjykfqJ7a1.Q--
+Received: from [210.149.255.42] by web102809.mail.ssk.yahoo.co.jp via HTTP; Wed, 14 Mar 2018 19:35:20 JST
+X-Mailer: YahooMailWebService/0.8.111_74
+X-YMail-JAS: 3hPnUFYVM1luDdtqqrIEdXmasPiWAUoOgmllSS4k5JJOVqG1sbCNn8p5TwkbTUi_GEfc1P8A3amDBraHMChQU6l7K1rf0qO2gmOuUaMOQ7gL0IkZhAGodEGQoRFZGFFkGYl.
+Date: Wed, 14 Mar 2018 19:35:20 +0900 (JST)
+From: =?iso-2022-jp?B?GyRCOUNFRBsoQiAbJEI/P0ZgGyhC?= <rediscal@yahoo.co.jp>
+Subject: =?iso-2022-jp?B?UmU6IFJlOiAbJEIyVko0PkkbKEI=?=
+To: MasashiEndo <hujyorom@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-2022-jp
+
+やあやあ
+花粉症どうだね
+巷ではイオンスプレーやらイオンマスクやら売り出されているが、実際のところ効くのかねぇ
+
+マイネオの契約通知書が届いた。シムカはまだこない
+あと枕の保証書きた
+「枕の保証書」なんて世の中あるのな…(((゜Д゜;)))
+
+
+
+
+--- hujyorom@gmail.com wrote:
+> 水分取らねば干からびそう->_(」∠ 、ン、)_
+> ちゃんぽんでも食べて活力を取り戻さねば
+> 
+> On 2018/03/10 18:45, 甲田 真奈 wrote:
+> > まじか
+> > 東京はもうあったかいもんねぇ(´・ω・｀)
+> > お大事に
+> > 水分とると楽になるもんなの？
+> > 
+> > 
+> > --- hujyorom@gmail.com wrote:
+> >> 発症のオカン
+> >> マジで止まらない
+> >> エゾシカまっしぐら
+> >> 水分補給せねば…
+> > 
+
+

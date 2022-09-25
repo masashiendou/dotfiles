@@ -1,0 +1,371 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp3808152vkx;
+        Mon, 5 Apr 2021 22:43:41 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJysu7f85d9ovdC/qgH79d3hMlY6sXne/Xq9VY6UJYTTRhjtlruRr0IkxhyXUIuIJx/v1S/a
+X-Received: by 2002:a17:90a:17c5:: with SMTP id q63mr484528pja.210.1617687821181;
+        Mon, 05 Apr 2021 22:43:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617687821; cv=none;
+        d=google.com; s=arc-20160816;
+        b=slCpJRAx1YjXT4kwHKMXh4R29EsGXSVyRyFDn2qmZM10zNkcz5U1Ewvck9nawEpWmm
+         NVSj6CWVJcfM1CYAeWG9fG4t6nJw9+qNupzog1hJqJuT+RlgA2tpdcbM1y1sOuimp8Np
+         mA1i5JsRLeX82HuEV6+vi13f5AC88tRUQF5+HbhIkkXwn9vwpFZ3H/GShFDooV6rGmkY
+         8oQ2VuJ9fwYuskVMAKrNgjscSA4kHPwCvj4nqzw6SdGfPwxprfdezZAVnRIl2K1pIcQv
+         1ggBzdQwnLe7fEnfDOotafAEzPJuAE83lpwKqwoTJCobDnizrd+dDqWCLsVTZMuwmc6+
+         prAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:dkim-signature;
+        bh=pBu5El9x26EG/f8dPmUMBtz0QSfsWdd3WFaSLsop5po=;
+        b=gsEqsRZtSVf5SpOelEv5S31crkGjL3yJjGgjarWFAy209JqYWWSaiEBcvBarz15Feo
+         4cHMFYe0JguTneEKaoGiBcIzk0MDUodAgZJ2IUN8oXdm8KnqxdNiH+uLRZjnb0rJm44W
+         UYp9y6qts/lfoBMHfF537c3AgUlKzt4RAWfIZyd23DQiAuNnUFFuAvzxVbmNThZqMKWH
+         AuLAkvtuOYwwUOy31A0g9ZKU+Q3suzkXb2hX1ZxbjrzvjDcilCxSwOLZVG7fDDxh2Enq
+         U9irU/72rbEtXiXrIhglJiUffrfZv1hnSXX2m0erlDup6o9E5mWzZZTq9ezPiONek2a6
+         acWg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b=fL3e8D4w;
+       spf=pass (google.com: domain of 01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com designates 54.240.57.215 as permitted sender) smtp.mailfrom=01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com
+Return-Path: <01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com>
+Received: from a57-215.smtp-out.us-west-2.amazonses.com (a57-215.smtp-out.us-west-2.amazonses.com. [54.240.57.215])
+        by mx.google.com with ESMTPS id h13si1681541pjt.98.2021.04.05.22.43.40
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Mon, 05 Apr 2021 22:43:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com designates 54.240.57.215 as permitted sender) client-ip=54.240.57.215;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b=fL3e8D4w;
+       spf=pass (google.com: domain of 01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com designates 54.240.57.215 as permitted sender) smtp.mailfrom=01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=7v7vs6w47njt4pimodk5mmttbegzsi6n; d=amazonses.com; t=1617687820;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=pBu5El9x26EG/f8dPmUMBtz0QSfsWdd3WFaSLsop5po=;
+	b=fL3e8D4whoo0ng84qUURc99R5lwNsSpZvMMqxuisDJL6EjorKIJyi8dicqtB0YQZ
+	40UZpNXd3cjM0qqZHn09JCxAlEIKlC9wntaadOFaqV2upv7mkRCRaLIe0DSrcWO4Hda
+	3ubftrnMdCy5EDt/il1X7SuP7vU5Jsq5fcG3bcGM=
+Date: Tue, 6 Apr 2021 05:43:40 +0000
+From: =?UTF-8?B?44Oe44ON44O844OI44Op44OD44Kv?= <affiliate@monetrack.com>
+Reply-To: =?UTF-8?B?44Oe44ON44O844OI44Op44OD44Kv?= <affiliate@monetrack.com>
+To: hujyorom@gmail.com
+Message-ID: <01010178a5b539ca-28cd44de-8f44-4091-8336-3994036079d9-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?Q?[Monetrack]?=
+ =?UTF-8?Q?_=E6=96=B0=E8=A6=8F=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=8C=E5=B1=8A=E3=81=84=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SES-Outgoing: 2021.04.06-54.240.57.215
+Feedback-ID: 1.us-west-2.hY6dj/qYBqmPygIQUc+mKI58ksaR0stW5feOkOirMV4=:AmazonSES
+
+<!-- preview-text -->
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' role=3D'presentat=
+ion' width=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' style=3D'display:none;font-size:0;max-height:0;width=
+:0;line-height:0;overflow:hidden;mso-hide:all;visibility:hidden;'>=E5=8D=B3=
+=E9=87=91=E3=82=A2=E3=83=95=E3=82=A3=E3=83=AA=E3=82=A8=E3=82=A4=E3=83=88A=
+SP=E3=83=9E=E3=83=8D=E3=83=BC=E3=83=88=E3=83=A9=E3=83=83=E3=82=AF</td>
+</tr>
+</tbody>
+</table>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' role=3D'presentat=
+ion' width=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_bg-light o_px-xs o_pt-lg o_xs-pt-xs' styl=
+e=3D'background-color: #f3f4f7;padding-left: 8px;padding-right: 8px;paddi=
+ng-top: 8px!important;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_block-=
+lg' role=3D'presentation' style=3D'max-width: 800px;margin: 0 auto;' widt=
+h=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_re o_bg-dark o_px o_pb-md o_br-t' style=3D=
+'font-size: 0;vertical-align: top;background-color: #2a2b6e;border-radius=
+: 4px 4px 0 0;padding-left: 16px;padding-right: 16px;padding-bottom: 14px=
+;'>
+<div class=3D'o_col o_col-2' style=3D'display: inline-block;vertical-alig=
+n: top;width: 100%;max-width: 200px;'>
+<div style=3D'font-size: 24px; line-height: 24px; height: 20px;'>=C2=A0</=
+div>
+<div class=3D'o_px-xs o_sans o_text o_left o_xs-center' style=3D'margin-t=
+op: 0;margin-bottom: 0;font-size: 16px;line-height: 24px;text-align: cent=
+er!important;padding-left: 8px;padding-right: 8px;font-family: "Roboto",s=
+ans-serif!important;'>
+<p style=3D'margin-top: 0;margin-bottom: 0;'>
+<a class=3D'o_text-white' href=3D'https://www.monetrack.com/' style=3D'te=
+xt-decoration: none;outline: none;color: #fff;' target=3D'_blank'>
+<img alt=3D'Monetrack' src=3D'https://s3.amazonaws.com/monetrack-prod/Ema=
+il_templates/EN/MT-logo-email.png' style=3D'max-width: 200px;-ms-interpol=
+ation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;ou=
+tline: none;text-decoration: none;'>
+</a>
+</p>
+</div>
+</div>
+<div class=3D'o_col o_col-4' style=3D'display: inline-block;vertical-alig=
+n: top;width: 100%;max-width: 400px;'>
+<div style=3D'font-size: 24px; line-height: 24px; height: 18px;'>=C2=A0</=
+div>
+<div class=3D'o_px-xs' style=3D'padding-left: 8px;padding-right: 8px;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_right =
+o_xs-center' role=3D'presentation' style=3D'text-align: center!important;=
+margin-left: auto'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_btn-xs o_br o_heading o_text-xs' style=3D=
+'font-weight: 700!important;margin-top: 0;margin-bottom: 0;font-size: 14p=
+x;line-height: 21px;mso-padding-alt: 7px 16px;border-radius: 4px;font-fam=
+ily: "Roboto",sans-serif!important;'>
+<a class=3D'o_text-primary' href=3D'https://app.monetrack.com/users/sign_=
+in' style=3D'text-decoration: none;outline: none;color: #fff;display: blo=
+ck;padding: 7px 16px;mso-text-raise: 3px;background-color: #ff6f00;' targ=
+et=3D'_blank'>=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' role=3D'presentat=
+ion' width=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_bg-light o_px-xs' style=3D'background-col=
+or: #f3f4f7;padding-left: 8px;padding-right: 8px;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_block-=
+lg' role=3D'presentation' style=3D'max-width: 800px;margin: 0 auto;' widt=
+h=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_bg-ultra_light o_px-md o_py-xl o_xs-py-md=
+' style=3D'background-color: #ebf5fa;padding-left: 24px;padding-right: 24=
+px;padding-top: 24px!important;padding-bottom: 24px!important;'>
+<div class=3D'o_col-6s o_center o_sans o_text-md o_text-light' style=3D'm=
+argin-top: 0;margin-bottom: 0;font-size: 19px;line-height: 28px;max-width=
+: 584px;color: #82899a;text-align: center;font-family: "Roboto",sans-seri=
+f!important;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_center=
+' role=3D'presentation' style=3D'text-align: center;margin-left: auto;mar=
+gin-right: auto;'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_sans o_text o_text-secondary o_px o_py o_=
+br-max' style=3D'margin-top: 0;margin-bottom: 0;font-size: 16px;line-heig=
+ht: 24px;color: #424651;border-radius: 96px;padding-left: 16px;padding-ri=
+ght: 16px;padding-top: 16px;padding-bottom: 16px;font-family: "Roboto",sa=
+ns-serif!important;'>
+<img alt=3D'' height=3D'149' src=3D'https://s3.amazonaws.com/monetrack-pr=
+od/Email_templates/EN/MT-mascot-email.png' style=3D'max-width: 220px;-ms-=
+interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height:=
+ 100%;height: auto;outline: none;text-decoration: none;' width=3D'220'>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 class=3D'o_heading o_text-dark o_mb-xxs' style=3D'font-weight: 700!im=
+portant;margin-top: 0;margin-bottom: 0;color: #463972;font-family: "Robot=
+o",sans-serif!important;font-size: 26px!important;line-height: 37px!impor=
+tant;'>=E3=83=9E=E3=83=8D=E3=83=BC=E3=83=88=E3=83=A9=E3=83=83=E3=82=AF</h=
+2>
+<p style=3D'margin-top: 0;margin-bottom: 0;margin: 5px 0!important;'>=E6=A5=
+=AD=E7=95=8C=E5=88=9D=EF=BC=81=E5=8D=B3=E9=87=91=E6=89=95=E3=81=84=E3=82=A2=
+=E3=83=95=E3=82=A3=E3=83=AA=E3=82=A8=E3=82=A4=E3=83=88ASP</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' role=3D'presentat=
+ion' width=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_bg-light o_px-xs' style=3D'background-col=
+or: #f3f4f7;padding-left: 8px;padding-right: 8px;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_block-=
+lg' role=3D'presentation' style=3D'max-width: 800px;margin: 0 auto;' widt=
+h=3D'100%'>
+<tbody>
+<tr>
+<td class=3D'o_bg-white' style=3D'font-size: 24px;line-height: 24px;heigh=
+t: 24px;background-color: #fff;'>=C2=A0</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' role=3D'presentat=
+ion' width=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_bg-light o_px-xs' style=3D'background-col=
+or: #f3f4f7;padding-left: 8px;padding-right: 8px;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_block-=
+lg' role=3D'presentation' style=3D'max-width: 800px;margin: 0 auto;' widt=
+h=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'left' class=3D'o_bg-white o_px-md o_py' style=3D'background-=
+color: #fff;padding-left: 24px;padding-right: 24px;padding-top: 16px;padd=
+ing-bottom: 16px;'>
+<div class=3D'o_sans' style=3D'margin-top: 0;margin-bottom: 0;font-family=
+: "Roboto",sans-serif!important;font-size: 16px;line-height: 1.5;'>
+<p>=E9=81=A0=E8=97=A4=E5=B0=87=E5=8F=B8 =E6=A7=98<br><br>=E3=81=84=E3=81=A4=
+=E3=82=82=E3=83=9E=E3=83=8D=E3=83=BC=E3=83=88=E3=83=A9=E3=83=83=E3=82=AF=E3=
+=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=
+=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=
+=E3=81=99=E3=80=82<br><br>=E3=83=9E=E3=83=8D=E3=83=BC=E3=83=88=E3=83=A9=E3=
+=83=83=E3=82=AF=E3=82=B5=E3=83=9D=E3=83=BC=E3=83=88=E6=A7=98=E3=81=8B=E3=82=
+=89=E6=96=B0=E8=A6=8F=E3=83=A1=E3=83=83=E3=82=BB=E3=83=BC=E3=82=B8=E3=81=8C=
+=E5=B1=8A=E3=81=84=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E4=
+=B8=8B=E8=A8=98=E3=81=AE=E3=83=9C=E3=82=BF=E3=83=B3=E3=82=88=E3=82=8A=E3=83=
+=9E=E3=83=8D=E3=83=BC=E3=83=88=E3=83=A9=E3=83=83=E3=82=AF=E3=81=AB=E3=83=AD=
+=E3=82=B0=E3=82=A4=E3=83=B3=E3=81=AE=E4=B8=8A=E3=80=81=E3=83=A1=E3=83=83=E3=
+=82=BB=E3=83=BC=E3=82=B8=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=
+=A0=E3=81=95=E3=81=84=E3=80=82<br><br><a style=3D'background-color: #0ec0=
+6e;color:#fff;padding:12px 24px;display: block;font-weight: bold; width: =
+252px; text-decoration: none;text-align: center' href=3D'https://app.mone=
+track.com'>=E3=83=AD=E3=82=B0=E3=82=A4=E3=83=B3</a></p>
+
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' role=3D'presentat=
+ion' width=3D'100%'>
+<tbody>
+<tr>
+<td align=3D'center' class=3D'o_bg-light o_px-xs o_pb-lg o_xs-pb-xs' styl=
+e=3D'background-color: #f3f4f7;padding-left: 8px;padding-right: 8px;paddi=
+ng-bottom: 8px!important;'>
+<table border=3D'0' cellpadding=3D'0' cellspacing=3D'0' class=3D'o_block-=
+lg' role=3D'presentation' style=3D'max-width: 800px;margin: 0 auto;' widt=
+h=3D'100%'>
+<tbody>
+<tr>
+<td class=3D'o_bg-white o_br-b o_sans' style=3D'font-size: 8px;line-heigh=
+t: 8px;height: 8px;margin-top: 0;margin-bottom: 0;background-color: #fff;=
+border-radius: 0 0 4px 4px;font-family: "Roboto",sans-serif!important;'>=C2=
+=A0</td>
+</tr>
+<tr>
+<td align=3D'center' class=3D'o_re o_px o_pb-lg' style=3D'font-size: 0;ve=
+rtical-align: top;padding-left: 16px;padding-right: 16px;padding-bottom: =
+32px;'>
+<div class=3D'o_col o_col-2 o_col-full' style=3D'display: inline-block;ve=
+rtical-align: top;width: 100%;max-width: 200px;'>
+<div style=3D'font-size: 32px; line-height: 32px; height: 32px;'>=C2=A0</=
+div>
+<div class=3D'o_px-xs o_sans o_text-xs o_center' style=3D'margin-top: 0;m=
+argin-bottom: 0;font-size: 14px;line-height: 21px;text-align: center;padd=
+ing-left: 8px;padding-right: 8px;font-family: "Roboto",sans-serif!importa=
+nt;'>
+<p style=3D'margin-top: 0;margin-bottom: 0;margin: 5px 0!important;'>
+<a class=3D'o_text-light' href=3D'https://monetrack.zendesk.com/hc/ja' st=
+yle=3D'text-decoration: none;outline: none;color: #82899a;' target=3D'_bl=
+ank'>
+<strong style=3D'color: #82899a;font-weight: 700!important;'>=E3=82=88=E3=
+=81=8F=E3=81=82=E3=82=8B=E8=B3=AA=E5=95=8F</strong>
+</a>
+</p>
+</div>
+</div>
+<div class=3D'o_col o_col-2 o_col-full' style=3D'display: inline-block;ve=
+rtical-align: top;width: 100%;max-width: 200px;'>
+<div style=3D'font-size: 24px; line-height: 24px; height: 24px;'>=C2=A0</=
+div>
+<div class=3D'o_px-xs o_sans o_text-xs o_center' style=3D'margin-top: 0;m=
+argin-bottom: 0;font-size: 14px;line-height: 21px;text-align: center;padd=
+ing-left: 8px;padding-right: 8px;font-family: "Roboto",sans-serif!importa=
+nt;'>
+<p style=3D'margin-top: 0;margin-bottom: 0;margin: 5px 0!important;'>
+<a class=3D'o_text-light' href=3D'https://www.facebook.com/monetrack/' st=
+yle=3D'text-decoration: none;outline: none;color: #82899a;' target=3D'_bl=
+ank'>
+<img alt=3D'fb' height=3D'36' src=3D'https://s3.amazonaws.com/monetrack-p=
+rod/Email_templates/EN/facebook-light.png' style=3D'max-width: 36px;-ms-i=
+nterpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: =
+100%;height: auto;outline: none;text-decoration: none;' width=3D'36'>
+</a>
+<span>=C2=A0</span>
+<a class=3D'o_text-light' href=3D'https://twitter.com/monetrack/' style=3D=
+'text-decoration: none;outline: none;color: #82899a;' target=3D'_blank'>
+<img alt=3D'tw' height=3D'36' src=3D'https://s3.amazonaws.com/monetrack-p=
+rod/Email_templates/EN/twitter-light.png' style=3D'max-width: 36px;-ms-in=
+terpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 1=
+00%;height: auto;outline: none;text-decoration: none;' width=3D'36'>
+</a>
+<span>=C2=A0</span>
+</p>
+</div>
+</div>
+<div class=3D'o_col o_col-2 o_col-full' style=3D'display: inline-block;ve=
+rtical-align: top;width: 100%;max-width: 200px;'>
+<div style=3D'font-size: 32px; line-height: 32px; height: 32px;'>=C2=A0</=
+div>
+<div class=3D'o_px-xs o_sans o_text-xs o_center' style=3D'margin-top: 0;m=
+argin-bottom: 0;font-size: 14px;line-height: 21px;text-align: center;padd=
+ing-left: 8px;padding-right: 8px;font-family: "Roboto",sans-serif!importa=
+nt;'>
+<p style=3D'margin-top: 0;margin-bottom: 0;margin: 5px 0!important;'>
+<a class=3D'o_text-light' href=3D'https://www.monetrack.com/privacy-polic=
+y/' style=3D'text-decoration: none;outline: none;color: #82899a;' target=3D=
+'_blank'>
+<strong style=3D'color: #82899a;font-weight: 700!important;'>=E3=83=97=E3=
+=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=83=9D=E3=83=AA=E3=82=B7=E3=83=
+=BC</strong>
+</a>
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td align=3D'center' class=3D'o_px-md o_pb-lg o_sans o_text-xs o_text-lig=
+ht' style=3D'margin-top: 0;margin-bottom: 0;font-size: 14px;line-height: =
+21px;color: #82899a;padding-left: 24px;padding-right: 24px;padding-bottom=
+: 32px;font-family: "Roboto",sans-serif!important;'>
+<p class=3D'o_mb-xs' style=3D'margin-top: 0;margin-bottom: 0;margin: 5px =
+0!important;'>
+=C2=A9 2021
+<a class=3D'o_text-light' href=3D'https://www.monetrack.com' style=3D'tex=
+t-decoration: none;outline: none;color: #82899a;' target=3D'_blank'>Monet=
+rack.com</a>
+<br style=3D'display: block;content: " ";margin: 5px 0!important;'>
+=E6=9C=AC=E6=B0=97=E3=81=A7=E7=A8=BC=E3=81=90=E3=82=A2=E3=83=95=E3=82=A3=E3=
+=83=AA=E3=82=A8=E3=82=A4=E3=83=88ASP=E3=81=AA=E3=82=89=E3=83=9E=E3=83=8D=E3=
+=83=BC=E3=83=88=E3=83=A9=E3=83=83=E3=82=AF
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class=3D'o_hide-xs' style=3D'font-size: 64px;line-height: 64px;heigh=
+t: 64px;display: none!important;max-height: 0!important;width: 0!importan=
+t;overflow: hidden!important;visibility: hidden!important;'>=C2=A0</div>
+</td>
+</tr>
+</tbody>
+</table>
+

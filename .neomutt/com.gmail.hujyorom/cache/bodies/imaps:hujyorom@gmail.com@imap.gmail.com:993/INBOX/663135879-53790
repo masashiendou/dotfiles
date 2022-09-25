@@ -1,0 +1,326 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:5c50:0:0:0:0:0 with SMTP id q77csp2588580vkb;
+        Tue, 3 Aug 2021 22:32:33 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxOqqFSYGuuhHzgpCvatkfOx1EWGAPn25oGM4+US36i114xBpBQJazjvkHNcc4ywaAIFIwC
+X-Received: by 2002:a63:ef57:: with SMTP id c23mr176075pgk.60.1628055153750;
+        Tue, 03 Aug 2021 22:32:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628055153; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=eQnQ+56sXRUXnUDmBbV5N/+DG7GvzboP3uHB9MNPPF+1mBmdoo4k+G6XB3hgQpqfoG
+         HYDIRrWk90zKv2LpjTVVxi9EHWdskaIizhOJH5KNXqRNEmgbv2HGO3s7Gdg+sITym7pe
+         pQg5+f6Y685czxtaHIb680ZfYdVqcZirBQf40rGKL70HSV9uOBuqp731tSwC50DQzyVb
+         6FkPczoU3xLH13R6Qfubxyjoz/OH8B+2+C4fNF8nZvDhC5NSpZausdCNJDhZBF+gB0+U
+         sGqL8TDcVsXG4Oz0ewZbm/Bdi9TsRa7sHEs0jAnJcSc0/0oSwh64+fXW+QUqWd3cAisZ
+         19vg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:authentication-results-original:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature:dkim-signature;
+        bh=j2DIwIddO1yz3ubhvi9iJRFapHfH/7p7lI74ArEkddE=;
+        b=mcoESbL4n0gtizzrV4v4dWm3Unkk7UmFZsvWolyG0v/ayBxAg0pZpBnJROhgQ83sax
+         ZgogrhEBStaFHKg65HuliUJ5XStY7GJlwLjIlpBFh+lITmrq8BMkY10ZTILa08mc6IQf
+         lDLdDeS5zPKKquwwM46529EwZ9eR76naaDHrKFE/2UnEtdJQTMtsWpYGYufHkMjuF6Qm
+         ADgMPNRNv/iCOeudIZi1pCIc1/5QPVljZ1G2O4qd07bGPDIkW7DOz11s8Zk3YTi61hXW
+         +SZ8jMfH1A8UhiHb/CPAldeRLyrWkgkCG3qQvf6CZ3vkbA93GT0hRLgjDLRb+G2ZCXZq
+         LDHQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@staffservicegroup.onmicrosoft.com header.s=selector2-staffservicegroup-onmicrosoft-com header.b=SZPUWTUV;
+       dkim=pass header.i=@staffservicegroup.onmicrosoft.com header.s=selector2-staffservicegroup-onmicrosoft-com header.b=SZPUWTUV;
+       arc=pass (i=1 spf=pass spfdomain=staffservice.ne.jp dkim=pass dkdomain=staffservice.ne.jp dmarc=pass fromdomain=staffservice.ne.jp);
+       spf=pass (google.com: domain of ssehoken@staffservice.ne.jp designates 40.107.141.139 as permitted sender) smtp.mailfrom=ssehoken@staffservice.ne.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <ssehoken@staffservice.ne.jp>
+Received: from JPN01-OS2-obe.outbound.protection.outlook.com (mail-eopbgr1410139.outbound.protection.outlook.com. [40.107.141.139])
+        by mx.google.com with ESMTPS id b7si622451pgs.555.2021.08.03.22.32.33
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Aug 2021 22:32:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ssehoken@staffservice.ne.jp designates 40.107.141.139 as permitted sender) client-ip=40.107.141.139;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@staffservicegroup.onmicrosoft.com header.s=selector2-staffservicegroup-onmicrosoft-com header.b=SZPUWTUV;
+       dkim=pass header.i=@staffservicegroup.onmicrosoft.com header.s=selector2-staffservicegroup-onmicrosoft-com header.b=SZPUWTUV;
+       arc=pass (i=1 spf=pass spfdomain=staffservice.ne.jp dkim=pass dkdomain=staffservice.ne.jp dmarc=pass fromdomain=staffservice.ne.jp);
+       spf=pass (google.com: domain of ssehoken@staffservice.ne.jp designates 40.107.141.139 as permitted sender) smtp.mailfrom=ssehoken@staffservice.ne.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=staffservicegroup.onmicrosoft.com;
+ s=selector2-staffservicegroup-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j2DIwIddO1yz3ubhvi9iJRFapHfH/7p7lI74ArEkddE=;
+ b=SZPUWTUVMNeWRmXIELf5VbkhUvfwr8c6wqy/piUlJxGYTQi8bD+bkM4bWNMx0NBLINe9NOiau+/7XtijOg7gWzBJMIe69XFo20+7Bn7S8mEzrJjqSq9317n0dli/LqgT2lpLzZ4WGS6ewp0RzntKtd4caQ9O4CpFtMdJ2I03TFw=
+Received: from TYAPR04CA0016.apcprd04.prod.outlook.com (2603:1096:404:15::28)
+ by OS3PR01MB6951.jpnprd01.prod.outlook.com (2603:1096:604:120::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4373.25; Wed, 4 Aug
+ 2021 05:32:32 +0000
+Received: from TY1JPN01FT007.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:404:15:cafe::5f) by TYAPR04CA0016.outlook.office365.com
+ (2603:1096:404:15::28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4394.15 via Frontend
+ Transport; Wed, 4 Aug 2021 05:32:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.115.240.228)
+ smtp.mailfrom=staffservice.ne.jp; gmail.com; dkim=pass (signature was
+ verified) header.d=staffservicegroup.onmicrosoft.com;gmail.com; dmarc=pass
+ action=none header.from=staffservice.ne.jp;
+Received-SPF: Pass (protection.outlook.com: domain of staffservice.ne.jp
+ designates 13.115.240.228 as permitted sender)
+ receiver=protection.outlook.com; client-ip=13.115.240.228;
+ helo=mail.mfilter.local;
+Received: from mail.mfilter.local (13.115.240.228) by
+ TY1JPN01FT007.mail.protection.outlook.com (10.152.187.61) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.4373.18 via Frontend Transport; Wed, 4 Aug 2021 05:32:31 +0000
+Received: from JPN01-OS2-obe.outbound.protection.outlook.com ([104.47.92.52]) by m-FILTER with ESMTP; Wed, 4 Aug 2021 14:32:31 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Un06fQ9Q1B8RHda8aDpsScBtWegKcR2nKRZqss7Vkv4iffiLAR9MKhGl8hNQ88VNO/iRBzsI2zhXpEeapfohU4u9HCs6Ocd2ioqUt3EDF7Auij34zxb07ND0b391REpbQU494xQUMY6DnaDDZmMZro+aVErzWZ2Ywld79LNpEySoCCrvqMkKwuiPyZ/75CX1zrZRyDpJGcAKatBD7RYOVBFMj8CGLmUJ27Aonbn2SsYbnuSjCqXPk5kg7o6Q92bD6IdZwJ5/eWJXXbQz/iUC+6lPMYkRTgUKy3JODkkYZ03Twg5OvWADCaKL5jJfQ6hL/8OqnjwZROJZ1b/M2cSdHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j2DIwIddO1yz3ubhvi9iJRFapHfH/7p7lI74ArEkddE=;
+ b=FCHnvC86uOGEp5ibKd1GPVfQmUdz39PXBK362/JMnaRAU60G9dH98HRF/Qcss17Yg+/wOc+zboZcH2YS8s4eWIHXfbIoIlL5/0fEwznLFq+MfGHemeHye/TejLX7B04SSknwB7ZlGSkt8WHQXaFadzq2ifFSY0JPP0CM80blzFN3XJ8aIMw5NSK8edNu8xTKNrHx0bDbcpb1y+oNe+RymmUVGi/ZgIfkwWjKAnB/wi8RGe3jB6zUQtvQYE+EuMfcWTsbcb6a7ET4JmXmPgc11Ys8e2NuyCUuEdXZImFgJe7WFMsj2iSWtlvTVrTJiKK3DGiIaYK1j0rjCchyt8wNjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=staffservice.ne.jp; dmarc=pass action=none
+ header.from=staffservice.ne.jp; dkim=pass header.d=staffservice.ne.jp;
+ arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=staffservicegroup.onmicrosoft.com;
+ s=selector2-staffservicegroup-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j2DIwIddO1yz3ubhvi9iJRFapHfH/7p7lI74ArEkddE=;
+ b=SZPUWTUVMNeWRmXIELf5VbkhUvfwr8c6wqy/piUlJxGYTQi8bD+bkM4bWNMx0NBLINe9NOiau+/7XtijOg7gWzBJMIe69XFo20+7Bn7S8mEzrJjqSq9317n0dli/LqgT2lpLzZ4WGS6ewp0RzntKtd4caQ9O4CpFtMdJ2I03TFw=
+Received: from OS0PR01MB6068.jpnprd01.prod.outlook.com (2603:1096:604:ce::12)
+ by OSBPR01MB4742.jpnprd01.prod.outlook.com (2603:1096:604:3a::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4373.23; Wed, 4 Aug
+ 2021 05:32:29 +0000
+Received: from OS0PR01MB6068.jpnprd01.prod.outlook.com
+ ([fe80::413d:27bc:e600:e405]) by OS0PR01MB6068.jpnprd01.prod.outlook.com
+ ([fe80::413d:27bc:e600:e405%7]) with mapi id 15.20.4394.015; Wed, 4 Aug 2021
+ 05:32:29 +0000
+From: =?iso-2022-jp?B?GyRCM3Q8MDJxPFIlOSU/JUMlVSU1ITwlUyU5ISElOSU/JUMlVUFtGyhC?=
+ =?iso-2022-jp?B?GyRCTDM8PCUoJXMlOEpdODFDNEV2GyhC?=
+	<ssehoken@staffservice.ne.jp>
+To: "'hujyorom@gmail.com'" <hujyorom@gmail.com>
+CC: =?iso-2022-jp?B?GyRCM3Q8MDJxPFIlOSU/JUMlVSU1ITwlUyU5ISElOSU/JUMlVUFtGyhC?=
+ =?iso-2022-jp?B?GyRCTDM8PCUoJXMlOEpdODFDNEV2GyhC?=
+	<ssehoken@staffservice.ne.jp>
+Subject:
+ =?iso-2022-jp?B?GyRCTVdKVj8uIVolOSU/JUMlVSU1ITwlUyU5IVs3cjkvSl04MUleGyhC?=
+ =?iso-2022-jp?B?GyRCTVw/PUBBJE43byFjRVBPPzc/IWQbKEI=?=
+Thread-Topic:
+ =?iso-2022-jp?B?GyRCTVdKVj8uIVolOSU/JUMlVSU1ITwlUyU5IVs3cjkvSl04MUleGyhC?=
+ =?iso-2022-jp?B?GyRCTVw/PUBBJE43byFjRVBPPzc/IWQbKEI=?=
+Thread-Index: AdXLNDcZo2lcXf3/TWOkHJP5TIhCb29vPzKw
+Date: Wed, 4 Aug 2021 05:32:29 +0000
+Message-ID:
+ <OS0PR01MB60687EC13C30FEF676628FF084F19@OS0PR01MB6068.jpnprd01.prod.outlook.com>
+References:
+ <TYAPR01MB4605DCB7C06BF572EC722B8191340@TYAPR01MB4605.jpnprd01.prod.outlook.com>
+In-Reply-To:
+ <TYAPR01MB4605DCB7C06BF572EC722B8191340@TYAPR01MB4605.jpnprd01.prod.outlook.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Authentication-Results-Original: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none
+ header.from=staffservice.ne.jp;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+X-MS-Office365-Filtering-Correlation-Id: 4aa08034-d462-43e8-3b3c-08d957094181
+x-ms-traffictypediagnostic: OSBPR01MB4742:|OS3PR01MB6951:
+x-ms-exchange-transport-forked: True
+X-Microsoft-Antispam-PRVS:
+	<OS3PR01MB69515FFED8C0A51AD2315658F2F19@OS3PR01MB6951.jpnprd01.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:1728;OLM:1728;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ qdwaeYZvOBSiq+KNwrVvgAkfRnJWo65fByj1tTUctAaA/uiLO/WTLW4KvTGHcmmkgVWGmFZO/Hl8uqzhquMTO+woR0MEuaekEDfaCsfOLKy2ZHCFUlzkdcofUKGqCW6cFP/rDvCs+1xNqLArh+Kcq1ccwktcE0dWrKjj19Y5EJuAOpj0rpPt+MjQDPsEsz+FKB7EVbb9Bxxu2Mu8p1i6Wk4T7gDIuNmkj8mcl4MvNwyLz61XTK2lPI6x8yUf5IoEtWk4HzcUOsxUpW+CYnq8eCx0QSdl8EJvc/BEZngZn7smhL1sOsJPuE3OvQ/b9G9Se6cd02gSIc/JjV//1TdpF1oKadyD/1AsxlPNlpfui1Cg6qUncgW9ATk4uiJRqmI7ZeLg8Sh+HX0+tClTYv9FJk0JPsbUEGExv/Oiga6aICBI/KCdH6l47TU04xP6WOiISBkuQ8pMPVDjkowLTrX1eL7hvGqEjD8bajRQFO73xOppjxrw65+HIxhVfM7v6mpE0TTLCGf6pfF/SD143szVDOLCZv/XoFUgSPpaf8vP3cfcq7U0T29O8NX+H8tWNSkDK7oKliUp9n6qum0YpW1CYC5r2H4hhxSXKFKt0HQutsqPI23p8UbQg/sDM5O7HSaA+dL2fhKiEh4AOXgwtHsMuhH3hnAct7tQ/nj0NVlAnxN93074+jLY7B2oIRiS8EP8+Uo11CLRhOjkzysOgzFNi5ciZXkB7wyI6vmugL5R93U=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS0PR01MB6068.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(366004)(2906002)(26005)(86362001)(5660300002)(55016002)(30864003)(316002)(6916009)(224303003)(9686003)(8936002)(6506007)(186003)(4326008)(71200400001)(64756008)(66946007)(52536014)(107886003)(508600001)(122000001)(76116006)(66446008)(38100700002)(966005)(7696005)(38070700005)(66556008)(33656002)(83380400001)(66476007)(491001);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-2022-jp?B?eC91RUJyd2lxay9HWXFaVXZOdWRSTWFqNk1iemRJNFd2S1RUbE00bkE4?=
+ =?iso-2022-jp?B?SHRlV2NxdUVyL0ZoczI3M2o3aVIybE8rY0NydzFFbTRmS1F5TlB2YVFx?=
+ =?iso-2022-jp?B?Tlp6N1Q3S3M5dm5rRXBRSkMybXIxNFVVVkU3c0hoRk90Ums5NGRXcDFT?=
+ =?iso-2022-jp?B?UU82M2h0T1lZd1dndk9iQTd0bDhWZzY3R2x2US9tT2JwYXBpUDdKekF6?=
+ =?iso-2022-jp?B?Q25KUE1JNUFKZ0F3eGMwQk9EMllxNlhCQzBuaU1PaExXN2RkNzhIZExI?=
+ =?iso-2022-jp?B?aFdEa3loZlNPN0t4RW9DRGVWeTdkU0N3RUo0Zm16SCtZbDEzekZTTjcy?=
+ =?iso-2022-jp?B?L0l4eUdXWTRQRXFnM2Q5cDNOam44L3YrWkZjbUF1Q1hPaktZb0NRRXc4?=
+ =?iso-2022-jp?B?dnlmM25QY09MekwrekdzdEEwOThiMDFQY2FKempKMDJGY2xJcVdPUnNC?=
+ =?iso-2022-jp?B?NTZZWTVqSVJDQ3haeElVRUdqeWcrSDhLWmM5bjB1NElGZ0ZNaDdzOW1t?=
+ =?iso-2022-jp?B?OXBsWW1FVjgzMmZmdW5UUlVyTERaaHBDT0NvN00zYWNiV2Z4dGxaeFYw?=
+ =?iso-2022-jp?B?Vy9Bb2ovbkRuVm51UXBKUU5MdFFhWVRCN0VZRDdzQmhMWk1oVTc2Z0px?=
+ =?iso-2022-jp?B?RlVnOURaTUZJeEJndHBSMnluT1FHWXUyalBBcXUyZDZQQ1paZmYwWDdF?=
+ =?iso-2022-jp?B?K0VvZFpETkRUOEhRbjVrTldmRkJPL3JpT0twQlJ5Q1RwSzdyL1VCckNS?=
+ =?iso-2022-jp?B?eElNc0lXN21kNHl1UGFHTktHODYybVRtUXNuVWkvcTNLd0FQa0lCZVhr?=
+ =?iso-2022-jp?B?dDkreUk2S2VrZVd1MlJKOHFlWXpIK1VTN0s3L09MbkNWdzJiUThYQnA2?=
+ =?iso-2022-jp?B?QUZjTlRKaW50Z3daY3M2dXgvcDVndXdIODVpTFFKdUY3MnZITUc3cG5v?=
+ =?iso-2022-jp?B?eUFZSFV2N2lJa2lYZGhYM3ZoVkpwY29jMjdIWHJ5cWJJcDJ1SjByQ2NB?=
+ =?iso-2022-jp?B?K1YrY3A3OTUxOURFdW9kNmVDdlRUakJ3OFZTTm9TbEdpcDVZSVl6REtH?=
+ =?iso-2022-jp?B?a2l1aVM4UjgrR0dzRlV2bzZFZ2xWQU11WVlyWFBiQ3BaeXBUOFY5ZXQ3?=
+ =?iso-2022-jp?B?QXZYcHlYTldla0FFVG9iVEo1eXBRdjEzaGFnUER5VG9QeXFqZGNyb01l?=
+ =?iso-2022-jp?B?UDhRN2UrZUNZYjZLTVV6Z0RENjdNdUx1ZFFWdjE1SjI3ckRIRHNBME1k?=
+ =?iso-2022-jp?B?TXk3aFRsS0pnVDB2ZnNwNCtncURja1FNbHRpZ21acmFESks1NnpOQWJO?=
+ =?iso-2022-jp?B?b3dJU1pKSURaT2U0cFBUOGVINjJJZW5ZRC9yZGxqc2tPRlRiZFlQQThv?=
+ =?iso-2022-jp?B?cmJ2a0pMOUZpOHpnNncrWGlxa0pNbnpvM2VTb1FtTkh2S0FieTBHSSs1?=
+ =?iso-2022-jp?B?ckx6ekV4QzZzSnFucFlhR3RMUHh2OTdzS096UWpIMkJTaWRjaVF5bUpD?=
+ =?iso-2022-jp?B?ZllVZUY1bWFXODRoU0lRS0dWRG5LallBdUNSRStrY2h0RmtQWUpYZklK?=
+ =?iso-2022-jp?B?blFyRDJ5Rk5QVWRTc3VtdEltdXJ4SDNaOXVRMXRVdDRDU21UOWxsSXFn?=
+ =?iso-2022-jp?B?WHdReEtqVW5CNjdLeG1JUW1lZTA1SmQ0dVl4Y0l5RHF4V2ZaRE9LdmRo?=
+ =?iso-2022-jp?B?SVpKemV6cmJtOEdYZExwakhLMmNQMUJwelNJaWhDTDNWTkhjbjJOMy82?=
+ =?iso-2022-jp?B?Z0kzVVpTL1g3dERjZVAzc21Ra2ZseGl6MnFkcldBM0k0cnQwVEdTRXRy?=
+ =?iso-2022-jp?B?cDY1RlB4NkdHK2NKUk4rOWRyMGpYRWJVMmJvd2p3dysvUUdvLzhOK255?=
+ =?iso-2022-jp?B?NERSdFFPU21lckkvYWU1Q0VMOFZEN2ZhNVpoVERvbUMrWlNNUlhheDNB?=
+Content-Type: multipart/alternative;
+	boundary="_000_OS0PR01MB60687EC13C30FEF676628FF084F19OS0PR01MB6068jpnp_"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSBPR01MB4742
+X-KN1-1: 1
+X-KN2-0: 0
+X-KN3-0: 0
+X-KN4-0: 0
+X-KN5-0: 0
+X-KN6-1: 1
+X-KN7-0: 0
+X-KNJ4-0: 0
+X-KNJ7-1: 1
+Return-Path: ssehoken@staffservice.ne.jp
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ TY1JPN01FT007.eop-JPN01.prod.protection.outlook.com
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	a22e9729-09ea-4866-7afe-08d957094064
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	TsrndkUmCi/UWYqZAeiST/hi8vcAyVSARxcOhizLf/eEnLy9GM7vVjnsHofajHT+g8zBWi0ZvpM4raXKNKQxHyUe0IhwEfKKY0zlEcz9wXHvyNNltgs0bz1VjpbdiGbIQbG/IYdA26XveleR2MEXIoLA4Jd3Dc4t24ue9t3X60KW6k65ChC0A57cZLxAk7e6awrM/VpVH7lMsf+biQ2oCV5IeYSq6O4LFDdl4G/FiY9HLSrm5foagOxZ7QAHVrPCYJ+5KnhyQUitZrUmKEOO7wYQyPRQ5dSIieuf7h6J93Lj9WOUHUEyNOFn1l9x00Z42xzbBVn03vq4I02lXU4kPPovFtUuXIwYc9jS4yO+Boe0B9XalFHdA+Zn/QRGkQvQk62jCIF2B8QekPxwrdYy/2IUaOd9Gq8KqmEICAL+/oL/rBDF06PGppdB8Fxg9DoO5UAzy+e0hXHPeJzrB9EZGlhY30OPGdMo1aTtGou8IGiE5rggcTYf/B0D86fqGjH8EIKMVr+A6kGSGqMrrmg7wHCD8VhBn7QINITViWgSmXLE0WAZ3QKA2DsDVnDG2t2N+9haJNbkYlgWydvVJL5eyDhczANmMzkb4rFP3I0nw7cC14qx24Jl/x9qNFnOaZO4ltb1UwYSixCU9wG4i5x8INlBAmd1CMbXH6z1uoblk5PE3V3BsCwm/k0SIhBzPeCr1yHSlifIscbCQGKwLxrRrfOsWDAN/L4SQhVatHvMgWg=
+X-Forefront-Antispam-Report:
+	CIP:13.115.240.228;CTRY:JP;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.mfilter.local;PTR:ec2-13-115-240-228.ap-northeast-1.compute.amazonaws.com;CAT:NONE;SFS:(46966006)(36840700001)(70586007)(33656002)(70206006)(224303003)(9686003)(7696005)(8936002)(82310400003)(107886003)(55016002)(52536014)(316002)(4326008)(6916009)(81166007)(186003)(6506007)(36906005)(26005)(36860700001)(86362001)(5660300002)(336012)(508600001)(356005)(2906002)(47076005)(491001);DIR:OUT;SFP:1102;
+X-OriginatorOrg: staffservice.ne.jp
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2021 05:32:31.4766
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4aa08034-d462-43e8-3b3c-08d957094181
+X-MS-Exchange-CrossTenant-Id: e0f5dbd9-5444-410b-809d-65d043d21b68
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e0f5dbd9-5444-410b-809d-65d043d21b68;Ip=[13.115.240.228];Helo=[mail.mfilter.local]
+X-MS-Exchange-CrossTenant-AuthSource:
+	TY1JPN01FT007.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB6951
+
+--_000_OS0PR01MB60687EC13C30FEF676628FF084F19OS0PR01MB6068jpnp_
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+=1B$B$*Hh$lMM$G$9!#=1B(B
+=1B$B%9%?%C%U%5!<%S%9!!%9%?%C%UAmL3<<!!J]81C4Ev$G$9!#=1B(B
+
+=1B$B$4=3D"6H3+;O$KH<$$!"<R2qJ]81Ey$N=3DqN`$r$4Ds=3DP$$$?$@$-$"$j$,$H$&$4$6=
+$$$^$7$?!#=1B(B
+=1B$B%A%'%C%/%j%9%HFb$N!V7r9/J]81$NI^M\=3DqN`!WMs$K%A%'%C%/$rIU$1$F$$$?$@$-=
+$^$7$?$,!"=1B(B
+=1B$BI^M\?=3D@A=3DqN`$,L$Ds=3DP$H$J$C$F$*$j$^$9!#=1B(B
+=1B$B$42HB2$N7r9/J]81$NI^M\?=3D@A$K$O!"JLES?=3D@A=3DqN`$NDs=3DP$,I,MW$G$9!#=
+=1B(B
+=1B$B=3DqN`$r$4=3D`Hw$$$?$@$-!"$*Aa$a$K$4Ds=3DP$r$*4j$$$$$?$7$^$9!#=1B(B
+=1B$B$J$*!"I^M\?=3D@A$r4uK>$5$l$J$$>l9g$O!"$=3D$N;]$r$4O"Mm$$$?$@$1$^$9$G$7=
+$g$&$+!#=1B(B
+
+=1B$B0J>e!"$4O"Mm$N$[$I!"59$7$/$*4j$$$$$?$7$^$9!#=1B(B
+
+=1B$B"(=1B(B2021=1B$BG/#87n=1B(B12=1B$BF|!A#87n=1B(B15=1B$BF|$^$G2F5(5Y6H$H=
+$5$;$F$$$?$@$-$^$9!#=1B(B
+=1B$B#87n=1B(B16=1B$BF|$+$i$OJ?>oDL$j1D6H$$$?$7$^$9!#=1B(B
+=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B=
+(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=
+=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$=
+B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/
+=1B$B3t<02q<R%9%?%C%U%5!<%S%9!!%9%?%C%UAmL3<<!!J]81C4Ev=1B(B
+=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B=
+(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=
+=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$=
+B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/
+=1B$B$3$N=1B(BE=1B$B!]=1B(Bmail=1B$B$K$O!"5!L)>pJs$,4^$^$l$F$$$k>l9g$,$"$j$=
+^$9!#=1B(B
+=1B$BK|$,0l!"EvJ}$N<j0c$$$K$h$j5.J}MM$,EvJ}$,0U?^$7$?<u?.<T$G$J$$>l9g$K$O!"=
+=1B(B
+=1B$B$*<j?t$r$*3]$1$$$?$7$^$9$,!"B.$d$+$K$3$N=1B(BE=1B$B!]=1B(Bmail=1B$B$rG=
+Q4~$7$F$$$?$@$-$^$9$h$&=1B(B
+=1B$B$*4j$$?=3D$7>e$2$^$9!#=1B(B
+=1B$B$^$?!"@?$K62=3DL$G$4$6$$$^$9$,!"D>$A$K$4O"Mm;r$l$P9,?S$KB8$8$^$9!#=1B(=
+B
+
+
+
+--_000_OS0PR01MB60687EC13C30FEF676628FF084F19OS0PR01MB6068jpnp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+<meta name=3D"Generator" content=3D"Microsoft Exchange Server">
+<!-- converted from rtf -->
+<style><!-- .EmailQuote { margin-left: 1pt; padding-left: 4pt; border-left:=
+ #800000 2px solid; } --></style>
+</head>
+<body>
+<font face=3D"Meiryo UI" size=3D"2"><span style=3D"font-size:10pt;">
+<div>=1B$B$*Hh$lMM$G$9!#=1B(B</div>
+<div>=1B$B%9%?%C%U%5!<%S%9!!%9%?%C%UAmL3<<!!J]81C4Ev$G$9!#=1B(B</div>
+<div style=3D"text-align:left;"><font face=3D"Times New Roman" size=3D"2"><=
+span style=3D"font-size:10.5pt;">&nbsp;</span></font></div>
+<div style=3D"text-align:left;">=1B$B$4=3D"6H3+;O$KH<$$!"<R2qJ]81Ey$N=3DqN`=
+$r$4Ds=3DP$$$?$@$-$"$j$,$H$&$4$6$$$^$7$?!#=1B(B</div>
+<div style=3D"text-align:left;">=1B$B%A%'%C%/%j%9%HFb$N!V7r9/J]81$NI^M\=3Dq=
+N`!WMs$K%A%'%C%/$rIU$1$F$$$?$@$-$^$7$?$,!"=1B(B</div>
+<div style=3D"text-align:left;">=1B$BI^M\?=3D@A=3DqN`$,L$Ds=3DP$H$J$C$F$*$j=
+$^$9!#=1B(B</div>
+<div style=3D"text-align:left;">=1B$B$42HB2$N7r9/J]81$NI^M\?=3D@A$K$O!"JLES=
+?=3D@A=3DqN`$NDs=3DP$,I,MW$G$9!#=1B(B</div>
+<div style=3D"text-align:left;">=1B$B=3DqN`$r$4=3D`Hw$$$?$@$-!"$*Aa$a$K$4Ds=
+=3DP$r$*4j$$$$$?$7$^$9!#=1B(B</div>
+<div style=3D"text-align:left;">=1B$B$J$*!"I^M\?=3D@A$r4uK>$5$l$J$$>l9g$O!"=
+$=3D$N;]$r$4O"Mm$$$?$@$1$^$9$G$7$g$&$+!#=1B(B</div>
+<div style=3D"text-align:left;"><font face=3D"Times New Roman" size=3D"2"><=
+span style=3D"font-size:10.5pt;">&nbsp;</span></font></div>
+<div style=3D"text-align:left;">=1B$B0J>e!"$4O"Mm$N$[$I!"59$7$/$*4j$$$$$?$7=
+$^$9!#=1B(B</div>
+<div style=3D"text-align:left;"><font face=3D"Times New Roman" size=3D"3"><=
+span style=3D"font-size:12pt;">&nbsp;</span></font></div>
+<div style=3D"text-align:left;"><font size=3D"2"><span style=3D"font-size:1=
+0.5pt;">=1B$B"(=1B(B2021=1B$BG/#87n=1B(B12=1B$BF|!A#87n=1B(B15=1B$BF|$^$G2F=
+5(5Y6H$H$5$;$F$$$?$@$-$^$9!#=1B(B</span></font></div>
+<div style=3D"text-align:left;"><font size=3D"2"><span style=3D"font-size:1=
+0.5pt;">=1B$B#87n=1B(B16=1B$BF|$+$i$OJ?>oDL$j1D6H$$$?$7$^$9!#=1B(B</span></=
+font></div>
+<div>=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B=
+!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=
+=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B=
+(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/</div>
+<div>=1B$B3t<02q<R%9%?%C%U%5!<%S%9!!%9%?%C%UAmL3<<!!J]81C4Ev=1B(B</div>
+<div>=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B=
+!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=
+=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B=
+(B/=1B$B!2=1B(B/=1B$B!2=1B(B/=1B$B!2=1B(B/</div>
+<div>=1B$B$3$N=1B(BE=1B$B!]=1B(Bmail=1B$B$K$O!"5!L)>pJs$,4^$^$l$F$$$k>l9g$,=
+$"$j$^$9!#=1B(B</div>
+<div>=1B$BK|$,0l!"EvJ}$N<j0c$$$K$h$j5.J}MM$,EvJ}$,0U?^$7$?<u?.<T$G$J$$>l9g$=
+K$O!"=1B(B</div>
+<div>=1B$B$*<j?t$r$*3]$1$$$?$7$^$9$,!"B.$d$+$K$3$N=1B(BE=1B$B!]=1B(Bmail=1B=
+$B$rGQ4~$7$F$$$?$@$-$^$9$h$&=1B(B</div>
+<div>=1B$B$*4j$$?=3D$7>e$2$^$9!#=1B(B</div>
+<div>=1B$B$^$?!"@?$K62=3DL$G$4$6$$$^$9$,!"D>$A$K$4O"Mm;r$l$P9,?S$KB8$8$^$9!=
+#=1B(B</div>
+<div><font face=3D"Times New Roman" size=3D"3"><span style=3D"font-size:12p=
+t;">&nbsp;</span></font></div>
+<div><font face=3D"Times New Roman" size=3D"3"><span style=3D"font-size:12p=
+t;">&nbsp;</span></font></div>
+</span></font>
+</body>
+</html>
+
+--_000_OS0PR01MB60687EC13C30FEF676628FF084F19OS0PR01MB6068jpnp_--

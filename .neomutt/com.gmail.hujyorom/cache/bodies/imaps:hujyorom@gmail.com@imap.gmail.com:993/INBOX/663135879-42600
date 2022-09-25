@@ -1,0 +1,84 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:3a53:0:0:0:0:0 with SMTP id h80csp341229vka;
+        Wed, 5 Aug 2020 02:02:04 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJx3sOCJHwRb1OkOEh/OfmAkHDuxvIBIK/x2pR1lL735ZPu6sSjIU7K/kMuvqdxktWdp0wtr
+X-Received: by 2002:a62:ee03:: with SMTP id e3mr2241072pfi.10.1596618124780;
+        Wed, 05 Aug 2020 02:02:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596618124; cv=none;
+        d=google.com; s=arc-20160816;
+        b=kaMIH/nd/MbPYP5Xy59nXMS7aCgytrJhjD7E2g85o1sdpTSmb/1ML7KvSV9GHt6WhV
+         rFxnrDPKol/nM7GM0Pjjofycm3CANtd+dy2/UCjncmBRKI2C5kO6lQmWev3SklALzOpo
+         TLMrIsFjEAjJnIKgFO+J/xUpNonL+itpcWfDRrVkjkrMAdJYsNZsfsjNDpiix9U54RiY
+         Rdvj3EmSz0j82I3ezJjpHsWyHbCfIwvUhhy5iM6Ojg7tF16/uIUgUuYU6ewYpv+TJ7EO
+         HQH7V8qYSM2L7UGsIGe2WmCNFUFxzViQhBGbxVFnpMByAuHf/4GxFEJZA3j92xcNcJQR
+         0dbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:content-transfer-encoding:subject:to:from:errors-to
+         :reply-to:dkim-signature:sender;
+        bh=JLuNTOVbbwhLk/n6dzMQP0yYfWxfa/qeZy7jwVMkAfc=;
+        b=o7YoV+L4Lr/tSO2QPftDw/lI+ZsazVN7RQAlScQhhR4fScGv31m7zfaF6ZEP7+c0KF
+         1A9gI6LS/KWnNOtOgtqe4HdrYY7Og1G6DpljUkQHxUtFB9OFbY9zGPvtkgofhoaaFfM5
+         5+LUUQbyC8Sbvgj7wpq7YdkExERuzzcxxb+eEj6wbS29Ok2J5Pcfp8bFP3+3+O/0A0z1
+         1J2botaJxVDxEQFCHUjYqfTFB+GMIpK49U8Fm4nfnHaqlzmT+PoR2rB1DPWDnnqESyv6
+         Jl14AFm/rHnBv/mFAWJjPBma6LZIpMFtZgyARnpTZjgU3x6QvXoqiCc1hxTd/qeAnztT
+         wCLg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=dZEPJGxV;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.118 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Return-Path: <post3@cc.japannetbank.co.jp>
+Received: from mml101.ymt.japannetbank.co.jp (mml101.ymt.japannetbank.co.jp. [202.238.157.118])
+        by mx.google.com with ESMTP id n11si980270pff.320.2020.08.05.02.02.04
+        for <hujyorom@gmail.com>;
+        Wed, 05 Aug 2020 02:02:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.118 as permitted sender) client-ip=202.238.157.118;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cc.japannetbank.co.jp header.s=20191009-dkim header.b=dZEPJGxV;
+       spf=pass (google.com: domain of post3@cc.japannetbank.co.jp designates 202.238.157.118 as permitted sender) smtp.mailfrom=post3@cc.japannetbank.co.jp
+Sender: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer1@cc.japannetbank.co.jp>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cc.japannetbank.co.jp; s=20191009-dkim; t=1596618123;
+	bh=JLuNTOVbbwhLk/n6dzMQP0yYfWxfa/qeZy7jwVMkAfc=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=dZEPJGxV1Lhcoe+NH2mE89+RhGzFa8+C9BoTRJKtei/Kr3mkiG9zKfMiaMcjXPNm0
+	 csUGoyrLkwd6lOipd6Wb5tAHsxQzJ8CW1UlqkMiLd0uilcZzWqd9mbNh2yNYx+/xRa
+	 KRLIzbBpVbRF4dOGbUaiE4VcFIdCl0gqtiObWO1Y=
+Reply-To: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer1@cc.japannetbank.co.jp>
+Errors-To: error3@cc.japannetbank.co.jp
+From: =?ISO-2022-JP?B?GyRCIWMlOCVjJVElcyVNJUMlSDZkOVQhZBsoQg==?=<customer1@cc.japannetbank.co.jp>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCI0ojTiNCJTklPyE8TS04ejR8OEIkTiQqQ04kaRsoQg==?=
+ =?ISO-2022-JP?B?GyRCJDsbKEo=?=
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+Message-Id: <20200805090203.D1F7112C0C1@mml101.ymt.japannetbank.co.jp>
+Date: Wed,  5 Aug 2020 18:01:28 +0900 (JST)
+
+エンドウ マサシ様
+
+いつもジャパンネット銀行をご利用いただきありがとうございます。
+お客さまが保有のJNBスターに、当月末で有効期限を
+迎えるものがございます。
+JNBスターは1JNBスター＝1円に交換できます。
+有効期限を過ぎると交換できなくなりますので、ご注意ください。
+
+■JNBスター数：189（2020年08月01日時点）
+うち、2020年08月31日まで有効なJNBスター数：10
+
+現在のJNBスター保有残高は、以下よりご確認ください。
+▽パソコン・スマートフォンの場合
+ログイン後、「便利に・お得に」＞「エントリー／JNBスター交換申込」
+▽携帯電話の場合
+ログイン後、「キャンペーン」＞「エントリー／JNBスター交換申込」
+
+----------------------------------------
+本メールがご自身宛でない場合、他の方が誤って同じメールアドレスを登録
+したものと考えられます。配信停止のお手続きをさせていただきますので、
+メール本文を削除せず、件名を「宛先の間違い」と修正のうえ、
+ご返信をお願いいたします。
+----------------------------------------
+
+※本メールへの返信によるご質問にはご回答できません。
+========================================
+株式会社ジャパンネット銀行
+https://www.japannetbank.co.jp/
+========================================

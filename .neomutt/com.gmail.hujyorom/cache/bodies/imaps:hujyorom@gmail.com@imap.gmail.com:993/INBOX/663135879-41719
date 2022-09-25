@@ -1,0 +1,88 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:93ce:0:0:0:0:0 with SMTP id v197csp1308044vkd;
+        Sat, 27 Jun 2020 03:42:36 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxU/EymLKiEAPbAHb075yQFJTmDGD3Rh7fKf9kvy736iwmMiqZ9Y3FL1DLx5gUnieFmP8hq
+X-Received: by 2002:a17:90a:d3c2:: with SMTP id d2mr7532835pjw.202.1593254556609;
+        Sat, 27 Jun 2020 03:42:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1593254556; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vJre16AVuWXOuqqlVFY/JwbXMTBt6XniFWqckj0cizGmCRMz4uZOyM0iJPMf5vOmrg
+         pf0k1T82jFLxIcsPSGcnM0TTdOLdnZxbcGTnlBbXWre5J4wW+vKbDV1ENtEm7sNxg3pP
+         D5pIV28KU6ynkIdiOOu1svfPzy6XPtinWuEcQLjKx3iTBJ88deJNIAmZk5ms+/Ozc634
+         4dDeUBdw96MawFgwFWNL/8eIrZYrNV8RRLVIw0QAVHr0yRddTKnUtqiaxTkBnQAyDqOk
+         Ni5L2MCl62GnRZnMNIAFQOvvhT9xw/XTs4WqpOTte1SylcThzfY3U4YRUPbTUxs1Zes3
+         ptTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:to:from:date:domainkey-signature
+         :dkim-signature;
+        bh=dm+LZ7rBw+AlfDahg4R1ABxcpYy7qHIeCsb2z/7/OD0=;
+        b=HcglJEME2/YICWpMX9ZUjKHg77XMk3+FKVlqi/66mZ12sP/L3RTFUp+spUbW2Y8CLM
+         hrM1R7b39/+7T2DYFvOP3Qx042ZuUpGK6PZOgR0aNmTpnIgpF8dla21CjvsoZnCJSkHu
+         CCT7O4rNRFGRVBa4eRhhmQj3g2yVNxI8KgFEhqr+qrIBi5g3SvftYIywMyEALzx8oOn7
+         ZpfjrVWnsESu3ek4HP81zWycXPE8PAToQ92mGtU/8saw7gdsqzt/A6MTaIG6XuMtBHvz
+         +qtM1aOtr7kfNwm3DXZywUpJd10eMsZePUZTSOsoFKnTl3yXiXjqq4RhzRmw9P5c5GhQ
+         fshQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@yahoo.co.jp header.s=yj20110701 header.b=EYH5uczk;
+       spf=pass (google.com: domain of rediscal@yahoo.co.jp designates 183.79.57.92 as permitted sender) smtp.mailfrom=rediscal@yahoo.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=yahoo.co.jp
+Return-Path: <rediscal@yahoo.co.jp>
+Received: from nh504-vm6.bullet.mail.kks.yahoo.co.jp (nh504-vm6.bullet.mail.kks.yahoo.co.jp. [183.79.57.92])
+        by mx.google.com with SMTP id bw23si9495872pjb.33.2020.06.27.03.42.35
+        for <hujyorom@gmail.com>;
+        Sat, 27 Jun 2020 03:42:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rediscal@yahoo.co.jp designates 183.79.57.92 as permitted sender) client-ip=183.79.57.92;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@yahoo.co.jp header.s=yj20110701 header.b=EYH5uczk;
+       spf=pass (google.com: domain of rediscal@yahoo.co.jp designates 183.79.57.92 as permitted sender) smtp.mailfrom=rediscal@yahoo.co.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=yahoo.co.jp
+Received: from [183.79.100.138] by nh504.bullet.mail.kks.yahoo.co.jp with NNFMP; 27 Jun 2020 10:42:35 -0000
+Received: from [183.79.101.123] by t501.bullet.mail.kks.yahoo.co.jp with NNFMP; 27 Jun 2020 10:42:35 -0000
+Received: from [127.0.0.1] by omp510.mail.kks.yahoo.co.jp with NNFMP; 27 Jun 2020 10:42:35 -0000
+X-Yahoo-Newman-Property: ymail-3
+X-Yahoo-Newman-Id: 118704.82435.bm@omp510.mail.kks.yahoo.co.jp
+X-YMail-OSG: I2Z7oFcVM1kShEjDV481E8qbebbjgueYEinTZRsus.gSLTSlRILyXpu3VVtsax2
+ nKX5tqLZoOyCQhvJZ.PUH1SFPNSlNF1aHA6HJLkWtL62nDqguBCNCB1Op_HC6GtPMm5pAkIkAl_j
+ jH3AOeLoNzhY4iKJ5lChs3erp7sc4CVM1P_a4PeBFx26HJCKTMFk8ni7c1v8N7N9E5aZ0i.RxupE
+ 2dceRXccrS_Vz9x56iuC6tO5cuAnztc27YhtLL46NxlaFY51UEeEp5S9TbRSJzqJ67IuCKVStDcW
+ cuhWYmvi.c5tg9uo0d7k27fIt3FE_ToV64e1Nw59mzyyCRieJCFHkG8Wp1_fVHN7edfKNdfiWN7X
+ BVQ0WPtx7MONkVTz.d6QU8jNXBTLSUmGZu9eZ4A0EMG2RCq2zx_t8hdUQ8oZoLr1UM_aUcVD8kqj
+ PGPSozoJXTHri0SJfXHdpYhS.ENHelfwzLw2rKxnIaIIsiNC1PvAkxWOmsgQVbGIMxseIQ.dzkon
+ y7kRFfgigTiEPyT.vS0svGM6AP47ZVncLStvY9jUlCcY2.y3xwIQsYRnazAEHEBjUs6A.VVL1CIG
+ oEbM3gZd6.LYZbiIc2yZ_PdClE.ukF0vuhRBXTtFwASG72FDq3yQ84RRPDJT5steTB2ln73Q90Pq
+ ZTntpvSMA4PSz.IiQR.TmwpqZ7pcj5NxEGpWayHrdqZ1O7v80B0mOCg2MwaTxRXmNKD4-
+Received: from jws705107.mail.ssk.yahoo.co.jp by sendmailws602.mail.ssk.yahoo.co.jp; Sat, 27 Jun 2020 19:42:34 +0000; 1593254554.492
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1593254554;
+	s=yj20110701; d=yahoo.co.jp;
+	h=Date:From:To:Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=dm+LZ7rBw+AlfDahg4R1ABxcpYy7qHIeCsb2z/7/OD0=;
+	b=EYH5uczkTQcSPmzquhwMiM1Ot/DBgIax/mWwAddgL4ZmyorvtdakZevnP13dl1dM
+	1HCttX9G1sGrjHnx40GrGBz9aSSonYdtFmTiNfvfQFQCSvp8DGb0MLLUD1aoCaW8jDI
+	tjO7JcI0YYhkH1iLvKxzpMWe+v6Qa0Gtx3WBZkgc=
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=yj20110701; d=yahoo.co.jp;
+	h=Date:From:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	b=Ikat4AmY6yYSQXdmsJpJusNMhbiQwt5ljTRFvmLftxChSbEPP2vMhn4JfyKickVd
+	3l0gdrkNumFMqfR4qzCT3o/8MekLeXWK21PtybQjR2rfUAOVV1gn2ClIDb3RFN2y+R0
+	eY8VZLZQMuf2na3YJrjstry+cNUx5EWCNhGBcgeo=;
+Date: Sat, 27 Jun 2020 19:42:34 +0900 (JST)
+From: "rediscal@yahoo.co.jp" <rediscal@yahoo.co.jp>
+To: keiko endou <kendou9933@gmail.com>
+Message-ID: <1182265988.526088.1593254554149.JavaMail.yahoo@mail.yahoo.co.jp>
+In-Reply-To: <CA+zwgybvgPRwQuo8_YcShEj7dhbkotsk5V4rvseF7qL1NOvDCg@mail.gmail.com>
+References: <CA+zwgybvgPRwQuo8_YcShEj7dhbkotsk5V4rvseF7qL1NOvDCg@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IOWNg+ats+OCiOOCig==?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+Content-Length: 640
+
+44GT44KT44Gw44KT44KP8J+Ygw0K44KP44GW44KP44GW44GK56Wd44GE44Gu44Oh44O844Or44GC
+44KK44GM44Go44GG44GU44GW44GE44G+44GZ77yB44GK44GL44GS44GV44G+44Gn44CB5YWD5rCX
+44GrMzLmrbPjgpLov47jgYjjgb7jgZfjgZ/wn5iGDQoNCuOBiui/lOS6i+mBheOBj+OBquOBo+OB
+puOBmeOBv+OBvuOBm+OCk/CfmKPwn5KmDQrjgZPjgaHjgonjgafov7fmg5Hjg6Hjg7zjg6vjg5Xj
+gqnjg6vjg4DjgavmjK/jgorliIbjgZHjgonjgozjgabjgZfjgb7jgaPjgabjgYrjgorjgIHmrKHj
+gYvjgonjgY3jgaHjgpPjgajlj5fkv6Hlh7rmnaXjgovjgojjgYboqK3lrprjgZfjgb7jgZfjgZ/w
+n5iKDQrjgrPjg63jg4rpqJLjgY7nrYnjgIXjgafjgarjgYvjgarjgYvjgYrkvJrjgYTlh7rmnaXj
+gb7jgZvjgpPjgYzjgIHku4rlvozjgajjgoLjgojjgo3jgZfjgY/jgYrpoZjjgYTjgYTjgZ/jgZfj
+gb7jgZkNCm0oXyBfKW0NCg0K

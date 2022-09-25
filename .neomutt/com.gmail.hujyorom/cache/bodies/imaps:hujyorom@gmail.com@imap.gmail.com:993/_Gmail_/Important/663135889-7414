@@ -1,0 +1,2083 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a05:6122:128a:0:0:0:0 with SMTP id i10csp204239vkp;
+        Fri, 14 May 2021 00:27:15 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwR6JHL2IwywyP5qreoyY05Zci54LdV8/CtYUx25WpdvF6v6tcB2Ue9qJvgHX3QtW8laBCx
+X-Received: by 2002:a17:906:b191:: with SMTP id w17mr47627555ejy.200.1620977235465;
+        Fri, 14 May 2021 00:27:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620977235; cv=none;
+        d=google.com; s=arc-20160816;
+        b=UA0i7043UC92yba/1os6thso4WZ0B9vKEuJ8RdxKQxHsNx/gY2AraKpJXTXNBzZJeC
+         kTzv2CdrnE1Z0iY1CPrjHG2bkKrxseHoO8hqiklM6pnh4EGdwIhIrhhMJIu4DxUx0wit
+         f1toYEuSr7kKE3hE5h+jdtxwSs/PHSYig+r0Jy5VoCD2YA672ug0uVy2T0zg4Cf5JmcO
+         8LDbG3HFk6trN1oDFkD62UIGudyN4akcU42YDevgU5ikAJzNfG8Xoe2eadbjN5w2xF9X
+         JQ7xiLfJvi0hRMjLREDkong4kjPAj+6/tTGxriUAsOLxhlvWAccALZmjfV8f2k2uA2Dl
+         wNcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:message-id:date:to:from:subject
+         :content-transfer-encoding:mime-version:dkim-signature
+         :dkim-signature;
+        bh=WkjhUCAV96dD+5dTON5lN9w3nGEvUVgb7TByz1Icoz8=;
+        b=yKqefX6mzLB+9uxva94HhUAEDOY4bIDPiNzrFzNfAUR/5a8bsAbcj6yxDxGet9+vQh
+         td3vYqNcv3hiSdIggn/oIDae4fNl00gadPDKiAQN9/ywnJFNYuGwJ/mm+bftPfe/oCgF
+         xOAq14QfhTq42B0OVSQYBD00c2+aFP50pIYKrm7M6EeeqQujwo9Zf3c1Zk7sIag7mABB
+         lMSHcxzqsCK15yHxPBv6cXJRsaRS17XhqLPEUZsQ78B0mnFl5m01ao8l5EgpQk3FTlLa
+         P2v28IjovmN4nRnJN98L2qy12XRtto8lL5F1V3jqo7b3bHjlClLZHKCNOzNYr6KrF329
+         WsNA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@looop-denki.com header.s=s1 header.b=OoBm0CbV;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="zwprCFU/";
+       spf=pass (google.com: domain of bounces+7303982-c648-hujyorom=gmail.com@tou-mail.looop-denki.com designates 149.72.75.190 as permitted sender) smtp.mailfrom="bounces+7303982-c648-hujyorom=gmail.com@tou-mail.looop-denki.com"
+Return-Path: <bounces+7303982-c648-hujyorom=gmail.com@tou-mail.looop-denki.com>
+Received: from wrqvqbbz.outbound-mail.sendgrid.net (wrqvqbbz.outbound-mail.sendgrid.net. [149.72.75.190])
+        by mx.google.com with ESMTPS id gg17si5476775ejb.131.2021.05.14.00.27.14
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 14 May 2021 00:27:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+7303982-c648-hujyorom=gmail.com@tou-mail.looop-denki.com designates 149.72.75.190 as permitted sender) client-ip=149.72.75.190;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@looop-denki.com header.s=s1 header.b=OoBm0CbV;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="zwprCFU/";
+       spf=pass (google.com: domain of bounces+7303982-c648-hujyorom=gmail.com@tou-mail.looop-denki.com designates 149.72.75.190 as permitted sender) smtp.mailfrom="bounces+7303982-c648-hujyorom=gmail.com@tou-mail.looop-denki.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=looop-denki.com; 
+	h=content-type:mime-version:content-transfer-encoding:subject:from:to:list-unsubscribe; 
+	s=s1; bh=WkjhUCAV96dD+5dTON5lN9w3nGEvUVgb7TByz1Icoz8=; b=OoBm0Cb
+	VCjqDEVNr+CnrSCTNuCagWkosgX1BmYxCDOO7ptQf4JJSzLMgxEv6AG9vmZq0kgT
+	rIA+CP8cmRYV4CdqQrJYfR09q5plcDLVnkoqGO2Ey2X8GmQNuW4SuEO9CEdDdqFm
+	FcGPOxF2kAwNyoOMtBezURcVvmsvugr/v1MY=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; 
+	d=sendgrid.info; 
+	h=content-type:mime-version:content-transfer-encoding:subject:from:to:list-unsubscribe:x-feedback-id; 
+	s=smtpapi; bh=WkjhUCAV96dD+5dTON5lN9w3nGEvUVgb7TByz1Icoz8=; b=zw
+	prCFU/RbLd0znqps6hHRSAM6vZ9iEEn1fTCp1ZNWa62HEmci0U+xdg9X/dEWhGbl
+	4VoX5e6/aLHvv3K1nlIuw0hzq6BOhMj+HIWpJGMXneHLnFjEnWGP2ym+BOx4CO5A
+	G7T+Jc7gxMoQ17WrLzv6I1sqaS+Bg8cku00FBgL8A=
+Received: by filter1715p1iad2.sendgrid.net with SMTP id filter1715p1iad2-26369-609E2651-27
+        2021-05-14 07:27:14.034986642 +0000 UTC m=+1946069.390816242
+Received: from localhost (unknown)
+	by geopod-ismtpd-canary-0 (SG) with ESMTP id -nPPSNfQQna5ifxFIx32Qg
+	for <dev@smapenergy.com>; Fri, 14 May 2021 07:27:13.809 +0000 (UTC)
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+content-transfer-encoding: quoted-printable
+Subject: 
+ =?utf-8?b?5Zyo5a6F5b+c5o+044K/44Kk44Og44Gu44GK55+l44KJ44Gb77yIMjAyMS8wNS8x?=
+ =?utf-8?b?Ne+8iQ==?=
+From: looop-dr@looop-denki.com
+To: hujyorom@gmail.com
+Date: Fri, 14 May 2021 07:27:14 +0000 (UTC)
+Message-ID: <162097723379.30299.13865542446078613613@localhost>
+X-SG-EID: Fp6lE/7LJK1wPu9bx/HoQrxIWk8IcJQz0apvhLRDJVpVlH9hA4+9b76TYasjGSwq7er0h72EXe2SZ6
+ W7dxe+M5VZuBZpune75rUxZWZRfGD0rPBs0thq9eIJu7U+afPde6jlngTwMIcPrMlHzFZmKJfW2Nvq
+ 9MKBMKUHuGS8T5unbey2jJ3+ayy9BZNd2pCvcW1Nh6DsAC6L6uX4W/T9Wg==
+X-SG-ID: lVABNLCVmbShwvWWHLNnduUGamncPQ5PGoIMqtDLimU=
+X-Entity-ID: LCptV0S/R8lWvgrKbijHlw==
+X-Feedback-ID: 7303982:FwonT8mQY7SoR/YvN4hRTN1aIwtAQWoMMhXqVvWbEsk=:h4Be9R2GIMLHEhdNB8WTQA==:SG
+List-Unsubscribe: <mailto:unsubscribe@tou-mail.looop-denki.com?subject=http://tou-link.looop-denki.com/wf/unsubscribe*q*upn=dMT6-2BoPwzsZrqrjnXlyDZMkYDsHwxmBRETf-2BJf2luZ1ZbJlBmObmnZqLeL3iXXvv1Bl9zsI4olcAiQO8FLeiBPr0zNO7K-2FMNhDA8MrFfjTdcxE9dvYrbgIemO6XqBZFHIEQl6X17Gzpwk2ykNv939Qgvqulkcb8hJO4SZAY9AntELQJ2GDiAIGJzFVX3Ir-2Bm7Dyw8aZFUi4X8ZpLAZ6DEQ1y-2FvxsAzbBeNBQ-2BWcvwAI-3D>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml">=0D
+    <head>=0D
+        <meta=0D
+            http-equiv=3D"Content-Type"=0D
+            content=3D"text/html; charset=3DUTF-8"/>=0D
+        <meta=0D
+            name=3D"format-detection"=0D
+            content=3D"telephone=3Dno">=0D
+        <meta=0D
+            name=3D"viewport"=0D
+            content=3D"width=3Ddevice-width; initial-scale=3D1.0; maximum-s=
+cale=3D1.0; user-scalable=3Dno;">=0D
+        <meta=0D
+            http-equiv=3D"X-UA-Compatible"=0D
+            content=3D"IE=3D9; IE=3D8; IE=3D7; IE=3DEDGE"/>=0D
+        <meta name=3D"x-apple-disable-message-reformatting" />=0D
+        <title>DR=E7=99=BA=E5=8B=95=E3=83=A1=E3=83=BC=E3=83=AB</title>=0D
+        <style type=3D"text/css">=0D
+            @import url(https://fonts.googleapis.com/css?family=3DRoboto+Co=
+ndensed|Roboto:100,400,700,900);=0D
+            .font-roboto {=0D
+                font-family: "Roboto", sans-serif !important;=0D
+            }=0D
+=0D
+            /* global Reset */=0D
+            *, *::before, *::after {=0D
+                box-sizing: border-box;=0D
+            }=0D
+=0D
+            body, #bodyTable {=0D
+                height: 100% !important;=0D
+                width: 100% !important;=0D
+                margin: 0;=0D
+                padding: 0;=0D
+            }=0D
+=0D
+            img, a img {=0D
+                border: 0;=0D
+                outline: none;=0D
+                text-decoration: none;=0D
+            }=0D
+=0D
+            .imageFix {=0D
+                display: block;=0D
+            }=0D
+=0D
+            table, td {=0D
+                border-collapse: collapse;=0D
+            }=0D
+=0D
+            /* custom styles */=0D
+            body, #bodyTable {=0D
+                font-family: "Yu Gothic Medium", "=E6=B8=B8=E3=82=B4=E3=82=
+=B7=E3=83=83=E3=82=AF", YuGothic, "=E6=B8=B8=E3=82=B4=E3=82=B7=E3=83=83=E3=
+=82=AF=E4=BD=93", Verdana, 'Hiragino Kaku Gothic ProN', '=E3=83=92=E3=83=A9=
+=E3=82=AE=E3=83=8E=E8=A7=92=E3=82=B4 ProN W3', '=E3=83=A1=E3=82=A4=E3=83=AA=
+=E3=82=AA', 'Meiryo', 'Osaka', '=EF=BC=AD=EF=BC=B3 =EF=BC=B0=E3=82=B4=E3=82=
+=B7=E3=83=83=E3=82=AF', sans-serif;=0D
+            }=0D
+=0D
+            .font-weight-bold {=0D
+                font-weight: 900;=0D
+            }=0D
+=0D
+            .text-red {=0D
+                color: #e23642;=0D
+            }=0D
+=0D
+            .text-blue {=0D
+                color: #278ae0;=0D
+            }=0D
+=0D
+            .text-yellow {=0D
+                color: #f7d201;=0D
+            }=0D
+=0D
+            .border-top-grey {=0D
+                border-top: 1px solid #e6e6e6;=0D
+            }=0D
+=0D
+            @media screen and (max-width: 640px) {=0D
+                .w-100 {=0D
+                    width: 100% !important;=0D
+                    height: auto !important;=0D
+                }=0D
+            }=0D
+=0D
+            .alert--red__title {=0D
+                font-size: 14px;=0D
+            }=0D
+=0D
+            .alert--red__subtitle {=0D
+                font-size: 9px;=0D
+            }=0D
+=0D
+            =0D
+            =0D
+            =0D
+            =0D
+=0D
+            .font-size-xs {=0D
+                font-size: 10px !important;=0D
+            }=0D
+=0D
+            .font-size-sm {=0D
+                font-size: 14px !important;=0D
+            }=0D
+=0D
+            .font-size-normal {=0D
+                font-size: 16px !important;=0D
+            }=0D
+=0D
+            .font-size-lg {=0D
+                font-size: 20px !important;=0D
+            }=0D
+=0D
+            .font-size-xl {=0D
+                font-size: 26px !important;=0D
+            }=0D
+=0D
+            .font-size-h1 {=0D
+                font-size: 3rem !important;=0D
+            }=0D
+            .font-size-h1m {=0D
+                font-size: 2.5rem !important;=0D
+            }=0D
+            .font-size-h2 {=0D
+                font-size: 2rem !important;=0D
+            }=0D
+            .font-size-h4 {=0D
+                font-size: 1.5rem !important;=0D
+            }=0D
+=0D
+            .font-weight-bolder {=0D
+                font-weight: 900 !important;=0D
+            }=0D
+=0D
+            .compare-arrow-icon {=0D
+                height: 22px;=0D
+                width: 22px;=0D
+            }=0D
+=0D
+            .rounded {=0D
+                border-radius: 0.5rem !important;=0D
+            }=0D
+            .border {=0D
+                border: 1px solid #dee2e6 !important;=0D
+            }=0D
+            .border-light {=0D
+                border-color: #e6e6e6 !important;=0D
+            }=0D
+            .border-bold {=0D
+                border-width: 2px !important;=0D
+            }=0D
+=0D
+            .position-relative {=0D
+                position: relative !important;=0D
+            }=0D
+            .position-absolute {=0D
+                position: absolute !important;=0D
+            }=0D
+=0D
+            .text-center {=0D
+                text-align: center !important;=0D
+            }=0D
+            .text-right {=0D
+                text-align: right !important;=0D
+            }=0D
+            .text-left {=0D
+                text-align: left !important;=0D
+            }=0D
+            .bottom-0 {=0D
+                bottom: 0 !important;=0D
+            }=0D
+=0D
+            .divider {=0D
+                color: #9a9a9a;=0D
+                font-size: 3rem !important;=0D
+            }=0D
+=0D
+            .mt-3, .my-3 {=0D
+                margin-top: 1rem !important;=0D
+            }=0D
+            .pb-3, .py-3 {=0D
+                padding-bottom: .75rem !important;=0D
+            }=0D
+            .pt-3, .py-3 {=0D
+                padding-top: .75rem !important;=0D
+            }=0D
+=0D
+            .bg-link-water {=0D
+                background-color: #e8f1f9 !important;=0D
+            }=0D
+=0D
+            .ranking-table {=0D
+                display: table;=0D
+                border-spacing: 2px;=0D
+                border-color: grey;=0D
+                border-collapse: collapse;=0D
+            }=0D
+            .ranking-table .font-size-base {=0D
+                font-size: 1rem !important;=0D
+            }=0D
+            .ranking-table .font-weight-bolder {=0D
+                font-weight: 900 !important;=0D
+            }=0D
+            .ranking-table .text-nowrap {=0D
+                white-space: nowrap !important;=0D
+            }=0D
+            .ranking-table .col--1 {=0D
+                width: 20%;=0D
+            }=0D
+            .ranking-table .col--2 {=0D
+                width: 20%;=0D
+            }=0D
+            .ranking-table .col--3 {=0D
+                width: 20%;=0D
+            }=0D
+            .ranking-table .col--4 {=0D
+                width: 20%;=0D
+            }=0D
+            .ranking-table .col--5 {=0D
+                width: 20%;=0D
+            }=0D
+            .ranking-table .thead > tr > th:last-child,=0D
+            .ranking-table .thead > tr > th:nth-child(4),=0D
+            .ranking-table .tbody > tr > td:last-child,=0D
+            .ranking-table .tbody > tr > td:nth-child(2),=0D
+            .ranking-table .tbody > tr > td:nth-child(4) {=0D
+                text-align: center;=0D
+            }=0D
+            .ranking-table .thead > tr {=0D
+                text-align: left;=0D
+                height: 30px;=0D
+            }=0D
+            .ranking-table .tbody > tr {=0D
+                height: 60px;=0D
+                border-bottom: 2px solid #e6e6e6;=0D
+                line-height: 60px;=0D
+            }=0D
+            .ranking-table .tbody > tr td:first-child {=0D
+                border-right: 2px solid #e6e6e6;=0D
+            }=0D
+            .ranking-table .tbody > tr:first-child > td {=0D
+                border-top: 2px solid #343434;=0D
+            }=0D
+            .ranking-table .tbody > tr td {=0D
+                vertical-align: middle;=0D
+            }=0D
+=0D
+            @media screen and (min-width: 460px) {=0D
+                .font-size-sm-xs {=0D
+                    font-size: 10px !important;=0D
+                }=0D
+=0D
+                .font-size-sm-sm {=0D
+                    font-size: 14px !important;=0D
+                }=0D
+=0D
+                .font-size-sm-normal {=0D
+                    font-size: 16px !important;=0D
+                }=0D
+=0D
+                .font-size-sm-lg {=0D
+                    font-size: 20px !important;=0D
+                }=0D
+=0D
+                .font-size-sm-xl {=0D
+                    font-size: 26px !important;=0D
+                }=0D
+=0D
+                .font-size-sm-h1 {=0D
+                    font-size: 3rem !important;=0D
+                }=0D
+                .font-size-sm-h1m {=0D
+                    font-size: 2.5rem !important;=0D
+                }=0D
+=0D
+                .pb-md-4, .py-md-4 {=0D
+                    padding-bottom: .5rem !important;=0D
+                }=0D
+                .pt-md-4, .py-md-4 {=0D
+                    padding-top: .5rem !important;=0D
+                }=0D
+            }=0D
+=0D
+            @media screen and (min-width: 575px) {
+                .font-size-md-xs {=0D
+                    font-size: 10px !important;=0D
+                }=0D
+=0D
+                .font-size-md-sm {=0D
+                    font-size: 12px !important;=0D
+                }=0D
+=0D
+                .font-size-md-normal {=0D
+                    font-size: 16px !important;=0D
+                }=0D
+=0D
+                .font-size-md-lg {=0D
+                    font-size: 20px !important;=0D
+                }=0D
+=0D
+                .font-size-md-xl {=0D
+                    font-size: 26px !important;=0D
+                }=0D
+=0D
+                .font-size-md-h3 {=0D
+                    font-size: 1.75rem !important;=0D
+                }=0D
+            }=0D
+        </style>=0D
+    </head>=0D
+=0D
+    <body style=3D"padding:0; margin:0">=0D
+        <table=0D
+            border=3D"0"=0D
+            cellpadding=3D"0"=0D
+            cellspacing=3D"0"=0D
+            style=3D"margin: 0; padding: 0;"=0D
+            width=3D"100%"=0D
+            id=3D"bodyTable">=0D
+            <tr>=0D
+                <td=0D
+                    align=3D"center"=0D
+                    valign=3D"top"=0D
+                    style=3D"padding: 10px 10px 10px 10px;">=0D
+                    <table=0D
+                        align=3D"center"=0D
+                        border=3D"0"=0D
+                        cellpadding=3D"0"=0D
+                        cellspacing=3D"0"=0D
+                        width=3D"640"=0D
+                        class=3D"w-100"=0D
+                        bgcolor=3D"#fcfcfc"=0D
+                        style=3D"border: 1px solid #3a80d7;">=0D
+                        <tr>=0D
+                            <td align=3D"center">=0D
+                                <p class=3D"font-size-md-lg" style=3D"color=
+: #666666; margin: 0px;">=0D
+                                =E3=83=A1=E3=83=BC=E3=83=AB=E3=81=8C=E3=81=
+=86=E3=81=BE=E3=81=8F=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=E3=81=AA=E3=81=84=
+=E6=96=B9=E3=81=AF<a href=3D"http://tou-link.looop-denki.com/ls/click?upn=
+=3D7o6ZDn2ixn5G3ABEXjIxCmPq-2B0WIAC3SIldrCIn9wjtbUtGVV3fzOHtBIKODqp135M5HCw=
+UDZeZ7vwPz1vBJXIotlgZIm1jxx-2FLhh5Zq6eZt-2FxvuaSHJQjpV35-2BX21awsKAz5BpV517=
+YndbsMQeob-2FNxTUQmqvtR-2FrWwOLfka4M-3DFgBV_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEy=
+zpVE7gXvUM1Q7Qwv6-2B6eWk6uut2t-2FANKcsYU96qHuH83uKpH5F0hXG1xwWyYvm8xGyFIZ5q=
+7v31FCj3da7MOUxYIfjfyRsAOlnnkYhouHTA5jx0JwtUS-2FFuTCIDQGCms9-2BwAPipycn82n0=
+uYg2lgpCUXEoQQjVUlOs38GLm8fglnbJPuGnQc-2BVwiRc23tP63DH2Wg44DNkE4-3D" target=
+=3D"_blank" style=3D"font-weight: bold; color:#ef6410; text-decoration: und=
+erline;">=E3=81=93=E3=81=A1=E3=82=89</a>=E3=81=B8<br>=0D
+                                =E3=83=9E=E3=82=A4=E3=83=9A=E3=83=BC=E3=82=
+=B8=E3=81=A7=E8=A9=B3=E3=81=97=E3=81=84=E5=86=85=E5=AE=B9=E3=81=8C=E7=A2=BA=
+=E8=AA=8D=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82=0D
+                                </p>=0D
+                            </td>=0D
+                        </tr>=0D
+                        <tr>=0D
+                            <td style=3D"padding: 15px 15px 0 15px;">=0D
+                                <table=0D
+                                border=3D"0"=0D
+                                cellpadding=3D"0"=0D
+                                cellspacing=3D"0"=0D
+                                class=3D"w-100">=0D
+                                    <tr>=0D
+                                        <td width=3D"18%">=0D
+                                            <img=0D
+                                                src=3D"https://looop-prod-a=
+ssets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/image_rev=
+erse_dr.png"=0D
+                                                alt=3D"=E9=9B=BB=E5=8A=9B=
+=E3=82=B7=E3=83=95=E3=83=88=E3=81=AB=E3=83=81=E3=83=A3=E3=83=AC=E3=83=B3=E3=
+=82=B8"=0D
+                                                width=3D"100%"=0D
+                                                class=3D"imageFix"/>=0D
+                                        </td>=0D
+                                        <td width=3D"2%"></td>=0D
+                                        <td width=3D"80%">=0D
+                                            <img=0D
+                                                src=3D"https://looop-prod-a=
+ssets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/title_rev=
+erse_dr.png"=0D
+                                                alt=3D"=E5=9C=A8=E5=AE=85=
+=E5=BF=9C=E6=8F=B4=E3=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3"=
+=0D
+                                                width=3D"100%"=0D
+                                                class=3D"imageFix">=0D
+                                        </td>=0D
+                                    </tr>=0D
+                                </table>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        <tr>=0D
+                            <td align=3D"center">=0D
+                                <a=0D
+                                    href=3D"http://tou-link.looop-denki.com=
+/ls/click?upn=3D7o6ZDn2ixn5G3ABEXjIxCmPq-2B0WIAC3SIldrCIn9wjtbUtGVV3fzOHtBI=
+KODqp13wMtKMQctI4ft1WahkRgWag-3D-3DIsJR_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE=
+7gXvUM1Q7Qwv6-2B6eWk6uut2t-2FANKcscsSnclZ-2B8brfojeaz4zrOf7ktWl2yFGIgiHieT7=
+OZpsYPz3A5jArCxAMc3D52IHV8rTFigH-2FbUecYbnhkNbYb4DKAS4nEM6Bl5v3GS9BsoHbNmiv=
+Y-2FCx-2FHaVc1O1E-2F1aARRd6hdpSwq95ndzhf-2BUGsa7bFGXoBRMJfk0El3UDY-3D"=0D
+                                    target=3D"_blank"=0D
+                                    style=3D"display: block; margin: 0 0 1r=
+em;">=0D
+                                    <img=0D
+                                        src=3D"https://looop-prod-assets.s3=
+-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/btn_to_mypage.png=
+"=0D
+                                        alt=3D"=E8=A9=B3=E3=81=97=E3=81=8F=
+=E3=81=AF=E3=83=9E=E3=82=A4=E3=83=9A=E3=83=BC=E3=82=B8 (Looop DR) =E3=81=B8=
+"=0D
+                                        width=3D"200"=0D
+                                        height=3D"48"=0D
+                                        class=3D"imageFix"/>=0D
+                                </a>=0D
+                            </td>=0D
+                        </tr>=0D
+                        <tr>=0D
+                            <td=0D
+                                align=3D"center"=0D
+                                style=3D"padding: 15px 15px 0 15px;">=0D
+                                <table=0D
+                                    width=3D"100%"=0D
+                                    style=3D"border: 2px solid #278ae0; bor=
+der-collapse: separate; border-radius: 6px;">=0D
+                                    <tr>=0D
+                                        <td=0D
+                                            align=3D"center"=0D
+                                            style=3D"padding: 8px;">=0D
+                                            <span class=3D"text-blue font-w=
+eight-bold font-size-xs font-size-sm-sm">=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=
+=B4=E3=82=BF=E3=82=A4=E3=83=A0=E3=81=AE=E5=AE=9F=E6=96=BD=E6=97=A5=E6=99=82=
+=E3=81=A7=E3=81=99=E3=80=82<br>=0D
+                                            =E9=9B=BB=E6=B0=97=E3=82=92=E5=
+=8A=B9=E7=8E=87=E3=82=88=E3=81=8F=E4=BD=BF=E3=81=84=E5=BE=97=E7=82=B9=E3=82=
+=92=E7=8D=B2=E5=BE=97=E3=81=97=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=EF=BC=81=
+</span>=0D
+                                        </td>=0D
+                                    </tr>=0D
+                                </table>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td=0D
+                                align=3D"center"=0D
+                                style=3D"padding-top: 15px;">=0D
+                                <table=0D
+                                    border=3D"0"=0D
+                                    cellpadding=3D"0"=0D
+                                    cellspacing=3D"0">=0D
+                                    <tr>=0D
+                                        <td>=0D
+                                            <img=0D
+                                                src=3D"https://looop-prod-a=
+ssets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/material_=
+reverse_dr_1.png"=0D
+                                                alt=3D"=E3=81=8A=E3=81=B2=
+=E3=81=95=E3=81=BE=E3=82=BF=E3=82=A4=E3=83=A0"=0D
+                                                height=3D"32">=0D
+                                        </td>=0D
+                                        <td width=3D"10"></td>=0D
+                                        <td>=0D
+                                            <img=0D
+                                                src=3D"https://looop-prod-a=
+ssets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/material_=
+reverse_dr_2.png"=0D
+                                                alt=3D"=E3=82=B9=E3=83=BC=
+=E3=83=91=E3=83=BC=E3=81=8A=E3=81=B2=E3=81=95=E3=81=BE=E3=82=BF=E3=82=A4=E3=
+=83=A0"=0D
+                                                height=3D"32">=0D
+                                        </td>=0D
+                                    </tr>=0D
+                                </table>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td style=3D"padding: 5px 15px 0 15px;">=0D
+                                <table=0D
+                                    align=3D"center"=0D
+                                    border=3D"0"=0D
+                                    cellpadding=3D"0"=0D
+                                    cellspacing=3D"0"=0D
+                                    style=3D"border: 1px solid #e6e6e6;">=
+=0D
+                                    <tr>=0D
+                                        <td>=0D
+                                            <table=0D
+                                                width=3D"100%"=0D
+                                                border=3D"0"=0D
+                                                cellpadding=3D"0"=0D
+                                                cellspacing=3D"0"=0D
+                                                class=3D"font-weight-bold f=
+ont-size-xs font-size-md-sm">
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        align=3D"center"=0D
+                                                        bgcolor=3D"#eef5fa"=
+=0D
+                                                        style=3D"padding: 1=
+0px 0 10px 0;"=0D
+                                                        class=3D"text-blue"=
+>=E6=97=A5=0D
+                                                    </td>=0D
+                                                    <td width=3D"25"></td>=
+=0D
+                                                    <td=0D
+                                                        align=3D"left"=0D
+                                                        colspan=3D"16"=0D
+                                                        style=3D"padding: 1=
+0px 0 10px 0;">=0D
+                                                        2021=E5=B9=B405=E6=
+=9C=8815=E6=97=A5 (=E5=9C=9F) <small>=E5=8C=97=E6=B5=B7=E9=81=93</small>=0D
+                                                    </td>=0D
+                                                </tr>=0D
+                                                =0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey text-blue"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 1=
+px 0 1px 0;"=0D
+                                                        bgcolor=3D"#eef5fa"=
+>=E6=99=82=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>07:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>07:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>08:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>08:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>09:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-red"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>09:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>10:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        bgcolor=3D"#eef5fa"=
+></td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_4.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20
+                                                </tr>=0D
+                                                =0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey text-blue"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 1=
+px 0 1px 0;"=0D
+                                                        bgcolor=3D"#eef5fa"=
+>=E6=99=82=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>10:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>11:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>11:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-red"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>12:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-red"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>12:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>13:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>13:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        bgcolor=3D"#eef5fa"=
+></td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_4.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_4.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                =0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey text-blue"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 1=
+px 0 1px 0;"=0D
+                                                        bgcolor=3D"#eef5fa"=
+>=E6=99=82=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>14:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>14:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>15:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>15:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>16:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>16:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey text-yellow"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>17:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        bgcolor=3D"#eef5fa"=
+></td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <img=0D
+                                                            src=3D"https://=
+looop-prod-assets.s3-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/imag=
+es/material_reverse_dr_3.png"=0D
+                                                            width=3D"100%"=
+=0D
+                                                            style=3D"vertic=
+al-align: middle;">=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                =0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey text-blue"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 1=
+px 0 1px 0;"=0D
+                                                        bgcolor=3D"#eef5fa"=
+>=E6=99=82=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>17:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>18:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>18:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>19:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>19:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>20:00&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        =0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        =0D
+                                                        align=3D"center"><s=
+pan>20:30&#x200B;</span>=0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                <tr>=0D
+                                                    <td=0D
+                                                        width=3D"100"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        bgcolor=3D"#eef5fa"=
+></td>=0D
+                                                    <td=0D
+                                                        width=3D"25"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                    <td=0D
+                                                        width=3D"50"=0D
+                                                        class=3D"border-top=
+-grey"=0D
+                                                        align=3D"center"=0D
+                                                        style=3D"padding: 2=
+px 0 2px 0;">=0D
+                                                        =0D
+                                                        <div style=3D"width=
+: 8px; height: 1px; background-color: #e6e6e6; margin-top: 49%; margin-bott=
+om: 49%;"></div>=0D
+                                                        =0D
+                                                    </td>=0D
+                                                    <td=0D
+                                                        width=3D"30"=0D
+                                                        class=3D"border-top=
+-grey"></td>=0D
+                                                    =0D
+                                                </tr>=0D
+                                                =0D
+                                            </table>=0D
+                                        </td>=0D
+                                    </tr>=0D
+                                </table>=0D
+                            </td>=0D
+                        </tr>=0D
+                        <tr>=0D
+                            <td=0D
+                                align=3D"center"=0D
+                                style=3D"padding: 15px 15px 0 15px;">=0D
+                                <table=0D
+                                    width=3D"100%"=0D
+                                    style=3D"border: 2px solid #278ae0; bor=
+der-collapse: separate; border-radius: 6px;">=0D
+                                    <tr>=0D
+                                        <td=0D
+                                            align=3D"center"=0D
+                                            style=3D"padding: 8px;">=0D
+                                            <span class=3D"text-blue font-w=
+eight-bold font-size-xs font-size-sm-sm">=0D
+                                            =E6=A8=99=E6=BA=96=E7=9A=84=E3=
+=81=AA=E9=9B=BB=E6=B0=97=E4=BD=BF=E7=94=A8=E9=87=8F=E3=81=AB=E5=AF=BE=E3=81=
+=97=E3=81=A6=E3=80=81=E5=A2=97=E5=8A=A0=E3=81=97=E3=81=9F=E5=88=86=E3=81=AE=
+=E9=9B=BB=E6=B0=97=E4=BD=BF=E7=94=A8=E9=87=8F=E3=82=92=E9=82=84=E5=85=83=E3=
+=81=97=E3=81=BE=E3=81=99=E3=80=82<br>=0D
+                                            =E3=80=8C<em style=3D"backgroun=
+d:linear-gradient(transparent 60%, #fce8d1 60%); font-style: inherit;">=E5=
+=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=BF=E3=82=A4=E3=83=A0</em>=E3=80=8D=
+=E3=81=A7=E3=81=AE=E5=A2=97=E5=8A=A0=E4=BD=BF=E7=94=A8=E9=87=8F1kWh=E3=81=
+=82=E3=81=9F=E3=82=8A<em style=3D"color: #F18A17; font-style: inherit; font=
+-size: 18px;">5=E7=82=B9</em>=E3=81=AB=E5=AF=BE=E3=81=97=E3=80=81<br>=0D
+                                            =E3=80=8C<em style=3D"backgroun=
+d:linear-gradient(transparent 60%, #fad8db 60%); font-style: inherit;">=E3=
+=82=B9=E3=83=BC=E3=83=91=E3=83=BC=E5=9C=A8=E5=AE=85=E5=BF=9C=E6=8F=B4=E3=82=
+=BF=E3=82=A4=E3=83=A0</em>=E3=80=8D=E3=81=AF<em style=3D"color: #E63E4B; fo=
+nt-style: inherit; font-size: 18px; font-weight: bold;">10=E7=82=B9</em>=E3=
+=82=92=E9=82=84=E5=85=83=EF=BC=81=0D
+                                            </span>=0D
+                                        </td>=0D
+                                    </tr>=0D
+                                </table>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td align=3D"center">=0D
+                                <p class=3D"font-size-md-lg" style=3D"font-=
+weight: bold; color:#ef6410; margin: 2em 0 0;">=0D
+                                =E3=83=8E=E3=83=BC=E3=83=9E=E3=83=AB=E7=B4=
+=9A=E3=82=B3=E3=83=BC=E3=82=B9=0D
+                                </p>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <div=0D
+                                    class=3D"font-weight-bolder font-size-b=
+ase font-size-md-lg" style=3D"width:96%; margin: 0 2%;">=0D
+                                    =E7=8F=BE=E5=9C=A8=E3=81=AE=E3=83=A9=E3=
+=83=B3=E3=82=AD=E3=83=B3=E3=82=B0=0D
+                                </div>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <div=0D
+                                    class=3D"border border-light border-bol=
+d rounded position-relative font-roboto mt-3 py-3 py-md-4"=0D
+                                    style=3D"width: 96%; margin: 2% 2%;">=
+=0D
+                                    <table style=3D"width: 100%;">=0D
+                                        <tr>=0D
+                                            <td class=3D"text-right" style=
+=3D"width: 45%;">=0D
+                                                <span=0D
+                                                    class=3D"font-size-h2 f=
+ont-size-sm-h1m font-weight-bolder">=0D
+                                                    <span=0D
+                                                        class=3D"text-red">=
+8810=0D
+                                                    </span>=0D
+                                                    <span=0D
+                                                        class=3D"text-black=
+ font-size-sm font-weight-bold">=E4=BD=8D=0D
+                                                    </span>=0D
+                                                </span>=0D
+                                            </td>=0D
+                                            <td class=3D"text-center divide=
+r" style=3D"width: 10%;">/</td>=0D
+                                            <td class=3D"text-left" style=
+=3D"width: 45%;">=0D
+                                                <span=0D
+                                                    class=3D"font-size-h2 f=
+ont-size-sm-h1m font-weight-bolder">29215=0D
+                                                    <span=0D
+                                                        class=3D"font-size-=
+sm font-weight-bold">=E4=BA=BA=0D
+                                                    </span>=0D
+                                                </span>=0D
+                                            </td>=0D
+                                        </tr>=0D
+                                    </table>=0D
+                                </div>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <div=0D
+                                    class=3D"font-weight-bolder font-size-b=
+ase font-size-md-lg" style=3D"width:96%; margin: 2% 2% 0;">=0D
+                                    =E7=8D=B2=E5=BE=97=E5=BE=97=E7=82=B9 - =
+2021=E5=B9=B405=E6=9C=8811=E6=97=A5
+                                </div>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <div=0D
+                                    class=3D"border border-light border-bol=
+d rounded position-relative font-roboto mt-3 py-3 text-center"=0D
+                                    style=3D"width: 96%; margin: 2%;">=0D
+                                    =0D
+                                    <span=0D
+                                        class=3D"position-relative font-siz=
+e-h1m font-weight-bolder">0.01=0D
+                                        <span=0D
+                                            class=3D"position-absolute font=
+-size-sm font-weight-bold bottom-0">=E7=82=B9=0D
+                                        </span>=0D
+                                    </span>=0D
+                                    =0D
+                                </div>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <div=0D
+                                    class=3D"font-weight-bolder font-size-b=
+ase font-size-md-lg" style=3D"width:96%; margin: 2% 2% 0;">=0D
+                                    =E5=90=88=E8=A8=88=E5=BE=97=E7=82=B9=0D
+                                </div>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <div=0D
+                                    class=3D"border border-light border-bol=
+d rounded position-relative font-roboto mt-3 py-3 text-center"=0D
+                                    style=3D"width: 96%; margin: 2% 2%;">=
+=0D
+                                    <span=0D
+                                        class=3D"position-relative font-siz=
+e-h1m font-weight-bolder">22.38=0D
+                                        <span=0D
+                                            class=3D"position-absolute font=
+-size-sm font-weight-bold bottom-0">=E7=82=B9=0D
+                                        </span>=0D
+                                    </span>=0D
+                                </div>=0D
+                            </td>=0D
+                        </tr>=0D
+                        =0D
+                        =0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td=0D
+                                align=3D"center"=0D
+                                class=3D"mt-3 py-3">=0D
+                                <p style=3D"margin: 0 auto 0.5rem; padding:=
+ 0; width: 75%;">=0D
+                                <span class=3D"font-weight-bolder font-size=
+-sm">=0D
+                                    =E3=83=8E=E3=83=BC=E3=83=9E=E3=83=AB=E7=
+=B4=9A=E3=82=B3=E3=83=BC=E3=82=B9=E3=81=A7=E3=81=AF=E3=80=811,000=E4=BD=8D=
+=E4=BB=A5=E5=86=85=E3=81=AB=E5=85=A5=E3=82=8B=E3=81=A8=E3=80=81<br />=0D
+                                    =E3=83=A9=E3=83=B3=E3=82=AD=E3=83=B3=E3=
+=82=B0=E5=A0=B1=E9=85=AC=E3=81=A8=E3=81=97=E3=81=A6=E3=80=81=E3=81=95=E3=82=
+=89=E3=81=ABAmazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=81=8C=E3=82=82=E3=
+=82=89=E3=81=88=E3=81=BE=E3=81=99=E3=80=82<br />=0D
+                                </span>=0D
+                                </p>=0D
+                            </td>=0D
+                        </tr>=0D
+                        <tr>=0D
+                            <td=0D
+                                align=3D"center"=0D
+                                class=3D"pb-3">=0D
+                                <p style=3D"margin: 0 auto 0.5rem; padding:=
+ 0; width: 75%;">=0D
+                                <span class=3D"font-size-xs">=0D
+                                    =E2=80=BBAmazon=E3=82=AE=E3=83=95=E3=83=
+=88=E5=88=B8=E3=81=AE=E7=99=BA=E8=A1=8C=E3=81=AF=E6=9C=80=E4=BD=8E50=E5=86=
+=86=E3=81=8B=E3=82=89=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=
+<br />=0D
+                                    =E2=80=BB=E3=83=A9=E3=83=B3=E3=82=AD=E3=
+=83=B3=E3=82=B0=E5=A0=B1=E9=85=AC=E3=81=AF=E3=83=A9=E3=83=B3=E3=82=AD=E3=83=
+=B3=E3=82=B0=E3=81=AE=E7=8A=B6=E6=B3=81=E3=81=AB=E3=82=88=E3=82=8A=E6=97=A5=
+=E3=80=85=E5=A4=89=E5=8B=95=E3=81=97=E3=80=81=E7=A2=BA=E5=AE=9A=E3=81=AF=E3=
+=82=AD=E3=83=A3=E3=83=B3=E3=83=9A=E3=83=BC=E3=83=B3=E7=B5=82=E4=BA=86=E5=BE=
+=8C=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br />=0D
+                                    =E2=80=BB=E7=8D=B2=E5=BE=97=E5=BE=97=E7=
+=82=B9=E3=81=AB=E3=81=AF=E9=80=9F=E5=A0=B1=E5=80=A4=E3=81=8C=E5=90=AB=E3=81=
+=BE=E3=82=8C=E3=81=A6=E3=81=84=E3=82=8B=E7=82=BA=E3=80=81=E5=A4=89=E5=8B=95=
+=E3=81=99=E3=82=8B=E5=8F=AF=E8=83=BD=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=E3=
+=81=BE=E3=81=99=E3=80=82<br />=0D
+                                    =E2=80=BB1=E7=82=B9=3D1=E5=86=86=E6=8F=
+=9B=E7=AE=97=E3=81=A7Amazon=E3=82=AE=E3=83=95=E3=83=88=E5=88=B8=E3=82=92=E6=
+=8E=88=E4=B8=8E=E3=81=97=E3=81=BE=E3=81=99=E3=80=82=0D
+                                </span>=0D
+                                </p>=0D
+                            </td>=0D
+                        </tr>=0D
+                        <tr>=0D
+                            <td align=3D"center">=0D
+                                <a=0D
+                                    href=3D"http://tou-link.looop-denki.com=
+/ls/click?upn=3D7o6ZDn2ixn5G3ABEXjIxCmPq-2B0WIAC3SIldrCIn9wjtbUtGVV3fzOHtBI=
+KODqp13wMtKMQctI4ft1WahkRgWag-3D-3DGb2c_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE=
+7gXvUM1Q7Qwv6-2B6eWk6uut2t-2FANKccvEIW-2FuCaE7-2BDUzA3jU6-2F6vOAjkk6gL4x9GD=
+tnaqoxkzLipFxRSWinsGTRgr2CJdiFP7NW9LSOAJdsZ5I1Ng1Q49PAcnk2DVerJc3DjfWKZsgLh=
+3l7Lzn-2BYeIEXqMKhow085ZYPsaeKm9zQfJvdk7eVbRbkB-2Fau0dxzvhnpc9YQ-3D"=0D
+                                    target=3D"_blank"=0D
+                                    style=3D"display: block; margin: 0 0 1r=
+em;">=0D
+                                    <img=0D
+                                        src=3D"https://looop-prod-assets.s3=
+-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/btn_to_mypage.png=
+"=0D
+                                        alt=3D"=E8=A9=B3=E3=81=97=E3=81=8F=
+=E3=81=AF=E3=83=9E=E3=82=A4=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=B8"=0D
+                                        width=3D"200"=0D
+                                        height=3D"48"=0D
+                                        class=3D"imageFix"/>=0D
+                                </a>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td>=0D
+                                <p=0D
+                                    class=3D"font-roboto mt-3 py-3 py-md-4 =
+font-size-md-lg"=0D
+                                    style=3D"width: 96%; margin: 2% 2%; tex=
+t-align: center; background-color: #268adf; color: #ffffff;">=0D
+                                    =E4=BD=BF=E7=94=A8=E7=8A=B6=E6=B3=81=E3=
+=82=B5=E3=83=B3=E3=83=97=E3=83=AB=0D
+                                </p>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td=0D
+                                align=3D"center"=0D
+                                class=3D"mt-3 py-3">=0D
+                                <p style=3D"margin: 0; padding: 0; width: 7=
+5%;">=0D
+                                    <span class=3D"font-weight-bolder font-=
+size-sm">=0D
+                                        =E3=83=9E=E3=82=A4=E3=83=9A=E3=83=
+=BC=E3=82=B8=E3=81=A7=E3=81=AF=E3=80=81=E3=81=82=E3=81=AA=E3=81=9F=E3=81=AE=
+=E6=A8=99=E6=BA=96=E7=9A=84=E3=81=AA=E4=BD=BF=E7=94=A8=E9=87=8F=E3=81=A8<br=
+ />=0D
+                                        =E5=BD=93=E6=97=A5=E3=81=AE=E9=9B=
+=BB=E6=B0=97=E4=BD=BF=E7=94=A8=E9=87=8F=E3=81=8C=E7=A2=BA=E8=AA=8D=E3=81=A7=
+=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82<br />=0D
+                                        =E6=A8=99=E6=BA=96=E7=9A=84=E3=81=
+=AA=E4=BD=BF=E7=94=A8=E9=87=8F=E3=82=92=E6=8A=8A=E6=8F=A1=E3=81=97=E3=81=A6=
+=E3=80=81<br />=0D
+                                        =E9=9B=BB=E6=B0=97=E3=82=92=E5=8A=
+=B9=E7=8E=87=E3=82=88=E3=81=8F=E4=BD=BF=E3=81=84=E5=BE=97=E7=82=B9=E3=82=92=
+=E7=8D=B2=E5=BE=97=E3=81=97=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=EF=BC=81=0D
+                                    </span>=0D
+                                </p>=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td align=3D"center" style=3D"padding: 15px 30p=
+x 0;">=0D
+                                <img=0D
+                                    src=3D"https://looop-prod-assets.s3-ap-=
+northeast-1.amazonaws.com/looop_spring_dr_2021/images/baseline.png"=0D
+                                    alt=3D"=E3=83=99=E3=83=BC=E3=82=B9=E3=
+=83=A9=E3=82=A4=E3=83=B3"=0D
+                                    width=3D"100%" />=0D
+                            </td>=0D
+                        </tr>=0D
+=0D
+                        =0D
+                        <tr>=0D
+                            <td align=3D"center">=0D
+                                <a=0D
+                                    href=3D"http://tou-link.looop-denki.com=
+/ls/click?upn=3D7o6ZDn2ixn5G3ABEXjIxCmPq-2B0WIAC3SIldrCIn9wjtbUtGVV3fzOHtBI=
+KODqp13wMtKMQctI4ft1WahkRgWag-3D-3DpCSe_rhSNMFNIT1rxdjgOzzNmuUxTkxXFbEyzpVE=
+7gXvUM1Q7Qwv6-2B6eWk6uut2t-2FANKc3vaKY-2FQnGHN-2FHS1DTAIAJN9YbM7YtdSJcCdjz4=
+ToLsdOehb9iqcJQoblSp7LKLYjmKiE6TExkppz-2BDshkJp-2FsBB04LuNORSKvlV41f8XRX52B=
+kSukl9ujf2Oht6EUHaNQX96dMjB9UffAryg12kZZpyadCsZxtLB3-2B4e8WYdQjg-3D"=0D
+                                    target=3D"_blank"=0D
+                                    style=3D"display: block; margin: 1rem 0=
+;">=0D
+                                    <img=0D
+                                        src=3D"https://looop-prod-assets.s3=
+-ap-northeast-1.amazonaws.com/looop_spring_dr_2021/images/btn_to_mypage.png=
+"=0D
+                                        alt=3D"=E8=A9=B3=E3=81=97=E3=81=8F=
+=E3=81=AF=E3=83=9E=E3=82=A4=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=B8"=0D
+                                        width=3D"200"=0D
+                                        height=3D"48"=0D
+                                        class=3D"imageFix"/>=0D
+                                </a>=0D
+                            </td>=0D
+                        </tr>=0D
+                    </table>=0D
+                </td>=0D
+            </tr>=0D
+=0D
+            =0D
+            <tr>=0D
+                <td=0D
+                    align=3D"center"=0D
+                    style=3D"padding: 40px 0 20px 0;">=0D
+                    <a=0D
+                        href=3D"http://tou-link.looop-denki.com/wf/unsubscr=
+ibe?upn=3DdMT6-2BoPwzsZrqrjnXlyDZMkYDsHwxmBRETf-2BJf2luZ1ZbJlBmObmnZqLeL3iX=
+Xvvwebl-2F7NbEVB0G8yLvXXL8Dj5HITmSp9no9czMIWrolJ69Jqss5wW8ZYNtmzswvPAuNN8om=
+u-2F2hQSqKsWwyYope04W1EztT5JgV9ipCERAGtUFZ5f9sZBFuqBUe6AnskEKVLwmWGlG9Qgi60=
+p0Tq9glgUKDayR1zra-2Bc6XQPMGD4-3D"=0D
+                        target=3D"_blank"=0D
+                        class=3D"text-blue font-size-sm-xs font-size-xs"=0D
+                        style=3D"text-decoration: none; border-bottom: 1px =
+solid #278ae0; padding-bottom: 2px;">
+                        =E3=83=A1=E3=83=BC=E3=83=AB=E3=82=92=E5=B1=8A=E3=81=
+=8B=E3=81=AA=E3=81=84=E3=82=88=E3=81=86=E3=81=AB=E3=81=99=E3=82=8B=0D
+                        (=E8=B3=BC=E8=AA=AD=E8=A7=A3=E9=99=A4=E3=81=AF24=E6=
+=99=82=E9=96=93=E4=BB=A5=E5=86=85=E3=81=AB=E5=8F=8D=E6=98=A0=E3=81=95=E3=82=
+=8C=E3=81=BE=E3=81=99)=0D
+                    </a>=0D
+                </td>=0D
+            </tr>=0D
+        </table>=0D
+=20=20=20=20
+<img src=3D"http://tou-link.looop-denki.com/wf/open?upn=3DdMT6-2BoPwzsZrqrj=
+nXlyDZMkYDsHwxmBRETf-2BJf2luZ1ZbJlBmObmnZqLeL3iXXvvE6L8dj5SYjSxK6m7klDv5Nin=
+zRhNvm5ZmnBrFSa5RZAhD6ILOOyO0l7YVQZ8GEfnVl6g2N5MOokhwgXFsD5NmgzCnasTkt-2FCh=
+13iIWDBr0Q2zZ6OmgmKQ0Kf6OzWPVTm7sLlPYHX0uAOQOz4h-2FeBECiM7faTM6goAHqJBdIns-=
+2BZVaivQr9SIPrveKAWM949Y" alt=3D"" width=3D"1" height=3D"1" border=3D"0" st=
+yle=3D"height:1px !important;width:1px !important;border-width:0 !important=
+;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !importa=
+nt;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !impo=
+rtant;padding-right:0 !important;padding-left:0 !important;"/>
+</body>=0D
+</html>
+

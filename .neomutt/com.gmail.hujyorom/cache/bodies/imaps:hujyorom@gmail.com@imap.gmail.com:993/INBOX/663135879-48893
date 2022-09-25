@@ -1,0 +1,402 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp355892vky;
+        Thu, 18 Mar 2021 00:35:48 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxocIH7Ku+gF9mzA1OhGP/JSzQr0SN1UB1yWNvbRpaCB2tDziU4Plm3FCdbeYVfbZEu/JPY
+X-Received: by 2002:aa7:9989:0:b029:1f5:aa05:94af with SMTP id k9-20020aa799890000b02901f5aa0594afmr2850727pfh.34.1616052948264;
+        Thu, 18 Mar 2021 00:35:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1616052948; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=tx1wAMVifmdd50kMvS8Nf/GVlZciDwho2TAEe5NmTUIS/YmyujZA58bU1+0beqBAya
+         ht+zJ3250iUrnVxjftTBe8uuwAO7xTYvSIcAZDOgF99BrYxCks8rWzO6Wsb+LS2sZXrQ
+         gSobqGUr49DQL14jyIrFBKsr071noVM72NUkUMzX0XQ3NvXroCdPFQGQLpC3tIuFYXIB
+         n6LbBd6SrTmthrVetIXbL2e8ianqtH5437+066zBWuI2lc+VAv7IQ0Y+WIX2HRWG2knr
+         kdNAwLBYjdmFmRnqIU/Khlsh/UA31QIjebAVdBB/NOfr/l1Bwq3B9eaHOo6P9RqNwqH0
+         LLEg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:message-id:date
+         :thread-index:thread-topic:subject:to:from:dkim-signature;
+        bh=4xjoDlO26Q3VjV+eCRE0VStR7/2AH17NYL32aAxfCr0=;
+        b=H9NNfA9j0XxhDnDCpmsLs9Dp7y8RFT0Slv/OTTyHopW8/ViQukhfRNYVghkVf3ssXo
+         iNXUD5k2iZaR3PRDJc6muwbZhLEquTS8wEuliV/Une0vRmo/Wyd8FTXk7e9IrGn+Nb06
+         XUBq0KfeP/Uf2WWn133ha238HPdLnyLLy3LPldvYNF7hjfEQUHEV3H0nvB+zfgyzGkOT
+         4yLJ+aLQEIgbeXOmHAtOiQRUYCLEd3JoAI++3BWRxViUhjjIrOfLcYLbULcyVAW5A+x8
+         ih2zJCo0AmpVY/pPRqKPZrG7YJMydVK2cShks1L86IHAcYv2GHzcqgoZEIue46WTJzc4
+         eGBw==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@groupallnet.onmicrosoft.com header.s=selector1-groupallnet-onmicrosoft-com header.b=BRpmz0I+;
+       arc=pass (i=1 spf=pass spfdomain=persol.co.jp dkim=pass dkdomain=persol.co.jp dmarc=pass fromdomain=persol.co.jp);
+       spf=pass (google.com: domain of sakiya@persol.co.jp designates 40.107.140.108 as permitted sender) smtp.mailfrom=sakiya@persol.co.jp
+Return-Path: <sakiya@persol.co.jp>
+Received: from JPN01-TY1-obe.outbound.protection.outlook.com (mail-eopbgr1400108.outbound.protection.outlook.com. [40.107.140.108])
+        by mx.google.com with ESMTPS id 21si2133831pjl.20.2021.03.18.00.35.47
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 18 Mar 2021 00:35:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sakiya@persol.co.jp designates 40.107.140.108 as permitted sender) client-ip=40.107.140.108;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@groupallnet.onmicrosoft.com header.s=selector1-groupallnet-onmicrosoft-com header.b=BRpmz0I+;
+       arc=pass (i=1 spf=pass spfdomain=persol.co.jp dkim=pass dkdomain=persol.co.jp dmarc=pass fromdomain=persol.co.jp);
+       spf=pass (google.com: domain of sakiya@persol.co.jp designates 40.107.140.108 as permitted sender) smtp.mailfrom=sakiya@persol.co.jp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=NjSKTS73Mze4QE8z4w4DOhHeKrPyV79pVbGZuevDql+AR8okgOzrstMUSh5EVVClGWBHq8NhCTCiJ3oHNE7wYEsgMTTD1IBOBntHW/2/PvyTzMaEkBh1rHL3ZKxFxdSJ1dVGK6+PvH1xwXqIT2TZs1Wz3S2fQePki3MxzL0fpLeq02qe+V/DOamaOXMvn2YCPxuHHq0KUjD0+ZLRwrC9b8/69b0TxvANWgvGsIRk9Sf7/1CBJm+c/3AERofzFxCyEZpJhJNIkinOX6moidi5AWWEv8jG8tYqFdI0ZvRBnnkMNsE8FqwBR8+RxH6nAjljZm6YiLWf1HUSqvlZwpi1Kw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4xjoDlO26Q3VjV+eCRE0VStR7/2AH17NYL32aAxfCr0=;
+ b=eX7CJ6hMmfOsE7wIhebJWp04Y+UtBgCtrL3GW9KiSgjIJKBoO3h23TxQk5xHnAkwTHk15YHuXlLS+kQpDvTv2ve4rpxiwztI2y7vIVImT2pGkIaBm+KvAeP5hO2FVp90jL8JQb1vrONJXy11O4Bo/fyVe3aeFIviCfZJDZMZYpykXKDsKOVc7QkrRIEqsDx1gwNZqUFoJcNc9e8uaOECMtnWz4KvfJV+Stsr3cvsODo4j1NJIMrngeHdH2Lijb8o2Rv5qw7/NRMghsUIc8rbsvTDafl8cekhjMe2px4s+poxrsOgehNOY6Ivuv2tDtbCuO7jb3oHOffAsaC422SsRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=persol.co.jp; dmarc=pass action=none header.from=persol.co.jp;
+ dkim=pass header.d=persol.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=groupallnet.onmicrosoft.com; s=selector1-groupallnet-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4xjoDlO26Q3VjV+eCRE0VStR7/2AH17NYL32aAxfCr0=;
+ b=BRpmz0I+Meo3Tmf03c54QF3hzZ8YFphEnoO+BbuMuZbiRyo25d8WkLYmteZ+w+1Iz1vjzaK7dXZnv3GIDtFxU5YNQhc4T3ltrKGvaVjDBE0YBVQhlr5qDMdT8PZ9xj/8p1rzvOyXH6hVj/9M45QtQtzlrBhhYMTxDTvyAUBjG3E=
+Received: from TY2PR01MB2554.jpnprd01.prod.outlook.com (2603:1096:404:76::12)
+ by TYAPR01MB5483.jpnprd01.prod.outlook.com (2603:1096:404:8038::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3955.18; Thu, 18 Mar
+ 2021 07:35:45 +0000
+Received: from TY2PR01MB2554.jpnprd01.prod.outlook.com
+ ([fe80::49bd:e9a7:5ec4:62e]) by TY2PR01MB2554.jpnprd01.prod.outlook.com
+ ([fe80::49bd:e9a7:5ec4:62e%4]) with mapi id 15.20.3955.018; Thu, 18 Mar 2021
+ 07:35:45 +0000
+From: =?iso-2022-jp?B?GyRCOzNLXBsoQiAbJEI5LBsoQg==?= <sakiya@persol.co.jp>
+To: "hujyorom@gmail.com" <hujyorom@gmail.com>
+Subject: =?iso-2022-jp?B?GyRCJDQxfkpnJCQkPyRAJCQkPzVhP00kSyREJCQkRhsoQi8=?=
+ =?iso-2022-jp?B?GyRCJVEhPCU9JWslRiUvJU4lbSU4ITwlOSU/JUMlVRsoQg==?=
+Thread-Topic:
+ =?iso-2022-jp?B?GyRCJDQxfkpnJCQkPyRAJCQkPzVhP00kSyREJCQkRhsoQi8=?=
+ =?iso-2022-jp?B?GyRCJVEhPCU9JWslRiUvJU4lbSU4ITwlOSU/JUMlVRsoQg==?=
+Thread-Index: AdcbyR+ZagapruqERw2KfjPZOZ4sFQ==
+Date: Thu, 18 Mar 2021 07:35:45 +0000
+Message-ID:
+ <TY2PR01MB2554FAD8283EAB8E5A6B2CC1F3699@TY2PR01MB2554.jpnprd01.prod.outlook.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=persol.co.jp;
+x-originating-ip: [202.238.206.233]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 40a6e824-6880-4f2f-af5f-08d8e9e07128
+x-ms-traffictypediagnostic: TYAPR01MB5483:
+x-microsoft-antispam-prvs:
+ <TYAPR01MB5483E341FD4E4D487E5B9644F3699@TYAPR01MB5483.jpnprd01.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:201;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ Is2lxyp+OfP/3vjYdPcx2E9JBsXu0ICic8LJf5YPv8qZR67Emka/7r77KCS0d6f3kztsnsoQAHIpvpcYEH11Im8yecfPRb6LLr0FebRr8Flm0eAJxeeWa3iPIz/x9dBKHlFOz+0CRswUkCHWPj/Foctp1QoOf0DPAkmt0fALFJFV4keUbFLkqws4vGUZdsZ/0MpSPbo2cGfYMufjvc9LcPbxrwoBa30q1r7Rp2vImolYMvPUnBJnJ0bgb/+WfidFQBuAYXmhYXQtbaOQjbNymVvzTa9SrHskVMxZxDMAwhZfFUH27mzaUhOrXHeVIQ5/7Bw8DtfE7Aj67WwYmV6dJE9ciFtFXflAPFLx10k2+NVn768+LCpBoHkEpwSEQrlOTDG0uJKc1oUDzk1KLT2yhUB1RJxQpy3c3uunXAe5xvfH1BtA2eEeBLhUSxhGWb8gVjGKbomHYvybRj8uRFc3r8ibY3+HHHPFUUqfvbkFpY8LKntT8Lct/PQEUb4ZEw9fdH492/i2XNiDs+bGNID511/jq9ZDmEAuAQfHeC5NRmboMbah3iXdjomOGcla7UG8Xa1NHU+hjf2ZGgg8xbvGaRET+jvX0k3k/06w0Rejz0N0XyI51Ah9K5MyFV9Gss5zR8W44sRPqtOvYJBO1NdQacqIsxb+KdGAR87C4T3t88vN1C1L5npvC2oZsFz5gn9Z
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PR01MB2554.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(366004)(39860400002)(396003)(136003)(346002)(376002)(33656002)(66446008)(7696005)(6506007)(4744005)(8936002)(6916009)(5660300002)(38100700001)(2906002)(224303003)(86362001)(55016002)(83380400001)(186003)(85182001)(9686003)(166002)(26005)(66556008)(66476007)(52536014)(66946007)(76116006)(478600001)(966005)(71200400001)(316002)(64756008);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata:
+ =?iso-2022-jp?B?TDdLZ2R1SCtYQVBsL1N4Y2Z5d1FNVzN5ekNkQzl4dUI2SzQ2bm9ia3Zj?=
+ =?iso-2022-jp?B?M1hVOXcvenE1aUQvcnRpaGN1Mk1ab25nb0huN2d5Tjl4aXlxNGp4STVk?=
+ =?iso-2022-jp?B?WnhtYXdJY3dvTk5NTm5ra1VES3VqSy9Fblh6T2FmMG9GN05CTldsdERh?=
+ =?iso-2022-jp?B?OWdzK3QwczUvRUYrRmtIWkRpaklvelJ5QVcrb2ZBQkdSdjJTNlpxbHMw?=
+ =?iso-2022-jp?B?cENqSlVYRHBDOU11WnkxZjlDTVpKU3RERnk1YkQyWmU0MVJiUXBqdk9C?=
+ =?iso-2022-jp?B?UTg2WWJaQ1NQc2xjcmExbVRoeHV5RHNmT3I3R1pidFEvUWR3UG9McCtr?=
+ =?iso-2022-jp?B?S0lqdy9Gbzc0anJjbzlCU2ZDcGltd3QrTE5RWFVKc2JVNFkyeStCWmxO?=
+ =?iso-2022-jp?B?czFJZUFKYUdSR1hwMzdhZ3hZOTVkdmVyNG9GTENlRmd1NFY2T0NjNkZT?=
+ =?iso-2022-jp?B?TWl1VnlyWEVsSWZkNjRIaHZwbFA4aGt2VWRXZGJramhaU2hackNrR3hz?=
+ =?iso-2022-jp?B?L2NneXFQY2JDNWI0YW1VVVRSS3dvSW9pQmZEWnJwWHBOMzBkakpYSDdI?=
+ =?iso-2022-jp?B?R0F6OHJtKzUraWI2RFZCZ3p5bVlYU0piS0dLV01Ec000RnBSeU1XaWxl?=
+ =?iso-2022-jp?B?YVdjUHNuVTBKSEVIY2lTYUNrZE1xYWMzVElvYnF0SmtER05jclh1VEVp?=
+ =?iso-2022-jp?B?ODFEUEc3UjJvWkZzUm80SlB5dFlIdHhGS2JFQkZiaDhTd2hoZjVWOTdx?=
+ =?iso-2022-jp?B?K3dKajZjQzFaM1p0bm1nQlh2VVFsYUlnVDJQcGNYUll6ZERxUGV6VUc5?=
+ =?iso-2022-jp?B?S2dHRnVlS0Fjam01Tisyd2ZLVE9ZaC8wZVRKeTV2WXI4Wm5IRUJya1V2?=
+ =?iso-2022-jp?B?aHNuSFIwcEtrSDgrQVU3VTNpNFlDS1pvN014cFF0V21IL1pHQzh5Nk8z?=
+ =?iso-2022-jp?B?SCt3V2Rxb3RJSm9kSEN2UnRjemhIb2ljdkxIVW0zbDRPQk81VUloZUNT?=
+ =?iso-2022-jp?B?OHVCSVJ4U3lJcjNmSmNUMUxzRkczUktTaEc3bkxKRi9TODB6Ukc3S0Nl?=
+ =?iso-2022-jp?B?dE5LNWp1b01ZY0hWdlQ2bkkwTjBVbTY2THpVeGJLRXlTQUNuS1BsZStp?=
+ =?iso-2022-jp?B?aVpYR2xGVTJEZFE4QkNLMmE1WDFUTW5OS2hSU2ZDMDlSTEd4ZWZRZ0Fk?=
+ =?iso-2022-jp?B?M3VXK2ZMSUJkanZtYWVKRFBVd2NMRlNzMlE4cjBTdEFDNGoyNlJvYmxj?=
+ =?iso-2022-jp?B?YmRmcU94NFE1ejlLdldVRFlzTTREbzZIdmxjVGpPUUdSMUZKbVZqdXNr?=
+ =?iso-2022-jp?B?OWdTdGQyaWlqNDBEZloyRTRrN1ZaQ0lIdzNpT2IxYlcyWm5FZ0RNOWFo?=
+ =?iso-2022-jp?B?L3lRRHBFNjBaaVJvZ0RpbEc2b3h2MU9CYjJTTXlXL3VXZHBoNXhHMGVw?=
+ =?iso-2022-jp?B?aUxqRzBLM1loOGRmNG5xdG1lbksxNDN2eTMrR3pMMDNnb0JLZUw4WXRW?=
+ =?iso-2022-jp?B?ZDBPQ0c3L3JOb1RITU00NnRkbWZTZDRpdEZvck5vcjI5ekNMenRhd0ZC?=
+ =?iso-2022-jp?B?RVBGSy84M2dqdFREVVJ6SlFza0ljSlFGRkxpMXpoeGdQUDl3ZkdYQmFC?=
+ =?iso-2022-jp?B?QjVLYVBMNXlQT095eEZURjZaY3lKdTZpNUJDb05reUx3bFNwNFA1WEVH?=
+ =?iso-2022-jp?B?bHlwS0tpcXRnb2JJenJQUXc3clVWZU1uTGM0N013UkRXVWQ5OU4wKzJX?=
+ =?iso-2022-jp?B?d3IvT2hhUWJZZ2FJdm43Q2l1L3U3eFNYbC9vYjcyWEJmemRqVGJQZUFQ?=
+ =?iso-2022-jp?B?cUFiNWZMN1R6TXZ3VjNwZk9wbSt6c3BXL1dIUEM1NThKUUw2OTBrd0R5?=
+ =?iso-2022-jp?B?N1NIRU1URC94UktJT3loMDlqRlQ0Z21aZkR6K3FJTXcya3cxc2tvUDIr?=
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_TY2PR01MB2554FAD8283EAB8E5A6B2CC1F3699TY2PR01MB2554jpnp_"
+MIME-Version: 1.0
+X-OriginatorOrg: persol.co.jp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PR01MB2554.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40a6e824-6880-4f2f-af5f-08d8e9e07128
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Mar 2021 07:35:45.2403
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f3d7b79e-b8c5-4b09-a13c-9ce0dc5d8916
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: yW6SqcTwotYbVoWVSqWRIMqi/u3gtf8iKaL6cHSCNN761hlBNnm3V/oqDcd0vpnlNaRDKETO5PpsMxtIJsCAhA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYAPR01MB5483
+
+--_000_TY2PR01MB2554FAD8283EAB8E5A6B2CC1F3699TY2PR01MB2554jpnp_
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+=1B$B1sF#=1B(B =1B$BUr;JMM=1B(B
+
+=1B$B$*@$OC$K$J$j$^$9!#=1B(B
+=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U;3K\$G$9!#=1B(B
+
+=1B$B$*EEOC$K$F$*OC$G$-$J$+$C$?$?$a!"%a!<%k$K$F$4O"Mm$$$?$7$^$9!#=1B(B
+=1B$B$3$NEY$OEv<R$N5a?M$K$41~Jg$$$?$@$-$"$j$,$H$&$4$6$$$^$9!#=1B(B
+
+=1B$B;d!"4X@>!&El3$%(%j%"$N5a?M>R2p$rC4Ev$7$F$*$j=1B(B
+=1B$B$3$A$i$N7o$G$4O"Mm$$$?$7$^$7$?!#=1B(B
+=1B$B$*<j$9$-$N:]$K=1B(B080-9172-8978=1B$B$^$G@^$jJV$7Kt$O=1B(B
+=1B$BDLOC2DG=3D;~4VBS$r$4JV?.$$$?$@$1$^$9$+!#=1B(B
+
+=1B$B$I$&$>$h$m$7$/$*4j$$$$$?$7$^$9!#=1B(B
+
+
+=1B$B"($4O"Mm"(=1B(B
+=1B$B9q$+$i$N!V?7$7$$@83hMM<0!W$KJo$$!":_Bp6PL3$r$7$F$*$j$^$9!#=1B(B
+=1B$B$4O"Mm$K$D$-$^$7$F$O!"%a!<%k$K$4O"MmD:$1$^$9$H9,$$$G$9!#=1B(B
+=1B$B!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=
+=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D=1B(B
+=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U3t<02q<R=1B(B
+=1B$B1D6HK\It=1B(B =1B$B?M:`3+H/It=1B(B =1B$B@>F|K\=1B(BITG
+=1B$B;3K\=1B(B =1B$B9,=1B(B
+=1B$B")=1B(B450-6213
+=1B$B0&CN8)L>8E20;TCfB<6hL>1X=1B(B4-7-1=1B$B%_%C%I%i%s%I%9%/%(%"=1B(B13F
+tel: 0120-996-189
+HP=1B$B!'=1B(Bhttps://persol-tech-s.co.jp/
+
+~=1B$B!!=3Di2s7@Ls$+$i!"M-5k5Y2KIUM?$"$j!!!?!!=1B(B2021=1B$BG/=1B(B1=1B$B7n=
+$h$j!V:_Bp6PL3<jEv!W$N;Y5k$r3+;O!!!A=1B(B
+=1B$B!VM-5k5Y2K0l@FIUM?!!"(0lItNc30!"IUM?>r7o$"$j!W!"!VH>F|M-5k5Y2K@)EY!W!"=
+=1B(B
+=1B$B!V7DD$5Y2K!&8+Iq6b@)EY!W!"!V7r9/?GCG;~FCJLH>5Y@)EY!W!"!V%$%s%U%k%(%s%6=
+M=3DKI@\<oJd=3Du6b@)EY!W$K2C$(!"!V:_Bp6PL3<jEv!W$rF3F~$7$^$9=1B(B
+=1B$B<g$JBT6x$K$D$$$F!!=1B(Bhttps://persol-tech-s.co.jp/guide/equal_pay/=1B=
+$B!!=1B(B
+=1B$B:_Bp6PL3<jEv$K$D$$$F!!=1B(Bhttps://persol-tech-s.co.jp/staff_bene/shug=
+yo/remote_allowance.html#menu01=1B$B!!!!=1B(B
+=1B$B!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=
+=3D!=3D!=3D!=3D!=3D!=3D=1B(B =1B$B$O$?$i$$$F!">P$*$&!#=1B(B
+
+=1B$B!ZHkL)J];}$N$*4j$$![=1B(B
+=1B$B$3$A$i$N%a!<%k$K$*?4Ev$?$j$,$J$$>l9g$O!"%a!<%k$N;HMQ!"8x3+Ey$r$J$5$i$:=
+!"=1B(B
+=1B$BAw?.85$K$4O"Mm$$$?$@$-$^$7$?>e$G:o=3D|$r$*4j$$CW$7$^$9!#=1B(B
+
+
+
+--_000_TY2PR01MB2554FAD8283EAB8E5A6B2CC1F3699TY2PR01MB2554jpnp_
+Content-Type: text/html; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-2022-=
+jp">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"=1B$B#M#S=1B(B =1B$B#P%4%7%C%/=1B(B";
+	panose-1:2 11 6 0 7 2 5 8 2 4;}
+@font-face
+	{font-family:"Meiryo UI";
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@=1B$B#M#S=1B(B =1B$B#P%4%7%C%/=1B(B";}
+@font-face
+	{font-family:"\@Meiryo UI";}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0mm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+span.17
+	{mso-style-type:personal-compose;
+	font-family:"Meiryo UI";
+	color:windowtext;
+	font-weight:normal;
+	font-style:normal;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:=1B$B^b%4%7%C%/=1B(B;}
+/* Page Definitions */
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:99.25pt 30.0mm 30.0mm 30.0mm;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026">
+<v:textbox inset=3D"5.85pt,.7pt,5.85pt,.7pt" />
+</o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"JA" link=3D"#0563C1" vlink=3D"#954F72" style=3D"text-justify-=
+trim:punctuation">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B1sF#=1B(B =1B$BUr;JMM=1B(B<span lang=3D"EN-US"><o:p></o=
+:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$*@$OC$K$J$j$^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p>=
+</span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U;3K\$G$9!#=1B(B<span lang=
+=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$*EEOC$K$F$*OC$G$-$J$+$C$?$?$a!"%a!<%k$K$F$4O"Mm$$$?$7$=
+^$9!#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$3$NEY$OEv<R$N5a?M$K$41~Jg$$$?$@$-$"$j$,$H$&$4$6$$$^$9!=
+#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B;d!"4X@>!&El3$%(%j%"$N5a?M>R2p$rC4Ev$7$F$*$j=1B(B<span =
+lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$3$A$i$N7o$G$4O"Mm$$$?$7$^$7$?!#=1B(B<span lang=3D"EN-U=
+S"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$*<j$9$-$N:]$K=1B(B<span lang=3D"EN-US">080-9172-8978</=
+span>=1B$B$^$G@^$jJV$7Kt$O=1B(B<span lang=3D"EN-US"><o:p></o:p></span></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$BDLOC2DG=3D;~4VBS$r$4JV?.$$$?$@$1$^$9$+!#=1B(B<span lang=
+=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$I$&$>$h$m$7$/$*4j$$$$$?$7$^$9!#=1B(B<span lang=3D"EN-U=
+S"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span lang=
+=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;"><o:=
+p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B"($4O"Mm"(=1B(=
+B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B9q$+$i$N!V?7$7=
+$$@83hMM<0!W$KJo$$!":_Bp6PL3$r$7$F$*$j$^$9!#=1B(B<span lang=3D"EN-US"><o:p>=
+</o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B$4O"Mm$K$D$-$^=
+$7$F$O!"%a!<%k$K$4O"MmD:$1$^$9$H9,$$$G$9!#=1B(B<span lang=3D"EN-US"><o:p></=
+o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=
+=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D=1B(=
+B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B%Q!<%=3D%k%F%/%N%m%8!<%9%?%C%U3t<02q<R=1B(B<span lang=
+=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B1D6HK\It=1B(B =1B$B?M:`3+H/It=1B(B =1B$B@>F|K\=1B(B<spa=
+n lang=3D"EN-US">ITG<o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B;3K\=1B(B =1B$B9,=1B(B<span lang=3D"EN-US"><o:p></o:p><=
+/span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B")=1B(B<span lang=3D"EN-US">450-6213<o:p></o:p></span><=
+/span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B0&CN8)L>8E20;TCfB<6hL>1X=1B(B<span lang=3D"EN-US">4-7-1=
+</span>=1B$B%_%C%I%i%s%I%9%/%(%"=1B(B<span lang=3D"EN-US">13F<o:p></o:p></s=
+pan></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;">tel: 0120-996-189<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;">HP</span><span style=3D"font-size:10.0pt;font=
+-family:&quot;Meiryo UI&quot;">=1B$B!'=1B(B<span lang=3D"EN-US"><a href=3D"=
+https://persol-tech-s.co.jp/"><span style=3D"color:blue">https://persol-tec=
+h-s.co.jp/</span></a><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span lang=
+=3D"EN-US" style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">~</=
+span><span style=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B=
+$B!!=3Di2s7@Ls$+$i!"M-5k5Y2KIUM?$"$j!!!?!!=1B(B<span lang=3D"EN-US">2021</s=
+pan>=1B$BG/=1B(B<span lang=3D"EN-US">1</span>=1B$B7n$h$j!V:_Bp6PL3<jEv!W$N;=
+Y5k$r3+;O!!!A=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B!VM-5k5Y2K0l@F=
+IUM?!!"(0lItNc30!"IUM?>r7o$"$j!W!"!VH>F|M-5k5Y2K@)EY!W!"=1B(B<span lang=3D"=
+EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B!V7DD$5Y2K!&8+=
+Iq6b@)EY!W!"!V7r9/?GCG;~FCJLH>5Y@)EY!W!"!V%$%s%U%k%(%s%6M=3DKI@\<oJd=3Du6b@=
+)EY!W$K2C$(!"!V:_Bp6PL3<jEv!W$rF3F~$7$^$9=1B(B<span lang=3D"EN-US"><o:p></o=
+:p></span></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B<g$JBT6x$K$D$$=
+$F!!=1B(B<span lang=3D"EN-US"><a href=3D"https://persol-tech-s.co.jp/guide/=
+equal_pay/"><span style=3D"color:blue">https://persol-tech-s.co.jp/guide/eq=
+ual_pay/</span></a></span>=1B$B!!=1B(B<span lang=3D"EN-US"><o:p></o:p></spa=
+n></span></p>
+<p class=3D"MsoNormal" align=3D"left" style=3D"text-align:left"><span style=
+=3D"font-size:10.0pt;font-family:&quot;Meiryo UI&quot;">=1B$B:_Bp6PL3<jEv$K=
+$D$$$F!!=1B(B<span lang=3D"EN-US"><a href=3D"https://persol-tech-s.co.jp/st=
+aff_bene/shugyo/remote_allowance.html#menu01"><span style=3D"color:blue">ht=
+tps://persol-tech-s.co.jp/staff_bene/shugyo/remote_allowance.html#menu01</s=
+pan></a></span>=1B$B!!!!=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=
+=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D!=3D=1B(B =1B$B$O$?$i$$$F!">P$*$&!#=1B(B=
+<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B!ZHkL)J];}$N$*4j$$![=1B(B<span lang=3D"EN-US"><o:p></o:=
+p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$B$3$A$i$N%a!<%k$K$*?4Ev$?$j$,$J$$>l9g$O!"%a!<%k$N;HMQ!"8=
+x3+Ey$r$J$5$i$:!"=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Me=
+iryo UI&quot;">=1B$BAw?.85$K$4O"Mm$$$?$@$-$^$7$?>e$G:o=3D|$r$*4j$$CW$7$^$9!=
+#=1B(B<span lang=3D"EN-US"><o:p></o:p></span></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-size:10.0pt;font-=
+family:&quot;Meiryo UI&quot;"><o:p>&nbsp;</o:p></span></p>
+</div>
+</body>
+</html>
+
+--_000_TY2PR01MB2554FAD8283EAB8E5A6B2CC1F3699TY2PR01MB2554jpnp_--

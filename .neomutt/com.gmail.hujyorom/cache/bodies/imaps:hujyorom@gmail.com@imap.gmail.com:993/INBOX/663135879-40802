@@ -1,0 +1,1410 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:23cd:0:0:0:0:0 with SMTP id j196csp3049794vkj;
+        Mon, 18 May 2020 13:05:51 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwwPJpj3Q0nr/p3RAvgYDyTRHQJ/Pb+ATBcsoTe1SxdMbyOUmfsP79Ac1JTcgza8QJLned+
+X-Received: by 2002:a17:902:820b:: with SMTP id x11mr17121668pln.139.1589832351056;
+        Mon, 18 May 2020 13:05:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1589832351; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qlzzybxB8ApuD47n3yXADdLaHDu3LwbyI09ywWzNK8ZgaM1Nt+7n54Q84K9Om0PmWo
+         gWXB8EwkECgsx90NR+DigDr9ZLQtSOo8ZGeMVWNDYpLvPVPjAhQUambRUPN9KO9lgnFq
+         q3/Z5o/vXpzkpPQO/GGH7CU3SjD9MqRvs4K2O8vxkfvwOysLk0lpdbFY2ZrzyCGoxP1b
+         oz4qoqXxDkiIz/JBUvsZKX4iZKofGsc21nRariwIeEcb9svBamJcJAgdq14eY2YGxow2
+         lOURBNo0E6k1uO1lIOfFYetfrZZCRYgRm+6Xp55bHPWShebCXbKvbsBR7SnidJnix6LD
+         +CHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=EIn8bY8V2HQ0Jzn8ID0W3ej5+PR0l1k2WGW2bKj8hAo=;
+        b=tbvPn5IJVD8Ha0v46SUX6EzhWHAeNsFEikJRO5sLGcjDAparJNUqfNaJBW1RLnJiQ5
+         uiJfdGTxNdCfURUp2/FPshQe9uusl8PtOxpMnnKCImrlzPcGCn6Zp787ka1WspnUy8c7
+         3I8XIYqrGrrDl37CtaPIaxSbPf4vwPBP3F/I5U8PnZG3jHD1wQRZ4tkY6MTwd6I7kLjd
+         GwmL3Ui4wp1646Li/K3YtMYNxunQ5zuj/t0PW0b/TJrXcYxfBLB8OLg/MEBtc5jkRWoP
+         b+dJKaD1fHWV4hbISprEv3SijR5yYNSzpU+NXtQnjr+N82RRi43V6ps5lL/Y0zKyVI9p
+         9xAw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=m3gdxb6svtrnoycoj5w5ubs33go3ivmr header.b="Ieih/au5";
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=RcQtOQIs;
+       spf=pass (google.com: domain of 20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp designates 54.240.25.21 as permitted sender) smtp.mailfrom=20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp>
+Received: from a25-21.smtp-out.us-west-2.amazonses.com (a25-21.smtp-out.us-west-2.amazonses.com. [54.240.25.21])
+        by mx.google.com with ESMTPS id e1si4761468pgk.68.2020.05.18.13.05.50
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Mon, 18 May 2020 13:05:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp designates 54.240.25.21 as permitted sender) client-ip=54.240.25.21;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=m3gdxb6svtrnoycoj5w5ubs33go3ivmr header.b="Ieih/au5";
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=RcQtOQIs;
+       spf=pass (google.com: domain of 20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp designates 54.240.25.21 as permitted sender) smtp.mailfrom=20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m3gdxb6svtrnoycoj5w5ubs33go3ivmr; d=amazon.co.jp; t=1589832350;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=eeiWlGx+Wjpy9pRnYbrjHNpf9sgsYI1lx1LkhBbHNjs=;
+	b=Ieih/au5sXWWEZIyMKAQ8I4blmOQGziGo1UTzHw1vHKIFslBiO8DBj+zm8L1m0ax
+	4biE9snHmxOIrPlbAAcg/bBvBDgrygAYJF4B3NUx1nOZy/4Yk9Z4tXyUP4K50klIYC6
+	WuF1cLTh49UeTjREYNAuiwu4LpZAQrMiaGICDJuE=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1589832350;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=eeiWlGx+Wjpy9pRnYbrjHNpf9sgsYI1lx1LkhBbHNjs=;
+	b=RcQtOQIsnvF4XBi/vMrpd9ElonHKwcmNjyPGTGJPKCbEx4+wTkAeXbQeFvsgxSQ2
+	ctn8OGB5I/oqxwuDiO9dXr0zHPahh1r6AiMsX8UqKLjZai66d53YA+QgIpu94Yy5DVY
+	73W2nS+aiGVLvc/s5GG0LaDfM20XN8yXdMg4MoWg=
+From: "Amazon.co.jp" <shipment-tracking@amazon.co.jp>
+Reply-To: no-reply@amazon.co.jp
+To: hujyorom@gmail.com
+Message-ID: <0101017229647a6d-ae45cdc2-172d-4f30-ade1-2a11d99ebf6f-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?B?QW1hem9uLmNvLmpw44CA44GU5rOo5paH44Gu44CM5ZCQ5oGv44Kk44Kx?=
+ =?UTF-8?B?44Oh44OzIOOCquODvOODqeODquOCu+ODg+ODiCA=?=
+ =?UTF-8?B?Li4u44CN44Gd44Gu5LuWM+eCueOBrueZuumAgQ==?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_158311695_1504184720.1589832350306"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 20200518200549bd9c98ffee4244e38565910d4a70p0fe@bounces.amazon.co.jp
+X-AMAZON-METADATA: CA=C1E8T4BF9GNOCU-CU=A10PIR4I6DYV8A
+X-Original-MessageID: <urn.rtn.msg.20200518200549bd9c98ffee4244e38565910d4a70p0fe@1589832350307.rtn-svc-fe-back-c42xl2a-133bd2aa.us-west-2.amazon.com>
+Date: Mon, 18 May 2020 20:05:50 +0000
+X-SES-Outgoing: 2020.05.18-54.240.25.21
+Feedback-ID: 1.us-west-2.rdzROVNU4Ie6UEvJOunP6JDKqJ3if06FJy9qthmk+BU=:AmazonSES
+
+------=_Part_158311695_1504184720.1589832350306
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+QW1hem9uLmNvLmpw44CA44GU5rOo5paH44Gu55m66YCBDQrms6jmlofnlarlj7cgMjQ5LTY5NTcy
+NTAtNzk4Mzg0NA0KaHR0cDovL3d3dy5hbWF6b24uY28uanAvcmVmPVRFX3RleF9nIA0KDQotLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLQ0KDQrpgaDol6TjgIDlsIflj7gg5qeYDQoNCkFtYXpvbi5jby5qcCDjgpLjgZTliKnn
+lKjjgYTjgZ/jgaDjgY3jgIHjgYLjgorjgYzjgajjgYbjgZTjgZbjgYTjgb7jgZnjgIINCuOBlOaz
+qOaWh+OBhOOBn+OBoOOBhOOBn+WVhuWTgeOCkuacrOaXpeOAgUFtYXpvbi5jby5qcCDjgYznmbrp
+gIHjgZfjgIHjgZTms6jmlofjga7jgYrmiYvntprjgY3jgYzlrozkuobjgZfjgb7jgZfjgZ/jga7j
+gafjgIHjgYrnn6XjgonjgZvjgYTjgZ/jgZfjgb7jgZnjgIINCg0K55u05o6l44Gu44GK5rih44GX
+44CB44KC44GX44GP44Gv44Od44K544OI5oqV5Ye944GE44Gf44GX44G+44GZ44CC44GK5bGK44GR
+5pel5pmC5oyH5a6a5L6/44Gu5aC05ZCI44CB44GU5oyH5a6a5pmC6ZaT44KI44KK44KC5pep44GP
+44Od44K544OI5oqV5Ye944Gn44GN44KL5aC05ZCI44GM44GC44KK44G+44GZ44CCDQogICAgDQoJ
+ICDCoA0KCSAgICDjgYrlsYrjgZHkuojlrpo6IOacqOabnOaXpSwgMDUvMjENCgkgICAgMDg6MDAg
+LSAxMjowMA0KDQoNCumFjemAgeeKtuazgeOBr+S4i+iomOODmuODvOOCuOOBi+OCieOBlOeiuuiq
+jeOBj+OBoOOBleOBhOOAgg0KaHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL2dwL2Nzcy9zaGlwdHJh
+Y2svdmlldy5odG1sL3JlZj1URV90ZXhfdHlwP2llPVVURjgmYWRkcmVzc0lEPWpvcW9rcW1wcmtu
+JmxhdGVzdEFycml2YWxEYXRlPTE1OTAwNTg4MDAmb3JkZXJJRD0yNDktNjk1NzI1MC03OTgzODQ0
+JnNoaXBtZW50RGF0ZT0xNTg5ODMxOTk4Jm9yZGVyaW5nU2hpcG1lbnRJZD0xMDk0MDk0MTk5NjMw
+MyZwYWNrYWdlSWQ9MQ0KDQrjgYrlsYrjgZHlhYjvvJoNCiAgIOmBoOiXpOOAgOWwh+WPuCDmp5gN
+CiAgIDA1NC0wMDIyDQogICDljJfmtbfpgZMNCiAgIOWLh+aJlemDoQ0KICAg44KA44GL44KP55S6
+6Iqx5ZySMi00NQ0KICAg56We6YeO44Ki44OR44O844OIMjjlj7cNCiAgIEthbmR5DQogICAgIA0K
+44GK5a6i5qeY44Gu5ZWG5ZOB44Gv44Ok44Oe44OI6YGL6Ly444Gn44GK5bGK44GR44GE44Gf44GX
+44G+44GZ44CC44GK5ZWP44GE5ZCI44KP44Gb5Lyd56Wo55Wq5Y+344GvNDQzOTI3ODYzODg244Gn
+44GZ44CC44Gq44GK44CB5Lyd56Wo55Wq5Y+344Gn6YWN6YCB54q25rOB44KS56K66KqN44Gn44GN
+44KL44KI44GG44Gr44Gq44KL44G+44Gn44CB44GK5pmC6ZaT44GM44GL44GL44KL5aC05ZCI44GM
+44GC44KK44G+44GZ44CCDQrjgYrlsYrjgZHmmYLjgavjgZTkuI3lnKjjga7loLTlkIjjgIHphY3p
+gIHmpa3ogIXjgYzkuI3lnKjnpajjgpLmrovjgZfjgabjgIHllYblk4HjgpLllrbmpa3miYDjgavm
+jIHjgaHluLDjgorjgb7jgZnjgILjgYrlsYrjgZHml6XmmYLjgpLlpInmm7TjgZfjgZ/jgYTloLTl
+kIjjga/jgIHphY3pgIHmpa3ogIXjgavnm7TmjqXjgZTpgKPntaHjgY/jgaDjgZXjgYTjgIINCuWQ
+hOmFjemAgealreiAheOBrumAo+e1oeWFiOOBr+OAgeS4i+iomFVSTOOBruODmOODq+ODl+ODmuOD
+vOOCuOOBp+OBlOeiuuiqjeOBj+OBoOOBleOBhOOAgg0KaHR0cDovL3d3dy5hbWF6b24uY28uanAv
+aGVscC9jYXJyaWVyP3JlZj1URV90ZXhfc2QNCg0KPT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCg0K6aCY5Y+O5pu4L+iz
+vOWFpeaYjue0sOabuO+8mg0KDQrmoKrlvI/kvJrnpL7jgq7jg6Pjgrbjg6rjg7PjgrDjga7llYbl
+k4E6DQoNCiAgIOWQkOaBr+OCpOOCseODoeODsyDjgqrjg7zjg6njg6rjgrvjg4Pjg4gg77yW77yQ
+5pel5YiGIOacieWKueaIkOWIhjEwLDIwMG1nIOOCqOODgeOCseODg+ODiCDjg4fjgqrjgqLjgr/j
+g4Pjgq8g44Kq44O844Op44OQ44Oq44KiIOODqeOCr+ODiOODleOCp+ODquODsyAgICDvv6UgMiw5
+NDgNCg0KDQrjgqLjg57jgr7jg7Pjgrjjg6Pjg5Hjg7PlkIjlkIzkvJrnpL7jga7llYblk4E6DQoN
+CiAgIOWkp+WhmuijveiWrCDjg43jgqTjg4Hjg6Pjg7zjg6HjgqTjg4kg5Lqc6YmbIDYw57KSICAg
+ICAgICAgICAgICAgICAgICAg44CAM+eCuQ0KICAg77+lIDEsNzU1DQoNCi0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tDQog
+ICDlsI/oqIjvvJog77+lIDQsNzAzDQogICDphY3pgIHmlpnjgYrjgojjgbPmiYvmlbDmlpnvvJog
+77+lIDANCiAgIOa2iOiyu+iAhemChOWFgzUlOiAt77+lIDE0Nw0KDQogICDlkIjoqIjvvJog77+l
+IDQsNTU2IA0KICAg44Kv44Os44K444OD44OI44Kr44O844OJ77yITWFzdGVyY2FyZO+8ieOBp+OB
+ruOBiuaUr+aJleOBhOmhje+8miDvv6UgNCw1NTYNCg0KPT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCg0K44GU5rOo5paH
+44Gu6Kmz57Sw44Gv44CB5LiL6KiYVVJM44GL44KJ44Ki44Kr44Km44Oz44OI44K144O844OT44K5
+44Gn44GU56K66KqN44GE44Gf44Gg44GR44G+44GZ44CCIA0KaHR0cDovL3d3dy5hbWF6b24uY28u
+anAvZ3AvY3NzL2hvbWVwYWdlLmh0bWwvcmVmPVRFX3RleF9obw0KDQrkuIDpg6jjga7llYblk4Hj
+gpLpmaTjgY3jgIHntI3lk4Hmm7jjgpLlkIzmorHjgZvjgZrjgavjgYrlsYrjgZHjgZfjgabjgYTj
+gb7jgZnjgILpoJjlj47mm7jjgYzlv4XopoHjgarloLTlkIjjga/jgIFQQ+OCteOCpOODiOOBruOA
+jOOCouOCq+OCpuODs+ODiOOCteODvOODk+OCueOAjeWGheOBq+OBguOCi+azqOaWh+WxpeattOeU
+u+mdouOBi+OCiemgmOWPjuabuOODh+ODvOOCv+OCkuihqOekuuOBmeOCi+OBk+OBqOOBjOOBp+OB
+jeOBvuOBmeOBruOBp+OAgeWNsOWIt+OBl+OBpuOBlOWIqeeUqOOBj+OBoOOBleOBhO+8iOS7o+mH
+keW8leaPm+OAgeOCs+ODs+ODk+ODi+ODu0FUTeODu+ODjeODg+ODiOODkOODs+OCreODs+OCsOOD
+u+mbu+WtkOODnuODjeODvOaJleOBhOOBp+OBiuaUr+aJleOBhOOBruWgtOWQiOOCkumZpOOBj++8
+ieOAgumgmOWPjuabuOOBq+OBpOOBhOOBpuips+OBl+OBj+OBr+OAgeODmOODq+ODl+ODmuODvOOC
+uOOCkuOBlOeiuuiqjeOBj+OBoOOBleOBhOOAgg0KaHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL2hl
+bHAvaW52b2ljZT9yZWY9VEVfdGV4X3JjdA0KDQrllYblk4Hjgavku5jjgYTjgZ/jgr/jgrDjgoTl
+lYblk4Hoh6rkvZPjgavoqJjovInjgZXjgozjgZ/kvqHmoLzjgavjgYvjgYvjgo/jgonjgZrjgIHj
+gZTms6jmlofnorrlrprmmYLjgavjgrXjgqTjg4jkuIrjgavooajnpLrjgZXjgozjgovph5HpoY3j
+gYrjgojjgbPjgZPjgaHjgonjga5F44Oh44O844Or44Gr6KiY6LyJ44Gu6YeR6aGN44GM44GU6KuL
+5rGC6YeR6aGN44Go44Gq44KK44G+44GZ44CCDQoNCui/lOWTgeODu+S6pOaPm+OBr+OAgeS4i+io
+mFVSTOOBi+OCiei/lOWTgeWPl+S7mOOCu+ODs+OCv+ODvOOBp+OBiuaJi+e2muOBjeOBj+OBoOOB
+leOBhOOAgg0KaHR0cDovL3d3dy5hbWF6b24uY28uanAvaGVucGluP3JlZj1URV90ZXhfcg0KDQrj
+gZTkuI3mmI7jgarngrnjga/jgIHkuIvoqJhVUkzjga7jg5jjg6vjg5fjg5rjg7zjgrjjgYvjgonj
+gqvjgrnjgr/jg57jg7zjgrXjg7zjg5Pjgrnjgb7jgafjgZTpgKPntaHjgY/jgaDjgZXjgYTjgIIN
+Cmh0dHA6Ly93d3cuYW1hem9uLmNvLmpwL2dwL2hlbHAvY3VzdG9tZXIvZGlzcGxheS5odG1sP2ll
+PVVURjgmcmVmPVRFX3RleF9jcw0KDQpBbWF6b24uY28uanAg44Gu44G+44Gf44Gu44GU5Yip55So
+44KS44GK5b6F44Gh44GX44Gm44GK44KK44G+44GZ44CCDQpBbWF6b24uY28uanANCnd3dy5hbWF6
+b24uY28uanANCg0KLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCg0KDQrjgZPjga5F44Oh44O844Or44Ki44OJ44Os44K5
+44Gv6YWN5L+h5bCC55So44Gn44GZ44CC44GT44Gu44Oh44OD44K744O844K444Gr6L+U5L+h44GX
+44Gq44GE44KI44GG44GK6aGY44GE44GE44Gf44GX44G+44GZ44CC
+------=_Part_158311695_1504184720.1589832350306
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+       =20
+       =20
+
+
+
+
+
+
+   =20
+   =20
+   =20
+   =20
+
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+ <head>=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" =
+/>=20
+  <style type=3D"text/css">
+body {
+=09margin:0;
+=09font:13px/18px Arial, sans-serif;=09
+}
+
+a {
+=09text-decoration:none;
+=09color:#006699;
+=09font:13px/18px Arial, sans-serif;=09
+}
+
+a img {
+=09border:0;=09
+}
+
+h2 {
+=09font-size:20px;
+=09line-height:24px;
+=09margin:0;
+=09padding:0;
+=09font-weight:normal;=09
+=09color:#000 !important;
+}
+
+h3 {
+=09font-size:18px;
+=09color:#cc6600;
+=09margin:15px 0 0 0;
+=09font-weight:normal;
+}
+
+h4 {
+=09font-size:14px;=09
+=09margin:0;
+=09font-weight:normal;
+}
+
+p {
+=09margin:4px 0 0 0;
+=09font:13px/18px Arial, sans-serif;=09
+}
+
+table {
+=09border-collapse:collapse;=09
+}
+
+td {
+=09vertical-align: top;
+=09font-size: 13px;
+=09line-height: 18px;
+=09font-family: Arial, sans-serif;
+}
+
+/* heading */
+
+.heading {
+=09font-size:18px;
+=09color:#cc6600;
+=09margin:15px 0 0 0;
+=09font-weight:normal;
+}
+
+#headingBottom{
+    margin:3px 0 0 0;
+    border-top:1px solid #ccc;
+=09width:100%;
+}
+
+/* container */
+#container {
+=09width:655px;
+=09color:#333;
+=09margin:0 auto;
+}
+
+#container .frame {
+=09padding:0 20px 20px 20px;=09
+}
+
+/* content tables */
+#main, #header, #summary, #orderDetails, #itemDetails, #costBreakdown, #cos=
+tBreakdownNoAsin,
+#selfService, #closing, #marketingContent, #legalCopy {
+=09width:100%;
+}
+
+/* header */
+#header{
+=09margin:0 0 15px 0;
+}
+
+#header .logo {
+=09width:115px;
+=09padding:18px 0 0 0;=09
+}
+
+#header .navigation {
+=09text-align:right;
+=09padding:5px 0;
+=09border-bottom:1px solid #ccc;
+=09white-space:nowrap;
+}
+
+#header .navigation a {
+=09border-right:0px solid #CCC;
+=09margin-right:0px;
+=09padding-right:0px;
+}
+
+#header .navigation span {
+=09text-decoration:none; color:#CCC; font:15px Arial, san-serif;
+}
+
+#header .navigation a.last {
+=09border:0;
+=09margin:0;
+=09padding:0;
+}
+
+/* Added for Dynamic Marketing Content */
+#header .navigation td{
+=09padding:0px;
+=09vertical-align: bottom;=20
+}
+
+#header .title {
+=09text-align:right;
+=09padding:7px 0 5px 0;
+}
+
+#header .title img {
+=09padding:0 4px 0 0;
+}
+
+/* summary */
+
+#summary a{
+=09text-decoration:none;
+=09color:#006699;=09
+}
+
+#summary td{
+=09padding: 0 0 8px 0;
+}
+
+/* critical info */
+#criticalInfo {
+=09border-top:3px solid #2d3741;
+=09width:640px;
+}
+
+#criticalInfo td {
+=09font-size:14px;
+=09padding:11px 18px 18px 18px;
+=09background-color:#efefef;
+=09width:280px;
+}
+
+#criticalInfo .label {
+=09color:#666;=09
+}
+
+#criticalInfo p {
+        color:#000000;
+=09margin:2px 0 9px 0;=09
+}
+
+#criticalInfo  p span{
+=09font-size:11px;=09
+}
+
+#criticalInfo  p .uniqueSpan{
+=09font-size:14px;=09
+}
+
+#criticalInfo span {
+=09color:#666;=09
+}
+
+#criticalInfo a {
+=09font-size:11px;
+=09color:#006699;
+=09text-decoration:none;=09
+}
+
+/* buttons */
+.button {
+=09text-decoration:none !important;
+=09display:block;
+=09height:26px;
+=09display:inline-block;
+=09margin:0 0 2px 0;
+}
+
+.button.small {
+=09height:20px;
+}
+
+.button .expandable {
+=09float:left;
+=09overflow:hidden;
+}
+
+.button .text {
+=09color:#000f68;
+=09font-size:12px;
+=09position:relative;
+=09z-index:10;
+=09top:-22px;
+=09left:-12px;=09
+=09text-align:center;
+}
+
+.button.secondary .text {
+=09left:0;=09
+}
+
+.button.small .text {
+=09top:-20px;
+=09left:0;
+=09font-size:11px;
+}
+
+/* supporting details */
+#supportingDetails {
+=09font-size:11px;
+=09color:#666;
+=09line-height:14px;
+=09margin:10px 20px;
+}
+
+#supportingDetails {
+=09margin:0 18px 0 18px;=09=09
+}
+
+/* order details */
+#orderDetails .heading {
+=09width:640px;
+ =09border-bottom:0px solid #ccc;
+=09margin:0 0 3px 0;
+=09padding:0 0 3px 0;
+}
+
+#orderDetails .frame {
+=09padding:16px 20px 6px 20px;
+}
+
+#orderDetails .frame-no-asin {
+=09padding: 16px 0 6px 0;
+}
+
+#orderDetails .orderDate {
+=09color:#666666;
+=09font-size:12px;
+}
+
+/* tracking text */
+#trackingText td{
+=09font-size:10px;=20
+=09color:#666;=20
+=09padding:0 10px 20px 10px;=20
+=09line-height:16px;
+=09width:640px;
+}
+
+#trackingText p{
+=09margin:10px 0 0 0;=20
+=09font:11px/16px Arial, sans-serif;
+=09color:#333;
+}
+
+#trackingText a{
+=09text-decoration:none;
+=09font:11px/16px Arial, sans-serif;=20
+=09color:#006699;
+}
+
+
+
+/* item details */
+#itemDetails .photo {
+=09width:150px;
+=09text-align:center;
+=09padding:0 0 30px 0;
+    vertical-align:middle;
+}
+
+#itemDetails .photo .play img {
+=09margin:3px 0 0 0;=09
+}
+
+#itemDetails .name {
+vertical-align:top;
+=09color:#666;
+=09padding:10px 10px 30px 10px;
+}
+
+#itemDetails ul {
+=09margin:0;
+=09padding:0;
+}
+
+#itemDetails ul li {
+=09list-style-type:none;
+=09line-height:14px;
+=09padding:0 0 4px 0;
+}
+
+#itemDetails ul li a {
+=09font-size:14px;
+=09line-height:14px;
+}
+
+#itemDetails .name p {
+=09margin:0;
+=09font-size:12px;
+=09line-height:14px;
+}
+
+#itemDetails .name p a {
+=09font-size:11px;
+}
+
+#itemDetails .name span {
+=09color:rgb(51, 51, 51);
+=09
+}
+
+#itemDetails .name .share {
+=09margin:3px 0 15px 0;=09
+}
+
+#itemDetails .name .share a {
+=09margin:4px 5px 0 0;
+=09font-size:0;
+}
+
+#itemDetails .name .supportingDetails,=20
+#itemDetails .name .supportingDetails a {
+=09margin:8px 0 0 0;
+=09font-size:12px;
+}
+
+#itemDetails .price {
+=09/*width:80px;*/
+=09text-align:right;
+=09font-size:14px;
+=09padding:10px 0 30px 0;=09
+}
+
+#itemDetails .divider {
+=09border-top:1px solid #eaeaea;
+=09padding:0 0 16px 0;
+}
+
+#collection {
+=09width:100%;
+=09margin:10px 0 0;
+}
+
+#collection .test {
+=09padding:0 10px 0 10px;
+}
+
+#itemDetails #collection .name {
+=09padding:0 10px 30px 10px;
+}
+
+#itemDetails #collection .price {
+=09padding:0;=09
+}
+
+/*shipmentDetails*/
+#shipmentDetails .name {
+=09width:580px;
+=09color:#666;
+=09padding:10px 10px 0px 10px;
+}
+
+#shipmentDetails ul {
+=09margin:0;
+=09padding:0;
+}
+
+#shipmentDetails ul li {
+=09list-style-type:none;
+=09line-height:14px;
+=09padding:0 0 4px 0;
+}
+
+#shipmentDetails ul li a {
+=09font-size:14px;
+=09line-height:16px;
+}
+
+#shipmentDetails .name p {
+=09margin:0;
+=09font-size:12px;
+=09line-height:16px;
+}
+
+#shipmentDetails .name p a {
+=09font-size:11px;
+}
+
+#shipmentDetails .name span {
+=09color:rgb(51, 51, 51);
+=09
+}
+
+/* cost breakdown */
+#costBreakdown td {
+=09width:100%;
+=09text-align:right;
+=09line-height:18px;
+=09padding:0 0 10px 10px;
+}
+
+#costBreakdownNoAsin td {
+=09text-align: left;
+=09line-height: 18px;
+=09padding: 0 0 10px 0;
+}
+
+#costBreakdown .price {
+=09white-space: nowrap;
+=09/*width:100px;*/
+}
+
+#costBreakdownNoAsin .price {
+=09white-space: nowrap;
+=09width: 70%;
+}
+
+.total {
+=09white-space: nowrap;
+=09font-size:14px;
+=09font-weight:bold;
+}
+
+/* additional shipments */
+#additionalShipments {
+=09font-size:11px;
+}
+
+#additionalShipments .heading {
+=09margin:10px 0 0 0;=09
+}
+
+#additionalShipments p {
+=09margin:10px 20px 0px 20px;
+}
+
+#additionalShipments .orderDate {
+=09color:#666666;
+=09font-size:12px;
+}
+
+#additionalShipments .details {
+=09padding:10px 20px 10px 20px;
+}
+
+#additionalShipments .details .label {
+=09color:#666666;
+=09font-weight:bold;=09
+}
+
+#additionalShipments .details .edd, #additionalShipments .details .quantity=
+ {
+=09font-weight:bold;=09
+}
+
+/* self service */
+#selfService p {
+=09border-top:1px solid #ccc;
+=09padding:20px 0 0 0;
+=09line-height:22px;
+}
+
+/* division*/
+
+#division{
+    margin:0 0 0 0;
+=09border-top:1px solid #eaeaea;
+=09width:100%;
+}
+
+/* closing */
+#closing p {
+=09padding:0 0 20px 0;
+=09border-bottom:1px solid #eaeaea;
+=09margin:0;=09
+}
+
+#closing a {
+=09text-decoration:none;
+=09color:#006699;=09
+}
+
+#closing .signature,=20
+#closing .impMessage {
+=09font-size:16px;=09
+=09line-height:24px;
+=09font-weight:bold;
+}
+
+/* marketing content */
+#marketingContent {
+=09border-bottom:1px solid #eaeaea;
+=09border-collapse:collapse;
+=09padding:0;
+}
+
+#marketingContent td.recs {
+=09padding:10px 0;
+}
+
+#marketingContent td {
+=09padding:20px 0;
+}
+
+#marketingContent td.right {
+=09padding:10px 0 10px 3px;
+}
+
+#marketingContent td.left {
+=09padding:10px 0 10px 0;
+}
+
+#marketingContent table td{
+=09padding:0px ;
+}
+
+/* legal copy */
+#legalCopy td {
+=09padding:20px 0 0 0;
+}
+
+#legalCopy p{
+=09font-size:11px;
+=09color:#666;
+=09line-height:16px;
+=09margin:0 0 10px 0;=09
+}
+
+#legalCopy span{
+=09font-size:11px;
+=09color:#666;
+=09line-height:16px;
+=09margin:0 0 10px 0;=09
+
+}
+#legalCopy a{
+=09text-decoration:none;
+=09color:#006699;
+=09font:11px/16px Arial, sans-serif;
+}=09
+</style>=20
+  <title></title>=20
+ </head>=20
+ <body><img width=3D"1" height=3D"1" src=3D"https://www.amazon.co.jp/gp/r.h=
+tml?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98=
+ffee4244e38565910d4a70p0fe&R=3D1B6U50QKPM81T&T=3DO&U=3Dhttps%3A%2F%2Fimages=
+-fe.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DDCMXVKR4=
+UBQJZVZYJLLD4EDJWMIA&ref_=3Dpe_2107282_266464282_opens" />=20
+  <table id=3D"container" cellpadding=3D"0">=20
+   <tbody>
+    <tr>=20
+     <td class=3D"frame">=20
+      <table id=3D"main" cellpadding=3D"0">=20
+       <tbody>
+        <tr>=20
+         <td>=20
+          <table id=3D"header" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td rowspan=3D"2" class=3D"logo"><a href=3D"https://www.amazon=
+.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:2020051=
+8200549bd9c98ffee4244e38565910d4a70p0fe&R=3DUFJQGUMT112K&T=3DC&U=3Dhttps%3A=
+%2F%2Fwww.amazon.co.jp%2Fref%3Dpe_2107282_266464282_TE_g_i&H=3DETT7MRXRRMJK=
+DKYJDTFUCURBOUCA&ref_=3Dpe_2107282_266464282_TE_g_i" title=3D"Amazon.co.jp =
+=E3=81=B8=E3=82=88=E3=81=86=E3=81=93=E3=81=9D"><img alt=3D"Amazon" src=3D"h=
+ttp://g-ecx.images-amazon.com/images/G/09/x-locale/cs/te/logo-prime._V14444=
+6381_.png" /></a></td>=20
+             <td class=3D"navigation">=20
+              <table align=3D"right">=20
+               <tbody>=20
+                <tr>=20
+                 <td> <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD42=
+2H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38=
+565910d4a70p0fe&R=3D27GCRY4JN5RMX&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%=
+2Fgp%2Fcss%2Fyour-orders-access%2Fref%3Dpe_2107282_266464282_TE_oh_tn&H=3DZ=
+HAWMBQ74WFIZA9U57AAAAYA8NUA&ref_=3Dpe_2107282_266464282_TE_oh_tn">=E6=B3=A8=
+=E6=96=87=E5=B1=A5=E6=AD=B4</a> </td>=20
+                 <td> <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> </td>=20
+                 <td> <a href=3D"https://www.amazon.co.jp/gp/f.html?C=3DD42=
+2H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38=
+565910d4a70p0fe&R=3D9786NP21F0IE&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2=
+Fgp%2Fcss%2Fyour-account-access%2Fref%3Dpe_2107282_266464282_TE_ya_tn&H=3DU=
+AE0EYBXEJAZNQXZAZENX1KXRJSA&ref_=3Dpe_2107282_266464282_TE_ya_tn">=E3=82=A2=
+=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9</a=
+> </td>=20
+                 <td> <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span> </td>=20
+                 <td> <a class=3D"last" href=3D"https://www.amazon.co.jp/gp=
+/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd=
+9c98ffee4244e38565910d4a70p0fe&R=3DA0CKVGN7RX02&T=3DC&U=3Dhttps%3A%2F%2Fwww=
+.amazon.co.jp%2Fref%3Dpe_2107282_266464282_TE_g_tn&H=3DKMFWBPRQTBYTN4CL7ZOK=
+UIPPKBKA&ref_=3Dpe_2107282_266464282_TE_g_tn">Amazon.co.jp</a> </td>=20
+                </tr>=20
+               </tbody>=20
+              </table> </td>=20
+            </tr>=20
+            <tr>=20
+             <td class=3D"title"><h2>=E7=99=BA=E9=80=81=E3=81=AE=E3=81=8A=
+=E7=9F=A5=E3=82=89=E3=81=9B</h2> =E6=B3=A8=E6=96=87=E7=95=AA=E5=8F=B7=EF=BC=
+=9A<a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D34D7J=
+92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=
+=3D16C2P6U2IPYN1&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fcss%2Fsumm=
+ary%2Fedit.html%2Fref%3Dpe_2107282_266464282_TE_od_tn%3Fie%3DUTF8%26orderID=
+%3D249-6957250-7983844&H=3D1ASF5LCAFCGFRK36INMPJCATDEKA&ref_=3Dpe_2107282_2=
+66464282_TE_od_tn">249-6957250-7983844</a> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"summary" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td><span style=3D"color:black;" class=3D"heading">=E9=81=A0=
+=E8=97=A4=E3=80=80=E5=B0=87=E5=8F=B8 =E6=A7=98</span> <p> Amazon.co.jp =E3=
+=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=
+=81=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=
+=E3=81=BE=E3=81=99=E3=80=82 =E3=81=94=E6=B3=A8=E6=96=87=E3=81=84=E3=81=9F=
+=E3=81=A0=E3=81=84=E3=81=9F=E5=95=86=E5=93=81=E3=82=92=E6=9C=AC=E6=97=A5=E3=
+=80=81Amazon.co.jp =E3=81=8C=E7=99=BA=E9=80=81=E3=81=97=E3=80=81=E3=81=94=
+=E6=B3=A8=E6=96=87=E3=81=AE=E3=81=8A=E6=89=8B=E7=B6=9A=E3=81=8D=E3=81=8C=E5=
+=AE=8C=E4=BA=86=E3=81=97=E3=81=BE=E3=81=97=E3=81=9F=E3=81=AE=E3=81=A7=E3=80=
+=81=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=
+=E3=81=99=E3=80=82 =E5=95=86=E5=93=81=E3=81=AE=E8=BF=94=E5=93=81=E3=83=BB=
+=E4=BA=A4=E6=8F=9B=E3=80=81=E6=B3=A8=E6=96=87=E5=86=85=E5=AE=B9=E3=81=AE=E7=
+=A2=BA=E8=AA=8D=E3=81=AF<a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD=
+422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e=
+38565910d4a70p0fe&R=3D3G2VU4PI1SHJR&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.j=
+p%2Fgp%2Fcss%2Fyour-orders-access%2Fref%3Dpe_2107282_266464282_TE_oh_bd&H=
+=3DTOROBVU9JQ89N3PI3HIXVUYRZL4A&ref_=3Dpe_2107282_266464282_TE_oh_bd">=E6=
+=B3=A8=E6=96=87=E5=B1=A5=E6=AD=B4</a>=E3=81=8B=E3=82=89=E3=80=81=E9=A0=98=
+=E5=8F=8E=E6=9B=B8=E3=81=AE=E5=8D=B0=E5=88=B7=E3=81=AF<a href=3D"https://ww=
+w.amazon.co.jp/gp/f.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg=
+:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=3D38WPSMA093FG3&T=3DC&U=
+=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fcss%2Fsummary%2Fprint.html%2Fref%3=
+Dpe_2107282_266464282_TE_rc_bd%3Fie%3DUTF8%26orderID%3D249-6957250-7983844&=
+H=3DSKZVWQHAXLLVRVB7C0WTLN7AJLYA&ref_=3Dpe_2107282_266464282_TE_rc_bd">=E3=
+=81=93=E3=81=A1=E3=82=89</a>=E3=81=8B=E3=82=89=E3=81=A9=E3=81=86=E3=81=9E=
+=E3=80=82 </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <style type=3D"text/css">
+/* Styling for Amabot top banner content */
+
+#topAmabotBannerWrapper {
+    padding: 0px 0px 0px 0px;
+}
+
+#topAmabotBannerWrapper td{
+    vertical-align: middle;
+}
+
+#topAmabotBannerWrapper table{
+    border-spacing: 0;
+}
+
+/* To fix the blue href links in gmail clients */
+.noColorAndTextDecoration a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+#topAmabotBannerBackgroundTable {
+    border-top: 3px solid rgb(256, 256, 256);
+    background-color: #efefef;
+    width: 100%;
+}
+
+#topAmabotBannerLeftImage {
+    width: 0%;
+    padding: 9px 8px 9px 15px;
+}
+
+#topAmabotBannerTextArea {
+    padding: 9px 0 9px 0;
+    width: 100%;
+}
+
+#topAmabotBannerHeader {
+    font: bold 14px Arial, sans-serif;
+    color: #333;
+}
+
+#topAmabotBannerHeaderClickable {
+    font: bold 14px Arial, sans-serif;
+    color: #069;
+}
+
+#topAmabotBannerBodyPrefixClickable {
+    font: bold 14px Arial, sans-serif;
+    color: #069;
+}
+
+#topAmabotBannerBodyPrefix {
+    font: 14px Arial, sans-serif;
+    color: #333;
+}
+
+#topAmabotBannerBody {
+    font: 14px Georgia, serif;
+    line-height: 1.2;
+    color: #333;
+}
+
+#topAmabotBannerBodyEmphasized {
+    font: 14px Georgia, serif;
+    line-height: 1.2;
+    font-style: italic;
+    color: #333;
+}
+
+</style>=20
+        <tr>=20
+         <td colspan=3D"2">=20
+          <table id=3D"criticalInfo" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td> <p> <span class=3D"uniqueSpan">=E3=81=8A=E5=B1=8A=E3=81=
+=91=E4=BA=88=E5=AE=9A: </span><br /> <strong> =E6=9C=A8=E6=9B=9C=E6=97=A5, =
+05/21 08:00 - 12:00 </strong> </p> <a href=3D"https://www.amazon.co.jp/gp/r=
+.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c=
+98ffee4244e38565910d4a70p0fe&R=3DIZY5DBX47I4J&T=3DC&U=3Dhttps%3A%2F%2Fwww.a=
+mazon.co.jp%2Fgp%2Fcss%2Fshiptrack%2Fview.html%2Fref%3Dpe_2107282_266464282=
+_TE_typ%3Fie%3DUTF8%26addressID%3Djoqokqmprkn%26latestArrivalDate%3D1590058=
+800%26orderID%3D249-6957250-7983844%26shipmentDate%3D1589831998%26orderingS=
+hipmentId%3D10940941996303%26packageId%3D1&H=3DZXSEA3V4UVGXPEDCBAM7Q0QZ6WGA=
+&ref_=3Dpe_2107282_266464282_TE_typ"> <img alt=3D"=E9=85=8D=E9=80=81=E7=8A=
+=B6=E6=B3=81=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=99=E3=82=8B" id=3D"trackYourP=
+ackage" src=3D"http://g-ecx.images-amazon.com/images/G/09/x-locale/cs/te/bu=
+tton-track._V144446235_.png" /> </a> <br /><p style=3D"margin: 4px 0 0 0; f=
+ont: 13px/ 18px Arial, sans-serif"><img src=3D"https://m.media-amazon.com/i=
+mages/G/01/img16/email/infoalert1.jpg" height=3D"17" width=3D"17" />=E7=9B=
+=B4=E6=8E=A5=E3=81=AE=E3=81=8A=E6=B8=A1=E3=81=97=E3=80=81=E3=82=82=E3=81=97=
+=E3=81=8F=E3=81=AF=E3=83=9D=E3=82=B9=E3=83=88=E6=8A=95=E5=87=BD=E3=81=84=E3=
+=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82=E3=81=8A=E5=B1=8A=E3=81=91=E6=97=
+=A5=E6=99=82=E6=8C=87=E5=AE=9A=E4=BE=BF=E3=81=AE=E5=A0=B4=E5=90=88=E3=80=81=
+=E3=81=94=E6=8C=87=E5=AE=9A=E6=99=82=E9=96=93=E3=82=88=E3=82=8A=E3=82=82=E6=
+=97=A9=E3=81=8F=E3=83=9D=E3=82=B9=E3=83=88=E6=8A=95=E5=87=BD=E3=81=A7=E3=81=
+=8D=E3=82=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=
+=E3=80=82</p> </td>=20
+             <td> <span>=E3=81=8A=E5=B1=8A=E3=81=91=E5=85=88=EF=BC=9A</span=
+><br /> <p> <strong> =E9=81=A0=E8=97=A4=E3=80=80=E5=B0=87=E5=8F=B8 =E6=A7=
+=98 <br /> 054-0022 <br /> =E5=8C=97=E6=B5=B7=E9=81=93 <br /> =E5=8B=87=E6=
+=89=95=E9=83=A1 <br /> =E3=82=80=E3=81=8B=E3=82=8F=E7=94=BA=E8=8A=B1=E5=9C=
+=922-45 <br /> =E7=A5=9E=E9=87=8E=E3=82=A2=E3=83=91=E3=83=BC=E3=83=8828=E5=
+=8F=B7 <br /> Kandy <br /> </strong> </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td colspan=3D"2" id=3D"topAmabotBannerWrapper" style=3D"padding: =
+0px 0px 0px 0px"> <span class=3D"noColorAndTextDecoration">=20
+           <table id=3D"topAmabotBannerBackgroundTable" style=3D"border-spa=
+cing: 0; border-top: 3px solid rgb(256, 256, 256); background-color: rgb(23=
+9, 239, 239); width: 100%">=20
+            <tbody>
+             <tr>=20
+              <td id=3D"topAmabotBannerLeftImage" style=3D"vertical-align: =
+middle; width: 0%; padding: 9px 8px 9px 15px"> <img width=3D"28" src=3D"htt=
+ps://m.media-amazon.com/images/G/09/aShop/Alexa-Email.png" alt=3D"" /> </td=
+>=20
+              <td id=3D"topAmabotBannerTextArea" style=3D"vertical-align: m=
+iddle; padding: 9px 0 9px 0; width: 100%">=20
+               <table style=3D"border-spacing: 0">=20
+                <tbody>
+                 <tr>=20
+                  <td style=3D"vertical-align: middle"> <span id=3D"topAmab=
+otBannerBodyPrefix" style=3D"font: 14px Arial, sans-serif; color: rgb(51, 5=
+1, 51)">=E6=AC=A1=E3=81=AE=E3=82=88=E3=81=86=E3=81=AB=E8=A8=80=E3=81=A3=E3=
+=81=A6=E3=81=BF=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82</span> <span i=
+d=3D"topAmabotBannerBodyEmphasized" style=3D"font: 14px Georgia, serif; lin=
+e-height: 1.2; font-style: italic; color: rgb(51, 51, 51)">=E3=80=8C=E3=82=
+=A2=E3=83=AC=E3=82=AF=E3=82=B5=E3=80=81=E6=B3=A8=E6=96=87=E3=81=97=E3=81=9F=
+=E5=95=86=E5=93=81=E3=81=AF=E3=81=A9=E3=81=93?=E3=80=8D</span> </td>=20
+                 </tr>=20
+                </tbody>
+               </table> </td>=20
+             </tr>=20
+            </tbody>
+           </table> </span> </td>=20
+        </tr>=20
+        <tr>=20
+         <td colspan=3D"2">=20
+          <table id=3D"trackingText">=20
+           <tbody>
+            <tr>=20
+             <td> <p style=3D"font: 13px;"> =E3=81=8A=E5=AE=A2=E6=A7=98=E3=
+=81=AE=E5=95=86=E5=93=81=E3=81=AF=E3=83=A4=E3=83=9E=E3=83=88=E9=81=8B=E8=BC=
+=B8=E3=81=A7=E3=81=8A=E5=B1=8A=E3=81=91=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=
+=E3=81=99=E3=80=82=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B=E4=
+=BC=9D=E7=A5=A8=E7=95=AA=E5=8F=B7=E3=81=AF443927863886=E3=81=A7=E3=81=99=E3=
+=80=82=E3=81=AA=E3=81=8A=E3=80=81=E4=BC=9D=E7=A5=A8=E7=95=AA=E5=8F=B7=E3=81=
+=A7=E9=85=8D=E9=80=81=E7=8A=B6=E6=B3=81=E3=82=92=E7=A2=BA=E8=AA=8D=E3=81=A7=
+=E3=81=8D=E3=82=8B=E3=82=88=E3=81=86=E3=81=AB=E3=81=AA=E3=82=8B=E3=81=BE=E3=
+=81=A7=E3=80=81=E3=81=8A=E6=99=82=E9=96=93=E3=81=8C=E3=81=8B=E3=81=8B=E3=82=
+=8B=E5=A0=B4=E5=90=88=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=
+ =E3=81=8A=E5=B1=8A=E3=81=91=E6=99=82=E3=81=AB=E3=81=94=E4=B8=8D=E5=9C=A8=
+=E3=81=AE=E5=A0=B4=E5=90=88=E3=80=81=E9=85=8D=E9=80=81=E6=A5=AD=E8=80=85=E3=
+=81=8C=E4=B8=8D=E5=9C=A8=E7=A5=A8=E3=82=92=E6=AE=8B=E3=81=97=E3=81=A6=E3=80=
+=81=E5=95=86=E5=93=81=E3=82=92=E5=96=B6=E6=A5=AD=E6=89=80=E3=81=AB=E6=8C=81=
+=E3=81=A1=E5=B8=B0=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=8A=E5=B1=8A=E3=
+=81=91=E6=97=A5=E6=99=82=E3=82=92=E5=A4=89=E6=9B=B4=E3=81=97=E3=81=9F=E3=81=
+=84=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=E9=85=8D=E9=80=81=E6=A5=AD=E8=80=85=
+=E3=81=AB=E7=9B=B4=E6=8E=A5=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=8F=E3=81=A0=E3=
+=81=95=E3=81=84=E3=80=82 =E5=90=84=E9=85=8D=E9=80=81=E6=A5=AD=E8=80=85=E3=
+=81=AE=E9=80=A3=E7=B5=A1=E5=85=88=E3=81=AF<a href=3D"https://www.amazon.co.=
+jp/gp/f.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200=
+549bd9c98ffee4244e38565910d4a70p0fe&R=3D3Q56L40J4RV0C&T=3DC&U=3Dhttps%3A%2F=
+%2Fwww.amazon.co.jp%2Fhelp%2Fcarrier%3Fref%3DTE_sd%26ref_%3Dpe_2107282_2664=
+64282&H=3DXJDCNDAONX0AFHQZEHJXAVQOOI4A&ref_=3Dpe_2107282_266464282">=E3=81=
+=93=E3=81=A1=E3=82=89</a>=E3=80=82 </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"orderDetails" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td> <span style=3D"color:black;" class=3D"heading">=E9=A0=98=
+=E5=8F=8E=E6=9B=B8/=E8=B3=BC=E5=85=A5=E6=98=8E=E7=B4=B0=E6=9B=B8</span>=20
+              <table id=3D"headingBottom">
+               <tbody>
+                <tr>
+                 <td></td>
+                </tr>
+               </tbody>
+              </table> </td>=20
+            </tr>=20
+            <tr>=20
+             <td class=3D"frame">=20
+              <table id=3D"itemDetails" cellpadding=3D"0">=20
+               <tbody>
+                <tr>=20
+                 <td class=3D"photo"> <a href=3D"https://www.amazon.co.jp/g=
+p/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549b=
+d9c98ffee4244e38565910d4a70p0fe&R=3DX9A3S9SCVCYZ&T=3DC&U=3Dhttp%3A%2F%2Fwww=
+.amazon.co.jp%2Fdp%2FB07WV216N3%2Fref%3Dpe_2107282_266464282_TE_dp_i1&H=3DN=
+3OHYDZKNZGLOQCGP7FN0ZVKAECA&ref_=3Dpe_2107282_266464282_TE_dp_i1" title=3D"=
+B07WV216N3"></a><img src=3D"https://images-na.ssl-images-amazon.com/images/=
+I/51taqqJURNL._SCLZZZZZZZ__SY115_SX115_.jpg" style=3D"max-height:115px; max=
+-width:115px;" /> </td>=20
+                 <td class=3D"name"> <p> </p>
+                  <ul>=20
+                   <li> <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD=
+422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e=
+38565910d4a70p0fe&R=3D2SBULGVGFW8HS&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.j=
+p%2Fdp%2FB07WV216N3%2Fref%3Dpe_2107282_266464282_TE_dp_1&H=3DFEK36QDXT4ZQJJ=
+QDWIHIAYJTWBEA&ref_=3Dpe_2107282_266464282_TE_dp_1"> =E5=90=90=E6=81=AF=E3=
+=82=A4=E3=82=B1=E3=83=A1=E3=83=B3 =E3=82=AA=E3=83=BC=E3=83=A9=E3=83=AA=E3=
+=82=BB=E3=83=83=E3=83=88 =EF=BC=96=EF=BC=90=E6=97=A5=E5=88=86 =E6=9C=89=E5=
+=8A=B9=E6=88=90=E5=88=8610,200mg =E3=82=A8=E3=83=81=E3=82=B1=E3=83=83=E3=83=
+=88 =E3=83=87=E3=82=AA=E3=82=A2=E3=82=BF=E3=83=83=E3=82=AF =E3=82=AA=E3=83=
+=BC=E3=83=A9=E3=83=90=E3=83=AA=E3=82=A2 =E3=83=A9=E3=82=AF=E3=83=88=E3=83=
+=95=E3=82=A7=E3=83=AA=E3=83=B3 </a> <br />=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=
+=BE=E3=82=AE=E3=83=A3=E3=82=B6=E3=83=AA=E3=83=B3=E3=82=B0=E3=81=8C=E8=B2=A9=
+=E5=A3=B2 </li>=20
+                  </ul> <p></p> </td>=20
+                 <td class=3D"price"> <strong>=EF=BF=A5 2,948</strong> </td=
+>=20
+                </tr>=20
+                <tr>=20
+                 <td class=3D"photo"> <a href=3D"https://www.amazon.co.jp/g=
+p/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549b=
+d9c98ffee4244e38565910d4a70p0fe&R=3D2GI3ALBDOXT6L&T=3DC&U=3Dhttp%3A%2F%2Fww=
+w.amazon.co.jp%2Fdp%2FB000FQTQPO%2Fref%3Dpe_2107282_266464282_TE_dp_i2&H=3D=
+5NV96TA5FPI6KU3YTUQH4EOTUAMA&ref_=3Dpe_2107282_266464282_TE_dp_i2" title=3D=
+"B000FQTQPO"></a><img src=3D"https://images-na.ssl-images-amazon.com/images=
+/I/41pdOCfhArL._SCLZZZZZZZ__SY115_SX115_.jpg" style=3D"max-height:115px; ma=
+x-width:115px;" /> </td>=20
+                 <td class=3D"name"> <p> </p>
+                  <ul>=20
+                   <li> <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD=
+422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e=
+38565910d4a70p0fe&R=3DC9DGLUDY9TNC&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp=
+%2Fdp%2FB000FQTQPO%2Fref%3Dpe_2107282_266464282_TE_dp_2&H=3DUNLLXAE1TEESJ87=
+XG8SONPH8F1KA&ref_=3Dpe_2107282_266464282_TE_dp_2"> =E5=A4=A7=E5=A1=9A=E8=
+=A3=BD=E8=96=AC =E3=83=8D=E3=82=A4=E3=83=81=E3=83=A3=E3=83=BC=E3=83=A1=E3=
+=82=A4=E3=83=89 =E4=BA=9C=E9=89=9B 60=E7=B2=92 =E3=80=80<b>&nbsp;&nbsp;3=E7=
+=82=B9</b> </a> <br />=E3=82=A2=E3=83=9E=E3=82=BE=E3=83=B3=E3=82=B8=E3=83=
+=A3=E3=83=91=E3=83=B3=E5=90=88=E5=90=8C=E4=BC=9A=E7=A4=BE=E3=81=8C=E8=B2=A9=
+=E5=A3=B2 </li>=20
+                  </ul> <p></p> </td>=20
+                 <td class=3D"price"> <strong>=EF=BF=A5 1,755</strong> </td=
+>=20
+                </tr>=20
+                <tr>=20
+                 <td colspan=3D"3" class=3D"divider"></td>=20
+                </tr>=20
+               </tbody>
+              </table>=20
+              <table id=3D"costBreakdown">=20
+               <tbody>
+                <tr>=20
+                 <td> =E5=B0=8F=E8=A8=88: </td>=20
+                 <td class=3D"price"> =EF=BF=A5 4,703 </td>=20
+                </tr>=20
+                <tr>=20
+                 <td> =E9=85=8D=E9=80=81=E6=96=99=E3=81=8A=E3=82=88=E3=81=
+=B3=E6=89=8B=E6=95=B0=E6=96=99=EF=BC=9A </td>=20
+                 <td class=3D"price"> =EF=BF=A5 0 </td>=20
+                </tr>=20
+                <tr>=20
+                 <td> =E6=B6=88=E8=B2=BB=E8=80=85=E9=82=84=E5=85=835%: </td=
+>=20
+                 <td class=3D"price"> -=EF=BF=A5 147 </td>=20
+                </tr>=20
+                <tr>=20
+                 <td class=3D"total"> <strong>=E5=90=88=E8=A8=88=EF=BC=9A</=
+strong> </td>=20
+                 <td class=3D"total"> <strong>=EF=BF=A5 4,556</strong> </td=
+>=20
+                </tr>=20
+                <tr>=20
+                 <td> =E3=82=AF=E3=83=AC=E3=82=B8=E3=83=83=E3=83=88=E3=82=
+=AB=E3=83=BC=E3=83=89=EF=BC=88Mastercard=EF=BC=89=E3=81=A7=E3=81=AE=E3=81=
+=8A=E6=94=AF=E6=89=95=E3=81=84=E9=A1=8D=EF=BC=9A </td>=20
+                 <td class=3D"price"> =EF=BF=A5 4,556 </td>=20
+                </tr>=20
+               </tbody>
+              </table> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"orderDetails" cellpadding=3D"0">=20
+          </table> </td>=20
+        </tr>
+        <tr>=20
+         <td>=20
+          <table id=3D"division">
+           <tbody>
+            <tr>
+             <td></td>
+            </tr>
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"closing" cellpadding=3D"0">=20
+           <tbody>
+            <tr>=20
+             <td> <br /> =E4=B8=80=E9=83=A8=E3=81=AE=E5=95=86=E5=93=81=E3=
+=82=92=E9=99=A4=E3=81=8D=E3=80=81=E7=B4=8D=E5=93=81=E6=9B=B8=E3=82=92=E5=90=
+=8C=E6=A2=B1=E3=81=9B=E3=81=9A=E3=81=AB=E3=81=8A=E5=B1=8A=E3=81=91=E3=81=97=
+=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E4=BB=A3=E9=87=91=E5=BC=95=E6=
+=8F=9B=E3=80=81=E3=82=B3=E3=83=B3=E3=83=93=E3=83=8B=E3=83=BBATM=E3=83=BB=E3=
+=83=8D=E3=83=83=E3=83=88=E3=83=90=E3=83=B3=E3=82=AD=E3=83=B3=E3=82=B0=E3=83=
+=BB=E9=9B=BB=E5=AD=90=E3=83=9E=E3=83=8D=E3=83=BC=E6=89=95=E3=81=84=E3=81=A7=
+=E3=81=8A=E6=94=AF=E6=89=95=E3=81=84=E3=81=AE=E5=A0=B4=E5=90=88=E3=82=92=E9=
+=99=A4=E3=81=84=E3=81=A6=E3=80=81=E6=B3=A8=E6=96=87=E5=B1=A5=E6=AD=B4=E7=94=
+=BB=E9=9D=A2=E3=81=A7=E9=A0=98=E5=8F=8E=E6=9B=B8=E3=83=87=E3=83=BC=E3=82=BF=
+=E3=81=AE=E8=A1=A8=E7=A4=BA=E3=81=A8=E5=8D=B0=E5=88=B7=E3=81=8C=E5=8F=AF=E8=
+=83=BD=E3=81=A7=E3=81=99=E3=80=82=E9=A0=98=E5=8F=8E=E6=9B=B8=E3=81=AB=E3=81=
+=A4=E3=81=84=E3=81=A6=E8=A9=B3=E3=81=97=E3=81=8F=E3=81=AF=E3=80=81<a href=
+=3D"https://www.amazon.co.jp/gp/f.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=
+=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=3D3MQ9144WK=
+QZPK&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fhelp%2Finvoice%3Fref%3DTE_r=
+ct%26ref_%3Dpe_2107282_266464282&H=3DD3OXAO519LH9AXH3ZHHWVBJADOOA&ref_=3Dpe=
+_2107282_266464282">=E3=83=98=E3=83=AB=E3=83=97=E3=83=9A=E3=83=BC=E3=82=B8<=
+/a>=E3=82=92=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=
+=E3=80=82 <br />=E5=95=86=E5=93=81=E3=81=AB=E4=BB=98=E3=81=84=E3=81=9F=E3=
+=82=BF=E3=82=B0=E3=82=84=E5=95=86=E5=93=81=E8=87=AA=E4=BD=93=E3=81=AB=E8=A8=
+=98=E8=BC=89=E3=81=95=E3=82=8C=E3=81=9F=E4=BE=A1=E6=A0=BC=E3=81=AB=E3=81=8B=
+=E3=81=8B=E3=82=8F=E3=82=89=E3=81=9A=E3=80=81=E3=81=94=E6=B3=A8=E6=96=87=E7=
+=A2=BA=E5=AE=9A=E6=99=82=E3=81=AB=E3=82=B5=E3=82=A4=E3=83=88=E4=B8=8A=E3=81=
+=AB=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=E3=82=8B=E9=87=91=E9=A1=8D=E3=81=8A=
+=E3=82=88=E3=81=B3=E3=81=93=E3=81=A1=E3=82=89=E3=81=AEE=E3=83=A1=E3=83=BC=
+=E3=83=AB=E3=81=AB=E8=A8=98=E8=BC=89=E3=81=AE=E9=87=91=E9=A1=8D=E3=81=8C=E3=
+=81=94=E8=AB=8B=E6=B1=82=E9=87=91=E9=A1=8D=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=
+=BE=E3=81=99=E3=80=82<br /> =E8=BF=94=E5=93=81=E3=80=81=E4=BA=A4=E6=8F=9B=
+=E3=81=AF <a href=3D"https://www.amazon.co.jp/gp/f.html?C=3DD422H94ZX0IJ&K=
+=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70=
+p0fe&R=3D24WLK5SIJYVXK&T=3DC&U=3Dhttp%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fcss%2=
+Freturns%2Fhomepage.html%2Fref%3Dpe_2107282_266464282_TE_r&H=3DKPORHWAJFTYV=
+3QKD2QMNEUGC6A4A&ref_=3Dpe_2107282_266464282_TE_r">=E8=BF=94=E5=93=81=E5=8F=
+=97=E4=BB=98=E3=82=BB=E3=83=B3=E3=82=BF=E3=83=BC</a>=E3=81=A7=E3=81=8A=E6=
+=89=8B=E7=B6=9A=E3=81=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82 <br /=
+> =E3=81=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=AF =E3=83=98=E3=83=AB=
+=E3=83=97=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=8B=E3=82=89<a href=3D"https://ww=
+w.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg=
+:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=3D3V4IINFX0NKB8&T=3DC&U=
+=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fhelp%3Fref%3DTE_cs%26ref_%3Dpe_2107282_=
+266464282&H=3D6CCPJAKMMGZE0DTRVIQV8NJOOFCA&ref_=3Dpe_2107282_266464282">=E3=
+=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC=E3=82=B5=E3=83=BC=E3=83=93=E3=82=
+=B9</a>=E3=81=BE=E3=81=A7=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=8F=E3=81=A0=E3=
+=81=95=E3=81=84=E3=80=82 <p> <br />=E3=81=BE=E3=81=9F=E3=81=AE=E3=81=94=E5=
+=88=A9=E7=94=A8=E3=82=92=E3=81=8A=E5=BE=85=E3=81=A1=E3=81=97=E3=81=A6=E3=81=
+=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br /> <span class=3D"signature"> <s=
+trong>Amazon.co.jp</strong> </span> </p> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"marketingContent">=20
+           <tbody>
+            <tr>=20
+             <td class=3D"recs">
+              <table width=3D"640" cellspacing=3D"0" cellpadding=3D"0" bord=
+er=3D"0" align=3D"left" class=3D"deviceWidth" style=3D"vertical-align:centr=
+al;background:white;">
+               <tbody>
+                <tr>
+                 <td>=20
+                  <table width=3D"640" class=3D"devicewidth" cellspacing=3D=
+"0" cellpadding=3D"0" align=3D"inherit" bgcolor=3D"#FFFFFF">=20
+                   <tbody>
+                    <tr>=20
+                     <td style=3D"font:18px Arial,sans-serif; text-decorati=
+on:none; color: #cc6600; text-align:left; padding:6px 0 5px 0;"> =E3=81=94=
+=E6=B3=A8=E6=96=87=E3=81=AE=E5=95=86=E5=93=81=E3=82=92=E8=B2=B7=E3=81=A3=E3=
+=81=9F=E4=BA=BA=E3=81=AF=E3=81=93=E3=82=93=E3=81=AA=E5=95=86=E5=93=81=E3=82=
+=82=E8=B2=B7=E3=81=A3=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99 </td>=20
+                    </tr>=20
+                   </tbody>
+                  </table> </td>
+                </tr>
+                <tr>
+                 <td>=20
+                  <table width=3D"640" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" align=3D"left" class=3D"deviceWidth p13n-te-widget-recs" style=
+=3D"vertical-align:central;background:white;">=20
+                   <tbody>
+                    <tr>=20
+                     <td width=3D"30%" bgcolor=3D"#ffffff" align=3D"left" c=
+lass=3D"asin_3col" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; vertical-align:top; padding:6px 16px 0 6px; line-height:18px;">=20
+                      <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" bgcolor=3D"#ffffff">=20
+                       <tbody>
+                        <tr>=20
+                         <td valign=3D"bottom" align=3D"left" style=3D"vert=
+ical-align:left; padding:4px 6px 4px 6px;" class=3D"p13n-te-asin-image"> <a=
+ href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSK=
+GNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=3D36CB=
+A935OUXLQ&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fproduct%2FB07K3DV=
+T9B%2Fref%3Dpe_2107282_266464282_pd_te_s_gr_im%3F_encoding%3DUTF8%26pd_rd_i=
+%3DB07K3DVT9B%26pd_rd_r%3DMBN3Y9GTZZDTGV2ZT34S%26pd_rd_w%3DDpj5W%26pd_rd_wg=
+%3D1FAC5&H=3D3YCZYYRD0CQS6FJ3ZJ69HDKARGYA&ref_=3Dpe_2107282_266464282_pd_te=
+_s_gr_im"> <img src=3D"https://images-fe.ssl-images-amazon.com/images/I/71U=
+8GuygJBL._AC_SR115,115_.jpg" width=3D"115" height=3D"115" class=3D"pr_image=
+_115 pr_image_desktop" alt=3D"=E3=80=90Amazon.co.jp=E9=99=90=E5=AE=9A=E3=80=
+=91 LISTERINE(=E3=83=AA=E3=82=B9=E3=83=86=E3=83=AA=E3=83=B3) =E3=80=90=E5=
+=8C=BB=E8=96=AC=E9=83=A8=E5=A4=96=E5=93=81=E3=80=91 =E8=96=AC=E7=94=A8 =E3=
+=83=AA=E3=82=B9=E3=83=86=E3=83=AA=E3=83=B3 =E3=83=88=E3=83=BC=E3=82=BF=E3=
+=83=AB=E3=82=B1=E3=82=A2=E3=83=97=E3=83=A9=E3=82=B9 =E3=83=9E=E3=82=A6=E3=
+=82=B9=E3=82=A6=E3=82=A9=E3=83=83=E3=82=B7=E3=83=A5 =E3=82=AF=E3=83=AA=E3=
+=83=BC=E3=83=B3=E3=83=9F=E3=83=B3=E3=83=88=E5=91=B3 =E5=8D=98=E5=93=81 =E5=
+=8E=9F=E5=9B=A0=E8=8F=8C=E6=AE=BA=E8=8F=8C 1000mL+=E3=81=8A=E3=81=BE=E3=81=
+=91=E3=81=A4=E3=81=8D" border=3D"0" /> </a> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px">=20
+                         <td align=3D"left"> <span style=3D"font:13px Arial=
+,sans-serif; text-decoration:none; color: #868686;" class=3D"p13n-te-asin-t=
+itle"> <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D3=
+4D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe=
+&R=3D6SF88FRLJPN5&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fproduct%2=
+FB07K3DVT9B%2Fref%3Dpe_2107282_266464282_pd_te_s_gr_ti%3F_encoding%3DUTF8%2=
+6pd_rd_i%3DB07K3DVT9B%26pd_rd_r%3DMBN3Y9GTZZDTGV2ZT34S%26pd_rd_w%3DDpj5W%26=
+pd_rd_wg%3D1FAC5&H=3DWU67UFBRJBDRWEJT8AWN7OXNULSA&ref_=3Dpe_2107282_2664642=
+82_pd_te_s_gr_ti" style=3D"font:13px Arial,sans-serif; text-decoration:none=
+; color: #868686;">=E3=80=90Amazon.co.jp=E9=99=90=E5=AE=9A=E3=80=91 LISTERI=
+NE =E3=80=90=E5=8C=BB=E8=96=AC=E9=83=A8=E5=A4=96=E5=93=81=E3=80=91 =E8=96=
+=AC=E7=94=A8 =E3=83=AA=E3=82=B9=E3=83=86=E3=83=AA=E3=83=B3...</a> </span> <=
+/td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px" class=3D"pr_title">=20
+                         <td valign=3D"middle" align=3D"left"> <span style=
+=3D"font:13px Arial,sans-serif; text-decoration:none; color: #868686; verti=
+cal-align:3px"> =EF=BF=A5 1,098 </span> <span style=3D"vertical-align:0px">=
+</span> </td>=20
+                        </tr>=20
+                       </tbody>
+                      </table> </td>=20
+                     <td width=3D"30%" bgcolor=3D"#ffffff" align=3D"left" c=
+lass=3D"asin_3col" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; vertical-align:top; padding:6px 16px 0 6px; line-height:18px;">=20
+                      <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" bgcolor=3D"#ffffff">=20
+                       <tbody>
+                        <tr>=20
+                         <td valign=3D"bottom" align=3D"left" style=3D"vert=
+ical-align:left; padding:4px 6px 4px 6px;" class=3D"p13n-te-asin-image"> <a=
+ href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSK=
+GNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=3D268I=
+D7RCEUI6O&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fproduct%2FB07TXSD=
+NQM%2Fref%3Dpe_2107282_266464282_pd_te_s_gr_im%3F_encoding%3DUTF8%26pd_rd_i=
+%3DB07TXSDNQM%26pd_rd_r%3DMBN3Y9GTZZDTGV2ZT34S%26pd_rd_w%3DDpj5W%26pd_rd_wg=
+%3D1FAC5&H=3DDA7UF5VYFICKNZTKJTXP7CPUOYMA&ref_=3Dpe_2107282_266464282_pd_te=
+_s_gr_im"> <img src=3D"https://images-fe.ssl-images-amazon.com/images/I/71J=
+BmSOm-%2BL._AC_SR115,115_.jpg" width=3D"115" height=3D"115" class=3D"pr_ima=
+ge_115 pr_image_desktop" alt=3D"=E3=83=9B=E3=83=AB=E3=83=84 =E3=82=B3=E3=83=
+=B3=E3=83=91=E3=82=A6=E3=83=B3=E3=83=89=E3=82=BB=E3=83=83=E3=83=88 R=E2=86=
+=92FINE =E3=82=B9=E3=82=AF=E3=83=A9=E3=83=83=E3=83=81=E3=82=BC=E3=83=AD =E3=
+=82=AD=E3=82=BA=E6=B6=88=E3=81=97+=E3=82=B3=E3=83=BC=E3=83=86=E3=82=A3=E3=
+=83=B3=E3=82=B0=E3=81=AE=E3=83=80=E3=83=96=E3=83=AB=E5=8A=B9=E6=9E=9C =E5=
+=85=A8=E5=A1=97=E8=A3=85=E8=89=B2=E5=AF=BE=E5=BF=9C Holts MH681" border=3D"=
+0" /> </a> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px">=20
+                         <td align=3D"left"> <span style=3D"font:13px Arial=
+,sans-serif; text-decoration:none; color: #868686;" class=3D"p13n-te-asin-t=
+itle"> <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D3=
+4D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe=
+&R=3D1WMCVM0HDWPFI&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fproduct%=
+2FB07TXSDNQM%2Fref%3Dpe_2107282_266464282_pd_te_s_gr_ti%3F_encoding%3DUTF8%=
+26pd_rd_i%3DB07TXSDNQM%26pd_rd_r%3DMBN3Y9GTZZDTGV2ZT34S%26pd_rd_w%3DDpj5W%2=
+6pd_rd_wg%3D1FAC5&H=3DAZ39QQWYAYIHFAGCXIYNN4XNLY0A&ref_=3Dpe_2107282_266464=
+282_pd_te_s_gr_ti" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; color: #868686;">=E3=83=9B=E3=83=AB=E3=83=84 =E3=82=B3=E3=83=B3=E3=83=91=
+=E3=82=A6=E3=83=B3=E3=83=89=E3=82=BB=E3=83=83=E3=83=88 R=E2=86=92FINE =E3=
+=82=B9=E3=82=AF=E3=83=A9=E3=83=83=E3=83=81=E3=82=BC=E3=83=AD =E3=82=AD=E3=
+=82=BA=E6=B6=88=E3=81=97+=E3=82=B3=E3=83=BC=E3=83=86=E3=82=A3=E3=83=B3=E3=
+=82=B0=E3=81=AE=E3=83=80=E3=83=96=E3=83=AB=E5=8A=B9=E6=9E=9C...</a> </span>=
+ </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px" class=3D"pr_title">=20
+                         <td valign=3D"middle" align=3D"left"> <span style=
+=3D"font:13px Arial,sans-serif; text-decoration:none; color: #868686; verti=
+cal-align:3px"> =EF=BF=A5 930 </span> <span style=3D"vertical-align:0px"></=
+span> </td>=20
+                        </tr>=20
+                       </tbody>
+                      </table> </td>=20
+                     <td width=3D"30%" bgcolor=3D"#ffffff" align=3D"left" c=
+lass=3D"asin_3col" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; vertical-align:top; padding:6px 16px 0 6px; line-height:18px;">=20
+                      <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" bgcolor=3D"#ffffff">=20
+                       <tbody>
+                        <tr>=20
+                         <td valign=3D"bottom" align=3D"left" style=3D"vert=
+ical-align:left; padding:4px 6px 4px 6px;" class=3D"p13n-te-asin-image"> <a=
+ href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D34D7J92BSK=
+GNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe&R=3D1IN3=
+74GTNUGA2&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fproduct%2FB079CHD=
+NT2%2Fref%3Dpe_2107282_266464282_pd_te_s_gr_im%3F_encoding%3DUTF8%26pd_rd_i=
+%3DB079CHDNT2%26pd_rd_r%3DMBN3Y9GTZZDTGV2ZT34S%26pd_rd_w%3DDpj5W%26pd_rd_wg=
+%3D1FAC5&H=3DU9TYRSO2GMK3OJAAZTPO5IRGAK4A&ref_=3Dpe_2107282_266464282_pd_te=
+_s_gr_im"> <img src=3D"https://images-fe.ssl-images-amazon.com/images/I/71P=
+5RdKJazL._AC_SR115,115_.jpg" width=3D"115" height=3D"115" class=3D"pr_image=
+_115 pr_image_desktop" alt=3D"BODY CUSTOM =E7=94=B7=E6=80=A7=E7=94=A8 =E3=
+=83=95=E3=82=A7=E3=83=AD=E3=83=A2=E3=83=B3=E9=A6=99=E6=B0=B4 F for MEN =E3=
+=82=A8=E3=83=95=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A1=E3=83=B3 8cc" border=3D=
+"0" /> </a> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px">=20
+                         <td align=3D"left"> <span style=3D"font:13px Arial=
+,sans-serif; text-decoration:none; color: #868686;" class=3D"p13n-te-asin-t=
+itle"> <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DD422H94ZX0IJ&K=3D3=
+4D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4244e38565910d4a70p0fe=
+&R=3D1ES6SVBL7MCK7&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fproduct%=
+2FB079CHDNT2%2Fref%3Dpe_2107282_266464282_pd_te_s_gr_ti%3F_encoding%3DUTF8%=
+26pd_rd_i%3DB079CHDNT2%26pd_rd_r%3DMBN3Y9GTZZDTGV2ZT34S%26pd_rd_w%3DDpj5W%2=
+6pd_rd_wg%3D1FAC5&H=3DA0MKJJN1CH0SF83JW0WDYYJVSA0A&ref_=3Dpe_2107282_266464=
+282_pd_te_s_gr_ti" style=3D"font:13px Arial,sans-serif; text-decoration:non=
+e; color: #868686;">BODY CUSTOM =E7=94=B7=E6=80=A7=E7=94=A8 =E3=83=95=E3=82=
+=A7=E3=83=AD=E3=83=A2=E3=83=B3=E9=A6=99=E6=B0=B4 F for MEN =E3=82=A8=E3=83=
+=95=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A1=E3=83=B3 8cc</a> </span> </td>=20
+                        </tr>=20
+                        <tr align=3D"left" style=3D"padding:0; display:bloc=
+k; line-height:16px" class=3D"pr_title">=20
+                         <td valign=3D"middle" align=3D"left"> <span style=
+=3D"font:13px Arial,sans-serif; text-decoration:none; color: #868686; verti=
+cal-align:3px"> =EF=BF=A5 6,578 </span> <span style=3D"vertical-align:0px">=
+</span> </td>=20
+                        </tr>=20
+                       </tbody>
+                      </table> </td>=20
+                    </tr>=20
+                   </tbody>
+                  </table> </td>
+                </tr>
+               </tbody>
+              </table></td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+        <tr>=20
+         <td>=20
+          <table id=3D"legalCopy">=20
+           <tbody>
+            <tr>=20
+             <td> <span> =E3=81=93=E3=81=AEE=E3=83=A1=E3=83=BC=E3=83=AB=E3=
+=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E3=81=AF=E9=85=8D=E4=BF=A1=E5=B0=82=E7=94=
+=A8=E3=81=A7=E3=81=99=E3=80=82=E3=81=93=E3=81=AE=E3=83=A1=E3=83=83=E3=82=BB=
+=E3=83=BC=E3=82=B8=E3=81=AB=E8=BF=94=E4=BF=A1=E3=81=97=E3=81=AA=E3=81=84=E3=
+=82=88=E3=81=86=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=
+=BE=E3=81=99=E3=80=82 </span> </td>=20
+            </tr>=20
+           </tbody>
+          </table> </td>=20
+        </tr>=20
+       </tbody>
+      </table> </td>=20
+    </tr>=20
+   </tbody>
+  </table> =20
+ <img width=3D"1" height=3D"1" src=3D"https://www.amazon.co.jp/gp/r.html?C=
+=3DD422H94ZX0IJ&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:20200518200549bd9c98ffee4=
+244e38565910d4a70p0fe&R=3D3HG69DMSR8ED5&T=3DE&U=3Dhttps%3A%2F%2Fimages-fe.s=
+sl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DKFCB2352WCSOA=
+HUU52IGPPB33GSA&ref_=3Dpe_2107282_266464282_open" /></body>
+</html>
+------=_Part_158311695_1504184720.1589832350306--

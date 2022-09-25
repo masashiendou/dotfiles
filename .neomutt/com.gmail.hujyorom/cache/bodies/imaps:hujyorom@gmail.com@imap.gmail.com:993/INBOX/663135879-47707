@@ -1,0 +1,191 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:96d6:0:0:0:0:0 with SMTP id y205csp2550392vkd;
+        Mon, 15 Feb 2021 02:57:23 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxEonKH6RskXzCMwssn3cBoMAVu/vSFV0mvyO5EshG6d21tDa9BQv4wTDvPwAjz+uORr6Pj
+X-Received: by 2002:a25:c381:: with SMTP id t123mr21960561ybf.299.1613386643019;
+        Mon, 15 Feb 2021 02:57:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1613386643; cv=none;
+        d=google.com; s=arc-20160816;
+        b=t7RFhSAGVq2wzRGmSR0LSS+N8VA4UvhlxNjd3tFGR1OefUlZAVny9AUt1FpPla9bH3
+         cGLsEqGpM7w34zZYt9ky30c3c+caqKfzlxnx1OEm2p3kDVG4zmd5dRlI/hztnMsa8Nbo
+         s833cTONPCdLGn/HsZMVjS7EbdnpXX4DqV6+FEsjZYSpYhO1O2cP4NmV56/Am5O6bA8h
+         FXdOzboTWYW0wnAiydetXB1R9nGm/FqDPYvFdrwktKAN8fB4zG/q82z9go5aZfyJcgQB
+         iHJyyouuDJVjTpR5EHJj9A5yg3rl6tc2eHztgfYaQPXx7pOVvz8cFrSn9NQ+7zx1buks
+         Cggw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:to:from:subject:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=1yf+ufvQX99NQ6FnZKbvQdIyU0v4IpsJWqP3bq6efrQ=;
+        b=Y9p1CHhBn9zFeBd0AiQLX1cjJgHh3an65oZTvwCoVd++eoU4cDQb5jkk+hk0UJIOGY
+         2bXd8Dr9c2wmUT5dA/B4qJ62w8nL7hGmusijlwSg8EecRTAARWHVXKnZ+NUTpSScVWy7
+         r8eDZsyICRkrzyZr553jle6af5LyAke5qP9XKCDzt1GQnMJpQ4dueBmRsauiFWOm84Fu
+         D4Fur63OhC/RZYfAgHQFYMZ2uEeIJDyYPsNxnqVvGfLepKkzOaymLsIjQZZqi/b103f5
+         Gbw3lB7aOhL2P2t7LDzHn53r+09o9qTXjSwk7IHo8yMdhARJUayOa7XiwlFul3RRkm6F
+         WiVQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@notify.docker.com header.s=krs header.b=HZsGjPEp;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=WUop7BBb;
+       spf=pass (google.com: domain of bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com designates 23.253.182.80 as permitted sender) smtp.mailfrom="bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=docker.com
+Return-Path: <bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com>
+Received: from mail-182-80.mailgun.info (mail-182-80.mailgun.info. [23.253.182.80])
+        by mx.google.com with UTF8SMTPS id k14si13330551ybp.373.2021.02.15.02.57.21
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Feb 2021 02:57:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com designates 23.253.182.80 as permitted sender) client-ip=23.253.182.80;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@notify.docker.com header.s=krs header.b=HZsGjPEp;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=WUop7BBb;
+       spf=pass (google.com: domain of bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com designates 23.253.182.80 as permitted sender) smtp.mailfrom="bounce+944dae.5e6ef-hujyorom=gmail.com@notify.docker.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=docker.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=notify.docker.com; q=dns/txt;
+ s=krs; t=1613386642; h=Message-ID: Date: To: From: Subject:
+ MIME-Version: Content-Type: Sender: X-Feedback-Id;
+ bh=1yf+ufvQX99NQ6FnZKbvQdIyU0v4IpsJWqP3bq6efrQ=; b=HZsGjPEpBz3pJybKBpBq5f6XrgeLbmUTeFRnOR+cRwahyZ88w6Isc4jtzp8G1yjm4OVobaG0
+ Ppv+HXAJWjdPqA/Eqf6GtA2oS/S9jWlGeFuaBiKbTgU0e48Vfl79lUHEES7/BIaxKNr6K1oF
+ mfZtOGt9QufKIWKVuM5KH6sGlSo=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1613386642; h=Message-ID: Date: To: From: Subject: MIME-Version:
+ Content-Type: Sender: X-Feedback-Id;
+ bh=1yf+ufvQX99NQ6FnZKbvQdIyU0v4IpsJWqP3bq6efrQ=; b=WUop7BBbCroZl2E9uiFESHmKY/PTEwVHJAAG4NUGFvPpzz8LlXIqoDpAdCIX8+QpM9jfGc/x
+ T+okmhECDhejdejNjX5JPaMMRhP+ilGGK9ccsAEU0d/ZaqOZr0RM7TUH3B4flP0sU9wo1FNI
+ ofdt8jHMPBsBn3XD65ZlhJwiko4=
+X-Feedback-Id: 571545cff3b9c42fa782f659:mailgun
+X-Mailgun-Sending-Ip: 23.253.182.80
+X-Mailgun-Sid: WyJmYTJkMCIsICJodWp5b3JvbUBnbWFpbC5jb20iLCAiNWU2ZWYiXQ==
+Received: from accounts-worker-b7dbd5b69-vk9dl
+ (ec2-52-204-103-25.compute-1.amazonaws.com [52.204.103.25]) by
+ smtp-out-n01.prod.us-east-1.postgun.com with SMTP id
+ 602a538ce3df861f4b34ced6 (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Mon, 15 Feb 2021 10:57:16
+ GMT
+Sender: no-reply@notify.docker.com
+Content-Type: multipart/alternative;
+ boundary="===============4175937300294696782=="
+MIME-Version: 1.0
+Subject: [Docker Hub] Docker ID Retrieval/Password Reset Request
+From: no-reply@notify.docker.com
+To: hujyorom@gmail.com
+Date: Mon, 15 Feb 2021 10:57:15 -0000
+Message-ID: <20210215105715.33.65022@accounts-worker-b7dbd5b69-vk9dl>
+
+--===============4175937300294696782==
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <body style="margin: 0 auto; font-family: Helvetica, sans-serif; font-size: 16px; color: #333333; text-align: left; max-width: 550px;">
+    <div style="padding-top: 100px; text-align: center;">
+      <a target="_blank" rel="noopener noreferrer" href="https://hub.docker.com">
+        <img width="105" height="27" src="https://d36jcksde1wxzq.cloudfront.net/saas-mega/DockerWhaleIcon.png"/>
+      </a>
+    </div>
+    <div>
+      <div style="margin: 50px 0 15px;">
+        Hello,
+      </div>
+      <div>To sign into Docker Hub, your ID is: <strong>syouji525</strong></div>
+      <div style="margin: 15px 0;">If you forgot your password:</div>
+      <div style="margin-bottom: 50px;">
+        
+        <a href="https://id.docker.com/account/password-reset-confirm/NDU2MTEwMg/5o6-b9c833c29da3a30c0a91/?service=43f17c5f-9ba4-4f13-853d-9d0074e349a7" style="background: #007bff; padding: 10px 20px; color: #fff; text-decoration: none; display: inline-block; cursor: pointer; border-radius: 4px; margin: 0 auto;" rel="noopener noreferrer">
+          Reset Password
+        </a>
+        
+      </div>
+      <div>
+        If you did not make this request, your email address may have been entered by mistake and
+        you can safely disregard this email. Visit your account settings page
+        on
+        
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://hub.docker.com/account/settings"
+          style="color:#007bff; text-decoration: none !important;"
+          >Docker Hub
+        </a>
+        to update your information.
+      </div>
+      <div style="margin: 15px 0;">
+        If you have any problems, please contact us:
+        <a
+          href="mailto:hub-support@docker.com"
+          style="color:#007bff; text-decoration: none !important;"
+          target="_blank"
+          rel="noopener noreferrer"
+          >hub-support@docker.com</a
+        >.
+      </div>
+      <div style="color:#828282; margin: 15px 0;">
+        - Docker Team
+      </div>
+    </div>
+  </body>
+</html>
+
+--===============4175937300294696782==
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <body style="margin: 0 auto; font-family: Helvetica, sans-serif; font-size: 16px; color: #333333; text-align: left; max-width: 550px;">
+    <div style="padding-top: 100px; text-align: center;">
+      <a target="_blank" rel="noopener noreferrer" href="https://hub.docker.com">
+        <img width="105" height="27" src="https://d36jcksde1wxzq.cloudfront.net/saas-mega/DockerWhaleIcon.png"/>
+      </a>
+    </div>
+    <div>
+      <div style="margin: 50px 0 15px;">
+        Hello,
+      </div>
+      <div>To sign into Docker Hub, your ID is: <strong>syouji525</strong></div>
+      <div style="margin: 15px 0;">If you forgot your password:</div>
+      <div style="margin-bottom: 50px;">
+        
+        <a href="https://id.docker.com/account/password-reset-confirm/NDU2MTEwMg/5o6-b9c833c29da3a30c0a91/?service=43f17c5f-9ba4-4f13-853d-9d0074e349a7" style="background: #007bff; padding: 10px 20px; color: #fff; text-decoration: none; display: inline-block; cursor: pointer; border-radius: 4px; margin: 0 auto;" rel="noopener noreferrer">
+          Reset Password
+        </a>
+        
+      </div>
+      <div>
+        If you did not make this request, your email address may have been entered by mistake and
+        you can safely disregard this email. Visit your account settings page
+        on
+        
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://hub.docker.com/account/settings"
+          style="color:#007bff; text-decoration: none !important;"
+          >Docker Hub
+        </a>
+        to update your information.
+      </div>
+      <div style="margin: 15px 0;">
+        If you have any problems, please contact us:
+        <a
+          href="mailto:hub-support@docker.com"
+          style="color:#007bff; text-decoration: none !important;"
+          target="_blank"
+          rel="noopener noreferrer"
+          >hub-support@docker.com</a
+        >.
+      </div>
+      <div style="color:#828282; margin: 15px 0;">
+        - Docker Team
+      </div>
+    </div>
+  </body>
+</html>
+
+--===============4175937300294696782==--

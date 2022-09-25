@@ -1,0 +1,118 @@
+Received: from Kx250 (125.30.77.206) by
+ TYAPR03CA0015.apcprd03.prod.outlook.com (2603:1096:404:14::27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3455.14 via Frontend Transport; Sun, 4 Oct 2020 09:01:51 +0000
+Date: Sun, 4 Oct 2020 18:01:49 +0900
+From: masashiendou <endo_masashi@naganosd.com>
+To: NSD Mizuki Tonouchi <tonouchi_mizuki@naganosd.com>
+Cc: tanahashi_katsuhiro@naganosd.com
+Subject: =?utf-8?B?MjAyMDEwMDTml6XloLEgKOmBoOiXpCk=?=
+Message-ID: <20201004090149.77yi7vbg5pzvv2tf@Kx250>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Oct 2020 09:01:51.6278
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 1d00197b-dae5-4419-75b7-08d868442259
+X-MS-Exchange-Organization-AuthSource: HK0PR06MB2739.apcprd06.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-Originating-IP: [125.30.77.206]
+X-ClientProxiedBy: TYAPR03CA0015.apcprd03.prod.outlook.com
+ (2603:1096:404:14::27) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+Return-Path: endo_masashi@naganosd.com
+MIME-Version: 1.0
+
+登内様・棚橋様
+
+遠藤です
+
+10/4(日)の作業進捗を送ります。
+
+MINO-144(0.125日) / MINO-245(0.25日)の作業を進めました。
+
+MINO-245の再現性を確認済みで、コードの修正箇所を特定して、修正作業を開始しています。
+MINO-245の作業終了次第、MINO-224とMINO-240の作業を進めます。
+"バリデーション仕様案_20200929.xlsx"は引き続き更新中で、明日(10/5)09:00までに更新終了予定です。
+
+MINO-245の修正箇所を確認したのみなので、githubの差分はありません。
+
+・作業中のBacklog課題
+　MINO-144 バリデーション仕様策定
+　　-> 作業中(稼働中:2.5日) + 0.125日
+　　　　あと0.125日で終了予定(0.25日超過)
+　MINO-145 バリデーションの実装
+　　-> 作業中(稼働中:3.25日)
+　MINO-149 製作出荷詳細: 送付先関連のバリデーションの実装
+　　-> 作業済(1.0日)(0.5日超過)
+   MINO-245 明細を開き、更新をクリックすると500エラーが発生する。
+　　-> 作業中(稼働中:0.75日) + 0.25日
+　　　　あと0.5日で終了予定(予定どおり)
+
+・保留の作業
+　"MINO-250 バーコードスキャン時にダウンロード画面が表示されないように制御する"
+　　Ctrl + Jの文字コードを無視する実装の工数算出
+　　※ JavaScriptで当文字コードを実行させないコーディングの工数は0.5日あれば実装出来るが、
+　　　対象画面でフックさせる条件の確認に0.5日程度かかる見込み
+
+　以下AWS周りのタスクをBacklogの課題として登録する
+　　# AWS #
+　　●旧バグ/Wiki管理(Redmine)システムについて
+　　　-> 3/12 Redmineの遠藤用のアカウントを下村様に作成いただいた
+　　　-> 3/13 バックログに当作業の課題を登録した
+　　　　 インスタンスタイプの変更は着手できなかったため、3/16以降で調整する
+　　　　　　　当作業により変動する費用の概算を課題に記載した
+　　　　　　　　※補足：停止しているインスタンスに関するEBSについては、何かしかのバックアップをしておく予定
+　　　　　　　　　　　　取得したバックアップはDropboxに保管予定
+　　　　　　　　　　　　EBS全体の容量は1TB、しかし実用量は100GB未満と思われる
+　　　　　　　　　　　　当作業は、課題を概要にまとめて実作業は来週以降の予定
+　　　　◆Vagrantの検証環境の作成は、当該Wikiを参照して下村様は作成
+　　　　　このため、Dropbox上の手順と食い違いがある　
+　　　　◆Redmineに使用しているEC2は社外公開しておらず、パフォーマンスは特別必要ないので、インスタンスタイプは小さくすることが可能
+　　　　　※t1.micro -> nano とする予定
+　　　　　※下村様に確認済み
+　　
+　　●プラン見直し
+　　　◆停止しているインスタンスのほぼ全てに、EBSが関連付けられている
+　　　　このため、不要な費用が発生している
+　　　　Redmineが動作しているインスタンスが2つあり、セキュリティグループはWalts
+　　　　RCSと関係ないインスタンスであれば、タグ付をして、RCSの費用計算外としたい
+　　　　RCSと関係あるインスタンスであれば、T1.micro -> T2.nanoにインスタンスタイプを変更して、費用を削減したい
+　　　　-> 3/12 下村様よりRedmineについては、社外公開用などではないとのこと
+　　　　-> ただし、2つの内1つ(ip: 54.178.113.120)は今までのRCSで使用してきたインスタンスだが、もう一つ(ip: 
+　　54.238.51.139)は用途不明とのこと
+　　
+　　　◆RI(リザーブドインスタンス)
+　　　　途中でインスタンスタイプを変更すると、割引適用外となってしまうので、過去にBacklogのHAMA-42で議論された、CPU負荷の問題点を明らかにしてから、検討したほうが良いと推察される
+　　　　-> 3/12 CPU高負荷の原因はバックアップによるもので、利用者のアクセスは無関係
+　　　　-> インスタンスタイプをc3.largeから安価なタイプに変更しても、RCSのサービス自体に影響はないと思われる
+　　　　-> 
+　　しかし、c3.largeは古いインスタンスタイプのため、新しいインスタンスタイプに移行するにはAMIが未対応とのこと(下村様に確認済み)
+　　　　-> 3/16 以降、移行手順、およびどのインスタンスタイプへの移行が適切なのか調査を進める
+　　
+　　●AWS利用状況の確認
+　　　◆お教えいただいたアカウントにて、現状の構成の確認
+　　　　取り急ぎ、RDSへの移行状況について下村様に質問をして、回答待ち
+　　　　-> 3/12 下村様より以下のとおり回答いただいた
+　　　　　▼EC2上のDB → RDS
+　　　　　　・RDSに移行したほうが料金が高くなるので、現状はEC2のままの方が良い
+　　　　-> 3/16以降 BacklogまたはTeamsのWikiに、現状判明している内容を登録する
+
+よろしくお願いします。
+
+以上
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/

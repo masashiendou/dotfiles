@@ -1,0 +1,1159 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:e342:0:0:0:0:0 with SMTP id a63csp1003371vkh;
+        Wed, 29 Sep 2021 19:05:52 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyhZk73BH12/Hd0IQgX75v/wd85QzdpLvkPntwqQzgY/xcbHvQFjPXGD3MOwh26yYCXjuPq
+X-Received: by 2002:a54:4d9e:: with SMTP id y30mr733001oix.50.1632967551922;
+        Wed, 29 Sep 2021 19:05:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632967551; cv=none;
+        d=google.com; s=arc-20160816;
+        b=C0DrurisOfTUreyf2Qw6zDNJVUETjTDidsHgHqcB1+fl5u8Je1PbZBh3j5ScTNYKfj
+         EphyGE7fObXlN1831wMXaQnKCqVnG2AraWt9pIXrGByPYywvbSu4SgQnn8gJf9UjuDFn
+         UApbAf3ozXDuRXdVatNFHUxcnoFeRzXdjrmhGPmLOygpEaO5TbkuN2tzRpmlfuOUacKY
+         9CBKrdYJZowuvqiHhBLF5T5qprHaZECo3bjjeAMtKa3D7PArMWQXlZ+Fxx1PYJPOzDFp
+         /hTSGGI5hByTL0D4pE+JEdCubpAmIqn+Kbdz0o6cW71k7HoGSa1p9vTvwSMBbAW/I6DX
+         A3+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature;
+        bh=p7e3yuxtmPJaw49IheRkKpkftQ8IljkLA7q31Efav18=;
+        b=iAkKRAEI4jczmtySIHEanqjHd2jmtz7mfbd1A0AS969319Wg0SXn/GrxWSBplpHAxM
+         97107MqQefsrRYKdyD9teb35qZNotoxa0/GvSf6NyUwAlEJ9Ixqa5WqPc8OIq6NzFcQ3
+         kIKvMBl3mfWqysI8ogXSfgRtRCFzHEPQiEyVRYRasAINCkTI0/dRrfUjEit7GfdBX1Yl
+         E42rIfBuRQOwPppDVD7WESdvczqVE4RQWnYF0jZDRm5vYVlmtL/upMKPKC1iMTDwQ8Il
+         r6opDDBHuco1Lv/SQmu4g0gi5SP1yfWo6eMidF2k/2ddXXixsfMwH73WXjie4HQGhJ29
+         OgPw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@cisco.com header.s=asp header.b=aZ7ZEj+7;
+       spf=softfail (google.com: domain of transitioning 564-whv-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com does not designate 72.163.7.179 as permitted sender) smtp.mailfrom=564-WHV-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cisco.com
+Return-Path: <564-WHV-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com>
+Received: from rcdn-asp-1.cisco.com (rcdn-asp-1.cisco.com. [72.163.7.179])
+        by mx.google.com with ESMTPS id 65si1242277ota.134.2021.09.29.19.05.51
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 29 Sep 2021 19:05:51 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning 564-whv-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com does not designate 72.163.7.179 as permitted sender) client-ip=72.163.7.179;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cisco.com header.s=asp header.b=aZ7ZEj+7;
+       spf=softfail (google.com: domain of transitioning 564-whv-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com does not designate 72.163.7.179 as permitted sender) smtp.mailfrom=564-WHV-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=cisco.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=cisco.com; i=@cisco.com; l=47340; q=dns/txt; s=asp;
+  t=1632967551; x=1635559551;
+  h=date:from:reply-to:to:message-id:subject:mime-version:
+   list-unsubscribe;
+  bh=C2fNhvHrQkw5bXrF/IKyJp+7dvk6iHZOv7KNIH+N2yQ=;
+  b=aZ7ZEj+7brUD57RylUlxWX2pPTuaaoLeb3rtXFoCpdaAOTksaBrzA1AJ
+   MfMZx1Mfknwn2VbqgKUnc54Z0nekwn6cd/vuQ0tXSKXLZK37Ydh09W2Oy
+   CcyS6qV++Mj4bDyXLL881CNFo/sjrpHhdxp5XI5nwGPbl/VQsnFlU1nag
+   g=;
+Received: from donkey.mktdns.com ([199.15.215.91])
+  by rcdn-asp-1.cisco.com with ESMTP/TLS/DHE-RSA-SEED-SHA; 30 Sep 2021 02:05:49 +0000
+X-Cisco-Communication: 
+X-CASPR: 
+X-IronPort-AV: E=Sophos;i="5.85,334,1624320000"; 
+   d="scan'208,217";a="309900176"
+X-MSFBL: I1K72TQgjYjhCup2Hwbq8OtVeM+BID1Q+ZlO5Eeuinc=|eyJ1IjoiNTY0LVdIVi0
+	zMjM6MDoxMTk2NTozMTc5OToxMzI5MTk6MjE2NjA6OTo5NjA1NToxODQwNzIxMSI
+	sImIiOiJkdnAtMTk5LTE1LTIxNS05MWEiLCJnIjoiYmctc2pyLTAxIiwiciI6Imh
+	1anlvcm9tQGdtYWlsLmNvbSJ9
+Date: Wed, 29 Sep 2021 21:00:54 -0500 (CDT)
+From: Cisco DevNet <devnet@cisco.com>
+Reply-To: devnet@cisco.com
+To: hujyorom@gmail.com
+Message-ID: <1063959195.127045639.1632967254496@sjmktmail-batch1m.marketo.org>
+Subject: =?UTF-8?Q?=E3=80=90=E3=81=94=E6=A1=88=E5=86=85=E3=80=91?=
+ =?UTF-8?Q?=E3=82=B7=E3=82=B9=E3=82=B3_=E3=82=AA=E3=83=B3?=
+ =?UTF-8?Q?=E3=83=A9=E3=82=A4=E3=83=B3_=E3=82=A4?=
+ =?UTF-8?Q?=E3=83=99=E3=83=B3=E3=83=88_Ci?=
+ =?UTF-8?Q?sco_DevNet_Create_2021?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_127045608_449210396.1632967254469"
+X-Binding: bg-sjr-01
+List-Unsubscribe: <mailto:IVLWQS2NIZMDST3OINPWQUDSNZFXSWSGJN5G6SKTKFUDGTRRNZ5EC4CXIR4FI52YFVMWWPI=.96055.21660.9@unsub-sj.mktomail.com>
+X-PVIQ: mkto-564WHV323-000001-000000-096055
+X-MarketoID: 564-WHV-323:0:11965:31799:132919:21660:9:96055:18407211
+X-Mailfrom: 564-WHV-323.0.96055.0.0.21660.9.18407211@em-sj-77.mktomail.com
+X-MktArchive: false
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+
+------=_Part_127045608_449210396.1632967254469
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+=E5=90=84=E4=BD=8D
+
+Cisco DevNet Create 2021 =E9=96=8B=E5=82=AC=E3=81=AE=E3=81=8A=E7=9F=A5=E3=
+=82=89=E3=81=9B
+
+Cisco DevNet Create 2021 =E3=81=AE=E7=99=BB=E9=8C=B2=E3=81=8C=E9=96=8B=E5=
+=A7=8B=E3=81=95=E3=82=8C=E3=81=BE=E3=81=97=E3=81=9F=E3=80=82
+https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTdbhaFVrV6hj9P-m-CVYVmo=
+DGVm1HnR-ATGKX9aNtoTAtZFKiWVYFhKRp6H0nzvgb8=3D
+
+2021=E5=B9=B410=E6=9C=8820=EF=BD=9E21=E6=97=A5=E3=80=81=E5=AE=9F=E7=94=A8=
+=E7=9A=84=E3=81=AA=E6=83=85=E5=A0=B1=E6=BA=80=E8=BC=89=E3=81=AE=E3=82=B0=E3=
+=83=AD=E3=83=BC=E3=83=90=E3=83=AB=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E3=81=
+=8C
+=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3=E3=81=A7=E9=96=8B=E5=82=AC=E3=
+=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82
+
+=E3=81=95=E3=81=BE=E3=81=96=E3=81=BE=E3=81=AA=E9=AD=85=E5=8A=9B=E7=9A=84=E3=
+=81=AA=E3=83=86=E3=82=AF=E3=83=8B=E3=82=AB=E3=83=AB=E3=83=88=E3=83=BC=E3=82=
+=AF=E3=82=BB=E3=83=83=E3=82=B7=E3=83=A7=E3=83=B3=E3=82=84=E3=83=A9=E3=82=A4=
+=E3=83=88=E3=83=8B=E3=83=B3=E3=82=B0
+=E3=83=88=E3=83=BC=E3=82=AF=E3=81=AF=E3=80=81=E3=83=87=E3=83=99=E3=83=AD=E3=
+=83=83=E3=83=91=E3=83=BC=E3=81=AE=E3=83=88=E3=83=AC=E3=83=B3=E3=83=89=E3=82=
+=84=E3=83=84=E3=83=BC=E3=83=AB=E3=81=AE=E6=9C=80=E6=96=B0=E6=83=85=E5=A0=B1=
+=E3=82=92=E5=85=A5=E6=89=8B=E3=81=A7=E3=81=8D=E3=82=8B
+=E7=B5=B6=E5=A5=BD=E3=81=AE=E3=83=81=E3=83=A3=E3=83=B3=E3=82=B9=E3=81=A7=E3=
+=81=99=E3=80=82=E4=BB=8A=E5=9B=9E=E3=81=AE=E3=82=A4=E3=83=99=E3=83=B3=E3=83=
+=88=E3=81=AF=E7=B5=8C=E9=A8=93=E3=81=AE=E6=B5=85=E3=81=84=E6=96=B9=E3=81=8B=
+=E3=82=89
+=E3=82=A8=E3=82=AD=E3=82=B9=E3=83=91=E3=83=BC=E3=83=88=E3=81=BE=E3=81=A7=E3=
+=80=81=E3=81=82=E3=82=89=E3=82=86=E3=82=8B=E3=83=AC=E3=83=99=E3=83=AB=E3=81=
+=AE=E3=83=87=E3=83=99=E3=83=AD=E3=83=83=E3=83=91=E3=83=BC=E3=82=A8=E3=83=B3=
+=E3=82=B8=E3=83=8B=E3=82=A2=E3=81=AB
+=E9=81=A9=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82
+
+=E5=90=84=E3=82=BB=E3=83=83=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=A7=E3=81=AF=E8=
+=A9=B2=E5=BD=93=E5=88=86=E9=87=8E=E3=81=AE=E5=B0=82=E9=96=80=E5=AE=B6=E3=81=
+=8C=E7=99=BB=E5=A0=B4=E3=81=97=E3=80=81=E4=BB=A5=E4=B8=8B=E3=81=AE=E5=88=86=
+=E9=87=8E=E3=82=92=E5=90=AB=E3=82=80
+=E6=9C=80=E6=96=B0=E6=8A=80=E8=A1=93=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E8=
+=A7=A3=E8=AA=AC=E3=81=97=E3=81=A6=E3=81=84=E3=81=8D=E3=81=BE=E3=81=99=E3=80=
+=82
+
+- API =E3=81=AE=E5=8B=95=E4=BD=9C
+- =E3=82=AB=E3=82=B9=E3=82=BF=E3=83=9E=E3=83=BC / =E3=83=A6=E3=83=BC=E3=82=
+=B6=E3=82=A8=E3=82=AF=E3=82=B9=E3=83=9A=E3=83=AA=E3=82=A8=E3=83=B3=E3=82=B9
+- =E3=82=A4=E3=83=B3=E3=82=BF=E3=83=BC=E3=82=AA=E3=83=9A=E3=83=A9=E3=83=93=
+=E3=83=AA=E3=83=86=E3=82=A3=E3=81=A8=E3=82=AF=E3=82=AA=E3=83=AA=E3=83=86=E3=
+=82=A3
+- =E7=B5=84=E3=81=BF=E8=BE=BC=E3=81=BF=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=
+=E3=83=86=E3=82=A3
+- =E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E3=83=95=E3=82=A1=E3=83=BC=E3=82=B9=
+=E3=83=88=E3=81=AE=E3=82=B7=E3=83=B3=E3=83=97=E3=83=AB=E3=81=95
+- Cisco DevNet =E3=81=AE=E5=88=A9=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=89
+- =E5=8F=AF=E8=A6=96=E6=80=A7=E3=81=A8=E8=87=AA=E5=8B=95=E5=8C=96
+
+=E3=81=BE=E3=81=9F =E3=83=87=E3=83=A2=E3=82=B8=E3=83=A3=E3=83=A0=E3=81=AE=
+=E9=96=8B=E5=82=AC=E3=80=81=E3=83=A6=E3=83=BC=E3=82=B9=E3=82=B1=E3=83=BC=E3=
+=82=B9=E3=81=AE=E7=B4=B9=E4=BB=8B=E3=80=81=E6=A5=AD=E7=95=8C=E3=83=AA=E3=83=
+=BC=E3=83=80=E3=83=BC=E3=81=AE=E8=A9=B1=E3=80=81
+=E3=81=9D=E3=81=97=E3=81=A6=E6=9C=80=E3=82=82=E9=87=8D=E8=A6=81=E3=81=AA=E3=
+=81=93=E3=81=A8=E3=81=AF=E3=80=81DevNet =E3=82=B3=E3=83=9F=E3=83=A5=E3=83=
+=8B=E3=83=86=E3=82=A3=E3=81=AE=E7=9A=86=E6=A7=98=E3=81=A8=E4=B8=80=E7=B7=92=
+=E3=81=AB=E5=AD=A6=E3=81=B3=E3=80=81
+=E7=AF=89=E3=81=8D=E4=B8=8A=E3=81=92=E3=81=A6=E3=81=84=E3=81=8F=E3=81=93=E3=
+=81=A8=E3=81=A7=E3=81=99=E3=80=82=E3=83=91=E3=83=BC=E3=83=88=E3=83=8A=E3=83=
+=BC=E3=82=84=E3=81=8A=E5=AE=A2=E6=A7=98=E3=82=92=E3=81=8A=E8=AA=98=E3=81=84=
+=E3=81=82=E3=82=8F=E3=81=9B=E3=81=AE
+=E3=81=86=E3=81=88=E3=80=81=E3=81=9C=E3=81=B2=E3=81=94=E5=8F=82=E5=8A=A0=E3=
+=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+
+=E6=97=A5=E6=9C=AC=E8=AA=9E=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=A7=E3=81=AE=E3=
+=81=94=E6=A1=88=E5=86=85
+https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTdbhaFVrV6hj9P-m-CVYVmo=
+DGVm1HnR-ATGKX9aNtoTAtZFKiWVYFhKRp6H0nzvgb8=3D
+
+=E7=99=BB=E9=8C=B2=E6=97=A5=E6=9C=AC=E8=AA=9E=E3=83=AA=E3=83=95=E3=82=A1=E3=
+=83=AC=E3=83=B3=E3=82=B9=E3=82=AC=E3=82=A4=E3=83=89
+https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwSKsv3weh5oUaLDJCBTFqYhj=
+fH1p-_loXi5OxHwISYgZ4s13IHpcDSYbMoRXGdK4Xtw=3D
+
+=E3=81=8A=E7=94=B3=E3=81=97=E8=BE=BC=E3=81=BF=E3=81=AF=E3=81=93=E3=81=A1=E3=
+=82=89=E3=81=8B=E3=82=89
+https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwgfq-UQeTg60gifJNtdEIsJC=
+iKTVxjlpiue3IKkLWwAQmsns-Uk7qu__DYAibZ1Dgrk=3D
+
+
+10=E6=9C=88=E3=81=AB=E3=81=8A=E7=9B=AE=E3=81=AB=E3=81=8B=E3=81=8B=E3=82=8B=
+=E3=81=AE=E3=82=92=E6=A5=BD=E3=81=97=E3=81=BF=E3=81=AB=E3=81=97=E3=81=A6=E3=
+=81=84=E3=81=BE=E3=81=99=E3=80=82
+
+DevNet =E3=83=81=E3=83=BC=E3=83=A0
+
+* Cisco DevNet Create 2021 =E3=81=AF=E3=80=812021=E5=B9=B410=E6=9C=8819=EF=
+=BD=9E20=E6=97=A5=EF=BC=88=E5=A4=AA=E5=B9=B3=E6=B4=8B=E6=A8=99=E6=BA=96=E6=
+=99=82=EF=BC=89=E3=80=81
+10=E6=9C=8820=EF=BD=9E21=E6=97=A5=EF=BC=88SGT / CEST=EF=BC=89=E3=81=AE2=E6=
+=97=A5=E9=96=93=E3=81=AB=E3=81=8B=E3=81=91=E3=81=A6=E9=96=8B=E5=82=AC=E4=BA=
+=88=E5=AE=9A=E3=81=AE=E3=82=B0=E3=83=AD=E3=83=BC=E3=83=90=E3=83=AB
+=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E3=81=A7=E3=81=99=E3=80=82
+
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81
+
+=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E3=81=AF=E8=BF=94=E4=BF=A1=E3=
+=81=95=E3=82=8C=E3=81=BE=E3=81=9B=E3=82=93=E3=82=88=E3=81=86=E3=81=8A=E9=A1=
+=98=E3=81=84=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=99=E3=80=82
+DevNet Create =E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E3=81=94=E8=B3=AA=E5=95=
+=8F=E3=81=AF=E3=80=81devnetcreate@cisco.com <https://mkto-trk.cisco.com/NTY=
+0LVdIVi0zMjMAAAF_02eRwfnUQ4IHbdgZaEkrERbtZCfM47AKZqxwd305ZpgvYmqsK_NIjtgWbB=
+BeIFfgyr40mYg=3D> =E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=
+=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82
+
+=C2=A9 2021 Cisco Systems, Inc. and/or its affiliated entities.=20
+All rights reserved. Cisco=E3=80=81Cisco Systems=E3=80=81=E3=81=8A=E3=82=88=
+=E3=81=B3=20
+Cisco Systems =E3=83=AD=E3=82=B4=E3=81=AF=E3=80=81Cisco Systems, Inc. =E3=
+=81=BE=E3=81=9F=E3=81=AF=E3=81=9D=E3=81=AE=E9=96=A2=E9=80=A3=E4=BC=9A=E7=A4=
+=BE=E3=81=AE
+=E7=B1=B3=E5=9B=BD=E3=81=8A=E3=82=88=E3=81=B3=E3=81=9D=E3=81=AE=E4=BB=96=E3=
+=81=AE=E4=B8=80=E5=AE=9A=E3=81=AE=E5=9B=BD=E3=81=AB=E3=81=8A=E3=81=91=E3=82=
+=8B=E7=99=BB=E9=8C=B2=E5=95=86=E6=A8=99=E3=81=A7=E3=81=99=E3=80=82
+Cisco Systems, Inc., 170 West Tasman Drive, San Jose,=20
+California 95134.
+
+Cisco.com <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwbuq7H5uUo8NL=
+D1QIBSayw9XX-nxdOTyOsoQCQQZ7-wFxpruW5j7utJxW3vOsBmBJBg=3D>=20
+
+Privacy Statement <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwZtFZ=
+Xwrcm0t5NsvEYZh8oyfTnsYdhVW19bmLxWJKROZrwFd2PXRGXvZfKulbynCl4M=3D>=20
+
+Trademarks <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwVilTSxYV-CN=
+3SQ4RuXoDlnyNREkQEg4QrvUl3nSBdSQNsf2iq_dysPvmUKBfcvlPA0=3D>
+
+Facebook <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTCpkZnGFeXdgD=
+He5dFtCDnYWFDY-0zINighSRPFlO-XZQPRFN_IfjcDg1x1unRsBWg=3D>
+=20
+Twitter <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwUvCD4_0oSTBNsI=
+eElhxju2lTimXGxhbADdVcuZu-7MmF7yvYC7mHvAn2hUGE87W4U0=3D>
+
+LinkedIn <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwQlxg72PDYTPOe=
+DUqz7UmNtNb7qAYMeakAaZdLdOczWj35TXtWXELtGsfVe20gaOOtw=3D>
+
+Unsubscribe <https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTAjXDbnnNh=
+_RVY-WpvxBbQqt8dG1eveYcbA0nvyiNPwn6JWDh5lAfM6yQzufXKS1_s=3D>
+
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=
+=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=
+=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81=
+=E2=94=81=E2=94=81=E2=94=81=E2=94=81=E2=94=81
+
+<!--  -->.
+
+------=_Part_127045608_449210396.1632967254469
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html>
+<head>=20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+=20
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewport"=
+> =20
+<title></title>                              =20
+<!--Banner-->  =20
+<!--Banner end-->=20
+<!--linksandsocial-->  =20
+<!--linksandsocial end-->=20
+<!--legal ends-->            =20
+<!--divider-->      =20
+<style type=3D"text/css">
+            /* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ *=
+/
+            #outlook a{padding:0;} /* Force Outlook to provide a "view in b=
+rowser" message */
+            .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force =
+Hotmail to display emails at full width */
+            .yshortcuts, a .yshortcuts, a .yshortcuts:hover, a .yshortcuts:=
+active, a .yshortcuts:focus{background-color:transparent !important; border=
+:none !important; color:inherit !important;} /* Prevent Yahoo! from styling=
+ links */
+            /* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+            body{margin:0; padding:0;}
+            img{border:0; height:auto; line-height:100%; outline:none; text=
+-decoration:none;}
+            table, td{border-collapse:collapse !important; mso-table-lspace=
+:0pt; mso-table-rspace:0pt;}
+            #bodyTable, #bodyCell{height:100% !important; margin:0; padding=
+:0; width:100% !important;}
+            #bodyCell{padding:20px;}
+            #templateContainer{width:590px;}
+            /* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+            /* =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Page Styles =3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D */
+            body, #bodyTable{
+            /*@editable*/ background-color:#ffffff;
+            }
+            #bodyCell{
+            /*@editable*/ border-top:0;
+            }
+            #table1, #table2 {
+            display: inline-block !important;
+            float: left !important;
+            }
+            #templateContainer{
+            /*@editable*/=20
+            }
+            #edit_header h1 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1.2em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: normal;
+            /*@editable*/ line-height: 120%;
+            /*@editable*/ letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #58595b;
+            }
+            #edit_header h2 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1.0em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: normal;
+            /*@editable*/ line-height: 120%;
+            /*@editable*/ letter-spacing: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #58595b;
+            }
+            #edit_text p {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 120%;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 15px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;                 /*color: #004ba=
+f;*/
+            }
+            #edit_text h1 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1.4em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: normal;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 117%;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #00bceb;
+            }
+            #edit_text h2 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1.1em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 117%;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #005073;
+            }
+            #edit_text h3 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 117%;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 5px;
+            margin-left: 0;
+            color: #005073;
+            text-align: center;
+            }
+            #edit_text2 h1, #edit_text2 h2 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1.1em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 117%;
+            margin-top: 5px;
+            margin-right: 0;
+            margin-bottom: 5px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #005073;
+            }
+            #edit_text3 h3 {
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1.1em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 117%;
+            margin-top: 5px;
+            margin-right: 0;
+            margin-bottom: 5px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #58595b;
+            }
+            #edit_text2 p , #edit_text3 p{
+            display: block;
+            /*@editable*/ font-family: Arial, Helvetica, sans-serif;
+            /*@editable*/ font-size: 1em;
+            /*@editable*/ font-style: normal;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ letter-spacing: normal;
+            /*@editable*/ line-height: 117%;
+            margin-top: 5px;
+            margin-right: 0;
+            margin-bottom: 5px;
+            margin-left: 0;
+            /*@editable*/ text-align: left;
+            color: #58595b;
+            }
+            /* =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Header Styles =3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D */
+            #templateHeader{
+            /*@editable*/ background-color:#F4F4F4;
+            /*@editable*/ border-bottom:5px solid #FFFFFF;
+            }
+            .headerContent{
+            /*@editable*/ color: #505050;
+            /*@editable*/ font-family: Helvetica;
+            /*@editable*/ font-size: 20px;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ line-height: 100%;
+            /*@editable*/ /* [disabled]padding-bottom: 30px; */
+            /*@editable*/ /* [disabled]padding-left: 30px; */
+            /*@editable*/ /* [disabled]padding-right: 140px; */
+            /*@editable*/ /* [disabled]padding-top: 30px; */
+            /*@editable*/ text-align: left;
+            /*@editable*/ vertical-align: middle;
+            }
+            .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail=
+ Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
+            /*@editable*/ color:#EB4102;
+            /*@editable*/ font-weight:normal;
+            /*@editable*/ text-decoration:underline;
+            }
+            #headerImage{
+            height: auto;
+            /* [disabled]max-width: 90px; */
+            }
+            /* =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Body Styles =3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D */
+            /*@editable*/ background-color:#ffffff;
+            /*@editable*/ border-top:0;
+            /*@editable*/ border-bottom:0;
+            }
+            #sideBar {
+            /*@editable*/=20
+            }
+            #bodyContentBlock{
+            /*@editable*/ background-color:#FFFFFF;
+            /*@editable*/ border-top:0;
+            /*@editable*/ border-bottom:0;
+            }
+            #bodyContentBlock1{
+            /*@editable*/ background-color:#FFFFFF;
+            /*@editable*/ border-top:0;
+            }
+            .bodyContent{
+            /*@editable*/ color: #58595b;
+            /*@editable*/ font-family: Helvetica;
+            /*@editable*/ font-size: 14px;
+            /*@editable*/ line-height: 150%;
+            /*
+            padding-top:20px;
+            padding-right:20px;
+            padding-bottom:20px;
+            padding-left:20px;
+            */
+            /*@editable*/ text-align: left;
+            }
+            .bodyContent a:link, .bodyContent a:visited, /* Yahoo! Mail Ove=
+rride */ .bodyContent a .yshortcuts /* Yahoo! Mail Override */{
+            /*@editable*/ color: #0175a2;
+            /*@editable*/ font-weight: bold;
+            /*@editable*/ text-decoration: none;
+            }
+            .bodyContent img{
+            display:inline;
+            height:auto;
+            max-width:700px;
+            }
+            #edit_social img {
+            /* [disabled]padding-left: 10px; */
+            /* [disabled]padding-top: 5px; */
+            }
+            /* =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D Footer Styles =3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D */
+            #templateFooter{
+            /*@editable*/ background-color:#232327;
+            /*@editable*/ border-top:0;
+            }
+            .footerContent{
+            /*@editable*/ color:#808080;
+            /*@editable*/ font-family:Helvetica;
+            /*@editable*/ font-size:10px;
+            /*@editable*/ line-height:150%;
+            padding-top:20px;
+            padding-right:20px;
+            padding-bottom:20px;
+            padding-left:20px;
+            /*@editable*/ text-align:center;
+            }
+            .footerContent a:link, .footerContent a:visited, /* Yahoo! Mail=
+ Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! =
+Mail Override */{
+            /*@editable*/ color:#606060;
+            /*@editable*/ font-weight:normal;
+            /*@editable*/ text-decoration:underline;
+            }
+            .appleLinks a {color:#858585; text-decoration: none;}
+            .appleLinksBlack a {color:#858585; text-decoration: none;}
+            /* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+            @media only screen and (max-width: 640px){
+            /* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
+            body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:=
+none !important;} /* Prevent Webkit platforms from changing default text si=
+zes */
+            body{width:100% !important; min-width:100% !important;} /* Prev=
+ent iOS Mail from adding padding to the body */
+            /* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
+            td[id=3D"bodyCell"]{padding:0px !important;}
+            /* /\/\/\/\/\/\/ MOBILE TEMPLATE STYLES /\/\/\/\/\/\/ */
+            /* =3D=3D=3D=3D=3D=3D=3D=3D Page Styles =3D=3D=3D=3D=3D=3D=3D=
+=3D */
+            /**
+            * @tab Mobile Styles
+            * @section template width
+            * @tip Make the template fluid for portrait or landscape view a=
+daptability.
+            If a fluid layout doesn't work for you, set the width to 300px =
+instead.
+            */
+            table[id=3D"templateContainer"]{
+            max-width:480px !important;
+            /*@editable*/ width:100% !important;
+            }
+            .headerContent #edit_header h1{
+            /*@editable*/ font-size: 1.3em !important;
+            /*@editable*/ line-height: 120% !important;
+            }
+            .bodyContent #edit_text h2 {
+            /*@editable*/ font-size: 1em !important;
+            /*@editable*/ line-height: 125% !important;
+            }
+            /* =3D=3D=3D=3D=3D=3D=3D=3D Header Styles =3D=3D=3D=3D=3D=3D=3D=
+=3D */
+            img[id=3D"headerImage"]{
+            height:auto !important;
+            /*@editable*/ max-width:600px !important;
+            /*@editable*/ width:100% !important;
+            }
+            td[class=3D"headerContent"]{
+            /*@editable*/ font-size:20px !important;
+            /*@editable*/ line-height:125% !important;
+            }
+            /* =3D=3D=3D=3D=3D=3D=3D=3D Body Styles =3D=3D=3D=3D=3D=3D=3D=
+=3D */
+            td[class=3D"bodyContent"]{
+            /*@editable*/ font-size: 1.1em !important;
+            /*@editable*/ line-height: 112% !important;
+            }
+            /* =3D=3D=3D=3D=3D=3D=3D=3D Footer Styles =3D=3D=3D=3D=3D=3D=3D=
+=3D */
+            td[class=3D"footerContent"]{
+            /*@editable*/ font-size:14px !important;
+            /*@editable*/ line-height:115% !important;
+            }
+            td[class=3D"footerContent"] a{display:block !important;} /* Pla=
+ce footer social and utility links on their own lines, for easier access */
+            td[class=3D"headline"] {font-size: 14px !important;}
+            table[class=3D"gray-table"] {float:none; display: block !import=
+ant;}
+            table[class=3DmobileCenter]               {width: 100%!importan=
+t; text-align: left!important; }
+            td[class=3DmobileCenter]                  {width: 280px!importa=
+nt; text-align: left!important; }
+            span[class=3DappleLinks] {font-size: 11px !important; font-weig=
+ht: normal !important; line-height: 17px !important;}
+            span[class=3Dbold] {font-size: 18px !important; font-weight: bo=
+ld !important; line-height: 17px !important;}
+            span[class=3Dsweeps] {font-size: 14px !important; line-height: =
+17px !important;}
+            .tablewidth {width: 100%!important}
+            .innertablewidth {width: 90%!important}
+            .imgresponsive {width: 100%!important;}
+            .block {
+            display: block!important;
+            width: 100%!important
+            }
+            .width {
+            display: block!important;
+            text-align: center!important;
+            float: none!important;
+            overflow: hidden!important;
+            width:100%!important;
+            }
+            .blockheight {
+            display: block!important;
+            width: 100%!important;
+            height: 20px!important;
+            }
+            .text-align{text-align:center!important}
+            .float{float:none!important}
+            .overflow{overflow:hidden!important}
+            }
+        </style>=20
+</head>=20
+<body style=3D"margin-bottom: 0; -webkit-text-size-adjust: 100%; padding-bo=
+ttom: 0;  margin-top: 0; margin-right: 0; -ms-text-size-adjust: 100%; margi=
+n-left: 0; padding-top: 0; padding-right: 0; padding-left: 0; width: 100%;"=
+><style type=3D"text/css">div#emailPreHeader{ display: none !important; }</=
+style><div id=3D"emailPreHeader" style=3D"mso-hide:all; visibility:hidden; =
+opacity:0; color:transparent; mso-line-height-rule:exactly; line-height:0; =
+font-size:0px; overflow:hidden; border-width:0; display:none !important;">J=
+oin us on October 13, 2020!</div>=20
+<!-- Outer table START -->=20
+<table width=3D"100%" cellpadding=3D"0" align=3D"center" cellspacing=3D"0" =
+style=3D"margin:0 auto" border=3D"0">=20
+<tbody>
+<tr>=20
+<td bgcolor=3D"#F0F0F0" style=3D"background-color:#F0F0F0;">=20
+<table width=3D"100%" cellpadding=3D"0" align=3D"center" cellspacing=3D"0" =
+style=3D"margin:0 auto" border=3D"0">=20
+<tbody>
+<tr>=20
+<td height=3D"10" style=3D"height:20px;line-height:1px;font-size:1px">&nbsp=
+;</td>=20
+</tr>=20
+</tbody>
+</table>=20
+<table class=3D"tablewidth" width=3D"600" align=3D"center" cellpadding=3D"0=
+" cellspacing=3D"0" border=3D"0" style=3D"width:600px;margin:0 auto;border:=
+1px solid #999999">=20
+<tbody>
+<tr>=20
+<td bgcolor=3D"#FFFFFF" style=3D"background-color:#FFFFFF" id=3D"template-w=
+rapper" class=3D"mktoContainer">
+<table class=3D"mktoModule" id=3D"one-article-section-banner1c8c3a80-8da7-4=
+400-af72-22273daecaea" cellpadding=3D"0" align=3D"center" cellspacing=3D"0"=
+ style=3D"margin:0 auto;width:100%;" border=3D"0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td bgcolor=3D"#ffffff">=20
+<table class=3D"tablewidth" cellpadding=3D"0" cellspacing=3D"0" align=3D"ce=
+nter" style=3D"margin:0 auto;width:600px" border=3D"0" width=3D"600">=20
+<tbody>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" style=3D"margin=
+:0 auto" border=3D"0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<div class=3D"mktoImg" id=3D"one-article-section-img11c8c3a80-8da7-4400-af7=
+2-22273daecaea" mktolockimgsize=3D"true">=20
+<img class=3D"imgresponsive" width=3D"600" border=3D"0" src=3D"https://mkto=
+.cisco.com/rs/564-WHV-323/images/Create_2021_RegisterationOpen.png" alt=3D"=
+Create_2021_RegisterationOpen.png" style=3D"">=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table class=3D"mktoModule" id=3D"text-module" cellpadding=3D"0" align=3D"c=
+enter" cellspacing=3D"0" style=3D"margin:0 auto;width:100%" border=3D"0" wi=
+dth=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#FFFFFF" bgcolor=3D"#FFFFFF">=20
+<table class=3D"innertablewidth" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" style=3D"margin:0 auto;width:550px" border=3D"0" width=3D"550">=
+=20
+<tbody>=20
+<tr>=20
+<td height=3D"10" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" id=3D"templateBod">=20
+<!-- BEGIN BODY // -->=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"">=20
+<tbody>=20
+<tr style=3D"">=20
+<td valign=3D"top" style=3D"">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=
+=3D"bodyContentBlock" style=3D"text-align:left; ">=20
+<tbody>=20
+<tr>=20
+<td valign=3D"top" class=3D"bodyContent" mc:edit=3D"body_content" bgcolor=
+=3D"#FFFFFF" style=3D"font-family: Arial, Helvetica, sans-serif;">=20
+<div class=3D"mktEditable" id=3D"edit_text" style=3D"">=20
+<p style=3D"font-size: 1.1em; font-family: Arial, Helvetica, sans-serif; li=
+ne-height: 140%; color: #58595b;">=E5=90=84=E4=BD=8D</p>=20
+<p style=3D"font-size: 1.1em; font-family: Arial, Helvetica, sans-serif; li=
+ne-height: 140%; color: #58595b;">Cisco DevNet Create 2021 =E9=96=8B=E5=82=
+=AC=E3=81=AE=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B<br><br><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTdbhaFVrV6hj9P-m-CVYVm=
+oDGVm1HnR-ATGKX9aNtoTAtZFKiWVYFhKRp6H0nzvgb8=3D" target=3D"_blank" id=3D"" =
+style=3D"color: #0175a2; text-decoration: none; font-weight: normal;"
+>Cisco DevNet Create 2021</a> =E3=81=AE<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwog_-8OrkAi4Oz1OdzuUZL2=
+qqZHlvMHaEXPQbZQXwgtOx62iGg0kTfe-URUeqTrefFI=3D" target=3D"_blank" id=3D"" =
+style=3D"color: #0175a2; text-decoration: none; font-weight:=20
+normal;"
+>=E7=99=BB=E9=8C=B2=E3=81=8C=E9=96=8B=E5=A7=8B</a>=E3=81=95=E3=82=8C=E3=81=
+=BE=E3=81=97=E3=81=9F=E3=80=822021=E5=B9=B410=E6=9C=8820=EF=BD=9E21=E6=97=
+=A5=E3=80=81=E5=AE=9F=E7=94=A8=E7=9A=84=E3=81=AA=E6=83=85=E5=A0=B1=E6=BA=80=
+=E8=BC=89=E3=81=AE=E3=82=B0=E3=83=AD=E3=83=BC=E3=83=90=E3=83=AB=E3=82=A4=E3=
+=83=99=E3=83=B3=E3=83=88=E3=81=8C=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=
+=B3=E3=81=A7=E9=96=8B=E5=82=AC=E3=81=95=E3=82=8C=E3=81=BE=E3=81=99=E3=80=82=
+<br><br> =E3=81=95=E3=81=BE=E3=81=96=E3=81=BE=E3=81=AA=E9=AD=85=E5=8A=9B=E7=
+=9A=84=E3=81=AA=E3=83=86=E3=82=AF=E3=83=8B=E3=82=AB=E3=83=AB=E3=83=88=E3=83=
+=BC=E3=82=AF=E3=82=BB=E3=83=83=E3=82=B7=E3=83=A7=E3=83=B3=E3=82=84=E3=83=A9=
+=E3=82=A4=E3=83=88=E3=83=8B=E3=83=B3=E3=82=B0=E3=83=88=E3=83=BC=E3=82=AF=E3=
+=81=AF=E3=80=81=E3=83=87=E3=83=99=E3=83=AD=E3=83=83=E3=83=91=E3=83=BC=E3=81=
+=AE=E3=83=88=E3=83=AC=E3=83=B3=E3=83=89=E3=82=84=E3=83=84=E3=83=BC=E3=83=AB=
+=E3=81=AE=E6=9C=80=E6=96=B0=E6=83=85=E5=A0=B1=E3=82=92=E5=85=A5=E6=89=8B=E3=
+=81=A7=E3=81=8D=E3=82=8B=E7=B5=B6=E5=A5=BD=E3=81=AE=E3=83=81=E3=83=A3=E3=83=
+=B3=E3=82=B9=E3=81=A7=E3=81=99=E3=80=82=E4=BB=8A=E5=9B=9E=E3=81=AE=E3=82=A4=
+=E3=83=99=E3=83=B3=E3=83=88=E3=81=AF=E7=B5=8C=E9=A8=93=E3=81=AE=E6=B5=85=E3=
+=81=84=E6=96=B9=E3=81=8B=E3=82=89=E3=82=A8=E3=82=AD=E3=82=B9=E3=83=91=E3=83=
+=BC=E3=83=88=E3=81=BE=E3=81=A7=E3=80=81=E3=81=82=E3=82=89=E3=82=86=E3=82=8B=
+=E3=83=AC=E3=83=99=E3=83=AB=E3=81=AE=E3=83=87=E3=83=99=E3=83=AD=E3=83=83=E3=
+=83=91=E3=83=BC=E3=82=A8=E3=83=B3=E3=82=B8=E3=83=8B=E3=82=A2=E3=81=AB=E9=81=
+=A9=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br><br> =E5=90=84=
+=E3=82=BB=E3=83=83=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=A7=E3=81=AF=E8=A9=B2=E5=
+=BD=93=E5=88=86=E9=87=8E=E3=81=AE=E5=B0=82=E9=96=80=E5=AE=B6=E3=81=8C=E7=99=
+=BB=E5=A0=B4=E3=81=97=E3=80=81=E4=BB=A5=E4=B8=8B=E3=81=AE=E5=88=86=E9=87=8E=
+=E3=82=92=E5=90=AB=E3=82=80=E6=9C=80=E6=96=B0=E6=8A=80=E8=A1=93=E3=81=AB=E3=
+=81=A4=E3=81=84=E3=81=A6=E8=A7=A3=E8=AA=AC=E3=81=97=E3=81=A6=E3=81=84=E3=81=
+=8D=E3=81=BE=E3=81=99=E3=80=82<br></p>=20
+<ul>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">API =E3=81=AE=E5=8B=95=E4=
+=BD=9C</li>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">=E3=82=AB=E3=82=B9=E3=82=BF=
+=E3=83=9E=E3=83=BC / =E3=83=A6=E3=83=BC=E3=82=B6=E3=82=A8=E3=82=AF=E3=82=B9=
+=E3=83=9A=E3=83=AA=E3=82=A8=E3=83=B3=E3=82=B9</li>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">=E3=82=A4=E3=83=B3=E3=82=BF=
+=E3=83=BC=E3=82=AA=E3=83=9A=E3=83=A9=E3=83=93=E3=83=AA=E3=83=86=E3=82=A3=E3=
+=81=A8=E3=82=AF=E3=82=AA=E3=83=AA=E3=83=86=E3=82=A3</li>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">=E7=B5=84=E3=81=BF=E8=BE=BC=
+=E3=81=BF=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3</li>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">=E3=82=AF=E3=83=A9=E3=82=A6=
+=E3=83=89=E3=83=95=E3=82=A1=E3=83=BC=E3=82=B9=E3=83=88=E3=81=AE=E3=82=B7=E3=
+=83=B3=E3=83=97=E3=83=AB=E3=81=95</li>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">Cisco DevNet =E3=81=AE=E5=
+=88=A9=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=89</li>=20
+<li style=3D"color: #58595b; font-size: 1.1em;">=E5=8F=AF=E8=A6=96=E6=80=A7=
+=E3=81=A8=E8=87=AA=E5=8B=95=E5=8C=96</li>=20
+</ul>=20
+<p style=3D"font-size: 1.1em; font-family: Arial, Helvetica, sans-serif; li=
+ne-height: 140%; color: #58595b;">=E3=81=BE=E3=81=9F =E3=83=87=E3=83=A2=E3=
+=82=B8=E3=83=A3=E3=83=A0=E3=81=AE=E9=96=8B=E5=82=AC=E3=80=81=E3=83=A6=E3=83=
+=BC=E3=82=B9=E3=82=B1=E3=83=BC=E3=82=B9=E3=81=AE=E7=B4=B9=E4=BB=8B=E3=80=81=
+=E6=A5=AD=E7=95=8C=E3=83=AA=E3=83=BC=E3=83=80=E3=83=BC=E3=81=AE=E8=A9=B1=E3=
+=80=81=E3=81=9D=E3=81=97=E3=81=A6=E6=9C=80=E3=82=82=E9=87=8D=E8=A6=81=E3=81=
+=AA=E3=81=93=E3=81=A8=E3=81=AF=E3=80=81DevNet =E3=82=B3=E3=83=9F=E3=83=A5=
+=E3=83=8B=E3=83=86=E3=82=A3=E3=81=AE=E7=9A=86=E6=A7=98=E3=81=A8<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwog_-8OrkAi4Oz1OdzuUZL2=
+qqZHlvMHaEXPQbZQXwgtOx62iGg0kTfe-URUeqTrefFI=3D" target=3D"_blank" id=3D"" =
+style=3D"color: #0175a2; text-decoration: none; font-weight:=20
+normal;"
+>=E4=B8=80=E7=B7=92=E3=81=AB=E5=AD=A6=E3=81=B3</a>=E3=80=81=E7=AF=89=E3=81=
+=8D=E4=B8=8A=E3=81=92=E3=81=A6=E3=81=84=E3=81=8F=E3=81=93=E3=81=A8=E3=81=A7=
+=E3=81=99=E3=80=82=E3=83=91=E3=83=BC=E3=83=88=E3=83=8A=E3=83=BC=E3=82=84=E3=
+=81=8A=E5=AE=A2=E6=A7=98=E3=82=92=E3=81=8A=E8=AA=98=E3=81=84=E3=81=82=E3=82=
+=8F=E3=81=9B=E3=81=AE=E3=81=86=E3=81=88=E3=80=81=E3=81=9C=E3=81=B2=E3=81=94=
+=E5=8F=82=E5=8A=A0=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</p>=20
+<p style=3D"font-size: 1.1em; font-family: Arial, Helvetica, sans-serif; li=
+ne-height: 140%; color: #58595b;"><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTdbhaFVrV6hj9P-m-CVYVm=
+oDGVm1HnR-ATGKX9aNtoTAtZFKiWVYFhKRp6H0nzvgb8=3D" target=3D"_blank" id=3D"" =
+style=3D"color: #0175a2; text-decoration: none; font-weight: normal;"
+>=E6=97=A5=E6=9C=AC=E8=AA=9E=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=A7=E3=81=AE=
+=E3=81=94=E6=A1=88=E5=86=85</a></p>=20
+<p style=3D"font-size: 1.1em; font-family: Arial, Helvetica, sans-serif; li=
+ne-height: 140%; color: #58595b;"><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwSKsv3weh5oUaLDJCBTFqYh=
+jfH1p-_loXi5OxHwISYgZ4s13IHpcDSYbMoRXGdK4Xtw=3D" target=3D"_blank" id=3D"" =
+style=3D"color: #0175a2; text-decoration: none; font-weight: normal;"
+>=E7=99=BB=E9=8C=B2=E6=97=A5=E6=9C=AC=E8=AA=9E=E3=83=AA=E3=83=95=E3=82=A1=
+=E3=83=AC=E3=83=B3=E3=82=B9=E3=82=AC=E3=82=A4=E3=83=89</a></p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"text-align:left; ">=20
+<tbody>=20
+</tbody>=20
+</table>=20
+<!-- // END BODY --> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table class=3D"mktoModule" id=3D"button5375ba48-cd99-4e14-aaea-a5aea28ed75=
+5" cellpadding=3D"0" align=3D"center" cellspacing=3D"0" style=3D"margin:0 a=
+uto;width:100%" border=3D"0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#FFFFFF" bgcolor=3D"#FFFFFF">=20
+<table class=3D"innertablewidth" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" style=3D"margin:0 auto;width:550px" border=3D"0" width=3D"550">=
+=20
+<tbody>=20
+<tr>=20
+<td height=3D"5" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td class=3D"iphn_img-m center" style=3D"text-align:left;font-size:1px;line=
+-height:1px;">=20
+<div class=3D"mktoImg" id=3D"ctaImage-sec1s5375ba48-cd99-4e14-aaea-a5aea28e=
+d755" mktolockimgsize=3D"false">=20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwog_-8OrkAi4Oz1OdzuUZL2=
+qqZHlvMHaEXPQbZQXwgtOx62iGg0kTfe-URUeqTrefFI=3D" target=3D"_blank"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/ja-devnet-create-=
+register-now-button.png" width=3D"150" height=3D"37" alt=3D"=E3=81=8A=E7=94=
+=B3=E3=81=97=E8=BE=BC=E3=81=BF=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=E3=81=8B=
+=E3=82=89" style=3D""></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"5" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table class=3D"mktoModule" id=3D"text-modulef449cfb6-4bd4-40e9-ae54-302937=
+516786" cellpadding=3D"0" align=3D"center" cellspacing=3D"0" style=3D"margi=
+n:0 auto;width:100%" border=3D"0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#FFFFFF" bgcolor=3D"#FFFFFF">=20
+<table class=3D"innertablewidth" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" style=3D"margin:0 auto;width:550px" border=3D"0" width=3D"550">=
+=20
+<tbody>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" id=3D"templateBod">=20
+<!-- BEGIN BODY // -->=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"">=20
+<tbody>=20
+<tr style=3D"">=20
+<td valign=3D"top" style=3D"">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=
+=3D"bodyContentBlock" style=3D"text-align:left; ">=20
+<tbody>=20
+<tr>=20
+<td valign=3D"top" class=3D"bodyContent" mc:edit=3D"body_content" bgcolor=
+=3D"#FFFFFF" style=3D"font-family: Arial, Helvetica, sans-serif;">=20
+<div class=3D"mktEditable" id=3D"edit_textf449cfb6-4bd4-40e9-ae54-302937516=
+786" style=3D"">=20
+<p style=3D"font-size: 1.1em; font-family: Arial, Helvetica, sans-serif; li=
+ne-height: 120%; color: #58595b;">10=E6=9C=88=E3=81=AB=E3=81=8A=E7=9B=AE=E3=
+=81=AB=E3=81=8B=E3=81=8B=E3=82=8B=E3=81=AE=E3=82=92=E6=A5=BD=E3=81=97=E3=81=
+=BF=E3=81=AB=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br><br>D=
+evNet =E3=83=81=E3=83=BC=E3=83=A0<br><br><span style=3D"font-size: 12px;">*=
+ Cisco DevNet Create 2021 =E3=81=AF=E3=80=812021=E5=B9=B410=E6=9C=8819=EF=
+=BD=9E20=E6=97=A5=EF=BC=88=E5=A4=AA=E5=B9=B3=E6=B4=8B=E6=A8=99=E6=BA=96=E6=
+=99=82=EF=BC=89=E3=80=8110=E6=9C=8820=EF=BD=9E21=E6=97=A5=EF=BC=88SGT / CES=
+T=EF=BC=89=E3=81=AE2=E6=97=A5=E9=96=93=E3=81=AB=E3=81=8B=E3=81=91=E3=81=A6=
+=E9=96=8B=E5=82=AC=E4=BA=88=E5=AE=9A=E3=81=AE=E3=82=B0=E3=83=AD=E3=83=BC=E3=
+=83=90=E3=83=AB=E3=82=A4=E3=83=99=E3=83=B3=E3=83=88=E3=81=A7=E3=81=99=E3=80=
+=82</span><br></p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"text-align:left; ">=20
+<tbody>=20
+</tbody>=20
+</table>=20
+<!-- // END BODY --> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table class=3D"mktoModule" id=3D"divider-11fa03d2e-fb97-4267-8a82-3581fa8b=
+4ab8" cellpadding=3D"0" align=3D"center" cellspacing=3D"0" style=3D"margin:=
+0 auto;width:100%" border=3D"0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#FFFFFF" bgcolor=3D"#FFFFFF">=20
+<table class=3D"innertablewidth" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" style=3D"margin:0 auto;width:550px" border=3D"0" width=3D"550">=
+=20
+<tbody>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" id=3D"templateBody">=20
+<!-- BEGIN BODY // -->=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"">=20
+<tbody>=20
+<tr style=3D"">=20
+<td valign=3D"top" style=3D"">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=
+=3D"bodyContentBlock" style=3D"text-align:left; ">=20
+<tbody>=20
+<tr>=20
+<td colspan=3D"2" align=3D"left" valign=3D"top" style=3D"padding: 0px 0 0px=
+ 0">=20
+<hr> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<!-- // END BODY --> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table class=3D"mktoModule" id=3D"legal" cellpadding=3D"0" align=3D"center"=
+ cellspacing=3D"0" style=3D"margin:0 auto;width:100%" border=3D"0" width=3D=
+"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#FFFFFF" bgcolor=3D"#FFFFFF">=20
+<table class=3D"innertablewidth" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" style=3D"margin:0 auto;width:550px" border=3D"0" width=3D"550">=
+=20
+<tbody>=20
+<tr>=20
+<td height=3D"0" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" id=3D"templateBody">=20
+<!-- BEGIN BODY // -->=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"">=20
+<tbody>=20
+<tr style=3D"">=20
+<td valign=3D"top" style=3D"">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=
+=3D"bodyContentBlock" style=3D"text-align:left; ">=20
+<tbody>=20
+<tr style=3D"">=20
+<td colspan=3D"2" valign=3D"top" class=3D"bodyContent1" style=3D"font-famil=
+y:Arial, Helvetica, sans-serif; color:#858585; font-size:11px; line-height:=
+17px; " mc:edit=3D"body_content">=20
+<div class=3D"mktEditable" id=3D"edit_text5" style=3D"">=20
+<p><span style=3D"font-family: Arial, Helvetica, sans-serif; color: #666666=
+; font-size: 11px; line-height: 14px; border-collapse: collapse;"><br>=E6=
+=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AB=E3=81=AF=E8=BF=94=E4=BF=A1=E3=81=
+=95=E3=82=8C=E3=81=BE=E3=81=9B=E3=82=93=E3=82=88=E3=81=86=E3=81=8A=E9=A1=98=
+=E3=81=84=E7=94=B3=E3=81=97=E4=B8=8A=E3=81=92=E3=81=BE=E3=81=99=E3=80=82Dev=
+Net Create =E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E3=81=94=E8=B3=AA=E5=95=8F=
+=E3=81=AF=E3=80=81<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwfnUQ4IHbdgZaEkrERbtZCf=
+M47AKZqxwd305ZpgvYmqsK_NIjtgWbBBeIFfgyr40mYg=3D" target=3D"_blank" style=3D=
+"color: #007493; text-decoration: none;"
+>devnetcreate@cisco.com</a> =E3=81=BE=E3=81=A7=E3=81=8A=E5=95=8F=E3=81=84=
+=E5=90=88=E3=82=8F=E3=81=9B=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<br=
+> <br> =C2=A9 2021 Cisco Systems, Inc. and/or its affiliated entities. All =
+rights reserved. Cisco=E3=80=81Cisco Systems=E3=80=81=E3=81=8A=E3=82=88=E3=
+=81=B3 Cisco Systems =E3=83=AD=E3=82=B4=E3=81=AF=E3=80=81Cisco Systems, Inc=
+. =E3=81=BE=E3=81=9F=E3=81=AF=E3=81=9D=E3=81=AE=E9=96=A2=E9=80=A3=E4=BC=9A=
+=E7=A4=BE=E3=81=AE=E7=B1=B3=E5=9B=BD=E3=81=8A=E3=82=88=E3=81=B3=E3=81=9D=E3=
+=81=AE=E4=BB=96=E3=81=AE=E4=B8=80=E5=AE=9A=E3=81=AE=E5=9B=BD=E3=81=AB=E3=81=
+=8A=E3=81=91=E3=82=8B=E7=99=BB=E9=8C=B2=E5=95=86=E6=A8=99=E3=81=A7=E3=81=99=
+=E3=80=82 Cisco Systems, Inc., 170 West Tasman Drive, San Jose, California =
+95134.<br> <br></span></p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<!-- // END BODY --> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"10" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+<table class=3D"mktoModule" id=3D"linksandsocial" cellpadding=3D"0" align=
+=3D"center" cellspacing=3D"0" style=3D"margin:0 auto;width:100%" border=3D"=
+0" width=3D"100%">=20
+<tbody>=20
+<tr>=20
+<td style=3D"background-color:#FFFFFF" bgcolor=3D"#FFFFFF">=20
+<table class=3D"innertablewidth" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" style=3D"margin:0 auto;width:550px" border=3D"0" width=3D"550">=
+=20
+<tbody>=20
+<tr>=20
+<td height=3D"10" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" id=3D"templateBody">=20
+<!-- BEGIN BODY // -->=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"">=20
+<tbody>=20
+<tr style=3D"">=20
+<td valign=3D"top" style=3D"">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" id=
+=3D"bodyContentBlock" style=3D"text-align:left; ">=20
+<tbody>=20
+<tr style=3D"">=20
+<td width=3D"60%" valign=3D"middle" class=3D"bodyContent1" style=3D"font-fa=
+mily:Arial, Helvetica, sans-serif; color:#858585; font-size:11px; line-heig=
+ht:17px; " mc:edit=3D"body_content">=20
+<div class=3D"mktEditable" id=3D"edit_textfour">=20
+<p><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwbuq7H5uUo8NLD1QIBSayw9=
+XX-nxdOTyOsoQCQQZ7-wFxpruW5j7utJxW3vOsBmBJBg=3D" target=3D"_blank" style=3D=
+"color: #007493; text-decoration: none;"
+>Cisco.com</a> | <a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwZtFZXwrcm0t5NsvEYZh8oy=
+fTnsYdhVW19bmLxWJKROZrwFd2PXRGXvZfKulbynCl4M=3D" target=3D"_blank" style=3D=
+"color: #007493; text-decoration: none;"
+>Privacy Statement</a> | <a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwVilTSxYV-CN3SQ4RuXoDln=
+yNREkQEg4QrvUl3nSBdSQNsf2iq_dysPvmUKBfcvlPA0=3D" target=3D"_blank" style=3D=
+"color: #007493; text-decoration: none;"
+>Trademarks</a>| <a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTAjXDbnnNh_RVY-WpvxBbQ=
+qt8dG1eveYcbA0nvyiNPwn6JWDh5lAfM6yQzufXKS1_s=3D" target=3D"_blank" style=3D=
+"color: #007493; text-decoration: none;"
+>Unsubscribe</a>&nbsp;</p>=20
+</div> </td>=20
+<td width=3D"40%" align=3D"right" valign=3D"middle" class=3D"bodyContent1" =
+style=3D"font-family:Arial, Helvetica, sans-serif; color:#858585; font-size=
+:11px; line-height:17px; " mc:edit=3D"body_content">=20
+<div class=3D"mktEditable" id=3D"edit_social">=20
+<table cellpadding=3D"5">=20
+<tbody>=20
+<tr>=20
+<td><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwTCpkZnGFeXdgDHe5dFtCDn=
+YWFDY-0zINighSRPFlO-XZQPRFN_IfjcDg1x1unRsBWg=3D" target=3D"_blank" title=3D=
+"Facebook"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/lp-social-fb.png"=
+ alt=3D"" width=3D"24" height=3D"24"></a></td>=20
+<td><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwUvCD4_0oSTBNsIeElhxju2=
+lTimXGxhbADdVcuZu-7MmF7yvYC7mHvAn2hUGE87W4U0=3D" target=3D"_blank" title=3D=
+"Twitter"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/lp-social-twitter=
+.png" alt=3D"" width=3D"24" height=3D"24"></a></td>=20
+<td><a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwQlxg72PDYTPOeDUqz7UmNt=
+Nb7qAYMeakAaZdLdOczWj35TXtWXELtGsfVe20gaOOtw=3D" target=3D"_blank" title=3D=
+"LinkedIn"
+><img src=3D"https://mkto.cisco.com/rs/564-WHV-323/images/lp-social-linkedi=
+n.png" alt=3D"" width=3D"24"></a></td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<!-- // END BODY --> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"10" style=3D"line-height:1px;font-size:1px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table></td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table> =20
+<a href=3D
+"https://mkto-trk.cisco.com/NTY0LVdIVi0zMjMAAAF_02eRwW_BXb0m3xZFI5rQ1_M2zpM=
+UaTCTdI-boAnCYWd1kYOvg3rX-8fvk3yFV8nZfJM4B9w=3D"
+></a>
+<img src=3D"https://mkto-trk.cisco.com/trk?t=3D1&mid=3DNTY0LVdIVi0zMjM6MDox=
+MTk2NTozMTc5OToxMzI5MTk6MjE2NjA6OTo5NjA1NToxODQwNzIxMTpodWp5b3JvbUBnbWFpbC5=
+jb20%3D" width=3D"1" height=3D"1" style=3D"display:none !important;" alt=3D=
+"" />
+
+<!--This is a comment -->.
+</body>
+</html>
+------=_Part_127045608_449210396.1632967254469--

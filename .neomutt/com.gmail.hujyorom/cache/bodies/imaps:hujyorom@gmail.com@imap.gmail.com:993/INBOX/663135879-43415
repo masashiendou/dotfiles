@@ -1,0 +1,107 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9e8d:0:0:0:0:0 with SMTP id h135csp670911vke;
+        Wed, 9 Sep 2020 11:59:45 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyPd1Q7zsYOsprJ5B4KayRVU/m0CafWSZz826MGc9Vmxg5x7rZCeR976qf9TAmY0mMRMaEX
+X-Received: by 2002:a17:902:7c01:: with SMTP id x1mr2131798pll.34.1599677985065;
+        Wed, 09 Sep 2020 11:59:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599677985; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0kh0aubtJshx3HvlBVMhXkmSKyiarvOVcqE6OVY71G0dML4oJDNL6J9TJn9TP6xgms
+         qF6Fdkenl5mciq7EebXaO9Pzf4Y9B6bO+yK0ej3UAn0RG375L0ij3SKXsiof/PaUdRZ8
+         u/j+C+/f73uqsZ8zVeByICtMSs3sAMIKkrFJVNxylch/R/Q+7R6FMqS/+x6mBnYK2f8Y
+         +p+/ku/TZ3/lAKbYzmF4D+vtMmX3cgO5sYtqo3GDDY06Z6PhxYr1PBVGz/JI8ptm7gRu
+         LwqvEymieJ3Mb600Mft9nxq8lhWYNZiAk2PeJwfAhH0CTz0PZpkFdz+IbYaZRaEcs4Ph
+         SUmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to
+         :reply-to:from:dkim-signature:dkim-signature;
+        bh=nZoKt7H0w1rf2weFx+qE5Q8FPiJ9fwt4f9ySN0MqHXA=;
+        b=SOAFeGO34SPvBN96B6a/NTIWcn3mjUn4e1yF/kJ1zGB+lA8NO8Wj9WRnerA7X4TdhA
+         Wk5PwjRcd4iPT9xEO+47Y1xh9Yd7DDcoqOivRXS+8GuBP5BAG34kbx31yBh1lBgozzPN
+         SNcFwBV7rrBn2rwixpsjwxKm9nGdXyNvAFbYHBJxGtxFF3HLzJHooX7As94M/CKiaAi8
+         5bYFQFsaHkiZCJRLN/TiqN5gswZ8B/pfMkPQzyqmbYvLqxWusO6v7oFaDEUgphg244Gz
+         nOFMes32cGyJ59PfEptCzVbCUXewlg9FXRg+cP/L24JjX2yiLQAW+P+/w5eJtMqjuHGL
+         u2Mw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=m3gdxb6svtrnoycoj5w5ubs33go3ivmr header.b=dfhczROC;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=KbobhDQ6;
+       spf=pass (google.com: domain of 20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp designates 54.240.25.51 as permitted sender) smtp.mailfrom=20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp>
+Received: from a25-51.smtp-out.us-west-2.amazonses.com (a25-51.smtp-out.us-west-2.amazonses.com. [54.240.25.51])
+        by mx.google.com with ESMTPS id f13si2830341pgb.385.2020.09.09.11.59.44
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Wed, 09 Sep 2020 11:59:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp designates 54.240.25.51 as permitted sender) client-ip=54.240.25.51;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=m3gdxb6svtrnoycoj5w5ubs33go3ivmr header.b=dfhczROC;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=KbobhDQ6;
+       spf=pass (google.com: domain of 20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp designates 54.240.25.51 as permitted sender) smtp.mailfrom=20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=m3gdxb6svtrnoycoj5w5ubs33go3ivmr; d=amazon.co.jp; t=1599677984;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=nZoKt7H0w1rf2weFx+qE5Q8FPiJ9fwt4f9ySN0MqHXA=;
+	b=dfhczROCcljG1JNIA0rcQI4Vd9GwWlpAhY8zL+GShs6QaFa3sAgkD+C5dDZOJ365
+	mkKlYpBFq0IyZD4B5z2zxpdM5nqjYB+CkHRk47rXzFIDEIIYUF6lyaaW4rAsjJdxKTZ
+	xr9jl5A7zY9TxLSpCN/YJB+dlRYxzQHg5rYMeRn4=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1599677984;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=nZoKt7H0w1rf2weFx+qE5Q8FPiJ9fwt4f9ySN0MqHXA=;
+	b=KbobhDQ6/AjCizfFrLsSeEqdh1xeJudpbA1LaiG+q59GQRApCFyZZn6mIPuP9oLN
+	9DpDcnPftUFg8MYz16llQ9leLw8mcp6rToc6WVvz+loVpWx5qiZF7PpwBgbk51v6yup
+	p21a4/8Uj8tTB5DKKY/MWwkN7Jrp0Pfj3AT8VDkw=
+From: "Amazon.jp Marketplace" <payments-messages@amazon.co.jp>
+Reply-To: payments-messages@amazon.co.jp
+To: hujyorom@gmail.com
+Message-ID: <01010174743cee90-98e398b6-bfa9-47ed-b070-8e2c48d1922a-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?B?QW1hem9uLmNvLmpw44GU5rOo5paHICgjMjQ5LTE0ODUyOTEtNTMxNzQyNCk=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_7270943_1867594228.1599677984396"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 20200909185943ca9e440ec9154464a2265a98c9f0p0fe@bounces.amazon.co.jp
+X-AMAZON-METADATA: CA=C18R3TZEQ8F4UV-CU=A10PIR4I6DYV8A
+X-Original-MessageID: <urn.rtn.msg.20200909185943ca9e440ec9154464a2265a98c9f0p0fe@1599677984396.rtn-svc-fe-back-c42xl2b-756c4a4f.us-west-2.amazon.com>
+Date: Wed, 9 Sep 2020 18:59:44 +0000
+X-SES-Outgoing: 2020.09.09-54.240.25.51
+Feedback-ID: 1.us-west-2.rdzROVNU4Ie6UEvJOunP6JDKqJ3if06FJy9qthmk+BU=:AmazonSES
+
+------=_Part_7270943_1867594228.1599677984396
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+DQoNCmh1anlvcm9tQGdtYWlsLmNvbSDmp5gNCg0KDQpBbWF6b24uY28uanAg44KS44GU5Yip55So
+44GE44Gf44Gg44GN44CB44GC44KK44GM44Go44GG44GU44GW44GE44G+44GZ44CCDQoNCjIwMjAv
+MDkvMDPjgatTaG9wIExBIeOBuOOBlOazqOaWh+OBhOOBn+OBoOOBhOOBn+WVhuWTgeOBrumFjemA
+geaDheWgseOBjOWkieabtOOBleOCjOOBvuOBl+OBn+OAgg0KDQo9PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0K6YWN6YCB5oOF5aCxDQo9PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0KDQpTaG9wIExBIeOBi+OC
+ieeZuumAgeOBleOCjOOBn+WVhuWTgSANCg0KDQoxICAy5pys44K744OD44OI44CA5rW35aSW55u0
+6YCB5ZOBIE5vdyBGb29kcyBDcmVhdGluZSBNb25vaHlkcmF0ZSwgMTIwIENhcHMgNzUwIG1nDQoN
+Cg0K6YWN6YCB5qWt6ICFOiDkvZDlt53mgKXkvr8NCg0K55m66YCB5pelOiAyMDIwLzA5LzA0DQoN
+CumFjemAgeaWueazlTogU3RhbmRhcmQNCuOBiuWVj+OBhOWQiOOCj+OBm+S8neelqOeVquWPtzog
+NTY1OTA2NDgyOTcxDQoNCg0KDQrjgYrlsYrjgZHlhYg6DQoNCsKgwqDCoMKg6YGg6Jek44CA5bCH
+5Y+45qeYDQoNCsKgwqDCoMKg44KA44GL44KP55S66Iqx5ZySMi00NQ0KDQrCoMKgwqDCoOelnumH
+juOCouODkeODvOODiDI45Y+3DQoNCsKgwqDCoMKgS2FuZHkNCg0KwqDCoMKgwqDli4fmiZXpg6Es
+wqDljJfmtbfpgZPCoDA1NC0wMDIyDQoNCsKgwqDCoMKgSmFwYW4NCg0KDQoNCuS4iuiomOS7peWk
+luOBq+acqueZuumAgeOBruOBlOazqOaWh+WVhuWTgeOBjOOBguOCi+WgtOWQiOOAgeWVhuWTgeOB
+rueZuumAgeaZguOBq+WIpemAlEXjg6Hjg7zjg6vjgafjgYrnn6XjgonjgZvjgZfjgb7jgZnjgIIN
+Cg0K44GT44Gu44GU5rOo5paH44Gr44Gk44GE44Gm44Gv44CB44Ki44Kr44Km44Oz44OI44K144O8
+44OT44K5KCBodHRwczovL3d3dy5BbWF6b24uY28uanAveW91ci1hY2NvdW50ICnjgafjgZTnorro
+qo3jgYTjgZ/jgaDjgY/jgYvjgIHnm7TmjqVTaG9wIExBIe+8iCBodHRwczovL3d3dy5hbWF6b24u
+Y28uanAvZ3AvaGVscC9jb250YWN0L2NvbnRhY3QuaHRtbD9pZT1VVEY4Jm1hcmtldHBsYWNlSUQ9
+NiZvcmRlcklEPTI0OS0xNDg1MjkxLTUzMTc0MjQmc2VsbGVySUQ9OTU0MDU0Njg0DQog77yJ44G+
+44Gn44GK5ZWP44GE5ZCI44KP44Gb44GP44Gg44GV44GE44CCDQoNCioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqDQrlronlhajjgarjgYrosrfjgYTnianj
+gavjgaTjgYTjgaYNCkFtYXpvbi5jby5qcCDjgafjga/jgIHjgYrlrqLmp5jjga7jgrfjg6fjg4Pj
+g5Tjg7PjgrDjga7lronlhajmgKfjgoTmg4XloLHjga7kv53orbfjgavms6jmhI/jgpLmiZXjgaPj
+gabjgYrjgorjgb7jgZnjgILoqbPjgZfjgY/jga/ku6XkuIvjga5VUkzjgYvjgonjgZTnorroqo3j
+gY/jgaDjgZXjgYTjgIINCiANCmh0dHA6Ly93d3cuYW1hem9uLmNvLmpwL2dwL2hlbHAvY3VzdG9t
+ZXIvZGlzcGxheS5odG1sP25vZGVJZD0xMzk0MDA1MQ0KDQoqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKiANCg0K5LuK5b6M44Go44KCQW1hem9uLmNvLmpw
+44KS44KI44KN44GX44GP44GK6aGY44GE44GE44Gf44GX44G+44GZ44CCDQoNCmh0dHBzOi8vd3d3
+LkFtYXpvbi5jby5qcC8NCkFtYXpvbi5jby5qcA==
+------=_Part_7270943_1867594228.1599677984396--

@@ -1,0 +1,201 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2b15:0:0:0:0:0 with SMTP id r21csp2617731vkr;
+        Mon, 18 Jan 2021 14:48:48 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzSOXbF1+o0RjxBSL8sRPi2i5XbEOt08ZAXqRpMh5QiccTbOY+Cn729E64OCjw0Y7CDSWcq
+X-Received: by 2002:a02:91c6:: with SMTP id s6mr1184476jag.78.1611010128331;
+        Mon, 18 Jan 2021 14:48:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1611010128; cv=none;
+        d=google.com; s=arc-20160816;
+        b=OBCktoSaLH4SAyj5PK/rkdPyqpPbndngAYFG1a4S+WLWxaMvfWJEpgPyWFgoYtOVXk
+         phWzCApcx6P7HF4V+WVTAgNVD7d8aeKNfMF1LfFDcpXeRYowcOPYazbw6qNWToLjRwec
+         9iithvTGL42wJJ8LBcg091T/w+rWpv8c/XBITynDnT7/Ge1qPuuqlzZhnms1BPMRWwGm
+         fhZSmxX/Z6EfKdUCT1GjQpVt8I27nnr3+saN8EieOpaa0PQfbfvV7QWE+NUujA/mJ/sq
+         n5HaBJYo9VaJXjVk2BKCYkr9FLtbHglr2ntTInqy2/P+j+EQIjyLi2OXFQspj83Xep27
+         gg8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:list-unsubscribe:list-unsubscribe-post:dkim-signature
+         :dkim-signature;
+        bh=D+Gv/jzhVrn5Mt+Zcxg8AYo7PmgpOWQKqBoMuO2GBew=;
+        b=d1z6pWdHjGLpwYyKvUGEpkZe809OX1ShfyIZ01w2F/aBB4Bgwef4qlHwlgUqsT5Xzt
+         bqkOwapFcP4tfMGIeGQy5+TYNhFtehwBHzftd+DigOzge7n5iqjywOfcB8mAlBDlJRHF
+         upAgXNaqBhxE/p4LJ/eZUgamhPBSscBlVnpNkONsd3V8inNlEQEVXR3XAPrvTfj2VSRH
+         xBGDKbMHhbdKjDjSUIW+TMXGnK3X1QCCWCH31t9yyT95OTlGhY14H+0zrVWXUuLQyIRY
+         PsnZ8L8DeNgFsE4HNoBjNFC5vd8IpbVYKOW4/b5QQ1whV9pD4WdkMaq9O16MIdpl0VaG
+         tlow==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@heroku.com header.s=mx header.b=tMfzhb3q;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=tDgUmRPE;
+       spf=pass (google.com: domain of bounces@heroku.com designates 166.78.71.92 as permitted sender) smtp.mailfrom=bounces@heroku.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=heroku.com
+Return-Path: <bounces@heroku.com>
+Received: from m71-92.mailgun.net (m71-92.mailgun.net. [166.78.71.92])
+        by mx.google.com with UTF8SMTPS id c8si3838381ilk.155.2021.01.18.14.48.47
+        for <hujyorom@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Jan 2021 14:48:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces@heroku.com designates 166.78.71.92 as permitted sender) client-ip=166.78.71.92;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@heroku.com header.s=mx header.b=tMfzhb3q;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=tDgUmRPE;
+       spf=pass (google.com: domain of bounces@heroku.com designates 166.78.71.92 as permitted sender) smtp.mailfrom=bounces@heroku.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=heroku.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=heroku.com; q=dns/txt; s=mx;
+ t=1611010128; h=Content-Transfer-Encoding: Content-Type: Mime-Version:
+ Subject: Message-ID: To: From: Date: List-Unsubscribe:
+ List-Unsubscribe-Post: X-Feedback-Id;
+ bh=D+Gv/jzhVrn5Mt+Zcxg8AYo7PmgpOWQKqBoMuO2GBew=; b=tMfzhb3qjKRYlZW9WaqadpRKev6kc5qGjF53C9eAPkCuC/FzcIRwwvtjDj1KVFSo1rVSOB2F
+ HK534bosWczwE0p6H9ViH/egtSOeVGKNptSu3zN6TJbycYo6IHWnNB5oc4xqo/nnIo4iNgUi
+ vTnyrGk64R7bf8PTYlchurQhV88=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1611010128; h=Content-Transfer-Encoding: Content-Type: Mime-Version:
+ Subject: Message-ID: To: From: Date: List-Unsubscribe:
+ List-Unsubscribe-Post: X-Feedback-Id;
+ bh=D+Gv/jzhVrn5Mt+Zcxg8AYo7PmgpOWQKqBoMuO2GBew=; b=tDgUmRPEik9wcn131o0p6VhHd87k28mJp7fcGhoj3OntxSeLhkzQdMAGj44z5DzG4EiDg072
+ Fkj33SQXxtKrXFU9DOsP+ie0+d46YuUNQGs/0imV75KaHAoIuYzTTU1q3CBNpjYtTdm0oG5w
+ N5YqcMTXhhVxv2nJKwP5W0d+rFY=
+X-Feedback-Id: 5018cb933533547f6800dad7:mailgun
+X-Mailgun-Sending-Ip: 166.78.71.92
+X-Mailgun-Sid: WyJmYjQxMyIsICJodWp5b3JvbUBnbWFpbC5jb20iLCAiNzI2ZSJd
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://link.mailgun.com/u/eJwVjEEOgyAQAF9TbpoFcYEDt_7DsLtQbWpp0Kbx99XLZC4zEp3BrJaIAKjBCoUx4MSmALjM6MDqmwU53rULKIa91l2mE5aK64JOQxfIk2UbpBTTr2l5qTkyJCC0Yy52QNFlRJ-0IRb2Qh69anH-Po_a6nruH1fVc13VHi_N7TbcW97yPn3Stv1qkz-isTM7>
+Received: from heroku.com (ec2-52-70-241-175.compute-1.amazonaws.com
+ [52.70.241.175]) by smtp-out-n06.prod.us-west-2.postgun.com with SMTP id
+ 6006104e21210999eda58787 (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Mon, 18 Jan 2021 22:48:46
+ GMT
+Return-Path: <bounces@heroku.com>
+Date: Mon, 18 Jan 2021 15:48:45 -0700
+From: Heroku <noreply@heroku.com>
+To: hujyorom@gmail.com
+Message-ID: <6006104db9596_c2f007ec67041@dyno-96d2c811-eb11-4bf7-91a3-9b8b4c49dff2.mail>
+Subject: Reset your Heroku password
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6006104db916b_c2f007ec6698";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailgun-Native-Send: true
+X-Mailgun-Tag: mailer=reset_password
+
+
+----==_mimepart_6006104db916b_c2f007ec6698
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Someone (hopefully you) has requested a password reset for your Heroku account.  Follow the link below to set a new password:
+https://id.heroku.com/account/password/reset/f39cdd3addf12cbdb091fff0832551b2
+
+If you don't wish to reset your password, disregard this email and no action will be taken.
+
+
+- The Heroku Team
+http://heroku.com/
+
+Heroku is the cloud platform for rapid deployment and scaling of web applications.
+Get up and running in minutes, then deploy instantly via Git.
+
+To learn more about Heroku and all its features, check out the Dev Center:
+http://devcenter.heroku.com/articles/quickstart
+
+----==_mimepart_6006104db916b_c2f007ec6698
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body style="width: 100% !important; -webkit-text-size-adjust: none; margin: 0; padding: 0;">
+    <center>
+      <table id="backgroundTable" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; width: 100% !important; height: 100% !important; color: #4c4c4c; font-size: 15px; line-height: 150%; background: #ffffff; margin: 0; padding: 0; border: 0;">
+        <tr style="vertical-align: top; padding: 0;">
+          <td align="center" valign="top" style="vertical-align: top; padding: 0;">
+            <table id="templateContainer" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; width: 600px; color: #4c4c4c; font-size: 15px; line-height: 150%; background: #ffffff; margin: 40px 0; padding: 0; border: 0;">
+              <tr style="vertical-align: top; padding: 0;">
+                <td class="templateContainerPadding" align="center" valign="top" style="vertical-align: top; padding: 0 40px;">
+                  <table id="templateContent" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; width: 100%; background: #ffffff; margin: 0; padding: 0; border: 0;">
+                    <tr style="vertical-align: top; padding: 0;">
+                      <td style="vertical-align: top; text-align: left; padding: 0;" align="left" valign="top">
+                        <h1 id="logo" style="color: #6E5BAA; display: block; font-family: hybrea, proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; font-size: 32px; font-weight: 200; text-align: left; margin: 0 0 40px;" align="left"><img src="https://www0.assets.heroku.com/email/heroku-logo.png" alt="heroku" width="120" height="42" style="outline: none; text-decoration: none; border: 0;" /></h1>
+
+                        <p style="margin: 20px 0;">Someone (hopefully you) has requested a password reset for your Heroku account.  Follow the link below to set a new password:</p>
+
+<p style="margin: 20px 0;"><a href="https://id.heroku.com/account/password/reset/f39cdd3addf12cbdb091fff0832551b2">https://id.heroku.com/account/password/reset/f39cdd3addf12cbdb091fff0832551b2</a></p>
+
+<p style="margin: 20px 0;">If you don't wish to reset your password, disregard this email and no action will be taken.</p>
+
+
+                        <p style="margin: 20px 0;">
+                          The Heroku Team<br />
+                          <a href="https://heroku.com" style="color: #6E5BAA;">https://heroku.com</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+                <tr style="vertical-align: top; padding: 0;">
+                  <td class="templateContainerPadding" align="center" valign="top" style="vertical-align: top; padding: 0 40px;">
+                    <table id="footerContent" style="border-spacing: 0; border-collapse: collapse; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; width: 100%; border-top-style: solid; border-top-color: #ebeaef; color: #999999; font-size: 12px; background: #ffffff; margin: 0; padding: 0; border-width: 1px 0 0;">
+                      <tr style="vertical-align: top; padding: 0;">
+                        <td valign="top" style="vertical-align: top; text-align: left; padding: 0;" align="left">
+                          <p style="margin: 20px 0;">
+                            Heroku is the cloud platform for rapid deployment and scaling of web applications. Get up and running in minutes, then deploy instantly via Git.
+                          </p>
+
+                          <p style="margin: 20px 0;">
+                            To learn more about Heroku and all its features, check out the Dev Center: <a href="https://devcenter.heroku.com/articles/quickstart" style="color: #666666;">https://devcenter.heroku.com/articles/quickstart</a>
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </center>
+
+<style type="text/css">
+body {
+width: 100% !important;
+}
+.ReadMsgBody {
+width: 100%;
+}
+.ExternalClass {
+width: 100%;
+}
+body {
+-webkit-text-size-adjust: none;
+}
+body {
+margin: 0; padding: 0;
+}
+img {
+border: 0; outline: none; text-decoration: none;
+}
+#backgroundTable {
+height: 100% !important; margin: 0; padding: 0; width: 100% !important;
+}
+#backgroundTable {
+color: #4c4c4c; background-color: #ffffff; font-family: proxima-nova, 'helvetica neue', helvetica, arial, geneva, sans-serif; font-size: 15px; line-height: 150%;
+}
+@media (max-width: 540px) {
+  #templateContainer {
+    width: 100% !important;
+  }
+  #templateContainer .templateContainerPadding {
+    padding: 0 5% !important;
+  }
+}
+</style>
+</body>
+</html>
+
+----==_mimepart_6006104db916b_c2f007ec6698--

@@ -1,0 +1,159 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:6042:0:0:0:0:0 with SMTP id u63csp1214376vkb;
+        Fri, 20 Aug 2021 03:50:49 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxvVsKrVs5KqV3W5az78UYZATmSkbI/eSkElxuYDCKRtwMIzMNXBpT3xhc9t73Ps4NEVGe4
+X-Received: by 2002:a17:90a:7881:: with SMTP id x1mr4081071pjk.102.1629456649257;
+        Fri, 20 Aug 2021 03:50:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629456649; cv=none;
+        d=google.com; s=arc-20160816;
+        b=jIdZXObT0GywTk0ey+05qmR+exgEoKffBeWGu3mGIcj0ksZonNA1qC2dNp/4IqnYFA
+         8tEUMlrL8i6hcgTvTv7JRrtVZJeI+f/uI7SfjO81ATEjogznG/IBvt2KOCR1HAonl2WL
+         0SBPS2B10nmVPvO6loug12ZqkKo/xMhq/SC+FgKPbmIH62tNySgPprwFYrCSaVJyp0fY
+         KBYdhxi54KFFbKmjSfuYaiV2F3cF9UCHhv0wJuEIjsdKFKbLCfXrHrs1vAcshQBdrYDO
+         e7HgTYDAq4Y5B59AHcgFRoqkeyK0+PMjIc/1CjpPBuke5FUWIfXRsW0sK4qqAMEtgw9F
+         bLiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:errors-to:dkim-signature;
+        bh=fq++S4MAzcBHyvbh3fXHJhyfXKHiXxyOVPqOcnGTQT8=;
+        b=p0Z7QmQxCjiVFpJZwxGWSpcKNmfdQn74KXAelKoXLRV2vPGLFYoTVMOzZQg/6dXYAn
+         sLSVzc8MLchWXgIMPiJtwSLIWS+7dmfubsDPxm+gSY/qXwbGKMtr8l8auBp1EhAQkd1P
+         +QEUQuK2xemUKrIEq5VfzQv4fmqtfGNUbnArrt2BgodmQde/4dRz5sIX5sPnCWMFur40
+         qV+d1UgL51osnEoT+IrCguUUKA4zIg8T0FOfTnN6PW32UWizYmrkmjNENWGyXNiKaO08
+         CuKaIjsXYIQGjW6OcVq09bepTSa3R6t7h9DzATBh8OZnGejNy3LlOiEulIcE5KLiaBRh
+         zTJw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@staffservice.ne.jp header.s=staffservice.201704 header.b=CZYqD30+;
+       spf=pass (google.com: domain of z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.97.62 as permitted sender) smtp.mailfrom=z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+Return-Path: <z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp>
+Received: from bmmpk1304.jpx1.mta.emberpoint.com (bmmpk1304.jpx1.mta.emberpoint.com. [106.185.97.62])
+        by mx.google.com with ESMTPS id y7si7010395pgp.12.2021.08.20.03.50.48
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 20 Aug 2021 03:50:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.97.62 as permitted sender) client-ip=106.185.97.62;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@staffservice.ne.jp header.s=staffservice.201704 header.b=CZYqD30+;
+       spf=pass (google.com: domain of z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.97.62 as permitted sender) smtp.mailfrom=z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=staffservice.ne.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1629456649;
+	s=staffservice.201704; d=staffservice.ne.jp;
+	h=Date:From:Reply-To:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=fq++S4MAzcBHyvbh3fXHJhyfXKHiXxyOVPqOcnGTQT8=;
+	b=CZYqD30+lXxWCt7URo1Flarm5wK5nBcX616klvMQNR6S5EqHLbI+eOR2GrBKEkDS
+	n88abwECgUQRwSHi8Bji6PQDjL3CpAU7x8cHIJqZGsMwwP06a5BIHtVdCJVGYcYoT5L
+	Op0dMVACwvVF6rY8Jx4BdpixzrWR9adLd8vMFDMg=
+Errors-To: z-sse-xfb6uo-0-2p-008hujyoromgmail.com@bma.rec.mpse.jp
+Date: Fri, 20 Aug 2021 19:50:41 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCJTklPyVDJVUlNSE8JVMlOSEmJSglcyU4GyhC?=
+ =?ISO-2022-JP?B?GyRCJUslIiVqJXMlMCEhTytMMyUwJWshPCVXGyhC?=
+ <engineering-roumugr@staffservice.ne.jp>
+Reply-To: =?ISO-2022-JP?B?GyRCJTklPyVDJVUlNSE8JVMlOSEmJSglcyU4GyhC?=
+ =?ISO-2022-JP?B?GyRCJUslIiVqJXMlMCEhTytMMyUwJWshPCVXGyhC?=
+ <engineering-roumugr@staffservice.ne.jp>
+To: hujyorom@gmail.com
+Message-Id: <1629456641832.2021100144.sse.0.97.00000000@ad263recse.rec.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCIVo9RU1XGyhCISEbJEIhWyVtJTAlJCVzGyhCSQ==?=
+ =?ISO-2022-JP?B?RBskQiEmMj4lUSU5JW8hPCVJJHJETENOJCQbKEI=?=
+ =?ISO-2022-JP?B?GyRCJD8kNyReJDkhShsoQlIbJEIlMCVrITwlVz8mMGgbKEI=?=
+ =?ISO-2022-JP?B?GyRCJW8lLyVBJXNAXDxvIUsiKEU+QXdJVDJEGyhC?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+$BK\F|!"(B2021$BG/(B8$B7n(B20$BF|!J6b!K(BWEB$B%F%/(B2$B$N%$%s%U%)%a!<%7%g%s!J0J2<%5%$%H!K$K!"?&0h%o%/%A%s@\<o$K$D$$$F7G:\$7$^$7$?$N$G!">\:Y$b4^$a$F$3$A$i$K$F$43NG'$/$@$5$$!#(B
+$B!J(Bhttps://sse-webtc2.force.com/s/detail/a0R5F00000iobJEUAY$B!K(B
+
+$B!V%9%?%C%U%5!<%S%9%0%k!<%W!J%j%/%k!<%H%0%k!<%W!K?&0h%o%/%A%s@\<o!W!!%m%0%$%s(BID$B!&2>%Q%9%o!<%I$O0J2<$NDL$j$G$9!#(B
+$BM=Ls$KI,MW$J>pJs$H$J$j$^$9$N$G!"Bg@Z$KJ]4I$/$@$5$$!#(B
+
+$B!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=(B
+$B%m%0%$%s(BID$B!!(B $B!!(B16$B!\<R0wHV9f(B8$B7e$N(B10$B7e(B
+$B2>%Q%9%o!<%I!!!!@>Nq@8G/7nF|(B8$B7e(B
+$B!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=(B
+$B"(<R0wHV9f$,$4ITL@$JJ}$O!"=jB0%F%/%K%+%k%;%s%?!<$b$7$/$OC4Ev1D6H$K3NG'$7$F$/$@$5$$!#(B
+
+$B!c8D?M>pJs$N<h07$$$K$D$$$F!d(B
+$B%9%?%C%U%5!<%S%9%0%k!<%W!J%j%/%k!<%H%0%k!<%W!K?&0h%o%/%A%s@\<o$N<B;\$K$"$?$j!"0lO"$N8D?M>pJs$r!"2<5-$K5-:\$N%W%i%$%P%7!<%]%j%7!<!J!VK\%W%i%$%P%7!<%]%j%7!<!W$H$$$$$^$9!#!K$NDL$j<h$j07$$$^$9!#4uK><T$O!"K\%W%i%$%P%7!<%]%j%7!<$KF10U$N$&$(!"@lMQM=Ls%5%$%H$+$iM=Ls$$$?$@$-!"@\<o$r<u$1$F$/$@$5$$!#@lMQM=Ls%5%$%H$X$N=i2s%m%0%$%s$r$b$C$F!"K\%W%i%$%P%7!<%]%j%7!<$KF10U$$$?$@$$$?$b$N$H$_$J$7$^$9!#(B
+
+$B!cM=Ls$K$"$?$j!"0J2<$4Cm0U$/$@$5$$!d(B
+$B#1!%Bg@Z$J%o%/%A%s$rL5BL$K$7$J$$$?$a!"0J2<#3E@$K$D$$$F==J,$K$4N10U$$$?$@$-$^$9$h$&$*4j$$$$$?$7$^$9!#(B
+$B!J#1!K<+<#BN$G$N@\<o$J$I!"B>$N@\<o5!2q$H$N=EJ#M=Ls$O!"@dBP$K$7$J$$$G$/$@$5$$!#(B
+$B!J#2!K$b$7=EJ#M=Ls$r$5$l$?>l9g$O!"B.$d$+$K$I$A$i$G@\<o$9$k$+$r7hDj$$$?$@$-!"B>J}$rI,$:%-%c%s%;%k$$$?$@$/$h$&$*4j$$$$$?$7$^$9!#(B
+$B!J#3!KEvF|%-%c%s%;%k!"L5CG%-%c%s%;%k$O87$K$*95$($$$?$@$/$h$&$*4j$$$$$?$7$^$9!#(B
+$B!!"(M=Ls$K9g$o$;$F;vA0$K%o%/%A%s$r2rE`$7$^$9!#2rE`8e$OD94|J]B8$,$G$-$J$/$J$k$?$aM=LsF|$r87<i$$$?$@$/$h$&$*4j$$$$$?$7$^$9!#$I$&$7$F$bM=LsJQ99$d%-%c%s%;%k$9$kI,MW$,$"$k>l9g$O!"M>M5$r$b$C$FB.$d$+$K<B;\$$$?$@$/$h$&$*4j$$$$$?$7$^$9!#(B
+
+$B#2!%%o%/%A%s$N6!5k>u67$d0eNE%j%=!<%9$N3NJ]>u67$K$h$j!"M=Ls$r$$$?$@$$$?2q>l!&F|Dx$G$N3+:E$,$G$-$J$/$J$k>l9g$,$"$j$^$9!#!!!!!!@?$K62$lF~$j$^$9$,!"M=$a$4N;>5$/$@$5$$!#(B
+$B"(K|$,0l>e5->u67$,5/$3$C$?>l9g$OB.$d$+$K$4O"Mm$$$?$7$^$9!#:FM=Ls$r$*4j$$$$$?$7$^$9!#(B
+
+$B!cM=Ls$NN.$l!d(B
+$B#1!%2<5-(BURL$B$K%"%/%;%9$7!"M=Ls%U%)!<%`$+$i>e5-%m%0%$%s(BID$B!&2>%Q%9%o!<%I$K$F%m%0%$%s$7$F!"I,MW$J>pJs$rF~NO$/$@$5$$!#(B
+https://vaccine-info-recruit.org/
+
+$B"((B7/20$BF|(B($B2P(B)$B!!(B12:00$B!J@58a!K$h$jM=Ls2DG=$G$9!#(B
+$B"($4F~NO$$$?$@$/;aL>$OI,$:!!8M@R>e$N;aL>!!$rF~NO$/$@$5$$!#(B
+$B"(%a!<%k%"%I%l%9$NF~NO$*$h$S%a!<%k<u?.@_Dj$r!Z<u?.$9$k![$K$7$F$$$?$@$/$3$H$r6/$/?d>)$$$?$7$^$9!#Cf;_$K$J$C$?>l9g!"F~NO$$$?$@$$$?%a!<%k%"%I%l%9$K$*CN$i$;$rG[?.$9$kM=Dj$G$9!#(B
+
+$B#2!%2hLL$N0FFb$K=>$C$F!"4uK>$N2q>l!&F|;~$rA*Br$7!"@\<oF|$rM=Ls$7$F$/$@$5$$!#(B
+$B"((B1$B2sL\$N@\<oF|!"(B2$B2sL\$N@\<oF|!J(B1$B2sL\$+$i(B4$B=54V8e!K$rF1;~$KM=Ls$7$F$$$?$@$-$^$9!#(B
+$B"(:#2s$N%o%/%A%s?&0h@\<o$O!"86B'!"(B4$B=54V$H$$$&7h$a$i$l$?@\<o4V3V$r<i$kI,MW$,$"$k$?$a!"#22sL\$N$4M=Ls$O!"#12sL\@\<o$N(B4$B=54V8e$NF1MKF|F1;~9o$K@_Dj$r$5$l$^$9!#M=LsA0$KI,$:M=Dj$r$43NG'$/$@$5$$!#M=Ls$NJQ99$O6KNO$*95$(D:$-$?$/B8$8$^$9$,!"$I$&$7$F$b$d$`$rF@$:JQ99$,I,MW$J>l9g$O!"0J2<$r$4;2>H$/$@$5$$!#(B
+1$B2sL\@\<oA0!'@lMQM=Ls%5%$%H$G8=M=Ls$r$*<h>C$7$N>e!":FM=Ls(B
+1$B2sL\@\<o8e!'@lMQ%3!<%k%;%s%?!<$K$F(B2$B2sL\$NM=Ls$rJQ99!J"(@lMQM=Ls%5%$%H$G$OJQ99IT2D!K(B
+
+$B!c@\<oF|EvF|$K$D$$$F!d(B
+$B!ZCm0U!*![!VF~4[>Z!W$O?HJ,>ZL@=q$K$O$J$j$^$;$s!*!!(B
+$BF~4[>Z$N$_$4;};2$N>l9g$O!"@\<o$r<u$1$i$l$^$;$s$N$G!"I,$:#3-!5-:\$N?HJ,>ZL@=q$rK:$l$:$K$4;};2$/$@$5$$!#(B
+$B"(?HJ,>ZL@=q$O!">/$J$/$H$b!V8M@RL>!W!V@8G/7nF|!W$,3NG'$G$-$k$b$N$G$J$$$H$*G'$a$G$-$^$;$s!#(B
+
+$B#1!%<+Bp$r=P$kA0$K!"8!29$7BND4ITNI$,$J$$$+$r$43NG'$/$@$5$$(B
+$B#2!%EvF|$O@\<o$7$d$9$$!J8*$r=P$7$d$9$$!KI~Au$G$*1[$7$/$@$5$$!#(B
+$B#3!%EvF|;};2$$$?$@$/$b$N$O0J2<$H$J$j$^$9!#(B
+$B-!?HJ,>ZL@=q(B($B7r9/J]81>Z!&1?E>LH5v>Z!&%Q%9%]!<%H$J$I(B)$B!!(B
+$B-"@\<o7t(B($B<+<#BN$+$iFO$$$F$$$k>l9g!K(B
+$B-#M=?GI<!JM=$a$45-F~$N>e!"$4;};2$/$@$5$$!#5-F~$K$D$$$F$O2<5-;2>H$/$@$5$$!#!K(B
+$B-$@\<o:Q5-O?=q!J(B2$B2sL\@\<o$N>l9g!K(B
+$B#4!%@\<o$9$k%o%/%A%s$O%b%G%k%J<R@=$H$J$j$^$9(B
+$B#5!%@\<o$N=jMW;~4V$O(B30$B!A(B60$BJ,$[$I$G$9!#M=Ls;~4V$N(B5$BJ,A0$+$i<uIU$r3+;O$$$?$7$^$9!#;~4V$KM>M5$r$b$C$F5/$3$7$/$@$5$$!#(B
+$B#6!%5.=E$J%o%/%A%s$rL5BL$K$7$J$$$?$a$K!"L5CG%-%c%s%;%k$O87$K$*95$($/$@$5$$!#(B
+
+$B!cM=?GI<$N5-F~$K$D$$$F!d(B
+$BM=?GI<$,4{$KFO$$$F$$$kJ}$O$=$A$i$K!"FO$$$F$$$J$$J}$O0J2<(BURL$B$+$iM=?GI<%U%)!<%^%C%H$r%@%&%s%m!<%I$N$&$(0u:~$7!"(B
+$BI,MW;v9`$r$45-F~$/$@$5$$!#(B
+https://www.mhlw.go.jp/content/000739379.pdf
+$B1Q8lHG!!(B https://www.mhlw.go.jp/content/000759454.pdf
+$B"(1Q8lHG$r$=$N$^$^Ds=P$O$G$-$^$;$s!#1Q8lHG$r;29M$KF|K\8lHG$K5-:\$7Ds=P$r$*4j$$$$$?$7$^$9!#(B
+
+$B!c%0%i%s%H%&%-%g%&%5%&%9%?%o!<$G@\<o$9$k>l9g!d(B
+$B%S%k%;%-%e%j%F%#$N4X78>e!"F~4[$K:]$7$F$O!V%2%9%H%+!<%I!W$r$*<u$1<h$j$$$?$@$/I,MW$,$4$6$$$^$9!#(B $B@\<oEvF|$O!"#23,%m%S!<$K<uIU%+%&%s%?!<$r@_CV$$$?$7$^$9$N$G!"0FFb78$h$j%+!<%I$r$*<u$1<h$j$/$@$5$$!#(B $B"(%5%&%9%?%o!<$X$NF~4[8"8B$r$*;}$A$NJ}$O!"D>@\@\<o2q>l$K$*1[$7$/$@$5$$!#(B
+
+$B!c@\<o2q>l$X$N8rDL<jCJ$K$D$$$F!d(B
+$B%o%/%A%s@\<o8e$OI{H?1~$K$h$jBND4ITNI$,H/@8$9$k2DG=@-$,$"$k$?$a!"8x6&8rDL5!4X$N$4MxMQ$r$*4j$$$$$?$7$^$9!#(B
+
+$B!c$4ITL@E@Ey$"$k>l9g$O$3$A$i$X!d(B
+$B"#%j%/%k!<%H%0%k!<%W?&0h%o%/%A%s@\<o@lMQ%3!<%k%;%s%?!<(B
+TEL$B!!(B03-6219-8415
+$BJ?F|(B10:00~20:00$B!!EZF|=K(B10:00~17:00$B!!1Q8lBP1~2D(B
+
+$B!c%W%i%$%P%7!<%]%j%7!<!d(B
+$B3t<02q<R%j%/%k!<%H%[!<%k%G%#%s%0%9!J0J2<!"!VEv<R!W$H$$$$$^$9!#!K$O!"?77?%3%m%J%o%/%A%s$N?&0h@\<o!J0J2<!V?&0h@\<o!W$H$$$$$^$9!#!K<B;\$K:]$7!"3'MM$N8D?M>pJs!J;aL>!"=;=j!"EEOCHV9f!"2q<RL>!"=>6H0wHV9f!"%a!<%k%"%I%l%9!"@\<o$K4X$9$k>pJs$r4^$_$^$9$,!"$3$l$i$K8B$i$l$^$;$s!#!K$r!"0J2<$NL\E*$GMxMQ$$$?$7$^$9!#(B 
+$B!&?&0h@\<o$N<B;\$*$h$SK\?M3NG'$r4^$`$3$l$KI,MW$J<jB3$-$N?k9T(B 
+$B!&?&0h@\<o$K4X$9$k9qKt$O8x6&CDBN$X$N>pJsDs6!(B 
+$B!&?&0h@\<o$K4X$9$k=jB02q<R$X$N>pJsDs6!(B 
+$B!&;vL3O"Mm5Z$S$*Ld$$9g$o$;$X$NBP1~(B 
+ 
+$B$=$l$>$lI,MW$H$J$k9`L\$r5-F~!"$^$?$OF~NO$$$?$@$+$J$$>l9g$O!"?&0h@\<o$r<u$1$i$l$J$$>l9g$,$"$j$^$9!#(B 
+$BEv<R$O!"86B'$H$7$F!"$4K\?M$N>5Bz$J$/>e5-0J30$K8D?M>pJs$rMxMQ$^$?$OBh;0<T$KDs6!$7$^$;$s!#(B 
+$BEv<R$O!"0J2<$NDs6!@h$KBP$7$F!"=qLL$^$?$OEE<'E*$JJ}K!$K$h$j8D?M>pJs$rDs6!$7$^$9!#(B  
+$B!T9q$^$?$O8x6&CDBN!U(B 
+$B!!9q$^$?$O8x6&CDBN$KBP$7!"?&0h@\<o$K4X$7I,MW$J<jB3$-$N$?$a$K!"8D?M>pJs$rDs6!$7$^$9!#(B 
+$B!T=jB02q<R!U(B 
+$B!!=jB02q<R$KBP$7!"?&0h@\<o$N?k9T5Z$S?&0h@\<o$K4XO"$9$k?M;vO+L34IM}6HL3$N?k9T$N$?$a$K!"8D?M>pJs$rDs6!$7$^$9!#(B 
+ 
+$BEv<R$O8D?M>pJs<h07$$6HL3$N0lIt$^$?$OA4It$r30It0QBw$9$k$3$H$,$"$j$^$9!#(B 
+$B86B'$H$7$FK\?M$K8B$j!"!V8D?M>pJs$NMxMQL\E*!W$NDLCN!"EPO?$7$?8D?M>pJs$N3+<(!"D{@5!"DI2C$^$?$O:o=|!"MxMQDd;_!"$J$i$S$KBh;0<T$X$NDs6!$NDd;_$r5a$a$k$3$H$,$G$-$k$b$N$H$7$^$9!#6qBNE*$JJ}K!$K$D$$$F$O2<5-$N8D?M>pJs4IM}$NLd$$9g$o$;@h$K$4O"Mm$/$@$5$$(I!(B 
+ 
+$B"!8D?M>pJs4IM}@UG$<T(B 
+$B3t<02q<R%j%/%k!<%H%[!<%k%G%#%s%0%9!!AmL3It!!ItD9(B 
+$B8D?M>pJs$K4X$9$k$*Ld9g$;@h!'(B $B#R#H#C!2#M!u#S#S#B#U(B $B:R32BP:vK\It;vL36I(B<rhc_mssbu_bcp_center@r.recruit.co.jp> 

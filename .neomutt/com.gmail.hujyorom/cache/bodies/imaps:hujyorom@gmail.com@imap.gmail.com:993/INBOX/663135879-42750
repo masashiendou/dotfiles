@@ -1,0 +1,186 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:a8ce:0:0:0:0:0 with SMTP id r197csp1063341vke;
+        Wed, 12 Aug 2020 23:10:27 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxPyBMJYRxJKm2uVCc0/T3dv9BhkJwoZlVvKatXfSJ1v3qoU++n9XCauaaB9aZymKFeBBQc
+X-Received: by 2002:a17:90a:aa90:: with SMTP id l16mr3536650pjq.210.1597299027163;
+        Wed, 12 Aug 2020 23:10:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597299027; cv=none;
+        d=google.com; s=arc-20160816;
+        b=a5TDpSs0HiYvg+nTcV8Pj26ncc9XzmWICoyq8AyW4rXJuvz3ooc4rtpImPocdL2scf
+         aUimbqNrK+KClAlm7lRuHqJUAk79hxu7NY815d30PZM6rwsTTigfI3n6ZtNGtSnHhGQj
+         yYM0M/xJOhUCKZb6LZwu1d9NZ790i4Z//Bb7afrXPOSLtVie/No3WFue5OUJ+NQnlA6T
+         PcJqSU/xHhMVgqHp6PiiaQ70qiuvK2D54JdVdXIuLS5rCJcbgakI+RBW8mhF9hBBEATc
+         O+A6SVvKT7CXL04Wrvk6ENjbaknXdgZGASYoKra7XLQ0Vd7M7oBHoUZdGc7PLi1nwZsY
+         E4ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:errors-to:dkim-signature;
+        bh=Op3UmULF/JaphKbU9mhPcM/NoCxL/gzWAPMOiMsUQzM=;
+        b=xD4RdHHK+IO/HVsASWVvmj8MzdwmaNfKjgIG+iHju/iGk+meNk0VfuJJBgNERnPX9A
+         cdaaDM9jgsmdufgG5ePSaVp4F9DgPg+NtwMUyi/DwS7iyfEjh5ICRIXGDrnhJba9hMHZ
+         eU6a9mgnRP0N1qlzqy5wwiwL1jTGpOa69i1SX8gZcoXiVQOS4tzX9eFC6cUEChyi0dq0
+         zpaSMq2t++6PzHv09PUbBaEPOYOOVakHSxQUsFxYMxaStm0EHO69msVvdIx3GLGqHhuY
+         RrpTeVlS0av11c0yfeqIae97W1J2YDwyxyst42ipETlHPD+2jwDYABWLDGCBpw1zKkrh
+         WAHg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@jalan.net header.s=massmail201312 header.b=p4AaA7kU;
+       spf=pass (google.com: domain of z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.96.62 as permitted sender) smtp.mailfrom=z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=jalan.net
+Return-Path: <z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp>
+Received: from bmmpj1304.jpx1.mta.emberpoint.com (bmmpj1304.jpx1.mta.emberpoint.com. [106.185.96.62])
+        by mx.google.com with ESMTPS id j38si3156783pgb.61.2020.08.12.23.10.26
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 12 Aug 2020 23:10:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.96.62 as permitted sender) client-ip=106.185.96.62;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@jalan.net header.s=massmail201312 header.b=p4AaA7kU;
+       spf=pass (google.com: domain of z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp designates 106.185.96.62 as permitted sender) smtp.mailfrom=z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=jalan.net
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1597299027;
+	s=massmail201312; d=jalan.net;
+	h=Date:From:Reply-To:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=Op3UmULF/JaphKbU9mhPcM/NoCxL/gzWAPMOiMsUQzM=;
+	b=p4AaA7kU4QspyOyD0bLJPvaR5bp+TgXQ4UV26TGjqxojbrVHs56rqk3g5tHZD2yg
+	pin7Qsz1TVgGAK0g6NHh6wvOpfXz5d3lV3o5kqsHHC3ogw65r960QapDf5PplwsDiLF
+	ZksnK9ajiheTF8pgX2YxF7MoHWKVCIrqefE2vv/8=
+Errors-To: z-jalan02-xepvf2-0-4j4-008hujyoromgmail.com@bma.rec.mpse.jp
+Date: Thu, 13 Aug 2020 15:10:15 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCJDgkYyRpJHMbKEJuZXQbJEIhIU09THMlNSE8JVMlORsoQg==?=
+ <bon-voyage@jalan.net>
+Reply-To: info4-j@jalan.net
+To: hujyorom@gmail.com
+Message-Id: <1597299015868.2020105550.jalan02.0.5872.01000000@ad268recse.rec.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCJDgkYyRpJHMbKEJuZXQbJEIhIRsoQg==?=
+ =?ISO-2022-JP?B?GyRCJDRNeE1RQTAkTjpHPSozTkcnGyhC?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+------------------------------------------------------------------------
+※このメールは送信専用です。
+　ご返信いただきましても、内容の確認、および回答は行えません。
+　宿泊施設へのご連絡は、下記の電話番号をご利用ください。
+
+
+------------------------------------------------------------------------
+新型コロナウィルス（COVID-19）感染拡大防止の観点から、各自治体により自粛要請等が
+行われている可能性があります。
+ご利用の際には、あらかじめ最新の情報をご確認ください。
+また、感染拡大の防止に充分ご配慮いただくようお願いいたします。
+じゃらんnetからの新型コロナウィルス（COVID-19）に関するお願いはこちら
+https://help.jalan.net/jln/s/article/000014086
+
+旅行連絡会が策定している「新しい旅のエチケット」
+https://goto.jata-net.or.jp/info/2020072704.html
+を確認のうえ、出発前・出発後のご配慮をお願いいたします。
+旅行に行く前に気を付けることをご確認ください「じゃらん新しい旅のしおり」
+https://www.jalan.net/jalan/doc/howto/safetravel
+
+じゃらんnetをご利用いただき、ありがとうございます。
+
+もうすぐご出発日ですね。
+今日は旅の準備に役立つ情報をお送りします。
+ご確認の上、お気をつけて行ってらっしゃいませ。
+
+▼今回ご宿泊の宿・ホテル
+hotel MONday 浅草橋 
+東京都台東区浅草橋２−２９−１２
+電話番号：03-5835-3220
+チェックイン日：2020年8月15日〜　2泊
+チェックイン時間：15:00
+食事：朝なし　夕なし
+予約番号：01HG269C
+宿の詳細情報：
+https://www.jalan.net/uw/uwp3000/uww3001.do?yadNo=335525&vos=fsjlnxsyjlnrsys015
+MAP・アクセス：
+https://www.jalan.net/uw/uwp0400/uww0401init.do?yadNo=335525&vos=fsjlnxsyjlnrsys015
+
+
+
+▼予約内容確認
+https://www.jalan.net/jalan/doc/howto/03yoyaku.html?vos=fsjlnxsyjlnrsys015
+
+▼旅先で、携帯から宿の地図・詳細情報が見られます。こちらを携帯に転送。
+―――――――――――――― <キリトリ> ――
+hotel MONday 浅草橋
+施設詳細：
+https://www.jalan.net/bonvoyage?yno=335525&vos=fsjlnxsyjlnrsys015
+電話番号：03-5835-3220
+―― <キリトリ> ――――――――――――――
+（PCではご覧になれません）
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　　★★ 8月15日　東京都 浅草のレンタカー、今予約できます★★
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+お車の手配は出発前に済ませて、スマートに旅を満喫しませんか？
+じゃらんnetでは、ご自宅からレンタカーをささっと予約できます。
+もし手配がまだなら、ぜひご利用ください。
+
+▼レンタカーの予約ページはこちら
+http://www.jalan.net/rentacar/search/130000/LRG_137400/?utf8=%E2%9C%93&rc=1&rp=130000&rl=137400&rdy=2020&rdm=8&rdd=15&rt=&tm=1&tdy=2020&tdm=8&tdd=17&tt=&controller=rentacar/plans&action=search&rd=2020-08-15&td=2020-08-17&vos=fsjlnxsyjlnrsys014
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　　　　出発前に現地通になれる？観光・グルメ情報とクチコミで賢い旅
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▼観光・グルメスポット、イベント＆クチコミ情報掲載の「じゃらん観光ガイド」で、
+事前に現地のおすすめ情報をチェック。
+https://www.jalan.net/ou/oup1300/ouw1301.do?lrgCd=137400&vos=fsjlnxsyjlnrsys015
+▼ケータイ版なら現地に行ってからでも情報を探せます。
+https://www.jalan.net/kankou/howto/gaiyou_mobile.html?vos=fsjlnxsyjlnrsys015
+
+【スマートフォンをお持ちの方へ】
+▼旅先でも便利に検索できる、じゃらん観光ガイドアプリはこちら
+ご当地観光スポットをチェック！
+（ケータイではご利用いただけません）
+
+(Android)
+https://www.jalan.net/jalan/doc/howto/android_kankou.html
+(i-phone)
+https://www.jalan.net/jalan/doc/howto/iphone_kankou.html
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　　　　旅先でのグルメ情報はもうチェックしましたか？
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ホットペッパーなら旅先で嬉しいお得なクーポンやグルメ情報が満載です。
+▼予約したホテル・宿の近くの飲食店をチェック！！
+
+http://www.hotpepper.jp/CSP/pml010/?lat=35.69629472222222&lag=139.79062805555554&rng=5&vos=nhppprsbz10070701
+▼ホットペッパーTOPはこちら
+
+http://www.hotpepper.jp/A_30300/svcSA11.html?vos=nhppprsbz10070701
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　　　　旅先までの交通手段はもうお決まりですか？
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+じゃらんnetなら交通手段も出発前にささっと予約できます。
+▼レンタカーの予約ページはこちら
+https://www.jalan.net/rentacar/?vos=fsjlnxsyjlnrsys014
+▼高速バスの予約ページはこちら
+https://www.jalan.net/bus/?vos=fsjlnxsyjlnrsys018
+▼航空券の予約ページはこちら
+https://www.jalan.net/airticket/?vos=fsjlnxsyjlnrsys018
+
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+※このメールは、じゃらんnetにて宿・ホテルをご予約した方へ配信しています。
+8月13日時点での情報を元にお送りしているため
+宿・ホテルに直接キャンセルのご連絡をいただいた方、また
+チェックイン直前にキャンセル・予約変更をされた方にも
+このメールが届く可能性がございます。その際にはご了承ください。
+
+・じゃらんnetは（株）リクルートライフスタイルが運営するインターネットサービスです。
+・じゃらんnetに関するご意見、ご質問・ID・パスワード等に関するお問い合せ
+　 http://help.jalan.net/
+■□■  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+　じゃらんnet  https://www.jalan.net/
+　編集：株式会社リクルートライフスタイル https://www.recruit-lifestyle.co.jp/
+　発行：株式会社リクルート https://www.recruit.co.jp/company/recruitcoltd/
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RECRUIT■□■

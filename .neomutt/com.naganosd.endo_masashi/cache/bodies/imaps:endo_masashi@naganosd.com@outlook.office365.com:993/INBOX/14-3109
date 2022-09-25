@@ -1,0 +1,386 @@
+Received: from SG2PR06MB2844.apcprd06.prod.outlook.com (2603:1096:202:2e::18)
+ by HK0PR06MB2739.apcprd06.prod.outlook.com with HTTPS via
+ HK2PR06CA0006.APCPRD06.PROD.OUTLOOK.COM; Tue, 4 Aug 2020 08:49:20 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=fail;
+ b=GIT1i1OKhUUGRdPLrfQP5As0BYnSWxb8SLuOZGDIkMZaN/YZUtXe4vblZO+miWdylDplWqoBrIXZ3FfEt+rzWr0tQeJcuEdv3AbDw1+YOEhCRSkXqBJc3n14REsMuGsFy2NyUrRgW7sJVaGIvbLDk09ORvSg1LQjjDpKZGnU8u+Mg3khws0r8GgtuC6IUx1bIVd86i2c/5kVSYFI12hbnqDRaXpXpf5Z+BWAWhkD51rrWgl9+BDBEUYTvtP9uhN1tkplZPWCkawOybOwVL3CyYOLDYHKiuqUNnuhUvTPG4Jb4/FtCJ4cpK8AzzJZlWenioXQkvQQnL+sP7LGHeuM2g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fWcHjxv+MjDHtLlkMFZs9qxiRUdCrAGWtFut01Ge4Cs=;
+ b=RAot72TL3U3Xa9jgAUl4UAoqy4Kd8Tj8VYgweDW27rdsoKBBxSUC3JtM/Sy8a/VF6K3DevL4wdffjfpGn8DXWH0r0OGZkBBBBIleEYvZVp3/jvRGrcnsHQU/MUz754zKWCeNynOcx/3SXxRf7H3te+vJkERtuuaza/AVH2+x5GUOU/luU15AO9KbkbOgSwh+PXcQdfwjN3tqDqoWMpgCAo8c2Jq6DzVGxHqURNQ4r7H3iUTb1U2vXGsam8DVHvqPMLM45R+2uy1tHYHMAQjGntZu7x962yHR7gxi7L2qpjfK2QZM/+5itP3geqp41/GQMXcQgV7+dlCfcpiBl/pZgw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 219.94.192.34) smtp.rcpttodomain=naganosd.com
+ smtp.mailfrom=system-quest.co.jp; dmarc=none action=none
+ header.from=naganosd.com; dkim=fail (signature did not verify)
+ header.d=naganosdcom.onmicrosoft.com; arc=fail (48)
+Received: from TY2PR04CA0019.apcprd04.prod.outlook.com (2603:1096:404:f6::31)
+ by SG2PR06MB2844.apcprd06.prod.outlook.com (2603:1096:4:25::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3239.16; Tue, 4 Aug 2020 08:49:16 +0000
+Received: from OS2JPN01FT007.eop-JPN01.prod.protection.outlook.com
+ (2603:1096:404:f6:cafe::64) by TY2PR04CA0019.outlook.office365.com
+ (2603:1096:404:f6::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3239.16 via Frontend
+ Transport; Tue, 4 Aug 2020 08:49:16 +0000
+Authentication-Results: spf=pass (sender IP is 219.94.192.34)
+ smtp.mailfrom=system-quest.co.jp; naganosd.com; dkim=fail (signature did not
+ verify) header.d=naganosdcom.onmicrosoft.com;naganosd.com; dmarc=none
+ action=none header.from=naganosd.com;compauth=pass reason=702
+Received-SPF: Pass (protection.outlook.com: domain of system-quest.co.jp
+ designates 219.94.192.34 as permitted sender)
+ receiver=protection.outlook.com; client-ip=219.94.192.34;
+ helo=www1624.sakura.ne.jp;
+Received: from www1624.sakura.ne.jp (219.94.192.34) by
+ OS2JPN01FT007.mail.protection.outlook.com (10.152.184.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3239.17 via Frontend Transport; Tue, 4 Aug 2020 08:49:16 +0000
+Received: from fsav109.sakura.ne.jp (fsav109.sakura.ne.jp [27.133.134.236])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 0748nBdb065254;
+	Tue, 4 Aug 2020 17:49:12 +0900 (JST)
+	(envelope-from mino_shukka_ml-admin@system-quest.co.jp)
+Received: from www1624.sakura.ne.jp (219.94.192.34)
+ by fsav109.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav109.sakura.ne.jp);
+ Tue, 04 Aug 2020 17:49:11 +0900 (JST)
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav109.sakura.ne.jp)
+Received: from system-quest1.sakura.ne.jp (localhost [IPv6:::1])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 0748nBFo065251;
+	Tue, 4 Aug 2020 17:49:11 +0900 (JST)
+	(envelope-from mino_shukka_ml-admin@system-quest.co.jp)
+Received: from fsav108.sakura.ne.jp (fsav108.sakura.ne.jp [27.133.134.235])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTP id 0748nBL2065245
+	for <mino_shukka_ml@system-quest.co.jp>; Tue, 4 Aug 2020 17:49:11 +0900 (JST)
+	(envelope-from endo_masashi@naganosd.com)
+Received: from www1624.sakura.ne.jp (219.94.192.34)
+ by fsav108.sakura.ne.jp (F-Secure/fsigk_smtp/550/fsav108.sakura.ne.jp);
+ Tue, 04 Aug 2020 17:49:11 +0900 (JST)
+Received: from APC01-PU1-obe.outbound.protection.outlook.com (mail-eopbgr1320051.outbound.protection.outlook.com [40.107.132.51])
+	by www1624.sakura.ne.jp (8.15.2/8.15.2) with ESMTPS id 0748nA3A065242
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL)
+	for <mino_shukka_ml@system-quest.co.jp>; Tue, 4 Aug 2020 17:49:11 +0900 (JST)
+	(envelope-from endo_masashi@naganosd.com)
+Received: from HK0PR06MB2739.apcprd06.prod.outlook.com (2603:1096:203:55::19)
+ by HK0PR06MB3172.apcprd06.prod.outlook.com (2603:1096:203:81::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3239.20; Tue, 4 Aug
+ 2020 08:49:08 +0000
+Received: from HK0PR06MB2739.apcprd06.prod.outlook.com
+ ([fe80::602b:ce9d:7249:a1af]) by HK0PR06MB2739.apcprd06.prod.outlook.com
+ ([fe80::602b:ce9d:7249:a1af%7]) with mapi id 15.20.3239.022; Tue, 4 Aug 2020
+ 08:49:07 +0000
+Received: from Kx250 (125.30.78.201) by TYAPR01CA0048.jpnprd01.prod.outlook.com (2603:1096:404:28::36) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3239.16 via Frontend Transport; Tue, 4 Aug 2020 08:49:06 +0000
+Date: Tue, 4 Aug 2020 17:49:04 +0900
+From: "[Masashi Endo]" <endo_masashi@naganosd.com>
+Reply-To: mino_shukka_ml@system-quest.co.jp
+Subject: [mino_shuk:00220] Re: =?utf-8?B?W0FJ5Ye6?=
+ =?utf-8?B?6I23XSBWZXJfMC45LjdfMuOBruODquODquODvOOCueOBq+OBpOOBhOOBpg==?=
+To: mino_shukka_ml@system-quest.co.jp
+Message-Id: <20200804084904.57xkltv26usvjc7n@Kx250>
+In-Reply-To: <CACzEcNiRk0bSFoDZ_964isE+nRBd1SUg5LarZ-mkjLcDyjV3ng@mail.gmail.com>
+References: <CAMn1dDzahPGO04WQvYv012eyc6JjgSYT29TycOD2LkF5-g=G6g@mail.gmail.com>
+ <20200420072234.tkdsf6stnisikrzv@Kx250>
+ <CAMn1dDzZJzBYkTtY3Xhgb9aqshrtb58+uzGHhhtvUgphArxpmQ@mail.gmail.com>
+ <CACzEcNhg+6PLZpKu4ZVabbN6NDsUJdYnW3DonKD23jUp9NVdJQ@mail.gmail.com>
+ <20200422041729.kpfuis52krib4i5f@Kx250>
+ <CACzEcNi4sQS-YA_Urz5Jvvs-WL2_bnLu5=si5dt_ekeJALxWvw@mail.gmail.com>
+ <20200422062528.3osi4ktpboq2zfky@Kx250>
+ <20200804000129.fdg422gkzi53cga5@Kx250>
+ <CACzEcNhFMftfiKYyzyLX6WZS+N7cYa7xPe9Pv8WUhQYnKQ-AJw@mail.gmail.com>
+ <CACzEcNiRk0bSFoDZ_964isE+nRBd1SUg5LarZ-mkjLcDyjV3ng@mail.gmail.com>
+X-ML-Name: mino_shukka_ml
+X-Mail-Count: 00220
+X-MLServer: fml [fml 4.0 STABLE (20040215/4.0.4_BETA)]; post only (only members can post)
+X-ML-Info: If you have a question, send e-mail with the body
+	"help" (without quotes) to the address mino_shukka_ml-ctl@system-quest.co.jp;
+	help=<mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=help>
+X-Virus-Status: clean(F-Secure/fsigk_smtp/550/fsav108.sakura.ne.jp)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=duyCnZfV2Joi/vLgkiEAY6v1jeANThKnPScteKanp1F3xMx3YZT6OgK2aRlmXZVbFvkgzhLD4qzZvqmL0zbTHQj0X//mIIOx0PuQsUmO9HNZCug0r83PVKqyKWOa8y5ChnVzSoBw31mlU5/MHGfKrB3w8Eliap4maQ6iJxtSvOG1DwDK5Dlr6QHRRsnb4BHtgeiYW8TjH9dWp+obraYKrjuL0L0kL3S8dRvRHgQ6pwQzzx3AEYjX8HHfl6/7HZduLgsJp69SfQYHp03X1VdgO9Kb4UY8bwBZbfUjwjtvxTvi5sjrmnlYNKZWYRdZGk1Brryu+GsEjXngIrShqoi7Jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fWcHjxv+MjDHtLlkMFZs9qxiRUdCrAGWtFut01Ge4Cs=;
+ b=VNk5v4UHgAZHfCDboLlv0I2KOR7srD6QiOC3d2q//abnzjhstKarHD6jfoiOiuEDg1l++/O43YndMlR1IBmWp9leqzNOSLvprRfq6CRM/RALN89aRNjP6KG0zzFsQevgoW+t1deuv4iuXCyITlgiw2MY+E7SWfeiPDhvXVTfoqv7VPXI3tZPPh/SCOE7uQ7gaXYHzxOLw3yQSHr31nVzLnFCxD2edlu64gvoXPlH381vH5xJmygQUV7SRnJB06fvBAZmzTtLrouMfEyPSZl8h/yGC5ljQApwTmI3chVOJb8zyU8ZSay9rvoItfMvzlwJ0jqHLt1O9WYK5Fm1dVBbdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=naganosd.com; dmarc=pass action=none header.from=naganosd.com;
+ dkim=pass header.d=naganosd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=naganosdcom.onmicrosoft.com; s=selector2-naganosdcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fWcHjxv+MjDHtLlkMFZs9qxiRUdCrAGWtFut01Ge4Cs=;
+ b=k9zTTBoghcqZNdytHs4QQdkSBYx7JiYiJSRfHEDDk5+BdOfMcfMq3SjmzY6bHbbCnZnCavJBAa/mCqCYZ6kq4i8jTYdlLObxgMEtD+DDXeG0WcIqHqnRzRZ1vNiw9gOGYKX31uI89xX1MDFAZUvvZaKMfQsXVleYUP3+KtuuuN8=
+Authentication-Results-Original: system-quest.co.jp; dkim=none (message not
+ signed) header.d=none;system-quest.co.jp; dmarc=none action=none
+ header.from=naganosd.com;
+Content-Disposition: inline
+X-ClientProxiedBy: TYAPR01CA0048.jpnprd01.prod.outlook.com
+ (2603:1096:404:28::36) To HK0PR06MB2739.apcprd06.prod.outlook.com
+ (2603:1096:203:55::19)
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-Originating-IP: [125.30.78.201]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: b64a3810-5d37-4470-6c05-08d83853450d
+X-MS-TrafficTypeDiagnostic: HK0PR06MB3172:|SG2PR06MB2844:
+X-Microsoft-Antispam-PRVS:
+ <HK0PR06MB3172FCE31EE719795DABC43C994A0@HK0PR06MB3172.apcprd06.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2150;OLM:2150;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ P6D+S1SfDpQ0nlm54HkZW8GomMUoBJUeSgMECpWXVSWchYeXQy3tTAZhkkGDvwhwk7PuM45GCmdv/CAadBU5+BTHgJURsOQT0BMfucekTFpv5oPIz81roz4aDIzhmNDMVwwVcTVNVvRmueT4mnwFCnwprDBQvuj/qpuuZeJyo+jETiZ8dI4P3W6t8bJnyd27nW7uEc6kMqeTF7EEUo/Ks5pOgwVw3KILxT2+opKI78D7nLqgzSno2nH4dGtLbJkINcPDI0zbL+/njZypavfhTfoD3vJ1jBqML8cvP8tlMEdd+kQtbgv9UjPPmK8WWdI8fFzDdLJ8U0NBoPWuokGfSzNayX3zOERefK2UGajL7ywbBzB9TDO10trzfH7eniRFMHl9Ye52+RCFXdrsRlSgwO3LuXpTITQBeJVKxFrLd5pX+/4L5GJ1D7ABLvRtYSXFO4d+0BFK1oIlqWXMUpHoMTrjGsBYTC2gf0hHoJrmmepphTWcDqcT6bRZH1RrHMop
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:HK0PR06MB2739.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFTY:;SFS:(42606007)(136003)(346002)(39830400003)(396003)(366004)(376002)(224303003)(86362001)(2906002)(16799955002)(966005)(33716001)(66574015)(9686003)(508600001)(316002)(6496006)(186003)(83380400001)(16526019)(52116002)(55016002)(8936002)(66556008)(567974003)(26005)(66946007)(5660300002)(66476007)(6916009)(1076003)(956004)(25060200004)(18886065003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData:
+ 44FaB/3fUsIFVVbScZ5yrxw15Xz3wxUn1pPsvqpRoKcmZGV/NToRvDMDAj+gn37VBdm1uvbqe/xO899xGr9ka8QWybUzHJfnP1vsQ9CsGxV5VdJXr1vimuNWa+HEKXGK5XEswGzzLg53zuQOiPUmUIXhZi8wWbK7K38G7UheIWtOtwcWvQj6SXSIoX3Y+5wHH33fDbt4Tx74BLBQBur2//FukjUXdL4sKCX/CVR/C2krbXMo4E6HImevvTPWiezMO9ruPEHVSfoR6/uLlDrgeYHQKU4KAn+MQn0fAXEP90ZgEREPTsmCmgRmda0fSRNFaGyJ9HoLR4/y9JHrggAWFhSSgQFVq31EHGwp+D9Kx+MIIHUz2yZBpbd2hpqcXSYQ5UGocKF6rbxUi4Eyw0HQ/VDAQgF+XalrmZItm261HA5kwOedHX2Oi9TNz6VD+I81mCKywwR36BAdCmKlrNhgUSuUEYDueXpBta9uZJ1mDOK45m6ENWKhvm9RLXK3qKLv/T+tVmyEeu8Uoz5JD+xXQ6Kr9KLaChX86GjZeQFCpRVKMEEBugzyWLC8qTbbs33e+aNYGjk+aTAK2ME3Y9YR6F4gxcAhWvcErWGKM6qAQfx6TNpeUDQWPDpUEqJ0poMSmgZNjRjg0sZHM44Q1hqLvQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK0PR06MB3172
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+Precedence: bulk
+Lines: 202
+List-Id: mino_shukka_ml.system-quest.co.jp
+List-Software: fml [fml 4.0 STABLE (20040215/4.0.4_BETA)]
+List-Post: <mailto:mino_shukka_ml@system-quest.co.jp>
+List-Owner: <mailto:mino_shukka_ml-admin@system-quest.co.jp>
+List-Help: <mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=help>
+List-Unsubscribe: <mailto:mino_shukka_ml-ctl@system-quest.co.jp?body=unsubscribe>
+Return-Path: mino_shukka_ml-admin@system-quest.co.jp
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Aug 2020 08:49:16.4873
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ b64a3810-5d37-4470-6c05-08d83853450d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3a723edf-b2e9-465d-826a-d5ccf5e64f13:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ OS2JPN01FT007.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthSource:
+ OS2JPN01FT007.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ cbbd13fc-02f1-4ad6-959d-08d838533f81
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:219.94.192.34;CTRY:JP;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:www1624.sakura.ne.jp;PTR:www1624.sakura.ne.jp;CAT:NONE;SFTY:;SFS:(16526019)(42882007)(6496006)(1096003)(26005)(966005)(19810500001)(8636004)(34206002)(66346011)(336012)(1076003)(567974003)(956004)(5660300002)(55016002)(83380400001)(83170400001)(7636003)(33716001)(7596003)(224303003)(356005)(66574015)(9686003)(16799955002)(25060200004)(73996006)(18886065003);DIR:INB;SFP:;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2020 08:49:16.4793
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b64a3810-5d37-4470-6c05-08d83853450d
+X-MS-Exchange-CrossTenant-Id: 3a723edf-b2e9-465d-826a-d5ccf5e64f13
+X-MS-Exchange-CrossTenant-AuthSource:
+ OS2JPN01FT007.eop-JPN01.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB2844
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.9085043
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.3239.022
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(20160514016)(750128)(520011016)(944506458)(944626604);
+X-Microsoft-Antispam-Message-Info:
+	6TkQ/+LUhcHYSwk73Os3mKFTH1N39OK+rLrajZg4fXbRTnZvuHlde8rXHE41d/73ibzBePqJD6OC27jbSkRcgmWDO6t6NSRNM7L8OR63eTviLkLNcIRCohsyJ8fbGqRzPwuB3KBoJ1oSht+eNw/d0yfZmF/cqwJspgqMGY2N+y7XorYCGLrPOTe4cA0jaRrPiuVUiBoUB3p4getCECMt3VagU/aw0kJVsaDdx/a1pmhToGXyONYVWJtAxmCpbKJHArypXVlFfyUeog2L57cCfZK/uvWuwRJ440h5Fevufk4P2/et0KMxTzqNVCYI24Xiur1kTUmNeX0D4EyRyYqD1OeABWqq90D2N14uZGgOlWLDosLcjr9mqdP73g3KEJCka+RUsydAlXbVY3C6zMsLCYs6Zp9igZCW9vsTnD84un5DVNPdKsy9+2r7RdUsuiEhETOsKnFvateza32K3/Hny5SmXo23x7l4dAu0muTP8rWCK3y5OI6drZ5G/MydNoR7DcMUnWrnd0b9dDNuPHIQwh8tOsTxpB6JH+Zp+4LmdSZHWsKCiKxjZfIUDcHTIE9xCwkB5rLezA7BdhmODDho9zoJDtTmJjIEZ7GIJ8OKHvDMlTaR1tYPMktCDNdCqJ3lgDISmnZiKxv0w4+JfAnHlhZ2nLkTCou5jQUWZMMcNfU9Httqui7nY68pdcgmywOmbfc9+iH0vza64ywPtaf1cG4b0rcsY/hUEQKHjTJydsB9lbXkrvD+mXWeougyu2HeWW6SF6KIPk6NeF9UoT9toSsHmtbnTIeSqjlPPPOsgi5zxHRTsCJJ1NzZ3bA8cY4sKp8tczHeCGlqGUfXWSV7Pw==
+MIME-Version: 1.0
+
+MINO株式会社 北澤様
+
+お世話になっております
+長野システム開発 遠藤です
+
+Ver_0.9.7_2について、早速のご確認ありがとうございます。
+
+> 臨時出荷登録ボタンを押すと以下のエラーが出ます。
+製作出荷情報修正ボタン(製作出荷詳細の編集ボタン)、および臨時出荷登録ボタンを押下すると、
+JavaScriptにてプルダウン用のデータをDBから取得します。
+そのとき、テーブルが存在しないなどの理由でデータを取得できない場合に"GETエラー"の表示がされます。
+
+お手数ですが、Ver_0.9.7_2が動作している環境のDB上で、以下テーブルが存在するかご確認いただけますでしょうか。
+
+M_AI_BIN_KBN
+M_AI_SYU_HIYOU_KBN
+M_AI_SYUKKA_KBN
+M_AI_TANTOUSYA_IRO_KBN
+M_HAITATSU_SHITEI_TM
+M_KOUJI_KBN
+M_KYOTEN
+M_LOCATION
+M_SEIHIN_TYPE
+M_SEISAKU_KOUTEI
+M_SEISAKU_KOUTEI_KANRI
+M_SEIHIN
+M_SEIHIN_GP
+M_SOUFU_KBN
+M_UNSO_EIGYOSYO
+M_UNSO_KAISYA
+M_USER
+T_MITSU
+T_SEISAKU_SHIJI
+T_SEISAKU_SHIJI_KOTEI
+T_SEISAKU_SHIJI_SEIHIN_MEISAI
+
+> 製作出荷情報修正ボタンを押すと下記のエラーが出ます。
+送付いただいた画像の該当箇所を確認したところ、compact関数でview側に変数を渡している箇所でした。
+compact関数はphpバージョン7.3.0以前と後で動作に違いがあるようなのですが、貴社にてVer_0.9.7_2が
+動作している環境のphpバージョンをお教えいただけますでしょうか。
+なお、当社環境はPHP 7.3.6で該当部分のコードが動作することを確認済みです。
+参考 PHP.net wiki: "https://wiki.php.net/rfc/compact"
+
+よろしくお願いします
+
+以上
+
+On Tue, Aug 04, 2020 at 03:51:43PM +0900, 北澤孝清 wrote:
+>   お世話になっております。
+> 
+> MINO北澤です。
+> 
+> 製作出荷情報修正ボタンを押すと下記のエラーが出ます。
+> 
+> [image: ERROR1.jpg]
+> 
+> 臨時出荷登録ボタンを押すと以下のエラーが出ます。
+> 
+> [image: ERROR2.JPG]
+> 
+> データベースの環境のせいでしょうか？
+> 
+> 確認お願いします。
+> 
+> 2020年8月4日(火) 15:46 北澤孝清 <t-kitazawa@nuan.jp>:
+> 
+> > お世話になっております。
+> >
+> > MINO北澤です。
+> >
+> > リリースしていただきありがとうございます。
+> > 確認したところ、error.logに下記のエラーが出てました。
+> >
+> > 2020-08-04 15:41:27 Warning: Warning (2): Invalid argument supplied for
+> > foreach() in
+> > [/var/www/html/shipping/src/Template/Element/extra_shipment_insert_body.ctp,
+> > line 342]
+> >
+> > ご確認お願いします。
+> >
+> >
+> >
+> >
+> >
+> >
+> >
+> > 2020年8月4日(火) 9:01 [Masashi Endo] <endo_masashi@naganosd.com>:
+> >
+> >> MINO株式会社
+> >> 三宅様
+> >> 北澤様
+> >>
+> >> お世話になっております
+> >> 長野システム開発 遠藤です
+> >>
+> >> 貴社向けリリースが大幅に遅れており、ご迷惑をおかけしています。
+> >>
+> >> 製作出荷情報のDB更新機能のバグ修正と検索機能、およびラベル・送り状発行の機能を加えたVer_0.9.7_2
+> >> をリリースいたします。
+> >>
+> >> > 北澤様
+> >> お手数ですが、ラベル・送り状発行画面~プリントサーバ間の動作確認をお願いします。
+> >> IPとPortは以下"IpとPortの変更"のとおり変更すれば、印刷キューに反映されます。
+> >> なお、制限事項"4.MINO-205...電卓の数値が0でも印刷キューが送信される"にあるとおり、現実装ですと
+> >> 数値が0のときでもプリントサーバに印刷キューが送信されてしまうのですが、当該動作は許容できる内容かどうか、
+> >> ご確認お願いします。
+> >>
+> >> ===
+> >> IpとPortの変更
+> >> ファイル;
+> >> www/webroot/IpPort.php
+> >> 変更する変数;
+> >> $port_no
+> >> $ip_addr
+> >> 印刷キューの実行ファイル
+> >> ファイル;
+> >> www/webroot/print.php
+> >> ===
+> >> 制限事項
+> >> 検索機能
+> >> 1. MINO-192...
+> >> 製品グループで検索条件を指定しても対象レコードが抽出されません
+> >> 現在、当該バグを修正中です
+> >> 2. MINO-197...
+> >> メニュー「製作出荷情報修正」から製作出荷情報を開いた時に検索条件が引き継がれます
+> >> 現在、当該バグを修正中です
+> >> 3. MINO-202...
+> >> 製作場所を指定した時の検索結果が不正
+> >> 現在、当該バグを修正中です
+> >>
+> >> ラベル・送り状発行...
+> >> 1. MINO-56...
+> >> 電卓の"+"および"-"押下時の動作が不正
+> >> 現在、当該バグを修正中です
+> >> 2. MINO-181...
+> >> 日曜・祝日のラベル表示について常に表示していて、日付表示がされていない
+> >> 現在、当該バグを修正中です
+> >> 3. MINO-161...
+> >> 画面解像度の縦部分の調整が不十分で、画面下部が若干隠れてしまう
+> >> 現在、当該バグを修正中です
+> >> 4. MINO-205...
+> >> 電卓の数値が0でも印刷キューが送信される
+> >> 5. MINO-204...
+> >> FireFoxの数値ボタン ０のレイアウトがおかしい。
+> >> 現在、当該バグを修正中です
+> >> 6. MINO-206...
+> >> 送り状再発行が残っている。
+> >> 現在、当該バグを修正中です
+> >> 7. MINO-207...
+> >> 着日指定の判定がされていない。
+> >> 現在、当該バグを修正中です
+> >> 8. MINO-208...
+> >> 担当者仕訳の情報有無に関わらす、枠及び「担当者仕訳」の名称が白で表示されている。
+> >> 現在、当該バグを修正中です
+> >> 9. MINO-209...
+> >> 担当者仕訳 担当者未選択の場合、担当者選択時の色が引き継がれる。
+> >> 現在、当該バグを修正中です
+> >> ===
+> >> Ver0.9.7_2 リリースノート
+> >> 1. ラベル・送り状発行
+> >> 電卓で入力した枚数を、物件ラベル発行および送り状まとめ発行ボタンから
+> >> プリントサーバ宛に印刷キューを送信することが出来ます
+> >>
+> >> 2. 検索
+> >> 制限事項のとおり、製品グループ/製作場所を指定した検索が行えません。
+> >> 出荷日/運送会社/ロケーション/梱包フラグを指定した検索が、可能です。
+> >>
+> >> 3. 製作出荷情報の既知のバグ修正
+> >> MINO-177...
+> >> 製作出荷情報で変更を加えた後、画面右下の更新ボタンを
+> >> 押下しても、自動で画面再読込がかからない現象
+> >> MINO-187/188...
+> >> 製作出荷情報で項目変更 -> 画面右下の更新ボタン押下しても、先頭レコード(※)の梱包数/運送会社
+> >> が更新されない現象
+> >>
+> >> ==========================
+> >> ダウンロード先:
+> >> "https://www.dropbox.com/s/nlveyyzcju8311i/mino-develop2.zip?dl=0"
+> >> ※ドキュメントルート以下のファイル一式をzipにまとめています
+> >>
+> >> よろしくお願いします
+> >>
+> >> 以上
+> >> --
+> >> 長野システム開発株式会社
+> >> 遠藤 將司 ( Masashi Endo )
+> >> e-Mail <endo_masashi@naganosd.com>
+> >> 〒399-4301 長野県上伊那郡宮田村5672-2
+> >> URL: http://www.naganosd.com/
+> >>
+> >>
+> >>
+
+
+
+
+-- 
+長野システム開発株式会社
+遠藤 將司 ( Masashi Endo )
+e-Mail <endo_masashi@naganosd.com>
+〒399-4301 長野県上伊那郡宮田村5672-2
+URL: http://www.naganosd.com/
+

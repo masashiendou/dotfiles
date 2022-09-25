@@ -1,0 +1,250 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp2885235vky;
+        Sun, 28 Feb 2021 18:00:59 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJx+Mtc0U1BnT281Sqhrvi0O4GB3JFyfOxElbkRD0sAOp6iDLlsaeW0XIhPBrW5ZwPHIV7Tu
+X-Received: by 2002:a17:90a:5789:: with SMTP id g9mr14953137pji.236.1614564059421;
+        Sun, 28 Feb 2021 18:00:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614564059; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dM8qUgh8PABYpt9mo0jtoqHHwiGMd+BjUY/wQS36q/KRLff3lwDKD0D++Y/W2+Di+B
+         U8ZbqO/axIYSQ70sQgxV/FaonhHupBwVikX+d0jmhMtFlPSLHtnNH7hcNGSexqXglejP
+         PtMRaMby4qEyILQ+xv/nn/1rME3UfaudD/JHT1pyMZTcHW0GuZ7jERLqwQZh7Hgs8Fz1
+         /HstgBeu0cKu3KAui2k8SQbg7izqQRjvixLapg+0AUW9BtbNnsTqa/1v+YppCkrM/kVE
+         y0/HtBLxWp6c/LRtpxXsi/+GYGaGdIm8zG8LFzgtrOyeqWyrpzkYgLQlyDt6MVyQXIaP
+         xY0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:precedence:mime-version:date
+         :subject:to:reply-to:from:dkim-signature;
+        bh=w7LiQjOzOh0fRy2u694RkRpZ5WvW47C0GhwL0Qh1bxw=;
+        b=G7MhzticF6izj/hilzkYU8mCcEmF3yJHyQf5FcCOxbqI1nCsRFSaTH0eKI49itVTeQ
+         1EIhidsfNsyFbnipRwdhfd2R22gD9biTl/M3MIHg1BjEZHde2oKS1HN2RZ7PSxu9MF7r
+         RDKfoDL6NjDgEQ/AqFjGXm9PRTQund++dL6tt/a00BLE1f55E6ezD1YL8WEE+rK2gaPr
+         213eGfp97AA3hK9ARXPtbZfvGVlH6Ic+OT5gqOOADD4AZKa6gsgBoU9Ak8SvoPrgNPYH
+         713ZZX7BPPoFmFz+SccjxOGIpu6FfZrGARgrdUvNVWUNxIDhWyFxt8CXT6FLfB0+veg9
+         owQw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@tricorn.net header.s=tricorn201108 header.b=fm5qTsk+;
+       spf=pass (google.com: domain of kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz designates 203.183.137.188 as permitted sender) smtp.mailfrom=kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=nic.ad.jp
+Return-Path: <kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz>
+Received: from mtae07.tricorn.net (mtae07.tricorn.net. [203.183.137.188])
+        by mx.google.com with ESMTPS id o13si17541371pgv.83.2021.02.28.18.00.58
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 28 Feb 2021 18:00:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz designates 203.183.137.188 as permitted sender) client-ip=203.183.137.188;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@tricorn.net header.s=tricorn201108 header.b=fm5qTsk+;
+       spf=pass (google.com: domain of kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz designates 203.183.137.188 as permitted sender) smtp.mailfrom=kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=nic.ad.jp
+Received: from krbtc5.tricorn.net ([202.230.13.139])
+    by mtae03.tricorn.net ([203.183.137.150]) with ESMTP id 727841035680611643;
+    Mon, 1 Mar 2021 11:00:42 +0900
+DKIM-Signature: v=1;
+ a=rsa-sha256;
+ c=relaxed/simple;
+ s=tricorn201108;
+ t=1614564023;
+ h=From:To:Subject:Message-Id;
+ d=tricorn.net;
+ bh=Lrbuv9V7TLwRlPzMtRA7w7tEO7xjHBtDuhsALtPDh40=;
+ b=fm5qTsk+T03Dld7XEABKTZ0s9MTCqpD6mO8RIDhtudTh1G5n6oPMgcC1YUI2xAj8
+    zeeJAyVKhVbXi2GPfVJaaQ8kLs95KIcUXtZfcU2mJ/UkEcr6Fd2Fq1Hr+73HYqm5
+    5khqsiO42Dxyn5/3vjr6VUshLMZ0IyG/RZ61BWSGQnc=
+From: =?us-ascii?B?SlBOSUM=?= <jpnic-news@nic.ad.jp>
+Reply-To: jpnic-news@nic.ad.jp
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIiEbKEIgSlBOSUMgTmV3cyAmIFZpZXdzIHZvbC4xODMx?=
+	=?ISO-2022-JP?B?GyRCIVolSCVUJUMlLyU5OWYhW0NtTFw1LTt2IVYbKEJTZWN1cml0eQ==?=
+	=?ISO-2022-JP?B?IERheXMgMjAyMRskQiRHOVYxaSQ3JF4kOSEqIUEbKEIzLzQo?=
+	=?ISO-2022-JP?B?GyRCTFobKEIpGyRCRWw1fjJxPmwhJiVpJSQlVkdbPy4kIiRqGyhC?=
+	=?ISO-2022-JP?B?GyRCIUEhVxsoQjIwMjEuMy4xIBskQiIhGyhC?=
+Date: Mon, 01 Mar 2021 11:00:00 +0900
+X-AB-Envelope-From: kreisel-bounce+d.jpnic.603.5134.f9e8c1cf@err.krs.bz
+X-Amnote: kreisel.d.jpnic_603.5134
+X-KR-Autobahn-MTA-Key: bulk/jpnic.603
+X-Mailer: TRICORN KREISEL 1.39
+X-SystemBase: KR_ProductionSystemBase
+MIME-Version: 1.0
+Precedence: bulk
+Message-Id: <kreisel.d.jpnic.603.5134@krs.bz>
+Content-Type: text/plain;
+ charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+X-MTA-Tenant: KREISEL
+X-MTA-Sender-Key: jpnic.603
+X-MTA-Identifier: 727841104895013234
+X-MTA-Transaction-Id: 727841104895013234
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    __
+    /Ｐ▲  ◆ JPNIC News & Views vol.1831【トピックス号】2021.3.1 ◆
+  _/ＮＩＣ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+□■━━━━━━━━━━━━━━━━━━━━━
+□  2/22〜2/28に発信したJPNICからのお知らせ
+■━━━━━━━━━━━━━━━━━━━━━━
+
+このトピックス号は、先週公開したJPNICブログ記事、お知らせ、Webの更新
+情報などをまとめて、毎週原則月曜日にご紹介するものです。
+
+先週の注目記事は、3月4日(木)の「Security Days 2021」において、IPアド
+レス・ドメイン名管理、ネットワーク運用管理の観点でのセキュリティ対策
+についてJPNIC職員が講演することをお知らせしたブログ記事です。
+
+この他に、先週はブログ記事の公開がもう1件と、JPNICからのお知らせが1
+件、Web更新情報が3件、ICANN情報の更新が1件、イベント等のお知らせが2件
+ありました。
+
+┏◆ 先週公開のJPNICブログ記事 計2件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・News & Views コラム：初！完全オンラインのJANOG47 Meetingを終えて
+  (2021/2/26)
+     |
+     | メールマガジンで配信したインターネットに関するコラムを、JPNIC
+     | ブログでもご紹介しています。今回は、2021年1月下旬に開催された
+     | JANOG47の実行委員長をお務めになった株式会社Ping-tの谷岡英治さ
+     | んのコラムです。初の完全オンラインとなったJANOG Meetingを終え
+     | た感想などについてお書きいただきました...
+     |
+     | 続きを読む →
+     | https://blog.nic.ad.jp/2021/6043/
+
+・Security Days 2021で講演します！〜3/4(木)東京会場・ライブ配信あり〜
+  (2021/2/22)
+     |
+     | JPNICは、現在開催中の「Security Days 2021」を後援しています。
+     | 東京会場2日目の3月4日(木)には、JPNIC職員がIPアドレス・ドメイン
+     | 名管理、ネットワーク運用管理の観点でのセキュリティ対策について
+     | 講演しますので、ぜひご参加ください...
+     |
+     | 続きを読む →
+     | https://blog.nic.ad.jp/2021/5998/
+
+
+┏◆ 先週のトピックスとお知らせ 計1件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・【講演者決定/開催迫る！】シンポジウム「情報通信アーキテクチャの今と
+  これから〜標準化活動の観点から〜」開催のご案内(2021/02/26)
+  https://www.nic.ad.jp/ja/topics/2021/20210226-01.html
+
+
+┏◆ 先週のWeb更新情報 計3件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・ccTLDの登録数を更新(2021/2/26)
+  2021年1月分を追加
+  https://www.nic.ad.jp/ja/stat/dom/cctld.html
+
+・第59回ICANN報告会の動画を公開(2021/2/25)
+  https://www.nic.ad.jp/ja/materials/icann-report/20201203-ICANN/
+
+・IPv4アドレス移転履歴を更新(2021/2/25)
+  2021年2月25日現在のデータを追加
+  https://www.nic.ad.jp/ja/ip/transfer/ipv4-log.html
+
+
+┏◆ ICANN情報 計1件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+・ICANNアナウンスメント一覧 2月4週分の更新
+    |               https://www.nic.ad.jp/ja/icann/announcements.html
+    |
+    | 2021年2月23日 ・指名委員会(NomCom)がICANNの指導的職位の人材募集
+    |                 期限を延長【延長された応募期限:2021年3月29日
+    |                 (月)】
+    | 2021年2月22日 ・第70回ICANN会議前のオンラインセミナー案内【参加
+    |                 にあたっては要事前登録】【以下日本時間】
+    |                 [2021年3月8日(月)  23:00〜24:00]
+    |                  グローバル・ステークホルダー・エンゲージメント
+    |                  (GSE)に関するアップデート
+    |                 [2021年3月9日(火)  00:30〜02:00]
+    |                  ICANN70に期待すること：新規参加者へのガイダンス
+    |                 [2021年3月10日(水) 00:30〜02:00]
+    |                  計画作業に関するアップデート
+    |                 [2021年3月10日(水) 04:00〜06:00]
+    |                  GNSO評議会によるポリシー面のアップデート
+    |                 [2021年3月10日(水) 23:00〜24:00]
+    |                  指名委員会(NomCom)評価作業に関するアップデート
+    |                 [2021年3月11日(木) 04:30〜06:00]
+    |                  評価作業および評価結果実施に関するアップデート
+    |                 [2021年3月11日(木) 06:30〜07:30]
+    |                  契約上のコンプライアンスに関するアップデート
+    |                 [2021年3月11日(木) 23:00〜24:00]
+    |                  ユニバーサルアクセプタンス準備状況に関するアッ
+    |                  プデート
+    |                 [2021年3月12日(金) 01:00〜02:00]
+    |                  ポリシー面におけるアップデート
+    |                 [2021年3月12日(金) 06:30〜07:30]
+    |                  国際化ドメイン名(IDN)プログラムにおけるアップ
+    |                  デート
+
+┏◆ イベント等のお知らせ 計2件
+┗━━━━━━━━━━━━━━━━━━━━━━
+
+  ◇ シンポジウム開催のご案内(インターネット技術の国際標準化) ◇
+
+    いよいよ今週です!!3月5日(金) 9:30-12:00に、インターネット技術の国
+    際標準化に関するシンポジウムを開催します。インターネットに関わる
+    各組織(IETF、ITU、IEEE、ETSI、3GPP、W3C)の標準化の現場で長年活躍
+    されている第一人者の方から、それぞれの団体の概要、活動内容、特徴、
+    注目されているトピックス、課題と感じていることなどについてご紹介
+    いただきます。
+
+    シンポジウム
+    「情報通信アーキテクチャの今とこれから〜標準化活動の観点から〜」
+      https://www.nic.ad.jp/ja/topics/2021/20210226-01.html
+
+  ◇ Security Days 2021 ◇
+
+    最新の脅威動向とセキュリティ対策が結集、JPNICは「Security Days 
+    2021」を後援しています。東京会場2日目の3月4日(木)には、JPNIC職員
+    がIPアドレス・ドメイン名管理、ネットワーク運用管理の観点でのセキュ
+    リティ対策について講演します。
+
+    Security Days 2021
+    https://f2ff.jp/event/secd-2021-01
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+■■■■■   News & Views以外の情報発信もご利用ください！   ■■■■■
+ブログ https://blog.nic.ad.jp/  Twitter https://twitter.com/JPNIC_info
+YouTube https://www.youtube.com/channel/UC7BboGLuldn77sxQmI5VoPw
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+■■■■■  JPNICの活動はJPNIC会員によって支えられています  ■■■■■
+  :::::  会員リスト  ::::: https://www.nic.ad.jp/ja/member/list/
+  :::: 会員専用サイト :::: https://www.nic.ad.jp/member/ (PASSWORD有)
+□┓ ━━━  N e w s & V i e w s への会員広告無料掲載実施中 ━━━┏□
+┗┛          お問い合わせは  jpnic-news@nic.ad.jp  まで          ┗┛
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ━━ JPNICへのご連絡/お問い合わせは極力電子メールでお願いします ━━
+┏━◇【COVID-19を受けたJPNICの取り組み】 ◇━━━━━━━━━━━━┓
+  https://www.nic.ad.jp/ja/mailmagazine/backnumber/2020/vol1790.html
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+ ■ 各種お問い合わせ先：https://www.nic.ad.jp/ja/profile/info.html ■
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ JPNIC News & Views vol.1831 【トピックス号】
+
+ ＠ 発行  一般社団法人 日本ネットワークインフォメーションセンター
+          101-0047 東京都千代田区内神田3-6-2 アーバンネット神田ビル4F
+ ＠ 問い合わせ先 jpnic-news@nic.ad.jp
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+            本メールを転載・複製・再配布・引用される際には
+        https://www.nic.ad.jp/ja/copyright.html をご確認ください
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+   ◇ JPNIC Webにも掲載していますので、情報共有にご活用ください ◇
+登録・削除・変更   https://www.nic.ad.jp/ja/mailmagazine/
+バックナンバー     https://www.nic.ad.jp/ja/mailmagazine/backnumber/
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+■■■■■     News & ViewsはRSS経由でも配信しています！    ■■■■■
+::::: https://www.nic.ad.jp/ja/mailmagazine/backnumber/index.xml :::::
+￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+
+■■◆                          ＠ Japan Network Information Center
+■■◆                                     ＠  https://www.nic.ad.jp/
+■■
+
+Copyright(C), 2021 Japan Network Information Center

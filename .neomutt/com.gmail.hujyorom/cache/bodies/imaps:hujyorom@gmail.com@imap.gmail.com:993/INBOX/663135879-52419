@@ -1,0 +1,102 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:6304:0:0:0:0:0 with SMTP id x4csp2525710vkb;
+        Sat, 26 Jun 2021 16:43:10 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzNKk9aJJomJw1aY6PvejiGx7ZTOo15DS+nw1eeTw8vNetM1LofwbIO0mkoSVgtiZlvlrGR
+X-Received: by 2002:a17:90a:ce8b:: with SMTP id g11mr28856339pju.170.1624750990081;
+        Sat, 26 Jun 2021 16:43:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624750990; cv=none;
+        d=google.com; s=arc-20160816;
+        b=lNU3nPFT5CmIKZQW2rELGG9mkRuKSHckZUWyp9SwAWeKU6gFk+0ehdNW9PeQGmZ6hC
+         jaMlHt4YECrFDnJzWVq3b44O9c994uJftHDEg1MNCBK1rKFpWFHXSr/9NJhasgHWnM/p
+         8u3wFEi/hyCChI1D6r2Wn5Tlx0pMQ9RDu1rmv9Ic4oEmit7Zv+vEYjR6H4TOeOnSpjX+
+         kacs9kiiK6iC5VI8gr8Br6VVYKYICsRjIh13ejva9aE8TYVcV0gD5rF2gJYH315wd1H5
+         c/BO2u2pbo91DCcZOWpWR7v6klu8X2KddAos4vseq61v6BYKPrUJGp8Md6UJAQE+QAhD
+         6WgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:content-transfer-encoding:mime-version:subject:to
+         :reply-to:from;
+        bh=EThHdXwCLOU9lwm8cLgMRkpEAwgIRn5n0L3JzJ40lu8=;
+        b=qerEiR/LzBh0kG84gaofTG/4IPXk7DjcsnFjVW5Muq1KUsNjvMPL5CNVrsAVAKfXrE
+         yjm49KTiDXkiFHD9Op7BKSE8PSwX2bUd9DZmwRPpsyLX+WkqlaCCVkIKra6E7ROf/p58
+         NXih7oUw8ED69S91Gyv7zj/5O1zc5DoKkKjspkRb35ZbrOW2IYj7x2LWbcgdb8ru9kSg
+         l+gxzh1cJhMmvo1C4Co+GBL+O7hOvUiFB3+TjwmWY5ul/pe7zUKEC+uYf5Nzs6qJ2+jk
+         5opNALAxY+s5ghs2iq/SmfGvGXa4k8QPpCMOUc0WHGp3ObHHDXdpB6ADIRlmDknEMJbE
+         ehWg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of mailadm1@webdesk.lifecard.co.jp designates 202.222.102.80 as permitted sender) smtp.mailfrom=mailadm1@webdesk.lifecard.co.jp
+Return-Path: <mailadm1@webdesk.lifecard.co.jp>
+Received: from mailgw02.eins.ne.jp (mailgw2.eins.ne.jp. [202.222.102.80])
+        by mx.google.com with ESMTPS id 207si9449553pfz.289.2021.06.26.16.43.09
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 26 Jun 2021 16:43:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mailadm1@webdesk.lifecard.co.jp designates 202.222.102.80 as permitted sender) client-ip=202.222.102.80;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of mailadm1@webdesk.lifecard.co.jp designates 202.222.102.80 as permitted sender) smtp.mailfrom=mailadm1@webdesk.lifecard.co.jp
+Received: from unknown (unknown [10.35.1.100])
+	by mailgw02.eins.ne.jp(2.16.0.0.5) with SMTP; Sun,27 Jun 2021 08:43:03 +0900 (JST)
+Received: from life-mailvc1.eins.ne.jp (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3E1CBA805C
+	for <hujyorom@gmail.com>; Sun, 27 Jun 2021 08:43:03 +0900 (JST)
+Received: from life-mailvc1.eins.ne.jp (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 323B4A8049
+	for <hujyorom@gmail.com>; Sun, 27 Jun 2021 08:43:03 +0900 (JST)
+Received: from l2et30c5.web.lifecard.co.jp (unknown [202.222.96.27])
+	by life-mailvc1.eins.ne.jp (Postfix) with ESMTP
+	for <hujyorom@gmail.com>; Sun, 27 Jun 2021 08:43:03 +0900 (JST)
+Received: from l2et30c4.web.lifecard.co.jp (unknown [10.88.1.1])
+	by l2et30c5.web.lifecard.co.jp (unknown) with ESMTP id 216AD58072C
+	for <hujyorom@gmail.com>; Sun, 27 Jun 2021 08:43:03 +0900 (JST)
+From: =?ISO-2022-JP?B?GyRCJWklJCVVJSshPCVJJCskaSROJCpDTiRpJDsbKEI=?= <lifeweb-entry@lifecard.co.jp>
+Reply-To: no-reply-to@lifecard.co.jp
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCIVYbKEJMSUZFLVdlYiBE?=
+ =?ISO-2022-JP?B?ZXNrGyRCIVdFUE8/NDBOOyROJDQwRkZiGyhC?=
+Mime-Version: 1.0
+Content-Type: text/plain; charset=iso-2022-jp
+Content-Transfer-Encoding: 7bit
+X-LIFE-MAILID: SL00983087
+Date: Sun, 27 Jun 2021 08:43:03 +0900 (JST)
+X-TM-AS-GCONF: 00
+X-SM-ID: 
+Message-ID: <494112384.1624750983132.JavaMail.autolf@l2et30c4.web.lifecard.co.jp>
+
+遠藤將司 様
+
+このたびはカードをお申込みいただき誠にありがとうございます。
+
+本メールはカードのお申込と同時にインターネットサービス「LIFE-Web Desk」にご登録いただきましたお客様にお送りしております。
+LIFE-Web Deskをご利用いただくための大切なご案内となりますので、必ず一読くださいますようお願いいたします。
+なお、本メールとカードのお届けが前後する場合がございますが、ご容赦ください。
+
+■インターネットサービス「LIFE-Web Desk」の登録完了■
+LIFE-Web Deskの登録が完了いたしました。LIFE-Web Deskでは、カードのご利用明細の確認やお支払方法の変更、各種お申込みやキャンペーンエントリーがいつでもカンタンにできます。
+ご利用いただくには、下記のログインIDおよびパスワードが必要になります。
+--------------------------------------------------------
+ [ログインID] 9LJW8AGW
+ [パスワード] カードお申込み時に設定いただいたパスワードとなります。
+[ログインURL] https://www3.lifecard.co.jp/WebDesk/
+--------------------------------------------------------
+また、LIFE-Web Deskのご利用に際して、以下サービスの登録も適用されます。
+　●ご利用代金E-mail送付サービス
+毎月のお支払額をE-mailでお知らせするサービスです。
+※郵送書面によるご利用代金明細書は発行されません。
+　●キャッシング利用の電子書面サービス
+キャッシングのご利用・ご返済の都度、郵送する書面に代えて、LIFE-Web Deskで1ヶ月ごとにまとめてご案内するサービスです。
+
+■「LIFE-Web Deskアプリ」のご利用はアプリがカンタン＆便利！■
+お支払金額やポイント数がひと目で確認できる、便利なスマホアプリです。
+▽ダウンロードはこちらから▽
+http://www.lifecard.co.jp/app/
+
+■ライフカードはおトクなキャンペーンが盛りだくさん！■
+▽キャンペーン情報はこちらから▽
+http://www.lifecard.co.jp/card/campaign/2-2.htm
+────────────────────────────────
+お問い合わせ： http://www.lifecard.co.jp/contact/
+発信元　： ライフカード株式会社　東京都港区芝ニ丁目31番19号　バンザイビル
+※本メールは自動配信されています。ご返信いただいてもお答えできませんのでご了承ください。
+※記載のURLはPC・スマートフォンからアクセスしてください。
+※ご利用の端末および設定によっては画面遷移しない場合がございます。
+
+

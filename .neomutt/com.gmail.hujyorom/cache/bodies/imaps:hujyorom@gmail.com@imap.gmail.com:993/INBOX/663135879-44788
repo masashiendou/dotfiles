@@ -1,0 +1,157 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:2503:0:0:0:0:0 with SMTP id l3csp1629221vkl;
+        Fri, 6 Nov 2020 16:18:52 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzcUlpXfULeh4rGKIEURl+RaPI1mrDsalWeDrqzeCa7scIKCUCA3oIrRd/reseQexv6zirc
+X-Received: by 2002:a05:6214:12b4:: with SMTP id w20mr4175382qvu.12.1604708331918;
+        Fri, 06 Nov 2020 16:18:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604708331; cv=none;
+        d=google.com; s=arc-20160816;
+        b=wtuzfqAuWuz6fqQt6/yKLX5h8OFZ++Wrd1hI01eLjdlEL68QwzCNWdaLJOxSP6hcQZ
+         qUYc3JUxYxEvZApdXVkchwHnlmL3wBsOvwt/FDc5YlygmgFTPa822EQAphy4etJrMuZ2
+         0g5ToaHtR1crui31y1xG1SXPEHMatMWA8tm5AGJWQfBx7X7O6tQkCqeE2MvFRBMwv5YG
+         /stHeh9rcm8q3jPPnZyNDWsWg0OSloHyJciMAORShf8bE7F3HouYPAAyljXdkW9kbUt/
+         LYI3gDTxQvpnzvzsQBylb/HtFY5kDlTVvYYyIveQFsuXHc9OScUkKtxwMgCJNBm+oQY4
+         6eNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-post:list-archive:list-id:precedence
+         :content-transfer-encoding:mime-version:subject:message-id:cc:to
+         :reply-to:from:date:dkim-signature;
+        bh=Y9ijQQzXrcFr8Bf7FaC6i1/cBBn2251ytRbU5J88rCI=;
+        b=Tu4xlCAKWz0DCqk+V0TOpcrHm/PmSfIh+8IBsaeoST6L49yr/nuOUittx2bnO8pJB2
+         0nuq7YewKwcWtP6LTeLZxCET81InGtV1JKO7Vd8G3yDrxwMNSvK2C8PfzT1/pcODgzg4
+         qmxUAhI0Sm4QJBF2PzglGdMcW0nz0VMTBHBLDfz34YvDq/6wFlqy4nkt/RW7ui6yH+3k
+         INrjMyoDnXzPcXn9rVAK8W8xC9fAW5tqZZp/NoHt6PS4Qnx+cAFzeSdtjZ+Zi0LE56AK
+         sS9GVC8Dn5keKh/1G4C4u5ElBHU/W9CALgrCOZpUUFxHaRvGfsiUzM8+mj4UMF0agyES
+         d92A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@github.com header.s=pf2014 header.b=hLT+x2ti;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.207 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=github.com
+Return-Path: <noreply@github.com>
+Received: from out-24.smtp.github.com (out-24.smtp.github.com. [192.30.252.207])
+        by mx.google.com with ESMTPS id bv14si1370725qvb.216.2020.11.06.16.18.51
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Fri, 06 Nov 2020 16:18:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@github.com designates 192.30.252.207 as permitted sender) client-ip=192.30.252.207;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@github.com header.s=pf2014 header.b=hLT+x2ti;
+       spf=pass (google.com: domain of noreply@github.com designates 192.30.252.207 as permitted sender) smtp.mailfrom=noreply@github.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=github.com
+Received: from github.com (hubbernetes-node-44f269a.ac4-iad.github.net [10.52.122.21])
+	by smtp.github.com (Postfix) with ESMTPA id B47EF600D2B
+	for <hujyorom@gmail.com>; Fri,  6 Nov 2020 16:18:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	s=pf2014; t=1604708331;
+	bh=Y9ijQQzXrcFr8Bf7FaC6i1/cBBn2251ytRbU5J88rCI=;
+	h=Date:From:Reply-To:To:Cc:Subject:List-ID:List-Archive:List-Post:
+	 List-Unsubscribe:From;
+	b=hLT+x2tis7dJtIuVoO2Wksf0KR0i9lHlewujIvMtCBInAQ63tj6KWjkMHFRLn1DrO
+	 rV250SdoECC0GXM+62HSMrERrs/wRWY+C4qOquIR/ZxnEucdHjvFS4nCc0uB+j86hC
+	 ouVyt/nsAW/OQCNni/0Jm1COxYZyW3m/66L1Uvso=
+Date: Fri, 06 Nov 2020 16:18:51 -0800
+From: paulilala <notifications@github.com>
+Reply-To: masashiendou/exercise1 <reply+AF6DF3M4FCSDZQ7LHNIOAUF5WHEOXEVBNHHCX7V25I@reply.github.com>
+To: masashiendou/exercise1 <exercise1@noreply.github.com>
+Cc: Subscribed <subscribed@noreply.github.com>
+Message-ID: <masashiendou/exercise1/pull/1@github.com>
+Subject: [masashiendou/exercise1] Create Pau Exercise Comments (#1)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5fa5e7ebb0d71_cbf19b4296e";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: paulilala
+X-GitHub-Recipient: masashiendou
+X-GitHub-Reason: subscribed
+List-ID: masashiendou/exercise1 <exercise1.masashiendou.github.com>
+List-Archive: https://github.com/masashiendou/exercise1
+List-Post: <mailto:reply+AF6DF3M4FCSDZQ7LHNIOAUF5WHEOXEVBNHHCX7V25I@reply.github.com>
+List-Unsubscribe: <mailto:unsub+AF6DF3M4FCSDZQ7LHNIOAUF5WHEOXEVBNHHCX7V25I@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/AF6DF3NRZ6FBQ3GJ2IM5Y7DSOSG6XANCNFSM4TNI4IDA>
+X-Auto-Response-Suppress: All
+X-GitHub-Recipient-Address: hujyorom@gmail.com
+
+
+----==_mimepart_5fa5e7ebb0d71_cbf19b4296e
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+exercise 1 comments. please check
+You can view, comment on, or merge this pull request online at:
+
+  https://github.com/masashiendou/exercise1/pull/1
+
+-- Commit Summary --
+
+  * Create Pau Exercise Comments
+
+-- File Changes --
+
+    A Pau Exercise Comments (1)
+
+-- Patch Links --
+
+https://github.com/masashiendou/exercise1/pull/1.patch
+https://github.com/masashiendou/exercise1/pull/1.diff
+
+-- 
+You are receiving this because you are subscribed to this thread.
+Reply to this email directly or view it on GitHub:
+https://github.com/masashiendou/exercise1/pull/1
+
+----==_mimepart_5fa5e7ebb0d71_cbf19b4296e
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>exercise 1 comments. please check</p>
+
+<hr>
+
+<h4>You can view, comment on, or merge this pull request online at:</h4>
+<p>&nbsp;&nbsp;<a href='https://github.com/masashiendou/exercise1/pull/1'>https://github.com/masashiendou/exercise1/pull/1</a></p>
+
+<h4>Commit Summary</h4>
+<ul>
+  <li>Create Pau Exercise Comments</li>
+</ul>
+
+<h4>File Changes</h4>
+<ul>
+  <li>
+    <strong>A</strong>
+    <a href="https://github.com/masashiendou/exercise1/pull/1/files#diff-3664f20efe2a908c357c5442327cbf8e267ebcf8d92732c8015faa9d4985102f">Pau Exercise Comments</a>
+    (1)
+  </li>
+</ul>
+
+<h4>Patch Links:</h4>
+<ul>
+  <li><a href='https://github.com/masashiendou/exercise1/pull/1.patch'>https://github.com/masashiendou/exercise1/pull/1.patch</a></li>
+  <li><a href='https://github.com/masashiendou/exercise1/pull/1.diff'>https://github.com/masashiendou/exercise1/pull/1.diff</a></li>
+</ul>
+
+<p style="font-size:small;-webkit-text-size-adjust:none;color:#666;">&mdash;<br />You are receiving this because you are subscribed to this thread.<br />Reply to this email directly, <a href="https://github.com/masashiendou/exercise1/pull/1">view it on GitHub</a>, or <a href="https://github.com/notifications/unsubscribe-auth/AF6DF3JCUNA32V4RXZYXQXLSOSG6XANCNFSM4TNI4IDA">unsubscribe</a>.<img src="https://github.com/notifications/beacon/AF6DF3JKSFD4EU2CHIMCUMTSOSG6XA5CNFSM4TNI4IDKYY3PNVWWK3TUL52HS4DFUVEXG43VMWVGG33NNVSW45C7NFSM4K76XLVA.gif" height="1" width="1" alt="" /></p>
+<script type="application/ld+json">[
+{
+"@context": "http://schema.org",
+"@type": "EmailMessage",
+"potentialAction": {
+"@type": "ViewAction",
+"target": "https://github.com/masashiendou/exercise1/pull/1",
+"url": "https://github.com/masashiendou/exercise1/pull/1",
+"name": "View Pull Request"
+},
+"description": "View this Pull Request on GitHub",
+"publisher": {
+"@type": "Organization",
+"name": "GitHub",
+"url": "https://github.com"
+}
+}
+]</script>
+
+----==_mimepart_5fa5e7ebb0d71_cbf19b4296e--

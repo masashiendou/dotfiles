@@ -1,0 +1,120 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp4593830vky;
+        Tue, 2 Mar 2021 22:50:30 -0800 (PST)
+X-Received: by 2002:aca:3906:: with SMTP id g6mr6241120oia.169.1614754230373;
+        Tue, 02 Mar 2021 22:50:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1614754230; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hBGFVZxc0Aek/ZcKvYGuYdVFYvmZ5ZvcMfPQ+JQEqCsiFZdjzweFdstBk4Cv8evHT4
+         MIyxb+eJcO7Unf3QfaJInjkw+n7D8PymYyE8pk6PU8s7txgrG/hyyoYRD8BS7r9l64SL
+         eps3dFccB7DX1gk/sUF/kNHnMUU2+AK5/lleuTjVbPq1OzqeLRLyZvKGMuvfp9jqvjwF
+         OedUCeUuIzCi4pKRYO6wexZ9/sKTrl5eSiZa0P6zaQrRUpDD7oFHEy9agH+TYj59Tadc
+         QX2RODcbpGCayMiwnJS/FtJELXx36uefLCZFB2YLWuLFwMFYgLP//3dgf7OFsxwixmzo
+         nggw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=qdDtI4vRGqXvCv6xhAVGFR4nWEW+4ILp7pKc2BzLK6I=;
+        b=0sgFiH1heaZ62NFHMMFmz1Jx79rh5eW5yQDGbtzIqZNuSlBq28pYppexQ3cu6I6H+R
+         1rqknTAJ3lvkrrm6zDro4vgVZ5QdxOSaX4e9a9U3eV2WAidFTOpo0RIZxtZr7py4I5qa
+         R8wawsuGA8surPO5lkFo8xN9+1yoyCG5ty6RA/wUFg2HM5VHDw8WDPUJcbmk785aPj6i
+         dPXMynWBUBf+OLgQuWT+GjptHz0YGRqK0jznt7ARgUydb8NvDBq1gZKaJWQ0BGYIxyzM
+         tr4eOkvgfHCHqpipuB0nxGA9B9FhrUjKb/cgb9Xxd/3AGT9C7rAyUJpc3OHKdW07ND1Z
+         cezg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=temperror (no key for signature) header.i=@trident-qa.com header.s=google header.b=rDgUQcmd;
+       spf=softfail (google.com: domain of transitioning nozomi.ito@trident-qa.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=nozomi.ito@trident-qa.com
+Return-Path: <nozomi.ito@trident-qa.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id w1sor5915101oiv.38.2021.03.02.22.50.29
+        for <hujyorom@gmail.com>
+        (Google Transport Security);
+        Tue, 02 Mar 2021 22:50:29 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning nozomi.ito@trident-qa.com does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=temperror (no key for signature) header.i=@trident-qa.com header.s=google header.b=rDgUQcmd;
+       spf=softfail (google.com: domain of transitioning nozomi.ito@trident-qa.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=nozomi.ito@trident-qa.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=trident-qa.com; s=google;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=qdDtI4vRGqXvCv6xhAVGFR4nWEW+4ILp7pKc2BzLK6I=;
+        b=rDgUQcmdTguYc2y0cGMfofvv7bmTIfYepzG1AK6So3XSdoFlQHyy+DmFN8Dlr7j8no
+         xFjSaS2btv5rGqOJ19+XNSxR1TavW6aDRys/IezMLpSeXFfXFejbxxV8m1Xpv23oHedT
+         3Pwayv3sF7wp1gph/FqGVGCaYl1otDI1h525M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=qdDtI4vRGqXvCv6xhAVGFR4nWEW+4ILp7pKc2BzLK6I=;
+        b=ZAxuVWlTlVZWo+FY/wQ5AjR0Q0F148BN3ZlrqS1oQxOcBqMvwSJbbAEyJ6Kxfb10D4
+         4zPtUvY4vMPA4JaGK3Rr+767Le+hWtbYsA1vvkbBvAtBnL/oFeMb/pnvr8k4bzYI/70M
+         DAD92scftdh5jl4LS6IOWB+YIHIFWdLgjMcOEVHb7X+kEl4OUQf4UD5XVxqlsA/ozu1+
+         PwUfctEbT15BINPh6pg4yKv1qZgMSWMdt2zn29CEx7/Hea9KR/kWjzm8xhWtrQNWVyp0
+         cddjTVtkkH58LdqKJZM+bkhARou8k5j+I16W2PBUgBnK4vWgNcHP9DiNAMD0pcXg3JEa
+         aXoQ==
+X-Gm-Message-State: AOAM532zsf9bDIhyZR6W0c0HatUBunmpdyZ9EkyCI9TOgJyIDNFIBi5u
+	qT+v0KBNILcAJ4teIC3JT8n1iViqSbHOxJBzVjcVHxSZzgQgcQ==
+X-Google-Smtp-Source: ABdhPJzfsbX4xjfUDXCKYsxRBl3hDjOlZcgmyodIPDXsDVbMzAy5aeM1g+zFCpzV3Db17l0f7qcRQyRjpttjTfY8R5E=
+X-Received: by 2002:a05:6808:1442:: with SMTP id x2mr6280663oiv.74.1614754229266;
+ Tue, 02 Mar 2021 22:50:29 -0800 (PST)
+MIME-Version: 1.0
+From: Nozomi Ito <nozomi.ito@trident-qa.com>
+Date: Wed, 3 Mar 2021 15:50:00 +0900
+Message-ID: <CALre2xQTPkBH_g8TOm58j5J68Yv4BumfFHgPvutxWUf7ne0Vhg@mail.gmail.com>
+Subject: =?UTF-8?B?5qCq5byP5Lya56S+VFJJREVOVOOCs+ODvOODh+OCo+ODs+OCsOiqsumhjA==?=
+To: hujyorom@gmail.com
+Content-Type: multipart/mixed; boundary="0000000000003c88ec05bc9c44fa"
+
+--0000000000003c88ec05bc9c44fa
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+5qCq5byP5Lya56S+VFJJREVOVOOBruS8iuiXpOOBp+OBmeOAgg0K5pys5pel44Gu44Kz44O844OH
+44Kj44Oz44Kw6Kqy6aGM44KS6YCB5LuY44GE44Gf44GX44G+44GZ44CCDQoNCuino+etlOOBr+ac
+rOODoeODvOODq+OBq+i/lOS/oeOBhOOBn+OBoOOBkeOCjOOBsOW5uOOBhOOBp+OBmeOAgg0K44Gp
+44GG44Ge44KI44KN44GX44GP44GK6aGY44GE44GX44G+44GZ44CCDQoNCi0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0NCk5vem9taSBJdG8g
+KOS8iuiXpOacmykNCkNoaWVmIEV4ZWN1dGl2ZSBPZmZpY2VyICjku6Pooajlj5bnt6DlvbkpDQpU
+UklERU5UIEluYy4NCnd3dy50cmlkZW50LXFhLmNvbQ0K
+--0000000000003c88ec05bc9c44fa
+Content-Type: text/plain; charset="UTF-8"; name="coding_question_ja.txt"
+Content-Disposition: attachment; filename="coding_question_ja.txt"
+Content-Transfer-Encoding: base64
+Content-ID: <f_klt2dxpx0>
+X-Attachment-Id: f_klt2dxpx0
+
+44K544Oa44O844K55paH5a2X5YiX44Gn44Kk44Oz44OH44Oz44OI44GV44KM44Gf44OE44Oq44O8
+44KSWE1M44OE44Oq44O844Gr5aSJ5o+b44GZ44KL44Kv44Op44K5IG9yIOmWouaVsOOCkuS9nOaI
+kOOBl+OBpuOBj+OBoOOBleOBhCAoMTIw5YiGKQoKKOS+iykKLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0KYWEKICBiYgogICAgY2MKICAgICAgZGQKICAgICAgZGQKICAgICAgICBlZQogICAg
+Y2MKICBiYgogICAgY2MKCuOCkgoKPGFhPgogIDxiYj4KICAgIDxjYz4KICAgICAgPGRkPjwvZGQ+
+CiAgICAgIDxkZD4KICAgICAgICA8ZWU+PC9lZT4KICAgICAgPC9kZD4KICAgIDwvY2M+CiAgICA8
+Y2M+PC9jYz4KICA8L2JiPgogIDxiYj4KICAgIDxjYz48L2NjPgogIDwvYmI+CjwvYWE+CgoK44Gr
+5aSJ5o+bCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCgotIOOCpOODs+ODh+ODs+ODiOOB
+r+OCueODmuODvOOCueaWh+Wtl+OBq+OCiOOCiuihjOOCj+OCjOOAgeODiOODg+ODl+ODrOODmeOD
+q+OBjDDjgIHjgZ3jga7mrKHjgYwyLDQsNuOBqDLjgZrjgaTlopfjgYjjgabjgYTjgY3jgb7jgZnj
+gIIKLSDjg4Tjg6rjg7zjga/jgr/jgrDlkI3jga7jgb/jgpLmjIHjgaHjgIHlsZ7mgKfjgoTjg4bj
+gq3jgrnjg4jjga/mjIHjgaHjgb7jgZvjgpPjgILjgr/jgrDlkI3jga/ku7vmhI/jga7jgqLjg6vj
+g5XjgqHjg5njg4Pjg4jlsI/mloflrZfjgafjgZnjgIIKLSDlh7rlipvjgZXjgozjgotYTUzjga/j
+gIFYTUzjgajjgZfjgabmraPjgZfjgZHjgozjgbDmlLnooYzjgoTjgrnjg5rjg7zjgrnjgafjgY3j
+gozjgYTjgavjg5Xjgqnjg7zjg57jg4Pjg4jjgZXjgozjgabjgYTjgovlv4XopoHjga/jgYLjgorj
+gb7jgZvjgpMo44OV44Kp44O844Oe44OD44OI44GV44KM44Gm44GE44Gm44KC5ZWP6aGM44Gv44GC
+44KK44G+44Gb44KTKeOAggoKCi0g5Yi26ZmQ5pmC6ZaT44GvMuaZgumWk+OBp+OBmeOAgu+8kuaZ
+gumWk+e1jOmBjuOBl+OBn+aZgueCueOBp+OAgeacquWujOaIkOOBp+OCguOBhOOBo+OBn+OCk+in
+o+etlOOCkumAgeS7mOOBj+OBoOOBleOBhOOAguino+etlOOBr+OAgeODoeODvOODq+OBrua3u+S7
+mOODleOCoeOCpOODq+OBp+mAgeS7mOOBj+OBoOOBleOBhOOAggotIOWIqeeUqOOBmeOCi+ODl+OD
+reOCsOODqeODn+ODs+OCsOiogOiqnuOBr+iHqueUseOBp+OBmeOAguino+etlOaPkOWHuuaZguOB
+q+OAgeOBquOCk+OBruiogOiqnivjg5Djg7zjgrjjg6fjg7PjgpLliKnnlKjjgZfjgZ/jgYvjgpLm
+lZnjgYjjgabjgY/jgaDjgZXjgYTjgIIKLSDliKnnlKjoqIDoqp7jga7mqJnmupbjg6njgqTjg5bj
+g6njg6rjga/liKnnlKjjgZfjgabjgoLllY/poYzjgYLjgorjgb7jgZvjgpPjgIIo44Gf44Gg44GX
+WE1M5Yem55CG44Gu44Op44Kk44OW44Op44Oq44Gv5L2/44KP44Gq44GE44Gn44GP44Gg44GV44GE
+KQotIOaWh+azleOChOODqeOCpOODluODqeODquOBruS9v+OBhOaWueOBquOBqeOBr+OCpOODs+OC
+v+ODvOODjeODg+ODiOOBp+iqv+OBueOBpuOBhOOBn+OBoOOBhOOBpuWVj+mhjOOBguOCiuOBvuOB
+m+OCk+OAguOCouODq+OCtOODquOCuuODoOOBr+OBlOiHqui6q+OBp+OBiuiAg+OBiOOBj+OBoOOB
+leOBhOOAggotIOato+OBl+OBj+WLleS9nOOBmeOCi+OBi+OBqOOAgeOCs+ODvOODieOBruiqreOB
+v+OChOOBmeOBleOBjOaOoeeCueWvvuixoeOBq+OBquOCiuOBvuOBmeOAggotIOWun+ihjOmAn+W6
+puOChOODoeODouODquWIqeeUqOmHj+OBquOBqeOBr+aOoeeCueWvvuixoeWkluOBp+OBmeOAguS7
+leanmOOCkua6gOOBn+OBleOBquOBhOS4jeato+OBquWFpeWKmyjjgqTjg7Pjg4fjg7Pjg4jjg6zj
+g5njg6vjgYzkuI3mraPjgarjgakp44Gr5a++44GZ44KL5Yem55CG44GM44Gn44GN44Gm44GE44KL
+44GL44KC5o6h54K55a++6LGh5aSW44Gn44GZ44CCCi0g6LOq5ZWP44GM44GC44KM44Gw44Oh44O8
+44Or44KS44GP44Gg44GV44GE44CC44Gd44Gu5pmC6L+U5L+h44GZ44KL5pmC6ZaT44GM44GC44KM
+44Gw6L+U5L+h44GE44Gf44GX44G+44GZ44CCCg==
+--0000000000003c88ec05bc9c44fa--

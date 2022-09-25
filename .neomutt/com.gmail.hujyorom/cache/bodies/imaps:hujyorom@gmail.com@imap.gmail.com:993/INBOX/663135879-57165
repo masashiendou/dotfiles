@@ -1,0 +1,959 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:9bc7:0:0:0:0:0 with SMTP id d190csp2173665vke;
+        Sun, 31 Oct 2021 17:04:34 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw7xcdhpJD6FjQWHVHz4WRwSatH9ml8LXXDiOsMUu7DqLbul/Tf5qdelE/L6uXXGZiG++0R
+X-Received: by 2002:a17:90a:9d89:: with SMTP id k9mr5304850pjp.74.1635725074688;
+        Sun, 31 Oct 2021 17:04:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1635725074; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Y+tSEwqaA/lRP+MDE15Rvzt3GhjKP6/RGIkFDafyMiynzrBJSRSyqlO7C6grikC9D6
+         7Olim6bNBv47kzmUdvI/i64jX3yAt4yUZKw6CgU5UQ9wjV0EZADRmYVicasHTZjF+nsp
+         6qxphnOfw+jqNmjXthoYOrBNVx8LRJhSXzihXf58IouDLgZdi0E9idIIyw1q5x7IK6xf
+         1Un54J6OVMxScdcTfcMe0C+ENe7sTsoHZ/eruPwpkQgv2QARxlAI4D1gIozzFa/g+blm
+         Yuqlgyv6WPs/DYqgjQs+bCa1m1UZiNalh2cLecnbCEbHxWw2ZcidNy+1qG9IBrf3EcH4
+         6q7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from
+         :dkim-signature:dkim-signature;
+        bh=bb06KaEenjsg4SRpmttsLwEpiVVyIYumF9Ky1OAEWLw=;
+        b=z+hn6oV8XOjLxXxpQk8TOni6hR3hlEXXU86ETN+fdiXZPg0rRY9rlZ4tYXAYqKahYG
+         hTydwexmLkGZsKz6bFoKdPHgtfXBlqeCQbwFZ70BjWAYkMLr0Vkwy2CC6mkyRXlG/Pr4
+         bQVL8naGfz+ORhkEVlvrhCrcQhi1koMEVQGa+TyFEogppjaBaEHjFr1Uzh1g6LmciKPz
+         eu1qEc8AUlf+gyStmga5wFeVWV9PQ+dbkFmRAcOB0AQxEw6Ujm7P741l0doAzPUux60z
+         60PUzh7uSLC+feuiMaBH0s0PMV0MHypzKSuWNrYEnFDazQ+HvPnkwoTLnCkpkbIKAPmc
+         +MtA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=tcvawychr5w6s32u34brfa36ocmmvr3q header.b=e8AwqYIa;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b=OHHr3eOe;
+       spf=pass (google.com: domain of 202111010004346aef7737fed84f84ae418575b900p0fe-c2950jsetqajqc@bounces.amazon.co.jp designates 54.240.24.25 as permitted sender) smtp.mailfrom=202111010004346aef7737fed84f84ae418575b900p0fe-C2950JSETQAJQC@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+Return-Path: <202111010004346aef7737fed84f84ae418575b900p0fe-C2950JSETQAJQC@bounces.amazon.co.jp>
+Received: from a24-25.smtp-out.us-west-2.amazonses.com (a24-25.smtp-out.us-west-2.amazonses.com. [54.240.24.25])
+        by mx.google.com with ESMTPS id v13si8190114pga.176.2021.10.31.17.04.34
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Sun, 31 Oct 2021 17:04:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 202111010004346aef7737fed84f84ae418575b900p0fe-c2950jsetqajqc@bounces.amazon.co.jp designates 54.240.24.25 as permitted sender) client-ip=54.240.24.25;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazon.co.jp header.s=tcvawychr5w6s32u34brfa36ocmmvr3q header.b=e8AwqYIa;
+       dkim=pass header.i=@amazonses.com header.s=7v7vs6w47njt4pimodk5mmttbegzsi6n header.b=OHHr3eOe;
+       spf=pass (google.com: domain of 202111010004346aef7737fed84f84ae418575b900p0fe-c2950jsetqajqc@bounces.amazon.co.jp designates 54.240.24.25 as permitted sender) smtp.mailfrom=202111010004346aef7737fed84f84ae418575b900p0fe-C2950JSETQAJQC@bounces.amazon.co.jp;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.co.jp
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=tcvawychr5w6s32u34brfa36ocmmvr3q; d=amazon.co.jp; t=1635725074;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=d0wooMlrzd0GVbeOPghr3OGeysZqsVgJVhYsGwlfE4g=;
+	b=e8AwqYIaw211IU1Bk+YysC0oYSZH/ZCkftxzzqLEGcj/cgrk03HnwpgYsnsvtzye
+	YvVgBtO7Ugcj0tImgO2APbzrcyW6ZHaZenPCL35YfbVuG/zwR6XcqI71V8RJ4JCG90h
+	gmuQptvFHFEcHDUpcQIvN4UsohFzOzPqkOwOm2CA=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=7v7vs6w47njt4pimodk5mmttbegzsi6n; d=amazonses.com; t=1635725074;
+	h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=d0wooMlrzd0GVbeOPghr3OGeysZqsVgJVhYsGwlfE4g=;
+	b=OHHr3eOeTzactBSLhpD7xpFZOQCNz7xRDwg7ra1DdGn+StyvljPmJ+AIQlZzS9eD
+	G+VC5qk1lwibnYYKl3tlMR/x7oLHHaJ1Udrk+y5pVNitp0qnznKN1yHBVsGdEnGjKxy
+	SqBHzb1fKEP93tpiFUk3FZmJMFa60ZZoCe7KbA6E=
+From: "Amazon.co.jp" <store-news@amazon.co.jp>
+To: hujyorom@gmail.com
+Message-ID: <0101017cd8cfdf54-0ef769b2-95c1-42b1-9090-e16e8a439899-000000@us-west-2.amazonses.com>
+Subject: =?UTF-8?B?44CQ6YeN6KaB44CR6YGg6Jek44CA5bCH5Y+4IA==?=
+ =?UTF-8?B?5qeY44CB6YGO5Y6744Gr44GU5rOo5paH44GV44KM?=
+ =?UTF-8?B?44Gf5ZWG5ZOB44Gr44Gk44GE44Gm44Gu44GK55+l44KJ44GbIChOb3RpZmlj?=
+ =?UTF-8?B?YXRpb24gb2YgdGhlIHByZXZpb3VzbHkgb3JkZXJlZCBwcm9kdWN0cyk=?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_14209530_813852958.1635725074253"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 202111010004346aef7737fed84f84ae418575b900p0fe-C2950JSETQAJQC@bounces.amazon.co.jp
+X-AMAZON-METADATA: CA=C2950JSETQAJQC-CU=A10PIR4I6DYV8A
+X-Original-MessageID: <urn.rtn.msg.202111010004346aef7737fed84f84ae418575b900p0fe@1635725074254.rtn-fe-mktng-c42xl2a-f066a484.us-west-2.amazon.com>
+Date: Mon, 1 Nov 2021 00:04:34 +0000
+Feedback-ID: 1.us-west-2.Ci45k5OkUuH90u7dO0Ory1StkcbFm601BtN95yGGkr4=:AmazonSES
+X-SES-Outgoing: 2021.11.01-54.240.24.25
+
+------=_Part_14209530_813852958.1635725074253
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+DQoNCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PQ0KQW1hem9uLmNvLmpwDQo9PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCumBoOiXpOOAgOWw
+h+WPuCDmp5gNCg0K772eQW1hem9u44GC44KT44GX44KT44Oh44O844Or772eCkFtYXpvbi5jby5q
+cOOCkuOBlOWIqeeUqOOBhOOBn+OBoOOBjeOAgeOBguOCiuOBjOOBqOOBhuOBlOOBluOBhOOBvuOB
+meOAggrmnKzjg6Hjg7zjg6vjga/pgY7ljrvkuIDlrprmnJ/plpPlhoXjgavphY3nt5rlmajlhbco
+44OG44O844OW44Or44K/44OD44OX44CB5bu26ZW344Kz44O844OJ44CB44Oe44Or44OB44K/44OD
+44OX44CB44Kz44Oz44K744Oz44OI562JKeOCkuOBiuiyt+OBhOS4iuOBkuOBhOOBn+OBoOOBhOOB
+n+OBiuWuouanmOOBuOOBiumAgeOCiuOBl+OBpuOBhOOBvuOBmeOAggrjg4bjg7zjg5bjg6vjgr/j
+g4Pjg5fjgoTlu7bplbfjgrPjg7zjg4njgarjganjga7phY3nt5rlmajlhbfjgavjgaTjgY3jgb7j
+gZfjgabjga9OSVRFKOijveWTgeipleS+oeaKgOihk+WfuuebpOapn+aniynjgojjgorku6XkuIvj
+ga7pgJrjgorms6jmhI/llprotbfjgYzooYzjgo/jgozjgabjgYrjgorjgb7jgZnjgILkvb/nlKjm
+lrnms5Xjgavotbflm6DjgZfjgZ/kuovmlYXjgoLnmbrnlJ/jgZfjgabjgYrjgorjgIHjgYrlrqLm
+p5jjgavjga/pganliIfjgYvjgaTlronlhajjgavjgZTkvb/nlKjjgYTjgZ/jgaDjgY/jgZ/jgoHj
+gIHku6XkuIvjga7lhoXlrrnjgpLjgZTlj4LnhafjgYTjgZ/jgaDjgY3jgb7jgZnjgojjgYbjgYrp
+oZjjgYTjgYTjgZ/jgZfjgb7jgZnjgIINCg0K5rOo5oSP5Zaa6LW344Gu6Kmz57Sw44Gv44GT44Gh
+44KJ77yeOg0KaHR0cHM6Ly93d3cuYW1hem9uLmNvLmpwL2dwL2IvcmVmPXBlX2N0YS8vP25vZGU9
+NTkzNDMwODA1MQ0KDQril4bjg4bjg7zjg5bjg6vjgr/jg4Pjg5fjgoTlu7bplbfjgrPjg7zjg4nj
+ga7lronlhajjgarkvb/nlKjjgavjgaTjgYTjgaYKCuODu+mbu+a6kOOCs+ODvOODieOBq+e5sOOC
+iui/lOOBl+mBjuW6puOBquiNt+mHjeOCkuOBi+OBkeOBquOBhOOBp+OBj+OBoOOBleOBhOOAgueJ
+ueOBq+mrmOm9ouiAheOChOimluimmumanOOBjOOBhOiAheOBjOOBhOOCi+WutuW6reOBp+OBr+OA
+geenu+WLleOBrumam+OBq+mbu+a6kOOCs+ODvOODieOCkui4j+OBv+OBpOOBkeOCi+OBk+OBqOOB
+jOOBquOBhOOCiOOBhuOBq+OAgeOBlOWutuaXj+OChOS7i+itt+OBruaWueOBjOODhuODvOODluOD
+q+OCv+ODg+ODl+OBruioree9ruWgtOaJgOOBq+awl+OCkuOBpOOBkeOBpuOBj+OBoOOBleOBhOOA
+ggrjg7vmjqXop6bkuI3oia/jgavjgojjgaPjgabnmbrnhZnjg7vnmbrngavjgZnjgovjgYrjgZ3j
+gozjgYzjgYLjgovjgZ/jgoHjgIHjgIzjga3jgZjjgormjqXntprjgI3nrYnjgIHpm7vmupDjgrPj
+g7zjg4njga7mlLnpgKDjgoTkuI3pganliIfjgarkv67nkIbjga/ntbblr77jgavooYzjgo/jgarj
+gYTjgafjgY/jgaDjgZXjgYTjgIIK77yK5a6f6Zqb44Gu5LqL5pWF5LqL5L6L44KE44Gd44Gu5LuW
+44Gu5rOo5oSP5LqL6aCF44Gv5LiK6KiY44Oq44Oz44Kv44GL44KJ44Gc44Gy44GU56K66KqN44GP
+44Gg44GV44GE44CCDQoNCu+8iuacrOODoeODvOODq+OBr+S7peWJjeOBq+OBiuiyt+OBhOS4iuOB
+kuOBhOOBn+OBoOOBhOOBn+WVhuWTgeOBq+mWoumAo+OBmeOCi+OAgeWklumDqOapn+mWouOBi+OC
+ieOBruijveWTgeWuieWFqOaDheWgseOCkuOBlOe0ueS7i+OBmeOCi+OCguOBruOBp+OBguOCiuOA
+geeJueWumuOBruODoeODvOOCq+ODvOOChOeJueWumuWVhuWTgeOBq+OBpOOBhOOBpuOBruWuieWF
+qOaAp+OChOWNsemZuuOBq+OBpOOBhOOBpuazqOaEj+WWmui1t+OBmeOCi+OCguOBruOBp+OBr+OB
+guOCiuOBvuOBm+OCk+OAggrvvIrjgZPjga5F44Oh44O844Or44Ki44OJ44Os44K544Gv6YWN5L+h
+5bCC55So44Gn44GZ44CC6L+U5L+h44Gv44Gn44GN44G+44Gb44KT44Gu44Gn44GU5LqG5om/44GP
+44Gg44GV44GE44CC77yKQW1hem9u44GC44KT44GX44KT44Oh44O844Or44CB44G+44GfQW1hem9u
+44Gu5a6J5YWo44Gr5ZCR44GR44Gf5Y+W44KK57WE44G/44Gr6Zai44GZ44KLNeWIhueoi+W6puOB
+ruOCouODs+OCseODvOODiOOCkuWun+aWveOBl+OBpuOBhOOBvuOBmeOAguS7iuW+jOOBruWPluOC
+iue1hOOBv+aUueWWhOOBruOBn+OCgeOBlOWNlOWKm+OCkuOBiumhmOOBhOiHtOOBl+OBvuOBmeOA
+giDjgqLjg7PjgrHjg7zjg4jjgavnrZTjgYjjgosgIGh0dHBzOi8vYW1hem9uanBzaW5nbGUuc3lk
+MS5xdWFsdHJpY3MuY29tL2pmZS9mb3JtL1NWXzlCM0tzZUwyV1M1WjBNSj9jYXQ9dGFwICAq5pys
+44Ki44Oz44Kx44O844OI44Gv5Y2U5Yqb5Lya56S+77yI44Kv44Ki44Or44OI44Oq44Kv44K55ZCI
+5ZCM5Lya56S+77yJ44Gu44Km44Kn44OW44Oa44O844K45LiK44Gn44GU5Zue562U44GE44Gf44Gg
+44GN44G+44GZ44CCIOOBlOWbnuetlOOBhOOBn+OBoOOBhOOBn+WGheWuueOBr0FtYXpvbuODl+OD
+qeOCpOODkOOCt+ODvOimj+e0hOOBq+W+k+OBo+OBpuWPluOCiuaJseOCj+OCjOOBvuOBmeOAgg0K
+DQoNCg0KDQoNCsKpIDIwMjFBbWF6b24uY29tLiBBbGwgcmlnaHRzIHJlc2VydmVkLiBBbWF6b27j
+ga7jg63jgrTjgIFBbWF6b24uY28uanDjgYrjgojjgbPjgIFBbWF6b24uY28uanDjga7jg63jgrTj
+ga/jgIEgQW1hem9uLmNvbSwgSW5jLuOBvuOBn+OBr+OBneOBrumWoumAo+S8muekvuOBruWVhuao
+meOBp+OBmeOAgiBSZWZlcmVuY2UgNDM2MTA2NjUyDQrjgZPjga5F44Oh44O844Or44Gv5qyh44Gu
+44Ki44OJ44Os44K55a6b44Gr6YCB5L+h44GV44KM44G+44GX44GfOiBodWp5b3JvbUBnbWFpbC5j
+b20=
+------=_Part_14209530_813852958.1635725074253
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+=20
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+=09<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"=
+ />
+    <meta name=3D"format-detection" content=3D"telephone=3Dno">=20
+=09<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0; user-scalable=3Dno;" />
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3D9; IE=3D8; IE=3D7;=
+ IE=3DEDGE" />
+    <meta name=3D"x-apple-disable-message-reformating" />
+=09<title>Amazon</title>
+   =20
+    <style type=3D"text/css">
+@font-face {
+  font-family: 'Ember';
+  font-style: bold;
+  font-weight: 600;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Bd._CB1515450239_.WOFF) format('woff');
+    }
+@font-face {
+  font-family: 'Ember';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Rg._CB1515450239_.WOFF) format('woff');
+    }
+@font-face {
+  font-family: 'Ember';
+  font-style: light;
+  font-weight: 200;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Lt._CB1515450239_.WOFF) format('woff');
+    }
+@font-face {
+  font-family: 'Ember';
+  font-style: medium;
+  font-weight: 500;
+  src: local('Ember'), url(https://m.media-amazon.com/images/G/01/outbound/=
+AmazonEmber_Md._CB1515450239_.WOFF) format('woff');
+    }
+  /* RESET STYLES */
+body {
+    margin: 0 !important;
+    padding: 0;
+    background-color: #ffffff;
+}
+table {
+    border-spacing: 0;
+    font-family: sans-serif;
+    color: #232F3E;
+    margin:0 auto !important;
+}
+table, table td { border-collapse:collapse !important; }
+table th { margin:0 !important; padding:0 !important; font-weight:normal; }
+td {
+    padding: 0;
+}
+img {
+    border: 0;
+}
+   td, a, span {
+word-break:keep-all !important;
+  }
+  body, table, td, a {  -webkit-text-size-adjust:100%; -ms-text-size-adjust=
+:100%; }
+  /* PAGE STYLES */
+  h1 {display:block; text-decoration:none; font-family: Ember, Helvetica, A=
+rial, sans-serif; font-size:46px; font-weight:100; line-height: 46px;}
+  h2 {display:block; text-decoration:none; font-family: Ember, Helvetica, A=
+rial, sans-serif; font-size:36px; font-weight:400; line-height: 38px;}
+  h3 {display:block; text-decoration:none; font-family: Ember, Helvetica, A=
+rial, sans-serif; font-size:24px; font-weight:100; line-height: 24px;}
+  h4 {display:block; text-decoration:none; font-family: Ember, Helvetica, A=
+rial, sans-serif; font-size:20px; font-weight:900; line-height: 22px;}
+  p {text-decoration:none; font-family: Ember, Helvetica, Arial, sans-serif=
+; font-size:14px; font-weight:400; line-height: 16px;}
+  div[style*=3D"margin: 16px 0"] {=20
+    margin:0 !important;
+  }
+  /* iOS BLUE LINKS */
+    .appleBody a { color:#68440a; text-decoration: none; }
+    .appleFooter a { color:#999999; text-decoration: none; } =20
+ =20
+  /* A nice and clean way to target phone numbers you want clickable and av=
+oid a mobile phone from linking other numbers that look like, but are not p=
+hone numbers.  Use these two blocks of code to "unstyle" any numbers that m=
+ay be linked.  The second block gives you a class to apply with a span tag =
+to the numbers you would like linked and styled.
+  Inspired by Campaign Monitor's article on using phone numbers in email: h=
+ttp://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-em=
+ail/.
+  */
+
+
+  .wrapper {
+    width: 100%;
+    table-layout: fixed;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+.webkit {
+    max-width: 640px;
+    margin: 0 auto;
+}
+</style>
+<style type=3D"text/css">
+    a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: inherit !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+}
+</style>
+<style type=3D"text/css">
+  @media screen and (max-width:480px){
+      .full100 {
+        width:100% !important;
+        max-width:100% !important;
+    }
+   =20
+    .half50{
+        width:50% !important;
+        max-width:50% !important;
+    }
+    .two-column .column,
+    .three-column .column {
+        max-width: 100% !important;
+    }
+    .two-column img {
+        max-width: 100% !important;
+    }
+    .three-column img {
+        max-width: 100% !important;
+    }
+    .maxWidth100 {
+        max-width: 100% !important;
+    }
+  /* general classes */ =20
+=20
+  .alignCenter {
+      text-align:center !important;
+      margin:0 auto !important;
+      float:none !important;
+  }
+  .alignRight {
+    text-align:right !important;
+  }
+  .alignLeft {
+    text-align:left !important;
+  }
+  .mWidth305 {
+    max-width:306px !important;
+  }
+  .mWidth100 {
+      max-width:100% !important;
+  }
+  .container {
+    width:98% !important;
+    }
+    .stackRTL { direction: rtl !important;}
+    .stackLTR {direction: ltr !important;}
+  .hideAll { display:none !important; }
+  .hide { display:none !important; line-height:0 !important;}
+  .tdwrap { display:inline-block !important; }
+  .block_wrap { display:block !important; padding:0 !important; margin:0 au=
+to !important;}
+  .block { display:block !important; }
+  .valignbottom { vertical-align:bottom !important; }
+  .valigncenter { vertical-align:middle !important; }
+  .rel { position:relative !important; }
+  .abs { position:absolute !important; }
+  .show { display:block !important; width:auto !important; overflow:visible=
+ !important; float:none !important; max-height:inherit !important; line-hei=
+ght:inherit !important; }
+  .showOnMobile { display:block !important; max-height:none !important; lin=
+e-height:inherit !important; }
+ =20
+    .bgHero { background-image: url('') !important; }
+ =20
+  .bgefefef { background-color:#efefef !important; }
+  =20
+  .marginr66 { margin-right:66px !Important; }
+  .marginl0 { margin-left:0px !Important; }
+  .marginl66 { margin-left:66px !Important; }
+  .aligncenter { text-align:center !important; }
+  .alignleft { text-align:left !important; }
+  .font10{ font-size:10px !important; }
+  .font11{ font-size:11px !important; line-height:11px !important; }
+  .font12{ font-size:12px !important; }
+  .font13{ font-size:13px !important; }
+  .font14{ font-size:14px !important; }
+  .font16{ font-size:16px !important; }
+  .font20{ font-size:20px !important; }
+  .font21{ font-size:21px !important; }
+  .font24{ font-size:24px !important; line-height:26px !important; }
+  .lineh16{ line-height:16px !important; }
+  .lineh22{ line-height:22px !important; }
+  .line16{ font-size:16px !important; }
+  .line17{ font-size:17px !important; }
+ =20
+  /*widths*/
+  .full { width:100% !important;
+  max-width:100% !important;}
+  .deviceWidth { width:320px !important; }
+  .width0 { width:0px !important; }
+  .width12 {width:12px !important; line-height:12px;}
+  .width52 { width:52px !important; }
+  .width100 { width:100px !important; max-width:100px !important;}
+  .width147 { width:147px !important; max-width:147px !important;}
+  .width282 { width:282px !important; }
+  .width294 { width:294px !important; }
+  .width298 { width:298px !important; }
+  .width300 { width:300px !important; }
+  .width306 { width:306px !important; max-width:306px !important; }
+  .width320 { width:320px !important; min-width:320px !important; }
+  .width_30 { width:30% !important; }
+  .width_40 { width:40% !important; }
+  .width_50 { width:50% !important; }
+  .width_60 { width:60% !important; }
+  .width_70 { width:70% !important; }
+  .width_80 { width:80% !important; }
+  .width_90 { width:90% !important;=20
+      max-width:90% !important;
+  }
+  .feFooter { width:290px !Important; }
+  .feDevicewidth { width:290px !Important; }
+ =20
+  /*heights*/
+  .height6 {height:6px !important; line-height:6px !important;}
+  .height12 {height:12px !important; line-height:12px !important;}
+  .height24 {height:24px !important;}
+  .hauto { height:auto !important; }
+  .height0 { height:0px !important; }
+ =20
+  /*padding*/
+  .padding0 { padding:0px !important; }
+  .paddingt6 { padding-top:6px !important; }
+  .paddingt10 { padding-top:10px !important; }
+  .paddingt12 { padding-top:12px !important; }
+  .paddingr0 {padding-right:0px !important; }
+  .paddingr10 {padding-right:10px !important; }
+  .paddingr20 {padding-right:20px !important; }
+  .paddingb5 { padding-bottom:5px !important; }
+  .paddingb6 { padding-bottom:6px !important; }
+  .paddingb7 { padding-bottom:7px !important; }
+  .paddingb10 { padding-bottom:10px !important; }
+  .paddingb12 { padding-bottom:12px !important; }
+  .paddingb20 { padding-bottom:20px !important; }
+  .paddingl0 {padding-left:0px !important; }
+  .paddingl10 {padding-left:10px !important; }
+  .paddingl20 {padding-left:20px !important; }
+  .paddinglr60 {padding-left:60px !important; padding-right:60px !important=
+; }
+ =20
+  /*floats*/
+  .fl { float:left !important;  }
+  .fr { float:right !important; }=20
+  .wrap { float:block !important; }
+  .clear { clear:both !important; }
+}
+=09</style>
+   =20
+=09<!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+=09</xml>
+   =20
+    <style type=3D"text/css">
+        .mm15 { padding:0px !important; margin-left:15px !important; margin=
+-right:15px !important; }
+        .ml10 { padding:0px !important; margin-left:10px !important; }
+        .mr10 { padding:0px !important; margin-right:10px !important; }
+    </style>
+    <![endif]-->
+   =20
+   =20
+<!--[if mso]>
+<style>
+body, a, span, td, table, div, p {
+font-family: Arial, Helvetica, sans-serif !important
+}
+</style>
+<![endif]-->
+<style type=3D"text/css">
+  span, a, td { =20
+  overflow-wrap: break-all !important;
+  word-wrap: break-all !important;
+
+  -ms-word-break: break-all !important;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all !important;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto !important;
+  -moz-hyphens: auto !important;
+  -webkit-hyphens: auto !important;
+  hyphens: auto !important;
+}
+</style>
+
+
+</head>
+<body style=3D"-webkit-text-size-adjust:none; margin:0 auto; background:#ff=
+ffff;">
+  <center>
+    <table cellpadding=3D"0" cellspacing=3D"0" align=3D"center" width=3D"10=
+0%" bgcolor=3D"#ffffff">
+        <tr>
+          <td align=3D"center">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" st=
+yle=3D"border-spacing: 0;font-family: sans-serif;color: #333333;margin: 0 a=
+uto;width: 100%; max-width: 640px;">
+  <tr><td height=3D"10" style=3D"line-height:10px;"><img src=3D"http://g-ec=
+x.images-amazon.com/images/G/01/e-mail/img/softlines/sp.gif" width=3D"1" he=
+ight=3D"1" style=3D"display:block; border:0;" /></td></tr>
+   <tr>
+    <td style=3D"padding: 0 8px;text-align: center;font-size: 0;">
+        <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"64=
+0" style=3D"border-spacing: 0;" class=3D"hide">
+          <tr>
+              <td align=3D"left" style=3D"text-align:left; font-family:Aria=
+l, sans-serif; font-size:10px; line-height:16px; color:#666666;" class=3D"h=
+ide">Amazon=E3=81=A7=E8=B3=BC=E5=85=A5=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=
+=E3=81=9F=E3=83=86=E3=83=BC=E3=83=96=E3=83=AB=E3=82=BF=E3=83=83=E3=83=97=E3=
+=82=84=E5=BB=B6=E9=95=B7=E3=82=B3=E3=83=BC=E3=83=89=E3=81=AB=E9=96=A2=E3=81=
+=99=E3=82=8B=E9=87=8D=E8=A6=81=E3=81=AA=E3=81=8A=E7=9F=A5=E3=82=89=E3=81=9B=
+ <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DTPYSFGF1KJXY&K=3D34D7J92=
+BSKGNA&M=3Durn:rtn:msg:202111010004346aef7737fed84f84ae418575b900p0fe&R=3D3=
+3K7SBBJBPWOT&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fb%2Fref%3Dpe_2=
+633162_436106652_pe_super%2F%2F%3Fnode%3D5934308051&H=3DDSHWFJ1UT2OP8DRFEMF=
+142EFFRIA&ref_=3Dpe_2633162_436106652_pe_super" style=3D"color:#666666; tex=
+t-decoration:underline;">=E8=A9=B3=E3=81=97=E3=81=8F=E3=81=AF=E3=81=93=E3=
+=81=A1=E3=82=89</a>
+              </td>      =20
+              <td align=3D"right" class=3D"aligncenter">
+                <div style=3D"display:inline-block;">
+              =20
+                </div>
+    </td>
+          </tr>
+          <tr><td height=3D"4" style=3D"line-height:4px;"><img src=3D"http:=
+//g-ecx.images-amazon.com/images/G/01/e-mail/img/softlines/sp.gif" width=3D=
+"1" height=3D"1" style=3D"display:block; border:0;" /></td></tr>
+        </table>
+    </td>
+  </tr>
+</table>
+         =20
+            <div style=3D"height:0px; max-height:0px; line-height:0px; font=
+-size:0px; overflow:hidden;"><img width=3D"1" height=3D"1" src=3D"https://w=
+ww.amazon.co.jp/gp/r.html?C=3DTPYSFGF1KJXY&K=3D34D7J92BSKGNA&M=3Durn:rtn:ms=
+g:202111010004346aef7737fed84f84ae418575b900p0fe&R=3D1GPXJVTZAF4QJ&T=3DO&U=
+=3Dhttps%3A%2F%2Fimages-fe.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2F=
+transp.gif&H=3DQJ2MS2AHE7RLBWORQFU15JHHARUA&ref_=3Dpe_2633162_436106652_ope=
+ns" /></div>
+           =20
+           =20
+=20
+
+
+<!--[if (gte mso 9)|(IE)]>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center">
+<tr>
+<td>
+<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"640" style=3D"border-spacing: 0; margin: 0 auto; width: 640px;" clas=
+s=3D"width_90">
+  <tr>
+    <td height=3D"4" style=3D"line-height:4px;"  bgcolor=3D"#FF9900" ><img =
+src=3D"http://g-ecx.images-amazon.com/images/G/01/e-mail/img/softlines/sp.g=
+if" width=3D"1" height=3D"1" style=3D"display:block; border:0;" alt=3D"=3D =
+=3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D=
+" /></td>
+  </tr>
+  <tr><td height=3D"10" style=3D"line-height:10px;"><img src=3D"http://g-ec=
+x.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=
+=3D"1" style=3D"display:block; border:0;" /></td></tr>
+</table>
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"640" align=
+=3D"center">
+<tr>
+<td width=3D"100%">
+<![endif]-->
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"640" style=3D"border-spacing: 0; margin: 0 auto; width: 640px;" clas=
+s=3D"width_90">
+  <tr>
+      <td align=3D"left" style=3D"padding:0 !important;font-size: 0;">
+     =20
+      <a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DTPYSFGF1KJXY&K=3D34=
+D7J92BSKGNA&M=3Durn:rtn:msg:202111010004346aef7737fed84f84ae418575b900p0fe&=
+R=3D2CUHMNEHLUE5O&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fref%3Dpe_26331=
+62_436106652_pe_sef_logo&H=3DSXMFXT6EWANELLRMGTTMDN9VLPAA&ref_=3Dpe_2633162=
+_436106652_pe_sef_logo">  <img src=3D"http://g-ecx.images-amazon.com/images=
+/G/01/e-mail/logos/a_jp_prime_logo_274x96.png" width=3D"auto" height=3D"48"=
+ alt=3D"Amazon.co.jp"  border=3D"0" style=3D"display:block; width:auto; hei=
+ght:48px;" /> </a>
+     =20
+    </td>
+  </tr>
+  <tr><td height=3D"12" style=3D"line-height:12px;"><img src=3D"http://g-ec=
+x.images-amazon.com/images/G/01/e-mail/img/softlines/sp.gif" width=3D"1" he=
+ight=3D"1" style=3D"display:block; border:0;" /></td></tr>
+</table>
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+<![endif]-->
+
+
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"640" style=3D"border-spacing: 0; margin: 0 auto; width: 640px;" clas=
+s=3D"width_90">
+    <tr>
+      <td height=3D"1" style=3D"line-height:1px;" bgcolor=3D"#cccccc"><img =
+src=3D"http://g-ecx.images-amazon.com/images/G/01/e-mail/img/softlines/sp.g=
+if" width=3D"1" height=3D"1" style=3D"display:block; border:0;" alt=3D"=3D =
+=3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D=
+" /></td>
+    </tr>
+    <tr><td height=3D"24"><img src=3D"http://g-ecx.images-amazon.com/images=
+/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=3D"1" style=3D"display:blo=
+ck; border:0;" /></td></tr>
+  </table>
+
+           =20
+           =20
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" bg=
+color=3D"#ffffff" style=3D"border-spacing: 0; margin: 0 auto; width: 640px;=
+" class=3D"width_90">
+  <tr bgcolor=3D"#ffffff" class=3D"block_wrap">
+    <th align=3D"center">
+      <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"cent=
+er" width=3D"640" style=3D"width:640px; border-spacing: 0;border-collapse: =
+collapse; border-width:0; mso-table-lspace:0pt; mso-table-rspace:0pt; paddi=
+ng:0;" class=3D"full">
+        <tr>
+          <td align=3D"center" valign=3D"middle" style=3D"font-size:0; line=
+-height:0; vertical-align: middle;">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=
+=3D"628" style=3D"border-spacing: 0; text-align: center; width:628px;" clas=
+s=3D"width306">
+           =20
+              <tr>
+                <td align=3D"left" style=3D"text-align:left; padding:0 !imp=
+ortant;">
+                  <span style=3D"color:#232F3E; text-decoration:none; font-=
+family: Ember, Helvetica, Arial, sans-serif; font-size:14px; font-weight:40=
+0; line-height: 16px">=E9=81=A0=E8=97=A4=E3=80=80=E5=B0=87=E5=8F=B8 =E6=A7=
+=98</span>
+                </td>
+              </tr>
+              <tr><td height=3D"24" style=3D"line-height:24px"><img src=3D"=
+http://g-ecx.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D=
+"1" height=3D"1" style=3D"display:block; border:0;" /></td></tr>
+           =20
+           =20
+              <tr>
+                <td align=3D"left" style=3D"text-align:left; padding:0 !imp=
+ortant;">
+                  <span style=3D"color:#232F3E; text-decoration:none; font-=
+family: Ember, Helvetica, Arial, sans-serif; font-size:14px; font-weight:40=
+0; line-height: 16px"><h3>=EF=BD=9EAmazon=E3=81=82=E3=82=93=E3=81=97=E3=82=
+=93=E3=83=A1=E3=83=BC=E3=83=AB=EF=BD=9E</h3>
+Amazon.co.jp=E3=82=92=E3=81=94=E5=88=A9=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=
+=E3=81=8D=E3=80=81=E3=81=82=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=
+=81=96=E3=81=84=E3=81=BE=E3=81=99=E3=80=82<br>
+=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E9=81=8E=E5=8E=BB=E4=B8=80=E5=
+=AE=9A=E6=9C=9F=E9=96=93=E5=86=85=E3=81=AB=E9=85=8D=E7=B7=9A=E5=99=A8=E5=85=
+=B7(=E3=83=86=E3=83=BC=E3=83=96=E3=83=AB=E3=82=BF=E3=83=83=E3=83=97=E3=80=
+=81=E5=BB=B6=E9=95=B7=E3=82=B3=E3=83=BC=E3=83=89=E3=80=81=E3=83=9E=E3=83=AB=
+=E3=83=81=E3=82=BF=E3=83=83=E3=83=97=E3=80=81=E3=82=B3=E3=83=B3=E3=82=BB=E3=
+=83=B3=E3=83=88=E7=AD=89)=E3=82=92=E3=81=8A=E8=B2=B7=E3=81=84=E4=B8=8A=E3=
+=81=92=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E3=81=8A=E5=AE=A2=E6=A7=
+=98=E3=81=B8=E3=81=8A=E9=80=81=E3=82=8A=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=
+=E3=81=99=E3=80=82<br>
+=E3=83=86=E3=83=BC=E3=83=96=E3=83=AB=E3=82=BF=E3=83=83=E3=83=97=E3=82=84=E5=
+=BB=B6=E9=95=B7=E3=82=B3=E3=83=BC=E3=83=89=E3=81=AA=E3=81=A9=E3=81=AE=E9=85=
+=8D=E7=B7=9A=E5=99=A8=E5=85=B7=E3=81=AB=E3=81=A4=E3=81=8D=E3=81=BE=E3=81=97=
+=E3=81=A6=E3=81=AFNITE(=E8=A3=BD=E5=93=81=E8=A9=95=E4=BE=A1=E6=8A=80=E8=A1=
+=93=E5=9F=BA=E7=9B=A4=E6=A9=9F=E6=A7=8B)=E3=82=88=E3=82=8A=E4=BB=A5=E4=B8=
+=8B=E3=81=AE=E9=80=9A=E3=82=8A=E6=B3=A8=E6=84=8F=E5=96=9A=E8=B5=B7=E3=81=8C=
+=E8=A1=8C=E3=82=8F=E3=82=8C=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=
+=80=82=E4=BD=BF=E7=94=A8=E6=96=B9=E6=B3=95=E3=81=AB=E8=B5=B7=E5=9B=A0=E3=81=
+=97=E3=81=9F=E4=BA=8B=E6=95=85=E3=82=82=E7=99=BA=E7=94=9F=E3=81=97=E3=81=A6=
+=E3=81=8A=E3=82=8A=E3=80=81=E3=81=8A=E5=AE=A2=E6=A7=98=E3=81=AB=E3=81=AF=E9=
+=81=A9=E5=88=87=E3=81=8B=E3=81=A4=E5=AE=89=E5=85=A8=E3=81=AB=E3=81=94=E4=BD=
+=BF=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8F=E3=81=9F=E3=82=81=E3=80=81=
+=E4=BB=A5=E4=B8=8B=E3=81=AE=E5=86=85=E5=AE=B9=E3=82=92=E3=81=94=E5=8F=82=E7=
+=85=A7=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=82=88=E3=81=
+=86=E3=81=8A=E9=A1=98=E3=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=
+=E3=80=82<br></span>
+                </td>
+              </tr>
+           =20
+=09=09=09=09
+              <tr><td height=3D"24" style=3D"line-height:24px"><img src=3D"=
+http://g-ecx.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D=
+"1" height=3D"1" style=3D"display:block; border:0;" /></td></tr>
+              <tr>
+                <td align=3D"left" style=3D"text-align:left; padding:0 !imp=
+ortant;"><a href=3D"https://www.amazon.co.jp/gp/r.html?C=3DTPYSFGF1KJXY&K=
+=3D34D7J92BSKGNA&M=3Durn:rtn:msg:202111010004346aef7737fed84f84ae418575b900=
+p0fe&R=3D1EML06PT8LDVF&T=3DC&U=3Dhttps%3A%2F%2Fwww.amazon.co.jp%2Fgp%2Fb%2F=
+ref%3Dpe_2633162_436106652_pe_cta%2F%2F%3Fnode%3D5934308051&H=3DVINYYQJN08Z=
+LYVDFXQDHYZ77CRCA&ref_=3Dpe_2633162_436106652_pe_cta" style=3D"color:#00829=
+6; font-family: Ember, Helvetica, Arial, sans-serif; font-size:14px; line-h=
+eight:16px; text-decoration:none;"><strong>=E6=B3=A8=E6=84=8F=E5=96=9A=E8=
+=B5=B7=E3=81=AE=E8=A9=B3=E7=B4=B0=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=EF=BC=
+=9E</strong></a>
+                </td>
+              </tr>
+             =20
+           =20
+              <tr><td height=3D"24" style=3D"line-height:24px"><img src=3D"=
+http://g-ecx.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D=
+"1" height=3D"1" style=3D"display:block; border:0;" /></td></tr>
+              <tr>
+                <td align=3D"left" style=3D"text-align:left; padding:0 !imp=
+ortant;">
+                  <span style=3D"color:#232F3E; text-decoration:none; font-=
+family: Ember, Helvetica, Arial, sans-serif; font-size:14px; font-weight:40=
+0; line-height: 16px"><h3>=E2=97=86=E3=83=86=E3=83=BC=E3=83=96=E3=83=AB=E3=
+=82=BF=E3=83=83=E3=83=97=E3=82=84=E5=BB=B6=E9=95=B7=E3=82=B3=E3=83=BC=E3=83=
+=89=E3=81=AE=E5=AE=89=E5=85=A8=E3=81=AA=E4=BD=BF=E7=94=A8=E3=81=AB=E3=81=A4=
+=E3=81=84=E3=81=A6</h3>
+<br>
+=E3=83=BB=E9=9B=BB=E6=BA=90=E3=82=B3=E3=83=BC=E3=83=89=E3=81=AB=E7=B9=B0=E3=
+=82=8A=E8=BF=94=E3=81=97=E9=81=8E=E5=BA=A6=E3=81=AA=E8=8D=B7=E9=87=8D=E3=82=
+=92=E3=81=8B=E3=81=91=E3=81=AA=E3=81=84=E3=81=A7=E3=81=8F=E3=81=A0=E3=81=95=
+=E3=81=84=E3=80=82=E7=89=B9=E3=81=AB=E9=AB=98=E9=BD=A2=E8=80=85=E3=82=84=E8=
+=A6=96=E8=A6=9A=E9=9A=9C=E3=81=8C=E3=81=84=E8=80=85=E3=81=8C=E3=81=84=E3=82=
+=8B=E5=AE=B6=E5=BA=AD=E3=81=A7=E3=81=AF=E3=80=81=E7=A7=BB=E5=8B=95=E3=81=AE=
+=E9=9A=9B=E3=81=AB=E9=9B=BB=E6=BA=90=E3=82=B3=E3=83=BC=E3=83=89=E3=82=92=E8=
+=B8=8F=E3=81=BF=E3=81=A4=E3=81=91=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E3=81=
+=AA=E3=81=84=E3=82=88=E3=81=86=E3=81=AB=E3=80=81=E3=81=94=E5=AE=B6=E6=97=8F=
+=E3=82=84=E4=BB=8B=E8=AD=B7=E3=81=AE=E6=96=B9=E3=81=8C=E3=83=86=E3=83=BC=E3=
+=83=96=E3=83=AB=E3=82=BF=E3=83=83=E3=83=97=E3=81=AE=E8=A8=AD=E7=BD=AE=E5=A0=
+=B4=E6=89=80=E3=81=AB=E6=B0=97=E3=82=92=E3=81=A4=E3=81=91=E3=81=A6=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<BR>
+=E3=83=BB=E6=8E=A5=E8=A7=A6=E4=B8=8D=E8=89=AF=E3=81=AB=E3=82=88=E3=81=A3=E3=
+=81=A6=E7=99=BA=E7=85=99=E3=83=BB=E7=99=BA=E7=81=AB=E3=81=99=E3=82=8B=E3=81=
+=8A=E3=81=9D=E3=82=8C=E3=81=8C=E3=81=82=E3=82=8B=E3=81=9F=E3=82=81=E3=80=81=
+=E3=80=8C=E3=81=AD=E3=81=98=E3=82=8A=E6=8E=A5=E7=B6=9A=E3=80=8D=E7=AD=89=E3=
+=80=81=E9=9B=BB=E6=BA=90=E3=82=B3=E3=83=BC=E3=83=89=E3=81=AE=E6=94=B9=E9=80=
+=A0=E3=82=84=E4=B8=8D=E9=81=A9=E5=88=87=E3=81=AA=E4=BF=AE=E7=90=86=E3=81=AF=
+=E7=B5=B6=E5=AF=BE=E3=81=AB=E8=A1=8C=E3=82=8F=E3=81=AA=E3=81=84=E3=81=A7=E3=
+=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82<BR>
+=EF=BC=8A=E5=AE=9F=E9=9A=9B=E3=81=AE=E4=BA=8B=E6=95=85=E4=BA=8B=E4=BE=8B=E3=
+=82=84=E3=81=9D=E3=81=AE=E4=BB=96=E3=81=AE=E6=B3=A8=E6=84=8F=E4=BA=8B=E9=A0=
+=85=E3=81=AF=E4=B8=8A=E8=A8=98=E3=83=AA=E3=83=B3=E3=82=AF=E3=81=8B=E3=82=89=
+=E3=81=9C=E3=81=B2=E3=81=94=E7=A2=BA=E8=AA=8D=E3=81=8F=E3=81=A0=E3=81=95=E3=
+=81=84=E3=80=82</span>
+                </td>
+              </tr>
+           =20
+           =20
+              <tr><td height=3D"24" style=3D"line-height:24px"><img src=3D"=
+http://g-ecx.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D=
+"1" height=3D"1" style=3D"display:block; border:0;" /></td></tr>
+              <tr>
+                <td align=3D"left" style=3D"text-align:left; padding:0 !imp=
+ortant;">
+                  <span style=3D"color:#232F3E; text-decoration:none; font-=
+family: Ember, Helvetica, Arial, sans-serif; font-size:14px; font-weight:40=
+0; line-height: 16px">=EF=BC=8A=E6=9C=AC=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=
+=AF=E4=BB=A5=E5=89=8D=E3=81=AB=E3=81=8A=E8=B2=B7=E3=81=84=E4=B8=8A=E3=81=92=
+=E3=81=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E5=95=86=E5=93=81=E3=81=AB=E9=
+=96=A2=E9=80=A3=E3=81=99=E3=82=8B=E3=80=81=E5=A4=96=E9=83=A8=E6=A9=9F=E9=96=
+=A2=E3=81=8B=E3=82=89=E3=81=AE=E8=A3=BD=E5=93=81=E5=AE=89=E5=85=A8=E6=83=85=
+=E5=A0=B1=E3=82=92=E3=81=94=E7=B4=B9=E4=BB=8B=E3=81=99=E3=82=8B=E3=82=82=E3=
+=81=AE=E3=81=A7=E3=81=82=E3=82=8A=E3=80=81=E7=89=B9=E5=AE=9A=E3=81=AE=E3=83=
+=A1=E3=83=BC=E3=82=AB=E3=83=BC=E3=82=84=E7=89=B9=E5=AE=9A=E5=95=86=E5=93=81=
+=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=81=AE=E5=AE=89=E5=85=A8=E6=80=A7=E3=
+=82=84=E5=8D=B1=E9=99=BA=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E6=B3=A8=E6=84=
+=8F=E5=96=9A=E8=B5=B7=E3=81=99=E3=82=8B=E3=82=82=E3=81=AE=E3=81=A7=E3=81=AF=
+=E3=81=82=E3=82=8A=E3=81=BE=E3=81=9B=E3=82=93=E3=80=82<br>
+=EF=BC=8A=E3=81=93=E3=81=AEE=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=
+=E3=83=AC=E3=82=B9=E3=81=AF=E9=85=8D=E4=BF=A1=E5=B0=82=E7=94=A8=E3=81=A7=E3=
+=81=99=E3=80=82=E8=BF=94=E4=BF=A1=E3=81=AF=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=
+=9B=E3=82=93=E3=81=AE=E3=81=A7=E3=81=94=E4=BA=86=E6=89=BF=E3=81=8F=E3=81=A0=
+=E3=81=95=E3=81=84=E3=80=82<br>=EF=BC=8AAmazon=E3=81=82=E3=82=93=E3=81=97=
+=E3=82=93=E3=83=A1=E3=83=BC=E3=83=AB=E3=80=81=E3=81=BE=E3=81=9FAmazon=E3=81=
+=AE=E5=AE=89=E5=85=A8=E3=81=AB=E5=90=91=E3=81=91=E3=81=9F=E5=8F=96=E3=82=8A=
+=E7=B5=84=E3=81=BF=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B5=E5=88=86=E7=A8=8B=
+=E5=BA=A6=E3=81=AE=E3=82=A2=E3=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E3=82=92=E5=
+=AE=9F=E6=96=BD=E3=81=97=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=80=82=E4=BB=
+=8A=E5=BE=8C=E3=81=AE=E5=8F=96=E3=82=8A=E7=B5=84=E3=81=BF=E6=94=B9=E5=96=84=
+=E3=81=AE=E3=81=9F=E3=82=81=E3=81=94=E5=8D=94=E5=8A=9B=E3=82=92=E3=81=8A=E9=
+=A1=98=E3=81=84=E8=87=B4=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br><br> <A hre=
+f=3Dhttps://www.amazon.co.jp/gp/f.html?C=3DTPYSFGF1KJXY&K=3D34D7J92BSKGNA&M=
+=3Durn:rtn:msg:202111010004346aef7737fed84f84ae418575b900p0fe&R=3D3ZHZ9XGWV=
+EOU&T=3DC&U=3Dhttps%3A%2F%2Famazonjpsingle.syd1.qualtrics.com%2Fjfe%2Fform%=
+2FSV_9B3KseL2WS5Z0MJ%3Fcat%3Dtap&H=3DEIK0A5Y5YPJ0TWDWPQSUGUBJMEYA>=E3=82=A2=
+=E3=83=B3=E3=82=B1=E3=83=BC=E3=83=88=E3=81=AB=E7=AD=94=E3=81=88=E3=82=8B <B=
+R> https://amazonjpsingle.syd1.qualtrics.com/jfe/form/SV_9B3KseL2WS5Z0MJ?ca=
+t=3Dtap</A> <BR> <small>*=E6=9C=AC=E3=82=A2=E3=83=B3=E3=82=B1=E3=83=BC=E3=
+=83=88=E3=81=AF=E5=8D=94=E5=8A=9B=E4=BC=9A=E7=A4=BE=EF=BC=88=E3=82=AF=E3=82=
+=A2=E3=83=AB=E3=83=88=E3=83=AA=E3=82=AF=E3=82=B9=E5=90=88=E5=90=8C=E4=BC=9A=
+=E7=A4=BE=EF=BC=89=E3=81=AE=E3=82=A6=E3=82=A7=E3=83=96=E3=83=9A=E3=83=BC=E3=
+=82=B8=E4=B8=8A=E3=81=A7=E3=81=94=E5=9B=9E=E7=AD=94=E3=81=84=E3=81=9F=E3=81=
+=A0=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82 =E3=81=94=E5=9B=9E=E7=AD=94=E3=81=
+=84=E3=81=9F=E3=81=A0=E3=81=84=E3=81=9F=E5=86=85=E5=AE=B9=E3=81=AFAmazon=E3=
+=83=97=E3=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E8=A6=8F=E7=B4=84=E3=81=
+=AB=E5=BE=93=E3=81=A3=E3=81=A6=E5=8F=96=E3=82=8A=E6=89=B1=E3=82=8F=E3=82=8C=
+=E3=81=BE=E3=81=99=E3=80=82</small><br></span>
+                </td>
+              </tr>
+           =20
+            </table>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr><td height=3D"24"><img src=3D"http://g-ecx.images-amazon.com/images/G=
+/01/e-mail/img14/kc/sp.gif" width=3D"1" height=3D"1" style=3D"display:block=
+; border:0;" /></td></tr>
+
+
+                =20
+
+=20
+
+
+    =20
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" st=
+yle=3D"border-spacing: 0; margin: 0 auto;width: 640px;" class=3D"width_90">
+  <tr>
+    <td height=3D"1" style=3D"line-height:1px;" bgcolor=3D"#cccccc"><img sr=
+c=3D"http://g-ecx.images-amazon.com/images/G/01/e-mail/img/softlines/sp.gif=
+" width=3D"1" height=3D"1" style=3D"display:block; border:0;" alt=3D"=3D =
+=3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D =3D=
+" /></td>
+  </tr>
+  <tr><td height=3D"10" style=3D"line-height:10px;"><img src=3D"http://g-ec=
+x.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=
+=3D"1" style=3D"display:block; border:0;" /></td></tr>
+</table>
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" bg=
+color=3D"#ffffff" style=3D"border-spacing: 0;margin: 0 auto;width: 640px;" =
+class=3D"width_90">
+  <tr>
+    <td style=3D"padding: 0;text-align: center;font-size: 0;">
+      <table border=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D=
+"0" bgcolor=3D"#ffffff" width=3D"612" style=3D"width:612px;" class=3D"full"=
+>
+        <tr>
+          <td align=3D"left">
+            <div style=3D"width:306px; display:inline-block;" class=3D"full=
+">
+              <table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" bgcolor=3D"#ffffff">
+                <tr>
+                  <td align=3D"left"><a href=3D"https://www.amazon.co.jp/gp=
+/r.html?C=3DTPYSFGF1KJXY&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:202111010004346a=
+ef7737fed84f84ae418575b900p0fe&R=3D3QZ5CVGPSPOE9&T=3DC&U=3Dhttps%3A%2F%2Fww=
+w.amazon.co.jp%2Fref%3Dpe_2633162_436106652_pe_footer_amazonlogo%2F&H=3DG1L=
+ZISW8K4A1CYWWSMLZLXVKOVYA&ref_=3Dpe_2633162_436106652_pe_footer_amazonlogo"=
+ target=3D"_blank"><img src=3D"http://g-ecx.images-amazon.com/images/G/01/e=
+-mail/logos/AmazonLogoFooter_jp.png" width=3D"93" height=3D"auto" alt=3D"Am=
+azon.com" border=3D"0" style=3D"display:block; width:93px; height:auto;" />=
+</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+
+          <td align=3D"right">
+          <div style=3D"width:306px; display:inline-block;" class=3D"full">
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=
+=3D"right" bgcolor=3D"#ffffff">
+              <tr>
+             =20
+                <td width=3D"10"><img src=3D"http://g-ecx.images-amazon.com=
+/images/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=3D"1" style=3D"disp=
+lay:block; border:0;" /></td>
+                <td>
+                  <a href=3D"https://www.amazon.co.jp/gp/f.html?C=3DTPYSFGF=
+1KJXY&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:202111010004346aef7737fed84f84ae418=
+575b900p0fe&R=3D2A7G166TUAWO8&T=3DC&U=3Dhttp%3A%2F%2Fwww.amazon.co.jp%2Fgp%=
+2Fredirect.html%2Fref%3Dpe_2633162_436106652_pe_facebook_footer%2F%3Flocati=
+on%3Dhttp%3A%2F%2Fwww.facebook.com%2FAmazonJP%26token%3D86832A1B02B913A0D04=
+80954073642D6974B75BF%26source%3Dstandards&H=3DUW7ZTC5YWG7T8LBTLVSNGNEAVREA=
+&ref_=3Dpe_2633162_436106652_pe_facebook_footer" target=3D"_blank"><img src=
+=3D"https://m.media-amazon.com/images/G/01/email/logo/facebook_3x._V5067109=
+35_.jpg" alt=3D"facebook" border=3D"0" height=3D"30" width=3D"30" style=3D"=
+display:block; width:30px; height:30px;" /></a>
+                </td>
+             =20
+             =20
+                <td width=3D"10"><img src=3D"http://g-ecx.images-amazon.com=
+/images/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=3D"1" style=3D"disp=
+lay:block; border:0;" /></td>
+                <td>
+                  <a href=3D"https://www.amazon.co.jp/gp/f.html?C=3DTPYSFGF=
+1KJXY&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:202111010004346aef7737fed84f84ae418=
+575b900p0fe&R=3D2L6JSC3Z8ZRM6&T=3DC&U=3Dhttp%3A%2F%2Fwww.amazon.co.jp%2Fgp%=
+2Fredirect.html%2Fref%3Dpe_2633162_436106652_pe_twitter_footer%2F%3Flocatio=
+n%3Dhttp%3A%2F%2Ftwitter.com%2FAmazonJP%26token%3DAC218851624B70F64162A7587=
+01BE2C503F77D9E%26source%3Dstandards&H=3DUSHUSCVH4DZ15SO6ANDEPYQKNNYA&ref_=
+=3Dpe_2633162_436106652_pe_twitter_footer" target=3D"_blank"><img src=3D"ht=
+tps://m.media-amazon.com/images/G/01/email/logo/twitter_3x._V506607860_.jpg=
+" alt=3D"twitter" border=3D"0" height=3D"30" width=3D"30" style=3D"display:=
+block; width:30px; height:30px;" /></a>
+                </td>
+             =20
+              </tr>
+            </table>
+          </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr><td height=3D"10" style=3D"line-height:10px;"><img src=3D"http://g-ec=
+x.images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=
+=3D"1" style=3D"display:block; border:0;" /></td></tr>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" st=
+yle=3D"border-spacing: 0; margin: 0 auto; width: 100%;max-width: 640px;" cl=
+ass=3D"container">
+<tr><td height=3D"10" style=3D"line-height:10px;"><img src=3D"http://g-ecx.=
+images-amazon.com/images/G/01/e-mail/img14/kc/sp.gif" width=3D"1" height=3D=
+"1" style=3D"display:block; border:0;" /></td></tr>
+</table>
+=20
+
+
+
+
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" bg=
+color=3D"#ffffff" style=3D"border-spacing: 0; margin: 0 auto; width: 612px;=
+" class=3D"width_90">
+  <tr>
+    <td style=3D"padding: 0;text-align: center;font-size: 0;">
+      <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%=
+" style=3D"border-spacing: 0;">
+        <tr>
+          <td align=3D"left" valign=3D"top" style=3D"font-family:Ember, Ari=
+al, sans-serif; font-size:10px; color:#666666;">
+         =20
+         =20
+          =C2=A9 2021 Amazon.com. All rights reserved. Amazon=E3=81=AE=E3=
+=83=AD=E3=82=B4=E3=80=81Amazon.co.jp=E3=81=8A=E3=82=88=E3=81=B3=E3=80=81Ama=
+zon.co.jp=E3=81=AE=E3=83=AD=E3=82=B4=E3=81=AF=E3=80=81 Amazon.com, Inc.=E3=
+=81=BE=E3=81=9F=E3=81=AF=E3=81=9D=E3=81=AE=E9=96=A2=E9=80=A3=E4=BC=9A=E7=A4=
+=BE=E3=81=AE=E5=95=86=E6=A8=99=E3=81=A7=E3=81=99=E3=80=82 Reference 4361066=
+52
+         =20
+          <br /><br />
+         =20
+         =20
+          =E3=81=93=E3=81=AEE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=AF=E6=AC=A1=
+=E3=81=AE=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=E5=AE=9B=E3=81=AB=E9=80=81=E4=
+=BF=A1=E3=81=95=E3=82=8C=E3=81=BE=E3=81=97=E3=81=9F: hujyorom@gmail.com
+         =20
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+  =20
+            </td>
+        </tr>
+        <tr>
+          <td class=3D"hide">
+            <div style=3D"letter-spacing: 636px; line-height: 0; mso-hide: =
+all">&nbsp;</div>
+            <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=
+=3D"center" width=3D"640">
+              <tr>
+                <td height=3D"1" style=3D"line-height:1px; min-width:640px;=
+">
+                  <img src=3D"http://g-ecx.images-amazon.com/images/G/01/e-=
+mail/img/softlines/sp.gif" height=3D"1" width=3D"640" style=3D"max-height:1=
+px; min-height:1px; display:block; width:640px; min-width:640px;"/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+    <tr>
+      <td class=3D"hide">
+        <div style=3D"display:none; white-space:nowrap; font:15px courier; =
+line-height:0;">
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp;=20
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=
+ &nbsp;=20
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+      </td>
+    </tr>
+  </table>
+</center>
+<img width=3D"1" height=3D"1" src=3D"https://www.amazon.co.jp/gp/r.html?C=
+=3DTPYSFGF1KJXY&K=3D34D7J92BSKGNA&M=3Durn:rtn:msg:202111010004346aef7737fed=
+84f84ae418575b900p0fe&R=3D1A275FL9E42BM&T=3DE&U=3Dhttps%3A%2F%2Fimages-fe.s=
+sl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&H=3DHZYHF21F4TEZC=
+UBSE2PPUQZL6CYA&ref_=3Dpe_2633162_436106652_open" /></body>
+</html>
+------=_Part_14209530_813852958.1635725074253--

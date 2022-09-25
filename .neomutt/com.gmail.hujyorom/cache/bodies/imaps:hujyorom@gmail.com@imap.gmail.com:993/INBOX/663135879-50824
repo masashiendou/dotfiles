@@ -1,0 +1,193 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a05:6122:128a:0:0:0:0 with SMTP id i10csp365568vkp;
+        Wed, 12 May 2021 23:30:28 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxJi35Y1x64pqEpwBj892f8ZLpakuXJih4/IbC7vC2GTb8Mgo1khHMl/IDcQjGklZe4X/qe
+X-Received: by 2002:a17:90b:1b0d:: with SMTP id nu13mr2944871pjb.149.1620887428801;
+        Wed, 12 May 2021 23:30:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1620887428; cv=none;
+        d=google.com; s=arc-20160816;
+        b=OeOVNRuN04HRJrmGkfzAI212nsthHa9VxJyy2C/0ILoonAguMGFvaSgFrMvG+PxgI7
+         yLTuMFAXlC9M6BGY3JaKPO8cwcoyh27WwaV+OSGnQyRSFLsdhto9f0cvdwp978hKaitG
+         Z51aFWSBHFpElAJFF0t0sh5uu5+lbtyxSkNVT6MP1R99SPBdQK1D3bK6DR3NXmw8hwhY
+         zbug3AqTPiAPdphAZLcZVVtg+RXBz9qXYZfb/Nagwmca0rj04g9GbbsaJDSie7BxiMVN
+         muNtTXMkJfgSwJ9VlMtLlsvCVeUV0PAaWh6cbomyUdooyLxgEzgUuGB7lOlLVcsWRChr
+         NnxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:errors-to:dkim-signature;
+        bh=pG3clRtZehK7tuIexowLdUadWeOAA5lBPnWVAV6M0QM=;
+        b=SSw4n0fwiV3716rMk+p4iB7MWr93wnCImsnNnsWDdnWMdRjOIvNgoPSw9sbMW5vqp1
+         g4mhcnXUvOeOCoVUm9bfzvTbkmp1VbxS/+0ZekG9OBj+i/qIzbkbWH2UL/z9Ln4FKsoI
+         XK+f194VXvYGYKxrxogjrZq4ajeEc6Rh//WHLzI9IL9LMoPxqINcK0z2e/u8DgrgtHZF
+         akurfCkLI3kJVSYJgnukZ4+Y7G4dlWZLf8DI/rtx4Cl7lnd1WDEhvS6IYHf+NWGak6ix
+         pMHr+KIf6tXas1YCMoLxelc7sJ29GaWk+n7h/osS38REBmElAH2c76LAmsrp2ml7kALg
+         1B4g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b="OPx1V/UT";
+       spf=pass (google.com: domain of z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.43 as permitted sender) smtp.mailfrom=z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+Return-Path: <z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp>
+Received: from bmmpq1001.jpx1.mta.emberpoint.com (bmmpq1001.jpx1.mta.emberpoint.com. [106.185.100.43])
+        by mx.google.com with ESMTPS id z4si2662963pgz.148.2021.05.12.23.30.27
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 12 May 2021 23:30:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.43 as permitted sender) client-ip=106.185.100.43;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b="OPx1V/UT";
+       spf=pass (google.com: domain of z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.43 as permitted sender) smtp.mailfrom=z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1620887428;
+	s=en-japanmail201805; d=en-japan.com;
+	h=Date:From:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=pG3clRtZehK7tuIexowLdUadWeOAA5lBPnWVAV6M0QM=;
+	b=OPx1V/UTmLU9SxUvgjoP8cO2frgD1x0dXrmtBzYNuFc/vBpy6uralJK6GW/mEOM4
+	Igv8w2/A5cYFDGjbQRka9oNJJwdllKpm2mfEML+iXgTInH5aiYiX1E9as8GvAgrwg8S
+	6x/PLB2Sj1RYDMxc/E+AelFJvsO2m8XDeK666hkg=
+Errors-To: z-enhaken-xfc0ip-0-k9-008hujyoromgmail.com@bma.mpse.jp
+Date: Thu, 13 May 2021 15:30:16 +0900 (JST)
+From: =?ISO-2022-JP?B?IhskQiUoJXNHSTgvO3ZMMzZJGyhCIg==?=
+ <haken-news@en-japan.com>
+To: hujyorom@gmail.com
+Message-Id: <1620887416789.2021138593.enhaken.0.729.00000000@ad143se.mpse.jp>
+Subject: =?ISO-2022-JP?B?GyRCIVpLTDMkRjtIRyFbQFE2SzpOTVFDZiEqPzdDZSROJCobKEI=?=
+ =?ISO-2022-JP?B?GyRCO0U7diVIJVQlQyUvJTkkLDh4MyskNSRsJF4kNyQ/ISobKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+
+【みんなの疑問を解決！派遣Ｑ＆Ａ】短期の派遣で源泉徴収の提出を求められたのはなぜ？
+━━━━━━━━━━━━━━━
+耳より情報満載！
+エン派遣　ＮＥＷＳ☆=
+━━━━━━━━━━━━━━━
+
+こんにちは！エン派遣 事務局の鈴木です。
+
+本日は、週に一度の「お仕事トピックス」の公開日です！
+積極採用中のお仕事ですので、ぜひチェックしてくださいね。
+
+▼ 新着！お仕事トピックスはこちらから
+https://haken.en-japan.com/uex_su9qThV/
+
+
+◆【未経験OK】週4〜OK！ワクチン接種予約の申込確認・入力10名以上！時給1480円〜／札幌駅
+https://haken.en-japan.com/uex_Jr4QUJZ/
+[ラブキャリア]
+
+
+━━━━━━━━━━━━━━━
+【？→！】みんなの疑問を解決！派遣Ｑ＆Ａ
+━━━━━━━━━━━━━━━
+
+【　Ｑ　】短期の派遣で源泉徴収の提出を求められたのはなぜ？（ぴよさん）
+
+【　Ａ　】平成24年10月1日に施行された改正労働者派遣法で …
+
+▼ 続きはこちら！
+https://haken.en-japan.com/uex_I5MgkAE/
+
+▼その他の派遣のお仕事Ｑ＆Ａはこちら
+https://haken.en-japan.com/uex_YfGwXyc/
+
+▼みなさんからのご質問も募集中！
+https://haken.en-japan.com/uex_qUW3joC/
+
+
+━━━━━━━━━━━━━━━
+【★】5月度就業お祝いキャンペーン 募集中！
+━━━━━━━━━━━━━━━
+
+エン派遣では、毎月『就業お祝いキャンペーン』を行っています。
+
+期間中に当サイトを通じてお仕事が決まった方の中から30名様に、2000円分の商品券をプレゼント！
+お仕事が決まった際には、ぜひご応募ください！
+
+▽ ご応募はこちら！
+https://haken.en-japan.com/uex_gtBxxCR/
+
+▽ お仕事が決まった方からの応援メッセージはこちら！
+https://haken.en-japan.com/uex_Qaz1W6Z/
+
+【就業お祝いキャンペーン 当選者からのメッセージ】
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+なかなか希望条件が合う仕事が見つからなくても、あきらめないで応募を重ねると、必ず結果につながると思います。がんばってください。
+（バジルさん）
+
+○ 派遣会社／ジャスネットコミュニケーションズ
+○ 決まったお仕事／経理
+
+
+━━━━━━━━━━━━━━━
+☆ あなたの志向に合わせたオススメ求人♪
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+あなたがサイト上で見たお仕事情報を分析！
+
+条件が似ているお仕事や志向に合わせたお仕事をオススメしています。
+
+自分では見つけられなかったお仕事が見つかる可能性も！ぜひチェックしてくださいね。
+
+▼ あなたにオススメのお仕事はこちら！
+https://haken.en-japan.com/uex_DWGGWsJ/
+
+
+━━━━━━━━━━━━━━
+☆ 便利機能♪「気になる！リスト」がオススメ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+保存した求人情報をまとめてチェックできるだけでなく、あなたが興味を持っていることが匿名で企業に通知されます！
+
+応募前に「応募歓迎」「面談確約」など、派遣会社からのアプローチが届く可能性も！自信をもって応募していただけます。
+
+どんどん活用して、よいお仕事を見つけてくださいね。
+
+▼ 「気になる！リスト」はこちら
+https://haken.en-japan.com/uex_i2ue0Fj/
+
+ぜひエン派遣で、いいお仕事を見つけてくださいね！
+
+▼ エン派遣のトップページはこちら
+https://haken.en-japan.com/?mmid=267561&utm_campaign=enhaken&utm_medium=email&utm_source=mm
+
+━━━━━━━━━━━━━━━
+☆ 大人気！エン派遣のスマホアプリ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+iOS版 ― https://goo.gl/GYA8lu
+
+Android版 ― https://goo.gl/o2C3A0
+
+☆──────────────*
+┌───┐
+│＼＿／│事務局だより〜
+└───┘
+
+五月といえば、爽やかな気候の日が多くなる新緑の美しい季節です。
+
+「五月晴れ」という言葉がありますが、二つ読み方があり、読み方によって意味が異なることをご存じですか？
+
+「さつきばれ」…梅雨時に見られる晴れ間のこと。梅雨の時期である六月は、旧暦で五月（さつき）であったことに由来します。
+
+「ごがつばれ」…五月のすがすがしい晴天のこと。
+
+例年通りであれば、今は「ごがつばれ」を楽しむ季節のはずなのですが、今年はすでに梅雨入りが発表されている地域もあります。
+
+各地で梅雨入りが記録的に早い可能性があり、今年は五月に「さつきばれ」を待ち望むことになってしまいそうですね。
+
+「ごがつばれ」をもっと楽しみたかったなぁと、曇り空を恨めしく眺めています。
+
+（鈴）
+
+━━━━━━━━━━━━━━━
+エン・ジャパン株式会社
+エン派遣 事務局
+
+÷-÷-÷-÷-÷-÷-÷-÷-÷-
+【配信停止】https://haken.en-japan.com/uex_HJEGDT8/
+【お問い合わせ】https://haken.en-japan.com/uex_24RgErA/
+※当メールのアドレスは送信専用です。このメールへの返信にはお答えできません。
+本メールに掲載された記事を許可なく転載することを禁じます。
+━━━━━━━━━━━━━━━

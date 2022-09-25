@@ -1,0 +1,67 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:8d01:0:0:0:0:0 with SMTP id p1csp828873vkd;
+        Mon, 20 Apr 2020 03:42:15 -0700 (PDT)
+X-Google-Smtp-Source: APiQypJY/pHdhcDg0Dyf390rlvyG48YNOiUaKmwr/cCov8ehwiHGa1p7mMJPs5yoUV9KP3R5P+bQ
+X-Received: by 2002:a17:90a:224b:: with SMTP id c69mr21186445pje.8.1587379334990;
+        Mon, 20 Apr 2020 03:42:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1587379334; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ITca5e9ijlH1xQglIwdh4wCofWRm87tPJWrB9rre6pBOMPkxzUFjIgNcUHPmhZEsDU
+         UYJTfGDx66kpr2RdvJ/HBWlZMUycsRrNqJN3IRo/LeP/10a3Urt0DsIAp0JUim6RIyPS
+         12sDxTY+oCJvs648PC4ec1ROO26XFfp0cmu7fqhptMa/VEDH4PuPU9YWA6J+KntkDnwx
+         oMrIJClo3xguN3T2X4Fz2PfVtNMpslEwnHtShfajhRAc3TS2tQEGIO7c3r8TeBQ9Jnd9
+         vUN3M3K6R406LmbmNRUzvSGCpBt+nZhYM3HmfEpbW5Kd69DgRTfGpjkxkfTD5kc9gGah
+         drBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=subject:content-transfer-encoding:message-id:date:to:from;
+        bh=uXf1uFaV+4UuYwXzvZFJL3mbSayLKxCR+HD/ecXer2U=;
+        b=bFZN5shFvbRCXcLQ4dkrSq0zM+DM7WZMJYrPHgQAahd1XGzC5Z016XtmR0pxv38iIt
+         aaAswSNygLzaqHj+k2KPOOUy4ouF67OTw4LJtnz7ckccJi9do+aghe60Bp9y2em45eGs
+         ip8KJ5SnplJ59DrPhBAyObOk1s/+gJiHMRdmC6MhohjZNjb3zkL0O3k8XpoAiBI7w4TC
+         wHqtrkLIrq5Jrkh0OAj8lEMWP9iXgafrc/rmtzdJQQjbLBx2pW3/eBIKHXf/1PWTaCdd
+         MuV6VfqDEsyFBg0xHLilmklHTnvle0wV2Dpnqjn9SnRS3/8YKAucD8GZCTp3FhSmFt0T
+         kIFg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of info@mydocomo.com designates 211.14.127.5 as permitted sender) smtp.mailfrom=info@mydocomo.com
+Return-Path: <info@mydocomo.com>
+Received: from mail.docomo-bill.ne.jp (mail.docomo-bill.ne.jp. [211.14.127.5])
+        by mx.google.com with SMTP id a4si484915pgj.485.2020.04.20.03.42.14
+        for <hujyorom@gmail.com>;
+        Mon, 20 Apr 2020 03:42:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@mydocomo.com designates 211.14.127.5 as permitted sender) client-ip=211.14.127.5;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of info@mydocomo.com designates 211.14.127.5 as permitted sender) smtp.mailfrom=info@mydocomo.com
+Received: from mail.docomo-bill.ne.jp (localhost [127.0.0.1])
+	by localhost.docomo.ne.jp (Postfix) with ESMTP id D03C71004F4
+	for <hujyorom@gmail.com>; Mon, 20 Apr 2020 19:42:13 +0900 (JST)
+Received: from biamgo03 (biamgo03-apl01 [130.196.155.13])
+	by biamso01.docomo.ne.jp (Postfix) with SMTP id C5C801004F2
+	for <hujyorom@gmail.com>; Mon, 20 Apr 2020 19:42:13 +0900 (JST)
+From: info@mydocomo.com
+To: hujyorom@gmail.com
+Date: Mon, 20 Apr 2020 19:42:13 +0900 (JST)
+Message-ID: <A020100005795946920200420194203879.AZZ_Z_2_Z_01.ms.info@biamgo03>
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Subject: =?ISO-2022-JP?B?GyRCIVolSSUzJWIhWyQqPGpCMyQtJHI+NSRqJF4kNyQ/GyhC?=
+X-TM-AS-GCONF: 00
+X-TM-AS-Product-Ver: IMSS-9.1.0.1195-8.2.0.1013-25360.002
+X-TM-AS-Result: No--10.649-9.0-31-10
+X-imss-scan-details: No--10.649-9.0-31-10
+X-TMASE-Version: IMSS-9.1.0.1195-8.2.1013-25360.002
+X-TMASE-Result: 10--10.648800-10.000000
+X-TMASE-MatchedRID: zAn4O9ZP5ef0phMcDft0ElGg6meB6qq824PV/LCuWXHdvUdr2LJm+BXV
+	jcHkpJ6NZjplRMqsRAbAh3GGG4ZcH8gJ1bN1rWPwiMbRIuRR2lIStYpGI1uiA8MfTtZ2QvTHctW
+	4vkOWfr2BDas0UF2MbalaEvVRnyvLIEeROlJraS0l96kL7Fw2eYLmkzN7MRn/33v63RqsD8l64J
+	83HDeDU5d44Hvwc6mEpRLQyclUfPJNfs8n85Te8t3KWw1gHU8/b1JJNdv68cqM1Gu9aimtieTCM
+	ddcL/gjOwBXM346/+xyotyGZaABcGOgwgdbNuPwCiLhOHK3qTDtKEeXyq/T2Y72VsKi30l0
+X-TMASE-SNAP-Result: 1.821001.0001-0-1-12:0,22:0,33:0,34:0-0
+
+「ドコモオンライン手続き」からお申込みいただいたお手続きが完了しました。
+
+お手続き内容については以下のURLからご確認いただけます。
+https://www.mydocomo.com/dcm/dfw/application/er
+
+※dアカウントが必要です。
+※本メールへの返信はできませんのでご了承ください。
+

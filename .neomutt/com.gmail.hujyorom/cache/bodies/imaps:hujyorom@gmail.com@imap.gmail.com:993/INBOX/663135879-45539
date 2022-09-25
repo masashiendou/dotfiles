@@ -1,0 +1,222 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:ac86:0:0:0:0:0 with SMTP id v128csp580240vke;
+        Tue, 1 Dec 2020 15:32:25 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxenp5JZuUl37Xrjz4bYnhqEqgkoO6vylJSxjSl8Df9yFWbXbqRLgeoKTE7HuRB8pXXevzu
+X-Received: by 2002:ac8:41d7:: with SMTP id o23mr5672128qtm.368.1606865545268;
+        Tue, 01 Dec 2020 15:32:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606865545; cv=none;
+        d=google.com; s=arc-20160816;
+        b=MOoIAkFGt+UEhCZ7LfwrelD2z2Jr47y99CYstmPNcpICffqV5xKXkz/EzHhEnXNWIh
+         tjtnAy0lR/+ZodO+1fQ3mbo0gaTBa4wPt1LTnB4+GeWcBNpIHWW6bOu78k4KyAG+RXo2
+         1cve4JSeW8TmuKw7Cy7njNYmlkeaiKudDi0+t5foo89VMubnDoNGrN3w+8rUr4QgsPfP
+         fZIAJDgOrx+utj9iML2Px1LzQQNaBO8fYmfacpFQrPNgbQDmYFuZq02dAfuQerF5v2st
+         hkcKDuZObvDZCKKpH0FUOG8aa3LMtlx4l1uR2ReS9meF4O+CtFg00hJdngCc+g7FNK0G
+         HxTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:mime-version:date:message-id:subject:to:from
+         :dkim-signature;
+        bh=tFi8mdmjVaZjRXCnl4v+naTNdU9K5PRLjw8zwTlD1Lk=;
+        b=zoNsnUCoeqJEVHGkre/0dG3JjEo375JmqoXQj5MYZC/18qU95lep3VLydCFke8domE
+         O3meg4s/YoJynvo7x98Ec2KfZ0AaAJ+RA676bfgPO3dKsoarCGjbvRu5Zzm4ZJWsBkHj
+         pdEY6cZ7/8T67Cm48cIk4JHoREryHAkGXdMgcNCxLolQt2u+oXfO+SCvgSa8+qx/hsT8
+         sgDQpdiVsIaZbxik/GMHvcsnU+0ggIkaqe3nWU73sZTER0GeZ+VY8b1dXqEbK/fA+gIY
+         +Qhnhk55ZumtJRSesOnKvIyr9RRxox6uFUASh3GxYeICCtdGS+QqRDi9rP283tJYtUZl
+         Nbjw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=KH1vK3He;
+       spf=pass (google.com: domain of 0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@amazonses.com designates 54.240.48.132 as permitted sender) smtp.mailfrom=0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@amazonses.com
+Return-Path: <0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@amazonses.com>
+Received: from a48-132.smtp-out.amazonses.com (a48-132.smtp-out.amazonses.com. [54.240.48.132])
+        by mx.google.com with ESMTPS id f5si589242qtf.8.2020.12.01.15.32.25
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-SHA bits=128/128);
+        Tue, 01 Dec 2020 15:32:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@amazonses.com designates 54.240.48.132 as permitted sender) client-ip=54.240.48.132;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=KH1vK3He;
+       spf=pass (google.com: domain of 0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@amazonses.com designates 54.240.48.132 as permitted sender) smtp.mailfrom=0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@amazonses.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1606865544;
+	h=Content-Type:From:To:Subject:Message-ID:Date:MIME-Version:Feedback-ID;
+	bh=RCU++JSp6/wcqzLPJPTHS1dWtMsOV1wnrw52ZR7ytnQ=;
+	b=KH1vK3HeFDCxqZ9OrfsIrXlIz1AgH3JSZKbMQw9UcTsDPoz6iG1Mw3Q9dcGQkOUP
+	nOekrIDICKRRkxvg9oG0FWEB3I5UmfSr+S5Oq9kJ8nfb2Xxn416ijeSIwxuMuxXk+vY
+	0ZFTrBtIz0Lge1gkUKkIxuEa+0/JOofyydZTLTug=
+Content-Type: multipart/alternative;
+ boundary="--_NmP-3d935bce13db93f2-Part_1"
+From: Shirasu <noreply@shirasu.io>
+To: hujyorom@gmail.com
+Subject: =?UTF-8?B?44Oh44O844Or44Ki44OJ44Os44K56KqN6Ki8IHwg?=
+ =?UTF-8?B?U2hpcmFzdQ==?=
+Message-ID: <0100017620a66533-6803c60a-cbd4-460c-8586-b1fdf43775ea-000000@email.amazonses.com>
+Date: Tue, 1 Dec 2020 23:32:24 +0000
+MIME-Version: 1.0
+X-SES-Outgoing: 2020.12.01-54.240.48.132
+Feedback-ID: 1.us-east-1.TEvNfwo9GsrE8briNjCrfdO2jBbbgsIivkp9FiHAUuc=:AmazonSES
+
+----_NmP-3d935bce13db93f2-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+CiAgCiAgCiAgICAKICAgICAgCiAgICAgICAgCiAgICAgICAgICAKICAgICAgICAgICAgCiAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAKCiAgICAgICAgICAgICAg
+44K344Op44K544G444KI44GG44GT44GdIQoKICAgICAgICAgICAgICDjgZTnmbvpjLLjgYLjgorj
+gYzjgajjgYbjgZTjgZbjgYTjgb7jgZnjgIIKICAgICAgICAgICAgICDku6XkuIvjga7jg6rjg7Pj
+gq/jgpLjgq/jg6rjg4Pjgq/jgZfjgabjg6Hjg7zjg6vjgqLjg4njg6zjgrnjgpLoqo3oqLzjgZfj
+gabjgY/jgaDjgZXjgYTjgIIKCiAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICDjg6Hjg7zj
+g6vjgqLjg4njg6zjgrnjgpLoqo3oqLzjgZnjgosgKCBodHRwczovL3NoaXJhc3UuYXV0aDAuY29t
+L3UvZW1haWwtdmVyaWZpY2F0aW9uP3RpY2tldD1FODFyclBWWmVWRk1vRkRadVR0dXlFSXlyazJY
+OHNOYyMgKSAKICAgICAgICAgICAgICAKCiAgICAgICAgICAgICAg5b+D44GC44Gf44KK44Gu44Gq
+44GE5aC05ZCI44Gr44Gv44GT44Gu44Oh44O844Or44KS56C05qOE44GX44Gm44GP44Gg44GV44GE
+44CCCiAgICAgICAgICAgICAg44GU5LiN5piO44Gq54K544GM44GC44KK44G+44GX44Gf44KJ44CB
+44GK5ZWP44GE5ZCI44Gb44OV44Kp44O844Og44KI44KK44GU6YCj57Wh44GP44Gg44GV44GE44CC
+CgogICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg44GK5ZWP44GE5ZCI44KP44Gb44OV44Kp
+44O844OgICggaHR0cHM6Ly9zaGlyYXN1LnRheW9yaS5jb20vZi9jb250YWN0LWZvcm0gKSAKICAg
+ICAgICAgICAgICAKCiAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICDlkIjlkIzkvJrnpL7jgrfjg6njgrkKICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgIGluZm9Ac2hpcmFzdS5pbwogICAgICAgICAgICAg
+IAogICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgVHdpdHRlcjogQHNoaXJhc3VfaW8KICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgCiAgICAgICAgICAKICAgICAgICAKICAgICAgCiAgICAK
+ICAKCg==
+----_NmP-3d935bce13db93f2-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+  <head>
+    <style type=3D"text/css">
+      .ExternalClass,.=
+ExternalClass div,.ExternalClass font,.ExternalClass p,.ExternalClass span,=
+.ExternalClass td,img {line-height: 100%;}#outlook a {padding: 0;}.=
+ExternalClass,.ReadMsgBody {width: 100%;}a,blockquote,body,li,p,table,td =
+{-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}table,td =
+{mso-table-lspace: 0;mso-table-rspace: 0;}img {-ms-interpolation-mode: =
+bicubic;border: 0;height: auto;outline: 0;text-decoration: none;}table =
+{border-collapse: collapse !important;}#bodyCell,#bodyTable,body {height: =
+100% !important;margin: 0;padding: 0;font-family: ProximaNova, =
+sans-serif;}#bodyCell {padding: 20px;}#bodyTable {width: 600px;}@font-face =
+{font-family: ProximaNova;src: url(https://cdn.auth0.=
+com/fonts/proxima-nova/proximanova-regular-webfont-webfont.eot);src: =
+url(https://cdn.auth0.com/fonts/proxima-nova/proximanova-regular-webfont-we=
+bfont.eot?#iefix)format("embedded-opentype"),url(https://cdn.auth0.=
+com/fonts/proxima-nova/proximanova-regular-webfont-webfont.woff) =
+format("woff");font-weight: 400;font-style: normal;}@font-face =
+{font-family: ProximaNova;src: url(https://cdn.auth0.=
+com/fonts/proxima-nova/proximanova-semibold-webfont-webfont.eot);src: =
+url(https://cdn.auth0.com/fonts/proxima-nova/proximanova-semibold-webfont-w=
+ebfont.eot?#iefix)format("embedded-opentype"),url(https://cdn.auth0.=
+com/fonts/proxima-nova/proximanova-semibold-webfont-webfont.woff) =
+format("woff");font-weight: 600;font-style: normal;}@media only screen and =
+(max-width: 480px) {#bodyTable,body {width: 100% !important;}a,blockquote,=
+body,li,p,table,td {-webkit-text-size-adjust: none !important;}body =
+{min-width: 100% !important;}#bodyTable {max-width: 600px !=
+important;}#signIn {max-width: 280px !important;}}
+    </style>
+  </head>
+  <body>
+    <center>
+      <table
+        style=3D'width: =
+600px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: =
+100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: =
+0;font-family: "ProximaNova", sans-serif;border-collapse: collapse !=
+important;height: 100% !important;'
+        align=3D"center"
+        border=3D"0"
+        cellpadding=3D"0"
+        cellspacing=3D"0"
+        height=3D"100%"
+        width=3D"100%"
+        id=3D"bodyTable"
+      >
+        <tr>
+          <td
+            align=3D"center"
+            valign=3D"top"
+            id=3D"bodyCell"
+            style=3D'-webkit-text-size-adjust: 100%;-ms-text-size-adjust: =
+100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;margin: 0;padding: =
+20px;font-family: "ProximaNova", sans-serif;height: 100% !important;'
+          >
+            <div class=3D"main">
+              <p
+                style=3D"text-align: center;-webkit-text-size-adjust: =
+100%;-ms-text-size-adjust: 100%; margin-bottom: 30px;"
+              >
+                <img
+                  src=3D"https://shirasu.libri.=
+jp/static/img/logo_color_3x.png"
+                  width=3D"401px"
+                  alt=3D"Shirasu"
+                  =
+style=3D"-ms-interpolation-mode: bicubic;border: 0;height: =
+auto;line-height: 100%;outline: none;text-decoration: none;"
+                />
+              </p>
+
+              =
+<h1>=E3=82=B7=E3=83=A9=E3=82=B9=E3=81=B8=E3=82=88=E3=81=86=E3=81=93=
+=E3=81=9D!</h1>
+
+              <p>=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=82=
+=E3=82=8A=E3=81=8C=E3=81=A8=E3=81=86=E3=81=94=E3=81=96=E3=81=84=E3=81=BE=
+=E3=81=99=E3=80=82</p>
+              <p>=E4=BB=A5=E4=B8=8B=E3=81=AE=
+=E3=83=AA=E3=83=B3=E3=82=AF=E3=82=92=E3=82=AF=E3=83=AA=E3=83=83=E3=82=AF=
+=E3=81=97=E3=81=A6=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=
+=E3=82=B9=E3=82=92=E8=AA=8D=E8=A8=BC=E3=81=97=E3=81=A6=E3=81=8F=E3=81=A0=
+=E3=81=95=E3=81=84=E3=80=82</p>
+
+              <p style=3D"margin:3em 0">
+                <a href=3D"https://shirasu.auth0.com/u/email-verification?=
+ticket=3DE81rrPVZeVFMoFDZuTtuyEIyrk2X8sNc#" style=3D"text-decoration:none;c=
+olor:#fff;background-color:#0057ff;border-radius:6px;padding: =
+5px;">=E3=83=A1=E3=83=BC=E3=83=AB=E3=82=A2=E3=83=89=E3=83=AC=E3=82=B9=
+=E3=82=92=E8=AA=8D=E8=A8=BC=E3=81=99=E3=82=8B</a>
+              </p>
+
+              <p>=E5=BF=83=E3=81=82=E3=81=9F=E3=82=8A=E3=81=AE=E3=81=AA=
+=E3=81=84=E5=A0=B4=E5=90=88=E3=81=AB=E3=81=AF=E3=81=93=E3=81=AE=E3=83=A1=
+=E3=83=BC=E3=83=AB=E3=82=92=E7=A0=B4=E6=A3=84=E3=81=97=E3=81=A6=E3=81=8F=
+=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</p>
+              =
+<p>=E3=81=94=E4=B8=8D=E6=98=8E=E3=81=AA=E7=82=B9=E3=81=8C=E3=81=82=
+=E3=82=8A=E3=81=BE=E3=81=97=E3=81=9F=E3=82=89=E3=80=81=E3=81=8A=E5=95=8F=
+=E3=81=84=E5=90=88=E3=81=9B=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A0=E3=82=88=
+=E3=82=8A=E3=81=94=E9=80=A3=E7=B5=A1=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=
+=E3=80=82</p>
+
+              <p style=3D"margin:3em 0 1em ">
+                <a href=3D"https://shirasu.tayori.com/f/contact-form" =
+style=3D"text-decoration:none;color:#fff;background-color:#0057ff;border-ra=
+dius:6px;padding: 5px;">=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=
+=E3=81=9B=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A0</a>
+              </p>
+
+              <br /><br />
+              <hr style=3D"border: 2px solid =
+#EAEEF3; border-bottom: 0; margin: 20px 0;" />
+              <p =
+style=3D"text-align: center;color: #A9B3BC;-webkit-text-size-adjust: =
+100%;-ms-text-size-adjust: 100%;">
+                =E5=90=88=E5=90=8C=
+=E4=BC=9A=E7=A4=BE=E3=82=B7=E3=83=A9=E3=82=B9
+              </p>
+              <p style=3D"text-align: center;color: =
+#A9B3BC;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;">
+                info@shirasu.io
+              </p>
+              <p =
+style=3D"text-align: center;color: #A9B3BC;-webkit-text-size-adjust: =
+100%;-ms-text-size-adjust: 100%;">
+                Twitter: @shirasu_io
+              </p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
+
+----_NmP-3d935bce13db93f2-Part_1--

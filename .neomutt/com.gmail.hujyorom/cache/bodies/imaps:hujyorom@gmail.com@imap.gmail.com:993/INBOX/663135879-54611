@@ -1,0 +1,694 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:24d1:0:0:0:0:0 with SMTP id k200csp1278980vkk;
+        Fri, 27 Aug 2021 04:38:36 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyNCqUTloqWHkYEVdGIIi90SqNbTG2hIB16PX7LhelNujJw244wSJN2sxNPq1ZN5xL0YeaG
+X-Received: by 2002:ac8:7d42:: with SMTP id h2mr2301170qtb.220.1630064316119;
+        Fri, 27 Aug 2021 04:38:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630064316; cv=none;
+        d=google.com; s=arc-20160816;
+        b=N/WpK8HbOw0YhATywW7wBAzmensgOB3aq42Yzaekvhlk1a9jYipKOr6sq48qqJARO2
+         DaZiRIF7dbKgfXqqN++YFARKLykqcbOc1iq/riEsFBWVNbyqAkg1qFdoIsdsj+/+MqQc
+         Ln9Ldj/7gWpB5kksUdhqQ7eV2Id/zd7W5HDMZTz5jC5BOB55efNGK5c4ISut9P19vE9l
+         MaJ0UiA/wuhB+JwnALD5MsRgyMVuLhEp1zkOCPhFmKv83yhAr/LDET6TDEDM5lScqFq1
+         VOtH4CY0agHPoV2L3yAXA0dXb0YH/uVJzkCSREEwoh8qj89HkaFjzDeZdINujBhJfbS8
+         iG4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:list-id:reply-to:mime-version
+         :list-unsubscribe-post:list-unsubscribe:date:subject:to:from
+         :dkim-signature;
+        bh=+fHbBaZpmGT1NZZ8Z4tOiQ0h6HY++IPt96/3lh/t1cY=;
+        b=eyk12Cei0ouobN6UxbhIwYOWI4p3Wi5QGnnuZCO2qWX2Bw5gQ0AckeTzKefDJTvDA0
+         vc90YFIdZP5KkCXRrflCQF2IDy8jRChQ560lU9fRRmZ06W+XMjhYsXWEDElqhDOOGCJa
+         C+l+HS69HfrVMpwulrOIOeuebv89UHTSDwhgbtB5x+SEbGWj2ypf5IcRTON77XuNp7rB
+         r614w2W7XQsEx4huN4qp+RltWeYFQu0FXLLBPjGHVEwNm8pRlggCKSt9oUQusKwQGErE
+         AQubDdvfenkbZAkMUnvsV2aPHK43yGl5v3Z3wAmbVlqKij+xce31EI8i5qsYgFpizSEy
+         +HRw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.playstation.com header.s=200608 header.b="cD/SxL5a";
+       spf=pass (google.com: domain of bounce-19_html-297547349-424997-6151033-51026@bounce.email.playstation.com designates 13.111.27.204 as permitted sender) smtp.mailfrom=bounce-19_HTML-297547349-424997-6151033-51026@bounce.email.playstation.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.playstation.com
+Return-Path: <bounce-19_HTML-297547349-424997-6151033-51026@bounce.email.playstation.com>
+Received: from mta11.playstationemail.com (mta11.playstationemail.com. [13.111.27.204])
+        by mx.google.com with ESMTPS id t142si3717783qka.170.2021.08.27.04.38.35
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 27 Aug 2021 04:38:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-19_html-297547349-424997-6151033-51026@bounce.email.playstation.com designates 13.111.27.204 as permitted sender) client-ip=13.111.27.204;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.playstation.com header.s=200608 header.b="cD/SxL5a";
+       spf=pass (google.com: domain of bounce-19_html-297547349-424997-6151033-51026@bounce.email.playstation.com designates 13.111.27.204 as permitted sender) smtp.mailfrom=bounce-19_HTML-297547349-424997-6151033-51026@bounce.email.playstation.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=email.playstation.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=200608; d=email.playstation.com;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ Reply-To:List-ID:X-CSA-Complaints:Message-ID:Content-Type;
+ i=email@email.playstation.com;
+ bh=+fHbBaZpmGT1NZZ8Z4tOiQ0h6HY++IPt96/3lh/t1cY=;
+ b=cD/SxL5au7hV1HwvEcOzpbi60xR4sVYG7ZSoyyDSXtsuK5++GkbmcsEdjlzW9IhteKANRDJ5pWyE
+   n+vTbFu6iAPy5bgTgQ0T5AWd1K0E23ca3x73X1ecuWXbN1K1dXz9Bvwpd57WBnTQbY9BL+cet5q1
+   touWLvgzu3KLEZS3H3c=
+Received: by mta11.playstationemail.com id h537bo2fmd4h for <hujyorom@gmail.com>; Fri, 27 Aug 2021 11:38:31 +0000 (envelope-from <bounce-19_HTML-297547349-424997-6151033-51026@bounce.email.playstation.com>)
+From: "PlayStation" <email@email.playstation.com>
+To: <hujyorom@gmail.com>
+Subject: =?UTF-8?B?UGxheVN0YXRpb24gUGx1c+OBjDUw77yFT0ZGIHwgU3lvdWppNTI1?=
+ =?UTF-8?B?5qeY44CB44GK6KaL6YCD44GX44Gq44GP?=
+Date: Fri, 27 Aug 2021 05:38:31 -0600
+List-Unsubscribe: <https://click.playstationemail.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI2MTUxMDMzIiwicyI6IjI5NzU0NzM0OSIsImxpZCI6IjE5IiwiaiI6IjQyNDk5NyIsImpiIjoiNTEwMjYiLCJkIjoiNjAxNTYifQ.vkb4SNjpTACSYckUt4yU2oalLrxTfnLwy3EJw2mf5-M>, <mailto:leave-fd8115791a3c402029-fe1d16797261007a761079-febc1072716d0d7a-fe9c12717065047e76-ff011171756602@leave.playstationemail.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+Reply-To: "Sony Playstation" <reply-febc1072716d0d7a-19_HTML-297547349-6151033-51026@playstation.sony.com>
+List-ID: <6151033.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 6
+x-job: 6151033_424997
+Message-ID: <40d86ddc-f565-48a1-ab20-eec8648c1a95@ind1s06mta1822.xt.local>
+Feedback-ID: 6151033:424997:13.111.27.204:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="qs9glAestZwO=_?:"
+
+This is a multi-part message in MIME format.
+
+--qs9glAestZwO=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+--qs9glAestZwO=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+	<base target="_blank" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+	<title>PlayStation</title>
+		<!--  -->
+ <style>
+  
+  @font-face{font-family:'SST-Roman';src: url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Roman.woff) format('woff'); font-weight:400;font-style:normal }
+   
+  @font-face{ font-family:'SST-Roman-Bold';src:url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Bold.eot);src:url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Bold.eot?#iefix) format("embedded-opentype"),url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Bold.woff2) format("woff2"),url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Bold.woff) format("woff"),url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Bold.ttf) format("truetype"),url(https://www.playstation.com/en-in/1.40.01/etc/designs/pdc/clientlibs_base/fonts/hinted-SSTPro-Bold.svg#SSTPro-Bold)
+ format("svg");font-weight:500;font-style:normal}
+
+  body, #body-table, .body-table { height: 100% !important; width: 100% !important; margin: 0; padding: 0; font-family:SST, SST-Roman, Arial, Helvetica, sans-serif; min-width: 100%!important; }
+  a { text-decoration: none; }
+  img, a img { border: 0; outline: none; text-decoration: none; }
+  table, td, th { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  .ReadMsgBody { width: 100%; }
+  .ExternalClass { width: 100%; }
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; } 
+  img { -ms-interpolation-mode: bicubic; } 
+  body, table, td, p, a, li, blockquote { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; } 
+  #outlook a { padding: 0; }
+  @media only screen and (max-width: 480px) { body { margin: 0 !important; } div[style*="margin: 16px 0"] { margin: 0 !important; font-size: 100% !important; }}
+
+     /*CTA HOVER STYLES*/
+.cta-hover_CD3D0F_ON {transition: 0.1s;}
+.cta-hover_2D64E6_ON {transition: 0.1s;}
+.cta-hover_CD3D0F_ON:hover {box-shadow: 0px 0px 0px 3px white inset, 0px 0px 0px 1px #CD3D0F!important;}
+.cta-hover_2D64E6_ON:hover {box-shadow: 0px 0px 0px 3px white inset, 0px 0px 0px 1px #2D64E6!important;}
+
+  @media only screen and (max-width:480px) {
+   .body, #body-table {background-color:#eeeeee!important;}
+   
+   .hide { display: none!important; }
+   .no-bg { background: none!important; }
+   .mobile_image { display: block !important;  max-height: none !important;}
+   
+   .responsive { width: 100% !important; }
+   .responsiveInner { width: 85% !important; }
+   .ps_logo {width:50px!important; height: 39px!important;}
+   .w100 {width: 100%!important;}
+   .w95 {width: 95%!important;}
+   .w90 {width: 90%!important;}
+   .w85 {width: 85%!important;}
+   .w80 {width: 80%!important;}
+   .w75 {width: 75%!important;}
+   .w70 {width: 70%!important;}
+   .w65 {width: 65%!important;}
+   .w60 {width: 60%!important;}
+   .w55 {width: 55%!important;}
+   .w50 {width: 50%!important;}
+.w46 {width: 46%!important;}
+   .w47 {width: 47%!important;}
+   .w48 {width: 48%!important;}
+   .w45 {width: 45%!important;}
+   
+   .block { display: block !important; }
+   .display-table {display: table!important;}
+   .inline-block { display: inline-block !important; }
+   .display-header {display: table-header-group!important}
+   .display-footer {display: table-footer-group!important}
+   .float-l {float: left!important;}
+   .float-r {float: right!important;}
+   .cntr {float: none !important; margin: auto !important; text-align: center !important;}
+   #txt-align-cntr {text-align: center!important; margin: auto 0!important; float: none!important;}
+   
+   .hauto { height: auto !important; }
+   .h135 { height: 135px !important; }
+   .h30 { height: 30px !important; }
+   .h25 { height: 25px !important; }
+   .h20 { height: 20px !important; }
+   .h15 { height: 15px !important; }
+   .h100per {height: 100%!important;}
+   
+   .p-0 {padding: 0!important;}
+   .p-b-0 { padding-bottom: 0!important;}
+   .p-t-0 { padding-top: 0!important;}
+   .p-l-0 { padding-left: 0!important;}
+   .p-r-0 { padding-right: 0!important;}
+   .p-b-header {padding-bottom: 7%!important;}
+   .p-t-header {padding-top: 0%!important;} .p-20 { padding: 20px !important; }
+   .p-t-30 { padding-top: 30px !important; }
+   .p-b-30 { padding-bottom: 30px !important; }
+   .p-trl-30 { padding-top: 30px !important; padding-right: 30px !important; padding-left: 30px !important; }
+   .p-t-100per {padding-top: 100%!important;}
+   
+   .m-0-auto { margin: 0 auto !important; }
+   .m-t-10 { margin-top: 10px !important; }
+   .m-t-20 { margin-top: 20px !important; }
+   .m-t-30 { margin-top: 30px !important; }
+   .m-b-10 { margin-bottom: 10px !important; }
+   .m-b-20 { margin-bottom: 20px !important; }
+   .m-b-30 { margin-bottom: 30px !important; }
+   .m-trl-30 { margin-top: 30px !important; margin-right: 30px !important; margin-left: 30px !important; }
+   
+   .fs20 { font-size: 20px !important; }
+   .fs18 { font-size: 18px !important; }
+   .fs16 { font-size: 16px !important; }
+   .fs14 { font-size: 14px !important; }
+   
+   .mobbg-reset { background-position: top center!important;}
+   .mobbg-reset-header { background-position: 50% 50%!important;}
+   .mobbg-reset-top { background-position: top center!important;}
+   .mobbg-reset-bottom { background-position: bottom center!important;}
+   .footer-links {padding: 5px 0px!important;}
+   
+/*MOBILE IVALDI CSS*/
+.imageindent_spacerTop_hide_optional_560 {display:none!important;}
+
+  /*MOBILE ADJUST FOR MB*/
+			.hero-title-mobile-css {font-size:20px!important; line-height:26px!important; }
+			.accent-title-mobile-css {font-size:10px!important; line-height:20px!important; }
+			.paragraph-mobile-css {font-size:14px!important; line-height:24px!important; }
+			.cta-wrapper-mobile-css {min-width:80px;max-width:250px!important; min-height:40px!important; }
+			.cta-mobile-css {font-size:14px!important; line-height:17.5px!important;} .cta-mobile-padding-css {padding:11px!important;}
+			.cta-width-spacer {width:80px!important;}
+			.cta-height-spacer {height:40px!important;}
+			.disclaimer-mobile-css{}
+			.mobile-module-spacers { height:30px!important;}
+			.mobile-module-inner-spacing-bottom-10 { padding-bottom:10px!important;}
+			.mobile-module-inner-spacing-bottom-20 { padding-bottom:20px!important;}
+			.mobile-module-inner-spacing-bottom-30 { padding-bottom:30px!important;}
+			.mobile-module-inner-spacing-subtitle {padding-bottom:10px!important;}
+  
+  
+  @media only screen and (max-width:480px) {
+  
+   u + .body .gmail-hide {display: none!important;}
+   body[data-outlook-cycle] { margin: 0!important; width: 100%!important; padding: 0!important;}
+   body[data-outlook-cycle] .gmail-hide {display:none!important;}
+  
+   div#menu {left:0;width:100%;max-height:0!important;overflow:hidden!important;top:40px; transition: all  0.5s!important;} 
+   table.menu th { display: block!important; border-top:0!important;background: none!important; height: auto!important; padding: 5px!important;}
+  
+   div#menu th:first-child {border-top:0!important;background: none!important;}  
+   div#menu th:last-child {border-top:0!important;border-bottom:0px!important; background: none!important;}
+  
+      label.hamburger {cursor:pointer;display: inline-block!important;position:inherit!important;right:0;top:0px!important;z-index:1;padding:0px 0px!important; float: right!important; width: 100%!important;}
+   label.hamburger img {width:34px!important;height:42px!important; float: right!important; margin-right: 10px!important; text-align: right!important; display: block!important;}
+   #hidden-checkbox:checked ~ div#menu {max-height:300px!important; display: block!important; padding-bottom: 20px!important}
+   .nav-bgcolor {background: rgba(0,0,0,0.4)!important;}
+  
+   }
+
+    
+  
+   @media only screen and (max-width:320px) {
+   .responsive-bp320 { width: 100% !important; }
+   .w100-bp320 { width: 100% !important; }
+   .w85-bp320 { width: 85% !important; }
+   .w60-bp320 { width: 60% !important; }
+   .block-bp320 { display: block !important; }
+   .hauto-bp320 { height: auto !important; }
+   .text-center-bp320 { text-align: center !important; }
+   .cntr-bp320 {float: none !important; margin: auto !important; text-align: center !important;}
+   .coverbg-bp320 {background-size: cover!important;}
+   .m-b-20-bp320 { margin-bottom: 20px!important;}
+  
+   .hide-bp320 {display:none!important;}
+   .body-table { background-size: 100% 400px!important}
+   .no-bg-bp320 {background: none!important;}
+   .footer-links {width: 100%!important; padding: 5px 0px!important; display: block!important;}
+   .body-bg {background-size: 110%!important;}
+   .nav-bgcolor {background: rgba(22,60,110,1)!important;}
+  
+  }
+ 
+</style>	
+<!--[if mso]><style> body, #body-table, .body-table, table, td, th, span, font, a {font-family: Arial, Helvetica, sans-serif !important;}</style><![endif]-->
+
+<style></style>
+<!--  -->
+
+</head>
+<body bgcolor="#FFFFFF" style="padding:0; width: 100%; background:#FFFFFF">
+<center>
+<table class="responsive" border="0" cellpadding="0" cellspacing="0" width="100%" background="#FFFFFF" style="width: 100%; background:#FFFFFF; min-width:100%">
+	<tr>
+		<td align="center" valign="top" background="#FFFFFF">
+			<table id="main-wrapper" class="responsive" border="0" cellpadding="0" cellspacing="0" align="center" width="740" bgcolor="#EEEEEE">
+				<tr>
+					<td align="center" valign="top" bgcolor="#EEEEEE">
+			<!---->
+<!-- -->
+<table id="header-section" class="responsive" border="0" cellpadding="0" cellspacing="0" align="center" width="740">
+				<tr>
+					<td class="mobbg-reset-header" background="https://image.playstationmail.net/lib/fe9815707366037b74/m/119/MB-HEAD-740-BG-MOB.jpg" border="0" cellpadding="0" cellspacing="0" align="center" width="740" bgcolor="#003a9d" style="background-position: -9999px; background-size: cover; background-repeat: no-repeat;">
+						<table class="responsive" width="740" border="0" cellpadding="0" cellspacing="0" align="center">
+							<tr>
+								<td class="no-bg hauto" height="100" align="center" valign="top" background="https://image.playstationmail.net/lib/fe9815707366037b74/m/119/MB-HEAD-740-BG-DESK.jpg" bgcolor="#003a9d" style="height: 100px; background-repeat: no-repeat; background-position: top center; background-color:#003a9d;">
+								<!--[if gte mso 9]>
+								<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:739px;height:100px;">
+								<v:fill type="frame" src="https://image.playstationmail.net/lib/fe9815707366037b74/m/119/MB-HEAD-740-BG-DESK.jpg" color="#003a9d" />
+								<v:textbox inset="0,0,0,0">
+								<![endif]-->
+								<div>
+									<table class="w85 cntr" border="0" cellpadding="0" cellspacing="0" align="center" width="640">
+										<tr>
+											<td class="mobbg-header-height" align="left" valign="top" style=" vertical-align:top;">
+												<table class="w100" border="0" cellpadding="0" cellspacing="0" align="center" width="640">
+													<tr>
+														 <td class="mobile-module-spacers" height="20" style="height: 20px; line-height:20px;font-size: 0px; mso-line-height-rule:exactly">&nbsp;</td>
+													</tr>
+													<tr class="hide">
+														<td align="left" valign="middle" style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; height: 21px; line-height: 21px; mso-line-height-rule:exactly; display: block; direction: ltr; padding-bottom:10px" dir="ltr">
+														期間限定特別オファー | お客様限定 | まもなく終了
+<!--[if !mso 9]><!-->
+<span class="gmail-hide" style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0; mso-hide:all;line-height:1px; max-height:0px;max-width:0px; overflow:hidden;">
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</span>
+<!--<![endif]-->
+														</td>
+													</tr>
+													<tr>
+														<td align="center" valign="top">
+															<table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w100" role="presentation">
+																<tr>
+																	<th width="50" align="left" valign="middle" class="block-bp320 w100-bp320 hauto-bp320 cntr-bp320">
+																	<a href="https://click.playstationemail.com/?qs=e714bad009d79d7b98359f98a9582bacd7df39cfef49417d68d47bfd2713601b2b45a5e4d22bef0d2fa16b0604c3b747ed57722e74cd8aad" target="_blank" style="display:block;" >
+																	<img src="http://image.playstationmail.net/lib/fe9815707366037b74/m/117/header-PlayStation.png" alt="PlayStation" width="50" style="display: block; border: none;" class="cntr-bp320"/>
+																	</a>
+																  	</th>
+																  	<th width="20" height="30" style="width: 20px; height: 30px" class="block-bp320 w100-bp320 h20">&nbsp;
+																 	</th>
+																	<th class="block-bp320 w100-bp320 hauto-bp320 text-center-bp320 fs20" style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 22px; line-height: 26px; color: #ffffff; font-weight: normal; text-align: left; direction: ltr;" dir="ltr">
+																	PlayStation Plus
+																	</th>
+															  	</tr>
+														  	</table>
+													  	</td>
+													</tr>
+													<tr>
+													<td class="h15" height="0" style="height: 0px; line-height:0px; mso-line-height-rule:exactly">&nbsp;</td>
+													</tr>
+												</table>											
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!--[if gte mso 9]>
+								</v:textbox>
+								</v:rect>
+								<![endif]-->
+								</td>
+							</tr>
+							
+						</table>
+					</td>
+				</tr>
+	<tr>
+		<td height="1" style="height: 1px; line-height: 1px; font-size: 0px; mso-line-height-rule:exactly; background-color: #003a9d" bgcolor="#003a9d">
+		<img src="https://click.playstationemail.com/open.aspx?ffcb10-febc1072716d0d7a-fe27177072630c7b761674-fe9c12717065047e76-ff951579-fe1d16797261007a761079-ff011171756602&d=60156&bmt=0" width="1" height="1" alt=""></custom></custom>
+<!-- -->
+		</td>
+	</tr>
+			<tr>
+								<td align="center" valign="top" style="background-color: #003a9d" bgcolor="#003a9d">
+									<img class="w100 hauto" src="https://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-header-diagonal-1v2.jpg?no_cache=0" alt="" width="740" style="display: block; border: none; background-color: #003a9d"/>
+								</td>
+							</tr>
+	
+			</table><span style="display:none;"> </span>
+<!--  -->
+<table class="responsive" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:100%; min-width: 100%">
+	<tr>
+		<td align="center" valign="top">
+<table class="responsive" width="740" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#EEEEEE" style="width:740px">
+	<tr>
+		<td align="center" valign="top">
+<table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w85 cntr" id="module-wrapper">
+  <tbody>
+	<tr>
+      <td class="mobile-module-spacers" height="40" style="height: 40" bgcolor="#EEEEEE"></td>
+    </tr>
+	  <tr>
+		<td align="center" valign="top" bgcolor="#FFFFFF" style="background-color:#FFFFFF">
+		<table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w100 cntr" id="module-hero-3A">
+  <tbody>
+	<!-- -->
+    <tr class="imagearea_show_image_and_copyarea">
+      <td align="center" valign="top" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
+		  <!-- -->
+			<a class="link_main" href="https://click.playstationemail.com/?qs=e714bad009d79d7b689f99c66b5406a6945033f4f37a8b8ffd9f3e1b425c65cb7f941fb6173f9834cd14671081de64d12f46818f91597716" >
+			<!-- -->
+				<img src="https://image.playstationemail.com/lib/fe9c12717065047e76/m/18/d2507c58-e61d-431f-9b60-106490c9bac6.jpg" width="640" style="display:block; border: none;" class="responsive hauto hide"/>
+			 <!-- -->
+								<!--[if !mso]><!-->
+								<div class="mobile_image" style="mso-hide:all;display:none;max-height:0px;overflow:hidden;">
+									<img src="https://image.playstationemail.com/lib/fe9c12717065047e76/m/18/4292e41f-0ad4-4e00-abc1-22fdba04b71b.jpg" width="100%" style="display:block; border: none;mso-hide:all;" class="responsive hauto"/>
+								</div>
+								<!--<![endif]-->
+								<!-- -->
+				<!-- -->
+		  </a>
+		  <!-- -->
+		</td>
+    </tr>
+	  <!-- -->
+	  <!-- -->
+	  <tr class="copyarea_show_image_and_copyarea">
+		  <td height="13" style="height:13px; line-height:13px; mso-line-height-rule:exactly; font-size: 0px; display: block">&nbsp;</td>
+	  </tr>
+    <tr class="copyarea_show_image_and_copyarea">
+      <td align="center" valign="top" bgcolor="#FFFFFF" style="background-color:#FFFFFF; padding-top:10px; padding-bottom:10px;">
+	<table width="560" border="0" cellspacing="0" cellpadding="0" align="center" class="w85 cntr">
+ 			<tbody class="inline-block">
+	  			<!-- -->
+				<tr class="show_optional">
+					<td class="hero-title-mobile-css" align="center" valign="top" style="font-family:SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 22px; line-height: 32px; mso-line-height-rule:exactly; color: #0072ce; direction:ltr; padding-bottom:10px;" dir="ltr">
+					おトクに加入できる最高のチャンス</td>
+				</tr>
+	  			<!-- -->  
+			   <!-- -->
+				<tr class="show_optional">
+				  <td class="paragraph-mobile-css" align=center valign="top" style="font-family:SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 14px; line-height: 24px; mso-line-height-rule:exactly; color: #363636; direction:ltr; padding-bottom:10px;" dir="ltr">
+					<b><b>PS Plus 12ヶ月利用権（※）</b></b>50％OFFセールがまもなく終了します。この機会をお見逃しなく！<br><br> ・毎月、厳選されたPlayStation 4用ゲームを2本ダウンロードでき、PlayStation 5のタイトルもラインナップに定期的に追加されます。<br>・壮大なオンラインマルチプレイの世界に飛び込みましょう。<br>・ゲーム、ゲーム内コンテンツ、予約注文の限定割引でさらにお得になります。<br><br>このオファーの有効期限は、<b><b>2021年8月30日（月）</b></b>です。		
+					</td>
+				</tr>
+				  <!-- -->
+	  
+	  
+	  <!-- -->
+	  <tr class="show_optional">
+	  <td align="center" valign="top">
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" class="w100 cntr">
+			  
+	   <!-- -->
+	   <tr class="stacked_cta1_show_optional_hide_optional">
+      <td class="mobile-module-inner-spacing-bottom-20" align=center valign="top" style="padding-top:7px; padding-bottom:10px;"> 
+<table id="txt-align-cntr" class="cntr cta-wrapper-mobile-css" align=center border="0" cellpadding="0" cellspacing="0" style="text-align:center; min-width:100px">
+				  <tr>
+																					          <td height="1" style="height: 1px; line-height: 1px; mso-line-height-rule:exactly; display: block" align="center"><!--[if gte mso 9]>
+        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="false" stroke="false" style="width:100px;height:1px;">
+<![endif]-->
+																					            <img class="cta-width-spacer" src="https://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-spacer.gif" width="100" height="1" alt="" style="display: block; width: 100px; height: 1px"/>
+																					            <!--[if gte mso 9]>
+        </v:rect>
+        <![endif]--></td>
+																				            </tr>
+					 <tr>
+						 <td class="cta-mobile-padding-css cta-mobile-css cta-hover_CD3D0F_ON" align="center" dir="ltr" bgcolor="#CD3D0F" style="border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px; background-color:#CD3D0F; font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; background-color:#CD3D0F; min-height: auto; line-height:24px; mso-line-height-rule:exactly; direction:ltr;padding-top:8px; padding-bottom:8px; padding-left: 14px; padding-right:14px;">
+							 <a class="cta-mobile-css" href="https://click.playstationemail.com/?qs=e714bad009d79d7b2dae95fc42b262ed10949096f8509b7e077aead57f4dd7cb4c8a33f98a7bba3a4d94ab524aa38eeadc4559f2f3c3c8b0"  style="display: inline-block; font-size:16px; color:#FFFFFF; text-decoration: none; font-family:SST-Roman-Bold, SST, SST-Roman, Arial, Helvetica, sans-serif;">
+								 <font class="cta-mobile-css" style="text-decoration: none; font-size:16px; font-family: SST-Roman-Bold, SST, SST-Roman, Arial, Helvetica, sans-serif; color:#FFFFFF">
+								 今すぐ購入する
+								 </font>
+							 </a>
+						 </td>
+					</tr>
+	<!-- -->
+		  </table>
+		   </td>
+			</tr>
+	  <!-- -->
+			  
+	  <!-- -->
+		  </table>
+		  </td>
+	  </tr>
+	  <!-- -->
+	  
+	  <!-- -->
+    <tr class="show_optional">
+      <td class="disclaimer-mobile-css" align=center valign="top" style="font-family:SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 16px; mso-line-height-rule:exactly; color: #999999; direction:ltr; padding-bottom:10px;" dir="ltr">
+		<b>※すでにPS Plus利用権を購入済みのお客様は、ご利用いただけません。12ヶ月ごとに、定額サービスの自動更新を停止するまで、その時点でのPS Storeの価格で料金が発生します。ユーザー1名につき、1回限りです。各種規約が適用されます：<a  href="https://click.playstationemail.com/?qs=e714bad009d79d7bb338a91b7fb7d814cbe5b57aabda27d80185752626867f7d9802d2445904dc68925fe835f8783030a8f0552514f57ddf" style="text-decoration: none;">playstation.com/legal/ps-plus-usage-terms/</a></b>
+		</td>
+    </tr>
+	  <!-- -->
+  </tbody>
+</table>
+		</td>
+			</tr>
+	  <tr class="copyarea_show_image_and_copyarea">
+		  <td class="hide" height="13" style="height:13px; line-height:13px; mso-line-height-rule:exactly; font-size: 0px; display: block">&nbsp;</td>
+	  </tr>
+	<!-- -->
+		  </tbody>
+			</table>
+		</td>
+	  </tr>
+  </tbody>
+</table>
+		</td>
+	</tr>
+</table>
+</td>
+	</tr>
+</table>
+<!--  --><table class="responsive" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:100%; min-width: 100%">
+	<tr>
+		<td align="center" valign="top">
+<table id="footer-section" class="responsive" border="0" cellpadding="0" cellspacing="0" align="center" width="740">
+				<!-- FOOTER PART 1: CONTENT WRAPPER: start -->
+				<tr>
+					<td align="center" valign="top" bgcolor="#EEEEEE" style="padding-top: 40px">
+						<table class="responsive" bgcolor="#003a9d" border="0" cellpadding="0" cellspacing="0" align="center" width="740">
+							<tr>
+								<td align="center" valign="top">
+									<img class="w100 hauto" src="https://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-footer-diagonal-1v3.jpg" alt="" width="740" style="display: block; border: none; background-color: #003a9d"/>
+									</td>
+							</tr>							
+							<tr>
+								<td bgcolor="#003a9d" align="center" valign="top">
+									<table class="responsiveInner" width="640" border="0" align="center" cellpadding="0" cellspacing="0">
+										<tbody>
+											
+											<tr>
+												<td class="cntr" align="center" valign="top" style="border-bottom: 1px solid #0072ce">
+													<table class="responsiveInner bp600-w90 cntr" border="0" cellpadding="0" cellspacing="0" width="640">
+														<tr>
+															<td align="center" valign="top" style="padding-top: 5px">
+																<table border="0" align="left" cellpadding="0" cellspacing="0" class="cntr">
+																	<tr>
+																		<td class="w100 cntr" align="left" valign="top" style="vertical-align: top; padding-bottom: 0px;">
+																		<a href="https://click.playstationemail.com/?qs=e714bad009d79d7b308efd0a0cb09b351bb6bad24008a8c18a6c8ec92f87034f075bf046731cec610f85234970fb8735695feb7f8e8baadd" >
+																		<img src="http://image.playstationemail.com/lib/fe8e12717267007872/m/64/footer-white_PlayStation.png" alt="PlayStation" width="40" class="cntr" style="display: block; border: none;"/>
+																		</a>
+																		</td>
+																	</tr>
+																</table>
+
+<!-- -->
+	<table class="w100 cntr show_optional" cellpadding="0" cellspacing="0" border="0" align="right">
+																	<tr>
+																		<td class="w100 cntr" align="center" valign="top" style="vertical-align: top; padding-bottom: 17px;">
+																		<a href="https://click.playstationemail.com/?qs=e714bad009d79d7b803527f675e662897d3fc76b2db32a7be790dcd3449f0af562ef4ad8fcfaa2701b95e620b0bd7726a20df0e6a7fa5d00" >
+																		<img src="https://image.playstationemail.com/lib/fe8e12717267007872/m/128/PHNL_TAGLINE_DESKTOP_JA.png" alt="PLAY HAS NO LIMITS" height="44" class="cntr" style="display: block; border: none;"/>
+																		  </a>
+																		</td>
+																	</tr>
+																</table>
+<!-- -->
+														  </td>
+													  </tr>
+													</table>													
+												</td>
+											</tr>
+											
+											<!-- -->
+											<tr class="show_optional">
+												<td align="center" valign="top" class="w100 display-table m-t-20" style="padding-top:20px">
+													<table class="w100 cntr display-table cntr-bp320" border="0" align="center" cellpadding="0" cellspacing="0">
+														<tbody class="display-table cntr-bp320 w100">
+															<tr>
+																<td class="cntr" align="left" valign="middle" height="50" style="vertical-align: middle">
+																	<table class="cntr" border="0" align="center" cellpadding="0" cellspacing="0">
+																		<tr>
+																			<td width="45" align="center" valign="middle">
+			<a href="https://click.playstationemail.com/?qs=956d5bf5eac6bfc8035ce432e1a2e967acb0824e19de1817316b672b64cd43274237a8e701f6c0d2424d8cf716736ec0ac350f853ecd6d44" target="_blank">
+				<img src="http://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-socialicon-white-twitter.png" alt="twitter" width="30" style="display:  block; border: none; margin: auto;"/>
+			</a>
+</td> <td width="45" align="center" valign="middle">
+			<a href="https://click.playstationemail.com/?qs=956d5bf5eac6bfc8846c31320599ee685492bae46ab7a9518d8c8b479965051b1d41f9cbfb6d12a9987086f08631708365c464b689fc4861">
+				<img src="http://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-socialicon-white-facebook.png" alt="facebook" width="30" style="display:  block; border: none; margin: auto;"/>
+			</a>
+</td> <td width="45" align="center" valign="middle">
+			<a href="https://click.playstationemail.com/?qs=956d5bf5eac6bfc8a5081e8ab17c4a81be6cf04b02ef45f735b4ee8876b6dd32835c522e0e61b8d454b90f12aaf8fc65507c3974b966af13">
+				<img src="http://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-socialicon-white-instagram.png" alt="instagram" width="30" style="display:  block; border: none; margin: auto;"/>
+			</a>
+</td> <td width="45" align="center" valign="middle">
+			<a href="https://click.playstationemail.com/?qs=956d5bf5eac6bfc89b2323ee854c4739d7780659fbfb738db42cd25a7951f95953cc9258a570a811d1f19460621f2e2c45b5a8ea29049d28">
+				<img src="http://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-socialicon-white-youtube.png" alt="youtube" width="30" style="display:  block; border: none; margin: auto; "/>
+			</a>
+</td> <td width="45" align="center" valign="middle">
+			<a href="https://click.playstationemail.com/?qs=4d7fbc0312eef90c3dcd4c1909a10284c9457525d68a3c8915a23483755bd71c34c971335f556bbcdcfdae000485f769c793dff7ff6768b9">
+				<img src="http://image.playstationemail.com/lib/fe8e12717267007872/m/127/mb-socialicon-white-line.png" alt="line" width="30" style="display:  block; border: none; margin: auto"/>
+			</a>
+</td><!-- --><!-- -->
+
+<!-- -->
+<!-- -->
+<!-- -->
+
+
+
+<!-- -->
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+																<!-- -->
+															<!-- -->
+													<!-- -->	
+														</tbody>
+													</table>
+											<!-- -->
+												</td>
+											</tr>
+											<tr>
+												<td align="center" valign="top" style="padding-bottom:20px">
+												<table class="w100 float-r cntr m-t-10 cntr-bp320 m-b-20-bp320" border="0" align="center" cellpadding="0" cellspacing="0">
+														<tbody class="w100 display-table">
+															<tr>
+																<td class="cntr p-t-0" align="center" valign="middle" dir="**global-text-direction-ARABIC-RTL**" style=" direction:**global-text-direction-ARABIC-RTL**; vertical-align: middle; padding-top: 10px;">
+																	
+																	<a href="https://view.playstationemail.com/?qs=1e48d4e8ad7a08845f59a66e4eb77eee238fa3d6bf23ab8778b97473c26fa9ee8be988112d7f8ab977bd880405e9708dd3a549c1e625298f54897a6a723b459b8753ababe62f776ed252a41a4f6bae5b" style="color: #FFFFFF; text-decoration: none" class="footer-links" >
+											<span style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 22px; color: #FFFFFF">Webページで見る</span>
+</a>
+																	
+<!-- -->
+																<span class="hide-bp320 terms_show_optional" style="font-size: 11px; line-height: 22px; color: #0072ce;">&nbsp; | &nbsp;</span>
+		<a href="https://click.playstationemail.com/?qs=4d7fbc0312eef90ca4f2b20418c5ad8b50341e2d31d31055b426171005db964b2fe79eb043d1a57c9d4e1704ae6e09df867ecd8c2693d210" style="color: #FFFFFF; text-decoration: none" class="footer-links terms_show_optional" >
+									<span style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 22px; color: #FFFFFF">法的文書およびノーティス</span>
+								</a>
+															<!-- -->
+															
+															<!-- -->
+																<span class="hide-bp320 personalise_show_optional" style="font-size: 11px; line-height: 22px; color: #0072ce;">&nbsp; | &nbsp;</span>
+		<a href="https://click.playstationemail.com/?qs=60dac5c9c9dfd1a9bff772645a1412d4adc6541dd9d9a4bce11802b63e269bdbc2265cb48efefdfb7eef757e8c4e8f499b6824e169cddd1f" style="color: #FFFFFF; text-decoration: none" class="footer-links personalise_show_optional" >
+									<span style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 22px; color: #FFFFFF">アカウント管理</span>
+								</a>
+															<!-- -->
+													
+													
+													<!-- -->
+																<span class="hide-bp320 unsubscribe_show_optional" style="font-size: 11px; line-height: 22px; color: #0072ce;">&nbsp; | &nbsp;</span>
+		<a href="https://click.playstationemail.com/?qs=4d7fbc0312eef90c1abe4f87f6f44929eb753c696836a66a84bf3323c8ee909b0cc2642c2cd679b61b97b8e36e9e5a38559d3e7cfbf880083f21355fc3b3f41d" style="color: #FFFFFF; text-decoration: none" class="footer-links unsubscribe_show_optional" >
+									<span style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 22px; color: #FFFFFF">配信停止</span>
+								</a>
+															<!-- -->
+																	
+																</td>
+															</tr>
+														</tbody>
+													</table>	
+																
+												</td>
+										  </tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<!-- FOOTER PART 1: CONTENT WRAPPER: end -->
+				<!-- FOOTER PART 2: CONTENT WRAPPER: start -->
+				<tr>
+					<td align="center" valign="top">
+						<table class="responsive" bgcolor="#EEEEEE" border="0" cellpadding="0" cellspacing="0" align="center" width="740">
+							<tr>
+								<td bgcolor="#EEEEEE" align="center" valign="top" style="padding-top: 20px; padding-bottom:20px">
+									<table class="responsiveInner" width="640" border="0" align="center" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td align="center" valign="top">
+													<!-- -->
+													<table class="w95 cntr show_optional" cellpadding="0" cellspacing="0" border="0" width="640">
+														<!-- -->
+
+													</table>
+													<!-- -->
+														<table class="w95 cntr" cellpadding="0" cellspacing="0" border="0" width="640">
+														<tr>
+															<td align="center" valign="top" style="font-family: SST, SST-Roman, Arial, Helvetica, sans-serif; font-size: 11px; line-height: 21px; color: #999999; direction:ltr;" dir="ltr">
+																<!-- -->
+																&copy;2021 Sony Interactive Entertainment Inc. All Rights Reserved.
+ <span style="height:15px; line-height:15px; mso-line-height-rule:exactly; display:block"><br><br></span>
+																“プレイステーション ファミリーマーク”、“PlayStation”、“プレイステーション”、“PS5ロゴ”、 “PS5”、 “プレイステーション プラスアイコン”、"Play Like Never Before"および“Play Has No Limits”は、株式会社ソニー・インタラクティブエンタテインメントの登録商標または商標です。“SONY”は、ソニー株式会社の登録商標です。
+ <span style="height:15px; line-height:15px; mso-line-height-rule:exactly; display:block"><br><br></span>
+																<!---->
+																<!-- -->
+																<span class="noreply_marketing_show_optional">
+																本メールはPSN上のアカウントを作成された方で、弊社からお知らせのメールを配信することに同意されたお客様へ配信しております。 本メールの送信メールアドレスは配信専用のため、返信いただいても回答することができません。不審なメールやメッセージを受け取った方は、 当メールに記載のお問い合わせ窓口へご連絡をお願いいたします。
+<br><br>
+「プレイステーション カスタマーサポート」 <a href="https://click.playstationemail.com/?qs=0b310677c581621bc418297f747e9c8185ced573c6588ad038a2f4baa03a278125a445b015e9097f95b07bae2921a6b1306d693fac1ac417" style="text-decoration: underline; color: #999999;">サポートへのお問い合わせ</a>
+ <span style="height:15px; line-height:15px; mso-line-height-rule:exactly; display:block"><br><br></span>
+																</span>
+																<!-- -->
+																<!-- -->
+																発行：株式会社ソニー・インタラクティブエンタテインメント　　〒108-8270 東京都港区港南1丁目6番27号
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											</tbody>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<!-- FOOTER PART 2: CONTENT WRAPPER: end -->
+			</table>
+</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+</html>
+
+
+
+
+
+--qs9glAestZwO=_?:--
+

@@ -1,0 +1,138 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp3195534vkx;
+        Mon, 29 Mar 2021 02:35:26 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzzJQHtOX+nCXnAbWgm4qY+M1fDtXzGuY9NkjZHxGPYQ5KegwmaKUEavZGM3nPAPB6lF/tf
+X-Received: by 2002:a17:90a:6708:: with SMTP id n8mr26727487pjj.174.1617010526563;
+        Mon, 29 Mar 2021 02:35:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1617010526; cv=none;
+        d=google.com; s=arc-20160816;
+        b=nb4maxOE0U9B+HTISQ9hOiYrNVVlOGpWDZF3PCfI+FGpkX3CHE/PJqCrRt0oWdwS7g
+         wPKHnAm8maA3OR4m9raeKqD4XNF6SfvfpKw/OtfC9ezoGJaL+hjWYrv0VH9OkoUllSp7
+         Qr2j0DTzDhTdSTBf55x+X0wzXSKUjviGQPIaebJCCy+H3ms4qBuLRA28XDt4Dz8dNOFK
+         meV+p6YSTKMZafZNA0SGrvrmxXjIwQ0VdVOKhLGbeZySw3rARS2+EKQeaJg8iU/GHT8E
+         TamDluz6qOk/Gq6mrZuQOT6hwB5O7Bq9mtvaC/riuWjRLOj7cSkXu21apZwPf6TQIsB2
+         v6hA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=precedence:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:errors-to:dkim-signature;
+        bh=BNCrbrUKUSaeGNlV6WGzF01mZuNI4M/W4BXoYBowh44=;
+        b=Ri2qlHeAaNGfob9Pq1N2Etiw5TDTr2W/X3ftivHXRTRvoni3LZzOE7W9qSJ09wMCNg
+         wmxXt0Bl6guWav91knxBsZ+SpfEnbJvATSsvGLpkbxPfGh58FkWfJEmGD+igtkw1iXsK
+         Mv/N/RW466pnAj20WUdZykLJjf0u5yCGs5sbrZ5eh035AUIdjLuFXMKJuRE7HjViwfpp
+         0PrDa6TtaqhpsTKUYB9TYZO8lAb6Mr9q0liV8S8PSMEuTMHLLkc6Z1JMBTHghNuMgAa8
+         Qqm+lTJ87htWifympuYOOmgzAVgtKjp8tFwVVymMuCCPto3KB6P5yo+q+41T5zLc4S01
+         TT5g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b=M+6UStB9;
+       spf=pass (google.com: domain of z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.97 as permitted sender) smtp.mailfrom=z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+Return-Path: <z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp>
+Received: from bmmpq1303.jpx1.mta.emberpoint.com (bmmpq1303.jpx1.mta.emberpoint.com. [106.185.100.97])
+        by mx.google.com with ESMTPS id i190si18926146pfe.293.2021.03.29.02.35.25
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 29 Mar 2021 02:35:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.97 as permitted sender) client-ip=106.185.100.97;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=en-japanmail201805 header.b=M+6UStB9;
+       spf=pass (google.com: domain of z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp designates 106.185.100.97 as permitted sender) smtp.mailfrom=z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1617010526;
+	s=en-japanmail201805; d=en-japan.com;
+	h=Date:From:To:Message-Id:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=BNCrbrUKUSaeGNlV6WGzF01mZuNI4M/W4BXoYBowh44=;
+	b=M+6UStB9SeimPpYrvrxZGdbsmeU7A4tVdagJkzkiiJz1NX0AjG1GBLn71roGYWT8
+	pDAwcEt0bu6mIBK+X4bhEqFZiZ+VRF9TfMcENWJtUesPoBPxO7JhXtUdYJfF+Lwheu+
+	HdIRy6myv+A2zlJMgEb7jxFtzAbAayRfiISza0EY=
+Errors-To: z-enhaken-xfbqfb-0-m4-008hujyoromgmail.com@bma.mpse.jp
+Date: Mon, 29 Mar 2021 18:35:18 +0900 (JST)
+From: =?ISO-2022-JP?B?IhskQiUoJXNHSTgvO3ZMMzZJGyhCIg==?=
+ <haken-news@en-japan.com>
+To: hujyorom@gmail.com
+Message-Id: <1617010518173.2021125511.enhaken.0.796.00000000@ad143se.mpse.jp>
+Subject: =?ISO-2022-JP?B?IBskQiFaS0wzJEY7JEdGLyQvJCo7RRsoQg==?=
+ =?ISO-2022-JP?B?GyRCO3ZGQz04IVtFWkZ8PUs1WSRfISobKEI=?=
+ =?ISO-2022-JP?B?GyRCTytMMyUzJXMlNSVrJUYlIyVzJTAbKEI=?=
+ =?ISO-2022-JP?B?GyRCJTklPyVDJVUhIhsoQkJNVxskQkA1NSwlRxsoQg==?=
+ =?ISO-2022-JP?B?GyRCJSMhPCVpITwkR0YvJC8hKkhOR2QbKEI=?=
+ =?ISO-2022-JP?B?GyRCMHchIj5eTT9HLxsoQjIbJEIycyEqQGxMZz4mGyhC?=
+ =?ISO-2022-JP?B?GyRCPFIkTiVrITwlSDFENkgkWyQrIUEbKEI=?=
+ =?ISO-2022-JP?B?GyRCJSglc0dJOC8bKEIgTkVXUxskQiF5V0QbKEI=?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+
+◆BMW正規ディーラーで働く！販売員、賞与年2回！専門商社のルート営業ほか◆
+
+
+こんばんは！エン派遣 事務局の立和です。
+
+本日は、エン派遣の姉妹サイト「エンバイト」より、北海道で働く求人をご紹介します。
+
+どのお仕事も応募定員に達すると掲載終了してしまうので、
+気になるお仕事があればすぐに応募してください！
+
+━━━━━━━━━━━━━
+★ 北海道で働くお仕事特集
+━━━━━━━━━━━━━
+
+▼ 土日祝休み！労務コンサルティングスタッフ【未経験OK】
+
+[給与] 月給19万4,500円〜+交通費　※契約社員
+[場所] 札幌市東区(北42条東8バス停)
+[特徴] 資格取得支援・手当てあり/年間休日120日以上/家族手当あり
+https://hb.en-japan.com/uex_wnBcLDd/
+
+
+▼ BMW正規ディーラーで働く！販売員【未経験OK】
+
+[給与] 月給15万4,100円〜20万円+交通費+賞与(年2回)　※正社員
+[場所] 札幌市豊平区（福住駅）
+[特徴] 家族手当あり/年間休日120日以上/車通勤OK/インセンティブ有
+https://hb.en-japan.com/uex_CYLI4sv/
+
+
+▼ 賞与年2回！専門商社のルート営業【未経験OK】
+
+[給与] 月給20万2,300円〜29万7,000円+交通費+賞与(年2回)　※正社員
+[場所] 河東郡音更町
+[特徴] 土日祝休み/車通勤OK(駐車場無料)/年間休日125日/住宅手当あり/家族手当あり
+https://hb.en-japan.com/uex_CowXyDF/
+
+
+▼ 未経験歓迎！介護予防デイのスタッフ【未経験OK】
+
+[給与] 時給1,000円〜1,100円+交通費　※正社員
+[場所] 札幌市東区（北24条駅、元町駅）
+[特徴] 週2〜4日からOK/副業・WワークOK/シフト応相談/各種割引制度あり
+https://hb.en-japan.com/uex_pUMhDb8/
+
+
+▼ 週2回〜！清掃スタッフ【未経験OK】
+
+[給与] 時給861円〜+交通費　※アルバイト
+[場所] 帯広市
+[特徴] 週2日からOK/8:15〜12:15勤務/残業なし/提携保育園あり
+https://hb.en-japan.com/uex_LETm9xP/
+
+━━━━━━━━━━━━━━━
+☆ 大人気！エン派遣のスマホアプリ
+‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥
+
+iOS版 ― https://goo.gl/GYA8lu
+
+Android版 ― https://goo.gl/o2C3A0
+
+
+━━━━━━━━━━━━━━━
+エン・ジャパン株式会社
+エン派遣 事務局
+
+÷-÷-÷-÷-÷-÷-÷-÷-÷-
+【配信停止】https://haken.en-japan.com/uex_wrBF6f2/
+【お問い合わせ】https://haken.en-japan.com/uex_ktPfOVU/
+
+※当メールのアドレスは送信専用です。このメールへの返信にはお答えできません。
+本メールに掲載された記事を許可なく転載することを禁じます。
+━━━━━━━━━━━━━━━

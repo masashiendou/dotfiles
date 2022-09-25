@@ -1,0 +1,86 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:32cd:0:0:0:0:0 with SMTP id y196csp2173423vky;
+        Mon, 8 Mar 2021 16:12:56 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJz0gXbC+HKcC7YZsdOCn4Nez+HV1VtUphsZ4zjoBRZ1fzDzKWUt4f6mhcos6TCd8wEy3H3S
+X-Received: by 2002:a17:902:b60f:b029:e5:e0e6:b643 with SMTP id b15-20020a170902b60fb02900e5e0e6b643mr20760551pls.64.1615248776450;
+        Mon, 08 Mar 2021 16:12:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1615248776; cv=none;
+        d=google.com; s=arc-20160816;
+        b=KDMqbJiWVhyEvdp39TVrGqvNm8eUa+lJPocf1/8K9B6NB/l2cDPVI1+wxdIPRAIuMh
+         1I9uD0EECG9RRCEUFM/Yf1axjTWTFHhWx4U7FInV1b2E2IQYpFvYbWxMaNU6t6pqDdrZ
+         pnPqiY5ELBrmcaJ/aq5sz6URRMLXQZvjxYb8N/cTQBO5vZo7G0nMsR+CGFUz+a5ReoTr
+         jK55nxnaIGr6VGXODrrSZcjFzLGGG0jaBYMVc0T1FSAbgYM7e4c/N2yJQuOi4LE2crvE
+         av+nTQOA2yryUrmbREGWYT4F02LaYenw6/9ARpyEsJN/Y2Ay3NnFsHSAgZXNmJa+LH3c
+         1Mww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:user-agent:reply-to:subject
+         :to:from:date:errors-to:message-id:dkim-signature;
+        bh=MvoMgfUSum/BmTVv963YY5A6TczAYgJ8dua3OJo0hT8=;
+        b=j43t05u1QbwXH8UMkQbycMNZd2y5TezPAjCn3jxDRdyHX/AeQbmtOU6J/JSPOqn2ST
+         KnddkVYSXePg0J6424f2rC9FgIwvw5FEx48Yaus66L2ecD4Lru5BsV5Q/1qD6DGLGeAj
+         rQwM26akznpHneufHXHDAUVxvsJObaAaJzuFbzpNxasg7k4cq7TrYQYgPRw0tVg7Q4HG
+         LyCV3Q5tYibpkfI+ksbv+Xgmv4CSY7R0WEPxZc8wZf3MdVS/TnzkdjB6DBYZsiBw6B8k
+         +L7rSO07iVmpx1aqeFHvkoBUgpCYS6U+IwXoJesmojbwIFspUPjftQIx9d6WNeSaCm05
+         IvLA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=enjapan.201911 header.b=kBSvwsba;
+       spf=pass (google.com: domain of z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp designates 106.185.99.75 as permitted sender) smtp.mailfrom=z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+Return-Path: <z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp>
+Received: from txmta7205.jpx1.mta.emberpoint.com (txmta7205.jpx1.mta.emberpoint.com. [106.185.99.75])
+        by mx.google.com with ESMTPS id g10si10161290pge.151.2021.03.08.16.12.55
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 08 Mar 2021 16:12:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp designates 106.185.99.75 as permitted sender) client-ip=106.185.99.75;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@en-japan.com header.s=enjapan.201911 header.b=kBSvwsba;
+       spf=pass (google.com: domain of z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp designates 106.185.99.75 as permitted sender) smtp.mailfrom=z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=en-japan.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1615248776;
+	s=enjapan.201911; d=en-japan.com;
+	h=Message-ID:Date:From:To:Subject:Reply-To:Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=MvoMgfUSum/BmTVv963YY5A6TczAYgJ8dua3OJo0hT8=;
+	b=kBSvwsbaHT15dFVntF/fWzQlPdvJ7qYI12hHoC3dyby4XylBEJE/v2uDy3As34pJ
+	jsC6qiDBMPAarRSVALo66N885S5+f5N9s0dzYthnKw/VKNU8k89kxgwbA5zFu7/eeVr
+	ViOZddGiAzsMf2HJJI22KK/e7HD9O974Sdcx92CWQL8LDqx+sJLv/z4DZYVbjbMwYVX
+	ANRRhITiN+M3GVMyaNrgLSEyzngKQZGrQUUIIWMNMQbHxO1UN+ECXQiLw+u1YUcsVWt
+	W/BW2E1UXf0So8W0ytsnXDXh2Gj2Ryci2tYW4X2/awvNeB8uUsg3paVNeh2wSe1Sh6o
+	xrqn5u1/FA==
+Message-ID: <1615248765000.2021030909.enhaken.0.756439.mt72@enjapan.bma.mptx.jp>
+Errors-To: z-enhaken-75whk7ust-0-g7o7.mt72-008hujyoromgmail.com@enjapan.bma.mptx.jp
+Date: Tue, 9 Mar 2021 09:12:45 +0900
+From: =?ISO-2022-JP?B?GyRCJSglc0dJOC87dkwzNkkbKEI=?= <haken-info@en-japan.com>
+To: hujyorom@gmail.com
+Subject: =?ISO-2022-JP?B?GyRCJDQxfkpnJCIkaiQsJEgkJiQ0JDYkJCReJDkhISUoJXNHSTgvGyhC?=
+Reply-To: "haken-info@en-japan.com" <haken-info@en-japan.com>
+User-Agent: CodeIgniter
+X-Sender: haken-info@en-japan.com
+X-Mailer: CodeIgniter
+X-Priority: 3 (Normal)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+
+以下のメールはエン派遣のシステムを利用して送信されています。
+ご返信いただいても、応募先企業には届きませんのでご注意ください。
+----------------------------
+
+遠藤 將司様
+
+この度はenジャパンお仕事情報より、弊社のお仕事にエントリー頂きありがとうございます。
+ご応募を頂きましたお仕事・登録会のご案内・ご相談に関しては、
+２営業日以内（土日祝を除く２日以内）に担当よりご連絡を差し上げます。
+
+お仕事をエントリーして下さった皆様へ
+
+もし、日数経過してもご連絡なき場合には他の候補者でお話が進んでいる等の事由により、
+ご紹介が出来ない状況とご判断下さい。
+どうぞ宜しくお願い致します。
+
+◆このE-mailへの返信はお受けしておりませんので、あらかじめご了承ください。
+----------------------------
+マンパワーグループ株式会社
+登録予約センター 0120-11-1069
+営業時間：平日 9:00〜19:30
+----------------------------

@@ -1,0 +1,1354 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp299193vkx;
+        Wed, 14 Apr 2021 20:10:11 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxtq22n27dKZiv7Zzmpk9WOCtVrIqjoKbSAzPnvLAbhSXIwmw9MIc9YBbI1TPs4YlhoXc66
+X-Received: by 2002:aca:dd44:: with SMTP id u65mr984894oig.172.1618456210942;
+        Wed, 14 Apr 2021 20:10:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1618456210; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qKINoqGW/p0nfUVYJVKGsjUkuzaaXgVF6/yZED5q/M6VlfYZ/5HayLFGROw3ZOMAdE
+         7OfSq1SLI/R486X3TKmCKbj0hRP+Zfa/oWlgLuBsnXRkN8eEFPngNpxVCblC0d4cK0Oe
+         kUyM+TP6pj3Tzb+K7Umae+JOpAjq9gX6Ml1kl/NgKDbj3a3p1LdMxk+fMy/pAbGgosFS
+         06zHj32Z8I5Qsly5WOhrcLzlI8+Z/bCtlXX9tBFrPJ/Aci+P/+UQXU/tNbG4TY+xSOfE
+         bE/FVxbjILq9xSpVCARMR1SPubqMUyVu5GonaB9Wzme5Mh9m+PXP7Jj9sMlWAalhuytB
+         euSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature:dkim-signature;
+        bh=5Sbce9BeOtIHJbE6CDx/UXQDd4SG2s+V1yI3mPlveZk=;
+        b=KCqOsu4g3GaEDhRUJFlZeM0i0QHHkVd5JPs6mN/7/ZIQ52JA99TVKbFe/9+1dejhw+
+         RUWE67l+aOp8zo32N+qVO/PLG7TVfdsiYPKHcHo+kjg5EaSyc/zGbBn2Dau0yTC0Kbd8
+         UXsq5LGUC933vPvMN2vX4OUkpAb4Pt9qw4vthX4pC2gBiB4xTNe5Me4FfbTISMC9QyaG
+         /ai8pjB1CfeFm9jeUzTimPEVxM8C04x+7iD+4SZ+6Jvn7v+jYXXUe31fxW8mPFpf94hD
+         lGbvrpk7vjPTfaXBbzmc1Lz8hVciJBsP6vwRchMB9LsJ+Lem1RVS6eyRZCgZdl1EVSJG
+         550w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.microsoft.com header.s=m1 header.b=OUMXisei;
+       dkim=pass header.i=@mktomail.com header.s=m1 header.b="EhVG/FmW";
+       spf=pass (google.com: domain of 157-gqe-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com designates 199.15.214.202 as permitted sender) smtp.mailfrom=157-GQE-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=microsoft.com
+Return-Path: <157-GQE-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com>
+Received: from em-sj-02.mktomail.com (em-sj-02.mktomail.com. [199.15.214.202])
+        by mx.google.com with ESMTPS id n11si1153823oor.35.2021.04.14.20.10.10
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 14 Apr 2021 20:10:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 157-gqe-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com designates 199.15.214.202 as permitted sender) client-ip=199.15.214.202;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.microsoft.com header.s=m1 header.b=OUMXisei;
+       dkim=pass header.i=@mktomail.com header.s=m1 header.b="EhVG/FmW";
+       spf=pass (google.com: domain of 157-gqe-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com designates 199.15.214.202 as permitted sender) smtp.mailfrom=157-GQE-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=microsoft.com
+X-MSFBL: m4W1Va5OKmSw17AFeyVK7wzD+yikXBFUUBQrNB3+xC8=|eyJnIjoiYmctc2otMDE
+	iLCJiIjoiZHZwLTE5OS0xNS0yMTQtNDkiLCJ1IjoiMTU3LUdRRS0zODI6MTEyMTY
+	wMzo5ODc1MzY6NTYzMjk2NTowOjEwMTg0ODU6OToyODcxOTY5OjU3NzkxMzYwMS0
+	xNiIsInIiOiJodWp5b3JvbUBnbWFpbC5jb20ifQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1618456208;
+	s=m1; d=email.microsoft.com; i=@email.microsoft.com;
+	h=Date:From:To:Subject:MIME-Version:Content-Type;
+	bh=5Sbce9BeOtIHJbE6CDx/UXQDd4SG2s+V1yI3mPlveZk=;
+	b=OUMXiseigLhBiGr5pLBPDfnAnY7SHGhd3gZIKLcQAPn2PFRuecgBJuofw43VqlIT
+	uKcF7wXU+AphzwoeqifNukXqBXDUY26asDg5VU5tIw3k6xxyGOgddBwubwGP5DLqZz7
+	n+FIAhbIi52az+s7d1HNC6GSvdow1HlMGsOjtcak=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1618456208;
+	s=m1; d=mktomail.com; i=@mktomail.com;
+	h=Date:From:To:Subject:MIME-Version:Content-Type;
+	bh=5Sbce9BeOtIHJbE6CDx/UXQDd4SG2s+V1yI3mPlveZk=;
+	b=EhVG/FmWLIshp1A8E8RfRvghdihsanU2GNdGue+zE/IEmqPNsoYxZacSK6FOBdAy
+	upncDjwqfTeC4y6PDGa9dFEBmMNKcX0WS+Cy7jSEBYlOYbAj0z9xgd4EysIxlk+KPO5
+	lUr1pc26sWTScU+DOLOlPslu/cZXX5u5vi6y7GmQ=
+Date: Wed, 14 Apr 2021 22:10:08 -0500 (CDT)
+From: Microsoft Azure Team <azure@email.microsoft.com>
+Reply-To: replyto@microsoft.com
+To: hujyorom@gmail.com
+Message-ID: <623183377.31830295.1618456208718.JavaMail.mktmail@sjmas02.marketo.org>
+Subject: =?UTF-8?B?44CQ44K944OV44OI44Km44Kn44Ki6ZaL?=
+ =?UTF-8?B?55m644OZ44Oz44OA44O85qeY5ZCR44GR44CR?=
+ =?UTF-8?B?IFNhYVMg56e76KGM44Gu55+l44Gj44Gm44GK44GN44Gf44GE5Z+6?=
+ =?UTF-8?B?5pys5oOF5aCx44Go5oq844GV44GI44Gm?=
+ =?UTF-8?B?44GK44GN44Gf44GE44OT44K444ON44K5IA==?=
+ =?UTF-8?B?44Od44Kk44Oz44OIICBbTWljcm9zb2Z0XQ==?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_31830294_415099409.1618456208717"
+X-Binding: bg-sj-01
+X-MarketoID: 157-GQE-382:1121603:987536:5632965:0:1018485:9:2871969:577913601-16
+X-MktArchive: false
+List-Unsubscribe: <mailto:J5HFCUSQM5CUMVKRJVZG6VDSOR3WGYKHOE4GE6KIGZTEUSKOGZMFE3KQMZBS24DBJBWVSPI.2871969.1018485.9@unsub-sj.mktomail.com>
+X-Mailfrom: 157-GQE-382.0.2871969.0.0.1018485.9.577913601-16@bounce.email.microsoft.com
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+X-MktMailDKIM: true
+
+------=_Part_31830294_415099409.1618456208717
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+=E4=BD=95=E5=8D=92=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=
+=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+
+
+=E3=81=93=E3=81=AE=E3=83=A1=E3=83=BC=E3=83=AB=E3=81=8C=E6=AD=A3=E3=81=97=E3=
+=81=8F=E8=A1=A8=E7=A4=BA=E3=81=95=E3=82=8C=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=
+=88=E3=81=AF=E3=80=81 | Web =E3=83=9A=E3=83=BC=E3=82=B8=E3=81=A7=E3=81=94=
+=E8=A6=A7=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84 <[[https://info.microsoft.com=
+/index.php/email/emailWebview?mkt_tok=3DMTU3LUdRRS0zODIAAAF8cnqVQkssNjT9qC_=
+1s25Co6aiYTEsd0odyDXxXFaX7BlefzrN4fUJy5P8L6s_lX5ldP9Jbl8ROBiCuxBgAlquOPzdq3=
+O1T-IqwVK8BK8NAlRv9rTNHfLGXam-m5dTf8oyUkx744-9JukCPw1FnwNA7gFDGSJoeDp6iMONt=
+jyK9MIS1QXb&md_id=3D1018485]]>
+
+
+<[[https://www.microsoft.com/]]>
+ <[[https://azure.microsoft.com/en-us/overview/saas-partner-resources/]]>
+
+=20
+
+
+
+
+<div><span style=3D"font-family: Yu Gothic UI; font-size: 10pt;">=E4=BB=8A=
+=E5=8F=B7=E3=81=A7=E3=81=AF=E3=80=81=E8=87=AA=E7=A4=BE=E3=82=B5=E3=83=BC=E3=
+=83=93=E3=82=B9=E3=81=AE SaaS =E5=8C=96=E3=82=92=E3=81=94=E6=A4=9C=E8=A8=8E=
+=E4=B8=AD=E3=81=AE ISV =E4=BC=81=E6=A5=AD=E6=A7=98=E5=BF=85=E8=A6=8B=E3=81=
+=AE=E3=80=8CISV =E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=E3=81=AE=E3=82=AF=E3=
+=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=89=E3=80=
+=8D=E3=82=B7=E3=83=AA=E3=83=BC=E3=82=BA=E3=81=8B=E3=82=89=E3=80=81=E3=80=8C=
+SaaS =E7=A7=BB=E8=A1=8C=E7=B7=A8=E3=80=8D=E3=81=A8=E3=80=8CSaaS =E3=83=93=
+=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AE=E4=BD=9C=E3=82=8A=E6=96=B9=E7=B7=A8=E3=
+=80=8D=E3=81=AE 2 =E3=81=A4=E3=81=AE=E3=82=AA=E3=83=B3=E3=83=87=E3=83=9E=E3=
+=83=B3=E3=83=89 =E3=82=BB=E3=83=9F=E3=83=8A=E3=83=BC=E3=82=92=E3=81=94=E7=
+=B4=B9=E4=BB=8B=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br /> =E3=81=BE=E3=81=
+=9F=E3=80=81=E3=83=97=E3=83=A9=E3=83=83=E3=83=88=E3=83=95=E3=82=A9=E3=83=BC=
+=E3=83=A0=E3=81=A8=E3=81=97=E3=81=A6=E3=81=AE Microsoft Teams =E3=81=AE=E6=
+=B4=BB=E7=94=A8=E6=96=B9=E6=B3=95=E3=81=A8=E3=80=81AI =E3=82=84 DevOps, Pow=
+er Platform =E3=82=92=E5=9F=BA=E7=A4=8E=E3=81=8B=E3=82=89=E5=AD=A6=E3=81=B9=
+=E3=82=8B=E7=84=A1=E6=96=99=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=
+=82=B0=E3=81=AA=E3=81=A9=E5=A4=9A=E6=95=B0=E6=8E=B2=E8=BC=89=E3=81=97=E3=81=
+=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=9C=E3=81=B2=E3=81=94=
+=E8=A6=A7=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=E3=81=94=E8=87=AA=E8=
+=BA=AB=E3=81=AE=E3=82=B9=E3=82=AD=E3=83=AB=E3=82=A2=E3=83=83=E3=83=97=E3=81=
+=AB=E3=80=81=E3=81=BE=E3=81=9F=E4=BB=8A=E5=BE=8C=E3=81=AE=E3=83=93=E3=82=B8=
+=E3=83=8D=E3=82=B9=E3=81=AB=E3=81=8A=E5=BD=B9=E7=AB=8B=E3=81=A6=E3=81=8F=E3=
+=81=A0=E3=81=95=E3=81=84=E3=80=82</span></div> <div align=3D"center">&nbsp;=
+</div> <div align=3D"center"><strong><span style=3D"font-family: Yu Gothic =
+UI; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=87=
+=E3=83=9E=E3=83=B3=E3=83=89 =E3=82=BB=E3=83=9F=E3=83=8A=E3=83=BC=E3=80=91<b=
+r /> ISV =E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=E3=81=AE=E3=82=AF=E3=83=A9=E3=
+=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=89<br /> =E3=83=
+=BC SaaS =E7=A7=BB=E8=A1=8C=E7=B7=A8 =E3=83=BC</span></strong></div> <div a=
+lign=3D"center">&nbsp;</div> <div><span style=3D"font-family: Yu Gothic UI;=
+ font-size: 10pt;">3=E9=83=A8=E6=A7=8B=E6=88=90=E3=81=A7=E3=81=8A=E5=B1=8A=
+=E3=81=91=E3=81=99=E3=82=8B=E3=80=8CISV=E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=
+=E3=81=AE=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=
+=82=A4=E3=83=89=E3=80=8D=E3=82=B7=E3=83=AA=E3=83=BC=E3=82=BA=E3=81=AE=E3=80=
+=8CSaaS =E7=A7=BB=E8=A1=8C=E7=B7=A8=E3=80=8D=E3=81=A7=E3=81=AF=E3=80=81=E8=
+=87=AA=E7=A4=BE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AE SaaS (Software=
+ as a Service) =E5=8C=96=E3=82=92=E3=81=94=E6=A4=9C=E8=A8=8E=E4=B8=AD=E3=81=
+=AE ISV =E4=BC=81=E6=A5=AD=E6=A7=98=E3=81=AB=E3=80=81=E3=81=9C=E3=81=B2=E7=
+=9F=A5=E3=81=A3=E3=81=A6=E3=81=8A=E3=81=8D=E3=81=9F=E3=81=84=E5=9F=BA=E6=9C=
+=AC=E6=83=85=E5=A0=B1=E3=80=81=E6=8A=BC=E3=81=95=E3=81=88=E3=81=A6=E3=81=8A=
+=E3=81=8D=E3=81=9F=E3=81=84=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E4=B8=8A=E3=
+=81=AE=E6=A4=9C=E8=A8=8E=E3=83=9D=E3=82=A4=E3=83=B3=E3=83=88=E3=80=81=E5=85=
+=B7=E4=BD=93=E7=9A=84=E3=81=AA SaaS =E7=A7=BB=E8=A1=8C=E3=83=97=E3=83=AD=E3=
+=82=BB=E3=82=B9=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E8=A9=B3=E3=81=97=E3=81=
+=8F=E3=81=8A=E8=A9=B1=E3=81=97=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=
+=E3=80=82<br /><br /> =E5=8B=95=E7=94=BB=EF=BC=9A12 =E5=88=86 23 =E7=A7=92 =
+</span></div> <div align=3D"center">&nbsp;</div> <table style=3D"margin: 0p=
+x auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"0" width=
+=3D"" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"> <tbody> <tr> <t=
+d style=3D"background: #0078d7; border-collapse: separate; display: block; =
+font-family: MS Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; line-height:=
+ 40px; padding: 0px 24px 7px 24px; text-align: center; text-decoration: non=
+e;" align=3D"center" valign=3D"middle"><a style=3D"text-decoration: none;" =
+href=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQNdXHyWv3x8on=
+xuaEMKenu7EABM3lufe2u5033Y36i49By92keJ5TPRk38zBE0GWk00=3D" target=3D"_blank=
+" rel=3D"noopener" ><strong style=3D"font-weight: normal; color: #ffffff;">=
+=E3=81=94=E8=A6=96=E8=81=B4=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89<span style=
+=3D"font-family: Segoe UI; font-size: 15pt;">&gt; </span></strong></a></td>=
+ </tr> </tbody> </table> <div align=3D"center">&nbsp;</div> <div align=3D"c=
+enter">&nbsp;</div> <div align=3D"center"><strong><span style=3D"font-famil=
+y: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=82=AA=E3=83=
+=B3=E3=83=87=E3=83=9E=E3=83=B3=E3=83=89 =E3=82=BB=E3=83=9F=E3=83=8A=E3=83=
+=BC=E3=80=91<br /> ISV =E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=E3=81=AE=E3=82=
+=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=89=
+<br /> =E3=83=BC SaaS =E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AE=E4=BD=
+=9C=E3=82=8A=E6=96=B9=E7=B7=A8 =E3=83=BC</span></strong></div> <div align=
+=3D"center">&nbsp;</div> <div><span style=3D"font-family: Yu Gothic UI; fon=
+t-size: 10pt;">=E3=80=8CISV=E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=E3=81=AE=E3=
+=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=
+=89=E3=80=8D=E3=82=B7=E3=83=AA=E3=83=BC=E3=82=BA=E3=81=AE=E3=80=8CSaaS =E3=
+=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AE=E4=BD=9C=E3=82=8A=E6=96=B9=E7=B7=
+=A8=E3=80=8D=E3=81=A7=E3=81=AF=E3=80=81=E4=BB=96=E7=A4=BE=E3=82=88=E3=82=8A=
+=E3=82=82=E4=B8=80=E6=AD=A9=E5=85=88=E3=82=92=E8=A1=8C=E3=81=8F=E3=82=A2=E3=
+=83=97=E3=83=AA=E3=82=92=E6=A7=8B=E7=AF=89=E3=81=99=E3=82=8B=E3=81=9F=E3=82=
+=81=E3=81=AB=E3=80=81=E7=8F=BE=E5=9C=A8=E3=81=AE SaaS =E3=82=A2=E3=83=97=E3=
+=83=AA=E3=82=B1=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AE=E3=83=88=E3=83=
+=AC=E3=83=B3=E3=83=89=E3=81=8B=E3=82=89=E3=81=A9=E3=81=AE=E3=82=88=E3=81=86=
+=E3=81=AB=E9=A1=A7=E5=AE=A2=E3=81=AB=E4=BE=A1=E5=80=A4=E3=82=92=E6=8F=90=E4=
+=BE=9B=E3=81=99=E3=82=8B=E3=81=8B=E3=80=81=E3=81=BE=E3=81=9F=E5=AE=9F=E7=8F=
+=BE=E3=81=AE=E3=81=9F=E3=82=81=E3=81=AB=E3=81=94=E6=B4=BB=E7=94=A8=E3=81=84=
+=E3=81=9F=E3=81=A0=E3=81=91=E3=82=8B Microsoft Azure =E3=81=AE=E5=85=B7=E4=
+=BD=93=E7=9A=84=E3=81=AA=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AB=E3=81=
+=A4=E3=81=84=E3=81=A6=E3=80=81=E4=BA=8B=E4=BE=8B=E3=82=82=E4=BA=A4=E3=81=88=
+=E3=81=A6=E3=81=94=E7=B4=B9=E4=BB=8B=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br=
+ /><br /> =E5=8B=95=E7=94=BB=EF=BC=9A17 =E5=88=86 57 =E7=A7=92 </span></div=
+> <div align=3D"center">&nbsp;</div> <table style=3D"margin: 0px auto; mso-=
+table-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"0" width=3D"" cellspac=
+ing=3D"0" cellpadding=3D"0" align=3D"center"> <tbody> <tr> <td style=3D"bac=
+kground: #0078d7; border-collapse: separate; display: block; font-family: M=
+S Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; line-height: 40px; padding=
+: 0px 24px 7px 24px; text-align: center; text-decoration: none;" align=3D"c=
+enter" valign=3D"middle"><a style=3D"text-decoration: none;" href=3D "https=
+://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQA43eXumBTlxBtKMw5bjB4xUVvE=
+0LBorNUZhLO8Pl2oin9lk8q85zj8_koh1AQSgzx0=3D" target=3D"_blank" rel=3D"noope=
+ner" ><strong style=3D"font-weight: normal; color: #ffffff;">=E3=81=94=E8=
+=A6=96=E8=81=B4=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 <span style=3D"font-fam=
+ily: Segoe UI; font-size: 15pt;">&gt; </span></strong></a></td> </tr> </tbo=
+dy> </table> <div align=3D"center">&nbsp;</div> <div align=3D"center">&nbsp=
+;</div> <div align=3D"center"><strong><span style=3D"font-family: Yu Gothic=
+ UI; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=83=80=E3=82=A6=E3=83=B3=
+=E3=83=AD=E3=83=BC=E3=83=89 =E3=82=B3=E3=83=B3=E3=83=86=E3=83=B3=E3=83=84=
+=E3=80=91<br /> Microsoft Teams =E3=82=A2=E3=83=97=E3=83=AA=E3=82=92=E3=83=
+=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AB=E7=B5=B1=E5=90=88=E3=81=99=E3=82=8B=
+ 3 =E3=81=A4=E3=81=AE=E6=96=B9=E6=B3=95</span></strong></div> <div align=3D=
+"center">&nbsp;</div> <div><span style=3D"font-family: Yu Gothic UI; font-s=
+ize: 10pt;">=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9 =E3=83=81=E3=83=A3=E3=83=
+=83=E3=83=88=E3=80=81=E4=BC=9A=E8=AD=B0=E3=80=81=E3=82=B3=E3=83=A9=E3=83=9C=
+=E3=83=AC=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AB=E5=BD=B9=E7=AB=8B=E3=
+=81=A4 Microsoft Teams =E3=81=AF=E3=80=81=E3=83=97=E3=83=A9=E3=83=83=E3=83=
+=88=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A0=E3=81=A8=E3=81=97=E3=81=A6=E3=82=82=
+=E6=B4=BB=E7=94=A8=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82<br /> =E3=
+=82=A2=E3=83=97=E3=83=AA=E3=81=A8=E3=83=84=E3=83=BC=E3=83=AB=E3=82=92=E9=80=
+=A3=E6=90=BA=E3=81=95=E3=81=9B=E3=81=A6=E7=A4=BE=E5=93=A1=E3=81=AB=E5=BF=85=
+=E8=A6=81=E3=81=AA=E3=83=A6=E3=83=8B=E3=83=90=E3=83=BC=E3=82=B5=E3=83=AB =
+=E3=83=8F=E3=83=96=E3=81=A8=E3=81=99=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E3=
+=81=A7=E3=81=8D=E3=82=8B=E3=81=A0=E3=81=91=E3=81=A7=E3=81=AA=E3=81=8F=E3=80=
+=81=E3=83=87=E3=83=97=E3=83=AD=E3=82=A4=E3=83=A1=E3=83=B3=E3=83=88=E3=81=8C=
+=E3=81=8B=E3=81=AA=E3=82=8A=E3=82=B7=E3=83=B3=E3=83=97=E3=83=AB=E3=81=AB=E3=
+=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br /> =E6=9C=AC e-Book =E3=81=A7=
+=E3=81=AF=E3=80=81=E3=82=A2=E3=83=97=E3=83=AA=E3=81=A8=E3=83=84=E3=83=BC=E3=
+=83=AB=E3=82=92 Microsoft Teams =E3=81=AB=E7=B5=B1=E5=90=88=E3=81=99=E3=82=
+=8B 3 =E3=81=A4=E3=81=AE=E6=96=B9=E6=B3=95=E3=82=92=E7=B4=B9=E4=BB=8B=E3=81=
+=97=E3=80=81=E3=82=B3=E3=83=A9=E3=83=9C=E3=83=AC=E3=83=BC=E3=82=B7=E3=83=A7=
+=E3=83=B3=E3=81=AB=E3=81=A8=E3=81=A9=E3=81=BE=E3=82=89=E3=81=9A=E7=94=9F=E7=
+=94=A3=E6=80=A7=E3=82=92=E5=90=91=E4=B8=8A=E3=81=95=E3=81=9B=E3=82=8B=E3=81=
+=AE=E3=81=AB=E3=81=A9=E3=81=AE=E3=82=88=E3=81=86=E3=81=AB=E5=BD=B9=E7=AB=8B=
+=E3=81=A4=E3=81=8B=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E8=AA=AC=E6=98=8E=E3=
+=81=97=E3=81=BE=E3=81=99=E3=80=82 </span></div> <div align=3D"center">&nbsp=
+;</div> <table style=3D"margin: 0px auto; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt;" border=3D"0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" a=
+lign=3D"center"> <tbody> <tr> <td style=3D"background: #0078d7; border-coll=
+apse: separate; display: block; font-family: MS Gothic,SUWR,Arial,Sans-Seri=
+f; font-size: 15pt; line-height: 40px; padding: 0px 24px 7px 24px; text-ali=
+gn: center; text-decoration: none;" align=3D"center" valign=3D"middle"><a s=
+tyle=3D"text-decoration: none;" href=3D "https://emails.microsoft.com/MTU3L=
+UdRRS0zODIAAAF8cnqVQBhpXqedKYsr3BBmTXOcDTu7WClToEzeVGquh1ddh0IQ6W3_xV3rIv3-=
+_bhJEIyAthE=3D" target=3D"_blank" rel=3D"noopener" ><strong style=3D"font-w=
+eight: normal; color: #ffffff;">=E3=83=80=E3=82=A6=E3=83=B3=E3=83=AD=E3=83=
+=BC=E3=83=89=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 <span style=3D"font-family=
+: Segoe UI; font-size: 15pt;">&gt; </span></strong></a></td> </tr> </tbody>=
+ </table> <div align=3D"center">&nbsp;</div> <div align=3D"center">&nbsp;</=
+div> <div align=3D"center"><strong><span style=3D"font-family: Yu Gothic UI=
+; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=83=80=E3=82=A6=E3=83=B3=E3=
+=83=AD=E3=83=BC=E3=83=89 =E3=82=B3=E3=83=B3=E3=83=86=E3=83=B3=E3=83=84=E3=
+=80=91<br /> Microsoft Teams =E3=81=AB=E3=82=A2=E3=83=97=E3=83=AA=E3=81=A8=
+=E8=87=AA=E5=8B=95=E5=8C=96=E3=82=92=E5=B0=8E=E5=85=A5=E3=81=99=E3=82=8B</s=
+pan></strong></div> <div align=3D"center">&nbsp;</div> <div><span style=3D"=
+font-family: Yu Gothic UI; font-size: 10pt;">Microsoft Teams =E3=82=92=E3=
+=83=97=E3=83=A9=E3=83=83=E3=83=88=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A0=E3=81=
+=A8=E3=81=97=E3=81=A6=E4=BD=BF=E7=94=A8=E3=81=99=E3=82=8B=E3=81=A8=E3=80=81=
+=E3=81=95=E3=82=89=E3=81=AB=E4=B8=80=E6=AD=A9=E5=85=88=E3=81=B8=E3=81=A8=E9=
+=80=B2=E3=82=80=E3=81=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=
+=99=E3=80=82<br /> Microsoft Power Platform =E3=81=A8=E9=80=A3=E6=90=BA=E3=
+=81=95=E3=81=9B=E3=82=8B=E3=81=93=E3=81=A8=E3=81=A7=E3=80=81=E3=82=B3=E3=83=
+=A9=E3=83=9C=E3=83=AC=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=8C=E3=81=97=
+=E3=82=84=E3=81=99=E3=81=8F=E3=81=AA=E3=82=8A=E3=80=81=E7=94=9F=E7=94=A3=E6=
+=80=A7=E3=82=92=E7=B6=AD=E6=8C=81=E3=81=97=E3=81=AA=E3=81=8C=E3=82=89=E3=80=
+=81=E7=B5=B1=E5=90=88=E3=81=95=E3=82=8C=E3=81=9F=E7=92=B0=E5=A2=83=E3=81=A7=
+=E4=BD=9C=E6=A5=AD=E3=82=92=E9=80=B2=E3=82=81=E3=82=8B=E3=81=93=E3=81=A8=E3=
+=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82=E3=83=AD=E3=83=BC=E3=82=
+=B3=E3=83=BC=E3=83=89 =E3=82=A2=E3=83=97=E3=83=AA=E3=81=AE=E6=A7=8B=E7=AF=
+=89=E3=81=8B=E3=82=89=E3=80=81=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9 =E3=83=
+=97=E3=83=AD=E3=82=BB=E3=82=B9=E3=81=AE=E8=87=AA=E5=8B=95=E5=8C=96=E3=80=81=
+=E5=BC=B7=E5=8A=9B=E3=81=AA=E3=83=87=E3=83=BC=E3=82=BF=E5=88=86=E6=9E=90=E3=
+=81=AE=E9=81=A9=E7=94=A8=E3=81=BE=E3=81=A7=E3=80=81Microsoft Teams =E4=BD=
+=93=E9=A8=93=E3=81=A7=E5=AE=9F=E7=8F=BE=E3=81=A7=E3=81=8D=E3=82=8B=E5=8F=AF=
+=E8=83=BD=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br=
+ /> =E6=9C=AC e-Book =E3=82=92=E3=81=94=E8=A6=A7=E3=81=AB=E3=81=AA=E3=82=8A=
+=E3=80=81=E7=B5=84=E7=B9=94=E3=81=AE=E5=8F=AF=E8=83=BD=E6=80=A7=E3=82=92=E3=
+=81=95=E3=82=89=E3=81=AB=E5=BC=95=E3=81=8D=E5=87=BA=E3=81=97=E3=81=BE=E3=81=
+=97=E3=82=87=E3=81=86=E3=80=82<br /> =E2=80=BB=E3=82=B3=E3=83=B3=E3=83=86=
+=E3=83=B3=E3=83=84=E3=81=AF=E8=8B=B1=E8=AA=9E=E3=81=A7=E3=81=AE=E3=81=94=E6=
+=8F=90=E4=BE=9B=E3=81=A8=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99</span></div> <=
+div align=3D"center">&nbsp;</div> <table style=3D"margin: 0px auto; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"0" width=3D"" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center"> <tbody> <tr> <td style=3D"backgr=
+ound: #0078d7; border-collapse: separate; display: block; font-family: MS G=
+othic,SUWR,Arial,Sans-Serif; font-size: 15pt; line-height: 40px; padding: 0=
+px 24px 7px 24px; text-align: center; text-decoration: none;" align=3D"cent=
+er" valign=3D"middle"><a style=3D"text-decoration: none;" href=3D "https://=
+emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP56l-2_bEL_EKiFppnedA6_wFmlytg=
+sIk0qPjMIrEvOV_FfZgYrmVVHpSXMgKOFPWX0=3D" target=3D"_blank" rel=3D"noopener=
+" ><strong style=3D"font-weight: normal; color: #ffffff;">=E3=83=80=E3=82=
+=A6=E3=83=B3=E3=83=AD=E3=83=BC=E3=83=89=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=
+ <span style=3D"font-family: Segoe UI; font-size: 15pt;">&gt; </span></stro=
+ng></a></td> </tr> </tbody> </table> <div align=3D"center">&nbsp;</div> <di=
+v align=3D"center">&nbsp;</div> <div align=3D"center"><strong><span style=
+=3D"font-family: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=80=90=
+=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3 =E3=82=BB=E3=83=9F=E3=83=8A=
+=E3=83=BC=E3=80=91<br /> =E3=83=87=E3=83=BC=E3=82=BF=E3=82=92=E3=83=91=E3=
+=83=AF=E3=83=BC=E3=81=AB! Microsoft Teams=E3=80=81Power Platform=E3=81=A7<b=
+r /> =E5=96=B6=E6=A5=AD=E6=A5=AD=E5=8B=99=E3=81=AE=E3=83=87=E3=82=B8=E3=82=
+=BF=E3=83=AB=E5=A4=89=E9=9D=A9</span></strong></div> <div align=3D"center">=
+&nbsp;</div> <div><span style=3D"font-family: Yu Gothic UI; font-size: 10pt=
+;">IT =E3=83=84=E3=83=BC=E3=83=AB=E3=82=92=E6=B4=BB=E7=94=A8=E3=81=97=E3=81=
+=9F=E6=A5=AD=E5=8B=99=E5=8A=B9=E7=8E=87=E5=8C=96=E3=81=AE=E3=83=8B=E3=83=BC=
+=E3=82=BA=E3=81=AF=E3=80=81=E4=BC=81=E6=A5=AD=E8=A6=8F=E6=A8=A1=E3=81=AE=E5=
+=A4=A7=E5=B0=8F=E3=82=92=E5=95=8F=E3=82=8F=E3=81=9A=E6=80=A5=E9=80=9F=E3=81=
+=AB=E9=AB=98=E3=81=BE=E3=81=A3=E3=81=A6=E3=81=84=E3=81=BE=E3=81=99=E3=81=8C=
+=E3=80=81=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=E3=81=AE=E5=B0=8E=E5=85=A5=E3=
+=81=AB=E3=81=AF=E5=A4=9A=E3=81=8F=E3=81=AE=E3=83=AA=E3=82=BD=E3=83=BC=E3=82=
+=B9=E3=82=84=E6=99=82=E9=96=93=E3=81=8C=E5=BF=85=E8=A6=81=E3=81=A7=E5=8F=96=
+=E3=82=8A=E7=B5=84=E3=81=BF=E3=81=AB=E3=81=8F=E3=81=84=E8=AA=B2=E9=A1=8C=E3=
+=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=82=B3=E3=82=B9=E3=83=
+=88=E3=82=92=E3=81=8A=E3=81=95=E3=81=88=E3=80=81=E8=BF=85=E9=80=9F=E3=81=AB=
+=E6=A5=AD=E5=8B=99=E5=8A=B9=E7=8E=87=E5=8C=96=E3=82=92=E5=AE=9F=E7=8F=BE=E3=
+=81=99=E3=82=8B=E3=81=AB=E3=81=AF=E3=80=81=E3=81=82=E3=82=89=E3=81=8B=E3=81=
+=98=E3=82=81=E6=A5=AD=E5=8B=99=E3=81=AB=E6=9C=80=E9=81=A9=E5=8C=96=E3=81=95=
+=E3=82=8C=E3=81=9F=E3=83=86=E3=83=B3=E3=83=97=E3=83=AC=E3=83=BC=E3=83=88=E3=
+=82=92=E5=B1=95=E9=96=8B=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=95=E3=81=8C=E6=9C=
+=80=E9=81=A9=E3=81=A7=E3=81=99=E3=80=82<br /> =E6=9C=AC=E3=82=BB=E3=83=9F=
+=E3=83=8A=E3=83=BC=E3=81=A7=E3=81=AF=E3=80=81Power Apps =E3=81=AB=E3=82=88=
+=E3=82=8B=E5=A4=9A=E3=81=8F=E3=81=AE=E6=A5=AD=E5=8B=99=E3=82=A2=E3=83=97=E3=
+=83=AA=E9=96=8B=E7=99=BA=E5=AE=9F=E7=B8=BE=E3=82=92=E6=8C=81=E3=81=A4 ROIT =
+=E3=81=A8=E3=80=81Office 365 =E3=81=AA=E3=81=A9 Microsoft =E8=A3=BD=E5=93=
+=81=E3=81=A7=E8=B1=8A=E5=AF=8C=E3=81=AA=E5=AE=9F=E7=B8=BE=E3=82=92=E3=82=82=
+=E3=81=A4=E3=83=AA=E3=82=B3=E3=83=BC=E3=82=B8=E3=83=A3=E3=83=91=E3=83=B3=E3=
+=81=A8=E5=85=B1=E3=81=AB=E3=80=81=E6=A5=AD=E5=8B=99=E3=82=A2=E3=83=97=E3=83=
+=AA =E3=83=86=E3=83=B3=E3=83=97=E3=83=AC=E3=83=BC=E3=83=88=E3=81=AE=E6=B4=
+=BB=E7=94=A8=E4=BA=8B=E4=BE=8B=E3=82=92=E4=B8=AD=E5=BF=83=E3=81=AB=E3=80=81=
+=E6=A6=82=E8=A6=81=E3=81=A8=E5=B0=8E=E5=85=A5=E3=81=AE=E5=8A=B9=E6=9E=9C=E3=
+=82=92=E3=83=87=E3=83=A2=E3=82=92=E4=BA=A4=E3=81=88=E3=81=A6=E3=81=94=E7=B4=
+=B9=E4=BB=8B=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br /><br /> =E2=96=A0=E9=
+=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : 4 =E6=9C=88 20 =E6=97=A5 (=E7=81=AB) 14=
+:00 - 15:00 </span></div> <div align=3D"center">&nbsp;</div> <table style=
+=3D"margin: 0px auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" border=
+=3D"0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"> <tb=
+ody> <tr> <td style=3D"background: #0078d7; border-collapse: separate; disp=
+lay: block; font-family: MS Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; =
+line-height: 40px; padding: 0px 24px 7px 24px; text-align: center; text-dec=
+oration: none;" align=3D"center" valign=3D"middle"><a style=3D"text-decorat=
+ion: none;" href=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP=
+3LVFRJd_1r6bRaKX88uXwWGj7HxUpNc48TJZxzlmQwdVuSUlaQfRzXnL7TPZpw_mNQ=3D" targ=
+et=3D"_blank" rel=3D"noopener" ><strong style=3D"font-weight: normal; color=
+: #ffffff;">=E5=8F=82=E5=8A=A0=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=
+=E3=81=A1=E3=82=89 <span style=3D"font-family: Segoe UI; font-size: 15pt;">=
+&gt; </span></strong></a></td> </tr> </tbody> </table> <div align=3D"center=
+">&nbsp;</div> <div align=3D"center">&nbsp;</div> <div align=3D"center"><st=
+rong><span style=3D"font-family: Yu Gothic UI; font-size: 13pt; color: #007=
+8d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3 =E3=83=88=E3=
+=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=80=91<br /> Microsoft Azure V=
+irtual Training Day<br /> =E3=83=BC AI =E3=81=AE=E5=9F=BA=E7=A4=8E =E3=83=
+=BC</span></strong></div> <div align=3D"center">&nbsp;</div> <div><span sty=
+le=3D"font-family: Yu Gothic UI; font-size: 10pt;">AI =E3=81=AE=E5=9F=BA=E6=
+=9C=AC=E7=9A=84=E3=81=AA=E6=A6=82=E5=BF=B5=E3=81=8A=E3=82=88=E3=81=B3=E3=82=
+=A2=E3=83=97=E3=83=AA=E3=82=B1=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AB=
+=E3=81=A4=E3=81=84=E3=81=A6=E7=90=86=E8=A7=A3=E3=81=97=E3=80=81Azure =E3=81=
+=A7 AI =E3=82=92=E5=A7=8B=E3=82=81=E3=82=8B=E6=96=B9=E6=B3=95=E3=82=92=E5=
+=AD=A6=E3=81=B3=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82<br /> Azure Ma=
+chine Learning =E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=9F=E3=82=B3=E3=83=
+=BC=E3=83=89=E3=81=AA=E3=81=97=E3=81=AE=E4=BA=88=E6=B8=AC=E3=83=A2=E3=83=87=
+=E3=83=AB=E4=BD=9C=E6=88=90=E3=80=81Microsoft Azure =E3=81=AB=E3=81=8A=E3=
+=81=91=E3=82=8B=E5=AF=BE=E8=A9=B1=E5=9E=8B AI=E3=80=81=E8=87=AA=E7=84=B6=E8=
+=A8=80=E8=AA=9E=E5=87=A6=E7=90=86=E3=80=81=E3=82=B3=E3=83=B3=E3=83=94=E3=83=
+=A5=E3=83=BC=E3=82=BF=E3=83=BC =E3=83=93=E3=82=B8=E3=83=A7=E3=83=B3=E3=81=
+=AB=E3=81=A4=E3=81=84=E3=81=A6=E8=AA=AC=E6=98=8E=E3=81=97=E3=81=BE=E3=81=99=
+=E3=80=82<br /><br /> =E2=96=A0=E9=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : 5 =E6=
+=9C=88 14 =E6=97=A5 (=E9=87=91) 13:00 - 17:00 </span></div> <div align=3D"c=
+enter">&nbsp;</div> <table style=3D"margin: 0px auto; mso-table-lspace: 0pt=
+; mso-table-rspace: 0pt;" border=3D"0" width=3D"" cellspacing=3D"0" cellpad=
+ding=3D"0" align=3D"center"> <tbody> <tr> <td style=3D"background: #0078d7;=
+ border-collapse: separate; display: block; font-family: MS Gothic,SUWR,Ari=
+al,Sans-Serif; font-size: 15pt; line-height: 40px; padding: 0px 24px 7px 24=
+px; text-align: center; text-decoration: none;" align=3D"center" valign=3D"=
+middle"><a style=3D"text-decoration: none;" href=3D "https://emails.microso=
+ft.com/MTU3LUdRRS0zODIAAAF8cnqVP0GoTNXGEq6np_T9da9fNURyKPCDf7LOsSZLCy89DFtv=
+ZKBSKdvvtBMxL6BnAn10mJA=3D" target=3D"_blank" rel=3D"noopener" ><strong sty=
+le=3D"font-weight: normal; color: #ffffff;">=E5=8F=82=E5=8A=A0=E3=81=94=E7=
+=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 <span style=3D"font-fam=
+ily: Segoe UI; font-size: 15pt;">&gt; </span></strong></a></td> </tr> </tbo=
+dy> </table> <div align=3D"center">&nbsp;</div> <div align=3D"center">&nbsp=
+;</div> <div align=3D"center"><strong><span style=3D"font-family: Yu Gothic=
+ UI; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=A9=
+=E3=82=A4=E3=83=B3 =E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=
+=E3=80=91<br /> Microsoft Azure Virtual Training Day<br /> =E3=83=BC GitHub=
+ =E3=82=92=E4=BD=BF=E3=81=A3=E3=81=9F DevOps =E3=83=BC</span></strong></div=
+> <div align=3D"center">&nbsp;</div> <div><span style=3D"font-family: Yu Go=
+thic UI; font-size: 10pt;">DevOps =E3=81=AE=E5=BC=B7=E5=9B=BA=E3=81=AA=E5=
+=9F=BA=E7=9B=A4=E3=82=92=E6=B4=BB=E7=94=A8=E3=81=97=E3=81=A6=E3=80=81=E3=82=
+=AD=E3=83=A3=E3=83=AA=E3=82=A2=E3=82=92=E5=89=8D=E9=80=B2=E3=81=95=E3=81=9B=
+=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82<br /> =E9=96=8B=E7=99=BA=E8=
+=80=85=E3=82=84 IT =E3=83=97=E3=83=AD=E3=83=95=E3=82=A7=E3=83=83=E3=82=B7=
+=E3=83=A7=E3=83=8A=E3=83=AB=E3=81=8C=E3=82=A4=E3=83=B3=E3=82=B9=E3=83=88=E3=
+=83=A9=E3=82=AF=E3=82=BF=E3=83=BC=E3=81=A8=E3=81=97=E3=81=A6=E3=83=AA=E3=83=
+=BC=E3=83=89=E3=81=99=E3=82=8B=E6=9C=AC=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=
+=E3=83=B3=E3=82=B0=E3=81=A7=E3=81=AF=E3=80=81GitHub =E3=82=92=E4=BD=BF=E7=
+=94=A8=E3=81=97=E3=81=A6=E3=83=AF=E3=83=BC=E3=82=AF=E3=83=95=E3=83=AD=E3=83=
+=BC=E3=82=92=E7=AE=A1=E7=90=86=E3=81=97=E3=80=81=E3=82=B5=E3=82=A4=E3=82=AF=
+=E3=83=AB=E6=99=82=E9=96=93=E3=82=92=E7=9F=AD=E7=B8=AE=E3=81=99=E3=82=8B=E6=
+=96=B9=E6=B3=95=E3=82=92=E8=AA=AC=E6=98=8E=E3=81=97=E3=81=BE=E3=81=99=E3=80=
+=82<br /> =E3=81=BE=E3=81=9F=E3=80=81=E6=89=8B=E9=A0=86=E3=82=AC=E3=82=A4=
+=E3=83=89=E3=81=A7=E3=81=AF=E3=80=81=E5=93=81=E8=B3=AA=E7=AE=A1=E7=90=86=E3=
+=81=A8=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=E3=82=A3=E5=88=B6=E5=BE=
+=A1=E3=82=92=E6=A7=8B=E7=AF=89=E3=83=97=E3=83=AD=E3=82=BB=E3=82=B9=E3=81=AB=
+=E8=BF=BD=E5=8A=A0=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=95=E3=81=AB=E5=8A=A0=E3=
+=81=88=E3=80=81=E9=80=9A=E7=9F=A5=E3=81=A8=E5=BF=9C=E7=AD=94=E3=82=92=E6=94=
+=B9=E5=96=84=E3=81=97=E4=B8=80=E8=B2=AB=E6=80=A7=E3=81=AE=E3=81=82=E3=82=8B=
+=E7=B9=B0=E3=82=8A=E8=BF=94=E3=81=97=E5=8F=AF=E8=83=BD=E3=81=AA=E8=87=AA=E5=
+=8B=95=E5=8C=96=E3=82=92=E5=AE=9F=E7=8F=BE=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=
+=95=E3=82=92=E5=AD=A6=E3=81=B9=E3=81=BE=E3=81=99=E3=80=82<br /><br /> =E2=
+=96=A0=E9=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : <br /> 5 =E6=9C=88 20 =E6=97=
+=A5 (=E6=9C=A8) 9:30 - 12:30<br /> 5 =E6=9C=88 21 =E6=97=A5 (=E9=87=91) 9:3=
+0 - 11:30 </span></div> <div align=3D"center">&nbsp;</div> <table style=3D"=
+margin: 0px auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"=
+0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"> <tbody>=
+ <tr> <td style=3D"background: #0078d7; border-collapse: separate; display:=
+ block; font-family: MS Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; line=
+-height: 40px; padding: 0px 24px 7px 24px; text-align: center; text-decorat=
+ion: none;" align=3D"center" valign=3D"middle"><a style=3D"text-decoration:=
+ none;" href=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP9XIW=
+8tp6gYOdZdlXjhA_ngszr93L8yhQiqvFLCI3bkGpGU48oLhPovPEqtv957VGHo=3D" target=
+=3D"_blank" rel=3D"noopener" ><strong style=3D"font-weight: normal; color: =
+#ffffff;">=E5=8F=82=E5=8A=A0=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=
+=E3=81=A1=E3=82=89 <span style=3D"font-family: Segoe UI; font-size: 15pt;">=
+&gt; </span></strong></a></td> </tr> </tbody> </table> <div align=3D"center=
+">&nbsp;</div> <div align=3D"center">&nbsp;</div> <div align=3D"center"><st=
+rong><span style=3D"font-family: Yu Gothic UI; font-size: 13pt; color: #007=
+8d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3 =E3=83=88=E3=
+=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=80=91<br /> Microsoft Power P=
+latform Virtual Training Day<br /> =E3=83=BC Power Platform =E3=81=AE=E5=9F=
+=BA=E7=A4=8E =E3=83=BC</span></strong></div> <div align=3D"center">&nbsp;</=
+div> <div><span style=3D"font-family: Yu Gothic UI; font-size: 10pt;">=E6=
+=9C=AC=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=81=A7=E3=81=
+=AF=E3=80=81=E9=80=B2=E5=8C=96=E3=81=99=E3=82=8B=E3=83=93=E3=82=B8=E3=83=8D=
+=E3=82=B9=E7=92=B0=E5=A2=83=E3=81=AB=E5=AF=BE=E5=BF=9C=E3=81=A7=E3=81=8D=E3=
+=82=8B=E3=82=88=E3=81=86=E3=80=81=E5=B0=86=E6=9D=A5=E3=82=92=E8=A6=8B=E6=8D=
+=AE=E3=81=88=E3=81=9F=E9=9D=A9=E6=96=B0=E7=9A=84=E3=81=AA=E3=82=BD=E3=83=AA=
+=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AE=E6=A7=8B=E7=AF=89=E3=
+=81=A8=E7=AE=A1=E7=90=86=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=80=81=E7=9F=
+=A5=E3=81=A3=E3=81=A6=E3=81=8A=E3=81=8F=E3=81=B9=E3=81=8D=E3=81=93=E3=81=A8=
+=E3=82=92=E3=81=99=E3=81=B9=E3=81=A6=E7=B6=B2=E7=BE=85=E3=81=97=E3=81=A6=E8=
+=AA=AC=E6=98=8E=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br /> =E3=83=87=E3=83=
+=BC=E3=82=BF=E3=82=92=E6=8E=A5=E7=B6=9A=E3=81=97=E3=81=A6=E3=83=AA=E3=82=A2=
+=E3=83=AB=E3=82=BF=E3=82=A4=E3=83=A0=E3=81=AE=E3=83=93=E3=82=B8=E3=83=8D=E3=
+=82=B9 =E3=83=91=E3=83=95=E3=82=A9=E3=83=BC=E3=83=9E=E3=83=B3=E3=82=B9=E3=
+=82=92=E5=88=86=E6=9E=90=E3=81=97=E3=81=9F=E3=82=8A=E3=80=81=E3=82=AB=E3=82=
+=B9=E3=82=BF=E3=83=A0=E6=A7=8B=E7=AF=89=E3=82=A2=E3=83=97=E3=83=AA=E3=82=92=
+=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=83=87=E3=83=BC=E3=82=BF=E3=81=A8=E3=
+=82=A4=E3=83=B3=E3=82=B5=E3=82=A4=E3=83=88=E3=82=92=E6=93=8D=E4=BD=9C=E3=81=
+=97=E3=81=9F=E3=82=8A=E3=80=81=E3=83=AF=E3=83=BC=E3=82=AF=E3=83=95=E3=83=AD=
+=E3=83=BC=E3=82=92=E8=87=AA=E5=8B=95=E5=8C=96=E3=81=97=E3=81=A6=E3=83=AA=E3=
+=83=A2=E3=83=BC=E3=83=88=E3=81=8A=E3=82=88=E3=81=B3=E3=82=AA=E3=83=95=E3=82=
+=A3=E3=82=B9=E3=81=A7=E3=81=AE=E4=BA=BA=E3=80=85=E3=81=AE=E5=83=8D=E3=81=8D=
+=E6=96=B9=E3=82=92=E6=94=B9=E5=96=84=E3=81=97=E3=81=9F=E3=82=8A=E3=81=99=E3=
+=82=8B=E6=96=B9=E6=B3=95=E3=82=92=E5=AD=A6=E3=81=B6=E3=81=93=E3=81=A8=E3=81=
+=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82<br /><br /> =E2=96=A0=E9=
+=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : 5 =E6=9C=88 21 =E6=97=A5 (=E9=87=91) 13=
+:00 - 16:50 </span></div>
+
+
+
+ =20
+ =20
+=20
+
+
+
+
+=E5=8F=82=E5=8A=A0=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=E3=81=A1=E3=
+=82=89  <https://emails.microsoft.com/dc/qD20SuHTKmbZy4EKnMi79FIJ6qlLwh_mzH=
+gcZGMX4cBIDkoHinIN0rMV2r8pjZxIKWBUQwU7fNu_it8Kb6AdBo8jDfkez5GaQZuQAe99shDpz=
+fdspP3iN_MXMFz3L0X2MzUJk-3YIvly9lYoPrF0GQ=3D=3D/MTU3LUdRRS0zODIAAAF8cnqVPxJ=
+jlRbLuI1liTZnbmA--ZLmaHqGfgrwSKBI-_3SHohJWm6wyn3vFeIbLFO7q5s5CeY=3D>
+
+
+
+
+
+
+
+
+=E3=83=97=E3=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=81=AB=E9=96=A2=E3=
+=81=99=E3=82=8B=E5=A3=B0=E6=98=8E <https://emails.microsoft.com/MTU3LUdRRS0=
+zODIAAAF8cnqVP1q0q89sqZSr40LIEayx4axXkX5JwSX33qlfx859cqOKIhmgHaJBJQv_0C92K5=
+MHNMA=3D> |=E3=83=97=E3=83=A9=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=81=AB=
+=E9=96=A2=E3=81=99=E3=82=8B=E3=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=
+=81=9B <https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQOWiuOxHh-T9zF=
+j5xcz9NiraSatpZZVKLxqDfSWEqT-piVerAyqJWO2RT3ioBqjmEL8=3D> | =E8=B3=BC=E8=AA=
+=AD=E3=82=92=E5=81=9C=E6=AD=A2 <https://emails.microsoft.com/dc/YZdgvqwbGRw=
+5vplqwcDuFAT39-RSqApAoBTg8JD6J69Q9XlJiBGUNKEP8wZ1xpt-oqgHbQNkJ4DZTh9iLCGQ-R=
+7vmqT5XOzpuqPEiljQOhha6Mu99rMKoDhgddSe8xIOd4le4Xgg5nLoKr89gxtCWbIaxlNBDpkfB=
+RVtfYY82AM66hW9RRG0v8NZJpCkWaLs6wALg-FPyq-5PHGHIURNHCwkfoaWmEOPW1MU5fwCu2xS=
+-5tj9LMXIQw7ebA1CT2GcHXBlAys0aDDmpXMR9O8QAQ0XQ-3RJz3dkUB1QkORbo=3D/MTU3LUdR=
+RS0zODIAAAF8cnqVPxJjlRbLuI1liTZnbmA--ZLmaHqGfgrwSKBI-_3SHohJWm6wyn3vFeIbLFO=
+7q5s5CeY=3D>
+
+=E6=97=A5=E6=9C=AC=E3=83=9E=E3=82=A4=E3=82=AF=E3=83=AD=E3=82=BD=E3=83=95=E3=
+=83=88=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE<br> =E3=80=92108-0075 =E6=9D=B1=
+=E4=BA=AC=E9=83=BD=E6=B8=AF=E5=8C=BA=E6=B8=AF=E5=8D=97 2-16-3 =E5=93=81=E5=
+=B7=9D=E3=82=B0=E3=83=A9=E3=83=B3=E3=83=89=E3=82=BB=E3=83=B3=E3=83=88=E3=83=
+=A9=E3=83=AB=E3=82=BF=E3=83=AF=E3=83=BC
+
+<https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQHFjvVsUtTtZ9ZCHpWgcC=
+Z-wrzwGD8H8p2crLCq7C243kw6BjRuXy8uL1rx548urbAk=3D>
+
+.
+
+------=_Part_31830294_415099409.1618456208717
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>=20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">=
+=20
+<meta name=3D"format-detection" content=3D"telephone=3Dno">=20
+<meta name=3D"format-detection" content=3D"date=3Dno">=20
+<meta name=3D"format-detection" content=3D"address=3Dno">=20
+<meta name=3D"format-detection" content=3D"email=3Dno">=20
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">=20
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<!--[if mso]>
+<style>
+                .-mso-banner {padding: 0 0 0 1px;border-right:#E3E3E3 1px s=
+olid;}
+        </style>
+<![endif]-->=20
+<style type=3D"text/css">
+                body{font-size:0;line-height:0;mso-line-height-rule:exactly=
+;padding:0;margin:0;}
+                table{border-collapse:collapse;margin:0;-ms-text-size-adjus=
+t:auto;-webkit-text-size-adjust:100%;mso-table-lspace:0pt; mso-table-rspace=
+:0pt; border-spacing: 0;}
+                table td {border-collapse:collapse!important; mso-table-lsp=
+ace: 0pt; mso-table-rspace: 0pt;}
+                tr{font-size:0;mso-line-height-alt:0px;mso-margin-top-alt:0=
+px;mso-line-height-rule:exactly;}
+                td{margin:0;padding:0;mso-line-height-rule:exactly;}
+                input::-moz-focus-inner{border:0;outline:0;}
+                .hide {display:none !important;}
+                .appleLinksWhite a {color:#ffffff; text-decoration: none;}
+                .rest_paragraph p {margin:0; padding:0; margin-bottom:0;}
+                @media screen and (max-device-width:480px),(max-width:480px=
+)
+                {
+                 .mob_full_width{width:100%!important;min-width:100%!import=
+ant;max-width:100%!important;display:table!important;}
+                 .mob_full_width_image{width:100%!important; height:auto!im=
+portant;}
+                 .mob_center{text-align:center!important;}
+                 .mob_padding{padding-left:24px !important;padding-right:24=
+px !important;}
+                 .mob_padding0{padding-left:0!important;padding-right:0!imp=
+ortant;margin-left: 0!important; margin-top: 0px!important;}
+                 .mob_paddingR0{padding-left:10px!important;padding-right:0=
+!important;}
+                 .mob_height{height:auto!important;padding-top:10px!importa=
+nt;}
+                 .mobhide{display:none!important;}
+                 .box_height{height: auto!important;}
+                 .box_mobile_bottom{margin-bottom: 20px;}
+                }
+               =20
+
+</style>=20
+<!--[if gte mso 9]>
+                <xml>
+                        <o:OfficeDocumentSettings>
+                                <o:AllowPNG/>
+                                <o:PixelsPerInch>96</o:PixelsPerInch>
+                        </o:OfficeDocumentSettings>
+                </xml>
+<![endif]-->=20
+<title>Microsoft</title>=20
+</head>=20
+<body bgcolor=3D"#E3E3E3" leftmargin=3D"0" topmargin=3D"0" marginwidth=3D"0=
+" marginheight=3D"0" style=3D"">
+<!-- Wrapper -->=20
+<div style=3D"display:none; font-size:1px; color:#ffffff; line-height:1px; =
+max-height:0px; max-width:0px; opacity:0; overflow:hidden; ">
+<div class=3D"mktEditable" id=3D"Preheader_Text" style=3D"">
+=E4=BD=95=E5=8D=92=E3=82=88=E3=82=8D=E3=81=97=E3=81=8F=E3=81=8A=E9=A1=98=E3=
+=81=84=E3=81=84=E3=81=9F=E3=81=97=E3=81=BE=E3=81=99=E3=80=82
+</div>
+</div>
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" alig=
+n=3D"center" style=3D"">
+<tbody>
+<tr style=3D"">
+<td width=3D"100%" valign=3D"top" bgcolor=3D"#E3E3E3" align=3D"center" styl=
+e=3D"">
+<table class=3D"mob_full_width" width=3D"640" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" align=3D"center" style=3D"width:640px; min-width:640px;=
+ max-width:640px; ">
+<tbody style=3D"">
+<tr style=3D"">
+<td bgcolor=3D"#E3E3E3" style=3D"">
+<div class=3D"mktEditable" id=3D"DNT-Header_Text" style=3D"">
+<table width=3D"100%" style=3D"min-width: 100%; width: 100%;" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td class=3D"mob_padding" style=3D"padding: 24px 24px 12px 0px;" bgcolor=3D=
+"#e3e3e3">
+<table width=3D"100%" align=3D"center" class=3D"mob_full_width" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td align=3D"right" id=3D"webview" style=3D"color: #5e5e5e; font-family: '=
+=E3=83=A1=E3=82=A4=E3=83=AA=E3=82=AA', 'Meiryo UI', '=EF=BC=AD=EF=BC=B3 =EF=
+=BC=B0=E3=82=B4=E3=82=B7=E3=83=83=E3=82=AF', Osaka, '=E3=83=92=E3=83=A9=E3=
+=82=AE=E3=83=8E=E8=A7=92=E3=82=B4 Pro W3', 'Segoe UI', Arial, sans-serif; f=
+ont-weight: 400; font-size: 10px; line-height: 12px;">=E3=81=93=E3=81=AE=E3=
+=83=A1=E3=83=BC=E3=83=AB=E3=81=8C=E6=AD=A3=E3=81=97=E3=81=8F=E8=A1=A8=E7=A4=
+=BA=E3=81=95=E3=82=8C=E3=81=AA=E3=81=84=E5=A0=B4=E5=90=88=E3=81=AF=E3=80=81=
+ | <a style=3D"text-decoration: none; border-bottom: 1px solid #5E5E5E;" hr=
+ef=3D"https://info.microsoft.com/index.php/email/emailWebview?mkt_tok=3DMTU=
+3LUdRRS0zODIAAAF8cnqVQkssNjT9qC_1s25Co6aiYTEsd0odyDXxXFaX7BlefzrN4fUJy5P8L6=
+s_lX5ldP9Jbl8ROBiCuxBgAlquOPzdq3O1T-IqwVK8BK8NAlRv9rTNHfLGXam-m5dTf8oyUkx74=
+4-9JukCPw1FnwNA7gFDGSJoeDp6iMONtjyK9MIS1QXb&md_id=3D1018485" target=3D"_bla=
+nk"><strong style=3D"font-weight: 400; color: #5e5e5e; font-family: '=E3=83=
+=A1=E3=82=A4=E3=83=AA=E3=82=AA', 'Meiryo UI', '=EF=BC=AD=EF=BC=B3 =EF=BC=B0=
+=E3=82=B4=E3=82=B7=E3=83=83=E3=82=AF', Osaka, '=E3=83=92=E3=83=A9=E3=82=AE=
+=E3=83=8E=E8=A7=92=E3=82=B4 Pro W3', 'Segoe UI', Arial, sans-serif;">Web =
+=E3=83=9A=E3=83=BC=E3=82=B8=E3=81=A7=E3=81=94=E8=A6=A7=E3=81=8F=E3=81=A0=E3=
+=81=95=E3=81=84</strong></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div></td>
+</tr>
+</tbody>
+</table>
+<table align=3D"center" style=3D"">
+<tbody>
+<tr style=3D"">
+<td bgcolor=3D"#FFFFFF" style=3D"">
+<div class=3D"mktEditable" id=3D"DNT-Header_Logos" style=3D"">
+<table width=3D"100%" style=3D"min-width: 100%; width: 100%;" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td>
+<table width=3D"100%" align=3D"center" style=3D"min-width: 100%;" bgcolor=
+=3D"#ffffff" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"mob_padding" style=3D"padding: 24px 24px 24px 2=
+4px;"><a href=3D"https://www.microsoft.com/"><img width=3D"" height=3D"21" =
+style=3D"display: inline-block;" alt=3D"Microsoft Azure" src=3D"https://inf=
+o.microsoft.com/rs/157-GQE-382/images/Azure%20New%20Branding%20Logo%20h%202=
+1%20px_6.15.18.png" border=3D"0" /></a></td>
+<td align=3D"right" class=3D"mob_padding" style=3D"padding: 24px 24px 24px =
+24px; color: #171717; font-size: 25px; line-height: 30px; font-family: 'Seg=
+oe UI',SUWR,Arial,Sans-Serif; font-weight: 400;"><a style=3D"text-decoratio=
+n: none;" href=3D"https://azure.microsoft.com/en-us/overview/saas-partner-r=
+esources/" target=3D"_blank"><strong style=3D"font-weight: 400; color: #171=
+717;"></strong></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mktEditable" id=3D"A zone - Banner" style=3D"">
+<table align=3D"center" bgcolor=3D"#0078D4" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"mob_padding mob_full_width" style=3D"background-=
+color: #0078D4;" width=3D"640">=20
+<tbody>=20
+<tr>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px; font-family: =
+'Segoe UI Semilight','Segoe UI Regular',SUWR,Arial,Sans-Serif;">&nbsp;</td>=
+=20
+</tr>=20
+<tr>=20
+<td align=3D"left" class=3D"mob_padding0">=20
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" styl=
+e=3D"width: 100%; min-width: 100%;" align=3D"left">=20
+<tbody>=20
+<tr>=20
+<td align=3D"left" style=3D"font-family: 'Segoe UI','Segoe UI Regular',SUWR=
+,Arial,Sans-Serif; font-size: 28px; mso-line-height-rule: exactly; line-hei=
+ght: 32px; color: #ffffff; text-align: left; padding: 0px 24px 0px 24px;"> =
+</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px; font-family: =
+'Segoe UI','Segoe UI Regular',SUWR,Arial,Sans-Serif;">&nbsp;</td>=20
+</tr>=20
+<!-- Full banner image -->=20
+<tr>=20
+<td align=3D"center" bgcolor=3D"#505050">=20
+<table class=3D"mob_full_width mobhide" style=3D"width: 640px;" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center" border=3D"0" width=3D"640">=20
+<tbody>=20
+<tr>=20
+<td style=3D"padding: 0 0 0 0;" align=3D"center"><img width=3D"100%" style=
+=3D"display: inline-block;" class=3D"mob_full_width_image" src=3D"https://i=
+nfo.microsoft.com/rs/157-GQE-382/images/DT-AI-Email-Banner_600x100ltr.png" =
+alt=3D" " align=3D"center" border=3D"0"></td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+</div>
+<div class=3D"mktEditable rest_paragraph mktEditable rest_paragraph" id=3D"=
+Emergency Message Zone" style=3D"">
+<!--[if (gte mso 9)|(IE)]>=20
+
+<![endif]--> <!--[if (!mso)&(!IE)]><!-- -->
+<div height=3D"0" style=3D"font-size: 0px; line-height: 0px;">&nbsp;</div>
+<!--<![endif]-->
+</div>
+<div class=3D"mktEditable" id=3D"B zone - Body" style=3D"">
+<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"mob_padding mob_full_width" style=3D"background-=
+color: #ffffff;" width=3D"640">=20
+<tbody>=20
+<tr>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px; font-family: =
+'Segoe UI','Segoe UI Regular',SUWR,Arial,Sans-Serif; font-weight: 400;" bgc=
+olor=3D"#ffffff">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" align=3D"left" style=3D"width: 100%; min-width: 100%;=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"left" class=3D"mob_padding" style=3D"color: #464646; font-size=
+: 15px; font-family: 'Segoe UI','Segoe UI Regular',SUWR,Arial,Sans-Serif; f=
+ont-weight: 400; line-height: 20px; padding-left: 24px; padding-right: 24px=
+; text-align: left;"><div><span style=3D"font-family: Yu Gothic UI; font-si=
+ze: 10pt;">=E4=BB=8A=E5=8F=B7=E3=81=A7=E3=81=AF=E3=80=81=E8=87=AA=E7=A4=BE=
+=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=81=AE SaaS =E5=8C=96=E3=82=92=E3=81=
+=94=E6=A4=9C=E8=A8=8E=E4=B8=AD=E3=81=AE ISV =E4=BC=81=E6=A5=AD=E6=A7=98=E5=
+=BF=85=E8=A6=8B=E3=81=AE=E3=80=8CISV =E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=
+=E3=81=AE=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=
+=82=A4=E3=83=89=E3=80=8D=E3=82=B7=E3=83=AA=E3=83=BC=E3=82=BA=E3=81=8B=E3=82=
+=89=E3=80=81=E3=80=8CSaaS =E7=A7=BB=E8=A1=8C=E7=B7=A8=E3=80=8D=E3=81=A8=E3=
+=80=8CSaaS =E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AE=E4=BD=9C=E3=82=8A=
+=E6=96=B9=E7=B7=A8=E3=80=8D=E3=81=AE 2 =E3=81=A4=E3=81=AE=E3=82=AA=E3=83=B3=
+=E3=83=87=E3=83=9E=E3=83=B3=E3=83=89 =E3=82=BB=E3=83=9F=E3=83=8A=E3=83=BC=
+=E3=82=92=E3=81=94=E7=B4=B9=E4=BB=8B=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br=
+ /> =E3=81=BE=E3=81=9F=E3=80=81=E3=83=97=E3=83=A9=E3=83=83=E3=83=88=E3=83=
+=95=E3=82=A9=E3=83=BC=E3=83=A0=E3=81=A8=E3=81=97=E3=81=A6=E3=81=AE Microsof=
+t Teams =E3=81=AE=E6=B4=BB=E7=94=A8=E6=96=B9=E6=B3=95=E3=81=A8=E3=80=81AI =
+=E3=82=84 DevOps, Power Platform =E3=82=92=E5=9F=BA=E7=A4=8E=E3=81=8B=E3=82=
+=89=E5=AD=A6=E3=81=B9=E3=82=8B=E7=84=A1=E6=96=99=E3=83=88=E3=83=AC=E3=83=BC=
+=E3=83=8B=E3=83=B3=E3=82=B0=E3=81=AA=E3=81=A9=E5=A4=9A=E6=95=B0=E6=8E=B2=E8=
+=BC=89=E3=81=97=E3=81=A6=E3=81=8A=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82=E3=81=
+=9C=E3=81=B2=E3=81=94=E8=A6=A7=E3=81=84=E3=81=9F=E3=81=A0=E3=81=8D=E3=80=81=
+=E3=81=94=E8=87=AA=E8=BA=AB=E3=81=AE=E3=82=B9=E3=82=AD=E3=83=AB=E3=82=A2=E3=
+=83=83=E3=83=97=E3=81=AB=E3=80=81=E3=81=BE=E3=81=9F=E4=BB=8A=E5=BE=8C=E3=81=
+=AE=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AB=E3=81=8A=E5=BD=B9=E7=AB=8B=
+=E3=81=A6=E3=81=8F=E3=81=A0=E3=81=95=E3=81=84=E3=80=82</span></div> <div al=
+ign=3D"center">&nbsp;</div> <div align=3D"center"><strong><span style=3D"fo=
+nt-family: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=82=
+=AA=E3=83=B3=E3=83=87=E3=83=9E=E3=83=B3=E3=83=89 =E3=82=BB=E3=83=9F=E3=83=
+=8A=E3=83=BC=E3=80=91<br /> ISV =E6=A7=98=E3=81=AE=E3=81=9F=E3=82=81=E3=81=
+=AE=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=AC=E3=82=A4=
+=E3=83=89<br /> =E3=83=BC SaaS =E7=A7=BB=E8=A1=8C=E7=B7=A8 =E3=83=BC</span>=
+</strong></div> <div align=3D"center">&nbsp;</div> <div><span style=3D"font=
+-family: Yu Gothic UI; font-size: 10pt;">3=E9=83=A8=E6=A7=8B=E6=88=90=E3=81=
+=A7=E3=81=8A=E5=B1=8A=E3=81=91=E3=81=99=E3=82=8B=E3=80=8CISV=E6=A7=98=E3=81=
+=AE=E3=81=9F=E3=82=81=E3=81=AE=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=
+=E7=94=A8=E3=82=AC=E3=82=A4=E3=83=89=E3=80=8D=E3=82=B7=E3=83=AA=E3=83=BC=E3=
+=82=BA=E3=81=AE=E3=80=8CSaaS =E7=A7=BB=E8=A1=8C=E7=B7=A8=E3=80=8D=E3=81=A7=
+=E3=81=AF=E3=80=81=E8=87=AA=E7=A4=BE=E3=82=B5=E3=83=BC=E3=83=93=E3=82=B9=E3=
+=81=AE SaaS (Software as a Service) =E5=8C=96=E3=82=92=E3=81=94=E6=A4=9C=E8=
+=A8=8E=E4=B8=AD=E3=81=AE ISV =E4=BC=81=E6=A5=AD=E6=A7=98=E3=81=AB=E3=80=81=
+=E3=81=9C=E3=81=B2=E7=9F=A5=E3=81=A3=E3=81=A6=E3=81=8A=E3=81=8D=E3=81=9F=E3=
+=81=84=E5=9F=BA=E6=9C=AC=E6=83=85=E5=A0=B1=E3=80=81=E6=8A=BC=E3=81=95=E3=81=
+=88=E3=81=A6=E3=81=8A=E3=81=8D=E3=81=9F=E3=81=84=E3=83=93=E3=82=B8=E3=83=8D=
+=E3=82=B9=E4=B8=8A=E3=81=AE=E6=A4=9C=E8=A8=8E=E3=83=9D=E3=82=A4=E3=83=B3=E3=
+=83=88=E3=80=81=E5=85=B7=E4=BD=93=E7=9A=84=E3=81=AA SaaS =E7=A7=BB=E8=A1=8C=
+=E3=83=97=E3=83=AD=E3=82=BB=E3=82=B9=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E8=
+=A9=B3=E3=81=97=E3=81=8F=E3=81=8A=E8=A9=B1=E3=81=97=E3=81=84=E3=81=9F=E3=81=
+=97=E3=81=BE=E3=81=99=E3=80=82<br /><br /> =E5=8B=95=E7=94=BB=EF=BC=9A12 =
+=E5=88=86 23 =E7=A7=92 </span></div> <div align=3D"center">&nbsp;</div> <ta=
+ble style=3D"margin: 0px auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+;" border=3D"0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" align=3D"cen=
+ter"> <tbody> <tr> <td style=3D"background: #0078d7; border-collapse: separ=
+ate; display: block; font-family: MS Gothic,SUWR,Arial,Sans-Serif; font-siz=
+e: 15pt; line-height: 40px; padding: 0px 24px 7px 24px; text-align: center;=
+ text-decoration: none;" align=3D"center" valign=3D"middle"><a style=3D"tex=
+t-decoration: none;" href=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIA=
+AAF8cnqVQNdXHyWv3x8onxuaEMKenu7EABM3lufe2u5033Y36i49By92keJ5TPRk38zBE0GWk00=
+=3D" target=3D"_blank" rel=3D"noopener" ><strong style=3D"font-weight: norm=
+al; color: #ffffff;">=E3=81=94=E8=A6=96=E8=81=B4=E3=81=AF=E3=81=93=E3=81=A1=
+=E3=82=89<span style=3D"font-family: Segoe UI; font-size: 15pt;">&gt; </spa=
+n></strong></a></td> </tr> </tbody> </table> <div align=3D"center">&nbsp;</=
+div> <div align=3D"center">&nbsp;</div> <div align=3D"center"><strong><span=
+ style=3D"font-family: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=
+=80=90=E3=82=AA=E3=83=B3=E3=83=87=E3=83=9E=E3=83=B3=E3=83=89 =E3=82=BB=E3=
+=83=9F=E3=83=8A=E3=83=BC=E3=80=91<br /> ISV =E6=A7=98=E3=81=AE=E3=81=9F=E3=
+=82=81=E3=81=AE=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=82=
+=AC=E3=82=A4=E3=83=89<br /> =E3=83=BC SaaS =E3=83=93=E3=82=B8=E3=83=8D=E3=
+=82=B9=E3=81=AE=E4=BD=9C=E3=82=8A=E6=96=B9=E7=B7=A8 =E3=83=BC</span></stron=
+g></div> <div align=3D"center">&nbsp;</div> <div><span style=3D"font-family=
+: Yu Gothic UI; font-size: 10pt;">=E3=80=8CISV=E6=A7=98=E3=81=AE=E3=81=9F=
+=E3=82=81=E3=81=AE=E3=82=AF=E3=83=A9=E3=82=A6=E3=83=89=E6=B4=BB=E7=94=A8=E3=
+=82=AC=E3=82=A4=E3=83=89=E3=80=8D=E3=82=B7=E3=83=AA=E3=83=BC=E3=82=BA=E3=81=
+=AE=E3=80=8CSaaS =E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AE=E4=BD=9C=E3=
+=82=8A=E6=96=B9=E7=B7=A8=E3=80=8D=E3=81=A7=E3=81=AF=E3=80=81=E4=BB=96=E7=A4=
+=BE=E3=82=88=E3=82=8A=E3=82=82=E4=B8=80=E6=AD=A9=E5=85=88=E3=82=92=E8=A1=8C=
+=E3=81=8F=E3=82=A2=E3=83=97=E3=83=AA=E3=82=92=E6=A7=8B=E7=AF=89=E3=81=99=E3=
+=82=8B=E3=81=9F=E3=82=81=E3=81=AB=E3=80=81=E7=8F=BE=E5=9C=A8=E3=81=AE SaaS =
+=E3=82=A2=E3=83=97=E3=83=AA=E3=82=B1=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=
+=81=AE=E3=83=88=E3=83=AC=E3=83=B3=E3=83=89=E3=81=8B=E3=82=89=E3=81=A9=E3=81=
+=AE=E3=82=88=E3=81=86=E3=81=AB=E9=A1=A7=E5=AE=A2=E3=81=AB=E4=BE=A1=E5=80=A4=
+=E3=82=92=E6=8F=90=E4=BE=9B=E3=81=99=E3=82=8B=E3=81=8B=E3=80=81=E3=81=BE=E3=
+=81=9F=E5=AE=9F=E7=8F=BE=E3=81=AE=E3=81=9F=E3=82=81=E3=81=AB=E3=81=94=E6=B4=
+=BB=E7=94=A8=E3=81=84=E3=81=9F=E3=81=A0=E3=81=91=E3=82=8B Microsoft Azure =
+=E3=81=AE=E5=85=B7=E4=BD=93=E7=9A=84=E3=81=AA=E3=82=B5=E3=83=BC=E3=83=93=E3=
+=82=B9=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E3=80=81=E4=BA=8B=E4=BE=8B=E3=82=
+=82=E4=BA=A4=E3=81=88=E3=81=A6=E3=81=94=E7=B4=B9=E4=BB=8B=E3=81=97=E3=81=BE=
+=E3=81=99=E3=80=82<br /><br /> =E5=8B=95=E7=94=BB=EF=BC=9A17 =E5=88=86 57 =
+=E7=A7=92 </span></div> <div align=3D"center">&nbsp;</div> <table style=3D"=
+margin: 0px auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"=
+0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"> <tbody>=
+ <tr> <td style=3D"background: #0078d7; border-collapse: separate; display:=
+ block; font-family: MS Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; line=
+-height: 40px; padding: 0px 24px 7px 24px; text-align: center; text-decorat=
+ion: none;" align=3D"center" valign=3D"middle"><a style=3D"text-decoration:=
+ none;" href=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQA43e=
+XumBTlxBtKMw5bjB4xUVvE0LBorNUZhLO8Pl2oin9lk8q85zj8_koh1AQSgzx0=3D" target=
+=3D"_blank" rel=3D"noopener" ><strong style=3D"font-weight: normal; color: =
+#ffffff;">=E3=81=94=E8=A6=96=E8=81=B4=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 <=
+span style=3D"font-family: Segoe UI; font-size: 15pt;">&gt; </span></strong=
+></a></td> </tr> </tbody> </table> <div align=3D"center">&nbsp;</div> <div =
+align=3D"center">&nbsp;</div> <div align=3D"center"><strong><span style=3D"=
+font-family: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=80=90=E3=
+=83=80=E3=82=A6=E3=83=B3=E3=83=AD=E3=83=BC=E3=83=89 =E3=82=B3=E3=83=B3=E3=
+=83=86=E3=83=B3=E3=83=84=E3=80=91<br /> Microsoft Teams =E3=82=A2=E3=83=97=
+=E3=83=AA=E3=82=92=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9=E3=81=AB=E7=B5=B1=E5=
+=90=88=E3=81=99=E3=82=8B 3 =E3=81=A4=E3=81=AE=E6=96=B9=E6=B3=95</span></str=
+ong></div> <div align=3D"center">&nbsp;</div> <div><span style=3D"font-fami=
+ly: Yu Gothic UI; font-size: 10pt;">=E3=83=93=E3=82=B8=E3=83=8D=E3=82=B9 =
+=E3=83=81=E3=83=A3=E3=83=83=E3=83=88=E3=80=81=E4=BC=9A=E8=AD=B0=E3=80=81=E3=
+=82=B3=E3=83=A9=E3=83=9C=E3=83=AC=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=
+=AB=E5=BD=B9=E7=AB=8B=E3=81=A4 Microsoft Teams =E3=81=AF=E3=80=81=E3=83=97=
+=E3=83=A9=E3=83=83=E3=83=88=E3=83=95=E3=82=A9=E3=83=BC=E3=83=A0=E3=81=A8=E3=
+=81=97=E3=81=A6=E3=82=82=E6=B4=BB=E7=94=A8=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=
+=99=E3=80=82<br /> =E3=82=A2=E3=83=97=E3=83=AA=E3=81=A8=E3=83=84=E3=83=BC=
+=E3=83=AB=E3=82=92=E9=80=A3=E6=90=BA=E3=81=95=E3=81=9B=E3=81=A6=E7=A4=BE=E5=
+=93=A1=E3=81=AB=E5=BF=85=E8=A6=81=E3=81=AA=E3=83=A6=E3=83=8B=E3=83=90=E3=83=
+=BC=E3=82=B5=E3=83=AB =E3=83=8F=E3=83=96=E3=81=A8=E3=81=99=E3=82=8B=E3=81=
+=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=82=8B=E3=81=A0=E3=81=91=E3=81=A7=
+=E3=81=AA=E3=81=8F=E3=80=81=E3=83=87=E3=83=97=E3=83=AD=E3=82=A4=E3=83=A1=E3=
+=83=B3=E3=83=88=E3=81=8C=E3=81=8B=E3=81=AA=E3=82=8A=E3=82=B7=E3=83=B3=E3=83=
+=97=E3=83=AB=E3=81=AB=E3=81=AA=E3=82=8A=E3=81=BE=E3=81=99=E3=80=82<br /> =
+=E6=9C=AC e-Book =E3=81=A7=E3=81=AF=E3=80=81=E3=82=A2=E3=83=97=E3=83=AA=E3=
+=81=A8=E3=83=84=E3=83=BC=E3=83=AB=E3=82=92 Microsoft Teams =E3=81=AB=E7=B5=
+=B1=E5=90=88=E3=81=99=E3=82=8B 3 =E3=81=A4=E3=81=AE=E6=96=B9=E6=B3=95=E3=82=
+=92=E7=B4=B9=E4=BB=8B=E3=81=97=E3=80=81=E3=82=B3=E3=83=A9=E3=83=9C=E3=83=AC=
+=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AB=E3=81=A8=E3=81=A9=E3=81=BE=E3=
+=82=89=E3=81=9A=E7=94=9F=E7=94=A3=E6=80=A7=E3=82=92=E5=90=91=E4=B8=8A=E3=81=
+=95=E3=81=9B=E3=82=8B=E3=81=AE=E3=81=AB=E3=81=A9=E3=81=AE=E3=82=88=E3=81=86=
+=E3=81=AB=E5=BD=B9=E7=AB=8B=E3=81=A4=E3=81=8B=E3=81=AB=E3=81=A4=E3=81=84=E3=
+=81=A6=E8=AA=AC=E6=98=8E=E3=81=97=E3=81=BE=E3=81=99=E3=80=82 </span></div> =
+<div align=3D"center">&nbsp;</div> <table style=3D"margin: 0px auto; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"0" width=3D"" cellspacin=
+g=3D"0" cellpadding=3D"0" align=3D"center"> <tbody> <tr> <td style=3D"backg=
+round: #0078d7; border-collapse: separate; display: block; font-family: MS =
+Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; line-height: 40px; padding: =
+0px 24px 7px 24px; text-align: center; text-decoration: none;" align=3D"cen=
+ter" valign=3D"middle"><a style=3D"text-decoration: none;" href=3D "https:/=
+/emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQBhpXqedKYsr3BBmTXOcDTu7WClTo=
+EzeVGquh1ddh0IQ6W3_xV3rIv3-_bhJEIyAthE=3D" target=3D"_blank" rel=3D"noopene=
+r" ><strong style=3D"font-weight: normal; color: #ffffff;">=E3=83=80=E3=82=
+=A6=E3=83=B3=E3=83=AD=E3=83=BC=E3=83=89=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89=
+ <span style=3D"font-family: Segoe UI; font-size: 15pt;">&gt; </span></stro=
+ng></a></td> </tr> </tbody> </table> <div align=3D"center">&nbsp;</div> <di=
+v align=3D"center">&nbsp;</div> <div align=3D"center"><strong><span style=
+=3D"font-family: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=80=90=
+=E3=83=80=E3=82=A6=E3=83=B3=E3=83=AD=E3=83=BC=E3=83=89 =E3=82=B3=E3=83=B3=
+=E3=83=86=E3=83=B3=E3=83=84=E3=80=91<br /> Microsoft Teams =E3=81=AB=E3=82=
+=A2=E3=83=97=E3=83=AA=E3=81=A8=E8=87=AA=E5=8B=95=E5=8C=96=E3=82=92=E5=B0=8E=
+=E5=85=A5=E3=81=99=E3=82=8B</span></strong></div> <div align=3D"center">&nb=
+sp;</div> <div><span style=3D"font-family: Yu Gothic UI; font-size: 10pt;">=
+Microsoft Teams =E3=82=92=E3=83=97=E3=83=A9=E3=83=83=E3=83=88=E3=83=95=E3=
+=82=A9=E3=83=BC=E3=83=A0=E3=81=A8=E3=81=97=E3=81=A6=E4=BD=BF=E7=94=A8=E3=81=
+=99=E3=82=8B=E3=81=A8=E3=80=81=E3=81=95=E3=82=89=E3=81=AB=E4=B8=80=E6=AD=A9=
+=E5=85=88=E3=81=B8=E3=81=A8=E9=80=B2=E3=82=80=E3=81=93=E3=81=A8=E3=81=8C=E3=
+=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82<br /> Microsoft Power Platform =
+=E3=81=A8=E9=80=A3=E6=90=BA=E3=81=95=E3=81=9B=E3=82=8B=E3=81=93=E3=81=A8=E3=
+=81=A7=E3=80=81=E3=82=B3=E3=83=A9=E3=83=9C=E3=83=AC=E3=83=BC=E3=82=B7=E3=83=
+=A7=E3=83=B3=E3=81=8C=E3=81=97=E3=82=84=E3=81=99=E3=81=8F=E3=81=AA=E3=82=8A=
+=E3=80=81=E7=94=9F=E7=94=A3=E6=80=A7=E3=82=92=E7=B6=AD=E6=8C=81=E3=81=97=E3=
+=81=AA=E3=81=8C=E3=82=89=E3=80=81=E7=B5=B1=E5=90=88=E3=81=95=E3=82=8C=E3=81=
+=9F=E7=92=B0=E5=A2=83=E3=81=A7=E4=BD=9C=E6=A5=AD=E3=82=92=E9=80=B2=E3=82=81=
+=E3=82=8B=E3=81=93=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=
+=80=82=E3=83=AD=E3=83=BC=E3=82=B3=E3=83=BC=E3=83=89 =E3=82=A2=E3=83=97=E3=
+=83=AA=E3=81=AE=E6=A7=8B=E7=AF=89=E3=81=8B=E3=82=89=E3=80=81=E3=83=93=E3=82=
+=B8=E3=83=8D=E3=82=B9 =E3=83=97=E3=83=AD=E3=82=BB=E3=82=B9=E3=81=AE=E8=87=
+=AA=E5=8B=95=E5=8C=96=E3=80=81=E5=BC=B7=E5=8A=9B=E3=81=AA=E3=83=87=E3=83=BC=
+=E3=82=BF=E5=88=86=E6=9E=90=E3=81=AE=E9=81=A9=E7=94=A8=E3=81=BE=E3=81=A7=E3=
+=80=81Microsoft Teams =E4=BD=93=E9=A8=93=E3=81=A7=E5=AE=9F=E7=8F=BE=E3=81=
+=A7=E3=81=8D=E3=82=8B=E5=8F=AF=E8=83=BD=E6=80=A7=E3=81=8C=E3=81=82=E3=82=8A=
+=E3=81=BE=E3=81=99=E3=80=82<br /> =E6=9C=AC e-Book =E3=82=92=E3=81=94=E8=A6=
+=A7=E3=81=AB=E3=81=AA=E3=82=8A=E3=80=81=E7=B5=84=E7=B9=94=E3=81=AE=E5=8F=AF=
+=E8=83=BD=E6=80=A7=E3=82=92=E3=81=95=E3=82=89=E3=81=AB=E5=BC=95=E3=81=8D=E5=
+=87=BA=E3=81=97=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82<br /> =E2=80=
+=BB=E3=82=B3=E3=83=B3=E3=83=86=E3=83=B3=E3=83=84=E3=81=AF=E8=8B=B1=E8=AA=9E=
+=E3=81=A7=E3=81=AE=E3=81=94=E6=8F=90=E4=BE=9B=E3=81=A8=E3=81=AA=E3=82=8A=E3=
+=81=BE=E3=81=99</span></div> <div align=3D"center">&nbsp;</div> <table styl=
+e=3D"margin: 0px auto; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" borde=
+r=3D"0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"> <t=
+body> <tr> <td style=3D"background: #0078d7; border-collapse: separate; dis=
+play: block; font-family: MS Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt;=
+ line-height: 40px; padding: 0px 24px 7px 24px; text-align: center; text-de=
+coration: none;" align=3D"center" valign=3D"middle"><a style=3D"text-decora=
+tion: none;" href=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqV=
+P56l-2_bEL_EKiFppnedA6_wFmlytgsIk0qPjMIrEvOV_FfZgYrmVVHpSXMgKOFPWX0=3D" tar=
+get=3D"_blank" rel=3D"noopener" ><strong style=3D"font-weight: normal; colo=
+r: #ffffff;">=E3=83=80=E3=82=A6=E3=83=B3=E3=83=AD=E3=83=BC=E3=83=89=E3=81=
+=AF=E3=81=93=E3=81=A1=E3=82=89 <span style=3D"font-family: Segoe UI; font-s=
+ize: 15pt;">&gt; </span></strong></a></td> </tr> </tbody> </table> <div ali=
+gn=3D"center">&nbsp;</div> <div align=3D"center">&nbsp;</div> <div align=3D=
+"center"><strong><span style=3D"font-family: Yu Gothic UI; font-size: 13pt;=
+ color: #0078d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3 =
+=E3=82=BB=E3=83=9F=E3=83=8A=E3=83=BC=E3=80=91<br /> =E3=83=87=E3=83=BC=E3=
+=82=BF=E3=82=92=E3=83=91=E3=83=AF=E3=83=BC=E3=81=AB! Microsoft Teams=E3=80=
+=81Power Platform=E3=81=A7<br /> =E5=96=B6=E6=A5=AD=E6=A5=AD=E5=8B=99=E3=81=
+=AE=E3=83=87=E3=82=B8=E3=82=BF=E3=83=AB=E5=A4=89=E9=9D=A9</span></strong></=
+div> <div align=3D"center">&nbsp;</div> <div><span style=3D"font-family: Yu=
+ Gothic UI; font-size: 10pt;">IT =E3=83=84=E3=83=BC=E3=83=AB=E3=82=92=E6=B4=
+=BB=E7=94=A8=E3=81=97=E3=81=9F=E6=A5=AD=E5=8B=99=E5=8A=B9=E7=8E=87=E5=8C=96=
+=E3=81=AE=E3=83=8B=E3=83=BC=E3=82=BA=E3=81=AF=E3=80=81=E4=BC=81=E6=A5=AD=E8=
+=A6=8F=E6=A8=A1=E3=81=AE=E5=A4=A7=E5=B0=8F=E3=82=92=E5=95=8F=E3=82=8F=E3=81=
+=9A=E6=80=A5=E9=80=9F=E3=81=AB=E9=AB=98=E3=81=BE=E3=81=A3=E3=81=A6=E3=81=84=
+=E3=81=BE=E3=81=99=E3=81=8C=E3=80=81=E3=82=B7=E3=82=B9=E3=83=86=E3=83=A0=E3=
+=81=AE=E5=B0=8E=E5=85=A5=E3=81=AB=E3=81=AF=E5=A4=9A=E3=81=8F=E3=81=AE=E3=83=
+=AA=E3=82=BD=E3=83=BC=E3=82=B9=E3=82=84=E6=99=82=E9=96=93=E3=81=8C=E5=BF=85=
+=E8=A6=81=E3=81=A7=E5=8F=96=E3=82=8A=E7=B5=84=E3=81=BF=E3=81=AB=E3=81=8F=E3=
+=81=84=E8=AA=B2=E9=A1=8C=E3=81=8C=E3=81=82=E3=82=8A=E3=81=BE=E3=81=99=E3=80=
+=82=E3=82=B3=E3=82=B9=E3=83=88=E3=82=92=E3=81=8A=E3=81=95=E3=81=88=E3=80=81=
+=E8=BF=85=E9=80=9F=E3=81=AB=E6=A5=AD=E5=8B=99=E5=8A=B9=E7=8E=87=E5=8C=96=E3=
+=82=92=E5=AE=9F=E7=8F=BE=E3=81=99=E3=82=8B=E3=81=AB=E3=81=AF=E3=80=81=E3=81=
+=82=E3=82=89=E3=81=8B=E3=81=98=E3=82=81=E6=A5=AD=E5=8B=99=E3=81=AB=E6=9C=80=
+=E9=81=A9=E5=8C=96=E3=81=95=E3=82=8C=E3=81=9F=E3=83=86=E3=83=B3=E3=83=97=E3=
+=83=AC=E3=83=BC=E3=83=88=E3=82=92=E5=B1=95=E9=96=8B=E3=81=99=E3=82=8B=E6=96=
+=B9=E6=B3=95=E3=81=8C=E6=9C=80=E9=81=A9=E3=81=A7=E3=81=99=E3=80=82<br /> =
+=E6=9C=AC=E3=82=BB=E3=83=9F=E3=83=8A=E3=83=BC=E3=81=A7=E3=81=AF=E3=80=81Pow=
+er Apps =E3=81=AB=E3=82=88=E3=82=8B=E5=A4=9A=E3=81=8F=E3=81=AE=E6=A5=AD=E5=
+=8B=99=E3=82=A2=E3=83=97=E3=83=AA=E9=96=8B=E7=99=BA=E5=AE=9F=E7=B8=BE=E3=82=
+=92=E6=8C=81=E3=81=A4 ROIT =E3=81=A8=E3=80=81Office 365 =E3=81=AA=E3=81=A9 =
+Microsoft =E8=A3=BD=E5=93=81=E3=81=A7=E8=B1=8A=E5=AF=8C=E3=81=AA=E5=AE=9F=
+=E7=B8=BE=E3=82=92=E3=82=82=E3=81=A4=E3=83=AA=E3=82=B3=E3=83=BC=E3=82=B8=E3=
+=83=A3=E3=83=91=E3=83=B3=E3=81=A8=E5=85=B1=E3=81=AB=E3=80=81=E6=A5=AD=E5=8B=
+=99=E3=82=A2=E3=83=97=E3=83=AA =E3=83=86=E3=83=B3=E3=83=97=E3=83=AC=E3=83=
+=BC=E3=83=88=E3=81=AE=E6=B4=BB=E7=94=A8=E4=BA=8B=E4=BE=8B=E3=82=92=E4=B8=AD=
+=E5=BF=83=E3=81=AB=E3=80=81=E6=A6=82=E8=A6=81=E3=81=A8=E5=B0=8E=E5=85=A5=E3=
+=81=AE=E5=8A=B9=E6=9E=9C=E3=82=92=E3=83=87=E3=83=A2=E3=82=92=E4=BA=A4=E3=81=
+=88=E3=81=A6=E3=81=94=E7=B4=B9=E4=BB=8B=E3=81=97=E3=81=BE=E3=81=99=E3=80=82=
+<br /><br /> =E2=96=A0=E9=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : 4 =E6=9C=88 20=
+ =E6=97=A5 (=E7=81=AB) 14:00 - 15:00 </span></div> <div align=3D"center">&n=
+bsp;</div> <table style=3D"margin: 0px auto; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt;" border=3D"0" width=3D"" cellspacing=3D"0" cellpadding=3D"0=
+" align=3D"center"> <tbody> <tr> <td style=3D"background: #0078d7; border-c=
+ollapse: separate; display: block; font-family: MS Gothic,SUWR,Arial,Sans-S=
+erif; font-size: 15pt; line-height: 40px; padding: 0px 24px 7px 24px; text-=
+align: center; text-decoration: none;" align=3D"center" valign=3D"middle"><=
+a style=3D"text-decoration: none;" href=3D "https://emails.microsoft.com/MT=
+U3LUdRRS0zODIAAAF8cnqVP3LVFRJd_1r6bRaKX88uXwWGj7HxUpNc48TJZxzlmQwdVuSUlaQfR=
+zXnL7TPZpw_mNQ=3D" target=3D"_blank" rel=3D"noopener" ><strong style=3D"fon=
+t-weight: normal; color: #ffffff;">=E5=8F=82=E5=8A=A0=E3=81=94=E7=99=BB=E9=
+=8C=B2=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 <span style=3D"font-family: Sego=
+e UI; font-size: 15pt;">&gt; </span></strong></a></td> </tr> </tbody> </tab=
+le> <div align=3D"center">&nbsp;</div> <div align=3D"center">&nbsp;</div> <=
+div align=3D"center"><strong><span style=3D"font-family: Yu Gothic UI; font=
+-size: 13pt; color: #0078d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=
+=E3=83=B3 =E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=80=91<b=
+r /> Microsoft Azure Virtual Training Day<br /> =E3=83=BC AI =E3=81=AE=E5=
+=9F=BA=E7=A4=8E =E3=83=BC</span></strong></div> <div align=3D"center">&nbsp=
+;</div> <div><span style=3D"font-family: Yu Gothic UI; font-size: 10pt;">AI=
+ =E3=81=AE=E5=9F=BA=E6=9C=AC=E7=9A=84=E3=81=AA=E6=A6=82=E5=BF=B5=E3=81=8A=
+=E3=82=88=E3=81=B3=E3=82=A2=E3=83=97=E3=83=AA=E3=82=B1=E3=83=BC=E3=82=B7=E3=
+=83=A7=E3=83=B3=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E7=90=86=E8=A7=A3=E3=81=
+=97=E3=80=81Azure =E3=81=A7 AI =E3=82=92=E5=A7=8B=E3=82=81=E3=82=8B=E6=96=
+=B9=E6=B3=95=E3=82=92=E5=AD=A6=E3=81=B3=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=
+=E3=80=82<br /> Azure Machine Learning =E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=
+=E3=81=9F=E3=82=B3=E3=83=BC=E3=83=89=E3=81=AA=E3=81=97=E3=81=AE=E4=BA=88=E6=
+=B8=AC=E3=83=A2=E3=83=87=E3=83=AB=E4=BD=9C=E6=88=90=E3=80=81Microsoft Azure=
+ =E3=81=AB=E3=81=8A=E3=81=91=E3=82=8B=E5=AF=BE=E8=A9=B1=E5=9E=8B AI=E3=80=
+=81=E8=87=AA=E7=84=B6=E8=A8=80=E8=AA=9E=E5=87=A6=E7=90=86=E3=80=81=E3=82=B3=
+=E3=83=B3=E3=83=94=E3=83=A5=E3=83=BC=E3=82=BF=E3=83=BC =E3=83=93=E3=82=B8=
+=E3=83=A7=E3=83=B3=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=E8=AA=AC=E6=98=8E=E3=
+=81=97=E3=81=BE=E3=81=99=E3=80=82<br /><br /> =E2=96=A0=E9=96=8B=E5=82=AC=
+=E6=97=A5=E6=99=82 : 5 =E6=9C=88 14 =E6=97=A5 (=E9=87=91) 13:00 - 17:00 </s=
+pan></div> <div align=3D"center">&nbsp;</div> <table style=3D"margin: 0px a=
+uto; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" border=3D"0" width=3D""=
+ cellspacing=3D"0" cellpadding=3D"0" align=3D"center"> <tbody> <tr> <td sty=
+le=3D"background: #0078d7; border-collapse: separate; display: block; font-=
+family: MS Gothic,SUWR,Arial,Sans-Serif; font-size: 15pt; line-height: 40px=
+; padding: 0px 24px 7px 24px; text-align: center; text-decoration: none;" a=
+lign=3D"center" valign=3D"middle"><a style=3D"text-decoration: none;" href=
+=3D "https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP0GoTNXGEq6np_T9d=
+a9fNURyKPCDf7LOsSZLCy89DFtvZKBSKdvvtBMxL6BnAn10mJA=3D" target=3D"_blank" re=
+l=3D"noopener" ><strong style=3D"font-weight: normal; color: #ffffff;">=E5=
+=8F=82=E5=8A=A0=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=E3=81=A1=E3=82=
+=89 <span style=3D"font-family: Segoe UI; font-size: 15pt;">&gt; </span></s=
+trong></a></td> </tr> </tbody> </table> <div align=3D"center">&nbsp;</div> =
+<div align=3D"center">&nbsp;</div> <div align=3D"center"><strong><span styl=
+e=3D"font-family: Yu Gothic UI; font-size: 13pt; color: #0078d4;">=E3=80=90=
+=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=B3 =E3=83=88=E3=83=AC=E3=83=BC=
+=E3=83=8B=E3=83=B3=E3=82=B0=E3=80=91<br /> Microsoft Azure Virtual Training=
+ Day<br /> =E3=83=BC GitHub =E3=82=92=E4=BD=BF=E3=81=A3=E3=81=9F DevOps =E3=
+=83=BC</span></strong></div> <div align=3D"center">&nbsp;</div> <div><span =
+style=3D"font-family: Yu Gothic UI; font-size: 10pt;">DevOps =E3=81=AE=E5=
+=BC=B7=E5=9B=BA=E3=81=AA=E5=9F=BA=E7=9B=A4=E3=82=92=E6=B4=BB=E7=94=A8=E3=81=
+=97=E3=81=A6=E3=80=81=E3=82=AD=E3=83=A3=E3=83=AA=E3=82=A2=E3=82=92=E5=89=8D=
+=E9=80=B2=E3=81=95=E3=81=9B=E3=81=BE=E3=81=97=E3=82=87=E3=81=86=E3=80=82<br=
+ /> =E9=96=8B=E7=99=BA=E8=80=85=E3=82=84 IT =E3=83=97=E3=83=AD=E3=83=95=E3=
+=82=A7=E3=83=83=E3=82=B7=E3=83=A7=E3=83=8A=E3=83=AB=E3=81=8C=E3=82=A4=E3=83=
+=B3=E3=82=B9=E3=83=88=E3=83=A9=E3=82=AF=E3=82=BF=E3=83=BC=E3=81=A8=E3=81=97=
+=E3=81=A6=E3=83=AA=E3=83=BC=E3=83=89=E3=81=99=E3=82=8B=E6=9C=AC=E3=83=88=E3=
+=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=81=A7=E3=81=AF=E3=80=81GitHub=
+ =E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=83=AF=E3=83=BC=E3=82=AF=
+=E3=83=95=E3=83=AD=E3=83=BC=E3=82=92=E7=AE=A1=E7=90=86=E3=81=97=E3=80=81=E3=
+=82=B5=E3=82=A4=E3=82=AF=E3=83=AB=E6=99=82=E9=96=93=E3=82=92=E7=9F=AD=E7=B8=
+=AE=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=95=E3=82=92=E8=AA=AC=E6=98=8E=E3=81=97=
+=E3=81=BE=E3=81=99=E3=80=82<br /> =E3=81=BE=E3=81=9F=E3=80=81=E6=89=8B=E9=
+=A0=86=E3=82=AC=E3=82=A4=E3=83=89=E3=81=A7=E3=81=AF=E3=80=81=E5=93=81=E8=B3=
+=AA=E7=AE=A1=E7=90=86=E3=81=A8=E3=82=BB=E3=82=AD=E3=83=A5=E3=83=AA=E3=83=86=
+=E3=82=A3=E5=88=B6=E5=BE=A1=E3=82=92=E6=A7=8B=E7=AF=89=E3=83=97=E3=83=AD=E3=
+=82=BB=E3=82=B9=E3=81=AB=E8=BF=BD=E5=8A=A0=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=
+=95=E3=81=AB=E5=8A=A0=E3=81=88=E3=80=81=E9=80=9A=E7=9F=A5=E3=81=A8=E5=BF=9C=
+=E7=AD=94=E3=82=92=E6=94=B9=E5=96=84=E3=81=97=E4=B8=80=E8=B2=AB=E6=80=A7=E3=
+=81=AE=E3=81=82=E3=82=8B=E7=B9=B0=E3=82=8A=E8=BF=94=E3=81=97=E5=8F=AF=E8=83=
+=BD=E3=81=AA=E8=87=AA=E5=8B=95=E5=8C=96=E3=82=92=E5=AE=9F=E7=8F=BE=E3=81=99=
+=E3=82=8B=E6=96=B9=E6=B3=95=E3=82=92=E5=AD=A6=E3=81=B9=E3=81=BE=E3=81=99=E3=
+=80=82<br /><br /> =E2=96=A0=E9=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : <br /> 5=
+ =E6=9C=88 20 =E6=97=A5 (=E6=9C=A8) 9:30 - 12:30<br /> 5 =E6=9C=88 21 =E6=
+=97=A5 (=E9=87=91) 9:30 - 11:30 </span></div> <div align=3D"center">&nbsp;<=
+/div> <table style=3D"margin: 0px auto; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt;" border=3D"0" width=3D"" cellspacing=3D"0" cellpadding=3D"0" ali=
+gn=3D"center"> <tbody> <tr> <td style=3D"background: #0078d7; border-collap=
+se: separate; display: block; font-family: MS Gothic,SUWR,Arial,Sans-Serif;=
+ font-size: 15pt; line-height: 40px; padding: 0px 24px 7px 24px; text-align=
+: center; text-decoration: none;" align=3D"center" valign=3D"middle"><a sty=
+le=3D"text-decoration: none;" href=3D "https://emails.microsoft.com/MTU3LUd=
+RRS0zODIAAAF8cnqVP9XIW8tp6gYOdZdlXjhA_ngszr93L8yhQiqvFLCI3bkGpGU48oLhPovPEq=
+tv957VGHo=3D" target=3D"_blank" rel=3D"noopener" ><strong style=3D"font-wei=
+ght: normal; color: #ffffff;">=E5=8F=82=E5=8A=A0=E3=81=94=E7=99=BB=E9=8C=B2=
+=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89 <span style=3D"font-family: Segoe UI; =
+font-size: 15pt;">&gt; </span></strong></a></td> </tr> </tbody> </table> <d=
+iv align=3D"center">&nbsp;</div> <div align=3D"center">&nbsp;</div> <div al=
+ign=3D"center"><strong><span style=3D"font-family: Yu Gothic UI; font-size:=
+ 13pt; color: #0078d4;">=E3=80=90=E3=82=AA=E3=83=B3=E3=83=A9=E3=82=A4=E3=83=
+=B3 =E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=E3=80=91<br /> M=
+icrosoft Power Platform Virtual Training Day<br /> =E3=83=BC Power Platform=
+ =E3=81=AE=E5=9F=BA=E7=A4=8E =E3=83=BC</span></strong></div> <div align=3D"=
+center">&nbsp;</div> <div><span style=3D"font-family: Yu Gothic UI; font-si=
+ze: 10pt;">=E6=9C=AC=E3=83=88=E3=83=AC=E3=83=BC=E3=83=8B=E3=83=B3=E3=82=B0=
+=E3=81=A7=E3=81=AF=E3=80=81=E9=80=B2=E5=8C=96=E3=81=99=E3=82=8B=E3=83=93=E3=
+=82=B8=E3=83=8D=E3=82=B9=E7=92=B0=E5=A2=83=E3=81=AB=E5=AF=BE=E5=BF=9C=E3=81=
+=A7=E3=81=8D=E3=82=8B=E3=82=88=E3=81=86=E3=80=81=E5=B0=86=E6=9D=A5=E3=82=92=
+=E8=A6=8B=E6=8D=AE=E3=81=88=E3=81=9F=E9=9D=A9=E6=96=B0=E7=9A=84=E3=81=AA=E3=
+=82=BD=E3=83=AA=E3=83=A5=E3=83=BC=E3=82=B7=E3=83=A7=E3=83=B3=E3=81=AE=E6=A7=
+=8B=E7=AF=89=E3=81=A8=E7=AE=A1=E7=90=86=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6=
+=E3=80=81=E7=9F=A5=E3=81=A3=E3=81=A6=E3=81=8A=E3=81=8F=E3=81=B9=E3=81=8D=E3=
+=81=93=E3=81=A8=E3=82=92=E3=81=99=E3=81=B9=E3=81=A6=E7=B6=B2=E7=BE=85=E3=81=
+=97=E3=81=A6=E8=AA=AC=E6=98=8E=E3=81=97=E3=81=BE=E3=81=99=E3=80=82<br /> =
+=E3=83=87=E3=83=BC=E3=82=BF=E3=82=92=E6=8E=A5=E7=B6=9A=E3=81=97=E3=81=A6=E3=
+=83=AA=E3=82=A2=E3=83=AB=E3=82=BF=E3=82=A4=E3=83=A0=E3=81=AE=E3=83=93=E3=82=
+=B8=E3=83=8D=E3=82=B9 =E3=83=91=E3=83=95=E3=82=A9=E3=83=BC=E3=83=9E=E3=83=
+=B3=E3=82=B9=E3=82=92=E5=88=86=E6=9E=90=E3=81=97=E3=81=9F=E3=82=8A=E3=80=81=
+=E3=82=AB=E3=82=B9=E3=82=BF=E3=83=A0=E6=A7=8B=E7=AF=89=E3=82=A2=E3=83=97=E3=
+=83=AA=E3=82=92=E4=BD=BF=E7=94=A8=E3=81=97=E3=81=A6=E3=83=87=E3=83=BC=E3=82=
+=BF=E3=81=A8=E3=82=A4=E3=83=B3=E3=82=B5=E3=82=A4=E3=83=88=E3=82=92=E6=93=8D=
+=E4=BD=9C=E3=81=97=E3=81=9F=E3=82=8A=E3=80=81=E3=83=AF=E3=83=BC=E3=82=AF=E3=
+=83=95=E3=83=AD=E3=83=BC=E3=82=92=E8=87=AA=E5=8B=95=E5=8C=96=E3=81=97=E3=81=
+=A6=E3=83=AA=E3=83=A2=E3=83=BC=E3=83=88=E3=81=8A=E3=82=88=E3=81=B3=E3=82=AA=
+=E3=83=95=E3=82=A3=E3=82=B9=E3=81=A7=E3=81=AE=E4=BA=BA=E3=80=85=E3=81=AE=E5=
+=83=8D=E3=81=8D=E6=96=B9=E3=82=92=E6=94=B9=E5=96=84=E3=81=97=E3=81=9F=E3=82=
+=8A=E3=81=99=E3=82=8B=E6=96=B9=E6=B3=95=E3=82=92=E5=AD=A6=E3=81=B6=E3=81=93=
+=E3=81=A8=E3=81=8C=E3=81=A7=E3=81=8D=E3=81=BE=E3=81=99=E3=80=82<br /><br />=
+ =E2=96=A0=E9=96=8B=E5=82=AC=E6=97=A5=E6=99=82 : 5 =E6=9C=88 21 =E6=97=A5 (=
+=E9=87=91) 13:00 - 16:50 </span></div></td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px;" bgcolor=3D"#=
+ffffff">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" align=3D"left" style=3D"width: 100%; min-width: 100%;=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"left" class=3D"mob_padding" style=3D"color: #464646; font-size=
+: 15px; font-family: 'Segoe UI','Segoe UI Regular',SUWR,Arial,Sans-Serif; f=
+ont-weight: 400; line-height: 20px; padding-left: 24px; padding-right: 24px=
+; text-align: left;"><strong> </strong> <br>  <br> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px;" bgcolor=3D"#=
+ffffff">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td valign=3D"top" style=3D"border-collapse: separate; padding: 0px 0px 0px=
+;">
+<!--
+                CTA
+            -->=20
+<!--[if (gte mso 9)|(IE)]>
+<table width=3D"" align=3D"center" style=3D"margin: 0px auto; mso-table-lsp=
+ace: 0pt; mso-table-rspace: 0pt;" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"middle" style=3D"background: #0078D4; border=
+-collapse: separate; display: block; font-family: 'Segoe UI','Segoe UI Regu=
+lar',SUWR,Arial,Sans-Serif; font-size: 20px; line-height: 40px; padding: 0p=
+x 24px 8px 24px; text-align: center; text-decoration: none;" bgcolor=3D"#00=
+78D4"><a style=3D"text-decoration: none;" href=3D
+"https://emails.microsoft.com/dc/6MOqlD_5FVsn_DtXWPLRrVY67KDv7BQVhDfDoW5Y1x=
+p_yeK5qukL-XjXzq7y3uDoOgcApiULjmZsDj2-feZXi2EAhJ9SC3pbCCzXId5BS-Jq9k6ziG5tq=
+XYEdXdzQ-Or6yY5BpVGFpI3K8ldflQIgojjzqWV1lldfK7aZ1XCoIqvRBYAqswrpaWA2QX2uLwS=
+/MTU3LUdRRS0zODIAAAF8cnqVPxJjlRbLuI1liTZnbmA--ZLmaHqGfgrwSKBI-_3SHohJWm6wyn=
+3vFeIbLFO7q5s5CeY=3D" target=3D"_blank"
+><strong style=3D"font-weight: normal; color: #ffffff;">=E5=8F=82=E5=8A=A0=
+=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89  &gt;</stro=
+ng></a></td>
+</tr>
+</tbody>
+</table>
+
+<![endif]-->=20
+<!--[if (!mso)&(!IE)]><!-- -->=20
+<table width=3D"" align=3D"center" style=3D"margin: 0px auto; mso-table-lsp=
+ace: 0pt; mso-table-rspace: 0pt;" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" valign=3D"middle" style=3D"background: #0078D4; border=
+-collapse: separate; display: block; font-family: 'Segoe UI','Segoe UI Regu=
+lar',SUWR,Arial,Sans-Serif; font-size: 20px; line-height: 40px; padding: 0p=
+x 24px 0px 24px; text-align: center; text-decoration: none;" bgcolor=3D"#00=
+78D4"><a style=3D"text-decoration: none;" href=3D
+"https://emails.microsoft.com/dc/6MOqlD_5FVsn_DtXWPLRrVY67KDv7BQVhDfDoW5Y1x=
+p_yeK5qukL-XjXzq7y3uDoOgcApiULjmZsDj2-feZXi2EAhJ9SC3pbCCzXId5BS-Jq9k6ziG5tq=
+XYEdXdzQ-Or6yY5BpVGFpI3K8ldflQIgojjzqWV1lldfK7aZ1XCoIqvRBYAqswrpaWA2QX2uLwS=
+/MTU3LUdRRS0zODIAAAF8cnqVPxJjlRbLuI1liTZnbmA--ZLmaHqGfgrwSKBI-_3SHohJWm6wyn=
+3vFeIbLFO7q5s5CeY=3D" target=3D"_blank"
+><strong style=3D"font-weight: normal; color: #ffffff;">=E5=8F=82=E5=8A=A0=
+=E3=81=94=E7=99=BB=E9=8C=B2=E3=81=AF=E3=81=93=E3=81=A1=E3=82=89  &gt;</stro=
+ng></a></td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<!--<![endif]--></td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" align=3D"left" style=3D"width: 100%; min-width: 100%;=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"mob_full_width"=
+>=20
+<tbody>=20
+<tr>=20
+<td align=3D"left" valign=3D"top" width=3D"50" class=3D"mobhide">&nbsp;</td=
+>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px;" bgcolor=3D"#=
+ffffff">&nbsp;</td>=20
+<td align=3D"left" valign=3D"top" width=3D"50" class=3D"mobhide">&nbsp;</td=
+>=20
+</tr>=20
+<tr>=20
+<td align=3D"left" valign=3D"top" width=3D"140" class=3D"mobhide">&nbsp;</t=
+d>=20
+</tr>=20
+<tr>=20
+<td align=3D"left" valign=3D"top" width=3D"50" class=3D"mobhide">&nbsp;&nbs=
+p;</td>=20
+<td height=3D"24" style=3D"font-size: 1px; line-height: 24px;" bgcolor=3D"#=
+ffffff"></td>=20
+<td align=3D"left" valign=3D"top" width=3D"50" class=3D"mobhide">&nbsp;</td=
+>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table>
+</div>
+<div class=3D"mktEditable rest_paragraph mktEditable rest_paragraph" id=3D"=
+C zone - CTA" style=3D"">
+<!--[if (gte mso 9)|(IE)]>=20
+
+<![endif]--> <!--[if (!mso)&(!IE)]><!-- -->
+<div height=3D"0" style=3D"font-size: 0px; line-height: 0px;">&nbsp;</div>
+<!--<![endif]-->
+</div>
+<div class=3D"mktEditable rest_paragraph mktEditable rest_paragraph" id=3D"=
+D zone - Related Resources" style=3D"">
+<!--[if (gte mso 9)|(IE)]>=20
+
+<![endif]--> <!--[if (!mso)&(!IE)]><!-- -->
+<div height=3D"0" style=3D"font-size: 0px; line-height: 0px;">&nbsp;</div>
+<!--<![endif]-->
+</div>
+<div class=3D"mktEditable rest_paragraph mktEditable rest_paragraph" id=3D"=
+E zone - CTA" style=3D"">
+<!--[if (gte mso 9)|(IE)]>=20
+
+<![endif]--> <!--[if (!mso)&(!IE)]><!-- -->
+<div height=3D"0" style=3D"font-size: 0px; line-height: 0px;">&nbsp;</div>
+<!--<![endif]-->
+</div>
+<!-- Footer: Legal message and address-->=20
+<table bgcolor=3D"#5E5E5E" width=3D"640" style=3D"width:640px; " border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" align=3D"center" class=3D"mob_paddin=
+g0 mob_full_width">
+<tbody>
+<tr style=3D"">
+<td class=3D"mob_padding0" style=3D"padding:24px 24px 24px 24px; " bgcolor=
+=3D"#F2F2F2">
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" styl=
+e=3D"width:100%; min-width:100%; ">
+<tbody>
+<tr style=3D"">
+<td class=3D"mob_padding" align=3D"left" style=3D"font-family:'Segoe UI Reg=
+ular',SUWR,Arial,Sans-Serif; font-size:10px; line-height:12px; color:#5E5E5=
+E; ">
+<div class=3D"mktEditable rest_paragraph mktEditable rest_paragraph" id=3D"=
+DNT-Social" style=3D"">
+<!--[if (gte mso 9)|(IE)]>=20
+
+<![endif]--> <!--[if (!mso)&(!IE)]><!-- -->
+<div height=3D"0" style=3D"font-size: 0px; line-height: 0px;">&nbsp;</div>
+<!--<![endif]-->
+</div></td>
+</tr>
+<tr style=3D"">
+<td class=3D"mob_padding" align=3D"left" style=3D"font-family:'Segoe UI Reg=
+ular',SUWR,Arial,Sans-Serif; font-size:10px; line-height:12px; color:#5E5E5=
+E; ">
+<div class=3D"mktEditable rest_paragraph mktEditable rest_paragraph" id=3D"=
+DNT-Footer" style=3D"">
+<div align=3D"left" class=3D"rest_paragraph"><!--[if (gte mso 9)|(IE)]>=20
+            <p style=3D"color: #5E5E5E;"><a style=3D"text-decoration: under=
+line;" href=3D
+"https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP1q0q89sqZSr40LIEayx4=
+axXkX5JwSX33qlfx859cqOKIhmgHaJBJQv_0C92K5MHNMA=3D" target=3D"_blank"
+><strong style=3D"font-weight: normal; color:#5E5E5E;">=E3=83=97=E3=83=A9=
+=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E5=
+=A3=B0=E6=98=8E</strong></a> |<a href=3D
+"https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQOWiuOxHh-T9zFj5xcz9N=
+iraSatpZZVKLxqDfSWEqT-piVerAyqJWO2RT3ioBqjmEL8=3D" target=3D"_blank" style=
+=3D"text-decoration: underline;"
+><strong style=3D"font-weight: normal; color:#5E5E5E;">=E3=83=97=E3=83=A9=
+=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E3=
+=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B</strong></a> | <a style=
+=3D"text-decoration: underline;" href=3D
+"https://emails.microsoft.com/dc/YZdgvqwbGRw5vplqwcDuFAT39-RSqApAoBTg8JD6J6=
+9Q9XlJiBGUNKEP8wZ1xpt-oqgHbQNkJ4DZTh9iLCGQ-R7vmqT5XOzpuqPEiljQOhha6Mu99rMKo=
+DhgddSe8xIOd4le4Xgg5nLoKr89gxtCWbIaxlNBDpkfBRVtfYY82AM66hW9RRG0v8NZJpCkWaLs=
+6wALg-FPyq-5PHGHIURNHCwkfoaWmEOPW1MU5fwCu2xS-5tj9LMXIQw7ebA1CT2GcHXBlAys0aD=
+DmpXMR9O8QAQ0XQ-3RJz3dkUB1QkORbo=3D/MTU3LUdRRS0zODIAAAF8cnqVPxJjlRbLuI1liTZ=
+nbmA--ZLmaHqGfgrwSKBI-_3SHohJWm6wyn3vFeIbLFO7q5s5CeY=3D"
+><strong style=3D"font-weight: normal; color:#5E5E5E;">=E8=B3=BC=E8=AA=AD=
+=E3=82=92=E5=81=9C=E6=AD=A2</strong></a></p>
+            <![endif]--><!--[if (!mso)&(!IE)]><!-- -->
+<p style=3D"color: #5e5e5e;"><a style=3D"text-decoration: none; border-bott=
+om: 1px solid #5E5E5E;" href=3D
+"https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP1q0q89sqZSr40LIEayx4=
+axXkX5JwSX33qlfx859cqOKIhmgHaJBJQv_0C92K5MHNMA=3D" target=3D"_blank"
+><strong style=3D"font-weight: normal; color: #5e5e5e;">=E3=83=97=E3=83=A9=
+=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E5=
+=A3=B0=E6=98=8E</strong></a> |<a style=3D"text-decoration: none; border-bot=
+tom: 1px solid #5E5E5E;" href=3D
+"https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQOWiuOxHh-T9zFj5xcz9N=
+iraSatpZZVKLxqDfSWEqT-piVerAyqJWO2RT3ioBqjmEL8=3D" target=3D"_blank"
+><strong style=3D"font-weight: normal; color: #5e5e5e;">=E3=83=97=E3=83=A9=
+=E3=82=A4=E3=83=90=E3=82=B7=E3=83=BC=E3=81=AB=E9=96=A2=E3=81=99=E3=82=8B=E3=
+=81=8A=E5=95=8F=E3=81=84=E5=90=88=E3=82=8F=E3=81=9B</strong></a> | <a style=
+=3D"text-decoration: none; border-bottom: 1px solid #5E5E5E;" href=3D
+"https://emails.microsoft.com/dc/YZdgvqwbGRw5vplqwcDuFAT39-RSqApAoBTg8JD6J6=
+9Q9XlJiBGUNKEP8wZ1xpt-oqgHbQNkJ4DZTh9iLCGQ-R7vmqT5XOzpuqPEiljQOhha6Mu99rMKo=
+DhgddSe8xIOd4le4Xgg5nLoKr89gxtCWbIaxlNBDpkfBRVtfYY82AM66hW9RRG0v8NZJpCkWaLs=
+6wALg-FPyq-5PHGHIURNHCwkfoaWmEOPW1MU5fwCu2xS-5tj9LMXIQw7ebA1CT2GcHXBlAys0aD=
+DmpXMR9O8QAQ0XQ-3RJz3dkUB1QkORbo=3D/MTU3LUdRRS0zODIAAAF8cnqVPxJjlRbLuI1liTZ=
+nbmA--ZLmaHqGfgrwSKBI-_3SHohJWm6wyn3vFeIbLFO7q5s5CeY=3D" target=3D"_blank"
+><strong style=3D"font-weight: normal; color: #5e5e5e;">=E5=8F=97=E4=BF=A1=
+=E7=99=BB=E9=8C=B2=E3=81=AE=E5=8F=96=E3=82=8A=E6=B6=88=E3=81=97</strong></a=
+></p>
+<!--<![endif]-->
+<p>&nbsp;</p>
+<p style=3D"color: #5e5e5e;">=E6=97=A5=E6=9C=AC=E3=83=9E=E3=82=A4=E3=82=AF=
+=E3=83=AD=E3=82=BD=E3=83=95=E3=83=88=E6=A0=AA=E5=BC=8F=E4=BC=9A=E7=A4=BE<br=
+> =E3=80=92108-0075 =E6=9D=B1=E4=BA=AC=E9=83=BD=E6=B8=AF=E5=8C=BA=E6=B8=AF=
+=E5=8D=97 2-16-3 =E5=93=81=E5=B7=9D=E3=82=B0=E3=83=A9=E3=83=B3=E3=83=89=E3=
+=82=BB=E3=83=B3=E3=83=88=E3=83=A9=E3=83=AB=E3=82=BF=E3=83=AF=E3=83=BC</p>
+</div>
+<br />
+<div>
+<p><a href=3D
+"https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVQHFjvVsUtTtZ9ZCHpWgcC=
+Z-wrzwGD8H8p2crLCq7C243kw6BjRuXy8uL1rx548urbAk=3D"
+><img width=3D"75" height=3D"16" align=3D"left" alt=3D"Microsoft" src=3D"ht=
+tps://info.microsoft.com/rs/157-GQE-382/images/EN-BASICE-Logo-MSFTLogo.png"=
+ border=3D"0" /></a></p>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>=20
+<td height=3D"48" style=3D"font-size: 1px; line-height: 48px; font-family: =
+'Segoe UI Semilight','Segoe UI Regular',SUWR,Arial,Sans-Serif;">&nbsp;</td>=
+=20
+</tr>=20
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+<a href=3D
+"https://emails.microsoft.com/MTU3LUdRRS0zODIAAAF8cnqVP1z-A6K5ToXzfzkF9SpvB=
+kregODrHlPCROnPpJUffoVuKBmFsPCc8ccUBcRRP7ymMLE=3D"
+></a>
+<img src=3D"https://emails.microsoft.com/trk?t=3D1&mid=3DMTU3LUdRRS0zODI6MT=
+EyMTYwMzo5ODc1MzY6NTYzMjk2NTowOjEwMTg0ODU6OToyODcxOTY5OjU3NzkxMzYwMS0xNjpod=
+Wp5b3JvbUBnbWFpbC5jb20%3D" width=3D"1" height=3D"1" style=3D"display:none !=
+important;" alt=3D"" />
+
+<!-- footer -->
+</body>
+</html>
+------=_Part_31830294_415099409.1618456208717--

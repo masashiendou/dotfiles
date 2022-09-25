@@ -1,0 +1,84 @@
+Delivered-To: hujyorom@gmail.com
+Received: by 2002:a1f:318e:0:0:0:0:0 with SMTP id x136csp2974457vkx;
+        Sun, 28 Mar 2021 17:51:53 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyOWTSLx/9jLjuWg40TStZ9Dd6XxMPtk08bKN4RPUFYlkKrB5XJBhUcvEpLIvHfqPxfmPcE
+X-Received: by 2002:a63:c901:: with SMTP id o1mr22440444pgg.232.1616979113169;
+        Sun, 28 Mar 2021 17:51:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1616979113; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mVNN8oZRXvrMml/ae0jK5z7CVDM/chE+f9YDnN/JIy/eouQH36f+kWFf6Fht+uqOrG
+         RHj8FFa82tMcyacjevX8Z695J5cwg9Hy+35aMtAG2r2GYox8lMQ6Fo6vOKdevfdJuhc0
+         jXBL4pmDx9NA1hEf0fF2NDciPYWZq9Y4VvRdbtLQFgQdYreqT2wgDUHobncg3Zx/HcaH
+         y0ewVnWLO/bWjcQAdZTlLo+zHPl7VAmxFIj7tlBBFE+3wSxzp1pSKQVTZLmVK93sldpZ
+         hTS7nCXulX+u3xUJejP9U+/xnK3Mc8FVyWs5NNwQgLng5eKBbgP0gXDTILDyHx2JUVZi
+         gzng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=reply-to:from:cc:to:subject:content-transfer-encoding:mime-version
+         :date:message-id:dkim-signature;
+        bh=E2OIvLHGkDOvibyRIqgoELXTauYKP5HUhKAItQISeWs=;
+        b=DdV8Le0mPUtojx5nHxfja4ES4v2F2illjnd8FE6OWgNM+bWdcQbmT3XycWuob6QC9d
+         xhcfA9p70svN5nZn+HGnP2NERNH2piZpR3CYmhQlHkjZ+uqTnp2zLGl3NOIL+TD1Ld8C
+         NJxcu4INW2b9eK7Ie+hJhXcvG0qTmyC0kp8W9FMjOP7Cf9EirnbsyLtISi6w7ew2nIQ4
+         Zw5+j34ugmJjYoz2toc/IuYqRO3c6Y+/SIcLXrsLfRo9JIeR/TucJaKgHG6yOAhSuE5v
+         Hg0SgcF5pOUp5nsAuq+bhShTaI7VZ8YWIaNU72gc1FL5bMpE1KqRKQ3vF8acmYk0rUDT
+         IOqQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=moa2 header.b=enzj0IcY;
+       spf=pass (google.com: domain of support@iijmio.jp designates 210.128.50.96 as permitted sender) smtp.mailfrom=support@iijmio.jp
+Return-Path: <support@iijmio.jp>
+Received: from moa.msg.2iij.net (moa1810.msg.2iij.net. [210.128.50.96])
+        by mx.google.com with ESMTPS id m18si18517352pge.145.2021.03.28.17.51.52
+        for <hujyorom@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 28 Mar 2021 17:51:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of support@iijmio.jp designates 210.128.50.96 as permitted sender) client-ip=210.128.50.96;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@iijmio.jp header.s=moa2 header.b=enzj0IcY;
+       spf=pass (google.com: domain of support@iijmio.jp designates 210.128.50.96 as permitted sender) smtp.mailfrom=support@iijmio.jp
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=iijmio.jp;h=Message-Id:
+	Date:Content-Type:Mime-Version:Content-Transfer-Encoding:Subject:To:Cc:From:
+	Reply-To;i=support@iijmio.jp;s=moa2;t=1616979111;x=1618188711;bh=zV9m//jTDbBL
+	qxjF9tX0zEXXCczqJj5mQ68kpEUMiuA=;b=enzj0IcYEOHpgPIKCsreeiv1eiatMfApq1PeYddxIz
+	05Ge4p/zSAzq7umnHzVWg2C5RBFs2DTR+IKA9h+PHa0ggyGrg1RZSRehp4xDFdTazPsckH/Zolrkf
+	ljhRjnVT+kdzTp08dyhWa+lM95/MDnAsQmwKuD7gPso5ODCSp0A/rr7RfdQapsM+KMOU2JvouTpuT
+	shagphcVoZ2waGTsr8Aw3oCx/CBTIEGEUpDNX8TgZ2BNNskzXLej0Ikk73VEYMuOQD9akkFSElxNU
+	em2BLj5jEjbIhxQv4rbHY9Yc9arCMdC4wg2ukucpSh4JM1C2YvwYFhyhS6Xe/3QsbVjnA==;
+Message-Id: <202103290051.12T0podR032642@cmd.svc.2iij.net>
+Date: Mon, 29 Mar 2021 09:51:49 +0900
+Content-Type: text/plain; charset="iso-2022-jp"
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: =?iso-2022-jp?b?W0lJSm1pb10gGyRCJW0lMCUkJXMkTiQqQ04kaSQ7GyhC?=
+To: hujyorom@gmail.com
+Cc: 
+From: IIJ Support Center <support@iijmio.jp>
+Reply-To: IIJ Support Center <support@iijmio.jp>
+
+                                    株式会社インターネットイニシアティブ
+
+                           ログインのお知らせ
+
+平素は、弊社サービスをご利用いただき、誠にありがとうございます。
+下記の日時にて、IIJmioのホームページにログインされましたので、お知らせ
+いたします。
+
+● ログイン日時：2021/03/29 09:51
+   ご家族のログインやブラウザに保存されているログイン情報、外部アプリに
+   よるアクセス等が無いかご確認ください。
+   上記のログインにお心当たりがない場合は、安全のため、パスワード変更を
+   お願いいたします。
+       https://www.iijmio.jp/customer/password/
+-----------------------------------------------------------------------
+■ このメールが不要な方は
+   ログイン時にメールで通知させていただいておりますが、通知を停止したい
+   場合は、webにてお手続きをお願いいたします。
+       https://www.iijmio.jp/customer/account/optmail/
+-----------------------------------------------------------------------
+■ お問い合わせ先
+  IIJサポートセンター (日本時間 9:00〜19:00 年中無休)
+    電話               0570-09-4400
+    メール / チャット  https://www.iijmio.jp/contact.html
+  * 国際電話 / IP電話 / みおふぉんダイアルをお使いの場合は、
+    03-5205-4400 をご利用下さい。
+  * お問い合わせ時に、お客様のお名前やmioIDをお伺いする場合があります。
+-----------------------------------------------------------------------

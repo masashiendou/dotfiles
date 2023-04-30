@@ -286,7 +286,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "twitter
 let twitvim_enable_python = 1
-let twitvim_browser_cmd = 'firefox'
+let twitvim_browser_cmd = 'qutebrowser'
+" let twitvim_browser_cmd = 'firefox'
 let twitvim_force_ssl = 1
 let twitvim_count = 600
 let twitvim_show_header = 0

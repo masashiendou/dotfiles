@@ -13,6 +13,7 @@ gaps inner 3
 gaps outer 2
 
 set $mod Mod4
+set $autokey ~/git/dotfiles/autokeyconfig.sh
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
@@ -31,10 +32,12 @@ set $base0E #c0b7f9
 set $base0F #0000af
 set $base0G #00df00
 set $base0H #afdf00
-set $mon1 DP2-1
-set $mon2 DP2-2
+set $mon1 eDP1
+set $mon2 eDP1
+set $mon3 DP1
+# set $mon2 DP1
 # set $mon2 eizo-virt-right
-set $mon3 eizo-virt-right
+# set $mon3 eizo-virt-right
 # set $mon3 DP2-2
 # set $mon3 DP2
 # set $mon4 DP1
@@ -99,10 +102,10 @@ mode "一" {
 	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 	# change focus
-	bindsym $mod+h focus left
-	bindsym $mod+t focus down
-	bindsym $mod+n focus up
-	bindsym $mod+s focus right
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
 	
 	# move focused window
 	bindsym $mod+Shift+h move left
@@ -144,16 +147,16 @@ mode "一" {
 	set $ws10 "10:1 拾"
 	
 	# switch to workspace
-	bindsym $mod+1 workspace $ws1
-	bindsym $mod+2 workspace $ws2
-	bindsym $mod+3 workspace $ws3
-	bindsym $mod+4 workspace $ws4
-	bindsym $mod+5 workspace $ws5
-	bindsym $mod+6 workspace $ws6
-	bindsym $mod+7 workspace $ws7
-	bindsym $mod+8 workspace $ws8
-	bindsym $mod+9 workspace $ws9
-	bindsym $mod+0 workspace $ws10
+	bindsym $mod+1 workspace $ws1 exec $autokey
+	bindsym $mod+2 workspace $ws2 exec $autokey
+	bindsym $mod+3 workspace $ws3 exec $autokey
+	bindsym $mod+4 workspace $ws4 exec $autokey
+	bindsym $mod+5 workspace $ws5 exec $autokey
+	bindsym $mod+6 workspace $ws6 exec $autokey
+	bindsym $mod+7 workspace $ws7 exec $autokey
+	bindsym $mod+8 workspace $ws8 exec $autokey
+	bindsym $mod+9 workspace $ws9 exec $autokey
+	bindsym $mod+0 workspace $ws10 exec $autokey
 	
 	# move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace $ws1
@@ -212,10 +215,10 @@ mode "二" {
 	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 	# change focus
-	bindsym $mod+h focus left
-	bindsym $mod+t focus down
-	bindsym $mod+n focus up
-	bindsym $mod+s focus right
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
 	
 	# move focused window
 	bindsym $mod+Shift+h move left
@@ -257,16 +260,16 @@ mode "二" {
 	set $ws20 "20:2 拾"
 	
 	# switch to workspace
-	bindsym $mod+1 workspace $ws11
-	bindsym $mod+2 workspace $ws12
-	bindsym $mod+3 workspace $ws13
-	bindsym $mod+4 workspace $ws14
-	bindsym $mod+5 workspace $ws15
-	bindsym $mod+6 workspace $ws16
-	bindsym $mod+7 workspace $ws17
-	bindsym $mod+8 workspace $ws18
-	bindsym $mod+9 workspace $ws19
-	bindsym $mod+0 workspace $ws20
+	bindsym $mod+1 workspace $ws11 exec $autokey
+	bindsym $mod+2 workspace $ws12 exec $autokey
+	bindsym $mod+3 workspace $ws13 exec $autokey
+	bindsym $mod+4 workspace $ws14 exec $autokey
+	bindsym $mod+5 workspace $ws15 exec $autokey
+	bindsym $mod+6 workspace $ws16 exec $autokey
+	bindsym $mod+7 workspace $ws17 exec $autokey
+	bindsym $mod+8 workspace $ws18 exec $autokey
+	bindsym $mod+9 workspace $ws19 exec $autokey
+	bindsym $mod+0 workspace $ws20 exec $autokey
 	
 	# move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace $ws11
@@ -324,10 +327,10 @@ mode "三" {
 	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 	# change focus
-	bindsym $mod+h focus left
-	bindsym $mod+t focus down
-	bindsym $mod+n focus up
-	bindsym $mod+s focus right
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
 	
 	# move focused window
 	bindsym $mod+Shift+h move left
@@ -369,16 +372,16 @@ mode "三" {
 	set $ws40 "40:3 拾"
 	
 	# switch to workspace
-	bindsym $mod+1 workspace $ws31
-	bindsym $mod+2 workspace $ws32
-	bindsym $mod+3 workspace $ws33
-	bindsym $mod+4 workspace $ws34
-	bindsym $mod+5 workspace $ws35
-	bindsym $mod+6 workspace $ws36
-	bindsym $mod+7 workspace $ws37
-	bindsym $mod+8 workspace $ws38
-	bindsym $mod+9 workspace $ws39
-	bindsym $mod+0 workspace $ws40
+	bindsym $mod+1 workspace $ws31 exec $autokey
+	bindsym $mod+2 workspace $ws32 exec $autokey
+	bindsym $mod+3 workspace $ws33 exec $autokey
+	bindsym $mod+4 workspace $ws34 exec $autokey
+	bindsym $mod+5 workspace $ws35 exec $autokey
+	bindsym $mod+6 workspace $ws36 exec $autokey
+	bindsym $mod+7 workspace $ws37 exec $autokey
+	bindsym $mod+8 workspace $ws38 exec $autokey
+	bindsym $mod+9 workspace $ws39 exec $autokey
+	bindsym $mod+0 workspace $ws40 exec $autokey
 	
 	# move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace $ws31
@@ -436,10 +439,10 @@ mode "四" {
 	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 	# change focus
-	bindsym $mod+h focus left
-	bindsym $mod+t focus down
-	bindsym $mod+n focus up
-	bindsym $mod+s focus right
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
 	
 	# move focused window
 	bindsym $mod+Shift+h move left
@@ -480,16 +483,16 @@ mode "四" {
 	set $ws50 "50:4 拾"
 	
 	# switch to workspace
-	bindsym $mod+1 workspace $ws41
-	bindsym $mod+2 workspace $ws42
-	bindsym $mod+3 workspace $ws43
-	bindsym $mod+4 workspace $ws44
-	bindsym $mod+5 workspace $ws45
-	bindsym $mod+6 workspace $ws46
-	bindsym $mod+7 workspace $ws47
-	bindsym $mod+8 workspace $ws48
-	bindsym $mod+9 workspace $ws49
-	bindsym $mod+0 workspace $ws50
+	bindsym $mod+1 workspace $ws41 exec $autokey
+	bindsym $mod+2 workspace $ws42 exec $autokey
+	bindsym $mod+3 workspace $ws43 exec $autokey
+	bindsym $mod+4 workspace $ws44 exec $autokey
+	bindsym $mod+5 workspace $ws45 exec $autokey
+	bindsym $mod+6 workspace $ws46 exec $autokey
+	bindsym $mod+7 workspace $ws47 exec $autokey
+	bindsym $mod+8 workspace $ws48 exec $autokey
+	bindsym $mod+9 workspace $ws49 exec $autokey
+	bindsym $mod+0 workspace $ws50 exec $autokey
 	
 	# move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace $ws41
@@ -550,10 +553,10 @@ mode "五" {
 	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 	# change focus
-	bindsym $mod+h focus left
-	bindsym $mod+t focus down
-	bindsym $mod+n focus up
-	bindsym $mod+s focus right
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
 	
 	# move focused window
 	bindsym $mod+Shift+h move left
@@ -594,16 +597,16 @@ mode "五" {
 	set $ws60 "60:5 拾"
 	
 	# switch to workspace
-	bindsym $mod+1 workspace $ws51
-	bindsym $mod+2 workspace $ws52
-	bindsym $mod+3 workspace $ws53
-	bindsym $mod+4 workspace $ws54
-	bindsym $mod+5 workspace $ws55
-	bindsym $mod+6 workspace $ws56
-	bindsym $mod+7 workspace $ws57
-	bindsym $mod+8 workspace $ws58
-	bindsym $mod+9 workspace $ws59
-	bindsym $mod+0 workspace $ws60
+	bindsym $mod+1 workspace $ws51 exec $autokey
+	bindsym $mod+2 workspace $ws52 exec $autokey
+	bindsym $mod+3 workspace $ws53 exec $autokey
+	bindsym $mod+4 workspace $ws54 exec $autokey
+	bindsym $mod+5 workspace $ws55 exec $autokey
+	bindsym $mod+6 workspace $ws56 exec $autokey
+	bindsym $mod+7 workspace $ws57 exec $autokey
+	bindsym $mod+8 workspace $ws58 exec $autokey
+	bindsym $mod+9 workspace $ws59 exec $autokey
+	bindsym $mod+0 workspace $ws60 exec $autokey
 	
 	# move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace $ws51
@@ -663,10 +666,10 @@ mode "六" {
 	# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 	
 	# change focus
-	bindsym $mod+h focus left
-	bindsym $mod+t focus down
-	bindsym $mod+n focus up
-	bindsym $mod+s focus right
+	bindsym $mod+h focus left exec $autokey
+	bindsym $mod+t focus down exec $autokey
+	bindsym $mod+n focus up exec $autokey
+	bindsym $mod+s focus right exec $autokey
 	
 	# move focused window
 	bindsym $mod+Shift+h move left
@@ -707,16 +710,16 @@ mode "六" {
 	set $ws70 "70:6 拾"
 	
 	# switch to workspace
-	bindsym $mod+1 workspace $ws61
-	bindsym $mod+2 workspace $ws62
-	bindsym $mod+3 workspace $ws63
-	bindsym $mod+4 workspace $ws64
-	bindsym $mod+5 workspace $ws65
-	bindsym $mod+6 workspace $ws66
-	bindsym $mod+7 workspace $ws67
-	bindsym $mod+8 workspace $ws68
-	bindsym $mod+9 workspace $ws69
-	bindsym $mod+0 workspace $ws70
+	bindsym $mod+1 workspace $ws61 exec $autokey
+	bindsym $mod+2 workspace $ws62 exec $autokey
+	bindsym $mod+3 workspace $ws63 exec $autokey
+	bindsym $mod+4 workspace $ws64 exec $autokey
+	bindsym $mod+5 workspace $ws65 exec $autokey
+	bindsym $mod+6 workspace $ws66 exec $autokey
+	bindsym $mod+7 workspace $ws67 exec $autokey
+	bindsym $mod+8 workspace $ws68 exec $autokey
+	bindsym $mod+9 workspace $ws69 exec $autokey
+	bindsym $mod+0 workspace $ws70 exec $autokey
 	
 	# move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace $ws61

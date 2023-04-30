@@ -289,7 +289,7 @@ set showmatch
 set splitbelow
 set splitright
 set tabstop=3
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandagitdotfiles/prj_tags
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -301,8 +301,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .bashrc
-edit .bashrc
+$argadd .screenlayout/rightAndVirtualdisplayAndLaptop.sh
+edit .screenlayout/rightAndVirtualdisplayAndLaptop.sh
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -482,14 +482,14 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 55 - ((48 * winheight(0) + 34) / 68)
+let s:l = 2 - ((1 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 55
+keepjumps 2
 normal! 0
 tabnext 1
-badd +0 .bashrc
+badd +0 .screenlayout/rightAndVirtualdisplayAndLaptop.sh
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif

@@ -273,6 +273,13 @@ git reset --soft HEAD~1
 ### This not only leaves your files alone, it even leaves your index alone. When you do git status, you'll see that the same files are in the index as before. In
 ### fact, right after this command, you could do git commit and you'd be redoing the same commit you just had.
 
+# Tips of git for i2159
+git clone -b <branch> <remote_repo>
+git checkout -b <branch> <parent_branch>
+some changed...
+git add . && git commit -m "some comments"
+git push origin <branch>
+
 
 # Format device
 ## Specify filetype with mkfs
@@ -365,8 +372,11 @@ less /proc/cpuinfo
 ps -ef | grep docker | awk '{print $2}'
 
 # Installing docker-compose
-sudo wget –O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64
-sudo chmod +x /usr/local/bin/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+# sudo wget https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-darwin-x86_64 –O /usr/local/bin/docker-compose
+# sudo wget https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 –O /usr/local/bin/docker-compose
+sudo chmod +x .docker/cli-plugins/docker-compose
+docker compose version
 
 # chromium tips
 chromium --proxy-server="proxyip:port"
@@ -410,3 +420,18 @@ gh repo create
 gh repo create my-project --public --clone
 # create a remote repository from the current directory
 gh repo create my-project --private --source=. --remote=upstream
+
+# Tips of PDF merging
+# To concatenate all pdf files into one:
+pdftk *.pdf cat output all.pdf
+# To concatenate specific pdf files into one:
+pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf
+# To concatenate pages 1 to 5 of first.pdf with page 3 of second.pdf:
+pdftk A=fist.pdf B=second.pdf cat A1-5 B3 output new.pdf
+
+# tar tips
+tar cvzf 'create_compress_file' 'target_directory'
+tar xvf 'compress_file'
+
+# How to use git revert
+

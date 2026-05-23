@@ -2,8 +2,15 @@ let SessionLoad = 1
 if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
-inoremap <silent> <SNR>63_AutoPairsReturn =AutoPairsReturn()
-inoremap <silent> <Plug>CocRefresh =coc#_complete()
+inoremap <silent> <SNR>64_AutoPairsReturn =AutoPairsReturn()
+inoremap <silent> <expr> <PageUp> coc#pum#visible() ? coc#pum#scroll(0) : "\<PageUp>"
+inoremap <silent> <expr> <PageDown> coc#pum#visible() ? coc#pum#scroll(1) : "\<PageDown>"
+inoremap <silent> <expr> <C-Y> coc#pum#visible() ? coc#pum#confirm() : "\"
+inoremap <silent> <expr> <C-E> coc#pum#visible() ? coc#pum#cancel() : "\"
+inoremap <silent> <expr> <Up> coc#pum#visible() ? coc#pum#prev(0) : "\<Up>"
+inoremap <silent> <expr> <Down> coc#pum#visible() ? coc#pum#next(0) : "\<Down>"
+inoremap <silent> <expr> <C-P> coc#pum#visible() ? coc#pum#prev(1) : "\"
+inoremap <silent> <expr> <C-N> coc#pum#visible() ? coc#pum#next(1) : "\"
 inoremap <silent> <Plug>(ale_complete) :ALEComplete
 vmap  <Plug>(caw:hatpos:toggle)
 nmap  <Plug>(caw:hatpos:toggle)
@@ -90,7 +97,7 @@ nnoremap <silent> <Plug>(openbrowser-open) :call openbrowser#_keymap_open('n')
 nnoremap <Plug>(twitvim-PosttoTwitter) :call twitvim#CmdLine_Twitter('', 0)
 vmap <C-T> <Plug>TwitvimVisual
 vmap <M-t> <Plug>TwitvimVisual
-noremap <SNR>71_Visual y:call twitvim#post_twitter(@", 0)
+noremap <SNR>72_Visual y:call twitvim#post_twitter(@", 0)
 nmap <C-W>o <Plug>ZoomWin
 xmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
 nmap <Plug>(caw:prefix)O <Plug>(caw:jump:comment-prev)
@@ -177,17 +184,17 @@ nmap <C-Bslash>d :cs find d =expand('<cword>')
 nmap <C-Bslash>c :cs find c =expand('<cword>')
 map <C-P> <Plug>(ctrlp)
 nnoremap <silent> <Plug>(ctrlp) :CtrlP
-onoremap <silent> <Plug>(coc-classobj-a) :call coc#rpc#request('selectSymbolRange', [v:false, '', ['Interface', 'Struct', 'Class']])
-onoremap <silent> <Plug>(coc-classobj-i) :call coc#rpc#request('selectSymbolRange', [v:true, '', ['Interface', 'Struct', 'Class']])
-vnoremap <silent> <Plug>(coc-classobj-a) :call coc#rpc#request('selectSymbolRange', [v:false, visualmode(), ['Interface', 'Struct', 'Class']])
-vnoremap <silent> <Plug>(coc-classobj-i) :call coc#rpc#request('selectSymbolRange', [v:true, visualmode(), ['Interface', 'Struct', 'Class']])
-onoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectSymbolRange', [v:false, '', ['Method', 'Function']])
-onoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectSymbolRange', [v:true, '', ['Method', 'Function']])
-vnoremap <silent> <Plug>(coc-funcobj-a) :call coc#rpc#request('selectSymbolRange', [v:false, visualmode(), ['Method', 'Function']])
-vnoremap <silent> <Plug>(coc-funcobj-i) :call coc#rpc#request('selectSymbolRange', [v:true, visualmode(), ['Method', 'Function']])
-nnoremap <silent> <Plug>(coc-cursors-position) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'position', 'n'])
-nnoremap <silent> <Plug>(coc-cursors-word) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'word', 'n'])
-vnoremap <silent> <Plug>(coc-cursors-range) :call coc#rpc#request('cursorsSelect', [bufnr('%'), 'range', visualmode()])
+onoremap <silent> <Plug>(coc-classobj-a) :call CocAction('selectSymbolRange', v:false, '', ['Interface', 'Struct', 'Class'])
+onoremap <silent> <Plug>(coc-classobj-i) :call CocAction('selectSymbolRange', v:true, '', ['Interface', 'Struct', 'Class'])
+vnoremap <silent> <Plug>(coc-classobj-a) :call CocAction('selectSymbolRange', v:false, visualmode(), ['Interface', 'Struct', 'Class'])
+vnoremap <silent> <Plug>(coc-classobj-i) :call CocAction('selectSymbolRange', v:true, visualmode(), ['Interface', 'Struct', 'Class'])
+onoremap <silent> <Plug>(coc-funcobj-a) :call CocAction('selectSymbolRange', v:false, '', ['Method', 'Function'])
+onoremap <silent> <Plug>(coc-funcobj-i) :call CocAction('selectSymbolRange', v:true, '', ['Method', 'Function'])
+vnoremap <silent> <Plug>(coc-funcobj-a) :call CocAction('selectSymbolRange', v:false, visualmode(), ['Method', 'Function'])
+vnoremap <silent> <Plug>(coc-funcobj-i) :call CocAction('selectSymbolRange', v:true, visualmode(), ['Method', 'Function'])
+nnoremap <silent> <Plug>(coc-cursors-position) :call CocAction('cursorsSelect', bufnr('%'), 'position', 'n')
+nnoremap <silent> <Plug>(coc-cursors-word) :call CocAction('cursorsSelect', bufnr('%'), 'word', 'n')
+vnoremap <silent> <Plug>(coc-cursors-range) :call CocAction('cursorsSelect', bufnr('%'), 'range', visualmode())
 nnoremap <silent> <Plug>(coc-refactor) :call       CocActionAsync('refactor')
 nnoremap <silent> <Plug>(coc-command-repeat) :call       CocAction('repeatCommand')
 nnoremap <silent> <Plug>(coc-float-jump) :call       coc#float#jump()
@@ -207,10 +214,14 @@ nnoremap <silent> <Plug>(coc-diagnostic-next) :call       CocActionAsync('diag
 nnoremap <silent> <Plug>(coc-diagnostic-info) :call       CocActionAsync('diagnosticInfo')
 nnoremap <silent> <Plug>(coc-format) :call       CocActionAsync('format')
 nnoremap <silent> <Plug>(coc-rename) :call       CocActionAsync('rename')
-nnoremap <Plug>(coc-codeaction-line) :call       CocActionAsync('codeAction',         'n')
-nnoremap <Plug>(coc-codeaction) :call       CocActionAsync('codeAction',         '')
-vnoremap <silent> <Plug>(coc-codeaction-selected) :call       CocActionAsync('codeAction',         visualmode())
-vnoremap <silent> <Plug>(coc-format-selected) :call       CocActionAsync('formatSelected',     visualmode())
+nnoremap <Plug>(coc-codeaction-source) :call       CocActionAsync('codeAction', '', ['source'], v:true)
+nnoremap <Plug>(coc-codeaction-refactor) :call       CocActionAsync('codeAction', 'cursor', ['refactor'], v:true)
+nnoremap <Plug>(coc-codeaction-cursor) :call       CocActionAsync('codeAction', 'cursor')
+nnoremap <Plug>(coc-codeaction-line) :call       CocActionAsync('codeAction', 'currline')
+nnoremap <Plug>(coc-codeaction) :call       CocActionAsync('codeAction', '')
+vnoremap <Plug>(coc-codeaction-refactor-selected) :call       CocActionAsync('codeAction', visualmode(), ['refactor'], v:true)
+vnoremap <silent> <Plug>(coc-codeaction-selected) :call       CocActionAsync('codeAction', visualmode())
+vnoremap <silent> <Plug>(coc-format-selected) :call       CocActionAsync('formatSelected', visualmode())
 nnoremap <Plug>(coc-codelens-action) :call       CocActionAsync('codeLensAction')
 nnoremap <Plug>(coc-range-select) :call       CocActionAsync('rangeSelect',     '', v:true)
 vnoremap <silent> <Plug>(coc-range-select-backward) :call       CocActionAsync('rangeSelect',     visualmode(), v:false)
@@ -221,14 +232,23 @@ xnoremap <Plug>ColorContrast :ColorContrast
 nnoremap <Plug>ColorContrast :ColorContrast
 xnoremap <Plug>Colorizer :ColorHighlight
 nnoremap <Plug>Colorizer :ColorToggle
+nnoremap <silent> <Plug>(ale_info_preview) :ALEInfo -preview
+nnoremap <silent> <Plug>(ale_info_clipboard) :ALEInfo -clipboard
+nnoremap <silent> <Plug>(ale_info_echo) :ALEInfo -echo
+nnoremap <silent> <Plug>(ale_info) :ALEInfo
 nnoremap <silent> <Plug>(ale_repeat_selection) :ALERepeatSelection
 nnoremap <silent> <Plug>(ale_code_action) :ALECodeAction
+nnoremap <silent> <Plug>(ale_filerename) :ALEFileRename
 nnoremap <silent> <Plug>(ale_rename) :ALERename
 nnoremap <silent> <Plug>(ale_import) :ALEImport
 nnoremap <silent> <Plug>(ale_documentation) :ALEDocumentation
 nnoremap <silent> <Plug>(ale_hover) :ALEHover
 nnoremap <silent> <Plug>(ale_find_references) :ALEFindReferences
-nnoremap <silent> <Plug>(ale_go_to_type_definition_in_vsplit) :ALEGoToTypeDefinitionIn -vsplit
+nnoremap <silent> <Plug>(ale_go_to_implementation_in_vsplit) :ALEGoToImplementation -vsplit
+nnoremap <silent> <Plug>(ale_go_to_implementation_in_split) :ALEGoToImplementation -split
+nnoremap <silent> <Plug>(ale_go_to_implementation_in_tab) :ALEGoToImplementation -tab
+nnoremap <silent> <Plug>(ale_go_to_implementation) :ALEGoToImplementation
+nnoremap <silent> <Plug>(ale_go_to_type_definition_in_vsplit) :ALEGoToTypeDefinition -vsplit
 nnoremap <silent> <Plug>(ale_go_to_type_definition_in_split) :ALEGoToTypeDefinition -split
 nnoremap <silent> <Plug>(ale_go_to_type_definition_in_tab) :ALEGoToTypeDefinition -tab
 nnoremap <silent> <Plug>(ale_go_to_type_definition) :ALEGoToTypeDefinition
@@ -268,6 +288,10 @@ nnoremap <C-N> 
 nnoremap <C-T> 
 nnoremap <C-J> N
 nnoremap <C-K> n
+inoremap <silent> <expr>  coc#pum#visible() ? coc#pum#cancel() : "\"
+inoremap <silent> <expr>  coc#pum#visible() ? coc#pum#next(1) : "\"
+inoremap <silent> <expr>  coc#pum#visible() ? coc#pum#prev(1) : "\"
+inoremap <silent> <expr>  coc#pum#visible() ? coc#pum#confirm() : "\"
 inoremap <C+/> =EasyCloseTag()=SetCursor()
 inoremap </ =GetCloseTag()
 vmap ô <Plug>TwitvimVisual
@@ -283,13 +307,13 @@ set helplang=en
 set hidden
 set hlsearch
 set listchars=tab:>-,trail:.
-set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/coc-jedi/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-superman/,~/.vim/plugged/markdown-preview.nvim/,~/.vim/plugged/twitvim/,~/.vim/plugged/w3m.vim/,~/.vim/plugged/plantuml-syntax/,~/.vim/plugged/open-browser.vim/,~/.vim/plugged/plantuml-previewer.vim/,~/.vim/plugged/vim-github-dashboard/,~/.vim/plugged/DrawIt/,~/.vim/plugged/vim-ps1/,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/caw.vim/after,~/.vim/after
+set runtimepath=~/.vim,~/.vim/plugged/alchemist.vim/,~/.vim/plugged/ale/,~/.vim/plugged/vim-elixir/,~/.vim/plugged/vim-shellutils/,~/.vim/plugged/nerdtree/,~/.vim/plugged/vim-rails/,~/.vim/plugged/vim-ruby/,~/.vim/plugged/xterm-color-table.vim/,~/.vim/plugged/Colorizer/,~/.vim/plugged/coc.nvim/,~/.vim/plugged/coc-jedi/,~/.vim/plugged/ctrlp.vim/,~/.vim/plugged/ack.vim/,~/.vim/plugged/tagbar/,~/.vim/plugged/gen_tags.vim/,~/.vim/plugged/gtags.vim/,~/.vim/plugged/auto-pairs/,~/.vim/plugged/vim-slim/,~/.vim/plugged/vim-json/,~/.vim/plugged/vim-javascript/,~/.vim/plugged/vim-markdown/,~/.vim/plugged/closetag.vim/,~/.vim/plugged/caw.vim/,~/.vim/plugged/imcsc-vim/,~/.vim/plugged/rainbow_csv/,~/.vim/plugged/ZoomWin/,~/.vim/plugged/vim-superman/,~/.vim/plugged/markdown-preview.nvim/,~/.vim/plugged/twitvim/,~/.vim/plugged/w3m.vim/,~/.vim/plugged/plantuml-syntax/,~/.vim/plugged/open-browser.vim/,~/.vim/plugged/plantuml-previewer.vim/,~/.vim/plugged/vim-github-dashboard/,~/.vim/plugged/DrawIt/,~/.vim/plugged/vim-ps1/,/usr/local/share/vim/vimfiles,/usr/local/share/vim/vim82,/usr/local/share/vim/vimfiles/after,~/.vim/plugged/alchemist.vim/after,~/.vim/plugged/vim-rails/after,~/.vim/plugged/vim-javascript/after,~/.vim/plugged/vim-markdown/after,~/.vim/plugged/caw.vim/after,~/.vim/after
 set shiftwidth=0
 set showmatch
 set splitbelow
 set splitright
 set tabstop=3
-set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekandagitdotfiles/prj_tags
+set tags=./tags,./TAGS,tags,TAGS,~/.cache/tags_dir/homekanda/prj_tags
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -301,8 +325,8 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
-$argadd .screenlayout/rightAndVirtualdisplayAndLaptop.sh
-edit .screenlayout/rightAndVirtualdisplayAndLaptop.sh
+$argadd .note2021
+edit .note2021
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -371,8 +395,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -390,8 +414,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+if &filetype != 'conf'
+setlocal filetype=conf
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -405,7 +429,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=tq
+setlocal formatoptions=ql
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
@@ -413,8 +437,8 @@ setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},0),0],!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,0=end,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -459,8 +483,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != 'conf'
+setlocal syntax=conf
 endif
 setlocal tabstop=3
 setlocal tagcase=
@@ -482,14 +506,14 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 2 - ((1 * winheight(0) + 23) / 47)
+let s:l = 443 - ((12 * winheight(0) + 6) / 13)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
-normal! 0
+keepjumps 443
+normal! 040|
 tabnext 1
-badd +0 .screenlayout/rightAndVirtualdisplayAndLaptop.sh
+badd +0 .note2021
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -501,7 +525,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
